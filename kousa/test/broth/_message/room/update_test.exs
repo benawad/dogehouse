@@ -134,11 +134,11 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   describe "when you send an update message to change chatCooldown" do
     test "it validates", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{chatCooldown: 2_000_000}}} =
+      assert {:ok, %{payload: %Update{chatCooldown: 2}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",
-                   "payload" => %{"chatCooldown" => 2_000_000},
+                   "payload" => %{"chatCooldown" => 2},
                    "reference" => uuid
                  },
                  state

@@ -28,8 +28,7 @@ defmodule Beef.Schemas.Room do
     field(:isPrivate, :boolean)
     field(:voiceServerId, :string)
     field(:autoSpeaker, :boolean, virtual: true)
-    # 1_000_000 microsec = 1 sec
-    field(:chatCooldown, :integer, default: 1_000_000, min: 1_000_000, virtual: true)
+    field(:chatCooldown, :integer, default: 1, min: 1, virtual: true)
 
     # TODO: change this to creator!
     belongs_to(:user, User, foreign_key: :creatorId, type: :binary_id)

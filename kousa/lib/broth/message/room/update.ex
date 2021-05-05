@@ -10,7 +10,7 @@ defmodule Broth.Message.Room.Update do
     field(:description, :string, default: "")
     field(:isPrivate, :boolean)
     field(:autoSpeaker, :boolean, virtual: true)
-    field(:chatCooldown, :integer, default: 1_000_000, min: 1_000_000, virtual: true)
+    field(:chatCooldown, :integer, default: 1, min: 1, virtual: true)
   end
 
   def initialize(state) do
