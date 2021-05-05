@@ -20,7 +20,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   describe "when you send an update message" do
     test "it populates update fields", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{name: "foobar"}}} =
+      assert {:ok, %{payload: %Room{name: "foobar"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",
@@ -31,7 +31,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
                )
 
       # short form also allowed
-      assert {:ok, %{payload: %Update{name: "foobar"}}} =
+      assert {:ok, %{payload: %Room{name: "foobar"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "op" => "room:update",
@@ -92,7 +92,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   describe "when you send an update message to change description" do
     test "it validates", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{description: "foobar"}}} =
+      assert {:ok, %{payload: %Room{description: "foobar"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",
@@ -106,7 +106,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   describe "when you send an update message to change privacy" do
     test "it validates", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{isPrivate: true}}} =
+      assert {:ok, %{payload: %Room{isPrivate: true}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",
@@ -120,7 +120,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   describe "when you send an update message to change autoSpeaker" do
     test "it validates", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{autoSpeaker: true}}} =
+      assert {:ok, %{payload: %Room{autoSpeaker: true}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",

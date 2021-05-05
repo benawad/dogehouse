@@ -199,6 +199,14 @@ defmodule Beef.Follows do
     end
   end
 
+  def get_follow(me_id, other_user_id) do
+    from(f in Follow,
+      where: f.userId == ^me_id and f.followerId == ^other_user_id,
+      limit: 1
+    )
+    |> Beef.Repo.one()
+  end
+
   def get_info(me_id, other_user_id) do
     from(f in Follow,
       where:
