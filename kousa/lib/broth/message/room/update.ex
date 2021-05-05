@@ -49,22 +49,20 @@ defmodule Broth.Message.Room.Update do
         )
       end
 
-      if Map.has_key?(changes, :chatDisabled) do
-        Onion.RoomSession.broadcast_ws(
-          room.id,
-          %{
-            op: "room_chat_status_changed",
-            d: %{roomId: room.id, chatDisabled: changes.chatDisabled}
-          }
-        )
-      end
-
       if Map.has_key?(changes, :chatMode) do
         # send the room_privacy_change message.
         Onion.Chat.set(
           room.id,
           :chat_mode,
           changes.chatMode
+        )
+
+        Onion.RoomSession.broadcast_ws(
+          room.id,
+          %{
+            op: "room_chat_mode_changed",
+            d: %{roomId: room.id, chatMode: changes.chatMode}
+          }
         )
       end
 
