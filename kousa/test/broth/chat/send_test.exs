@@ -399,7 +399,6 @@ defmodule BrothTest.Chat.SendTest do
       # this message should not be throttled
       Process.sleep(51)
       WsClient.send_msg(t.client_ws, "chat:send_msg", %{"tokens" => @text_token})
-      # this message should be throttled
       WsClient.assert_frame(
         "chat:send",
         _,
