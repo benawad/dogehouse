@@ -213,7 +213,13 @@ defmodule Onion.Chat do
     {:noreply, %{state | ban_map: Map.delete(state.ban_map, user_id)}}
   end
 
-  def set(user_id, key, value), do: cast(user_id, {:set, key, value})
+  def set_can_chat(room_id, user_id), do: cast(room_id, {:set_can_chat, user_id})
+
+  defp set_can_chat_impl(user_id, %__MODULE__{follow_at_map: follow_at_map} = state) do
+    {:noreply, %{state | follow_at_map: Map.put(follow_at_map, user_id, true)}}
+  end
+
+  def set(room_id, key, value), do: cast(room_id, {:set, key, value})
 
   defp set_impl(key, value, state) do
     {:noreply, Map.put(state, key, value)}
@@ -322,6 +328,10 @@ defmodule Onion.Chat do
   def handle_call({:banned?, who}, reply, state), do: banned_impl(who, reply, state)
 
   def handle_call({:get, key}, reply, state), do: get_impl(key, reply, state)
+
+  def handle_cast({:set_can_chat, user_id}, state) do
+    set_can_chat_impl(user_id, state)
+  end
 
   def handle_cast({:set_room_creator_id, id}, state) do
     set_room_creator_id_impl(id, state)
