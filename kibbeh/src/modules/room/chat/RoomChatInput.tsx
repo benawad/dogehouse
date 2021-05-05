@@ -1,4 +1,4 @@
-import { RoomUser } from "@dogehouse/kebab";
+import { Room, RoomUser } from "@dogehouse/kebab";
 import React, { useRef, useState, useEffect } from "react";
 import { Smiley } from "../../../icons";
 import { createChatMessage } from "../../../lib/createChatMessage";
@@ -16,9 +16,10 @@ import { navigateThroughQueriedEmojis } from "./navigateThroughQueriedEmojis";
 
 interface ChatInputProps {
   users: RoomUser[];
+  room: Room;
 }
 
-export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
+export const RoomChatInput: React.FC<ChatInputProps> = ({ users, room }) => {
   const { message, setMessage } = useRoomChatStore();
   const { setQueriedUsernames } = useRoomChatMentionStore();
   const {
@@ -53,11 +54,11 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
       return;
     }
 
-    // if (Date.now() - lastMessageTimestamp <= 1000) {
-    //   showErrorToast(t("modules.roomChat.waitAlert"));
+    if (Date.now() - lastMessageTimestamp <= room.chatCooldown * 1000) {
+      showErrorToast(t("modules.roomChat.waitAlert"));
 
-    //   return;
-    // }
+      return;
+    }
 
     const tmp = message;
     const messageData = createChatMessage(tmp, users);

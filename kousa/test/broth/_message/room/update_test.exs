@@ -6,6 +6,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
+  alias Broth.Message.Room.Update
   alias KousaTest.Support.Factory
 
   setup do
