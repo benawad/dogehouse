@@ -225,9 +225,6 @@ defmodule Onion.Chat do
   @spec send_msg_impl(Send.t(), state) :: {:noreply, state}
   defp send_msg_impl(payload = %{from: from}, %__MODULE__{} = state) do
     # throttle sender
-    IO.puts(state)
-    IO.puts(from)
-
     with false <- should_throttle?(from, state),
          false <- user_banned?(from, state) do
       {new_state, can_chat} = eligible_to_chat?(from, state)
@@ -249,13 +246,13 @@ defmodule Onion.Chat do
   end
 
   @spec should_throttle?(UUID.t(), state) :: boolean
-  defp should_throttle?(user_id, %__MODULE__{last_message_map: m, chat_throttle: throttle_limit})
+  defp should_throttle?(user_id, %__MODULE__{last_message_map: m, chat_throttle: ct})
        when is_map_key(m, user_id) do
     DateTime.diff(m[user_id], DateTime.utc_now(), :millisecond) <
-      throttle_limit
+      ct
   end
 
-  # defp should_throttle?(_, _), do: false
+  defp should_throttle?(_, _), do: false
 
   defp dispatch_message(payload, state) do
     case payload.whisperedTo do
