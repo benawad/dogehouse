@@ -132,9 +132,9 @@ defmodule BrothTest.Message.Room.UpdateTest do
     end
   end
 
-  describe "when you send an update message to change chatCooldown" do
+  describe "when you send an update message to change autoSpeaker" do
     test "it validates", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{chatCooldown: 2}}} =
+      assert {:ok, %{payload: %Room{chatCooldown: 2}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",
