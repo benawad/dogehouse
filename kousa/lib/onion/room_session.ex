@@ -11,7 +11,8 @@ defmodule Onion.RoomSession do
             deafMap: map(),
             inviteMap: map(),
             activeSpeakerMap: map(),
-            auto_speaker: boolean()
+            auto_speaker: boolean(),
+            chat_disabled: boolean()
           }
 
     defstruct room_id: "",
@@ -21,7 +22,8 @@ defmodule Onion.RoomSession do
               deafMap: %{},
               inviteMap: %{},
               activeSpeakerMap: %{},
-              auto_speaker: false
+              auto_speaker: false,
+              chat_disabled: false
   end
 
   #################################################################################
@@ -83,7 +85,7 @@ defmodule Onion.RoomSession do
   def get_maps(room_id), do: call(room_id, :get_maps)
 
   defp get_maps_impl(_reply, state) do
-    {:reply, {state.muteMap, state.deafMap, state.auto_speaker, state.activeSpeakerMap}, state}
+    {:reply, {state.muteMap, state.deafMap, state.auto_speaker, state.activeSpeakerMap, state.chat_disabled}, state}
   end
 
   def redeem_invite(room_id, user_id), do: call(room_id, {:redeem_invite, user_id})

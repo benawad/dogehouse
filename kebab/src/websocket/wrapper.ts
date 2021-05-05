@@ -55,10 +55,18 @@ export const wrap = (connection: Connection) => ({
     handRaised: (handler: Handler<{ userId: UUID }>) =>
       connection.addListener("hand_raised", handler),
     speakerAdded: (
-      handler: Handler<{ userId: UUID; muteMap: BooleanMap; deafMap: BooleanMap }>
+      handler: Handler<{
+        userId: UUID;
+        muteMap: BooleanMap;
+        deafMap: BooleanMap;
+      }>
     ) => connection.addListener("speaker_added", handler),
     speakerRemoved: (
-      handler: Handler<{ userId: UUID; muteMap: BooleanMap; deafMap: BooleanMap }>
+      handler: Handler<{
+        userId: UUID;
+        muteMap: BooleanMap;
+        deafMap: BooleanMap;
+      }>
     ) => connection.addListener("speaker_removed", handler),
   },
   /**
@@ -66,12 +74,13 @@ export const wrap = (connection: Connection) => ({
    */
 
   query: {
-    search: (query: string): Promise<{
-      items: Array<User | Room>,
-      rooms: Room[],
-      users: User[]
-    }> =>
-      connection.fetch("search", { query }),
+    search: (
+      query: string
+    ): Promise<{
+      items: Array<User | Room>;
+      rooms: Room[];
+      users: User[];
+    }> => connection.fetch("search", { query }),
     getMyScheduledRoomsAboutToStart: (
       roomId: string
     ): Promise<{ scheduledRooms: ScheduledRoom[] }> =>
@@ -141,6 +150,7 @@ export const wrap = (connection: Connection) => ({
       privacy?: string;
       description?: string;
       autoSpeaker?: boolean;
+      chatDisabled?: boolean;
     }): Promise<void> => connection.sendCall("room:update", data),
     roomBan: (userId: string, shouldBanIp?: boolean): Promise<void> =>
       connection.sendCast("room:ban", { userId, shouldBanIp }),

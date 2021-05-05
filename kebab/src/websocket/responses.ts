@@ -18,6 +18,7 @@ export type JoinRoomAndGetInfoResponse = {
   roomId: string;
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;
+  chatDisabled: boolean;
 };
 
 export type GetRoomUsersResponse = {
@@ -48,7 +49,7 @@ export type InvitationToRoomResponse = {
 };
 
 export type CreateBotResponse = {
-  apiKey: string | null,
-  isUsernameTaken: boolean | null,
-  error: string | null
+  apiKey: string | null;
+  isUsernameTaken: boolean | null;
+  error: string | null;
 };
