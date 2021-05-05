@@ -171,6 +171,8 @@ defmodule Kousa.Room do
       {:creator, _} ->
         RoomPermissions.set_is_mod(user_id, room_id, true)
 
+        Onion.Chat.set_can_chat(room_id, user_id)
+
         Onion.RoomSession.broadcast_ws(
           room_id,
           %{
@@ -311,6 +313,7 @@ defmodule Kousa.Room do
   defp internal_set_speaker(user_id, room_id) do
     case RoomPermissions.set_speaker(user_id, room_id, true) do
       {:ok, _} ->
+        Onion.Chat.set_can_chat(room_id, user_id)
         # kind of horrible to have to make a double genserver call
         # here, we'll have to think about how this works (who owns muting)
         Onion.RoomSession.add_speaker(
