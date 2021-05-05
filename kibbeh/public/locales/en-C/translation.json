@@ -1,59 +1,59 @@
 {
   "_comment": "if you change this file, do: yarn i18",
   "common": {
-    "loadMore": "Löwd Mör",
-    "loading": "Löwdiŋ...",
+    "loadMore": "Löd Mör",
+    "loading": "Lödiŋ...",
     "noUsersFound": "Nö yüzrz fawnd!",
     "ok": "Ök",
     "yes": "Yes",
     "no": "Nö",
-    "cancel": "Kansl",
+    "cancel": "Kansəl",
     "save": "Säv",
     "edit": "Edit",
-    "delete": "Dlët",
+    "delete": "Dəlët",
     "joinRoom": "Jöën Rüm",
     "copyLink": "Kopë Link",
     "copied": "Kopëd!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Plëz nöt rəniŋ DogeHouse wiðawt aksesibilitë prmis̈onz mä koz unwonted errz"
+    "requestPermissions": "Plëz nöt runiŋ DogeHouse wiðawt aksesibilitë pərmis̈onz mä koz unwontəd erərz"
   },
   "header": {
-    "_comment": "Män Hedr UI Intrnas̈ənəlïzäs̈on Striŋs",
+    "_comment": "Män Hedər UI Intərnas̈ənəlïzäs̈un Striŋz",
     "title": "DogeHouse",
     "dashboard": "Das̈börd",
-    "connectionTaken": "Koneks̈on Täken",
-    "mutedTitle": "Myüted | DogeHouse",
-    "deafenedTitle": "Defend | DogeHouse"
+    "connectionTaken": "Koneks̈un Täkən",
+    "mutedTitle": "Myütəd | DogeHouse",
+    "deafenedTitle": "Defənd | DogeHouse"
   },
   "footer": {
-    "_comment": "Män Fətr UI Intrnas̈ənəlïzäs̈on Striŋs",
+    "_comment": "Män Fətər UI Intərnas̈ənəlïzäs̈un Striŋz",
     "link_1": "Örijin Störë",
     "link_2": "Discord",
-    "link_3": "Rëpört ä Bəg"
+    "link_3": "Rëpört ä Bug"
   },
   "pages": {
-    "_comment": "Respektiv Päj UI Intrnas̈ənəlïzäs̈on Striŋs",
+    "_comment": "Rëspektiv Päj UI Intərnas̈ənəlïzäs̈un Striŋz",
     "banUser": {
       "ban": "Ban"
     },
     "download": {
       "prompt": "Dawnlöd þə DogeHouse Desktop ap",
       "download_for": "Dawnlöd för %platform% (%ext%)",
-      "failed": "Unäbl tü dtekt platförm, plëz trï ägen lätr ör vizit GitHub Rëlësez",
+      "failed": "Unäbəl tü dətekt platförm, plëz trï ägen lätər ör vizit GitHub Rëlësəz",
       "visit_gh": "Vizit GitHub Rëlësez"
     },
     "followingOnlineList": {
-      "listHeader": "List uv yüzrz þat ər not in ä prïvit rüm and yü folö.",
-      "currentRoom": "Kurentlë in:",
-      "startPrivateRoom": "Stərt ä prïvit rüm wið þem"
+      "listHeader": "List uv yüzərz þat ar not in ä prïvit rüm and yü folö.",
+      "currentRoom": "Kərəntlë in:",
+      "startPrivateRoom": "Stort ä prïvit rüm wið þem"
     },
     "followList": {
-      "followHim": "Folöw",
-      "followingHim": "Folöwiŋ"
+      "followHim": "Folö",
+      "followingHim": "Folöiŋ"
     },
     "home": {
-      "createRoom": "Neü̈ rüm",
+      "createRoom": "Nü̈ Rüm",
       "editRoom": "Edit Rüm",
       "refresh": "Rëfres̈",
       "desktopAlert": "Dawnlöd þə DogeHouse desktop ap tüdä!"
@@ -61,8 +61,8 @@
     "inviteList": {
       "roomGone": "Rüm gon; gö bak",
       "shareRoomLink": "S̈är Rüm Link",
-      "inviteFollowers": "Yü kan invït yor folöwrz þat ər onlïn:",
-      "whenFollowersOnline": "Wen yor folöwrz ər onlïn, ðä wil s̈ö əp hër."
+      "inviteFollowers": "Yü kan invït yor folöwərz þat or onlïn:",
+      "whenFollowersOnline": "Wen yör folöwərz or onlïn, þä wil s̈ö up hër."
     },
     "login": {
       "headerText": "Täkiŋ vöës konvrsäs̈onz tü þə mün 🚀",
