@@ -6,7 +6,8 @@ defmodule Broth.Message.Room.Update do
     reply: Room
 
   @derive {Jason.Encoder,
-           only: ~w(id name description numPeopleInside isPrivate chatMode autoSpeaker
+           only:
+             ~w(id name description numPeopleInside isPrivate chatMode autoSpeaker chatCooldown
     creatorId voiceServerId inserted_at)a}
 
   @impl true
