@@ -61,6 +61,14 @@ defmodule Broth.Message.Room.Update do
           :chat_mode,
           changes.chatMode
         )
+
+        Onion.RoomSession.broadcast_ws(
+          room.id,
+          %{
+            op: "room_chat_status_changed",
+            d: %{roomId: room.id, chatDisabled: changes.chatDisabled}
+          }
+        )
       end
 
       {:reply, room, state}
