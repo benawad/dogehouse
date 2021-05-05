@@ -203,7 +203,8 @@
         "makePublic": "Ruum öffentlech mache",
         "makePrivate": "Ruum privat mache",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": {
@@ -289,7 +290,8 @@
       "sendMessage": "E Nachricht schicke",
       "whisper": "Flüstere",
       "welcomeMessage": "Willkomme im Chat!",
-      "roomDescription": "Ruumbeschribig"
+      "roomDescription": "Ruumbeschribig",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Ragete wird tankt",

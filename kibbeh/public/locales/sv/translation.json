@@ -204,7 +204,8 @@
         "makePublic": "Gör rum offentligt",
         "makePrivate": "Gör rum privat",
         "renamePublic": "Ange ett offentligt rumsnamn",
-        "renamePrivate": "Ange ett privat rumsnamn"
+        "renamePrivate": "Ange ett privat rumsnamn",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": {
@@ -294,7 +295,8 @@
       "sendMessage": "Skicka ett meddelande",
       "whisper": "Direktmeddelande",
       "welcomeMessage": "Välkommen till chatten!",
-      "roomDescription": "Rumbeskrivning"
+      "roomDescription": "Rumbeskrivning",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Tankar raket",

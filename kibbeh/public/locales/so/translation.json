@@ -230,7 +230,8 @@
         "makePublic": "qolka ka dhig qol guud",
         "makePrivate": "qolka ka dhig qol gaar",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -295,7 +296,8 @@
       "sendMessage": "Dir Fariin",
       "whisper": "fariin gaar ah",
       "welcomeMessage": "Ku soo dhawow wada hadalka!",
-      "roomDescription": "qeexida qolka"
+      "roomDescription": "qeexida qolka",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

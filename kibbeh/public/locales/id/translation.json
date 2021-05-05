@@ -224,7 +224,8 @@
         "makePublic": "buat ruangan jadi publik",
         "makePrivate": "buat ruangan jadi privat",
         "renamePublic": "Ubah nama ruangan publik",
-        "renamePrivate": "Ubah nama ruangan privat"
+        "renamePrivate": "Ubah nama ruangan privat",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -289,7 +290,8 @@
       "sendMessage": "Kirim Pesan",
       "whisper": "Bisikan",
       "welcomeMessage": "Selamat datang di percakapan!",
-      "roomDescription": "Deskripsi ruangan"
+      "roomDescription": "Deskripsi ruangan",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Mengisi bahan bakar roket",

@@ -232,7 +232,8 @@
         "makePublic": "Otağı hərkəsə açıq et",
         "makePrivate": "Otağı gizli et",
         "renamePublic": "Hərkəsə açıq otaq adı quraşdır",
-        "renamePrivate": "Gizli otaq adı quraşdır"
+        "renamePrivate": "Gizli otaq adı quraşdır",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -297,7 +298,8 @@
       "sendMessage": "Mesaj göndər",
       "whisper": "Pıçıltı",
       "welcomeMessage": "Çata xoş gəlmisiniz!",
-      "roomDescription": "Otaq haqqında"
+      "roomDescription": "Otaq haqqında",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Roket yanacağı doldurulur.",

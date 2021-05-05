@@ -205,7 +205,8 @@
         "makePublic": "Odayı herkese açık yap",
         "makePrivate": "Odayı gizli yap",
         "renamePublic": "Herkese açık oda adı seç",
-        "renamePrivate": "Gizli oda adı seç"
+        "renamePrivate": "Gizli oda adı seç",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },
@@ -292,7 +293,8 @@
       "sendMessage": "Mesaj Gönder",
       "whisper": "Fısılda",
       "welcomeMessage": "Sohbete hoş geldin!",
-      "roomDescription": "Oda Açıklaması"
+      "roomDescription": "Oda Açıklaması",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Yakıt dolduruluyor",

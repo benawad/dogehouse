@@ -224,7 +224,8 @@
         "makePublic": "Make Cabin Public",
         "makePrivate": "Make Cabin Private",
         "renamePublic": "Set Public Cabin Name",
-        "renamePrivate": "Set Private Cabin Name"
+        "renamePrivate": "Set Private Cabin Name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -289,7 +290,8 @@
       "sendMessage": "Send a Message in a bottle",
       "whisper": "Whisper",
       "welcomeMessage": "Ahoy t' chat!",
-      "roomDescription": "cabin description"
+      "roomDescription": "cabin description",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fuelin' rocket",
