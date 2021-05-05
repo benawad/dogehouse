@@ -85,7 +85,9 @@ defmodule Onion.RoomSession do
   def get_maps(room_id), do: call(room_id, :get_maps)
 
   defp get_maps_impl(_reply, state) do
-    {:reply, {state.muteMap, state.deafMap, state.auto_speaker, state.activeSpeakerMap}, state}
+    {:reply,
+     {state.muteMap, state.deafMap, state.auto_speaker, state.chat_cooldown,
+      state.activeSpeakerMap}, state}
   end
 
   def set(user_id, key, value), do: cast(user_id, {:set, key, value})

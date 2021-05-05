@@ -18,6 +18,7 @@ export type JoinRoomAndGetInfoResponse = {
   roomId: string;
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;
+  chatCooldown: number;
 };
 
 export type GetRoomUsersResponse = {
