@@ -89,6 +89,7 @@ defmodule Beef.Schemas.User do
     field(:ip, :string, null: true)
     field(:theyBlockedMe, :boolean, virtual: true)
     field(:iBlockedThem, :boolean, virtual: true)
+    field(:lastChatMsg, :utc_datetime_usec, virtual: true)
 
     belongs_to(:botOwner, Beef.Schemas.User, foreign_key: :botOwnerId, type: :binary_id)
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
