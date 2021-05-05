@@ -13,6 +13,8 @@ import { EmojiPicker } from "../../../ui/EmojiPicker";
 import { useEmojiPickerStore } from "../../../global-stores/useEmojiPickerStore";
 import { navigateThroughQueriedUsers } from "./navigateThroughQueriedUsers";
 import { navigateThroughQueriedEmojis } from "./navigateThroughQueriedEmojis";
+import { useTypeSafeQuery } from "../../../shared-hooks/useTypeSafeQuery";
+import { useCurrentRoomIdStore } from "../../../global-stores/useCurrentRoomIdStore";
 
 interface ChatInputProps {
   users: RoomUser[];
@@ -21,14 +23,7 @@ interface ChatInputProps {
 export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   const { message, setMessage } = useRoomChatStore();
   const { setQueriedUsernames } = useRoomChatMentionStore();
-  const {
-    setOpen,
-    open,
-    queryMatches,
-    setQueryMatches,
-    keyboardHoveredEmoji,
-    setKeyboardHoveredEmoji,
-  } = useEmojiPickerStore();
+  const { setOpen, open, queryMatches } = useEmojiPickerStore();
   const conn = useConn();
   const me = conn.user;
   const inputRef = useRef<HTMLInputElement>(null);
@@ -40,6 +35,25 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   useEffect(() => {
     if (!open) inputRef.current?.focus();
   }, [open]);
+
+  const { currentRoomId } = useCurrentRoomIdStore();
+
+  const { data } = useTypeSafeQuery(
+    ["joinRoomAndGetInfo", currentRoomId!],
+    {
+      enabled: !!currentRoomId,
+      refetchOnMount: "always",
+    },
+    [currentRoomId!]
+  );
+
+  if (data && data.chatDisabled) {
+    return (
+      <p className="my-4 text-center text-primary-300">
+        room chat has been disabled
+      </p>
+    );
+  }
 
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
