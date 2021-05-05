@@ -11,7 +11,7 @@ defmodule Kousa.Chat do
         :noop
 
       room_id ->
-        with false <- Onion.RoomSession.get(room_id, :chat_disabled) do
+        if Onion.RoomSession.get(room_id, :chat_disabled) != true do
           Onion.Chat.send_msg(room_id, payload)
         end
     end
