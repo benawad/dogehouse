@@ -65,6 +65,8 @@ export interface RoomChatMessage {
   isWhisper?: boolean;
 }
 
+const mSet = new Set();
+
 export const useRoomChatStore = create(
   combine(
     {
@@ -88,15 +90,20 @@ export const useRoomChatStore = create(
           bannedUserIdMap: { ...s.bannedUserIdMap, [userId]: true },
         })),
       addMessage: (m: RoomChatMessage) =>
-        set((s) => ({
-          newUnreadMessages: !s.open,
-          messages: [
-            { ...m, color: generateColorFromString(m.userId) },
-            ...(s.messages.length <= 100 || s.frozen
-              ? s.messages
-              : s.messages.slice(0, 100)),
-          ],
-        })),
+        set((s) => {
+          if (mSet.has(m.id)) return s;
+
+          mSet.add(m.id);
+          return ({
+            newUnreadMessages: !s.open,
+            messages: [
+              { ...m, color: generateColorFromString(m.userId) },
+              ...(s.messages.length <= 100 || s.frozen
+                ? s.messages
+                : s.messages.slice(0, 100)),
+            ],
+          });
+        }),
       setMessages: (messages: RoomChatMessage[]) =>
         set((s) => ({
           messages,
