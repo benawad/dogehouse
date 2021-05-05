@@ -5,7 +5,7 @@ import { isServer } from "../lib/isServer";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { useTypeSafeQuery } from "./useTypeSafeQuery";
 
-let roomModData: { [id: string]: boolean; } = {};
+let roomModData: { [id: string]: boolean } = {};
 let ipcRenderer: any = undefined;
 
 export const useCurrentRoomInfo = () => {
@@ -30,9 +30,11 @@ export const useCurrentRoomInfo = () => {
 
   let isMod = false;
   let isSpeaker = false;
+  let canIAskToSpeak = false;
+  const me = conn.user;
+  const isCreator = me.id === data.room.creatorId;
 
   const { users } = data;
-  const me = conn.user;
 
   for (const u of users) {
     if (u.id === me.id) {
@@ -42,11 +44,12 @@ export const useCurrentRoomInfo = () => {
       if (u.roomPermissions?.isMod) {
         isMod = true;
       }
+      canIAskToSpeak =
+        !u.roomPermissions?.askedToSpeak && !isCreator && !isSpeaker;
       break;
     }
   }
 
-  const isCreator = me.id === data.room.creatorId;
   if (isElectron()) {
     if (!roomModData) {
       roomModData = { [currentRoomId]: false };
@@ -64,6 +67,7 @@ export const useCurrentRoomInfo = () => {
     isCreator,
     isMod,
     isSpeaker,
+    canIAskToSpeak,
     canSpeak: isCreator || isSpeaker,
   };
 };
