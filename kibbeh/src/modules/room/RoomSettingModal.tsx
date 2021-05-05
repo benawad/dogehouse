@@ -54,14 +54,17 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
           <label className={`flex items-center my-1`} htmlFor="chat-cooldown">
             <input
               defaultValue={data.chatCooldown}
+              className={`rounded-8 bg-primary-700 h-6`}
               onChange={(e) => {
                 const chatCooldown = Number(e.target.value);
-                console.log(chatCooldown);
-
-                updater(["joinRoomAndGetInfo", roomId!], (d) =>
-                  !d ? d : { ...d, chatCooldown }
-                );
-                conn.mutation.roomUpdate({ chatCooldown });
+                if (chatCooldown > 1) {
+                  updater(["joinRoomAndGetInfo", roomId!], (d) =>
+                    !d ? d : { ...d, chatCooldown }
+                  );
+                  conn.mutation.roomUpdate({ chatCooldown });
+                } else {
+                  e.target.value = "1";
+                }
               }}
               id="chat-cooldown"
               type="number"
@@ -70,6 +73,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
               Chat Cooldown (seconds)
             </span>
           </label>
+
           <BlockedFromRoomUsers />
         </div>
       )}
