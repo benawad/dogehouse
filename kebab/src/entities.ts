@@ -55,6 +55,7 @@ export type User = {
   bio: string | null;
   avatarUrl: string;
   bannerUrl: string | null;
+  whisperPrivacySetting: "on" | "off";
 };
 
 export type MessageToken<T extends string = string, V = unknown> = {

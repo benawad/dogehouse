@@ -10,6 +10,7 @@ import {
 } from "../sound-effects/useSoundEffectStore";
 import { HeaderController } from "../../modules/display/HeaderController";
 import isElectron from "is-electron";
+import { PageComponent } from "../../types/PageComponent";
 
 interface ChatSettingsProps {}
 
@@ -18,7 +19,7 @@ const capitalize = (s: string) =>
 const camelToReg = (str: string) =>
   str.replace(/[A-Z]/g, (letter) => ` ${letter}`);
 
-export const SoundEffectSettings: React.FC<ChatSettingsProps> = () => {
+export const SoundEffectSettings: PageComponent<ChatSettingsProps> = () => {
   const [
     soundEffectSettings,
     setSetting,
@@ -84,3 +85,5 @@ export const SoundEffectSettings: React.FC<ChatSettingsProps> = () => {
     </DefaultDesktopLayout>
   );
 };
+
+SoundEffectSettings.ws = true;

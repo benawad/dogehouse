@@ -1,7 +1,7 @@
 defmodule Broth.Message.Room.Update do
-  use Broth.Message.Call,
-    reply: __MODULE__
+  alias Beef.Schemas.Room
 
+<<<<<<< HEAD
   @derive {Jason.Encoder, only: [:name, :description, :isPrivate, :autoSpeaker, :chatCooldown]}
 
   @primary_key {:id, :binary_id, []}
@@ -12,28 +12,36 @@ defmodule Broth.Message.Room.Update do
     field(:autoSpeaker, :boolean, virtual: true)
     field(:chatCooldown, :integer, default: 1, min: 1, virtual: true)
   end
+=======
+  use Broth.Message.Call,
+    schema: Room,
+    reply: Room
 
+  @derive {Jason.Encoder,
+           only: ~w(id name description numPeopleInside isPrivate chatMode autoSpeaker
+    creatorId voiceServerId inserted_at)a}
+>>>>>>> 3e59d04fefe852dfa57f5d30ee0a74171d866b9a
+
+  @impl true
   def initialize(state) do
-    if room = Beef.Rooms.get_room_by_creator_id(state.user.id) do
-      struct(__MODULE__, Map.from_struct(room))
-    end
+    Beef.Rooms.get_room_by_creator_id(state.user.id)
   end
 
-  def changeset(initializer \\ %__MODULE__{}, data)
-
+  @impl true
   def changeset(nil, _) do
-    %__MODULE__{}
-    |> change
+    %Ecto.Changeset{}
     # generally 404 on an auth error
     |> add_error(:id, "does not exist")
   end
 
+  @impl true
   def changeset(initializer, data) do
     initializer
-    |> cast(data, ~w(description isPrivate name autoSpeaker chatCooldown)a)
+    |> cast(data, ~w(description isPrivate name autoSpeaker chatMode chatCooldown)a)
     |> validate_required([:name])
   end
 
+  @impl true
   def execute(changeset, state) do
     # TODO: move this changeset stuff into Kousa itself.
     with {:ok, update} <- apply_action(changeset, :validate),
@@ -70,13 +78,16 @@ defmodule Broth.Message.Room.Update do
         )
       end
 
-      {:reply, struct(__MODULE__, Map.from_struct(room)), state}
+      if Map.has_key?(changes, :chatMode) do
+        # send the room_privacy_change message.
+        Onion.Chat.set(
+          room.id,
+          :chat_mode,
+          changes.chatMode
+        )
+      end
+
+      {:reply, room, state}
     end
   end
-
-  # a bit hacky -- will need to refactor using proper db changesets in
-  # the future.
-  def valid?({_, nil}), do: false
-  def valid?({_, ""}), do: false
-  def valid?(_), do: true
 end

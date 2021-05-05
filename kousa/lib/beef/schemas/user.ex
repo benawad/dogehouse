@@ -26,7 +26,7 @@ defmodule Beef.Schemas.User do
   end
 
   @timestamps_opts [type: :utc_datetime_usec]
-
+  @type whisperPrivacySetting :: :on | :off
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
           twitterId: String.t(),
@@ -39,6 +39,7 @@ defmodule Beef.Schemas.User do
           displayName: String.t(),
           avatarUrl: String.t(),
           bannerUrl: String.t(),
+          whisperPrivacySetting: whisperPrivacySetting(),
           bio: String.t(),
           reasonForBan: String.t(),
           ip: nil | String.t(),
@@ -57,7 +58,8 @@ defmodule Beef.Schemas.User do
           currentRoom: Room.t() | Ecto.Association.NotLoaded.t()
         }
 
-  @derive {Poison.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
+  @derive {Poison.Encoder,
+           only: ~w(id whisperPrivacySetting username avatarUrl bannerUrl bio online
              lastOnline lastChatMsg currentRoomId displayName numFollowing numFollowers
              currentRoom youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a}
 
@@ -91,6 +93,7 @@ defmodule Beef.Schemas.User do
     field(:ip, :string, null: true)
     field(:theyBlockedMe, :boolean, virtual: true)
     field(:iBlockedThem, :boolean, virtual: true)
+    field(:whisperPrivacySetting, Ecto.Enum, values: [:on, :off])
 
     belongs_to(:botOwner, Beef.Schemas.User, foreign_key: :botOwnerId, type: :binary_id)
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
@@ -146,7 +149,7 @@ defmodule Beef.Schemas.User do
   end
 
   defimpl Jason.Encoder do
-    @fields ~w(id username avatarUrl bannerUrl bio online
+    @fields ~w(id whisperPrivacySetting username avatarUrl bannerUrl bio online
   lastOnline lastChatMsg currentRoomId currentRoom displayName numFollowing numFollowers
   youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a
 

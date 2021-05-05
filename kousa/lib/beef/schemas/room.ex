@@ -1,10 +1,11 @@
 defmodule Beef.Schemas.Room do
   use Ecto.Schema
+  use Broth.Message.Push
   import Ecto.Changeset
   @timestamps_opts [type: :utc_datetime_usec]
 
   alias Beef.Schemas.User
-
+  @type chatMode :: :default | :follower_only
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
           name: String.t(),
@@ -15,9 +16,10 @@ defmodule Beef.Schemas.Room do
           peoplePreviewList: [User.Preview.t()]
         }
 
-  @derive {Poison.Encoder, only: ~w(id name description numPeopleInside isPrivate
+  @derive {Poison.Encoder, only: ~w(id name description numPeopleInside isPrivate autoSpeaker
            creatorId peoplePreviewList voiceServerId inserted_at)a}
-  @derive {Jason.Encoder, only: ~w(id name description numPeopleInside isPrivate
+  @derive {Jason.Encoder,
+           only: ~w(id name description numPeopleInside isPrivate chatMode autoSpeaker
            creatorId peoplePreviewList voiceServerId inserted_at)a}
 
   @primary_key {:id, :binary_id, []}
@@ -27,7 +29,8 @@ defmodule Beef.Schemas.Room do
     field(:numPeopleInside, :integer)
     field(:isPrivate, :boolean)
     field(:voiceServerId, :string)
-    field(:autoSpeaker, :boolean, virtual: true)
+    field(:autoSpeaker, :boolean, default: false)
+    field(:chatMode, Ecto.Enum, values: [:default, :follower_only])
     field(:chatCooldown, :integer, default: 1, min: 1, virtual: true)
 
     # TODO: change this to creator!
@@ -51,7 +54,9 @@ defmodule Beef.Schemas.Room do
       :isPrivate,
       :numPeopleInside,
       :voiceServerId,
-      :description
+      :description,
+      :chatMode,
+      :autoSpeaker
     ])
     |> validate_required([:name, :creatorId])
     |> validate_length(:name, min: 2, max: 60)
@@ -65,7 +70,7 @@ defmodule Beef.Schemas.Room do
         ) :: Ecto.Changeset.t()
   def edit_changeset(room, attrs) do
     room
-    |> cast(attrs, [:id, :name, :isPrivate, :description])
+    |> cast(attrs, [:id, :name, :isPrivate, :description, :autoSpeaker, :chatMode])
     |> validate_length(:name, min: 2, max: 60)
     |> validate_length(:description, max: 500)
   end

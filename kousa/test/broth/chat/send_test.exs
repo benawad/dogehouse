@@ -65,6 +65,51 @@ defmodule BrothTest.Chat.SendTest do
       )
     end
 
+    test "if I am a follower in follower only mode", t do
+      room_id = t.room_id
+      # create a user that is logged in.
+      follower = Factory.create(User)
+      follower_ws = WsClientFactory.create_client_for(follower)
+
+      WsClient.do_call(t.client_ws, "room:update", %{
+        "chatMode" => "follower_only"
+      })
+
+      WsClient.do_call(follower_ws, "user:follow", %{
+        "userId" => t.user.id
+      })
+
+      WsClient.do_call(follower_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+
+      follower_id = follower.id
+      WsClient.send_msg(follower_ws, "chat:send_msg", %{"tokens" => @text_token})
+
+      WsClient.assert_frame(
+        "chat:send",
+        %{
+          "tokens" => @text_token,
+          "sentAt" => _,
+          "from" => ^follower_id,
+          "id" => msg_uuid,
+          "isWhisper" => false
+        },
+        t.client_ws
+      )
+
+      WsClient.assert_frame(
+        "chat:send",
+        %{
+          "tokens" => @text_token,
+          "sentAt" => _,
+          "from" => ^follower_id,
+          "id" => ^msg_uuid,
+          "isWhisper" => false
+        },
+        follower_ws
+      )
+    end
+
     test "can be used to send a whispered message", t do
       user_id = t.user.id
       room_id = t.room_id
@@ -119,6 +164,25 @@ defmodule BrothTest.Chat.SendTest do
   end
 
   describe "the sender should not be able to send" do
+    test "if they are not following in follower only mode", t do
+      room_id = t.room_id
+      # create a user that is logged in.
+      non_follower = Factory.create(User)
+      non_follower_ws = WsClientFactory.create_client_for(non_follower)
+
+      WsClient.do_call(t.client_ws, "room:update", %{
+        "chatMode" => "follower_only"
+      })
+
+      WsClient.do_call(non_follower_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+
+      WsClient.send_msg(non_follower_ws, "chat:send_msg", %{"tokens" => @text_token})
+
+      WsClient.refute_frame("chat:send", t.client_ws)
+      WsClient.refute_frame("chat:send", non_follower_ws)
+    end
+
     test "if they have been chat banned from the room", t do
       room_id = t.room_id
 
@@ -255,6 +319,60 @@ defmodule BrothTest.Chat.SendTest do
       )
 
       WsClient.refute_frame("chat:send", banned_ws)
+    end
+
+    test "if whispers are off", t do
+      user_id = t.user.id
+      room_id = t.room_id
+
+      # create a user that won't be able to hear
+      cant_hear = Factory.create(User)
+      cant_hear_ws = WsClientFactory.create_client_for(cant_hear)
+
+      WsClient.do_call(cant_hear_ws, "user:update", %{"whisperPrivacySetting" => "off"})
+
+      # create a user that will be able to hear.
+      can_hear = Factory.create(User)
+      can_hear_ws = WsClientFactory.create_client_for(can_hear)
+
+      # join the two users into the room
+      WsClient.do_call(cant_hear_ws, "room:join", %{"roomId" => room_id})
+      WsClient.do_call(can_hear_ws, "room:join", %{"roomId" => room_id})
+
+      WsClient.assert_frame_legacy("new_user_join_room", _, t.client_ws)
+      WsClient.assert_frame_legacy("new_user_join_room", _, t.client_ws)
+      WsClient.assert_frame_legacy("new_user_join_room", _, cant_hear_ws)
+
+      WsClient.send_msg(t.client_ws, "chat:send_msg", %{
+        "tokens" => @text_token,
+        "whisperedTo" => [can_hear.id, cant_hear.id]
+      })
+
+      WsClient.assert_frame(
+        "chat:send",
+        %{
+          "tokens" => @text_token,
+          "from" => ^user_id,
+          "sentAt" => _,
+          "id" => msg_id,
+          "isWhisper" => true
+        },
+        t.client_ws
+      )
+
+      WsClient.assert_frame(
+        "chat:send",
+        %{
+          "tokens" => @text_token,
+          "from" => ^user_id,
+          "sentAt" => _,
+          "id" => ^msg_id,
+          "isWhisper" => true
+        },
+        can_hear_ws
+      )
+
+      WsClient.refute_frame("chat:send", cant_hear_ws)
     end
   end
 end
