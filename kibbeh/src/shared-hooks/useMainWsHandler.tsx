@@ -104,14 +104,14 @@ export const useMainWsHandler = () => {
         }
       ),
       conn.addListener<any>(
-        "room_chat_status_changed",
-        ({ roomId, chatDisabled }) => {
+        "room_chat_mode_changed",
+        ({ roomId, chatMode }) => {
           updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
             !data || "error" in data
               ? data
               : {
                   ...data,
-                  chatDisabled,
+                  chatMode,
                 }
           );
         }

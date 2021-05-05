@@ -55,13 +55,13 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
           {/* chat disabled */}
           <label className={`flex items-center my-1`} htmlFor="chat-disabled">
             <input
-              checked={data.chatDisabled}
+              checked={data.chatMode === "disabled"}
               onChange={(e) => {
-                const chatDisabled = !!e.target.checked;
+                const chatMode = e.target.checked ? "disabled" : "default";
                 updater(["joinRoomAndGetInfo", roomId!], (d) =>
-                  !d ? d : { ...d, chatDisabled }
+                  !d ? d : { ...d, chatMode }
                 );
-                conn.mutation.roomUpdate({ chatDisabled });
+                conn.mutation.roomUpdate({ chatMode });
               }}
               id="chat-disabled"
               type="checkbox"

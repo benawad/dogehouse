@@ -47,7 +47,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
     [currentRoomId!]
   );
 
-  if (data && data.chatDisabled) {
+  if (data && !("error" in data) && data.chatMode === "disabled") {
     return (
       <p className="my-4 text-center text-primary-300">
         {t("modules.roomChat.disabled")}
@@ -109,7 +109,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
     <form onSubmit={handleSubmit} className={`pb-3 px-4 pt-2 flex flex-col`}>
       <div className={`mb-1 block relative`}>
         <EmojiPicker
-          emojiSet={customEmojis}
+          emojiSet={customEmojis as any}
           onEmojiSelect={(emoji) => {
             position =
               (position === 0
