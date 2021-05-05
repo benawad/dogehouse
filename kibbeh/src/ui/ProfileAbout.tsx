@@ -34,7 +34,7 @@ export const ProfileAbout: React.FC<ProfileAboutProps> = ({
         {t("pages.viewUser.about")} {username}
       </div>
       <div className="flex mb-2">
-        <div className="flex">
+        <div className="flex px-2 rounded-8 transition duration-200 ease-in-out hover:bg-primary-700">
           <ApiPreloadLink route="followers" data={{ username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(followers)}
@@ -44,7 +44,7 @@ export const ProfileAbout: React.FC<ProfileAboutProps> = ({
             </span>
           </ApiPreloadLink>
         </div>
-        <div className="flex ml-4">
+        <div className="flex px-2 rounded-8 transition duration-200 ease-in-out hover:bg-primary-700">
           <ApiPreloadLink route="following" data={{ username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(following)}

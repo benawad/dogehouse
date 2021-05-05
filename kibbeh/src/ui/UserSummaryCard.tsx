@@ -99,7 +99,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
         </div>
       </button>
       <div className="flex mt-3">
-        <div className="flex">
+        <div className="flex transition duration-200 ease-in-out hover:bg-primary-700 px-2 py-1 rounded-8">
           <ApiPreloadLink route="followers" data={{ username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowers)}
@@ -109,7 +109,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
             </span>
           </ApiPreloadLink>
         </div>
-        <div className="flex ml-4">
+        <div className="flex transition duration-200 ease-in-out hover:bg-primary-700 px-2 py-1 rounded-8">
           <ApiPreloadLink route="following" data={{ username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowing)}
