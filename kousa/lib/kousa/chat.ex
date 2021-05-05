@@ -6,12 +6,12 @@ defmodule Kousa.Chat do
 
   def send_msg(payload) do
     # TODO: pull room information from passed parameters from ws_session.
-    case Beef.Users.get_current_room_id(payload.from) do
+    case Beef.Users.get_current_room(payload.from) do
       nil ->
         :noop
 
-      room_id ->
-        Onion.Chat.send_msg(room_id, payload)
+      room ->
+        Onion.Chat.send_msg(room.id, payload)
     end
 
     :ok
