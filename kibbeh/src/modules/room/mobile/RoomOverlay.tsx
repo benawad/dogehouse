@@ -1,47 +1,48 @@
-import { JoinRoomAndGetInfoResponse, wrap } from "@dogehouse/kebab";
-import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React from "react";
 import { createPortal } from "react-dom";
 import { useSpring, a, config } from "react-spring";
 import { useDrag } from "react-use-gesture";
-import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { useDeafStore } from "../../global-stores/useDeafStore";
-import { useMuteStore } from "../../global-stores/useMuteStore";
 import {
   SolidDeafened,
   SolidDeafenedOff,
   SolidFriendsAdd,
   SolidMicrophone,
   SolidMicrophoneOff,
+  SolidSettings,
   SolidSimpleMegaphone,
-} from "../../icons";
-import { RoomChatController } from "../../modules/room/RoomChatController";
-import { useSplitUsersIntoSections } from "../../modules/room/useSplitUsersIntoSections";
-import { useConn } from "../../shared-hooks/useConn";
-import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
-import { useSetDeaf } from "../../shared-hooks/useSetDeaf";
-import { useSetMute } from "../../shared-hooks/useSetMute";
-import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
-import useWindowSize from "../../shared-hooks/useWindowSize";
-import { BoxedIcon } from "../BoxedIcon";
+} from "../../../icons";
+import { RoomChatController } from "../RoomChatController";
+import useWindowSize from "../../../shared-hooks/useWindowSize";
+import { BoxedIcon } from "../../../ui/BoxedIcon";
 
-interface RoomOverlayProps extends JoinRoomAndGetInfoResponse {}
+interface RoomOverlayProps {
+  mute?: {
+    isMuted: boolean;
+    onMute: () => void;
+  };
+  deaf?: {
+    isDeaf: boolean;
+    onDeaf: () => void;
+  };
+  onInvitePeopleToRoom?: () => void;
+  onRoomSettings?: () => void;
+  askToSpeak?: () => void;
+  setListener: () => void;
+  canSpeak: boolean;
+}
 
-const RoomOverlay: React.FC<RoomOverlayProps> = (props) => {
-  const { currentRoomId } = useCurrentRoomIdStore();
-  const { muted } = useMuteStore();
-  const conn = useConn();
-  const setMute = useSetMute();
-  const { deafened } = useDeafStore();
-  const setDeaf = useSetDeaf();
-  const { canSpeak, isCreator } = useCurrentRoomInfo();
+const RoomOverlay: React.FC<RoomOverlayProps> = ({
+  mute,
+  deaf,
+  onInvitePeopleToRoom,
+  onRoomSettings,
+  askToSpeak,
+  setListener,
+  canSpeak,
+}) => {
   const { height: vHeight } = useWindowSize();
   const height = vHeight - 30 - 100;
   const [{ y }, set] = useSpring(() => ({ y: height }));
-  const [isOpen, setOpen] = useState(false);
-  const { canIAskToSpeak } = useSplitUsersIntoSections(props);
-  const { mutateAsync: setListener } = useTypeSafeMutation("setListener");
-  const { push } = useRouter();
 
   const open = () => {
     set({
@@ -49,7 +50,6 @@ const RoomOverlay: React.FC<RoomOverlayProps> = (props) => {
       immediate: false,
       config: { mass: 1, tension: 200, friction: 25 },
     });
-    setOpen(true);
   };
 
   const close = (velocity = 0) => {
@@ -58,12 +58,11 @@ const RoomOverlay: React.FC<RoomOverlayProps> = (props) => {
       immediate: false,
       config: { ...config.default, velocity: velocity * 1.2 }, // @todo clamp velo between 0 and something
     });
-    setOpen(false);
   };
 
   const bind = useDrag(
     ({ last, vxvy: [, vy], movement: [, my], cancel, canceled }) => {
-      if (my > height || isOpen) cancel(); // @todo fix weird bottom spacing
+      if (my > height) cancel(); // @todo fix weird bottom spacing
       if (last) {
         if (my > height * 0.8 || vy > 0.1) close(vy);
         else open();
@@ -111,12 +110,12 @@ const RoomOverlay: React.FC<RoomOverlayProps> = (props) => {
             {canSpeak ? (
               <BoxedIcon
                 className={`w-9 h-6.5 ${
-                  !muted && !deafened ? "bg-accent text-button" : ""
+                  !mute?.isMuted && !deaf?.isDeaf ? "bg-accent text-button" : ""
                 }`}
-                onClick={() => setMute(!muted)}
+                onClick={mute?.onMute}
                 hover
               >
-                {muted || deafened ? (
+                {mute?.isMuted || deaf?.isDeaf ? (
                   <SolidMicrophoneOff width="20" height="20" />
                 ) : (
                   <SolidMicrophone width="20" height="20" />
@@ -125,29 +124,35 @@ const RoomOverlay: React.FC<RoomOverlayProps> = (props) => {
             ) : (
               <BoxedIcon
                 className={`w-9 h-6.5 ${
-                  !canIAskToSpeak ? "bg-accent text-button" : ""
+                  !askToSpeak ? "bg-accent text-button" : ""
                 }`}
                 hover
-                onClick={
-                  canIAskToSpeak
-                    ? () => wrap(conn).mutation.askToSpeak()
-                    : () => setListener([conn.user.id])
-                }
+                onClick={askToSpeak ? askToSpeak : setListener}
               >
                 <SolidSimpleMegaphone width="20" height="20" />
               </BoxedIcon>
             )}
           </div>
           <div className="flex">
+            {onRoomSettings ? (
+              <BoxedIcon
+                circle
+                className="h-6.5 w-6.5 mr-3"
+                onClick={onRoomSettings}
+                hover
+              >
+                <SolidSettings width="20" height="20" />
+              </BoxedIcon>
+            ) : null}
             <BoxedIcon
               circle
               className={`h-6.5 w-6.5 mr-3 ${
-                deafened ? "bg-accent text-button" : ""
+                deaf?.isDeaf ? "bg-accent text-button" : ""
               }`}
-              onClick={() => setDeaf(!deafened)}
+              onClick={deaf?.onDeaf}
               hover
             >
-              {deafened ? (
+              {deaf?.isDeaf ? (
                 <SolidDeafenedOff width="20" height="20" />
               ) : (
                 <SolidDeafened width="20" height="20" />
@@ -157,9 +162,7 @@ const RoomOverlay: React.FC<RoomOverlayProps> = (props) => {
               circle
               className="h-6.5 w-6.5"
               hover
-              onClick={() =>
-                push(`/room/[id]/invite`, `/room/${currentRoomId}/invite`)
-              }
+              onClick={onInvitePeopleToRoom}
             >
               <SolidFriendsAdd width="20" height="20" />
             </BoxedIcon>
