@@ -229,7 +229,8 @@
         "makePublic": "Rendi la stanza pubblica",
         "makePrivate": "Rendi la stanza privata",
         "renamePublic": "Imposta il nome della stanza pubblica",
-        "renamePrivate": "Imposta il nome della stanza privata"
+        "renamePrivate": "Imposta il nome della stanza privata",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -294,7 +295,8 @@
       "sendMessage": "Invia un messaggio",
       "whisper": "Sussurra",
       "welcomeMessage": "Benvenuto nella chat!",
-      "roomDescription": "Descrizione della stanza"
+      "roomDescription": "Descrizione della stanza",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Rifornimento razzo",

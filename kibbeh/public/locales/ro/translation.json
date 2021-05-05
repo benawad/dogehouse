@@ -227,7 +227,8 @@
         "makePublic": "Fă camera publică",
         "makePrivate": "Fă camera privată",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -292,7 +293,8 @@
       "sendMessage": "Trimite un mesaj",
       "whisper": "Șoptește",
       "welcomeMessage": "Bine ai venit în chat!",
-      "roomDescription": "Descriere cameră"
+      "roomDescription": "Descriere cameră",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

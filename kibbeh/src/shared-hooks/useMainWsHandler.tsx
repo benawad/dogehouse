@@ -103,6 +103,19 @@ export const useMainWsHandler = () => {
           );
         }
       ),
+      conn.addListener<any>(
+        "room_chat_mode_changed",
+        ({ roomId, chatMode }) => {
+          updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
+            !data || "error" in data
+              ? data
+              : {
+                  ...data,
+                  chatMode,
+                }
+          );
+        }
+      ),
       conn.addListener<any>("banned", () => {
         showErrorToast("you got banned");
         conn.close();

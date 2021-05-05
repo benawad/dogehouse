@@ -62,7 +62,9 @@ defmodule Kousa.Auth do
 
           RoomSession.start_supervised(
             room_id: user.currentRoomId,
-            voice_server_id: room.voiceServerId
+            voice_server_id: room.voiceServerId,
+            chat_mode: room.chatMode,
+            room_creator_id: room.creatorId
           )
 
           PubSub.subscribe("chat:" <> room.id)

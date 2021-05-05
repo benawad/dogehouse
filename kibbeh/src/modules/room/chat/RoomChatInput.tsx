@@ -13,6 +13,10 @@ import { EmojiPicker } from "../../../ui/EmojiPicker";
 import { useEmojiPickerStore } from "../../../global-stores/useEmojiPickerStore";
 import { navigateThroughQueriedUsers } from "./navigateThroughQueriedUsers";
 import { navigateThroughQueriedEmojis } from "./navigateThroughQueriedEmojis";
+import { useTypeSafeQuery } from "../../../shared-hooks/useTypeSafeQuery";
+import { useCurrentRoomIdStore } from "../../../global-stores/useCurrentRoomIdStore";
+import { useScreenType } from "../../../shared-hooks/useScreenType";
+import { useCurrentRoomFromCache } from "../../../shared-hooks/useCurrentRoomFromCache";
 
 interface ChatInputProps {
   users: RoomUser[];
@@ -21,25 +25,29 @@ interface ChatInputProps {
 export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   const { message, setMessage } = useRoomChatStore();
   const { setQueriedUsernames } = useRoomChatMentionStore();
-  const {
-    setOpen,
-    open,
-    queryMatches,
-    setQueryMatches,
-    keyboardHoveredEmoji,
-    setKeyboardHoveredEmoji,
-  } = useEmojiPickerStore();
+  const { setOpen, open, queryMatches } = useEmojiPickerStore();
   const conn = useConn();
   const me = conn.user;
   const inputRef = useRef<HTMLInputElement>(null);
   const [lastMessageTimestamp, setLastMessageTimestamp] = useState<number>(0);
   const { t } = useTypeSafeTranslation();
+  const screenType = useScreenType();
 
   let position = 0;
 
   useEffect(() => {
-    if (!open) inputRef.current?.focus();
-  }, [open]);
+    if (!open && screenType !== "fullscreen") inputRef.current?.focus(); // Prevent autofocus on mobile
+  }, [open, screenType]);
+
+  const data = useCurrentRoomFromCache();
+
+  if (data && !("error" in data) && data.chatMode === "disabled") {
+    return (
+      <p className="my-4 text-center text-primary-300">
+        {t("modules.roomChat.disabled")}
+      </p>
+    );
+  }
 
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
@@ -95,7 +103,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
     <form onSubmit={handleSubmit} className={`pb-3 px-4 pt-2 flex flex-col`}>
       <div className={`mb-1 block relative`}>
         <EmojiPicker
-          emojiSet={customEmojis}
+          emojiSet={customEmojis as any}
           onEmojiSelect={(emoji) => {
             position =
               (position === 0

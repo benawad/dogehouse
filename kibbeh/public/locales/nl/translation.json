@@ -229,7 +229,8 @@
         "makePublic": "Maak kamer openbaar",
         "makePrivate": "Maak kamer privé",
         "renamePublic": "Stel openbare kamernaam in",
-        "renamePrivate": "Stel privékamernaam in"
+        "renamePrivate": "Stel privékamernaam in",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -294,7 +295,8 @@
       "sendMessage": "Stuur een Bericht",
       "whisper": "Fluister",
       "welcomeMessage": "Welkom in de chat!",
-      "roomDescription": "Kamer omschrijving"
+      "roomDescription": "Kamer omschrijving",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Raket aan het tanken",

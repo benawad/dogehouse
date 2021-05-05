@@ -148,6 +148,7 @@ defmodule Kousa.Room do
   def set_owner(room_id, user_id, setter_id) do
     with {:creator, _} <- Rooms.get_room_status(setter_id),
          {1, _} <- Rooms.replace_room_owner(setter_id, user_id) do
+      Onion.RoomSession.set_room_creator_id(room_id, user_id)
       internal_set_speaker(setter_id, room_id)
 
       Onion.RoomSession.broadcast_ws(
@@ -393,7 +394,14 @@ defmodule Kousa.Room do
     })
   end
 
-  @spec create_room(String.t(), String.t(), String.t(), boolean(), String.t() | nil) ::
+  @spec create_room(
+          String.t(),
+          String.t(),
+          String.t(),
+          boolean(),
+          String.t() | nil,
+          boolean() | nil
+        ) ::
           {:error, any}
           | {:ok, %{room: atom | %{:id => any, :voiceServerId => any, optional(any) => any}}}
   def create_room(
@@ -425,7 +433,9 @@ defmodule Kousa.Room do
         Onion.RoomSession.start_supervised(
           room_id: room.id,
           voice_server_id: room.voiceServerId,
-          auto_speaker: auto_speaker
+          auto_speaker: auto_speaker,
+          chat_mode: room.chatMode,
+          room_creator_id: room.creatorId
         )
 
         muted? = Onion.UserSession.get(user_id, :muted)
