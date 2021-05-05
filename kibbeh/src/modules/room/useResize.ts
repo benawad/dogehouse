@@ -18,7 +18,7 @@ export const useResize = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [handleResize]);
 
   return size;
 };
