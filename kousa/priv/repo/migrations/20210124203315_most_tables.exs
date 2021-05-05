@@ -15,6 +15,7 @@ defmodule Beef.Repo.Migrations.MostTables do
       add :numFollowers, :integer, default: 0
       add :online, :boolean, default: false
       add :lastOnline, :naive_datetime
+      add :lastChatMsg, :naive_datetime
 
       timestamps()
     end
