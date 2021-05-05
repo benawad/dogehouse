@@ -16,6 +16,7 @@ import { navigateThroughQueriedEmojis } from "./navigateThroughQueriedEmojis";
 import { useTypeSafeQuery } from "../../../shared-hooks/useTypeSafeQuery";
 import { useCurrentRoomIdStore } from "../../../global-stores/useCurrentRoomIdStore";
 import { useScreenType } from "../../../shared-hooks/useScreenType";
+import { useCurrentRoomFromCache } from "../../../shared-hooks/useCurrentRoomFromCache";
 
 interface ChatInputProps {
   users: RoomUser[];
@@ -39,16 +40,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users, room }) => {
     if (!open && screenType !== "fullscreen") inputRef.current?.focus(); // Prevent autofocus on mobile
   }, [open, screenType]);
 
-  const { currentRoomId } = useCurrentRoomIdStore();
-
-  const { data } = useTypeSafeQuery(
-    ["joinRoomAndGetInfo", currentRoomId!],
-    {
-      enabled: !!currentRoomId,
-      refetchOnMount: "always",
-    },
-    [currentRoomId!]
-  );
+  const data = useCurrentRoomFromCache();
 
   if (data && !("error" in data) && data.chatMode === "disabled") {
     return (
