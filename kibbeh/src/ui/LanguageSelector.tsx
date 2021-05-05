@@ -48,6 +48,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "kk", flag: "🇰🇿", label: "Қазақша" }, // Kazakh
     { value: "ko", flag: "🇰🇷", label: "한국어" }, // Korean
     { value: "li", flag: "🇳🇱", label: "Limburgs" }, // Limburgish
+    { value: "lld", flag: "🐐", label: "Ladin"}, // Ladin
     { value: "lt", flag: "🇱🇹", label: "Lietuvių" }, // Lithuanian
     { value: "lv", flag: "🇱🇻", label: "Latviešu" }, // Latvian
     { value: "nb", flag: "🇳🇴", label: "Norsk Bokmål" }, // Norwegian Bokmål
