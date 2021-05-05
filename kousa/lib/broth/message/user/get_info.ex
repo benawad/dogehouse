@@ -28,6 +28,7 @@ defmodule Broth.Message.User.GetInfo do
       numFollowing
       numFollowers
       lastOnline
+      lastChatMsg
       iBlockedThem
     )a}
 
@@ -43,6 +44,7 @@ defmodule Broth.Message.User.GetInfo do
       field(:numFollowers, :integer)
       field(:online, :boolean)
       field(:lastOnline, :utc_datetime_usec)
+      field(:lastChatMsg, :utc_datetime_usec)
       field(:youAreFollowing, :boolean, virtual: true)
       field(:followsYou, :boolean, virtual: true)
       field(:iBlockedThem, :boolean, virtual: true)
