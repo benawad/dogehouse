@@ -14,6 +14,8 @@ export type UserPreview = {
   avatarUrl: string | null;
 };
 
+export type ChatMode = "default" | "disabled" | "follower_only";
+
 export type Room = {
   id: string;
   name: string;
@@ -24,6 +26,7 @@ export type Room = {
   creatorId: string;
   peoplePreviewList: Array<UserPreview>;
   inserted_at: string;
+  chatMode: ChatMode;
 };
 
 export interface ScheduledRoom {

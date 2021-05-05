@@ -41,7 +41,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
 
   const data = useCurrentRoomFromCache();
 
-  if (data && !("error" in data) && data.chatMode === "disabled") {
+  if (data && !("error" in data) && data.room.chatMode === "disabled") {
     return (
       <p className="my-4 text-center text-primary-300">
         {t("modules.roomChat.disabled")}
@@ -122,34 +122,39 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
         />
       </div>
       <div className="flex items-stretch">
-        <div className="flex flex-1 lg:mr-0 items-center bg-primary-700 rounded-8">
-          <Input
-            maxLength={512}
-            placeholder={t("modules.roomChat.sendMessage")}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            id="room-chat-input"
-            transparent
-            ref={inputRef}
-            autoComplete="off"
-            onKeyDown={
-              queryMatches.length
-                ? navigateThroughQueriedEmojis
-                : navigateThroughQueriedUsers
-            }
-            onFocus={() => {
-              setOpen(false);
-              position = 0;
-            }}
-          />
-          <div
-            className={`right-12 cursor-pointer flex flex-row-reverse fill-current text-primary-200 mr-3`}
-            onClick={() => {
-              setOpen(!open);
-              position = 0;
-            }}
-          >
-            <Smiley style={{ inlineSize: "23px" }}></Smiley>
+        <div>
+          {data && "room" in data && data.room.chatMode === "follower_only" ? (
+            <div className="text-primary-300 mb-1">Follower mode</div>
+          ) : null}
+          <div className="flex flex-1 lg:mr-0 items-center bg-primary-700 rounded-8">
+            <Input
+              maxLength={512}
+              placeholder={t("modules.roomChat.sendMessage")}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              id="room-chat-input"
+              transparent
+              ref={inputRef}
+              autoComplete="off"
+              onKeyDown={
+                queryMatches.length
+                  ? navigateThroughQueriedEmojis
+                  : navigateThroughQueriedUsers
+              }
+              onFocus={() => {
+                setOpen(false);
+                position = 0;
+              }}
+            />
+            <div
+              className={`right-12 cursor-pointer flex flex-row-reverse fill-current text-primary-200 mr-3`}
+              onClick={() => {
+                setOpen(!open);
+                position = 0;
+              }}
+            >
+              <Smiley style={{ inlineSize: "23px" }}></Smiley>
+            </div>
           </div>
         </div>
 

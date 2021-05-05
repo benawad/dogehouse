@@ -13,21 +13,23 @@ export const PrivacySettingForm: React.FC<PrivacySettingFormProps> = ({}) => {
   return (
     <div>
       <div className="text-primary-100 mb-2">Whispers:</div>
-      <NativeSelect
-        value={user.whisperPrivacySetting}
-        onChange={(e) => {
-          const whisperPrivacySetting = e.target
-            .value as User["whisperPrivacySetting"];
-          setUser({ ...user, whisperPrivacySetting });
-          mutateAsync([{ whisperPrivacySetting }]);
-        }}
-      >
-        {["on", "off"].map((v) => (
-          <option value={v} key={v}>
-            {v}&nbsp;&nbsp;&nbsp;
-          </option>
-        ))}
-      </NativeSelect>
+      <div>
+        <NativeSelect
+          value={user.whisperPrivacySetting}
+          onChange={(e) => {
+            const whisperPrivacySetting = e.target
+              .value as User["whisperPrivacySetting"];
+            setUser({ ...user, whisperPrivacySetting });
+            mutateAsync([{ whisperPrivacySetting }]);
+          }}
+        >
+          {["on", "off"].map((v) => (
+            <option value={v} key={v}>
+              {v}&nbsp;&nbsp;&nbsp;
+            </option>
+          ))}
+        </NativeSelect>
+      </div>
     </div>
   );
 };
