@@ -106,7 +106,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         </div>
       </div>
 
-      <div className="w-3/6 ">
+      <div className="sm:w-3/6">
         <div className="flex flex-row justify-end content-end gap-2">
           {!isCurrentUser && (
             <Button
