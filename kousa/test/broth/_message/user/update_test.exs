@@ -90,6 +90,30 @@ defmodule BrothTest.Message.User.UpdateTest do
                )
     end
 
+    test "it accepts good key string for whisperPrivacySetting", %{uuid: uuid, state: state} do
+      assert {:ok, %{payload: %User{whisperPrivacySetting: :off}}} =
+               BrothTest.Support.Message.validate(
+                 %{
+                   "operator" => "user:update",
+                   "payload" => %{"whisperPrivacySetting" => "off"},
+                   "reference" => uuid
+                 },
+                 state
+               )
+    end
+
+    test "it rejects bad key for whisperPrivacySetting", %{uuid: uuid, state: state} do
+      assert {:error, %{errors: %{whisperPrivacySetting: "is invalid"}}} =
+               BrothTest.Support.Message.validate(
+                 %{
+                   "operator" => "user:update",
+                   "payload" => %{"whisperPrivacySetting" => "pancake"},
+                   "reference" => uuid
+                 },
+                 state
+               )
+    end
+
     test "it rejects attempting to delete the username", %{uuid: uuid, state: state} do
       assert {:error, %{errors: %{username: "can't be blank"}}} =
                BrothTest.Support.Message.validate(

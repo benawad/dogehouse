@@ -13,7 +13,16 @@ defmodule Broth.Message.User.Update do
   @impl true
   def changeset(initializer \\ %User{}, data) do
     initializer
-    |> cast(data, [:muted, :deafened, :username, :bio, :displayName, :avatarUrl, :bannerUrl])
+    |> cast(data, [
+      :muted,
+      :deafened,
+      :username,
+      :bio,
+      :displayName,
+      :avatarUrl,
+      :bannerUrl,
+      :whisperPrivacySetting
+    ])
     |> validate_required([:username])
     |> unique_constraint(:username)
   end

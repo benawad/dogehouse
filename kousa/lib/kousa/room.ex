@@ -148,6 +148,7 @@ defmodule Kousa.Room do
   def set_owner(room_id, user_id, setter_id) do
     with {:creator, _} <- Rooms.get_room_status(setter_id),
          {1, _} <- Rooms.replace_room_owner(setter_id, user_id) do
+      Onion.RoomSession.set_room_creator_id(room_id, user_id)
       internal_set_speaker(setter_id, room_id)
 
       Onion.RoomSession.broadcast_ws(
@@ -427,7 +428,9 @@ defmodule Kousa.Room do
           room_id: room.id,
           voice_server_id: room.voiceServerId,
           auto_speaker: auto_speaker,
-          chat_disabled: chat_disabled
+          chat_disabled: chat_disabled,
+          chat_mode: room.chatMode,
+          room_creator_id: room.creatorId
         )
 
         muted? = Onion.UserSession.get(user_id, :muted)

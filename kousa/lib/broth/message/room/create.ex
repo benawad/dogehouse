@@ -12,8 +12,8 @@ defmodule Broth.Message.Room.Create do
     field(:description, :string)
     field(:isPrivate, :boolean, default: false)
     field(:userIdToInvite, {:array, :binary_id}, virtual: true)
-    field(:autoSpeaker, :boolean, virtual: true)
     field(:chatDisabled, :boolean, virtual: true)
+    field(:autoSpeaker, :boolean)
     field(:scheduledRoomId, :binary_id, virtual: true)
   end
 

@@ -141,6 +141,8 @@ export const wrap = (connection: Connection) => ({
    * Allows you to call functions that mutate the ws state
    */
   mutation: {
+    userUpdate: (data: Partial<User>): Promise<void> =>
+      connection.sendCall("user:update", data),
     userBlock: (userId: string): Promise<void> =>
       connection.sendCall("user:block", { userId }),
     userUnblock: (userId: string): Promise<void> =>
