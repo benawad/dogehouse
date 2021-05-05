@@ -27,6 +27,20 @@ defmodule Beef.RoomPermissions do
     )
   end
 
+  def listener?(user_id, room_id) do
+    not speaker?(user_id, room_id)
+  end
+
+  def mod?(user_id, room_id) do
+    not is_nil(
+      Beef.Repo.one(
+        from(rp in Beef.Schemas.RoomPermission,
+          where: rp.roomId == ^room_id and rp.userId == ^user_id and rp.isMod == true
+        )
+      )
+    )
+  end
+
   def asked_to_speak?(user_id, room_id) do
     not is_nil(
       Beef.Repo.one(
