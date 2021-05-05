@@ -33,7 +33,7 @@ export const useMainWsHandler = () => {
     const unsubs = [
       conn.addListener<any>(
         "new_room_details",
-        ({ name, description, isPrivate, roomId, chatCooldown }) => {
+        ({ name, description, isPrivate, roomId, chatThrottle }) => {
           updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
             !data || "error" in data
               ? data
@@ -44,7 +44,7 @@ export const useMainWsHandler = () => {
                     name,
                     description,
                     isPrivate,
-                    chatCooldown,
+                    chatThrottle,
                   },
                 }
           );
@@ -105,8 +105,8 @@ export const useMainWsHandler = () => {
         }
       ),
       conn.addListener<any>(
-        "room_chat_cooldown_change",
-        ({ roomId, chatCooldown, name }) => {
+        "room_chat_throttle_change",
+        ({ roomId, chatThrottle, name }) => {
           updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
             !data || "error" in data
               ? data
@@ -115,7 +115,7 @@ export const useMainWsHandler = () => {
                   room: {
                     ...data.room,
                     name,
-                    chatCooldown,
+                    chatThrottle,
                   },
                 }
           );

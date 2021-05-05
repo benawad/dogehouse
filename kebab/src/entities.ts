@@ -24,7 +24,7 @@ export type Room = {
   creatorId: string;
   peoplePreviewList: Array<UserPreview>;
   inserted_at: string;
-  chatCooldown: number;
+  chatThrottle: number;
 };
 
 export interface ScheduledRoom {
