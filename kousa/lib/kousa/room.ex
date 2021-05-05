@@ -429,7 +429,7 @@ defmodule Kousa.Room do
           room_id: room.id,
           voice_server_id: room.voiceServerId,
           auto_speaker: auto_speaker,
-          chat_cooldown: chat_cooldown
+          chat_cooldown: chat_cooldown,
           chat_mode: room.chatMode,
           room_creator_id: room.creatorId
         )
