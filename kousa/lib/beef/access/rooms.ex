@@ -135,8 +135,8 @@ defmodule Beef.Access.Rooms do
 
     Query.start()
     |> where([r], ilike(r.name, ^search_str) and r.isPrivate == false)
-    |> limit([], 15)
     |> order_by([r], desc: r.numPeopleInside)
+    |> limit([], 15)
     |> Repo.all()
   end
 
