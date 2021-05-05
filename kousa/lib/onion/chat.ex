@@ -213,7 +213,7 @@ defmodule Onion.Chat do
   end
 
   @spec send_msg_impl(Send.t(), state) :: {:noreply, state}
-  defp send_msg_impl(payload = %{from: from}, state) do
+  defp send_msg_impl(payload = %{from: from}, %__MODULE__{} = state) do
     # throttle sender
     with false <- should_throttle?(from, state),
          false <- user_banned?(from, state) do
@@ -221,8 +221,12 @@ defmodule Onion.Chat do
 
       if can_chat do
         dispatch_message(payload, new_state)
-        updated_message_map = Map.put(new_state.last_message_map, from, DateTime.utc_now())
-        {:noreply, %{new_state | last_message_map: updated_message_map}}
+
+        {:noreply,
+         %{
+           new_state
+           | last_message_map: Map.put(new_state.last_message_map, from, DateTime.utc_now())
+         }}
       else
         {:noreply, new_state}
       end
@@ -233,9 +237,10 @@ defmodule Onion.Chat do
 
   @message_time_limit_milliseconds 1000
   @spec should_throttle?(UUID.t(), state) :: boolean
-  defp should_throttle?(user, %{last_message_times: m})
-       when is_map_key(m, user) do
-    DateTime.diff(m[user], DateTime.utc_now(), :millisecond) >= @message_time_limit_milliseconds
+  defp should_throttle?(user_id, %__MODULE__{last_message_map: m})
+       when is_map_key(m, user_id) do
+    DateTime.diff(m[user_id], DateTime.utc_now(), :millisecond) <
+      @message_time_limit_milliseconds
   end
 
   defp should_throttle?(_, _), do: false
