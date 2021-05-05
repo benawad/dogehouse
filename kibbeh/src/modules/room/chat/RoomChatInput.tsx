@@ -56,8 +56,6 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users, room }) => {
 
     if (Date.now() - lastMessageTimestamp <= room.chatCooldown * 1000) {
       showErrorToast(t("modules.roomChat.waitAlert"));
-
-      return;
     }
 
     const tmp = message;
