@@ -56,6 +56,11 @@ defmodule Broth.Message.Room.Update do
             d: %{roomId: room.id, name: room.name, chatCooldown: changes.chatCooldown}
           }
         )
+
+        Onion.RoomSession.set_chat_cooldown(
+          room.id,
+          changes.chatCooldown
+        )
       end
 
       if Map.has_key?(changes, :autoSpeaker) do
