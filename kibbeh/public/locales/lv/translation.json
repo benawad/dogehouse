@@ -230,7 +230,8 @@
         "makePublic": "padarīt istabu publisku",
         "makePrivate": "padarīt istabu privātu",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -295,7 +296,8 @@
       "sendMessage": "Nosūtīt ziņu",
       "whisper": "Čukstēt",
       "welcomeMessage": "Laipni lūgti čatā!",
-      "roomDescription": "istabas apraksts"
+      "roomDescription": "istabas apraksts",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Raķetes uzpilde",

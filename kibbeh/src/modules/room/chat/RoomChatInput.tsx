@@ -50,7 +50,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   if (data && data.chatDisabled) {
     return (
       <p className="my-4 text-center text-primary-300">
-        room chat has been disabled
+        {t("modules.roomChat.disabled")}
       </p>
     );
   }

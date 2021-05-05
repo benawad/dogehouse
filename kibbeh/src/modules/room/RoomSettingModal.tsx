@@ -66,7 +66,9 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
               id="chat-disabled"
               type="checkbox"
             />
-            <span className={`ml-2 text-primary-100`}>chat disabled</span>
+            <span className={`ml-2 text-primary-100`}>
+              {t("components.modals.roomSettingsModal.chatDisabled")}
+            </span>
           </label>
           <BlockedFromRoomUsers />
         </div>

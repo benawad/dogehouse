@@ -228,7 +228,8 @@
         "makePublic": "Gør rum offentligt",
         "makePrivate": "Gør rum privat",
         "renamePublic": "Skift navnet på offentligt rum",
-        "renamePrivate": "Skift navnet på privat rum"
+        "renamePrivate": "Skift navnet på privat rum",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -293,7 +294,8 @@
       "sendMessage": "Send en Besked",
       "whisper": "Hvisk",
       "welcomeMessage": "Velkommen til chatten!",
-      "roomDescription": "Rum beskrivelse"
+      "roomDescription": "Rum beskrivelse",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Tanker raket",

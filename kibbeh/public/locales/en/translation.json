@@ -266,6 +266,7 @@
       },
       "roomSettingsModal": {
         "requirePermission": "require permission to speak",
+        "chatDisabled": "disable chat",
         "makePublic": "make room public",
         "makePrivate": "make room private",
         "renamePublic": "Set public room name",
@@ -308,7 +309,8 @@
       "sendMessage": "Send a Message",
       "whisper": "Whisper",
       "welcomeMessage": "Welcome to chat!",
-      "roomDescription": "Room description"
+      "roomDescription": "Room description",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",
