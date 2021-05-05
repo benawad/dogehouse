@@ -19,10 +19,7 @@ export const useDebugAudioStore = create(
     (set) => ({
       setDebugAudio: (v: boolean) => {
         try {
-          localStorage.setItem(
-            "debug",
-            v ? "mediasoup-client:WARN* mediasoup-client:ERROR*" : ""
-          );
+          localStorage.setItem("debug", v ? "*" : "");
           localStorage.setItem(key, "" + v);
         } catch {}
         set({ debugAudio: v });
