@@ -6,14 +6,23 @@ defmodule Kousa.Chat do
 
   def send_msg(payload) do
     # TODO: pull room information from passed parameters from ws_session.
-    case Beef.Users.get_current_room(payload.from) do
+    case Beef.Users.get_by_id(payload.from) do
       nil ->
         :noop
 
-      room ->
-        Onion.Chat.send_msg(room.id, payload)
+      user ->
+        IO.puts(user)
+
+        case Beef.Users.get_current_room(payload.from) do
+          nil ->
+            :noop
+
+          room ->
+            Onion.Chat.send_msg(room.id, payload)
+        end
     end
 
+    # {:error, "room is full"}
     :ok
   end
 
