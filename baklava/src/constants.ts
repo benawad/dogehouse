@@ -25,6 +25,7 @@ export const ALLOWED_HOSTS = [
   "api.dogehouse.tv",
   "dogehouse.tv",
   "github.com",
+  "discord.com",
   "localhost",
   "staging.dogehouse.tv",
   "doge-staging.stripcode.dev",

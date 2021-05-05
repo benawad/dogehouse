@@ -69,7 +69,7 @@ function createMainWindow() {
     width: 1500,
     height: 800,
     minWidth: 400,
-    minHeight: 640,
+    minHeight: 600,
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,

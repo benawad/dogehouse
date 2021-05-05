@@ -1,3 +1,4 @@
+import isElectron from "is-electron";
 import { useRouter } from "next/router";
 import React, { useCallback, useContext, useEffect } from "react";
 import { LgLogo } from "../../icons";
@@ -139,12 +140,16 @@ export const LoginPage: React.FC = () => {
               <SvgSolidTwitter width={20} height={20} />
               Log in with Twitter
             </LoginButton>
-            <LoginButton
-              oauthUrl={`${apiBaseUrl}/auth/discord/web${queryParams}`}
-            >
-              <SvgSolidDiscord width={20} height={20} />
-              Log in with Discord
-            </LoginButton>
+            {!isElectron() ? (
+              <LoginButton
+                oauthUrl={`${apiBaseUrl}/auth/discord/web${queryParams}`}
+              >
+                <SvgSolidDiscord width={20} height={20} />
+                Log in with Discord
+              </LoginButton>
+            ) : (
+              <></>
+            )}
             {!__prod__ ? (
               <LoginButton
                 dev
