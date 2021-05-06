@@ -73,7 +73,8 @@
       "soundSettings": "Go to Sound Settings x3",
       "deleteAccount": "Dewete Account UnU",
       "overlaySettings": "Gow to Owerlay Settings ( ^_^ )",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "OWO Whoops! This page got wost in convewsation. (●´ω｀●)",

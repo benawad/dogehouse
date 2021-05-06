@@ -73,7 +73,8 @@
       "soundSettings": "Səs parametrləri",
       "deleteAccount": "Hesabı sil",
       "overlaySettings": "Overlay parametrləri",
-      "couldNotFindUser": "Təəssüf, istifadəçi tapılmadı"
+      "couldNotFindUser": "Təəssüf, istifadəçi tapılmadı",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Bu səhifə tapılmadı.",

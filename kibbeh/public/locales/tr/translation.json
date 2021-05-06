@@ -72,7 +72,8 @@
       "soundSettings": "Ses ayarlarına git",
       "deleteAccount": "Hesabı sil",
       "overlaySettings": "Kaplama ayarlarına git",
-      "couldNotFindUser": "Üzgünüz, böyle bir kullanıcı bulamadık"
+      "couldNotFindUser": "Üzgünüz, böyle bir kullanıcı bulamadık",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Uups! Bu sayfa sohbette kayboldu.",

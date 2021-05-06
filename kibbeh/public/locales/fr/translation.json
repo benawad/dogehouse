@@ -73,7 +73,8 @@
       "overlaySettings": "Paramètres de l'overlay",
       "soundSettings": "Paramètres Audio",
       "deleteAccount": "Supprimer le Compte",
-      "couldNotFindUser": "Désolé, nous ne parvenons pas à trouver cet utilisateur"
+      "couldNotFindUser": "Désolé, nous ne parvenons pas à trouver cet utilisateur",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oups ! Cette page s'est perdue dans la conversation.",

@@ -73,7 +73,8 @@
       "soundSettings": "Ääniasetukset",
       "overlaySettings": "Overlay-asetukset",
       "deleteAccount": "Poista tili",
-      "couldNotFindUser": "Käyttäjää ei löytynyt"
+      "couldNotFindUser": "Käyttäjää ei löytynyt",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Hups! Tämä sivu katosi keskusteluun.",

@@ -73,7 +73,8 @@
       "overlaySettings": "sƃuᴉʇʇǝs ʎɐꞁɹǝʌo oʇ oƃ",
       "soundSettings": "sƃuᴉʇʇǝs punos oʇ oƃ",
       "deleteAccount": "ʇunoɔɔɐ ǝʇǝꞁǝp",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "˙uoᴉʇɐsɹǝʌuoɔ uᴉ ʇsoꞁ ʇoƃ ǝƃɐd sᴉɥ⊥ ¡sdooɥM",

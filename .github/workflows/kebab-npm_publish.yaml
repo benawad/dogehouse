@@ -1,6 +1,8 @@
 name: kebab:npm_publish
 on:
   push:
+    paths:
+      - "kebab/**"
     branches:
       - staging
 jobs:

@@ -76,7 +76,8 @@
       "soundSettings": "Tovush sozlamalari",
       "deleteAccount": "Akkauntni o'chirish",
       "overlaySettings": "Qoplama sozlamalari",
-      "couldNotFindUser": "Kechirasiz, biz bu foydalanuvchini topa olmadik"
+      "couldNotFindUser": "Kechirasiz, biz bu foydalanuvchini topa olmadik",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Afsuski! Ushbu sahifa yo'qolgan.",

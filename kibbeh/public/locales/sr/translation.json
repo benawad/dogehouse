@@ -72,7 +72,8 @@
       "soundSettings": "идите на подешавања звука",
       "deleteAccount": "Обришите налог",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Упс! Ова страница се изгубила у разговору.",

@@ -72,7 +72,8 @@
       "soundSettings": "声音设置",
       "deleteAccount": "删除账号",
       "overlaySettings": "覆盖层设置",
-      "couldNotFindUser": "对不起，无法找到该用户"
+      "couldNotFindUser": "对不起，无法找到该用户",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "哎呀，这页在聊天中被丢掉了",

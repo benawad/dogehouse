@@ -72,7 +72,8 @@
       "soundSettings": "otvoriť nastavenia zvuku",
       "deleteAccount": "odstrániť účet",
       "overlaySettings": "otvoriť nastavenia prekresľovania",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Uups! Táto stránka sa stratila v konverzácii.",

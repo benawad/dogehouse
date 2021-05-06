@@ -72,7 +72,8 @@
       "soundSettings": "Modifica impostazioni dei suoni",
       "deleteAccount": "Elimina account",
       "overlaySettings": "Vai alle impostazioni di sovrapposizione",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oops! questa pagina si è persa nella conversazione.",

@@ -1,3 +1,4 @@
+
 {
   "_comment": "if you change this file, do: yarn i18",
   "common": {
@@ -16,13 +17,13 @@
     "copied": "kopiert",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Bitte erteile DogeHouse Browserpermissions."
+    "requestPermissions": "Bitte erteile DogeHouse Browserberechtigungen."
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Stumm | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
+    "deafenedTitle": "Lautsprecher stumm | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Verbindung getrennt"
   },
@@ -88,10 +89,10 @@
       "allowAllConfirm": "Bist du sicher? Damit erteilst du {{count}} Benutzern Redeberechtigungen."
     },
     "searchUser": { "search": "Suchen..." },
-    "soundEffectSettings": { "header": "Ton", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Ton", "title": "Toneinstellungen" },
     "viewUser": {
       "editProfile": "Profil bearbeiten",
-      "followsYou": "folgt dir",
+      "followsYou": "Folgt dir",
       "following": "Abonniert",
       "followers": "Abonnenten",
       "followHim": "Folgen",
@@ -133,7 +134,7 @@
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
-      "header": "blockierte Benutzer",
+      "header": "Blockierte Benutzer",
       "unban": "Blockierung aufheben",
       "noBans": "Du hast aktuell (noch) niemanden blockiert"
     },
@@ -157,8 +158,8 @@
     },
     "micPermissionBanner": {
       "permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon. Öffne deine Browsereinstellungen, setze die nötigen Berechtigungen und lade die Seite erneut.",
-      "dismiss": "verstanden",
-      "tryAgain": "erneut versuchen"
+      "dismiss": "Verstanden",
+      "tryAgain": "Erneut versuchen"
     },
     "modals": {
       "createRoomModal": {
@@ -166,9 +167,9 @@
         "private": "Privat",
         "roomName": "Raumname",
         "roomDescription": "Raumbeschreibung",
-        "descriptionError": "die maximale Länge beträgt 500 Zeichen",
-        "nameError": "muss zwischen 2 und 60 Zeichen lang sein",
-        "subtitle": "Fill the following fields to start a new room"
+        "descriptionError": "Die maximale Länge beträgt 500 Zeichen",
+        "nameError": "Muss zwischen 2 und 60 Zeichen lang sein",
+        "subtitle": "Fülle die folgenden Felder aus, um einen Raum zu erstellen"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Neuen Raum erstellt",
@@ -179,28 +180,28 @@
       },
       "editProfileModal": {
         "usernameTaken": "Benutzername ist bereits vergeben",
-        "avatarUrlError": "ungültiges Bild",
+        "avatarUrlError": "Ungültiges Bild",
         "avatarUrlLabel": "GitHub / Twitter Avatar URL",
         "displayNameError": "Länge: 2 bis 50 Buchstaben",
         "displayNameLabel": "Anzeigename",
         "usernameError": "Länge: 4 bis 15 alphanumerische Zeichen und Unterstriche",
         "usernameLabel": "Benutzername",
         "bioError": "Maximal 160 Buchstaben",
-        "bioLabel": "Bio",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bioLabel": "Biografie",
+        "bannerUrlLabel": "Twitter Banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Bist du sicher, dass du diesen Benutzer aus allen deinen zukünftigen Räumen ausschließen möchtest?",
         "blockUser": "Benutzer blockieren",
         "makeMod": "Zum Moderator befördern",
         "unmod": "Moderator Status aufheben",
-        "addAsSpeaker": "zu Sprecher befördern",
-        "moveToListener": "zu Zuhörer herabstufen",
+        "addAsSpeaker": "Zu Sprecher befördern",
+        "moveToListener": "Zu Zuhörer herabstufen",
         "banFromChat": "Im Chat blockieren",
         "banFromRoom": "Aus Raum ausschließen",
         "goBackToListener": "Zurück zum Zuhörer",
         "deleteMessage": "Nachricht löschen",
-        "makeRoomCreator": "zum Raumadmin befördern",
+        "makeRoomCreator": "Zum Raumadmin befördern",
         "unBanFromChat": "Vom Chat entbannen"
       },
       "roomSettingsModal": {
@@ -209,7 +210,7 @@
         "makePrivate": "Raum privat machen",
         "renamePublic": "Öffentlichen Raum-Namen setzen",
         "renamePrivate": "Privaten Raum-Namen setzen",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "Chat ausschalten"
       }
     },
     "userVolumeSlider": {
@@ -233,17 +234,17 @@
       "addSupport": "erstellen und ich werde versuchen, die Unterstützung für dein Gerät hinzuzufügen."
     },
     "inviteButton": {
-      "invited": "eingeladen",
-      "inviteToRoom": "zum Raum einladen"
+      "invited": "Eingeladen",
+      "inviteToRoom": "Zum Raum einladen"
     },
     "followingOnline": {
-      "people": "People",
+      "people": "Leute",
       "online": "ONLINE",
       "noOnline": "Aktuell sind keine deiner Freunde online.",
       "showMore": "Zeige mehr"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Kommende Räume",
+      "upcomingRooms": "Anstehende Räume",
       "exploreMoreRooms": "Finde weitere Räume"
     },
     "search": {
@@ -260,7 +261,7 @@
         "modalSubtitle": "Möchtest du dich wirklich abmelden?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
+        "debugAudio": "Ton debuggen",
         "stopDebugger": "Stoppe Debugger"
       },
       "downloadApp": "App herunterladen"
@@ -281,15 +282,15 @@
         "minLength": "minimale Länge: 2",
         "roomDescription": "Raumbeschreibung"
       },
-      "tommorow": "morgen",
-      "today": "heute",
+      "tommorow": "Morgen",
+      "today": "Heute",
       "deleteModal": {
         "areYouSure": "Möchtest du diesen geplanten Raum wirklich löschen?"
       }
     },
     "roomChat": {
       "title": "Chat",
-      "emotesSoon": "[emotes bald]",
+      "emotesSoon": "[emotes kommen bald]",
       "bannedAlert": "Du wurdest aus dem Chat ausgeschlossen",
       "waitAlert": "Du musst eine Sekunde warten, bevor du eine weitere Nachricht schreiben kannst",
       "search": "Suchen",
@@ -299,19 +300,19 @@
       "whisper": "Flüstern",
       "welcomeMessage": "Willkommen im Chat!",
       "roomDescription": "Raumbeschreibung",
-      "disabled": "room chat has been disabled"
+      "disabled": "Der Chat wurde vom Raum ausgeschaltet"
     },
     "roomStatus": {
-      "fuelingRocket": "Rakete wird getankt",
+      "fuelingRocket": "Rakete wird getankt!",
       "takingOff": "Am Abheben",
       "inSpace": "Im Weltall",
-      "approachingMoon": "Nähert sich dem Mond",
+      "approachingMoon": "Nähert sich dem Mond!",
       "lunarDoge": "Lunar doge",
-      "approachingSun": "Nähert sich der Sonne",
+      "approachingSun": "Nähert sich der Sonne!",
       "solarDoge": "Solar doge",
-      "approachingGalaxy": "Nähert sich einer Galaxie",
+      "approachingGalaxy": "Nähert sich einer Galaxie!",
       "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet mit Leben gefunden"
+      "spottedLife": "Planet mit Leben gefunden!"
     },
     "feed": { "yourFeed": "Dein Feed" }
   }
