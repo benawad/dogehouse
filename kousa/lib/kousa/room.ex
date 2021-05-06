@@ -177,7 +177,7 @@ defmodule Kousa.Room do
           room_id,
           %{
             op: "mod_changed",
-            d: %{roomId: room_id, userId: user_id}
+            d: %{roomId: room_id, userId: user_id, isMod: true}
           }
         )
 
@@ -199,7 +199,7 @@ defmodule Kousa.Room do
           room_id,
           %{
             op: "mod_changed",
-            d: %{roomId: room_id, userId: user_id}
+            d: %{roomId: room_id, userId: user_id, isMod: false}
           }
         )
 
@@ -218,7 +218,7 @@ defmodule Kousa.Room do
           room_id,
           %{
             op: "mod_changed",
-            d: %{roomId: room_id, userId: user_id}
+            d: %{roomId: room_id, userId: user_id, isMod: false}
           }
         )
 
