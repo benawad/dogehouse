@@ -302,16 +302,16 @@
       "disabled": "Der Chat wurde vom Raum ausgeschaltet"
     },
     "roomStatus": {
-      "fuelingRocket": "Rakete wird getankt",
+      "fuelingRocket": "Rakete wird getankt!",
       "takingOff": "Am Abheben",
       "inSpace": "Im Weltall",
-      "approachingMoon": "Nähert sich dem Mond",
+      "approachingMoon": "Nähert sich dem Mond!",
       "lunarDoge": "Lunar doge",
-      "approachingSun": "Nähert sich der Sonne",
+      "approachingSun": "Nähert sich der Sonne!",
       "solarDoge": "Solar doge",
-      "approachingGalaxy": "Nähert sich einer Galaxie",
+      "approachingGalaxy": "Nähert sich einer Galaxie!",
       "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet mit Leben gefunden"
+      "spottedLife": "Planet mit Leben gefunden!"
     },
     "feed": { "yourFeed": "Dein Feed" }
   }
