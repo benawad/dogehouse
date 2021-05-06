@@ -43,8 +43,8 @@
     "home": {
       "createRoom": "Lag et rom",
       "refresh": "Last inn på nytt",
-      "editRoom": "Edit Room",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "editRoom": "Rediger Rom",
+      "desktopAlert": "Last ned DogeHouse skrivebords appen i dag!"
     },
     "inviteList": {
       "roomGone": "Rommet finnes ikke lengre, gå tilbake",
@@ -63,7 +63,7 @@
       "loginGithub": "Logg inn med GitHub",
       "loginTwitter": "Logg inn med Twitter",
       "createTestUser": "Opprett en test-bruker",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "Logg inn med Discord"
     },
     "myProfile": {
       "logout": "Logg ut",
@@ -73,7 +73,7 @@
       "deleteAccount": "Slett konto",
       "overlaySettings": "Gå til overleggsinnstillinger",
       "couldNotFindUser": "Beklager, vi kunne ikke finne denne brukeren..",
-      "privacySettings": "Privacy settings"
+      "privacySettings": "Personvern innstilinger"
     },
     "notFound": {
       "whoopsError": "Oi sann! Denne siden ble tapt i samtalen.",
@@ -88,7 +88,7 @@
       "allowAllConfirm": "Er du sikker? Dette vil tillate alle {{count}} spørrende brukere til å snakke"
     },
     "searchUser": { "search": "søk..." },
-    "soundEffectSettings": { "header": "Lyder", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Lyder", "title": "Lyd Innstilinger" },
     "viewUser": {
       "editProfile": "Rediger profil",
       "followsYou": "Følger deg",
@@ -96,8 +96,8 @@
       "following": "følger",
       "followHim": "Følg",
       "followingHim": "Følger",
-      "copyProfileUrl": "Kopiér profil URL",
-      "urlCopied": "URL kopiert til utklippstavlen",
+      "copyProfileUrl": "Kopiér profil link",
+      "urlCopied": "Link kopiert til utklippstavlen",
       "unfollow": "Slutt å følge",
       "about": "Om bruker",
       "bot": "Bot"
@@ -116,7 +116,7 @@
     "download": {
       "starting": "Starter nedlastning...",
       "failed": "Kunne ikke gjøre automatisk nedlastning, prøv igjen senere",
-      "visit_gh": "Besøk Github lanseringer",
+      "visit_gh": "Besøk Github utgivelser",
       "prompt": "Klikk på knappen nedenfor, for å starte nedlastningen",
       "download_now": "Last ned nå",
       "download_for": "Nedlastning for %platform% (%ext%)"
@@ -145,14 +145,14 @@
       "speaker": "Taler",
       "listener": "Lytter",
       "chat": "Chat",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Veksle Døving",
+      "deafen": "Skrudd av lyd",
+      "undeafen": "Skrudd på lyd"
     },
     "deviceNotSupported": {
       "notSupported": "Enheten din støttes foreløpig ikke. Du kan opprette ett",
       "linkText": "problem på GitHub",
-      "addSupport": "så skal jeg prøve å legge til støtte for enheten din."
+      "addSupport": "så skal vi prøve å legge til støtte for enheten din."
     },
     "inviteButton": {
       "invited": "Invitert",
@@ -168,8 +168,8 @@
       "listening": "Lytter",
       "toggleMuteKeybind": "Veksle demping av hurtigtast",
       "togglePushToTalkKeybind": "Veksle trykk for å snakke hurtigtast",
-      "toggleOverlayKeybind": "Overlay hurtigtast",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleOverlayKeybind": "Overlegg hurtigtast",
+      "toggleDeafKeybind": "Veksle døving hurtigtast"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Ingen lydmottaker av en eller annen grunn"
@@ -187,7 +187,7 @@
         "roomDescription": "Rombeskrivelse",
         "descriptionError": "Maksimal lengde er 500 tegn",
         "nameError": "Må være mellom 2 og 60 tegn",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Fyll inn følgende detaljer for å starte et nytt rom"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nytt rom er opprettet",
@@ -205,7 +205,7 @@
         "usernameError": "Lengden må være mellom 4 og 15 tegn og kan kun inneholde alfanumerisk/understrek",
         "usernameLabel": "Brukernavn",
         "bioError": "Maksimal lengde er 160 tegn",
-        "bioLabel": "Bio",
+        "bioLabel": "Biografi",
         "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
@@ -220,15 +220,15 @@
         "goBackToListener": "Gå tilbake til lytter",
         "deleteMessage": "Slett denne meldingen",
         "makeRoomCreator": "Opprett rom-administrator",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban fra Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Krev tillatelse for å snakke",
         "makePublic": "Gjør rommet offentlig",
         "makePrivate": "Gjør rommet privat",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "renamePublic": "Set offentlig rom navn",
+        "renamePrivate": "Set private rom navn",
+        "chatDisabled": "Skru av chat"
       }
     },
     "followingOnline": {
@@ -243,7 +243,7 @@
     },
     "search": {
       "placeholder": "Søk etter rom, brukere eller kategorier",
-      "placeholderShort": "Search"
+      "placeholderShort": "Søk"
     },
     "settingsDropdown": {
       "profile": "Profil",
@@ -255,10 +255,10 @@
         "modalSubtitle": "Er du sikker på at du vil logge ut?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "Feilsøk Lyd",
+        "stopDebugger": "Stopp Feilsøking"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Last ned App"
     }
   },
   "modules": {
@@ -294,7 +294,7 @@
       "whisper": "Hviske",
       "welcomeMessage": "Velkommen til chatten!",
       "roomDescription": "Rombeskrivelse",
-      "disabled": "room chat has been disabled"
+      "disabled": "Rom chat har blirr skrudd av"
     },
     "roomStatus": {
       "fuelingRocket": "Fyller på rakkett med drivstoff",
@@ -308,6 +308,7 @@
       "galacticDoge": "Galakse-doge",
       "spottedLife": "Planet med liv oppdaget"
     },
-    "feed": { "yourFeed": "Din Feed" }
+    "feed": { "yourFeed": "Feeden din" }
+    
   }
 }
