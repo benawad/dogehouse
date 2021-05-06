@@ -19,7 +19,7 @@ This project is using the [conventional commits](https://www.conventionalcommits
 commit messages are standardized:
 1. Make sure your shell path is in the root of the project (not inside any of the packages).
 2. Run `yarn`.
-3. Stage the files you are commiting with `git add [files]`.
+3. Stage the files you are committing with `git add [files]`.
 4. Run `yarn commit`. This will start an interactive prompt that generates your commit message:
     1. Select the type of change.
     2. Type the scope. This is either `global` for project-wide changes or one of the packages (kibbeh, shawarma etc.).
@@ -48,14 +48,14 @@ Do this if you only want to do React stuff and don't want to touch Elixir:
 Navigate to `/kibbeh`
 
 - Run `yarn`
-- Run `yarn staging` (this tells React to connect to a hosted version of the backend for development purposes)
-- Read `kibbeh/README.md` for more information and a fixes for known development issues.
+- Run `yarn staging` (this tells React to connect to a hosted version of the backend for development purposes).
+- Read `kibbeh/README.md` for more information and fixes for known development issues.
 > **NOTE:** Please follow the [design guidelines](https://github.com/benawad/dogehouse/blob/staging/DESIGN_GUIDELINES.md) and [figma mockups](https://www.figma.com/file/CS01VVLR7ArQl0afYFkNj3/Web-App) and if what you're trying to do isn't in there, consult [@ajmnz](https://github.com/ajmnz)/[@benawad](https://github.com/benawad) beforehand.
 
 ## Translating
 1. Set up the front-end (previous step).
 2. Go to `kibbeh/public/locales`.
-3. Check if a folder with the language you want to add / edit already exists. If not, copy `en/translation`, create the folder and paste it there.
+3. Check if a folder with the language you want to add/ edit already exists. If not, copy `en/translation`, create the folder and paste it there.
 4. Edit the JSON file. Make sure that it's valid.
 5. Go to `kibbeh/src/ui/LanguageSelector.tsx` and edit the object to include your language.
 6. Test and make a pull request.
@@ -67,7 +67,7 @@ Navigate to `/kibbeh`
 4. Run `yarn i18` to generate all fields into all other `translation.json`.
 
 ## Devcontainer Full Local Development
-For VSCode users, we're able to use devcontainers which allows to create development environments that already have all the tools and services configured and ready to go.
+For VSCode users, we're able to use devcontainers which allows you to create development environments that already have all the tools and services configured and ready to go.
 
 ### Usage
 
