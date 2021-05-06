@@ -39,11 +39,13 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
           {/* require ask to speak */}
           <label className={`flex items-center my-1`} htmlFor="auto-speaker">
             <input
-              checked={!data.autoSpeaker}
+              checked={!data.room.autoSpeaker}
               onChange={(e) => {
                 const autoSpeaker = !e.target.checked;
                 updater(["joinRoomAndGetInfo", data.room.id], (d) =>
-                  !d ? d : { ...d, autoSpeaker }
+                  !d || "error" in d
+                    ? d
+                    : { ...d, room: { ...d.room, autoSpeaker } }
                 );
                 conn.mutation.roomUpdate({ autoSpeaker });
               }}

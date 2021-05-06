@@ -17,7 +17,6 @@ export type JoinRoomAndGetInfoResponse = {
   deafMap: Record<string, boolean>;
   roomId: string;
   activeSpeakerMap: Record<string, boolean>;
-  autoSpeaker: boolean;
 };
 
 export type GetRoomUsersResponse = {

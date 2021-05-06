@@ -25,6 +25,7 @@ export type Room = {
   voiceServerId: string;
   creatorId: string;
   peoplePreviewList: Array<UserPreview>;
+  autoSpeaker: boolean;
   inserted_at: string;
   chatMode: ChatMode;
   chatThrottle: number;
