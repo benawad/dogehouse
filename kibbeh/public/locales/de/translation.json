@@ -88,7 +88,7 @@
       "allowAllConfirm": "Bist du sicher? Damit erteilst du {{count}} Benutzern Redeberechtigungen."
     },
     "searchUser": { "search": "Suchen..." },
-    "soundEffectSettings": { "header": "Ton", "title": "Ton Einstellungen" },
+    "soundEffectSettings": { "header": "Ton", "title": "Toneinstellungen" },
     "viewUser": {
       "editProfile": "Profil bearbeiten",
       "followsYou": "Folgt dir",
@@ -158,7 +158,7 @@
     "micPermissionBanner": {
       "permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon. Öffne deine Browsereinstellungen, setze die nötigen Berechtigungen und lade die Seite erneut.",
       "dismiss": "Verstanden",
-      "tryAgain": "Erneut Versuchen"
+      "tryAgain": "Erneut versuchen"
     },
     "modals": {
       "createRoomModal": {
@@ -168,7 +168,7 @@
         "roomDescription": "Raumbeschreibung",
         "descriptionError": "Die maximale Länge beträgt 500 Zeichen",
         "nameError": "Muss zwischen 2 und 60 Zeichen lang sein",
-        "subtitle": "Fülle die folgenden Felder aus um einen Raum zu erstellen"
+        "subtitle": "Fülle die folgenden Felder aus, um einen Raum zu erstellen"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Neuen Raum erstellt",
