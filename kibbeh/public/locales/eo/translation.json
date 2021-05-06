@@ -73,7 +73,8 @@
       "soundSettings": "iru al sonaj agordoj",
       "deleteAccount": "forigi konton",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ho ve! Ĉi tiu paĝo perdiĝis en konversacio",

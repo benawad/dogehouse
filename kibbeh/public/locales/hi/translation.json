@@ -72,7 +72,8 @@
       "soundSettings": "साउंड सेटिंग में जाएं",
       "deleteAccount": "खाता हटाएं",
       "overlaySettings": "ओवरले सेटिंग्स पर जाएं",
-      "couldNotFindUser": "क्षमा करें, हमें वह उपयोगकर्ता नहीं मिला"
+      "couldNotFindUser": "क्षमा करें, हमें वह उपयोगकर्ता नहीं मिला",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "वूप्स! यह पेज बातचीत में खो गया.",

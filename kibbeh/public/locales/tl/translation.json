@@ -72,7 +72,8 @@
       "overlaySettings": "Overlay Settings",
       "soundSettings": "pumunta sound settings",
       "deleteAccount": "I-delete ang iyong account",
-      "couldNotFindUser": "Kinalulungkot namin na hindi matagpuan ang iyong hinahanap"
+      "couldNotFindUser": "Kinalulungkot namin na hindi matagpuan ang iyong hinahanap",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Ang page na ito ay nawala.",

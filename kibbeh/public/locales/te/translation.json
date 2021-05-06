@@ -72,7 +72,8 @@
       "overlaySettings": "go to overlay settings",
       "soundSettings": "సౌండ్  సెట్టింగ్‌లకు వెళ్లండి",
       "deleteAccount": "delete account",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",

@@ -34,9 +34,7 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "banish"
-    },
+    "banUser": { "ban": "banish" },
     "download": {
       "prompt": "get da desktp ap",
       "download_for": "get fur %platform% (%ext%)",
@@ -48,10 +46,7 @@
       "currentRoom": "rn ur in:",
       "startPrivateRoom": "go in private howse wit dem"
     },
-    "followList": {
-      "followHim": "stalk",
-      "followingHim": "stalking"
-    },
+    "followList": { "followHim": "stalk", "followingHim": "stalking" },
     "home": {
       "createRoom": "mak new howse",
       "editRoom": "mak howse difernt",
@@ -84,7 +79,8 @@
       "overlaySettings": "ovrlai settns",
       "soundSettings": "sond settns",
       "deleteAccount": "get acont an yeet it into kitteh litter",
-      "couldNotFindUser": "Sozz, but dat user no exist"
+      "couldNotFindUser": "Sozz, but dat user no exist",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "dis page tok a wrong turn and got lost",
@@ -98,13 +94,8 @@
       "allowAll": "let all spek",
       "allowAllConfirm": "u crazy? dis will let {{count}} kittehs talk"
     },
-    "searchUser": {
-      "search": "search..."
-    },
-    "soundEffectSettings": {
-      "header": "Sounds",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "search..." },
+    "soundEffectSettings": { "header": "Sounds", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "mak profile difernt",
       "followsYou": "stalks u",
@@ -171,10 +162,7 @@
       "noOnline": "u has no fwens",
       "showMore": "Show more"
     },
-    "inviteButton": {
-      "invited": "Invited!",
-      "inviteToRoom": "Invite to room"
-    },
+    "inviteButton": { "invited": "Invited!", "inviteToRoom": "Invite to room" },
     "micPermissionBanner": {
       "permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
       "dismiss": "Dismiss",
@@ -195,9 +183,7 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore more rooms"
     },
-    "addToCalendar": {
-      "add": "Add to Calendar"
-    },
+    "addToCalendar": { "add": "Add to Calendar" },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "Reconnect"
@@ -269,15 +255,14 @@
         "makePublic": "make room public",
         "makePrivate": "make room private",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     }
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Your feed"
-    },
+    "feed": { "yourFeed": "Your feed" },
     "scheduledRooms": {
       "title": "Scheduled Rooms",
       "noneFound": "none found",
@@ -308,7 +293,8 @@
       "sendMessage": "Send a Message",
       "whisper": "Whisper",
       "welcomeMessage": "Welcome to chat!",
-      "roomDescription": "Room description"
+      "roomDescription": "Room description",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

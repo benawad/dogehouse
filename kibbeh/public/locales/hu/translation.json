@@ -71,7 +71,8 @@
       "soundSettings": "Hanghatások",
       "deleteAccount": "Fiók törlése",
       "overlaySettings": "Go to overlay settings",
-      "couldNotFindUser": "Sajnáljuk, a felhasználó nem található"
+      "couldNotFindUser": "Sajnáljuk, a felhasználó nem található",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Ez az oldal elveszett a beszélgetésben.",
@@ -230,7 +231,6 @@
     "followingOnline": {
       "people": "Felhasználok",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
       "noOnline": "Jelenleg nincsenek online barátai",
       "showMore": "Továbbiak"
     },
@@ -274,9 +274,7 @@
       },
       "tommorow": "HOLNAP",
       "today": "MA",
-      "deleteModal": {
-        "areYouSure": "Biztosan törölné az ütemzett szobát?"
-      }
+      "deleteModal": { "areYouSure": "Biztosan törölné az ütemzett szobát?" }
     },
     "roomChat": {
       "title": "Chat",

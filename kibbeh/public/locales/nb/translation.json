@@ -72,7 +72,8 @@
       "soundSettings": "Gå til lydinnstillinger",
       "deleteAccount": "Slett konto",
       "overlaySettings": "Gå til overleggsinnstillinger",
-      "couldNotFindUser": "Beklager, vi kunne ikke finne denne brukeren.."
+      "couldNotFindUser": "Beklager, vi kunne ikke finne denne brukeren..",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oi sann! Denne siden ble tapt i samtalen.",

@@ -72,7 +72,8 @@
       "soundSettings": "聲音設定",
       "deleteAccount": "刪除帳號",
       "overlaySettings": "介面設定",
-      "couldNotFindUser": "很抱歉，我們找不到這名用戶"
+      "couldNotFindUser": "很抱歉，我們找不到這名用戶",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "噢！這一頁不見了‧",

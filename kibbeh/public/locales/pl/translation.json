@@ -73,7 +73,8 @@
       "overlaySettings": "Ustawienia nakładki",
       "soundSettings": "Ustawienia dźwięku",
       "deleteAccount": "Usuń konto",
-      "couldNotFindUser": "Przepraszamy, nie udało się znaleźć tego użytkownika"
+      "couldNotFindUser": "Przepraszamy, nie udało się znaleźć tego użytkownika",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ta strona zagubiła się w konwersacji.",
