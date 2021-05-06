@@ -73,7 +73,8 @@
       "soundSettings": "Přejít na nastavení zvuku",
       "deleteAccount": "Smazat účet",
       "overlaySettings": "Přejít na nastavení overlaye",
-      "couldNotFindUser": "Uživatel bohužel nenalezen..."
+      "couldNotFindUser": "Uživatel bohužel nenalezen...",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Upst! Tahle místnost se ztratila v konverzaci.",
@@ -110,7 +111,10 @@
       "volume": "Hlasitost:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Neplatný název aplikace", "label": "Zadej název aplikace" },
+      "input": {
+        "errorMsg": "Neplatný název aplikace",
+        "label": "Zadej název aplikace"
+      },
       "header": "Nastavení overlaye",
       "errorMsg": "Zadej platný název aplikace",
       "label": "Zadej název aplikace"

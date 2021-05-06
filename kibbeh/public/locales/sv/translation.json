@@ -72,7 +72,8 @@
       "soundSettings": "Ljudinställningar",
       "deleteAccount": "Radera konto",
       "overlaySettings": "Overlayinställningar",
-      "couldNotFindUser": "Förlåt, vi kunde inte hitta den användaren"
+      "couldNotFindUser": "Förlåt, vi kunde inte hitta den användaren",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Denna sida blev förlorad i konversationen.",

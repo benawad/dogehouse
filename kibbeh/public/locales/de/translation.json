@@ -73,7 +73,8 @@
       "soundSettings": "Soundeinstellungen",
       "deleteAccount": "Konto löschen",
       "overlaySettings": "Overlay-Einstellungen löschen",
-      "couldNotFindUser": "Wir konnten diesen Benutzer leider nicht finden. "
+      "couldNotFindUser": "Wir konnten diesen Benutzer leider nicht finden. ",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",

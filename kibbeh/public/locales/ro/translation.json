@@ -73,7 +73,8 @@
       "soundSettings": "Mergi la setările de sunet",
       "deleteAccount": "Şterge cont",
       "overlaySettings": "Accesați setările de suprapunere",
-      "couldNotFindUser": "Scuze, noi nu am putut gasi acel utilizatori"
+      "couldNotFindUser": "Scuze, noi nu am putut gasi acel utilizatori",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Această pagină a fost pierdută în conversație.",
