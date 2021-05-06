@@ -73,7 +73,8 @@
       "soundSettings": "ශබ්ද සැකසුම් වලට යන්න",
       "deleteAccount": "ගිණුම ඉවත් කරන්න",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! සංවාදයේදී මෙම පිටුව මඟහැරී ඇත.",

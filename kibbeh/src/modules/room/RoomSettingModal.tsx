@@ -1,34 +1,37 @@
+import { ChatMode } from "@dogehouse/kebab";
 import React from "react";
 import { useWrappedConn } from "../../shared-hooks/useConn";
-import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
+import { useCurrentRoomFromCache } from "../../shared-hooks/useCurrentRoomFromCache";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { InfoText } from "../../ui/InfoText";
+import { Input } from "../../ui/Input";
 import { Modal } from "../../ui/Modal";
+import { NativeSelect } from "../../ui/NativeSelect";
 import { BlockedFromRoomUsers } from "./BlockedFromRoomUsers";
 
 interface RoomSettingsModalProps {
+  open: boolean;
   onRequestClose: () => void;
-  roomId: string;
 }
 
+const options = [
+  { label: "enabled", value: "default" },
+  { label: "disabled", value: "disabled" },
+  { label: "follower only", value: "follower_only" },
+];
+
 export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
+  open,
   onRequestClose,
-  roomId,
 }) => {
   const conn = useWrappedConn();
-  const { data } = useTypeSafeQuery(
-    ["joinRoomAndGetInfo", roomId],
-    {
-      enabled: !!roomId,
-      refetchOnMount: "always",
-    },
-    [roomId]
-  );
+  const data = useCurrentRoomFromCache();
   const updater = useTypeSafeUpdateQuery();
   const { t } = useTypeSafeTranslation();
+
   return (
-    <Modal isOpen={!!roomId} onRequestClose={onRequestClose}>
+    <Modal isOpen={open} onRequestClose={onRequestClose}>
       {!data || "error" in data ? (
         <InfoText>something went wrong</InfoText>
       ) : (
@@ -36,11 +39,13 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
           {/* require ask to speak */}
           <label className={`flex items-center my-1`} htmlFor="auto-speaker">
             <input
-              checked={!data.autoSpeaker}
+              checked={!data.room.autoSpeaker}
               onChange={(e) => {
                 const autoSpeaker = !e.target.checked;
-                updater(["joinRoomAndGetInfo", roomId!], (d) =>
-                  !d ? d : { ...d, autoSpeaker }
+                updater(["joinRoomAndGetInfo", data.room.id], (d) =>
+                  !d || "error" in d
+                    ? d
+                    : { ...d, room: { ...d.room, autoSpeaker } }
                 );
                 conn.mutation.roomUpdate({ autoSpeaker });
               }}
@@ -52,23 +57,57 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
             </span>
           </label>
 
-          {/* chat disabled */}
-          <label className={`flex items-center my-1`} htmlFor="chat-disabled">
-            <input
-              checked={data.chatMode === "disabled"}
+          <label className={`items-center my-1`} htmlFor="chat-cooldown">
+            <div className={`text-primary-100 mb-1`}>
+              Chat Cooldown (milliseconds)
+            </div>
+            <Input
+              defaultValue={data.room.chatThrottle}
+              className={`rounded-8 bg-primary-700 h-6`}
+              onBlur={(e) => {
+                const chatThrottle = Number(e.target.value);
+                if (chatThrottle >= 0) {
+                  updater(["joinRoomAndGetInfo", data.room.id], (d) =>
+                    !d ? d : { ...d, chatThrottle }
+                  );
+                  conn.mutation.roomUpdate({ chatThrottle });
+                }
+              }}
               onChange={(e) => {
-                const chatMode = e.target.checked ? "disabled" : "default";
-                updater(["joinRoomAndGetInfo", roomId!], (d) =>
-                  !d ? d : { ...d, chatMode }
-                );
+                const chatThrottle = Number(e.target.value);
+                if (chatThrottle >= 0) {
+                  updater(["joinRoomAndGetInfo", data.room.id], (d) =>
+                    !d ? d : { ...d, chatThrottle }
+                  );
+                }
+              }}
+              id="chat-cooldown"
+              type="number"
+            />
+          </label>
+
+          {/* chat disabled */}
+          <label className={`mt-2`} htmlFor="chat-mode">
+            <div className={`text-primary-100 mb-1`}>Chat</div>
+            <NativeSelect
+              value={data.room.chatMode}
+              onChange={(e) => {
+                const chatMode = e.target.value as ChatMode;
+                updater(["joinRoomAndGetInfo", data.room.id], (d) => {
+                  return !d || "error" in d
+                    ? d
+                    : { ...d, room: { ...d.room, chatMode } };
+                });
                 conn.mutation.roomUpdate({ chatMode });
               }}
-              id="chat-disabled"
-              type="checkbox"
-            />
-            <span className={`ml-2 text-primary-100`}>
-              {t("components.modals.roomSettingsModal.chatDisabled")}
-            </span>
+              id="chat-mode"
+            >
+              {options.map((o) => (
+                <option key={o.value} value={o.value}>
+                  {o.label}&nbsp;&nbsp;&nbsp;
+                </option>
+              ))}
+            </NativeSelect>
           </label>
           <BlockedFromRoomUsers />
         </div>

@@ -73,7 +73,8 @@
       "soundSettings": "Toneinstöllungen",
       "deleteAccount": "Konto löschn",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Tuat uns leid, konntn den Nutza ned findn"
+      "couldNotFindUser": "Tuat uns leid, konntn den Nutza ned findn",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oida! De Seite ist im Gespräch verlurn gaunga.",

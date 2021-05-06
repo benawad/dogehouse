@@ -72,7 +72,8 @@
       "soundSettings": "साउंड सेटिंग्समा जानुहोस्",
       "deleteAccount": "खाता मेटाउनुहोस्",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "ओहो ! यो पृष्ठ त कुराकानीमै हरायो।.",

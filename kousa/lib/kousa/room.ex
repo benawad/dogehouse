@@ -171,11 +171,13 @@ defmodule Kousa.Room do
       {:creator, _} ->
         RoomPermissions.set_is_mod(user_id, room_id, true)
 
+        Onion.Chat.set_can_chat(room_id, user_id)
+
         Onion.RoomSession.broadcast_ws(
           room_id,
           %{
             op: "mod_changed",
-            d: %{roomId: room_id, userId: user_id}
+            d: %{roomId: room_id, userId: user_id, isMod: true}
           }
         )
 
@@ -197,7 +199,7 @@ defmodule Kousa.Room do
           room_id,
           %{
             op: "mod_changed",
-            d: %{roomId: room_id, userId: user_id}
+            d: %{roomId: room_id, userId: user_id, isMod: false}
           }
         )
 
@@ -216,7 +218,7 @@ defmodule Kousa.Room do
           room_id,
           %{
             op: "mod_changed",
-            d: %{roomId: room_id, userId: user_id}
+            d: %{roomId: room_id, userId: user_id, isMod: false}
           }
         )
 
@@ -265,15 +267,10 @@ defmodule Kousa.Room do
   defp set_listener(room_id, user_id, setter_id) do
     # TODO: refactor this to be simpler.  The list of
     # creators and mods should be in the preloads of the room.
-    case Rooms.get_room_status(setter_id) do
-      {_, nil} ->
-        :noop
-
-      {auth, _} when auth in [:creator, :mod] ->
+    with {auth, _} <- Rooms.get_room_status(setter_id), {role, _} <- Rooms.get_room_status(user_id) do
+      if auth == :creator or (auth == :mod and role not in [:creator, :mod]) do
         internal_set_listener(user_id, room_id)
-
-      _ ->
-        :noop
+      end
     end
   end
 
@@ -311,6 +308,7 @@ defmodule Kousa.Room do
   defp internal_set_speaker(user_id, room_id) do
     case RoomPermissions.set_speaker(user_id, room_id, true) do
       {:ok, _} ->
+        Onion.Chat.set_can_chat(room_id, user_id)
         # kind of horrible to have to make a double genserver call
         # here, we'll have to think about how this works (who owns muting)
         Onion.RoomSession.add_speaker(
@@ -361,6 +359,7 @@ defmodule Kousa.Room do
             d: %{
               name: room.name,
               description: room.description,
+              chatThrottle: room.chatThrottle,
               isPrivate: room.isPrivate,
               roomId: room.id
             }
@@ -434,6 +433,7 @@ defmodule Kousa.Room do
           room_id: room.id,
           voice_server_id: room.voiceServerId,
           auto_speaker: auto_speaker,
+          chat_throttle: room.chatThrottle,
           chat_mode: room.chatMode,
           room_creator_id: room.creatorId
         )

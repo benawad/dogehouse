@@ -73,7 +73,8 @@
       "soundSettings": "idite na postavke zvuka",
       "deleteAccount": "izbriši račun",
       "overlaySettings": "idi na postavke prekrivača",
-      "couldNotFindUser": "Oprostite, nismo mogli pronači tog korisnika"
+      "couldNotFindUser": "Oprostite, nismo mogli pronači tog korisnika",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ova se stranica izgubila u razgovoru.",

@@ -72,7 +72,8 @@
       "soundSettings": "Pengaturan bunyi",
       "deleteAccount": "Hapus akun",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Maaf, kami tidak bisa menemukan pengguna itu"
+      "couldNotFindUser": "Maaf, kami tidak bisa menemukan pengguna itu",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oops! Halaman ini hilang dalam percakapan.",

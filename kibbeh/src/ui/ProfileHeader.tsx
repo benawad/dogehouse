@@ -146,7 +146,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
               onClick={async () => {
                 await mutateAsync([user.id, !user.youAreFollowing]);
                 updater(["getUserProfile", username], (u) =>
-                  !u
+                  !u || "error" in u
                     ? u
                     : {
                         ...u,

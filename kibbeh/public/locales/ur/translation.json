@@ -73,7 +73,8 @@
       "soundSettings": "آواز کی ترتیبات پر جائیں",
       "deleteAccount": "اکاؤنٹ ہمیشہ کے لئے ڈیلیٹ کریں",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "افوہ! لگتا ہے کچھ پنگا ہوگیا۔",

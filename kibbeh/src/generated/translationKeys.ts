@@ -60,6 +60,7 @@ export type TranslationKeys =
 	| "pages.myProfile.soundSettings"
 	| "pages.myProfile.deleteAccount"
 	| "pages.myProfile.couldNotFindUser"
+	| "pages.myProfile.privacySettings"
 	| "pages.notFound.whoopsError"
 	| "pages.notFound.goHomeMessage"
 	| "pages.notFound.goHomeLinkText"

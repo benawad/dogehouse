@@ -35,7 +35,12 @@ defmodule BrothTest.EditRoomTest do
         WsClient.send_call_legacy(
           t.client_ws,
           "edit_room",
-          %{"name" => "bar room", "description" => "baz quux", "privacy" => "private"}
+          %{
+            "name" => "bar room",
+            "description" => "baz quux",
+            "privacy" => "private",
+            "chatThrottle" => 1
+          }
         )
 
       WsClient.assert_reply_legacy(
@@ -49,6 +54,7 @@ defmodule BrothTest.EditRoomTest do
         %{
           "description" => "baz quux",
           "isPrivate" => true,
+          "chatThrottle" => 1,
           "name" => "bar room",
           "roomId" => ^room_id
         }
@@ -58,6 +64,7 @@ defmodule BrothTest.EditRoomTest do
       assert %{
                isPrivate: true,
                description: "baz quux",
+               chatThrottle: 1,
                name: "bar room"
              } = Beef.Rooms.get_room_by_id(room_id)
     end

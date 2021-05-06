@@ -76,7 +76,8 @@
       "soundSettings": "Настройки звука",
       "deleteAccount": "Удалить аккаунт",
       "overlaySettings": "Настройки оверлея",
-      "couldNotFindUser": "К сожалению, мы не можем найти этого пользователя"
+      "couldNotFindUser": "К сожалению, мы не можем найти этого пользователя",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Упс! Эта страница была потеряна.",

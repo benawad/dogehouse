@@ -73,7 +73,8 @@
       "soundSettings": "Nastavitve zvoka",
       "deleteAccount": "Izbrišite račun",
       "overlaySettings": "odprite nastavitve za okna",
-      "couldNotFindUser": "Tega uporabnika žal ni bilo mogoče najti"
+      "couldNotFindUser": "Tega uporabnika žal ni bilo mogoče najti",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ta stran se je v pogovoru izgubila.",

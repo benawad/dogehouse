@@ -83,8 +83,8 @@ const userDetail: UserSummaryCardProps = {
   website: "https://loremipsum.com",
   isOnline: true,
   badges: [
-    { content: "ƉC", variant: "primary" },
-    { content: "ƉS", variant: "primary" },
+    { content: "ƉC", variant: "primary", color: "white" },
+    { content: "ƉS", variant: "primary", color: "grey" },
   ],
 };
 
