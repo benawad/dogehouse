@@ -78,7 +78,7 @@
     "notFound": {
       "whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",
       "goHomeMessage": "Keine Sorge. Du kannst",
-      "goHomeLinkText": "Nach Hause"
+      "goHomeLinkText": "nach Hause"
     },
     "room": {
       "speakers": "Sprecher",
