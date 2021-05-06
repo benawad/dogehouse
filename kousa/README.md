@@ -7,6 +7,13 @@
 Coverage report: `mix coveralls.html`.
 Pretty information outputted into `cover/excoveralls.html`
 
+## Running as Development
+
+1. Install dependencies with `mix deps.get`
+2. Create a Github, Twitter and Discord OAuth application and paste credentials in `.envrc`
+3. Compile and build kousa `mix do compile, release`
+4. Run kousa `_build/dev/rel/kousa/bin/kousa start`
+
 ## Autoformatting
 
 `mix format`
