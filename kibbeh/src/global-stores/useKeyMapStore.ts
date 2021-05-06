@@ -52,7 +52,7 @@ function getPTTKeybind() {
 }
 
 function getOverlayKeybind() {
-  return getKeybind(OVERLAY_KEY, "Control+Tab");
+  return getKeybind(OVERLAY_KEY, "Control+2");
 }
 
 const keyMap: KeyMap = {

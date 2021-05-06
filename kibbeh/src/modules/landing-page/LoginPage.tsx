@@ -147,9 +147,7 @@ export const LoginPage: React.FC = () => {
                 <SvgSolidDiscord width={20} height={20} />
                 Log in with Discord
               </LoginButton>
-            ) : (
-              <></>
-            )}
+            ) : null}
             {!__prod__ ? (
               <LoginButton
                 dev
