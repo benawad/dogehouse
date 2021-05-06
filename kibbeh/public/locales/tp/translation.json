@@ -76,7 +76,8 @@
       "overlaySettings": "open e sitelen lawa pi sitelen sewi sitelen sina",
       "soundSettings": "open e sitelen lawa pi kalama",
       "deleteAccount": "pakala e jan sina",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",
@@ -203,7 +204,7 @@
       "editProfileModal": {
         "usernameTaken": "jan sin li jo e nimi nanpa ni",
         "avatarUrlError": "sitelen sina li ike",
-        "avatarUrlLabel": "sitelen tawa pi sitelen sina pi lipu Github/Twitter",
+        "avatarUrlLabel": "sitelen tawa pi sitelen sina pi lipu Github/Twitter/Discord",
         "displayNameError": "anpa pi suli li tu. anpa sewi pi suli li mute mute luka luka.",
         "displayNameLabel": "nimi",
         "usernameError": "anpa pi suli li tu tu. anpa sewi pi suli li luka luka luka. wan pi nimi li sitelen Latin anu nanpa anu linja anpa",
@@ -231,7 +232,8 @@
         "makePublic": "kulupu e tomo",
         "makePrivate": "kulupu ala e tomo",
         "renamePublic": "ante e nimi tomo kulupu",
-        "renamePrivate": "ante e nimi tomo pi kulupu ala"
+        "renamePrivate": "ante e nimi tomo pi kulupu ala",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -296,7 +298,8 @@
       "sendMessage": "pana e sitelen",
       "whisper": "Toki pi kalama lili",
       "welcomeMessage": "Kama pona lon toki sitelen!",
-      "roomDescription": "sitelen tomo"
+      "roomDescription": "sitelen tomo",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "telo suli li tawa tawa palisa pi kon pi sewi mute",

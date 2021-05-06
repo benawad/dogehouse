@@ -9,6 +9,7 @@ import { BoxedIcon } from "../../ui/BoxedIcon";
 import { RoomAvatar } from "../../ui/RoomAvatar";
 import { UserPreviewModalContext } from "./UserPreviewModalProvider";
 import { Emote } from "./chat/Emote";
+import { useScreenType } from "../../shared-hooks/useScreenType";
 
 export const useSplitUsersIntoSections = ({
   room,
@@ -21,6 +22,7 @@ export const useSplitUsersIntoSections = ({
   const { muted } = useMuteStore();
   const { deafened } = useDeafStore();
   const { setData } = useContext(UserPreviewModalContext);
+  const screenType = useScreenType();
   const speakers: React.ReactNode[] = [];
   const askingToSpeak: React.ReactNode[] = [];
   const listeners: React.ReactNode[] = [];
@@ -81,7 +83,7 @@ export const useSplitUsersIntoSections = ({
     // }
   });
 
-  if (canIAskToSpeak) {
+  if (canIAskToSpeak && screenType !== "fullscreen") {
     speakers.push(
       <div key="megaphone" className={`flex justify-center`}>
         <BoxedIcon

@@ -73,7 +73,8 @@
       "soundSettings": "آواز کی ترتیبات پر جائیں",
       "deleteAccount": "اکاؤنٹ ہمیشہ کے لئے ڈیلیٹ کریں",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "افوہ! لگتا ہے کچھ پنگا ہوگیا۔",
@@ -228,7 +229,8 @@
         "makePublic": "کمرے کو عوامی بنائیں",
         "makePrivate": "کمرے کو نجی بنائیں",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -293,7 +295,8 @@
       "sendMessage": "پیغام بھیجو",
       "whisper": "سرگوشی",
       "welcomeMessage": "چیٹ میں خوش آمدید!",
-      "roomDescription": "کمرے کی تفصیل"
+      "roomDescription": "کمرے کی تفصیل",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

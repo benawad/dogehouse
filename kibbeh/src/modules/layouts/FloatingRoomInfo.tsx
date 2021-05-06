@@ -1,31 +1,17 @@
 import { useRouter } from "next/router";
 import React from "react";
-import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
-import {
-  SolidDeafened,
-  SolidDeafenedOff,
-  SolidMicrophone,
-  SolidVolume,
-} from "../../icons";
+import { useMuteStore } from "../../global-stores/useMuteStore";
+import { SolidDeafened, SolidDeafenedOff, SolidMicrophone } from "../../icons";
 import SvgSolidMicrophoneOff from "../../icons/SolidMicrophoneOff";
+import { useCurrentRoomFromCache } from "../../shared-hooks/useCurrentRoomFromCache";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
-import { useSetMute } from "../../shared-hooks/useSetMute";
 import { useSetDeaf } from "../../shared-hooks/useSetDeaf";
-import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
+import { useSetMute } from "../../shared-hooks/useSetMute";
 import { BoxedIcon } from "../../ui/BoxedIcon";
-import SvgSolidVolumeOff from "../../icons/SolidVolumeOff";
 
-interface MinimizedRoomCardControllerProps {}
-
-export const FloatingRoomInfo: React.FC<MinimizedRoomCardControllerProps> = () => {
-  const { currentRoomId } = useCurrentRoomIdStore();
-  const { data } = useTypeSafeQuery(
-    ["joinRoomAndGetInfo", currentRoomId!],
-    { enabled: !!currentRoomId },
-    [currentRoomId!]
-  );
+export const FloatingRoomInfo: React.FC = () => {
+  const data = useCurrentRoomFromCache();
   const { canSpeak } = useCurrentRoomInfo();
   const { muted } = useMuteStore();
   const setMute = useSetMute();

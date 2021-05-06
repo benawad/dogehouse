@@ -19,10 +19,10 @@ export const WinButton: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`flex px-2 py-1 text-xs transition 
-      duration-200 ease-in-out text-button 
+      className={`flex px-2 py-1 text-xs transition
+      duration-200 ease-in-out text-button
       bg-primary-700 hover:bg-primary-600 disabled:text-primary-300
-       font-bold flex items-center justify-center focus:outline-none ${className}`}
+       font-bold items-center justify-center focus:outline-none ${className}`}
       data-testid="button"
       {...props}
     >

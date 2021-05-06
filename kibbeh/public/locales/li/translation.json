@@ -73,7 +73,8 @@
       "soundSettings": "Gank noa geluidsinstjtellinge",
       "deleteAccount": "Account verwijdere",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Och nhee! Disè pagina is verlore gegange in t gesjprek.",
@@ -199,7 +200,7 @@
       "editProfileModal": {
         "usernameTaken": "Gebroekersnaam al in gebroek",
         "avatarUrlError": "Ongeldig plétje",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "2 tot 50 karakters",
         "displayNameLabel": "Waargavenaam",
         "usernameError": "4 tot 15 karakters en alling mer litters, ciefers en underscore",
@@ -227,7 +228,8 @@
         "makePublic": "Maak kamer veur ideringe",
         "makePrivate": "Maak kamer perseunlijke",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -292,7 +294,8 @@
       "sendMessage": "Sjtuur ing bericht",
       "whisper": "Floestere",
       "welcomeMessage": "Welkom in de chat!",
-      "roomDescription": "Kamer umsjrieving"
+      "roomDescription": "Kamer umsjrieving",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Raket tanken",

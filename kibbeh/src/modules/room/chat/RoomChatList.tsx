@@ -11,6 +11,7 @@ import { Emote } from "./Emote";
 import { EmoteKeys } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
+import { useResize } from "../useResize";
 
 interface ChatListProps {
   room: Room;
@@ -43,12 +44,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, userMap }) => {
       chatListRef.current?.scrollTo(0, chatListRef.current.scrollHeight);
     }
   });
-
+  const windowSize = useResize();
   const rowVirtualizer = useVirtual({
     overscan: 10,
     size: messages.length,
     parentRef: chatListRef,
-    estimateSize: React.useCallback(() => 20, []),
+    estimateSize: React.useCallback(() => windowSize.y * 0.2, [windowSize]),
   });
 
   const getBadgeIcon = (m: Message) => {

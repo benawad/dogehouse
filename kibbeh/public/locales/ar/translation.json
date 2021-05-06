@@ -73,7 +73,8 @@
       "soundSettings": "اذهب إلى إعدادات الصوت",
       "deleteAccount": "حذف الحساب",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "عفوا، لم نعثر على هذا المستخدم"
+      "couldNotFindUser": "عفوا، لم نعثر على هذا المستخدم",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "عذرا! ضاعت هذه الصفحة بين المحادثات.",
@@ -224,7 +225,8 @@
         "makePublic": "جعل الغرفة عامة",
         "makePrivate": "جعل الغرفة خاصة",
         "renamePublic": "اختار اسم الغرفة العامة",
-        "renamePrivate": "اختار اسم الغرفة الخاصة"
+        "renamePrivate": "اختار اسم الغرفة الخاصة",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -289,7 +291,8 @@
       "sendMessage": "أرسل رسالة",
       "whisper": "إرسل رسالة خاصة",
       "welcomeMessage": "مرحبا بك في المحادثة!",
-      "roomDescription": "وصف الغرفة"
+      "roomDescription": "وصف الغرفة",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "عبي الصاروخ بنزين",

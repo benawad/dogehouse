@@ -73,7 +73,8 @@
       "soundSettings": "スピーカー設定",
       "deleteAccount": "アカウント削除",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "おっと！？ このページは会話に紛れてしまいました。",
@@ -194,7 +195,7 @@
       "editProfileModal": {
         "usernameTaken": "ユーザーネームトークン",
         "avatarUrlError": "画像が正しくありません",
-        "avatarUrlLabel": "GitHub/Twitter 画像URL",
+        "avatarUrlLabel": "Github/Twitter/Discord 画像URL",
         "displayNameError": "2～50文字で設定してください",
         "displayNameLabel": "表示名",
         "usernameError": "4～15文字で設定してください（英数字・アンダーバーのみ）",
@@ -222,7 +223,8 @@
         "makePublic": "ルームを公開に変更",
         "makePrivate": "ルームを非公開に変更",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -287,7 +289,8 @@
       "sendMessage": "メッセージを送信",
       "whisper": "ささやく",
       "welcomeMessage": "チャットへようこそ！",
-      "roomDescription": "ルームの説明"
+      "roomDescription": "ルームの説明",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "燃料補給中",

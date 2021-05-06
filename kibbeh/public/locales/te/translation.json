@@ -72,7 +72,8 @@
       "overlaySettings": "go to overlay settings",
       "soundSettings": "సౌండ్  సెట్టింగ్‌లకు వెళ్లండి",
       "deleteAccount": "delete account",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",
@@ -198,7 +199,7 @@
       "editProfileModal": {
         "usernameTaken": "username taken",
         "avatarUrlError": "Invalid image",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "length 2 to 50 characters",
         "displayNameLabel": "Display Name",
         "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
@@ -226,7 +227,8 @@
         "makePublic": "గదిని బహిరంగపరచండి",
         "makePrivate": "గదిని ప్రైవేట్‌గా చేయండి",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -291,7 +293,8 @@
       "sendMessage": "సందేశం పంపండి",
       "whisper": "Whisper",
       "welcomeMessage": "చాట్‌కు స్వాగతం!",
-      "roomDescription": "గది వివరణ"
+      "roomDescription": "గది వివరణ",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

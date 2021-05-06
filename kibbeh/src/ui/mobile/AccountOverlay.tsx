@@ -79,7 +79,7 @@ export const AccountOverlay: React.FC<AccountOverlyProps> = ({}) => {
   return createPortal(
     <a.div className="absolute w-screen h-full" style={{ display }}>
       <a.div
-        className="w-screen h-screen absolute top-0 left-0 bg-black z-10 opacity-100"
+        className="w-screen h-screen absolute left-0 bg-black z-10 opacity-100"
         onClick={() => close()}
         style={bgStyle}
       ></a.div>

@@ -73,7 +73,8 @@
       "soundSettings": "Toneinstöllungen",
       "deleteAccount": "Konto löschn",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Tuat uns leid, konntn den Nutza ned findn"
+      "couldNotFindUser": "Tuat uns leid, konntn den Nutza ned findn",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oida! De Seite ist im Gespräch verlurn gaunga.",
@@ -206,7 +207,8 @@
         "makePublic": "Raum öffentlich mochen",
         "makePrivate": "Raum privat mochen",
         "renamePublic": "Öffentlichn Raumnaumn festlegn",
-        "renamePrivate": "Privatn Raumnaumn festlegn"
+        "renamePrivate": "Privatn Raumnaumn festlegn",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": {
@@ -295,7 +297,8 @@
       "sendMessage": "A Nochricht schickn",
       "whisper": "Flüstern",
       "welcomeMessage": "Servus im Chat!",
-      "roomDescription": "Raumbeschreibung"
+      "roomDescription": "Raumbeschreibung",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Rakete betankn",

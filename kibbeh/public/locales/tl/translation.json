@@ -72,7 +72,8 @@
       "overlaySettings": "Overlay Settings",
       "soundSettings": "pumunta sound settings",
       "deleteAccount": "I-delete ang iyong account",
-      "couldNotFindUser": "Kinalulungkot namin na hindi matagpuan ang iyong hinahanap"
+      "couldNotFindUser": "Kinalulungkot namin na hindi matagpuan ang iyong hinahanap",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Ang page na ito ay nawala.",
@@ -228,7 +229,7 @@
       "editProfileModal": {
         "usernameTaken": "username ay nakuha na",
         "avatarUrlError": "Di-wastong imahe",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "haba ng 2 hanggang 50 na character",
         "displayNameLabel": "Pangalan ng Display",
         "usernameError": "haba ng 4 hanggang 15 na mga character at alphanumeric / underscor lamange",
@@ -256,7 +257,8 @@
         "makePublic": "gawing publiko ang room",
         "makePrivate": "gawing pribado ang silid",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     }
   },
@@ -293,7 +295,8 @@
       "sendMessage": "Magpadala ng Mensahe",
       "whisper": "Pabulong",
       "welcomeMessage": "Maligayang pagdating sa chat!",
-      "roomDescription": "deskripsyon"
+      "roomDescription": "deskripsyon",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

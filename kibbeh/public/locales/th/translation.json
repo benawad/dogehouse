@@ -72,7 +72,8 @@
       "soundSettings": "การตั้งค่าการแจ้งเตือนเสียง",
       "deleteAccount": "ลบบัญชี",
       "overlaySettings": "การตั้งค่าโอเวอร์เลย์",
-      "couldNotFindUser": "ขออภัย ไม่สามารถหาผู้ใช้คนนั้นได้"
+      "couldNotFindUser": "ขออภัย ไม่สามารถหาผู้ใช้คนนั้นได้",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "โอ๊ะ! ไม่พบหน้าที่คุณค้นหา.",
@@ -199,7 +200,7 @@
       "editProfileModal": {
         "usernameTaken": "มีชื่อผู้ใช้นี้อยู่แล้ว",
         "avatarUrlError": "รูปผิดพลาด",
-        "avatarUrlLabel": "URL โปรไฟล์จาก Github/Twitter",
+        "avatarUrlLabel": "URL โปรไฟล์จาก Github/Twitter/Discord",
         "displayNameError": "ต้องมีความยาวระหว่าง 2 ถึง 50 ตัวอักษร",
         "displayNameLabel": "ชื่อที่แสดง",
         "usernameError": "ต้องมีความยาวระหว่าง 4 ถึง 15 ตัวอักษร และสามารถใส่ได้แค่ ตัวอักษรอังกฤษ, เลข และ Underscore เท่านั้น.",
@@ -227,7 +228,8 @@
         "makePublic": "ตั้งให้เป็นห้องสาธารณะ",
         "makePrivate": "ตั้งให้เป็นห้องส่วนตัว",
         "renamePublic": "ตั้งชื่อห้องสาธารณะ",
-        "renamePrivate": "ตั้งชื่อห้องส่วนตัว"
+        "renamePrivate": "ตั้งชื่อห้องส่วนตัว",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -292,7 +294,8 @@
       "sendMessage": "ส่งข้อความ",
       "whisper": "กระซิบ",
       "welcomeMessage": "ยินดีต้อนรับสู่ห้องแชท!",
-      "roomDescription": "คำอธิบายห้อง"
+      "roomDescription": "คำอธิบายห้อง",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "กำลังเติมเชื้อเพลิงยาน",

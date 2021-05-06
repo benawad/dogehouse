@@ -73,7 +73,8 @@
       "overlaySettings": "Paramètres de l'overlay",
       "soundSettings": "Paramètres Audio",
       "deleteAccount": "Supprimer le Compte",
-      "couldNotFindUser": "Désolé, nous ne parvenons pas à trouver cet utilisateur"
+      "couldNotFindUser": "Désolé, nous ne parvenons pas à trouver cet utilisateur",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oups ! Cette page s'est perdue dans la conversation.",
@@ -231,7 +232,7 @@
       "editProfileModal": {
         "usernameTaken": "Pseudo déjà pris",
         "avatarUrlError": "Image invalide",
-        "avatarUrlLabel": "URL d'avatar GitHub/Twitter",
+        "avatarUrlLabel": "URL d'avatar Github/Twitter/Discord",
         "displayNameError": "Longueur de 2 à 50 caractères",
         "displayNameLabel": "Nom affiché",
         "usernameError": "Longueur de 4 à 15 caractères et ne doit contenir que des caractères alphanumériques ou des tirets du bas",
@@ -259,7 +260,8 @@
         "makePublic": "rendre la salle publique",
         "makePrivate": "rendre la salle privée",
         "renamePublic": "Changer le nom de la salle publique",
-        "renamePrivate": "Changer le nom de la salle privée"
+        "renamePrivate": "Changer le nom de la salle privée",
+        "chatDisabled": "disable chat"
       }
     }
   },
@@ -296,7 +298,8 @@
       "sendMessage": "Envoyer un message",
       "whisper": "Chuchotement",
       "welcomeMessage": "Bienvenue dans le chat !",
-      "roomDescription": "Description de la salle"
+      "roomDescription": "Description de la salle",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Ravitaillement de la fusée",

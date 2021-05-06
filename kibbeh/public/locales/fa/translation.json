@@ -73,7 +73,8 @@
       "soundSettings": "رفتن به تنظیمات صدا",
       "deleteAccount": "حذف حساب",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "ای وای ! صفحه مورد نظر پیدا نشد",
@@ -225,7 +226,8 @@
         "makePublic": "تبدیل به اتاق عمومی",
         "makePrivate": "تبدیل به اتاق خصوصی",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -290,7 +292,8 @@
       "sendMessage": "ارسال پیام",
       "whisper": "نجوا",
       "welcomeMessage": "به چت خوش آمدید",
-      "roomDescription": "توضیحات اتاق"
+      "roomDescription": "توضیحات اتاق",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "سوخت گیری راکت",

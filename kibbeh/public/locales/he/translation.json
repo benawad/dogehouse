@@ -73,7 +73,8 @@
       "soundSettings": "עבור להגדרות סאונד",
       "deleteAccount": "מחק חשבון",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "סליחה, לא הצלחנו למצוא את משתמש זה."
+      "couldNotFindUser": "סליחה, לא הצלחנו למצוא את משתמש זה.",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "אופס! הדף הזה הלך לאיבוד בשיחה.",
@@ -194,7 +195,7 @@
       "editProfileModal": {
         "usernameTaken": "שם המשתמש תפוס",
         "avatarUrlError": "תמונה לא תקינה",
-        "avatarUrlLabel": "GitHub/Twitterשל התמונה מ url",
+        "avatarUrlLabel": "Github/Twitter/Discordשל התמונה מ url",
         "displayNameError": "אורך 2 עד 50 תווים",
         "displayNameLabel": "שם מוצג",
         "usernameError": "אורך 4 עד 15 תווים ורק אותיות / מספרים / קו תחתון",
@@ -222,7 +223,8 @@
         "makePublic": "הפוך חדר לציבורי",
         "makePrivate": "הפוך חדר לפרטי",
         "renamePublic": "הגדר את שם החדר הציבורי",
-        "renamePrivate": "הגדר את השם של החדר הפרטי"
+        "renamePrivate": "הגדר את השם של החדר הפרטי",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -285,7 +287,8 @@
       "sendMessage": "שלח הודעה",
       "whisper": "הודעה פרטית",
       "welcomeMessage": "ברוכים הבאים לצ'אט!",
-      "roomDescription": "תיאור החדר"
+      "roomDescription": "תיאור החדר",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "מטדלק את הרקטה",

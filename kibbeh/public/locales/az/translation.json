@@ -73,7 +73,8 @@
       "soundSettings": "Səs parametrləri",
       "deleteAccount": "Hesabı sil",
       "overlaySettings": "Overlay parametrləri",
-      "couldNotFindUser": "Təəssüf, istifadəçi tapılmadı"
+      "couldNotFindUser": "Təəssüf, istifadəçi tapılmadı",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Bu səhifə tapılmadı.",
@@ -204,7 +205,7 @@
       "editProfileModal": {
         "usernameTaken": "İstifadəçi adı götürülüb",
         "avatarUrlError": "Uyğun olmayan şəkil",
-        "avatarUrlLabel": "GitHub/Twitter avatar keçidi",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar keçidi",
         "displayNameError": "uzunluq 2 və 50 simvol arasında",
         "displayNameLabel": "Görsənən ad",
         "usernameError": "uzunluq 4 və 15 simvol uzunluğunda və sadəcə alfanumerik/alt xətt simvollarından ibarət olmalıdır.",
@@ -232,7 +233,8 @@
         "makePublic": "Otağı hərkəsə açıq et",
         "makePrivate": "Otağı gizli et",
         "renamePublic": "Hərkəsə açıq otaq adı quraşdır",
-        "renamePrivate": "Gizli otaq adı quraşdır"
+        "renamePrivate": "Gizli otaq adı quraşdır",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -297,7 +299,8 @@
       "sendMessage": "Mesaj göndər",
       "whisper": "Pıçıltı",
       "welcomeMessage": "Çata xoş gəlmisiniz!",
-      "roomDescription": "Otaq haqqında"
+      "roomDescription": "Otaq haqqında",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Roket yanacağı doldurulur.",

@@ -73,7 +73,8 @@
       "soundSettings": "go t' sound settings",
       "deleteAccount": "Cleave Him to the Brisket!",
       "overlaySettings": "go t' overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Blast ye! This page got lost in natter.",
@@ -196,7 +197,7 @@
       "editProfileModal": {
         "usernameTaken": "username taken",
         "avatarUrlError": "Invalid image",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "length 2 t' 50 characters",
         "displayNameLabel": "Display Name",
         "usernameError": "length 4 t' 15 characters 'n only alphanumeric/underscore",
@@ -224,7 +225,8 @@
         "makePublic": "Make Cabin Public",
         "makePrivate": "Make Cabin Private",
         "renamePublic": "Set Public Cabin Name",
-        "renamePrivate": "Set Private Cabin Name"
+        "renamePrivate": "Set Private Cabin Name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -289,7 +291,8 @@
       "sendMessage": "Send a Message in a bottle",
       "whisper": "Whisper",
       "welcomeMessage": "Ahoy t' chat!",
-      "roomDescription": "cabin description"
+      "roomDescription": "cabin description",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fuelin' rocket",

@@ -73,7 +73,8 @@
       "soundSettings": "Eiti į garso nustatymus",
       "deleteAccount": "Ištrinti vartotoją",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Uppss! Šis puslapis buvo prarastas pokalbyje",
@@ -199,7 +200,7 @@
       "editProfileModal": {
         "usernameTaken": "Vardas užimtas, panaudotas",
         "avatarUrlError": "Negalima nuotrauka",
-        "avatarUrlLabel": "Github/Twitter avataro nuoroda",
+        "avatarUrlLabel": "Github/Twitter/Discord avataro nuoroda",
         "displayNameError": "Ilgis nuo 2 iki 50 simbolių",
         "displayNameLabel": "Rodyti vardą",
         "usernameError": "Ilgis nuo 4 iki 15 simbolių ir tik raidinis(arba skaitmeninis)/apatinis pabraukimas",
@@ -227,7 +228,8 @@
         "makePublic": "Padaryti kambarį viešą",
         "makePrivate": "Padaryti kambarį privatų",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -292,7 +294,8 @@
       "sendMessage": "Siųsti žinutę",
       "whisper": "Pašnibšdėti",
       "welcomeMessage": "Sveikas atvykęs į kambarį",
-      "roomDescription": "Kambario aprašymas"
+      "roomDescription": "Kambario aprašymas",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

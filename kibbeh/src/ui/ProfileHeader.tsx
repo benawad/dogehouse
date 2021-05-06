@@ -106,7 +106,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         </div>
       </div>
 
-      <div className="w-3/6 ">
+      <div className="sm:w-3/6">
         <div className="flex flex-row justify-end content-end gap-2">
           {!isCurrentUser && (
             <Button
@@ -146,7 +146,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
               onClick={async () => {
                 await mutateAsync([user.id, !user.youAreFollowing]);
                 updater(["getUserProfile", username], (u) =>
-                  !u
+                  !u || "error" in u
                     ? u
                     : {
                         ...u,

@@ -73,7 +73,8 @@
       "soundSettings": "farðu í hljóðstillingar",
       "deleteAccount": "eyða reikningi",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Úps! Þessi síða týndist í samtali.",
@@ -196,7 +197,7 @@
       "editProfileModal": {
         "usernameTaken": "notendanafn tekið",
         "avatarUrlError": "Ógild mynd",
-        "avatarUrlLabel": "GitHub/Twitter avatar slóð",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar slóð",
         "displayNameError": "lengd 2 til 50 stafir",
         "displayNameLabel": "Sýna nafn",
         "usernameError": "lengd 4 til 15 stafir og aðeins tölustafur / undirstrikun",
@@ -224,7 +225,8 @@
         "makePublic": "opinbera rás",
         "makePrivate": "gera að einkarás",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -289,7 +291,8 @@
       "sendMessage": "Senda skilaboð",
       "whisper": "Hvísla",
       "welcomeMessage": "Velkomin í spjallið!",
-      "roomDescription": "Rásarlýsing"
+      "roomDescription": "Rásarlýsing",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fylli á eldflaugina",

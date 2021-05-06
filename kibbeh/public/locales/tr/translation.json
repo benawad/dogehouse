@@ -72,7 +72,8 @@
       "soundSettings": "Ses ayarlarına git",
       "deleteAccount": "Hesabı sil",
       "overlaySettings": "Kaplama ayarlarına git",
-      "couldNotFindUser": "Üzgünüz, böyle bir kullanıcı bulamadık"
+      "couldNotFindUser": "Üzgünüz, böyle bir kullanıcı bulamadık",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Uups! Bu sayfa sohbette kayboldu.",
@@ -177,7 +178,7 @@
       "editProfileModal": {
         "usernameTaken": "Kullanıcı adı alınmış",
         "avatarUrlError": "Geçersiz resim",
-        "avatarUrlLabel": "GitHub/Twitter avatar linki",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar linki",
         "displayNameError": "uzunluk 2-50 karakter arası olmalı",
         "displayNameLabel": "Görünülecek isim",
         "usernameError": "Uzunluk 4-15 arası olmalı ve sadece alfanümerik/alt_çizgi karakterlerini içermeli",
@@ -205,7 +206,8 @@
         "makePublic": "Odayı herkese açık yap",
         "makePrivate": "Odayı gizli yap",
         "renamePublic": "Herkese açık oda adı seç",
-        "renamePrivate": "Gizli oda adı seç"
+        "renamePrivate": "Gizli oda adı seç",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },
@@ -292,7 +294,8 @@
       "sendMessage": "Mesaj Gönder",
       "whisper": "Fısılda",
       "welcomeMessage": "Sohbete hoş geldin!",
-      "roomDescription": "Oda Açıklaması"
+      "roomDescription": "Oda Açıklaması",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Yakıt dolduruluyor",

@@ -11,6 +11,7 @@ import {
   UserWithFollowInfo,
   UUID,
 } from "..";
+import { ChatMode } from "../entities";
 import { Connection } from "./raw";
 import {
   GetScheduledRoomsResponse,
@@ -55,10 +56,18 @@ export const wrap = (connection: Connection) => ({
     handRaised: (handler: Handler<{ userId: UUID }>) =>
       connection.addListener("hand_raised", handler),
     speakerAdded: (
-      handler: Handler<{ userId: UUID; muteMap: BooleanMap; deafMap: BooleanMap }>
+      handler: Handler<{
+        userId: UUID;
+        muteMap: BooleanMap;
+        deafMap: BooleanMap;
+      }>
     ) => connection.addListener("speaker_added", handler),
     speakerRemoved: (
-      handler: Handler<{ userId: UUID; muteMap: BooleanMap; deafMap: BooleanMap }>
+      handler: Handler<{
+        userId: UUID;
+        muteMap: BooleanMap;
+        deafMap: BooleanMap;
+      }>
     ) => connection.addListener("speaker_removed", handler),
   },
   /**
@@ -66,12 +75,13 @@ export const wrap = (connection: Connection) => ({
    */
 
   query: {
-    search: (query: string): Promise<{
-      items: Array<User | Room>,
-      rooms: Room[],
-      users: User[]
-    }> =>
-      connection.fetch("search", { query }),
+    search: (
+      query: string
+    ): Promise<{
+      items: Array<User | Room>;
+      rooms: Room[];
+      users: User[];
+    }> => connection.fetch("search", { query }),
     getMyScheduledRoomsAboutToStart: (
       roomId: string
     ): Promise<{ scheduledRooms: ScheduledRoom[] }> =>
@@ -132,6 +142,8 @@ export const wrap = (connection: Connection) => ({
    * Allows you to call functions that mutate the ws state
    */
   mutation: {
+    userUpdate: (data: Partial<User>): Promise<void> =>
+      connection.sendCall("user:update", data),
     userBlock: (userId: string): Promise<void> =>
       connection.sendCall("user:block", { userId }),
     userUnblock: (userId: string): Promise<void> =>
@@ -139,8 +151,10 @@ export const wrap = (connection: Connection) => ({
     roomUpdate: (data: {
       name?: string;
       privacy?: string;
+      chatThrottle?: number;
       description?: string;
       autoSpeaker?: boolean;
+      chatMode?: ChatMode;
     }): Promise<void> => connection.sendCall("room:update", data),
     roomBan: (userId: string, shouldBanIp?: boolean): Promise<void> =>
       connection.sendCast("room:ban", { userId, shouldBanIp }),

@@ -72,7 +72,8 @@
       "soundSettings": "Pengaturan bunyi",
       "deleteAccount": "Hapus akun",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Maaf, kami tidak bisa menemukan pengguna itu"
+      "couldNotFindUser": "Maaf, kami tidak bisa menemukan pengguna itu",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oops! Halaman ini hilang dalam percakapan.",
@@ -196,7 +197,7 @@
       "editProfileModal": {
         "usernameTaken": "Nama pengguna telah dipakai",
         "avatarUrlError": "Gambar tidak valid",
-        "avatarUrlLabel": "URL avatar GitHub/Twitter",
+        "avatarUrlLabel": "URL avatar Github/Twitter/Discord",
         "displayNameError": "Panjang 2 sampai 50 karakter",
         "displayNameLabel": "Nama Tampilan",
         "usernameError": "Panjang 4 sampai 15 karakter dan hanya alfanumerik/garis bawah",
@@ -224,7 +225,8 @@
         "makePublic": "buat ruangan jadi publik",
         "makePrivate": "buat ruangan jadi privat",
         "renamePublic": "Ubah nama ruangan publik",
-        "renamePrivate": "Ubah nama ruangan privat"
+        "renamePrivate": "Ubah nama ruangan privat",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -289,7 +291,8 @@
       "sendMessage": "Kirim Pesan",
       "whisper": "Bisikan",
       "welcomeMessage": "Selamat datang di percakapan!",
-      "roomDescription": "Deskripsi ruangan"
+      "roomDescription": "Deskripsi ruangan",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Mengisi bahan bakar roket",

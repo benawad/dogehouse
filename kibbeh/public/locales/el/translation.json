@@ -85,7 +85,8 @@
       "soundSettings": "Ρυθμίσεις ήχου",
       "deleteAccount": "Διαγραφή λογαριασμού",
       "overlaySettings": "Πηγαιντε στις ρυθμίσεις του overlay",
-      "couldNotFindUser": "Συγγνώμη, αυτός ο χρήστης δεν υπάρχει"
+      "couldNotFindUser": "Συγγνώμη, αυτός ο χρήστης δεν υπάρχει",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ουπς! Αυτή η σελίδα χάθηκε στη συζήτηση.",
@@ -206,7 +207,7 @@
       "editProfileModal": {
         "usernameTaken": "Όνομα χρήστη μη διαθέσιμο",
         "avatarUrlError": "Μη έγκυρη φωτογραφία",
-        "avatarUrlLabel": "Διεύθυνση URL άβαταρ απο Github/Twitter",
+        "avatarUrlLabel": "Διεύθυνση URL άβαταρ απο Github/Twitter/Discord",
         "displayNameError": "Μήκος από 2 έως 50 χαρακτήρες",
         "displayNameLabel": "Εμφανιζόμενο όνομα",
         "usernameError": "Μήκος από 4 έως 15 χαρακτήρες και μόνο αλφαριθμητικά/κάτω παύλα",
@@ -234,7 +235,8 @@
         "makePublic": "Κάντε το δωμάτιο δημόσιο",
         "makePrivate": "Κάντε το δωμάτιο ιδιωτικό",
         "renamePublic": "Ορίστε ένα όνομα για το δημόσιο δωμάτιο",
-        "renamePrivate": "Ορίστε ένα όνομα για το ιδιωτικό δωμάτιο"
+        "renamePrivate": "Ορίστε ένα όνομα για το ιδιωτικό δωμάτιο",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -299,7 +301,8 @@
       "sendMessage": "Στείλτε ένα Μήνυμα",
       "whisper": "Ψίθυρος",
       "welcomeMessage": "Καλως ήλθατε στο Τσάτ!",
-      "roomDescription": "Περιγραφή δωματίου"
+      "roomDescription": "Περιγραφή δωματίου",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Ανεφοδιασμός πυραύλου",

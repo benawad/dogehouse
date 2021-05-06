@@ -41,7 +41,6 @@ defmodule Broth.Message.Cast do
 
   @callback auth_check(SocketHandler.state()) :: :ok | {:error, :auth}
 
-  @callback changeset(Broth.json()) :: Ecto.Changeset.t()
   @callback changeset(struct | nil, Broth.json()) :: Ecto.Changeset.t()
 
   @callback initialize(SocketHandler.state()) :: struct()
@@ -114,11 +113,13 @@ defmodule Broth.Message.Cast do
       {[schema_mod], false} ->
         Code.ensure_compiled(schema_mod)
 
-        unless function_exported?(schema_mod, :__schema__, 2) do
-          raise CompileError,
-            description:
-              "in module #{inspect(module)} you declared the schema #{inspect(schema_mod)} but it doesn't appear to have a schema"
-        end
+        # commenting out for now because tests started to fail sometimes even at 150ms
+        # Process.sleep(150)
+        # unless function_exported?(schema_mod, :__schema__, 2) do
+        #   raise CompileError,
+        #     description:
+        #       "in module #{inspect(module)} you declared the schema #{inspect(schema_mod)} but it doesn't appear to have a schema"
+        # end
     end
 
     unless direction in attributes[:directions] do

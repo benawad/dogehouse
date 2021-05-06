@@ -72,7 +72,8 @@
       "soundSettings": "聲音設定",
       "deleteAccount": "刪除帳號",
       "overlaySettings": "介面設定",
-      "couldNotFindUser": "很抱歉，我們找不到這名用戶"
+      "couldNotFindUser": "很抱歉，我們找不到這名用戶",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "噢！這一頁不見了‧",
@@ -193,7 +194,7 @@
       "editProfileModal": {
         "usernameTaken": "用户名已被使用",
         "avatarUrlError": "圖片無效",
-        "avatarUrlLabel": "Github/Twitter 頭像 URL",
+        "avatarUrlLabel": "Github/Twitter/Discord 頭像 URL",
         "displayNameError": "長度為 2 到 50 字元",
         "displayNameLabel": "顯示名稱",
         "usernameError": "長度要在 4 到 15 字元之内，只可輸入英文字母、數字與下劃線 _",
@@ -221,7 +222,8 @@
         "makePublic": "把房間設定為公開",
         "makePrivate": "把房間設定為私人",
         "renamePublic": "重設公開房間名字",
-        "renamePrivate": "重設私人房間名字"
+        "renamePrivate": "重設私人房間名字",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -278,7 +280,8 @@
       "sendMessage": "發送訊息",
       "whisper": "密語",
       "welcomeMessage": "歡迎來到房間!",
-      "roomDescription": "房間簡介"
+      "roomDescription": "房間簡介",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "火箭正在加油",

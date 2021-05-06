@@ -72,7 +72,8 @@
       "soundSettings": "소리 설정 들어가기",
       "deleteAccount": "계정 삭제",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "아이고! 페이지가 사라졌습니다",
@@ -226,7 +227,8 @@
         "makePublic": "채팅방 공개화",
         "makePrivate": "채팅방 비공개화",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -289,7 +291,8 @@
       "sendMessage": "메세지 보내기",
       "whisper": "속삭이기",
       "welcomeMessage": "챗에 오신걸 환영합니다!",
-      "roomDescription": "방 설명"
+      "roomDescription": "방 설명",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "로켓 연료 주입중..",

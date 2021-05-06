@@ -76,7 +76,8 @@
       "soundSettings": "ஒலி அமைப்பிற்குச் செல்லவும்",
       "deleteAccount": "கணக்கை நீக்கு",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "அய்யகோ! இந்த பக்கத்தை காணவில்லை",
@@ -205,7 +206,7 @@
       "editProfileModal": {
         "usernameTaken": "பயனர்பெயர் கிடைக்கவில்லை",
         "avatarUrlError": "இந்த படத்தைப் பயன்படுத்த முடியாது",
-        "avatarUrlLabel": "GitHub/Twitter பட url",
+        "avatarUrlLabel": "Github/Twitter/Discord பட url",
         "displayNameError": "நீளம் 2 முதல் 50 எழுத்துக்கள்",
         "displayNameLabel": "காட்டவேண்டிய பெயர் ",
         "usernameError": "நீளம் 4 முதல் 15 எழுத்துக்கள் மற்றும் எண்ணெழுத்து / அடிக்கோடும்",
@@ -233,7 +234,8 @@
         "makePublic": "அறையை பொதுவாக்குங்கள்",
         "makePrivate": "அறையை தனிப்பட்டதாக்குங்கள்",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -298,7 +300,8 @@
       "sendMessage": "ஒரு செய்தியை அனுப்புங்கள்",
       "whisper": "கிசுகிசுக்கவும்",
       "welcomeMessage": "அரட்டைக்கு வரவேற்கிறோம்!",
-      "roomDescription": "அறை விளக்கம்"
+      "roomDescription": "அறை விளக்கம்",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Rocket'க்கு petrol போடுகிறோம் ",

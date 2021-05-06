@@ -72,7 +72,8 @@
       "soundSettings": "otvoriť nastavenia zvuku",
       "deleteAccount": "odstrániť účet",
       "overlaySettings": "otvoriť nastavenia prekresľovania",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Uups! Táto stránka sa stratila v konverzácii.",
@@ -201,7 +202,7 @@
       "editProfileModal": {
         "usernameTaken": "používatelské meno je obsadené",
         "avatarUrlError": "Nesprávny obrázok",
-        "avatarUrlLabel": "odkaz na Github/Twitter obrázok",
+        "avatarUrlLabel": "odkaz na Github/Twitter/Discord obrázok",
         "displayNameError": "počet znakov musí byť medzi 2-50",
         "displayNameLabel": "Verejná prezývka",
         "usernameError": "počet znakov musí byť medzi 4-15, povolené sú len písmená, čísla a podčiarkovník",
@@ -229,7 +230,8 @@
         "makePublic": "zverejniť miestnosť",
         "makePrivate": "zosúkromniť miestnosť",
         "renamePublic": "Nastaviť názov verejnej miestnosti",
-        "renamePrivate": "Nastaviť názov súkromnej miestnosti"
+        "renamePrivate": "Nastaviť názov súkromnej miestnosti",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -294,7 +296,8 @@
       "sendMessage": "Odoslať správu",
       "whisper": "Pošepkať",
       "welcomeMessage": "Vitaj v chate!",
-      "roomDescription": "popis miestnosti"
+      "roomDescription": "popis miestnosti",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Tankujeme raketu",

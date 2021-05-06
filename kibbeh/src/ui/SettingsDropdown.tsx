@@ -1,4 +1,5 @@
 import { User } from "@dogehouse/kebab";
+import isElectron from "is-electron";
 import { useRouter } from "next/router";
 import React, { ReactNode, useState } from "react";
 import { useDebugAudioStore } from "../global-stores/useDebugAudio";
@@ -90,12 +91,14 @@ export const SettingsDropdown: React.FC<{
             onClick={() => setDebugAudio(!debugAudio)}
           />
 
-          <SettingsIcon
-            onClick={() => push("/download")}
-            icon={<SvgSolidDownload />}
-            label={t("components.settingsDropdown.downloadApp")}
-            transition
-          />
+          {!isElectron() ? (
+            <SettingsIcon
+              onClick={() => push("/download")}
+              icon={<SvgSolidDownload />}
+              label={t("components.settingsDropdown.downloadApp")}
+              transition
+            />
+          ) : null}
 
           <a
             href="https://discord.gg/wCbKBZF9cV"

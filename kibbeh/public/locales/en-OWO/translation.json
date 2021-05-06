@@ -73,7 +73,8 @@
       "soundSettings": "Go to Sound Settings x3",
       "deleteAccount": "Dewete Account UnU",
       "overlaySettings": "Gow to Owerlay Settings ( ^_^ )",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "OWO Whoops! This page got wost in convewsation. (●´ω｀●)",
@@ -227,7 +228,8 @@
         "makePublic": "UwU Make Woom Pubwic (⁎˃ᆺ˂)",
         "makePrivate": "Make Woom Pwivate xD",
         "renamePublic": "Set Public Room Name",
-        "renamePrivate": "Set Private Room Name"
+        "renamePrivate": "Set Private Room Name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -292,7 +294,8 @@
       "sendMessage": "Send a Message xD",
       "whisper": "Whispew <{^v^}>",
       "welcomeMessage": "UwU Wewcome to chat! (✿ ♡‿♡)",
-      "roomDescription": "Woom Descwiption（＾ｖ＾）"
+      "roomDescription": "Woom Descwiption（＾ｖ＾）",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fuewing rocket uwu",

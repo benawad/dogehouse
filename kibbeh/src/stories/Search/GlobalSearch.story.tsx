@@ -9,6 +9,7 @@ import {
 } from "../../ui/Search/GlobalSearch";
 
 import avatar from "../../img/avatar.png";
+import { Room, User } from "@dogehouse/kebab";
 
 export default {
   title: "Search/GlobalSearch",
@@ -23,37 +24,31 @@ const history: HistoryItem[] = [
   { id: "5", term: "elon muk" },
 ];
 
-const searchResult: SearchResultItem[] = [
+const searchResults: SearchResultItem[] = [
   {
-    type: "room",
-    result: {
-      id: "1",
-      displayName: "The developer’s hangout",
-      hosts: ["Terry Owen", "Grace Abraham"],
-      userCount: 355,
-    },
-  },
+    id: "1",
+    name: "The developer’s hangout",
+    // hosts: ["Terry Owen", "Grace Abraham"],
+    numPeopleInside: 355,
+  } as Room,
   {
-    type: "user",
-    result: {
-      id: "2",
-      displayName: "The Real Anthony",
-      username: "@anthonytheone",
-      isOnline: true,
-      avatar,
-    },
-  },
+    id: "2",
+    displayName: "The Real Anthony",
+    username: "@anthonytheone",
+    online: true,
+    avatarUrl: avatar,
+  } as User,
 ];
 
 const globalSearchProps: GlobalSearchProps = {
   history,
-  searchResult,
+  searchResults,
 };
 
 export const Main: Story<GlobalSearchProps> = ({ ...props }) => (
   <GlobalSearch
     history={props.history || globalSearchProps.history}
-    searchResult={props.searchResult || searchResult}
+    searchResults={props.searchResults || searchResults}
   />
 );
 

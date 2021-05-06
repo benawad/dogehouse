@@ -73,7 +73,8 @@
       "soundSettings": "iru al sonaj agordoj",
       "deleteAccount": "forigi konton",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ho ve! Ĉi tiu paĝo perdiĝis en konversacio",
@@ -200,7 +201,7 @@
       "editProfileModal": {
         "usernameTaken": "Uzantnomo estis prenita",
         "avatarUrlError": "Nevalida bildo",
-        "avatarUrlLabel": "URL de GitHub/Twitter avataro",
+        "avatarUrlLabel": "URL de Github/Twitter/Discord avataro",
         "displayNameError": "longo 2 ĝis 50 signoj",
         "displayNameLabel": "Vidiga Nomo",
         "usernameError": "longo 4 ĝis 15 signoj kaj nur alfanombra/substreko",
@@ -228,7 +229,8 @@
         "makePublic": "publikigi ĉambron",
         "makePrivate": "privatigi ĉambron",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -293,7 +295,8 @@
       "sendMessage": "Sendu Mesaĝon",
       "whisper": "Flustro",
       "welcomeMessage": "Bonvenon babili!",
-      "roomDescription": "ĉambra priskribo"
+      "roomDescription": "ĉambra priskribo",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Brulaĵo raketo",

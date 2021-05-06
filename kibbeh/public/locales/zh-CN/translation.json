@@ -72,7 +72,8 @@
       "soundSettings": "声音设置",
       "deleteAccount": "删除账号",
       "overlaySettings": "覆盖层设置",
-      "couldNotFindUser": "对不起，无法找到该用户"
+      "couldNotFindUser": "对不起，无法找到该用户",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "哎呀，这页在聊天中被丢掉了",
@@ -173,7 +174,7 @@
       "editProfileModal": {
         "usernameTaken": "用户名已被占用",
         "avatarUrlError": "图片无效",
-        "avatarUrlLabel": "GitHub/Twitter头像URL",
+        "avatarUrlLabel": "Github/Twitter/Discord头像URL",
         "displayNameError": "长度为2到50字符",
         "displayNameLabel": "所显名称",
         "usernameError": "长度为4到15字符，只允许字母或数字或下划线",
@@ -201,7 +202,8 @@
         "makePublic": "把聊天室设为公开",
         "makePrivate": "把聊天室设为私人",
         "renamePublic": "设置公开聊天室名称",
-        "renamePrivate": "设置私人聊天室名称"
+        "renamePrivate": "设置私人聊天室名称",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": {
@@ -280,7 +282,8 @@
       "sendMessage": "发一条信息",
       "whisper": "私信",
       "welcomeMessage": "欢迎来到文字聊天!",
-      "roomDescription": "聊天室介绍"
+      "roomDescription": "聊天室介绍",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "火箭在加油",

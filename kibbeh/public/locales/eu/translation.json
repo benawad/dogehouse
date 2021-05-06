@@ -72,7 +72,8 @@
       "overlaySettings": "Overlay Settings",
       "soundSettings": "soinu aukerak",
       "deleteAccount": "kontua ezabatu",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",
@@ -230,7 +231,7 @@
       "editProfileModal": {
         "usernameTaken": "erabiltzaile izena hartuta",
         "avatarUrlError": "Irudi baliogabea",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "luzera: 2-50 karaktere",
         "displayNameLabel": "Erakusteko izena",
         "usernameError": "luzera: 4-15 karaktere alfanumerikoak/azpi-gidioa",
@@ -258,7 +259,8 @@
         "makePublic": "gela publikoa bihurtu",
         "makePrivate": "gela pribatua bihurtu",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     }
   },
@@ -295,7 +297,8 @@
       "sendMessage": "Mezua bidali",
       "whisper": "Xuxurlatu",
       "welcomeMessage": "Ongi etorri Txatera!",
-      "roomDescription": "gelaren deskribapena"
+      "roomDescription": "gelaren deskribapena",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Suziria errekargatzen",

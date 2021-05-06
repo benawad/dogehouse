@@ -73,7 +73,8 @@
       "soundSettings": "отиване към звукови настройки",
       "deleteAccount": "изтриване на акаунт",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Опаа! Тази страниза бе изгубена.",
@@ -198,7 +199,7 @@
       "editProfileModal": {
         "usernameTaken": "потребителското име е взето",
         "avatarUrlError": "Невалидна картинка",
-        "avatarUrlLabel": "линк към GitHub/Twitter аватар",
+        "avatarUrlLabel": "линк към Github/Twitter/Discord аватар",
         "displayNameError": "дължина между 2 и 60 знака",
         "displayNameLabel": "Показващо се име",
         "usernameError": "дължина между 4 и 15, само букви, цифри и долна черта",
@@ -226,7 +227,8 @@
         "makePublic": "направи стаята публична",
         "makePrivate": "направи стаята частна",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -291,7 +293,8 @@
       "sendMessage": "Изпрати съобщение",
       "whisper": "Прошепни",
       "welcomeMessage": "Добре дошъл в чата!",
-      "roomDescription": "описание на стаята"
+      "roomDescription": "описание на стаята",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

@@ -72,7 +72,8 @@
       "soundSettings": "Ljudinställningar",
       "deleteAccount": "Radera konto",
       "overlaySettings": "Overlayinställningar",
-      "couldNotFindUser": "Förlåt, vi kunde inte hitta den användaren"
+      "couldNotFindUser": "Förlåt, vi kunde inte hitta den användaren",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Denna sida blev förlorad i konversationen.",
@@ -176,7 +177,7 @@
       "editProfileModal": {
         "usernameTaken": "Användarnamn är redan taget",
         "avatarUrlError": "Ogiltig bild",
-        "avatarUrlLabel": "Github/Twitter profilbild länk",
+        "avatarUrlLabel": "Github/Twitter/Discord profilbild länk",
         "displayNameError": "Maximum 2 till 50 karaktärer",
         "displayNameLabel": "Visningsnamn",
         "usernameError": "Maximum 4 till 15 karaktärer med bara alfanumerisk/understräck",
@@ -204,7 +205,8 @@
         "makePublic": "Gör rum offentligt",
         "makePrivate": "Gör rum privat",
         "renamePublic": "Ange ett offentligt rumsnamn",
-        "renamePrivate": "Ange ett privat rumsnamn"
+        "renamePrivate": "Ange ett privat rumsnamn",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": {
@@ -294,7 +296,8 @@
       "sendMessage": "Skicka ett meddelande",
       "whisper": "Direktmeddelande",
       "welcomeMessage": "Välkommen till chatten!",
-      "roomDescription": "Rumbeskrivning"
+      "roomDescription": "Rumbeskrivning",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Tankar raket",

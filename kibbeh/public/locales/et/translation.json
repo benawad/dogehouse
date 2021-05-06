@@ -73,7 +73,8 @@
       "overlaySettings": "go to overlay settings",
       "soundSettings": "mine helisätetesse",
       "deleteAccount": "kustuta konto",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oih! See leht läks vestluses kaduma.",
@@ -196,7 +197,7 @@
       "editProfileModal": {
         "usernameTaken": "kasutajanimi on juba kasutusel",
         "avatarUrlError": "Vigane pilt",
-        "avatarUrlLabel": "Github/Twitter avatari URL",
+        "avatarUrlLabel": "Github/Twitter/Discord avatari URL",
         "displayNameError": "2 kuni 50 tähemärki pikk",
         "displayNameLabel": "Kuvatav nimi",
         "usernameError": "4 kuni 15 tähemärki pikk ja ainult tähenumbriline/alakriips",
@@ -224,7 +225,8 @@
         "makePublic": "tee ruum avalikuks",
         "makePrivate": "tee ruum privaatseks",
         "renamePublic": "Säti avaliku ruumi nimi",
-        "renamePrivate": "Säti privaatse ruumi nimi"
+        "renamePrivate": "Säti privaatse ruumi nimi",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -289,7 +291,8 @@
       "sendMessage": "Saada sõnum",
       "whisper": "Sosista",
       "welcomeMessage": "Tere tulemast vestlusesse!",
-      "roomDescription": "ruumi kirjeldus"
+      "roomDescription": "ruumi kirjeldus",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Tankimas raketti",

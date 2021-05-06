@@ -73,7 +73,8 @@
       "soundSettings": "Nastavitve zvoka",
       "deleteAccount": "Izbrišite račun",
       "overlaySettings": "odprite nastavitve za okna",
-      "couldNotFindUser": "Tega uporabnika žal ni bilo mogoče najti"
+      "couldNotFindUser": "Tega uporabnika žal ni bilo mogoče najti",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ta stran se je v pogovoru izgubila.",
@@ -202,7 +203,7 @@
       "editProfileModal": {
         "usernameTaken": "Uporabniško ime zasedeno",
         "avatarUrlError": "Neveljavna slika",
-        "avatarUrlLabel": "povezava do GitHub/Twitter slike",
+        "avatarUrlLabel": "povezava do Github/Twitter/Discord slike",
         "displayNameError": "Dolžina: 2 do 50 znakov",
         "displayNameLabel": "Prikazno ime",
         "usernameError": "Dolžina: 4 do 15 alfanumeričnih znakov ali podčrtaj",
@@ -230,7 +231,8 @@
         "makePublic": "Naredite sobo javno",
         "makePrivate": "Naredite sobo zasebno",
         "renamePublic": "Nastavite javno ime sobe",
-        "renamePrivate": "Nastavite zasebno ime sobe"
+        "renamePrivate": "Nastavite zasebno ime sobe",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -295,7 +297,8 @@
       "sendMessage": "Pošljite sporočilo",
       "whisper": "Šepetajte",
       "welcomeMessage": "Pozdravljeni v klepetu!",
-      "roomDescription": "Opis sobe"
+      "roomDescription": "Opis sobe",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Natakanje goriva v raketo",

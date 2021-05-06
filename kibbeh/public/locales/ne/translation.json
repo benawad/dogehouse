@@ -72,7 +72,8 @@
       "soundSettings": "साउंड सेटिंग्समा जानुहोस्",
       "deleteAccount": "खाता मेटाउनुहोस्",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "ओहो ! यो पृष्ठ त कुराकानीमै हरायो।.",
@@ -198,7 +199,7 @@
       "editProfileModal": {
         "usernameTaken": "username taken",
         "avatarUrlError": "Invalid image",
-        "avatarUrlLabel": "Github/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "length 2 to 50 characters",
         "displayNameLabel": "Display Name",
         "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
@@ -226,7 +227,8 @@
         "makePublic": "रूम सार्वजनिक बनाउनुहोस",
         "makePrivate": "रूम प्राइवेट बनाउनुहोस",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -291,7 +293,8 @@
       "sendMessage": "एक मेसेज पठाउनुहोस्",
       "whisper": "कानेखुसि",
       "welcomeMessage": "च्याटमा स्वागत छ!",
-      "roomDescription": "रुमको बारेमा"
+      "roomDescription": "रुमको बारेमा",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

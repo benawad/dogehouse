@@ -1,7 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react";
-
-import MiddleHeader, { MiddleHeaderProps } from "../ui/header/MiddleHeader";
+import { MiddleHeaderProps, MiddleHeader } from "../ui/header/MiddleHeader";
 
 export default {
   title: "MiddleHeader",
