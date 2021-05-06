@@ -73,7 +73,8 @@
       "soundSettings": "Tonistellige",
       "deleteAccount": "Konto lösche",
       "overlaySettings": "Gang zu de Overlay Istellige",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Hoppla! Die Site isch im Gspräch verlore gange.",

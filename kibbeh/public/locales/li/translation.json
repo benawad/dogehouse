@@ -73,7 +73,8 @@
       "soundSettings": "Gank noa geluidsinstjtellinge",
       "deleteAccount": "Account verwijdere",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Och nhee! Disè pagina is verlore gegange in t gesjprek.",

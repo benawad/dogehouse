@@ -1,4 +1,4 @@
-import { Connection } from "@dogehouse/kebab/lib/raw";
+import { Connection } from "@dogehouse/kebab/lib/websocket/raw";
 import { TransportOptions } from "mediasoup-client/lib/types";
 import { useVoiceStore } from "../stores/useVoiceStore";
 
@@ -23,7 +23,7 @@ export async function createTransport(
   // start flowing for the first time. send dtlsParameters to the
   // server, then call callback() on success or errback() on failure.
   transport.on("connect", ({ dtlsParameters }, callback, errback) => {
-    conn.once<any>(`@connect-transport-${direction}-done`, (d) => {
+    conn.once<any>(`@connect-transport-${direction}-done`, (d: { error: string | null }) => {
       if (d.error) {
         console.log(`connect-transport ${direction} failed`, d.error);
         if (d.error.includes("already called")) {
@@ -64,7 +64,7 @@ export async function createTransport(
         // up a server-side producer object, and get back a
         // producer.id. call callback() on success or errback() on
         // failure.
-        conn.once<any>(`@send-track-${direction}-done`, (d) => {
+        conn.once<any>(`@send-track-${direction}-done`, (d: { error: string | null, id: string }) => {
           if (d.error) {
             console.log(`send-track ${direction} failed`, d.error);
             errback();

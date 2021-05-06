@@ -72,7 +72,8 @@
       "soundSettings": "소리 설정 들어가기",
       "deleteAccount": "계정 삭제",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "아이고! 페이지가 사라졌습니다",

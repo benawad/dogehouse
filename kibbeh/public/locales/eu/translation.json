@@ -72,7 +72,8 @@
       "overlaySettings": "Overlay Settings",
       "soundSettings": "soinu aukerak",
       "deleteAccount": "kontua ezabatu",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",

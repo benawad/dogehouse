@@ -95,7 +95,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
             {t("pages.myProfile.soundSettings")}
           </Button>
           <Button size="small" onClick={() => push(`/privacy-settings`)}>
-            privacy settings
+            {t("pages.myProfile.privacySettings")}
           </Button>
         </div>
       )}
