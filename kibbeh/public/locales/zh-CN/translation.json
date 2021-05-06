@@ -61,9 +61,9 @@
       "featureText_5": "文字聊天",
       "featureText_6": "神烦狗出品",
       "loginGithub": "用GitHub登录",
-      "loginTwitter": "用Twitter登录",
+      "loginTwitter": "用Twitter登录(在中国不可用)",
       "createTestUser": "创建测试账号",
-      "loginDiscord": "用Discord登录"
+      "loginDiscord": "用Discord登录(在中国不可用)"
     },
     "myProfile": {
       "logout": "登出",
@@ -73,7 +73,7 @@
       "deleteAccount": "删除账号",
       "overlaySettings": "覆盖层设置",
       "couldNotFindUser": "对不起，无法找到该用户",
-      "privacySettings": "Privacy settings"
+      "privacySettings": "隐私设置"
     },
     "notFound": {
       "whoopsError": "哎呀，这页在聊天中被丢掉了",
@@ -100,7 +100,7 @@
       "urlCopied": "个人主页链接已复制到剪贴板",
       "unfollow": "取消关注",
       "about": "关于ta",
-      "bot": "Bot"
+      "bot": "机器人"
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -203,7 +203,7 @@
         "makePrivate": "把聊天室设为私人",
         "renamePublic": "设置公开聊天室名称",
         "renamePrivate": "设置私人聊天室名称",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "禁用聊天"
       }
     },
     "userVolumeSlider": {
@@ -283,7 +283,7 @@
       "whisper": "私信",
       "welcomeMessage": "欢迎来到文字聊天!",
       "roomDescription": "聊天室介绍",
-      "disabled": "room chat has been disabled"
+      "disabled": "聊天已被禁用"
     },
     "roomStatus": {
       "fuelingRocket": "火箭在加油",
