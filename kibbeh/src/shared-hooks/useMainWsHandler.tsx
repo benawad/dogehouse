@@ -238,7 +238,7 @@ export const useMainWsHandler = () => {
           );
         }
       ),
-      conn.addListener<any>("mod_changed", ({ userId, roomId, isMod }) => {
+      conn.addListener<any>("mod_changed", ({ userId, roomId }) => {
         updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
           !data || "error" in data
             ? data
@@ -250,7 +250,7 @@ export const useMainWsHandler = () => {
                         ...x,
                         roomPermissions: mergeRoomPermission(
                           x.roomPermissions,
-                          { isMod }
+                          { isMod: !x.roomPermissions?.isMod }
                         ),
                       }
                     : x
