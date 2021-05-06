@@ -125,7 +125,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
         />
       </div>
       <div className="flex items-stretch">
-        <div>
+        <div className="flex-1">
           {data && "room" in data && data.room.chatMode === "follower_only" ? (
             <div className="text-primary-300 mb-1">Follower mode</div>
           ) : null}
