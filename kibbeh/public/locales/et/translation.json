@@ -73,7 +73,8 @@
       "overlaySettings": "go to overlay settings",
       "soundSettings": "mine helisätetesse",
       "deleteAccount": "kustuta konto",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oih! See leht läks vestluses kaduma.",

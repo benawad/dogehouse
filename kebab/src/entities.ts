@@ -14,6 +14,8 @@ export type UserPreview = {
   avatarUrl: string | null;
 };
 
+export type ChatMode = "default" | "disabled" | "follower_only";
+
 export type Room = {
   id: string;
   name: string;
@@ -23,7 +25,10 @@ export type Room = {
   voiceServerId: string;
   creatorId: string;
   peoplePreviewList: Array<UserPreview>;
+  autoSpeaker: boolean;
   inserted_at: string;
+  chatMode: ChatMode;
+  chatThrottle: number;
 };
 
 export interface ScheduledRoom {
@@ -40,16 +45,15 @@ export interface ScheduledRoom {
 export type User = {
   youAreFollowing?: boolean;
   username: string;
-  roomPermissions?: unknown;
   online: boolean;
   numFollowing: number;
   numFollowers: number;
   lastOnline: string;
   id: UUID;
   followsYou?: boolean;
-  botOwnerId?: string;
+  botOwnerId?: string | null;
   displayName: string;
-  currentRoomId?: UUID;
+  currentRoomId?: UUID | null;
   currentRoom: Room;
   bio: string | null;
   avatarUrl: string;

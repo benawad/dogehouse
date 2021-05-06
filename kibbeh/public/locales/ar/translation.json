@@ -73,7 +73,8 @@
       "soundSettings": "اذهب إلى إعدادات الصوت",
       "deleteAccount": "حذف الحساب",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "عفوا، لم نعثر على هذا المستخدم"
+      "couldNotFindUser": "عفوا، لم نعثر على هذا المستخدم",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "عذرا! ضاعت هذه الصفحة بين المحادثات.",

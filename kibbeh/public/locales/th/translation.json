@@ -72,7 +72,8 @@
       "soundSettings": "การตั้งค่าการแจ้งเตือนเสียง",
       "deleteAccount": "ลบบัญชี",
       "overlaySettings": "การตั้งค่าโอเวอร์เลย์",
-      "couldNotFindUser": "ขออภัย ไม่สามารถหาผู้ใช้คนนั้นได้"
+      "couldNotFindUser": "ขออภัย ไม่สามารถหาผู้ใช้คนนั้นได้",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "โอ๊ะ! ไม่พบหน้าที่คุณค้นหา.",

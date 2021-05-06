@@ -52,7 +52,7 @@ export const RoomPanelIconBarController: React.FC<JoinRoomAndGetInfoResponse> = 
 
   return (
     <div className="flex flex-col w-full">
-      <RoomSettingsModal onRequestClose={() => setRoomId("")} roomId={roomId} />
+      <RoomSettingsModal open={!!roomId} onRequestClose={() => setRoomId("")} />
       {screenType === "fullscreen" ? (
         <RoomOverlay
           mute={

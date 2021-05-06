@@ -92,6 +92,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
         <>
           <LeftPanel>{tabletSidebar}</LeftPanel>
           {children}
+          {floatingRoomInfo}
         </>
       );
       break;

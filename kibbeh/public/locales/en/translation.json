@@ -84,7 +84,8 @@
       "overlaySettings": "Overlay Settings",
       "soundSettings": "Sound Settings",
       "deleteAccount": "Delete Account",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy Settings"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",

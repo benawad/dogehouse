@@ -73,7 +73,8 @@
       "soundSettings": "gaan na klank instellings",
       "deleteAccount": "verwyder rekening",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oeps! Hierdie bladsy het verlore geraak in gesprek.",

@@ -76,7 +76,8 @@
       "overlaySettings": "open e sitelen lawa pi sitelen sewi sitelen sina",
       "soundSettings": "open e sitelen lawa pi kalama",
       "deleteAccount": "pakala e jan sina",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",

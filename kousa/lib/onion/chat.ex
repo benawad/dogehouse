@@ -14,7 +14,8 @@ defmodule Onion.Chat do
             ban_map: %{},
             last_message_map: %{},
             follow_at_map: %{},
-            chat_mode: :default
+            chat_mode: :default,
+            chat_throttle: 1000
 
   @type state :: %__MODULE__{
           room_id: String.t(),
@@ -23,7 +24,8 @@ defmodule Onion.Chat do
           ban_map: map(),
           last_message_map: %{optional(UUID.t()) => DateTime.t()},
           follow_at_map: %{optional(UUID.t()) => DateTime.t() | nil},
-          chat_mode: Beef.Schemas.Room.chatMode()
+          chat_mode: Beef.Schemas.Room.chatMode(),
+          chat_throttle: integer()
         }
 
   #################################################################################
@@ -101,6 +103,14 @@ defmodule Onion.Chat do
     {:noreply, %{state | room_creator_id: id, follow_at_map: %{}}}
   end
 
+  def set_chat_throttle(room_id, value) do
+    cast(room_id, {:set_chat_throttle, value})
+  end
+
+  defp set_chat_throttle_impl(value, %__MODULE__{} = state) do
+    {:noreply, %{state | chat_throttle: value}}
+  end
+
   def banned?(room_id, who), do: call(room_id, {:banned?, who})
 
   defp banned_impl(who, _reply, state) do
@@ -114,6 +124,25 @@ defmodule Onion.Chat do
   alias Beef.Follows
   alias Beef.Schemas.Follow
 
+  # users that meet the following criteria,
+  # can chat in follower_only mode:
+  # 0. creator of room
+  # 1. mod
+  # 2. speaker
+  # 3. following room owner prior to joining room
+
+  defp eligible_to_chat?(
+         from,
+         %__MODULE__{
+           chat_mode: :follower_only,
+           room_creator_id: room_creator_id
+         } = state
+       )
+       when from == room_creator_id,
+       do: {state, true}
+
+  alias Beef.Rooms
+
   defp eligible_to_chat?(
          from,
          %__MODULE__{
@@ -122,26 +151,32 @@ defmodule Onion.Chat do
            follow_at_map: follow_at_map
          } = state
        ) do
-    {new_state, inserted_at} =
+    {new_state, inserted_at_or_true} =
       if Map.has_key?(follow_at_map, from) do
         # cache hit
         {state, Map.get(follow_at_map, from)}
       else
-        # cache miss
-        inserted_at =
-          case Follows.get_follow(room_creator_id, from) do
-            nil ->
-              nil
+        {status, _} = Rooms.get_room_status(from)
 
-            %Follow{inserted_at: inserted_at} ->
-              inserted_at
+        # cache miss
+        inserted_at_or_true =
+          if status in [:mod, :speaker] do
+            true
+          else
+            case Follows.get_follow(room_creator_id, from) do
+              nil ->
+                nil
+
+              %Follow{inserted_at: inserted_at} ->
+                inserted_at
+            end
           end
 
-        {%__MODULE__{state | follow_at_map: Map.put(follow_at_map, from, inserted_at)},
-         inserted_at}
+        {%__MODULE__{state | follow_at_map: Map.put(follow_at_map, from, inserted_at_or_true)},
+         inserted_at_or_true}
       end
 
-    {new_state, not is_nil(inserted_at)}
+    {new_state, not is_nil(inserted_at_or_true)}
   end
 
   defp eligible_to_chat?(_, state), do: {state, true}
@@ -188,7 +223,13 @@ defmodule Onion.Chat do
     {:noreply, %{state | ban_map: Map.delete(state.ban_map, user_id)}}
   end
 
-  def set(user_id, key, value), do: cast(user_id, {:set, key, value})
+  def set_can_chat(room_id, user_id), do: cast(room_id, {:set_can_chat, user_id})
+
+  defp set_can_chat_impl(user_id, %__MODULE__{follow_at_map: follow_at_map} = state) do
+    {:noreply, %{state | follow_at_map: Map.put(follow_at_map, user_id, true)}}
+  end
+
+  def set(room_id, key, value), do: cast(room_id, {:set, key, value})
 
   defp set_impl(key, value, state) do
     {:noreply, Map.put(state, key, value)}
@@ -235,12 +276,11 @@ defmodule Onion.Chat do
     end
   end
 
-  @message_time_limit_milliseconds 1000
   @spec should_throttle?(UUID.t(), state) :: boolean
-  defp should_throttle?(user_id, %__MODULE__{last_message_map: m})
+  defp should_throttle?(user_id, %__MODULE__{last_message_map: m, chat_throttle: ct})
        when is_map_key(m, user_id) do
     DateTime.diff(DateTime.utc_now(), m[user_id], :millisecond) <
-      @message_time_limit_milliseconds
+      ct
   end
 
   defp should_throttle?(_, _), do: false
@@ -259,6 +299,7 @@ defmodule Onion.Chat do
         # I am doing user blocking at socket_handler level
         list
         |> List.insert_at(0, payload.from)
+        |> Enum.uniq
         |> Enum.each(fn recipient_id ->
           PubSub.broadcast("chat:" <> recipient_id, %Broth.Message{
             operator: "chat:send",
@@ -298,8 +339,16 @@ defmodule Onion.Chat do
 
   def handle_call({:get, key}, reply, state), do: get_impl(key, reply, state)
 
+  def handle_cast({:set_can_chat, user_id}, state) do
+    set_can_chat_impl(user_id, state)
+  end
+
   def handle_cast({:set_room_creator_id, id}, state) do
     set_room_creator_id_impl(id, state)
+  end
+
+  def handle_cast({:set_chat_throttle, value}, state) do
+    set_chat_throttle_impl(value, state)
   end
 
   def handle_cast({:set, key, value}, state), do: set_impl(key, value, state)

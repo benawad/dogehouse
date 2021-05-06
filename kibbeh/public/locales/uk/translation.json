@@ -76,7 +76,8 @@
       "soundSettings": "перейти до звукових налаштувань",
       "deleteAccount": "видалити аккаунт",
       "overlaySettings": "перейти до налаштувань накладення",
-      "couldNotFindUser": "Вибачте, ми не змогли знайти даного користувача"
+      "couldNotFindUser": "Вибачте, ми не змогли знайти даного користувача",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Упс! Ця сторінка загубилася в розмові.",

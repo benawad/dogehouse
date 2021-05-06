@@ -11,6 +11,7 @@ import {
   UserWithFollowInfo,
   UUID,
 } from "..";
+import { ChatMode } from "../entities";
 import { Connection } from "./raw";
 import {
   GetScheduledRoomsResponse,
@@ -20,7 +21,6 @@ import {
   NewRoomDetailsResponse,
   InvitationToRoomResponse,
   CreateBotResponse,
-  ChatMode,
 } from "./responses";
 
 /**
@@ -151,6 +151,7 @@ export const wrap = (connection: Connection) => ({
     roomUpdate: (data: {
       name?: string;
       privacy?: string;
+      chatThrottle?: number;
       description?: string;
       autoSpeaker?: boolean;
       chatMode?: ChatMode;

@@ -20,8 +20,9 @@ defmodule Broth.Message.Room.Update do
   @impl true
   def changeset(initializer, data) do
     initializer
-    |> cast(data, ~w(description isPrivate name autoSpeaker chatMode)a)
+    |> cast(data, ~w(description isPrivate name autoSpeaker chatMode chatThrottle)a)
     |> validate_required([:name])
+    |> validate_number(:chatThrottle, greater_than_or_equal_to: 0)
   end
 
   @impl true
@@ -39,6 +40,23 @@ defmodule Broth.Message.Room.Update do
             op: "room_privacy_change",
             d: %{roomId: room.id, name: room.name, isPrivate: changes.isPrivate}
           }
+        )
+      end
+
+      if Map.has_key?(changes, :chatThrottle) do
+        # send the room_privacy_change message.
+        Onion.RoomSession.broadcast_ws(
+          room.id,
+          %{
+            op: "room_chat_throttle_change",
+            d: %{roomId: room.id, name: room.name, chatThrottle: changes.chatThrottle}
+          }
+        )
+
+        Onion.Chat.set(
+          room.id,
+          :chat_throttle,
+          changes.chatThrottle
         )
       end
 
