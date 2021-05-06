@@ -6,7 +6,6 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
-  alias Broth.Message.Room.Update
   alias KousaTest.Support.Factory
 
   setup do
@@ -125,6 +124,32 @@ defmodule BrothTest.Message.Room.UpdateTest do
                  %{
                    "operator" => "room:update",
                    "payload" => %{"autoSpeaker" => true},
+                   "reference" => uuid
+                 },
+                 state
+               )
+    end
+  end
+
+  describe "when you send an update message to change chatThrottle" do
+    test "it validates", %{uuid: uuid, state: state} do
+      assert {:ok, %{payload: %Room{chatThrottle: 2000}}} =
+               BrothTest.Support.Message.validate(
+                 %{
+                   "operator" => "room:update",
+                   "payload" => %{"chatThrottle" => 2000},
+                   "reference" => uuid
+                 },
+                 state
+               )
+    end
+
+    test "providing negative number is not allowed", %{uuid: uuid, state: state} do
+      assert {:error, %{errors: %{chatThrottle: "must be greater than or equal to %{number}"}}} =
+               BrothTest.Support.Message.validate(
+                 %{
+                   "operator" => "room:update",
+                   "payload" => %{"chatThrottle" => -1},
                    "reference" => uuid
                  },
                  state

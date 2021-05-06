@@ -5,6 +5,7 @@ import { useCurrentRoomFromCache } from "../../shared-hooks/useCurrentRoomFromCa
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { InfoText } from "../../ui/InfoText";
+import { Input } from "../../ui/Input";
 import { Modal } from "../../ui/Modal";
 import { NativeSelect } from "../../ui/NativeSelect";
 import { BlockedFromRoomUsers } from "./BlockedFromRoomUsers";
@@ -52,6 +53,35 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
             <span className={`ml-2 text-primary-100`}>
               {t("components.modals.roomSettingsModal.requirePermission")}
             </span>
+          </label>
+
+          <label className={`items-center my-1`} htmlFor="chat-cooldown">
+            <div className={`text-primary-100 mb-1`}>
+              Chat Cooldown (milliseconds)
+            </div>
+            <Input
+              defaultValue={data.room.chatThrottle}
+              className={`rounded-8 bg-primary-700 h-6`}
+              onBlur={(e) => {
+                const chatThrottle = Number(e.target.value);
+                if (chatThrottle >= 0) {
+                  updater(["joinRoomAndGetInfo", data.room.id], (d) =>
+                    !d ? d : { ...d, chatThrottle }
+                  );
+                  conn.mutation.roomUpdate({ chatThrottle });
+                }
+              }}
+              onChange={(e) => {
+                const chatThrottle = Number(e.target.value);
+                if (chatThrottle >= 0) {
+                  updater(["joinRoomAndGetInfo", data.room.id], (d) =>
+                    !d ? d : { ...d, chatThrottle }
+                  );
+                }
+              }}
+              id="chat-cooldown"
+              type="number"
+            />
           </label>
 
           {/* chat disabled */}

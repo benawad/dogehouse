@@ -3,7 +3,14 @@ defmodule Broth.Message.Room.Create do
     reply: __MODULE__
 
   @derive {Jason.Encoder,
-           only: [:id, :creatorId, :name, :description, :isPrivate, :scheduledRoomId]}
+           only: [
+             :id,
+             :creatorId,
+             :name,
+             :description,
+             :isPrivate,
+             :scheduledRoomId
+           ]}
 
   @primary_key {:id, :binary_id, []}
   schema "rooms" do
