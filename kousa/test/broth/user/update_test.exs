@@ -101,6 +101,25 @@ defmodule BrothTest.User.UpdateTest do
                "https://pbs.twimg.com/profile_images/1152793238761345024/VRBvxeCM_400x400.jpg"
     end
 
+    test "a bad avatar", t do
+      user_id = t.user.id
+
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "user:update",
+          %{
+            "avatarUrl" => "https://bob.example.com/"
+          }
+        )
+
+      WsClient.assert_error("user:update", ref, %{"avatarUrl" => "has invalid format"})
+
+      user = Users.get_by_id(user_id)
+
+      assert user.avatarUrl == t.user.avatarUrl
+    end
+
     @tag :skip
     test "when you have two websockets connected updating one propagates change to other"
 
