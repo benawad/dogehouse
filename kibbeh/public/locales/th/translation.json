@@ -103,7 +103,17 @@
       "urlCopied": "คัดลอกลิงก์เรียบร้อย",
       "unfollow": "เลิกติดตาม",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "การตั้งค่าเสียง",

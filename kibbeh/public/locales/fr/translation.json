@@ -101,7 +101,17 @@
       "urlCopied": "Lien copié dans le presse-papier",
       "unfollow": "Unfollow",
       "about": "À propos de",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "Paramètres vocaux",

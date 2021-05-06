@@ -100,7 +100,17 @@
       "urlCopied": "Link gekopieerd naar klembord",
       "unfollow": "Ontvolgen",
       "about": "Over",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",

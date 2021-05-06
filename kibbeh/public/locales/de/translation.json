@@ -101,7 +101,17 @@
       "urlCopied": "URL wurde in die Zwischenablage kopiert",
       "unfollow": "Entfolgen",
       "about": "Über",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
