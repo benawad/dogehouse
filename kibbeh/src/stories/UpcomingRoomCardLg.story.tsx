@@ -25,10 +25,12 @@ UpcomingRoomCardLg.defaultProps = {
       lastOnline: "",
       numFollowers: 0,
       numFollowing: 0,
+      bannerUrl: "",
       online: true,
       username: "gle1",
     },
     {
+      bannerUrl: "",
       avatarUrl: avatar1,
       bio: "",
       id: "2",

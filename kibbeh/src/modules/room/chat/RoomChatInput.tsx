@@ -1,4 +1,4 @@
-import { RoomUser } from "@dogehouse/kebab";
+import { Room, RoomUser } from "@dogehouse/kebab";
 import React, { useRef, useState, useEffect } from "react";
 import { Smiley } from "../../../icons";
 import { createChatMessage } from "../../../lib/createChatMessage";
@@ -61,9 +61,12 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
       return;
     }
 
-    if (Date.now() - lastMessageTimestamp <= 1000) {
+    if (
+      data &&
+      !("error" in data) &&
+      Date.now() - lastMessageTimestamp <= data.room.chatThrottle
+    ) {
       showErrorToast(t("modules.roomChat.waitAlert"));
-
       return;
     }
 
@@ -122,7 +125,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
         />
       </div>
       <div className="flex items-stretch">
-        <div>
+        <div className="flex-1">
           {data && "room" in data && data.room.chatMode === "follower_only" ? (
             <div className="text-primary-300 mb-1">Follower mode</div>
           ) : null}

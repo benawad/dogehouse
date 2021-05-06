@@ -32,8 +32,7 @@ const Page = ({
   onLoadMore: (o: number) => void;
 }) => {
   const conn = useConn();
-  const ref = useRef<HTMLDivElement | null>(null);
-  const { setNode, entry } = useIntersectionObserver(ref);
+  const { setNode, entry } = useIntersectionObserver({});
   const {
     mutateAsync,
     isLoading: followLoading,

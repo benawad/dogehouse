@@ -19,6 +19,7 @@ export const Live: Story<RoomCardProps> = ({
 }) => (
   <div className="flex" style={{ width: 640 }}>
     <RoomCard
+      avatars={[]}
       title={title}
       subtitle={subtitle}
       listeners={listeners}
@@ -39,6 +40,7 @@ export const StartsIn2Secs: Story<RoomCardProps> = ({
 }) => (
   <div className="flex" style={{ width: 640 }}>
     <RoomCard
+      avatars={[]}
       title={title}
       subtitle={subtitle}
       listeners={listeners}
@@ -60,6 +62,7 @@ export const StartsIn2Hours: Story<RoomCardProps> = ({
   <div className="flex" style={{ width: 640 }}>
     <RoomCard
       title={title}
+      avatars={[]}
       subtitle={subtitle}
       listeners={listeners}
       scheduledFor={scheduledFor}
@@ -79,6 +82,7 @@ export const StartsIn2Days: Story<RoomCardProps> = ({
 }) => (
   <div className="flex" style={{ width: 640 }}>
     <RoomCard
+      avatars={[]}
       title={title}
       subtitle={subtitle}
       listeners={listeners}

@@ -151,6 +151,7 @@ export const wrap = (connection: Connection) => ({
     roomUpdate: (data: {
       name?: string;
       privacy?: string;
+      chatThrottle?: number;
       description?: string;
       autoSpeaker?: boolean;
       chatMode?: ChatMode;

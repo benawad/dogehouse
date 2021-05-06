@@ -14,7 +14,8 @@ defmodule Onion.Chat do
             ban_map: %{},
             last_message_map: %{},
             follow_at_map: %{},
-            chat_mode: :default
+            chat_mode: :default,
+            chat_throttle: 1000
 
   @type state :: %__MODULE__{
           room_id: String.t(),
@@ -23,7 +24,8 @@ defmodule Onion.Chat do
           ban_map: map(),
           last_message_map: %{optional(UUID.t()) => DateTime.t()},
           follow_at_map: %{optional(UUID.t()) => DateTime.t() | nil},
-          chat_mode: Beef.Schemas.Room.chatMode()
+          chat_mode: Beef.Schemas.Room.chatMode(),
+          chat_throttle: integer()
         }
 
   #################################################################################
@@ -99,6 +101,14 @@ defmodule Onion.Chat do
 
   defp set_room_creator_id_impl(id, %__MODULE__{} = state) do
     {:noreply, %{state | room_creator_id: id, follow_at_map: %{}}}
+  end
+
+  def set_chat_throttle(room_id, value) do
+    cast(room_id, {:set_chat_throttle, value})
+  end
+
+  defp set_chat_throttle_impl(value, %__MODULE__{} = state) do
+    {:noreply, %{state | chat_throttle: value}}
   end
 
   def banned?(room_id, who), do: call(room_id, {:banned?, who})
@@ -266,12 +276,11 @@ defmodule Onion.Chat do
     end
   end
 
-  @message_time_limit_milliseconds 1000
   @spec should_throttle?(UUID.t(), state) :: boolean
-  defp should_throttle?(user_id, %__MODULE__{last_message_map: m})
+  defp should_throttle?(user_id, %__MODULE__{last_message_map: m, chat_throttle: ct})
        when is_map_key(m, user_id) do
     DateTime.diff(DateTime.utc_now(), m[user_id], :millisecond) <
-      @message_time_limit_milliseconds
+      ct
   end
 
   defp should_throttle?(_, _), do: false
@@ -335,6 +344,10 @@ defmodule Onion.Chat do
 
   def handle_cast({:set_room_creator_id, id}, state) do
     set_room_creator_id_impl(id, state)
+  end
+
+  def handle_cast({:set_chat_throttle, value}, state) do
+    set_chat_throttle_impl(value, state)
   end
 
   def handle_cast({:set, key, value}, state), do: set_impl(key, value, state)

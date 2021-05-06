@@ -359,6 +359,7 @@ defmodule Kousa.Room do
             d: %{
               name: room.name,
               description: room.description,
+              chatThrottle: room.chatThrottle,
               isPrivate: room.isPrivate,
               roomId: room.id
             }
@@ -432,6 +433,7 @@ defmodule Kousa.Room do
           room_id: room.id,
           voice_server_id: room.voiceServerId,
           auto_speaker: auto_speaker,
+          chat_throttle: room.chatThrottle,
           chat_mode: room.chatMode,
           room_creator_id: room.creatorId
         )
