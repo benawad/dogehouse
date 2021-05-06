@@ -116,6 +116,19 @@ textarea {
   z-index: 9999999;
 }
 
+#nprogress .bar {
+  background: var(--color-primary-600) !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px var(--color-primary-600), 0 0 5px var(--color-primary-600) !important;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: var(--color-primary-600) !important;
+  border-left-color: var(--color-primary-600) !important;
+}
+
 img.emoji {
   height: 1em;
   width: 1em;
