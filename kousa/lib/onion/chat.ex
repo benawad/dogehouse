@@ -290,6 +290,7 @@ defmodule Onion.Chat do
         # I am doing user blocking at socket_handler level
         list
         |> List.insert_at(0, payload.from)
+        |> Enum.uniq
         |> Enum.each(fn recipient_id ->
           PubSub.broadcast("chat:" <> recipient_id, %Broth.Message{
             operator: "chat:send",
