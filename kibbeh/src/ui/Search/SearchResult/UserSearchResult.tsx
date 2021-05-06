@@ -1,14 +1,9 @@
-import router from "next/router";
+import { User } from "@dogehouse/kebab";
 import React from "react";
 import { SingleUser } from "../../UserAvatar";
 
 export interface UserSearchResultProps {
-  user: {
-    username: string;
-    displayName: string;
-    isOnline: boolean;
-    avatar: string;
-  };
+  user: User;
   className?: string;
   onClick?: () => void;
 }
@@ -24,7 +19,7 @@ export const UserSearchResult: React.FC<UserSearchResultProps> = ({
       onClick={onClick}
     >
       <div className="flex mr-3">
-        <SingleUser isOnline={user.isOnline} src={user.avatar} size="md" />
+        <SingleUser isOnline={user.online} src={user.avatarUrl} size="md" />
       </div>
       <div className="flex flex-col">
         <span className="text-primary-100 font-bold">{user.displayName}</span>

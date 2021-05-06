@@ -57,7 +57,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
         push(`/room/[id]`, `/room/${selection.id}`);
       }}
       onInputValueChange={(v) => {
-        if(visible) {
+        if (visible) {
           setText(v);
         }
       }}
@@ -115,12 +115,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                       })}
                     >
                       <UserSearchResult
-                        user={{
-                          username: item.username,
-                          displayName: item.displayName,
-                          isOnline: item.online,
-                          avatar: item.avatarUrl,
-                        }}
+                        user={item}
                         className={
                           highlightedIndex === index
                             ? "bg-primary-700"
@@ -137,11 +132,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                       })}
                     >
                       <RoomSearchResult
-                        room={{
-                          displayName: item.name,
-                          hosts: item.peoplePreviewList,
-                          userCount: item.numPeopleInside,
-                        }}
+                        room={item}
                         className={
                           highlightedIndex === index
                             ? "bg-primary-700"

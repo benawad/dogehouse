@@ -1,3 +1,4 @@
+import { Room, User } from "@dogehouse/kebab";
 import React, { useState } from "react";
 import { SearchBar } from "./SearchBar";
 import SearchHistory from "./SearchHistory";
@@ -24,14 +25,11 @@ export type RoomSearchResult = {
   userCount: number;
 };
 
-export type SearchResultItem = {
-  type: "room" | "user";
-  result: UserSearchResult | RoomSearchResult;
-};
+export type SearchResultItem = User | Room;
 
 export interface GlobalSearchProps {
   history: HistoryItem[];
-  searchResult: SearchResultItem[];
+  searchResults: SearchResultItem[];
 }
 
 export interface HistoryProps {
@@ -39,7 +37,7 @@ export interface HistoryProps {
 }
 
 export interface SearchResultProps {
-  result: SearchResultItem[];
+  items: SearchResultItem[];
 }
 
 const History: React.FC<HistoryProps> = ({ history }) => {
@@ -60,14 +58,14 @@ const History: React.FC<HistoryProps> = ({ history }) => {
   );
 };
 
-const SearchResult: React.FC<SearchResultProps> = ({ result }) => {
+const SearchResult: React.FC<SearchResultProps> = ({ items }) => {
   return (
     <div className="flex flex-col w-full">
-      {result.map(({ type, result: r }, i) =>
-        type === "room" ? (
-          <RoomSearchResult key={i} room={r as RoomSearchResult} />
+      {items.map((userOrRoom, i) =>
+        "name" in userOrRoom ? (
+          <RoomSearchResult key={i} room={userOrRoom} />
         ) : (
-          <UserSearchResult key={i} user={r as UserSearchResult} />
+          <UserSearchResult key={i} user={userOrRoom} />
         )
       )}
     </div>
@@ -76,7 +74,7 @@ const SearchResult: React.FC<SearchResultProps> = ({ result }) => {
 
 export const GlobalSearch: React.FC<GlobalSearchProps> = ({
   history,
-  searchResult,
+  searchResults,
 }) => {
   const [focused, setFocused] = useState(false);
   const [term, setTerm] = useState("");
@@ -101,7 +99,7 @@ export const GlobalSearch: React.FC<GlobalSearchProps> = ({
         <SearchOverlay className="absolute z-0">
           <div className="flex flex-col w-full">
             {!term && history && <History history={history} />}
-            {term && searchResult && <SearchResult result={searchResult} />}
+            {term && searchResults && <SearchResult items={searchResults} />}
           </div>
         </SearchOverlay>
       )}

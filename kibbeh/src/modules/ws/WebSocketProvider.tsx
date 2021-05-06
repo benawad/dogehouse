@@ -8,7 +8,6 @@ import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useVoiceStore } from "../webrtc/stores/useVoiceStore";
-import { Connection } from "@dogehouse/kebab/lib/raw";
 import { closeVoiceConnections } from "../webrtc/WebRtcApp";
 
 interface WebSocketProviderProps {
@@ -20,7 +19,7 @@ type V = raw.Connection | null;
 export const WebSocketContext = React.createContext<{
   conn: V;
   setUser: (u: User) => void;
-  setConn: (u: Connection | null) => void;
+  setConn: (u: raw.Connection | null) => void;
 }>({
   conn: null,
   setUser: () => {},

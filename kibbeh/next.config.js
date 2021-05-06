@@ -2,7 +2,7 @@ const withTM = require("next-transpile-modules")(["@dogehouse/kebab"]);
 
 module.exports = withTM({
   future: {
-    webpack5: true
+    webpack5: true,
   },
   reactStrictMode: true,
   typescript: {
@@ -11,6 +11,6 @@ module.exports = withTM({
     // your project has type errors.
     // @todo remove this once storybook is fixed
     // !! WARN !!
-    ignoreBuildErrors: true,
-  }
+    // ignoreBuildErrors: true,
+  },
 });

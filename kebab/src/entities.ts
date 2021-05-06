@@ -45,16 +45,15 @@ export interface ScheduledRoom {
 export type User = {
   youAreFollowing?: boolean;
   username: string;
-  roomPermissions?: unknown;
   online: boolean;
   numFollowing: number;
   numFollowers: number;
   lastOnline: string;
   id: UUID;
   followsYou?: boolean;
-  botOwnerId?: string;
+  botOwnerId?: string | null;
   displayName: string;
-  currentRoomId?: UUID;
+  currentRoomId?: UUID | null;
   currentRoom: Room;
   bio: string | null;
   avatarUrl: string;
