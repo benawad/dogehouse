@@ -11,6 +11,8 @@ module.exports = withTM({
     // your project has type errors.
     // @todo remove this once storybook is fixed
     // !! WARN !!
-    ignoreBuildErrors: true,
+
+    // @benawad this is breaking a lot of stuff
+    // ignoreBuildErrors: true,
   }
 });
