@@ -4,7 +4,8 @@ import { useVoiceStore } from "../stores/useVoiceStore";
 import { consumeAudio } from "./consumeAudio";
 
 export const receiveVoice = (conn: Connection, flushQueue: () => void) => {
-  conn.once("@get-recv-tracks-done", (consumerParametersArr: RoomPeer[]) => {
+  // @ts-ignore
+  conn.once("@get-recv-tracks-done", ({ consumerParametersArr }) => {
     try {
       for (const { peerId, consumerParameters } of consumerParametersArr) {
         consumeAudio(consumerParameters, peerId);
