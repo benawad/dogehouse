@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useScreenType } from "../../shared-hooks/useScreenType";
 import { PageComponent } from "../../types/PageComponent";
-import { PageHeader, SearchHeader } from "../../ui/mobile/MobileHeader";
+import { SearchHeader } from "../../ui/mobile/MobileHeader";
 import {
   RoomSearchResult,
   UserSearchResult,
@@ -12,7 +12,6 @@ import {
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { HeaderController } from "../display/HeaderController";
 import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
-import { SearchBarController } from "./SearchBarController";
 
 interface LoungePageProps {}
 
@@ -42,30 +41,21 @@ export const SearchPage: PageComponent<LoungePageProps> = ({}) => {
       >
         <div className="h-full w-full">
           {results &&
-            results.items.map((el, i) => {
-              if ("username" in el) {
+            results.items.map((userOrRoom, i) => {
+              if ("username" in userOrRoom) {
                 return (
                   <UserSearchResult
-                    onClick={() => router.push(`/u/${el.username}`)}
+                    onClick={() => router.push(`/u/${userOrRoom.username}`)}
                     key={i}
-                    user={{
-                      username: el.username,
-                      displayName: el.displayName,
-                      isOnline: el.online,
-                      avatar: el.avatarUrl,
-                    }}
+                    user={userOrRoom}
                   />
                 );
               } else {
                 return (
                   <RoomSearchResult
-                    onClick={() => router.push(`/room/${el.id}`)}
+                    onClick={() => router.push(`/room/${userOrRoom.id}`)}
                     key={i}
-                    room={{
-                      displayName: el.name,
-                      userCount: el.numPeopleInside,
-                      hosts: el.peoplePreviewList,
-                    }}
+                    room={userOrRoom}
                   />
                 );
               }

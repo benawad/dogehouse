@@ -260,7 +260,8 @@
         "makePublic": "upublicznij pokój",
         "makePrivate": "uczyń pokój prywatnym",
         "renamePublic": "Ustaw publiczną nazwę pokoju",
-        "renamePrivate": "Ustaw prywatną nazwę pokoju"
+        "renamePrivate": "Ustaw prywatną nazwę pokoju",
+        "chatDisabled": "disable chat"
       }
     }
   },
@@ -297,7 +298,8 @@
       "sendMessage": "Wyślij wiadomość",
       "whisper": "Szept",
       "welcomeMessage": "Witamy na czacie!",
-      "roomDescription": "Opis pokoju"
+      "roomDescription": "Opis pokoju",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Tankowanie rakiety",

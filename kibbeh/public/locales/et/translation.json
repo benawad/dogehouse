@@ -224,7 +224,8 @@
         "makePublic": "tee ruum avalikuks",
         "makePrivate": "tee ruum privaatseks",
         "renamePublic": "Säti avaliku ruumi nimi",
-        "renamePrivate": "Säti privaatse ruumi nimi"
+        "renamePrivate": "Säti privaatse ruumi nimi",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -289,7 +290,8 @@
       "sendMessage": "Saada sõnum",
       "whisper": "Sosista",
       "welcomeMessage": "Tere tulemast vestlusesse!",
-      "roomDescription": "ruumi kirjeldus"
+      "roomDescription": "ruumi kirjeldus",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Tankimas raketti",

@@ -233,7 +233,8 @@
         "makePublic": "அறையை பொதுவாக்குங்கள்",
         "makePrivate": "அறையை தனிப்பட்டதாக்குங்கள்",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -298,7 +299,8 @@
       "sendMessage": "ஒரு செய்தியை அனுப்புங்கள்",
       "whisper": "கிசுகிசுக்கவும்",
       "welcomeMessage": "அரட்டைக்கு வரவேற்கிறோம்!",
-      "roomDescription": "அறை விளக்கம்"
+      "roomDescription": "அறை விளக்கம்",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Rocket'க்கு petrol போடுகிறோம் ",

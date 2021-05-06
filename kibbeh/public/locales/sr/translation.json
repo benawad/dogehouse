@@ -223,7 +223,8 @@
         "makePublic": "Учините собу јавном",
         "makePrivate": "Учините собу приватном",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -288,7 +289,8 @@
       "sendMessage": "Пошаљите поруку",
       "whisper": "Шапћите",
       "welcomeMessage": "Добро дошли у ћаскање!",
-      "roomDescription": "Опис собе"
+      "roomDescription": "Опис собе",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

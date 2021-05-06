@@ -80,7 +80,6 @@ defmodule Broth.Message.Call do
   @callback initialize(SocketHandler.state()) :: struct
 
   @callback changeset(struct | nil, Broth.json()) :: Ecto.Changeset.t()
-  @callback changeset(Broth.json()) :: Ecto.Changeset.t()
 
   def __after_compile__(%{module: module}, _bin) do
     # checks to make sure you've either declared a schema module, or you have

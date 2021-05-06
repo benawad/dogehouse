@@ -67,7 +67,9 @@
             "target": [
                 "deb",
                 "AppImage",
-                "snap"
+                "snap",
+                "tar.gz",
+                "rpm"
             ],
             "category": "AudioVideo"
         },

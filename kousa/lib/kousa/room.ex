@@ -148,6 +148,7 @@ defmodule Kousa.Room do
   def set_owner(room_id, user_id, setter_id) do
     with {:creator, _} <- Rooms.get_room_status(setter_id),
          {1, _} <- Rooms.replace_room_owner(setter_id, user_id) do
+      Onion.RoomSession.set_room_creator_id(room_id, user_id)
       internal_set_speaker(setter_id, room_id)
 
       Onion.RoomSession.broadcast_ws(
@@ -169,6 +170,8 @@ defmodule Kousa.Room do
     case Rooms.get_room_status(setter_id) do
       {:creator, _} ->
         RoomPermissions.set_is_mod(user_id, room_id, true)
+
+        Onion.Chat.set_can_chat(room_id, user_id)
 
         Onion.RoomSession.broadcast_ws(
           room_id,
@@ -264,15 +267,10 @@ defmodule Kousa.Room do
   defp set_listener(room_id, user_id, setter_id) do
     # TODO: refactor this to be simpler.  The list of
     # creators and mods should be in the preloads of the room.
-    case Rooms.get_room_status(setter_id) do
-      {_, nil} ->
-        :noop
-
-      {auth, _} when auth in [:creator, :mod] ->
+    with {auth, _} <- Rooms.get_room_status(setter_id), {role, _} <- Rooms.get_room_status(user_id) do
+      if auth == :creator or (auth == :mod and role not in [:creator, :mod]) do
         internal_set_listener(user_id, room_id)
-
-      _ ->
-        :noop
+      end
     end
   end
 
@@ -310,6 +308,7 @@ defmodule Kousa.Room do
   defp internal_set_speaker(user_id, room_id) do
     case RoomPermissions.set_speaker(user_id, room_id, true) do
       {:ok, _} ->
+        Onion.Chat.set_can_chat(room_id, user_id)
         # kind of horrible to have to make a double genserver call
         # here, we'll have to think about how this works (who owns muting)
         Onion.RoomSession.add_speaker(
@@ -360,6 +359,7 @@ defmodule Kousa.Room do
             d: %{
               name: room.name,
               description: room.description,
+              chatThrottle: room.chatThrottle,
               isPrivate: room.isPrivate,
               roomId: room.id
             }
@@ -393,7 +393,14 @@ defmodule Kousa.Room do
     })
   end
 
-  @spec create_room(String.t(), String.t(), String.t(), boolean(), String.t() | nil) ::
+  @spec create_room(
+          String.t(),
+          String.t(),
+          String.t(),
+          boolean(),
+          String.t() | nil,
+          boolean() | nil
+        ) ::
           {:error, any}
           | {:ok, %{room: atom | %{:id => any, :voiceServerId => any, optional(any) => any}}}
   def create_room(
@@ -425,7 +432,10 @@ defmodule Kousa.Room do
         Onion.RoomSession.start_supervised(
           room_id: room.id,
           voice_server_id: room.voiceServerId,
-          auto_speaker: auto_speaker
+          auto_speaker: auto_speaker,
+          chat_throttle: room.chatThrottle,
+          chat_mode: room.chatMode,
+          room_creator_id: room.creatorId
         )
 
         muted? = Onion.UserSession.get(user_id, :muted)

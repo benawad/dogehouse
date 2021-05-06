@@ -250,7 +250,8 @@
         "makePublic": "xonani umumiy qilish",
         "makePrivate": "xonani xususiy qilish",
         "renamePublic": "Umumiy xonani qayta nomlash",
-        "renamePrivate": "Xususiy xonani qayta nomlash"
+        "renamePrivate": "Xususiy xonani qayta nomlash",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -297,7 +298,8 @@
       "sendMessage": "Xat yuborish",
       "whisper": "Pichirlash",
       "welcomeMessage": "Suhbatga xush kelibsiz!",
-      "roomDescription": "xona tavsifi"
+      "roomDescription": "xona tavsifi",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "raketaga yonilg'i quyilmoqda",

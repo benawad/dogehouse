@@ -228,7 +228,8 @@
         "makePublic": "Tee huoneesta julkinen",
         "makePrivate": "Tee huoneesta yksityinen",
         "renamePublic": "Aseta julkinen huoneen nimi",
-        "renamePrivate": "Aseta yksityinen huoneen nimi"
+        "renamePrivate": "Aseta yksityinen huoneen nimi",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -293,7 +294,8 @@
       "sendMessage": "Lähetä viesti",
       "whisper": "Kuiskaus",
       "welcomeMessage": "Tervetuloa chattiin!",
-      "roomDescription": "Huoneen kuvaus"
+      "roomDescription": "Huoneen kuvaus",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Tankkaamassa rakettia",

@@ -256,7 +256,8 @@
         "makePublic": "gawing publiko ang room",
         "makePrivate": "gawing pribado ang silid",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     }
   },
@@ -293,7 +294,8 @@
       "sendMessage": "Magpadala ng Mensahe",
       "whisper": "Pabulong",
       "welcomeMessage": "Maligayang pagdating sa chat!",
-      "roomDescription": "deskripsyon"
+      "roomDescription": "deskripsyon",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

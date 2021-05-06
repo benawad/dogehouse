@@ -200,7 +200,8 @@
         "makePublic": "szoba publikussá állítása",
         "makePrivate": "szoba priváttá állítása",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "valamilyen okból nincs hallgató" },
@@ -287,7 +288,8 @@
       "sendMessage": "Üzenet küldése",
       "whisper": "privát üzenet",
       "welcomeMessage": "Üdv a beszélgetésben!",
-      "roomDescription": "szoba leírása"
+      "roomDescription": "szoba leírása",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Rakéta feltöltése",

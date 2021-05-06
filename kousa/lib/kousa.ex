@@ -60,7 +60,9 @@ defmodule Kousa do
     Enum.each(Beef.Rooms.all_rooms(), fn room ->
       Onion.RoomSession.start_supervised(
         room_id: room.id,
-        voice_server_id: room.voiceServerId
+        voice_server_id: room.voiceServerId,
+        chat_mode: room.chatMode,
+        room_creator_id: room.creatorId
       )
     end)
   end

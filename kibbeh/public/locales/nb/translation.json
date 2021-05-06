@@ -226,7 +226,8 @@
         "makePublic": "Gjør rommet offentlig",
         "makePrivate": "Gjør rommet privat",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -291,7 +292,8 @@
       "sendMessage": "Send en melding",
       "whisper": "Hviske",
       "welcomeMessage": "Velkommen til chatten!",
-      "roomDescription": "Rombeskrivelse"
+      "roomDescription": "Rombeskrivelse",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fyller på rakkett med drivstoff",

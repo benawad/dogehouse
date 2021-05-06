@@ -206,7 +206,8 @@
         "makePublic": "Raum öffentlich mochen",
         "makePrivate": "Raum privat mochen",
         "renamePublic": "Öffentlichn Raumnaumn festlegn",
-        "renamePrivate": "Privatn Raumnaumn festlegn"
+        "renamePrivate": "Privatn Raumnaumn festlegn",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": {
@@ -295,7 +296,8 @@
       "sendMessage": "A Nochricht schickn",
       "whisper": "Flüstern",
       "welcomeMessage": "Servus im Chat!",
-      "roomDescription": "Raumbeschreibung"
+      "roomDescription": "Raumbeschreibung",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Rakete betankn",

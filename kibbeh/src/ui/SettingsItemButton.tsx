@@ -6,7 +6,7 @@ export type SettingsItemButtonProps = {
   text: string;
   buttonText: string;
   disabled?: boolean;
-  className: string;
+  className?: string;
   onClick: (e: React.MouseEvent | React.TouchEvent) => void;
 };
 

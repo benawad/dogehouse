@@ -22,7 +22,7 @@ export interface UserSummaryCardProps {
   isOnline: boolean;
   avatarUrl: string;
   badges: badge[];
-  bio?: string;
+  bio?: string | null;
   website?: string;
 }
 

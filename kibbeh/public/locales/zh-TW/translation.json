@@ -221,7 +221,8 @@
         "makePublic": "把房間設定為公開",
         "makePrivate": "把房間設定為私人",
         "renamePublic": "重設公開房間名字",
-        "renamePrivate": "重設私人房間名字"
+        "renamePrivate": "重設私人房間名字",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -278,7 +279,8 @@
       "sendMessage": "發送訊息",
       "whisper": "密語",
       "welcomeMessage": "歡迎來到房間!",
-      "roomDescription": "房間簡介"
+      "roomDescription": "房間簡介",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "火箭正在加油",

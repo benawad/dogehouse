@@ -208,7 +208,8 @@
         "makePublic": "Raum öffentlich machen",
         "makePrivate": "Raum privat machen",
         "renamePublic": "Öffentlichen Raum-Namen setzen",
-        "renamePrivate": "Privaten Raum-Namen setzen"
+        "renamePrivate": "Privaten Raum-Namen setzen",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": {
@@ -297,7 +298,8 @@
       "sendMessage": "Eine Nachricht schicken",
       "whisper": "Flüstern",
       "welcomeMessage": "Willkommen im Chat!",
-      "roomDescription": "Raumbeschreibung"
+      "roomDescription": "Raumbeschreibung",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Rakete wird getankt",

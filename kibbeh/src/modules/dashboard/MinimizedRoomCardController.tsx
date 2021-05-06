@@ -1,24 +1,16 @@
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
-import { useMuteStore } from "../../global-stores/useMuteStore";
+import React from "react";
 import { useDeafStore } from "../../global-stores/useDeafStore";
+import { useMuteStore } from "../../global-stores/useMuteStore";
+import { useCurrentRoomFromCache } from "../../shared-hooks/useCurrentRoomFromCache";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
 import { useLeaveRoom } from "../../shared-hooks/useLeaveRoom";
-import { useSetMute } from "../../shared-hooks/useSetMute";
 import { useSetDeaf } from "../../shared-hooks/useSetDeaf";
-import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
+import { useSetMute } from "../../shared-hooks/useSetMute";
 import { MinimizedRoomCard } from "../../ui/MinimizedRoomCard";
 
-interface MinimizedRoomCardControllerProps {
-  roomId: string;
-}
-
-export const MinimizedRoomCardController: React.FC<MinimizedRoomCardControllerProps> = ({
-  roomId,
-}) => {
-  const { data } = useTypeSafeQuery(["joinRoomAndGetInfo", roomId], {}, [
-    roomId,
-  ]);
+export const MinimizedRoomCardController: React.FC = ({}) => {
+  const data = useCurrentRoomFromCache();
   const { canSpeak } = useCurrentRoomInfo();
   const { leaveRoom, isLoading } = useLeaveRoom();
   const { muted } = useMuteStore();
