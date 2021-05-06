@@ -25,7 +25,7 @@ defmodule BrothTest.Room.SetAuthTest do
   end
 
   describe "the using room:set_auth with mod" do
-    test "makes the person a mod and unmods them", t do
+    test "makes the person a mod", t do
       room_id = t.room_id
 
       # make sure the user is in there.
@@ -53,44 +53,18 @@ defmodule BrothTest.Room.SetAuthTest do
       # both clients get notified
       WsClient.assert_frame_legacy(
         "mod_changed",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id, "isMod" => true},
+        %{"userId" => ^speaker_id, "roomId" => ^room_id},
         t.client_ws
       )
 
       WsClient.assert_frame_legacy(
         "mod_changed",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id, "isMod" => true},
+        %{"userId" => ^speaker_id, "roomId" => ^room_id},
         speaker_ws
       )
 
-      assert Beef.RoomPermissions.mod?(speaker_id, room_id)
-
-      # unmods the person
-      WsClient.send_msg(
-        t.client_ws,
-        "room:set_auth",
-        %{
-          "userId" => speaker_id,
-          "level" => "user"
-        }
-      )
-
-      # both clients get notified
-      WsClient.assert_frame_legacy(
-        "mod_changed",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id, "isMod" => false},
-        t.client_ws
-      )
-
-      WsClient.assert_frame_legacy(
-        "mod_changed",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id, "isMod" => false},
-        speaker_ws
-      )
-
-      refute Beef.RoomPermissions.mod?(speaker_id, room_id)
+      assert Beef.RoomPermissions.get(speaker_id, room_id).isMod
     end
-
   end
 
   describe "the set_auth command can" do
