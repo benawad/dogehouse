@@ -99,7 +99,7 @@ export const connect = (
       connectionTimeout,
       WebSocket,
     });
-    const api2Send = (opcode: Opcode, data: unknown, ref?: Ref) => {
+    const apiSendv2 = (opcode: Opcode, data: unknown, ref?: Ref) => {
       // tmp fix
       // this is to avoid ws events queuing up while socket is closed
       // then it reconnects and fires before auth goes off
@@ -184,7 +184,7 @@ export const connect = (
           },
           user: message.d.user,
           send: apiSend,
-          sendCast: api2Send,
+          sendCast: apiSendv2,
           sendCall: (
             opcode: Opcode,
             parameters: unknown,
@@ -221,7 +221,7 @@ export const connect = (
                 }, fetchTimeout);
               }
 
-              api2Send(opcode, parameters, ref || undefined);
+              apiSendv2(opcode, parameters, ref || undefined);
             }),
           fetch: (opcode: Opcode, parameters: unknown, doneOpcode?: Opcode) =>
             new Promise((resolveFetch, rejectFetch) => {
