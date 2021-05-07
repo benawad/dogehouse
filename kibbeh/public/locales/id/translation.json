@@ -122,7 +122,7 @@
     "overlaySettings": {
       "input": {
         "errorMsg": "Judul aplikasi tidak valid",
-        "label": "memasukkan judul aplikasi"
+        "label": "Memasukkan judul aplikasi"
       },
       "header": "Pengaturan lapisan"
     },
