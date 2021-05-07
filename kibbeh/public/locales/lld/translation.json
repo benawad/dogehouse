@@ -1,0 +1,326 @@
+{
+  "_comment": "if you change this file, do: yarn i18",
+  "common": {
+    "loadMore": "Ciaria de plü",
+    "loading": "Ciariamënt...",
+    "noUsersFound": "Degun utënt ciafé",
+    "ok": "Ok",
+    "yes": "Ê",
+    "no": "No",
+    "cancel": "Anulëia",
+    "save": "Salva",
+    "edit": "Modifichëia",
+    "delete": "Eliminëia",
+    "joinRoom": "Partezipëia alla ciamena",
+    "copyLink": "Copiëia link",
+    "copied": "Copié",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "An ve prëia de notè che le utilise de DogeHouse zënza autorisaziuns de azes pudess gaujé fai"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Microfon dejabilité | DogeHouse",
+    "deafenedTitle": "Audio dejabilité | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Conesciun stabilida"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Origines",
+    "link_2": "Discord",
+    "link_3": "Segnalëia n bug"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": {
+      "ban": "Banëia"
+    },
+    "followingOnlineList": {
+      "listHeader": "Lista de utënc che te stas do y che ne é nia te na ciamena privata.",
+      "currentRoom": "Te chësc mumënt este colié a:",
+      "startPrivateRoom": "Scomëncia na ciamena privata cun ël"
+    },
+    "followList": {
+      "followHim": "Stá do",
+      "followingHim": "Bele sté do"
+    },
+    "home": {
+      "createRoom": "Cheriëia na ciamena",
+      "refresh": "Ciaria danü",
+      "editRoom": "Modifichëia la ciamena",
+      "desktopAlert": "Desciaria la app desktop de DogeHouse incö!"
+    },
+    "inviteList": {
+      "roomGone": "La ciamena ne esist nia, va zoruch",
+      "shareRoomLink": "Partësca le link dla ciamena",
+      "inviteFollowers": "Porsones che te vas do online che pos invié:",
+      "whenFollowersOnline": "Canche les porsones che te vas do é online, gnarai sö chiló."
+    },
+    "login": {
+      "headerText": "Portun les conversaziuns a usc cina ala löna 🚀",
+      "featureText_1": "Tema scür",
+      "featureText_2": "Registraziuns davertes",
+      "featureText_3": "Suport sön plü plataformes",
+      "featureText_4": "Open source",
+      "featureText_5": "Discusciuns de test",
+      "featureText_6": "Ofrí da Doge",
+      "loginGithub": "Vá ite cun Github",
+      "loginTwitter": "Vá ite cun Twitter",
+      "loginDiscord": "Vá ite cun Discord",
+      "createTestUser": "Area utënt por proes"
+    },
+    "myProfile": {
+      "logout": "Dejcoleghé",
+      "probablyLoading": "Plü dessigü sunsi bele tl laur da ciarié...",
+      "voiceSettings": "Modifichëia impostaziuns dla usc",
+      "soundSettings": "Modifichëia impostaziuns di sonns",
+      "deleteAccount": "Eliminëia account",
+      "overlaySettings": "Vá ales impostaziuns dl overlay",
+      "couldNotFindUser": "Al se desplej, ne un nia ciafé chël utënt"
+    },
+    "notFound": {
+      "whoopsError": "Ostia! Chësta plata é jüda pordüda tla conversaziun.",
+      "goHomeMessage": "Nia te preocupé. Te pos",
+      "goHomeLinkText": "va zoruch ala plata prinzipala"
+    },
+    "room": {
+      "speakers": "Anunziadus",
+      "requestingToSpeak": "I ó baié",
+      "listeners": "Ascutadus",
+      "allowAll": "Conzedi a düc",
+      "allowAllConfirm": "Es sigü? Chësc conzedará a {{count}} utënc che ó baié de pudëi ciacolè"
+    },
+    "searchUser": {
+      "search": "Chirida..."
+    },
+    "soundEffectSettings": {
+      "header": "Sonns",
+      "title": "Impostaziuns dl sonn"
+    },
+    "viewUser": {
+      "editProfile": "Modifichëia profil",
+      "followsYou": "Te stá do",
+      "followers": "Chi che te stá do",
+      "following": "Chi che tö stas do",
+      "followHim": "Státi do",
+      "followingHim": "Ti stas bele do",
+      "copyProfileUrl": "Copiëia link dl profil",
+      "urlCopied": "Link copié tles anotaziuns",
+      "unfollow": "Lascia da sté do",
+      "about": "About"
+    },
+    "voiceSettings": {
+      "header": "Impostaziuns dla usc",
+      "mic": "Microfon:",
+      "permissionError": "Degun microfon ciafé, plü dessigü ne as nia dé les autorisaziuns nezesciaries a DogeHouse por podëi l'adoré o ne as nia un taché ite.",
+      "refresh": "Ciaria da nü la lista di microfons",
+      "volume": "Volum:"
+    },
+    "overlaySettings": {
+      "input": {
+        "errorMsg": "Titul aplicaziun invalid",
+        "label": "Inserësca titul aplicaziun"
+      },
+      "header": "Impostaziuns dl overlay"
+    },
+    "download": {
+      "starting": "Scomencé a desciarié...",
+      "failed": "Al ne é nia sté poscibl desciarié automaticamënter, prëibel proa indô n iade plü tert",
+      "visit_gh": "Vijitëia les emisciuns sön Github",
+      "prompt": "Clichëia söl buttun dessot por mët man la desciariada",
+      "download_now": "Desciaria sëgn",
+      "download_for": "Desciaria por %platform% (%ext%)"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Utënc bandis",
+      "unban": "Tol demez la bandida",
+      "noBans": "Degun utënt é sté ciamó bandí"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Lascia chësta ciamena",
+      "confirmLeaveRoom": "Es zigü de urëi lascié chësta ciamena?",
+      "leave": "Lascia",
+      "inviteUsersToRoomBtn": "Inviëia utënc tla ciamena",
+      "invite": "Inviëia",
+      "toggleMuteMicBtn": "Abilitëia/dejabilitëia microfon",
+      "mute": "Dejabilitëia microfon",
+      "unmute": "Abilitëia microfon",
+      "makeRoomPublicBtn": "Fá deventé chësta ciamena publica!",
+      "settings": "Impostaziuns",
+      "speaker": "Anunziadú",
+      "listener": "Ascutadú",
+      "chat": "Discusciun",
+      "toggleDeafMicBtn": "Abilitëia/dejabilitëia le audio",
+      "deafen": "Dejabilité le audio",
+      "undeafen": "Abilité le audio"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Le tü despositif ne é nia suporté. Te pos segnalé chësc problem",
+      "linkText": "sön Github",
+      "addSupport": "y porvaran da le mët a jí por le tü despositif."
+    },
+    "inviteButton": {
+      "invited": "Invié",
+      "inviteToRoom": "Inviëia ala ciamena"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Imposcibl ciarié le microfon: autorisaziun negada (plü dessigü mësses modifiché les impostaziuns dl browser e/o ciarié la plata danü)",
+      "dismiss": "Ignorëia",
+      "tryAgain": "Proa ciamó n iade"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "Modifichëia keybinds",
+      "listening": "Drüca val' botun!",
+      "toggleMuteKeybind": "Keybind por abilité/dejabilité l microfon",
+      "togglePushToTalkKeybind": "Keybind por l push-to-talk",
+      "toggleOverlayKeybind": "Keybind por abilité/dejabilité la schermata dles keybinds",
+      "toggleDeafKeybind": "Keybind por dejabilité le audio"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "Degun audio é desponibl por val' rajun"
+    },
+    "addToCalendar": {
+      "add": "Ajunta al calënder"
+    },
+    "wsKilled": {
+      "description": "Le websocket é fora funziun dal server. Chësc sozed scialdi canche deures na plata danü te n'atra scheda.",
+      "reconnect": "Ciaria danü"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "Publica",
+        "private": "Privata",
+        "roomName": "Inom dla ciamena",
+        "roomDescription": "Descriziun dla ciamena",
+        "descriptionError": "La lunghëza mascima è de 500 caratri",
+        "nameError": "Le inom mëss ester dai 2 ai 60 caratri",
+        "subtitle": "Implenësca les scatores dessot por cherié na nöia ciamena"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Nöia ciamena cheriada",
+        "roomInviteFrom": "Te as ciafé n'invit da",
+        "justStarted": "Ë á apëna scomencé",
+        "likeToJoin": ", oresses jí ite?",
+        "inviteReceived": "T'es sté invié"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Inom utënt bele adoré",
+        "avatarUrlError": "Imaja invalida",
+        "avatarUrlLabel": "URL dl avatar de Github/Twitter",
+        "displayNameError": "Mëss ester dai 2 ai 50 caratri",
+        "displayNameLabel": "Inom mustré ai atri utënc",
+        "usernameError": "Le inom utënt mëss ester dai 4 ai 15 caratteri, pó madër contigní caratri alfanumerics y righes basses",
+        "usernameLabel": "Inom utënt",
+        "bioError": "La lunghëza mascima dla biografia é de 160 caratri",
+        "bioLabel": "Biografia",
+        "bannerUrlLabel": "URL dl banner sön Twitter"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Es zigü che te os bloché chësc utënt? Ël ne puderá nia plö gní ite tles ciamenes cheriades da te.",
+        "blockUser": "Blochëia utënt",
+        "makeMod": "Fá deventé n aministradú",
+        "unmod": "Tola demez les autorisaziuns da aministradú",
+        "addAsSpeaker": "Fá deventé n anunziadú",
+        "moveToListener": "Fá deventé n ascutadú",
+        "banFromChat": "Bandësca dala discusciun",
+        "banFromRoom": "Bandësca dala ciamena",
+        "goBackToListener": "Va zoruch ad ester n ascutadú",
+        "deleteMessage": "Eliminëia chësc messaje",
+        "makeRoomCreator": "Fá deventé n aministradú tla ciamena",
+        "unBanFromChat": "Tola demez l ban por la discusciun"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "Damana l autorisaziun por baié",
+        "makePublic": "Publichëia la ciamena",
+        "makePrivate": "Privatisëia la ciamena",
+        "renamePublic": "Modifichëia l inom dla ciamena publica",
+        "renamePrivate": "Modifichëia l inom dla ciamena privata"
+      }
+    },
+    "followingOnline": {
+      "people": "Jënt",
+      "online": "ONLINE",
+      "noOnline": "Te as 0 amisc online sëgn",
+      "showMore": "Mostra de plü"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Ciamenes che á da gní",
+      "exploreMoreRooms": "Esplorëia plü ciamenes"
+    },
+    "search": {
+      "placeholder": "Chira ciamenes, utënc o categories",
+      "placeholderShort": "Chirí"
+    },
+    "settingsDropdown": {
+      "profile": "Profil",
+      "language": "Lingaz",
+      "reportABug": "Segnalëia n bug",
+      "useOldVersion": "Adora la verjiun vedla",
+      "logOut": {
+        "button": "Vá fora",
+        "modalSubtitle": "Es zigü che te os jí fora dal account?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Archita Debugger"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Ciamenes planificades",
+      "noneFound": "Degüna ciamena é stada ciafada",
+      "allRooms": "Dütes les ciamenes planificades",
+      "myRooms": "Les tües ciamenes planificades",
+      "scheduleRoomHeader": "Planifichëia na ciamena",
+      "startRoom": "Mët a jí la ciamena",
+      "modal": {
+        "needsFuture": "Mëss ester tl futur",
+        "roomName": "Inom dla ciamena",
+        "minLength": "La lunghëza minima è de 2 caratri",
+        "roomDescription": "Descriziun"
+      },
+      "tommorow": "INDOMAN",
+      "today": "INCÖ",
+      "deleteModal": {
+        "areYouSure": "Es zigü che te os eliminé chësta ciamenta planificada?"
+      }
+    },
+    "roomChat": {
+      "title": "Discusciun",
+      "emotesSoon": "[les emoticon sará a desposiziun tl futur]",
+      "bannedAlert": "Te es sté bandí dala discusciun",
+      "waitAlert": "Mësses aspeté n secunt denant de mené n ater messaje tla discusciun",
+      "search": "Chirí",
+      "searchResults": "Resultac dla chirida",
+      "recent": "Adorá gonot",
+      "sendMessage": "Mené n messaje",
+      "whisper": "Mormorëia",
+      "welcomeMessage": "Benvenuto nella chat!",
+      "roomDescription": "Descriziun dla ciamena"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Refornimënt racheta",
+      "takingOff": "Aviada",
+      "inSpace": "Tl cosmos",
+      "approachingMoon": "Dlungia la lüna",
+      "lunarDoge": "Doge sön la löna",
+      "approachingSun": "Dlungia al sorëdl",
+      "solarDoge": "Doge dl sorëdl",
+      "approachingGalaxy": "Dlungia ala galassia",
+      "galacticDoge": "Doge dla galassia",
+      "spottedLife": "Afustié planët cun formes de vita"
+    },
+    "feed": {
+      "yourFeed": "Tó feed"
+    }
+  }
+}
