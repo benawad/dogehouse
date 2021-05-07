@@ -53,12 +53,18 @@ Navigate to `/kibbeh`
 > **NOTE:** Please follow the [design guidelines](https://github.com/benawad/dogehouse/blob/staging/DESIGN_GUIDELINES.md) and [figma mockups](https://www.figma.com/file/CS01VVLR7ArQl0afYFkNj3/Web-App) and if what you're trying to do isn't in there, consult [@ajmnz](https://github.com/ajmnz)/[@benawad](https://github.com/benawad) beforehand.
 
 ## Translating
-1. Set up the front-end (previous step).
-2. Go to `kibbeh/public/locales`.
-3. Check if a folder with the language you want to add/ edit already exists. If not, copy `en/translation`, create the folder and paste it there.
-4. Edit the JSON file. Make sure that it's valid.
-5. Go to `kibbeh/src/ui/LanguageSelector.tsx` and edit the object to include your language.
-6. Test and make a pull request.
+1. Fork the [repository](https://github.com/benawad/dogehouse "benawad/dogehouse") (click on `fork` in the top right corner of the screen)
+![image](https://i.ibb.co/RB4FVS0/Screenshot-2021-05-07-152827.jpg)
+
+2. In the forked repository, navigate to `kibbeh/public/locales` and then choose your language and open the `translation.json` file
+3. Click on `edit` in the top right corner of the window
+
+![image](https://i.ibb.co/vZjt4jD/Screenshot-2021-05-07-153427.jpg)
+
+4. Make the changes in the translation(make sure you are using the correct json syntax)
+5. click `commit changes` in the bottom of the page and add `fix(kibbeh): update {my language} Translation` as the commit message(`fix` if you are fixing tranlsations and `feat` if you are adding a language)(leave the description empty!)
+![image](https://user-images.githubusercontent.com/68110106/117442435-6e1b1080-af3f-11eb-990f-9a1a270fef29.png)
+6. Go to the [main page of the repository](https://github.com/benawad/dogehouse) and under `Contribute`, click on `Open Pull Request`
 
 ## Supporting translation in new components
 1. Add your translation key into the English `translation.json` located in `kibbeh/public/locales/en/translation.json`. Make sure it is put in an appropriate section that makes sense.
