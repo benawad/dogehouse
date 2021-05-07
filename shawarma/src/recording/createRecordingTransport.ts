@@ -4,7 +4,7 @@ import { config } from "../config";
 import { getPort } from "./port";
 
 export const createRecordingTransport = async (router: Router) => {
-  const listenIp = config.mediasoup.webRtcTransport.listenIps[0];
+  const listenIp = process.env.IP_A!;
   const rtpTransport = await router.createPlainTransport({
     listenIp,
   });
@@ -12,7 +12,7 @@ export const createRecordingTransport = async (router: Router) => {
   const port = await getPort();
 
   await rtpTransport.connect({
-    ip: listenIp.announcedIp || "127.0.0.1",
+    ip: listenIp || "127.0.0.1",
     port,
   });
 
@@ -24,6 +24,5 @@ export const createRecordingTransport = async (router: Router) => {
   //   ],
   // });
   console.log(listenIp);
-  console.log(process.env);
-  return { rtpTransport, port, ip: listenIp.announcedIp || "127.0.0.1" };
+  return { rtpTransport, port, ip: listenIp || "127.0.0.1" };
 };
