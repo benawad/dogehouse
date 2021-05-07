@@ -54,7 +54,7 @@
       "whenFollowersOnline": "Kiedy twoi obserwujący są online, pokażą się oni tutaj."
     },
     "login": {
-      "headerText": "Przenosimy rozmowy głosowe na księżyc 🚀",
+      "headerText": "Zabieramy rozmowy głosowe na księżyc 🚀",
       "featureText_1": "Tryb ciemny",
       "featureText_2": "Otwarte Zapisy",
       "featureText_3": "Wsparcie międzyplatformowe",
@@ -74,7 +74,7 @@
       "soundSettings": "Ustawienia dźwięku",
       "deleteAccount": "Usuń konto",
       "couldNotFindUser": "Przepraszamy, nie udało się znaleźć tego użytkownika",
-      "privacySettings": "Privacy settings"
+      "privacySettings": "Ustawienia prywatności"
     },
     "notFound": {
       "whoopsError": "Ups! Ta strona zagubiła się w konwersacji.",
@@ -103,7 +103,7 @@
       "followingHim": "Obserwujesz",
       "copyProfileUrl": "Skopiuj URL profilu",
       "urlCopied": "URL zostało skopiowane do schowka",
-      "about": "About",
+      "about": "O profilu",
       "bot": "Bot"
     },
     "voiceSettings": {
@@ -121,7 +121,7 @@
       }
     },
     "download": {
-      "starting": "Starting download...",
+      "starting": "Rozpoczynanie pobierania...",
       "failed": "Could not auto-download, please try again later",
       "visit_gh": "Visit Github Releases",
       "prompt": "Click on the button below to start download",
@@ -152,9 +152,9 @@
       "speaker": "Mówiący",
       "listener": "Słuchacz",
       "chat": "Czat",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Przełącz wyciszenie",
+      "deafen": "Wycisz",
+      "undeafen": "Odcisz"
     },
     "deviceNotSupported": {
       "notSupported": "Twoje urządzenie nie jest obecnie wspierane. Możesz zgłosić to",
@@ -180,7 +180,7 @@
       "setKeybind": "Skrót klawiszowy",
       "listening": "Słuchanie...",
       "toggleMuteKeybind": "Wyciszanie",
-      "toggleDeafKeybind": "Toggle deafen keybind",
+      "toggleDeafKeybind": "Skrót klawiszowy przełącznika wyciszenia",
       "toggleOverlayKeybind": "Nakładka",
       "togglePushToTalkKeybind": "Naciśnij i mów"
     },
@@ -191,12 +191,12 @@
     },
     "addToCalendar": { "add": "Dodaj do kalendarza" },
     "wsKilled": {
-      "description": "WebSocket został zabity przez serwer. Dzieje się tak kiedy otwierasz strone w nowej karcie.",
+      "description": "WebSocket został zabity przez serwer. Dzieje się tak kiedy otwierasz stronę w nowej karcie.",
       "reconnect": "Połącz ponownie"
     },
     "search": {
       "placeholder": "Znajdź pokój, użytkowników lub kategorie",
-      "placeholderShort": "Search"
+      "placeholderShort": "Szukaj"
     },
     "settingsDropdown": {
       "profile": "Twój profil",
@@ -240,7 +240,7 @@
         "usernameLabel": "Nazwa użytkownika",
         "bioError": "Maksymalna długość to 160 znaków",
         "bioLabel": "Bio",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bannerUrlLabel": "URL baneru na Twitterze"
       },
       "profileModal": {
         "blockUserConfirm": "Czy jesteś pewny, że chcesz zablokować użytkownikowi możliwość dołączania do każdego stworzonego przez Ciebie pokoju?",
@@ -262,7 +262,7 @@
         "makePrivate": "uczyń pokój prywatnym",
         "renamePublic": "Ustaw publiczną nazwę pokoju",
         "renamePrivate": "Ustaw prywatną nazwę pokoju",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "wyłącz chat"
       }
     }
   },
