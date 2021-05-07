@@ -12,7 +12,7 @@ export const createRecordingTransport = async (router: Router) => {
   const port = await getPort();
 
   await rtpTransport.connect({
-    ip: "127.0.0.1",
+    ip: listenIp.announcedIp || "127.0.0.1",
     port,
   });
 
