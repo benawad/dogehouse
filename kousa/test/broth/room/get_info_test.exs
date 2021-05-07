@@ -32,7 +32,7 @@ defmodule BrothTest.Room.GetInfoTest do
       WsClient.assert_reply(
         "room:get_info:reply",
         ref,
-        %{"id" => ^room_id, "name" => "foo room"}
+        %{"roomId" => ^room_id}
       )
     end
 
@@ -49,7 +49,7 @@ defmodule BrothTest.Room.GetInfoTest do
       WsClient.assert_reply(
         "room:get_info:reply",
         ref,
-        %{"id" => ^room_id, "name" => "foo room"}
+        %{"roomId" => ^room_id}
       )
     end
 
