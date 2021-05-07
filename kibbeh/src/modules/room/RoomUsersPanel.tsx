@@ -13,6 +13,9 @@ import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
 import { isWebRTCEnabled } from "../../lib/isWebRTCEnabled";
 import { useIsElectronMobile } from "../../global-stores/useElectronMobileStore";
+import { wrap } from "@dogehouse/kebab";
+import { useConn } from "../../shared-hooks/useConn";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 
 interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
 
@@ -35,6 +38,9 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
   let gridTemplateColumns = "repeat(5, minmax(0, 1fr))";
   const screenType = useScreenType();
   const isBigFullscreen = useMediaQuery({ minWidth: 640 });
+  const conn = useConn();
+
+  const { currentRoomId } = useCurrentRoomIdStore();
 
   if (isBigFullscreen && screenType === "fullscreen") {
     gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
@@ -51,6 +57,15 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
       });
     }
   }, [props, muted, deafened, me]);
+
+  useEffect(() => {
+    if (currentRoomId)
+      wrap(conn)
+        .query.getRoomInfo(currentRoomId)
+        .then((resp) => {
+          console.log(resp);
+        });
+  }, [currentRoomId]);
 
   const { debugAudio } = useDebugAudioStore();
 

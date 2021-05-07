@@ -1,6 +1,5 @@
 defmodule Broth.Message.Room.GetInfo do
   use Broth.Message.Call
-  alias Beef.Repo
 
   @primary_key false
   embedded_schema do
@@ -20,13 +19,16 @@ defmodule Broth.Message.Room.GetInfo do
   defmodule Reply do
     use Broth.Message.Push
 
-    @derive {Jason.Encoder, only: [:id, :name, :description, :isPrivate]}
+    @derive {Jason.Encoder, only: [:room, :users, :muteMap, :deafMap, :activeSpeakerMap, :roomId]}
 
-    @primary_key {:id, :binary_id, []}
+    @primary_key false
     schema "rooms" do
-      field(:name, :string)
-      field(:description, :string)
-      field(:isPrivate, :boolean)
+      field(:room, :map)
+      embeds_many(:users, Beef.Schemas.User)
+      field(:muteMap, :map)
+      field(:deafMap, :map)
+      field(:activeSpeakerMap, :map)
+      field(:roomId, :string)
     end
   end
 
@@ -34,10 +36,24 @@ defmodule Broth.Message.Room.GetInfo do
     with {:ok, request} <- apply_action(changeset, :validate) do
       room_id = request.roomId || Beef.Users.get_current_room_id(state.user.id)
 
-      if room = room_id && Repo.get(Reply, room_id) do
-        {:reply, room, state}
-      else
-        {:error, "the room doesn't exist"}
+      case Onion.RoomSession.lookup(room_id) do
+        [] ->
+          {:error, "the room doesn't exist"}
+
+        _ ->
+          room = Beef.Rooms.get_room_by_id(room_id)
+          {_, users} = Beef.Users.get_users_in_current_room(state.user.id)
+          {muteMap, deafMap, _, activeSpeakerMap} = Onion.RoomSession.get_maps(room_id)
+
+          {:reply,
+           %Reply{
+             room: room,
+             users: users,
+             muteMap: muteMap,
+             deafMap: deafMap,
+             activeSpeakerMap: activeSpeakerMap,
+             roomId: room_id
+           }, state}
       end
     end
   end
