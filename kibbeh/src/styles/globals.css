@@ -117,16 +117,16 @@ textarea {
 }
 
 #nprogress .bar {
-  background: var(--color-primary-600) !important;
+  background: var(--color-accent-hover) !important;
 }
 
 #nprogress .peg {
-  box-shadow: 0 0 10px var(--color-primary-600), 0 0 5px var(--color-primary-600) !important;
+  box-shadow: 0 0 10px var(--color-accent-hover), 0 0 5px var(--color-accent-hover) !important;
 }
 
 #nprogress .spinner-icon {
-  border-top-color: var(--color-primary-600) !important;
-  border-left-color: var(--color-primary-600) !important;
+  border-top-color: var(--color-accent-hover) !important;
+  border-left-color: var(--color-accent-hover) !important;
 }
 
 img.emoji {
