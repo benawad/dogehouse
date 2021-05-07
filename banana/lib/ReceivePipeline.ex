@@ -9,23 +9,16 @@ defmodule Broth.RTP.ReceivePipeline do
   def handle_init(opts) do
     %{audio_port: audio_port} = opts
 
-    PayloadFormat.register(%PayloadFormat{
-      encoding_name: :CUSTOM_OPUS,
-      payload_type: 100,
-      payloader: Opus.Payloader,
-      depayloader: Opus.Depayloader
-    })
-
-    PayloadFormat.register_payload_type_mapping(100, :CUSTOM_OPUS, 48_000)
 
     spec = %ParentSpec{
       children: [
         audio_src: %Membrane.Element.UDP.Source{
           local_port_no: audio_port,
-          local_address: {127, 0, 0, 1}
+          local_address: {127, 0, 0, 1},
         },
         rtp: %RTP.SessionBin{
           secure?: false,
+          # secure?: true,
           srtp_policies: [
             %ExLibSRTP.Policy{
               ssrc: :any_inbound,
@@ -43,7 +36,7 @@ defmodule Broth.RTP.ReceivePipeline do
   end
 
   @impl true
-  def handle_notification({:new_rtp_stream, ssrc, 100}, :rtp, _ctx, state) do
+  def handle_notification({:new_rtp_stream, ssrc, 120}, :rtp, _ctx, state) do
     state = Map.put(state, :audio, ssrc)
     actions = handle_stream(state)
     {{:ok, actions}, state}
@@ -69,6 +62,11 @@ defmodule Broth.RTP.ReceivePipeline do
       children: %{
         audio_decoder: Membrane.Opus.Decoder,
         converter: %Membrane.FFmpeg.SWResample.Converter{
+          input_caps: %Membrane.Caps.Audio.Raw{
+            format: :s16le,
+            sample_rate: 48000,
+            channels: 1
+          },
           output_caps: %Membrane.Caps.Audio.Raw{
             format: :s16le,
             sample_rate: 48000,
