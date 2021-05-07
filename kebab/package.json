@@ -13,7 +13,8 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "lint": "eslint src/",
+    "lint": "eslint --fix src",
+    "format": "prettier",
     "test": "jest",
     "postinstall": "npm run build"
   },
