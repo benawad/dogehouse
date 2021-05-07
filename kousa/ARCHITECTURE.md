@@ -8,16 +8,14 @@ https://www.youtube.com/watch?v=yTkzNHF6rMs
 Elixir contexts
 
 1. `Beef` - Database, persistent state for Kousa
- - `Beef.Access` nonmutating queries
- - `Beef.Changesets` ingress validation logic
- - `Beef.Mutations` mutating queries
- - `Beef.Queries` composable Ecto.Query fragments
- - `Beef.Schemas` database table schemas
- - `Beef.Lenses` database struct logic
+ - `Beef.Access` Nonmutating queries
+ - `Beef.Mutations` Mutating queries
+ - `Beef.Queries` Composable Ecto.Query fragments
+ - `Beef.Schemas` Database table schemas
 2. `Onion` - OTP-based transient state for Kousa
-3. `Broth` - Web interface and contexts
- - `Broth.Messages` - contracts for all ws I/O
-4. `Kousa` - OTP Application, Business Logic, and common toolsets
+3. `Broth` - Web interface, routes, socket handler, everything that is being delivered to the client
+ - `Broth.Messages` - Handles websocket messages
+4. `Kousa` - OTP application, business logic, and common toolsets
 
 NB: All of the module contexts will be part of the `:kousa` BEAM VM
 application under the application supervision tree
