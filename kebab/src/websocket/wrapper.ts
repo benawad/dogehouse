@@ -137,6 +137,10 @@ export const wrap = (connection: Connection) => ({
         {},
         "get_current_room_users_done"
       ),
+    getRoomInfo: (
+      roomId: string
+    ): Promise<JoinRoomAndGetInfoResponse> =>
+      connection.sendCall("room:get_info", { roomId })
   },
   /**
    * Allows you to call functions that mutate the ws state
