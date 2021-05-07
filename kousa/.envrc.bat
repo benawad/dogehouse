@@ -1,0 +1,20 @@
+set GITHUB_CLIENT_ID=nyahnyahnyah
+set GITHUB_CLIENT_SECRET=foobarbaz
+
+set BEN_GITHUB_ID=nopenope
+set ACCESS_TOKEN_SECRET=oneuthateuhathoeuthuaonehntoauhaeuheae
+set REFRESH_TOKEN_SECRET=zzaneuthaonueheaouhnaoehunstasenuthanu
+
+set TWITTER_API_KEY=ntauhnaehuntaeeuntehnatu
+set TWITTER_SECRET_KEY=taeounaheunaoehutaheueteee
+set TWITTER_BEARER_TOKEN=naoeuhetuhnau
+
+set DISCORD_CLIENT_ID=ntahunhaoneuhtohauehonu
+set DISCORD_CLIENT_SECRET=aoneunthaehouh
+
+set GOOGLE_CLIENT_ID=ntahunhaoneuhtohauehonu
+set GOOGLE_CLIENT_SECRET=aoneunthaehouh
+
+set TWITTER_BEARER_TOKEN=aoidjwqdjqiowdjwqadjoqwidoqw
+
+set DATABASE_URL=postgres://asdouaoisdwionasa
