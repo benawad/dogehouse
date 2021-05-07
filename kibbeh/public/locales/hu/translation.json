@@ -70,9 +70,9 @@
       "voiceSettings": "Hangbeállítások",
       "soundSettings": "Hanghatások",
       "deleteAccount": "Fiók törlése",
-      "overlaySettings": "Go to overlay settings",
+      "overlaySettings": "Átfedés beállítások megnyitása",
       "couldNotFindUser": "Sajnáljuk, a felhasználó nem található",
-      "privacySettings": "Privacy settings"
+      "privacySettings": "Adatvédelmi beállítások"
     },
     "notFound": {
       "whoopsError": "Whoops! Ez az oldal elveszett a beszélgetésben.",
@@ -110,7 +110,7 @@
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay beállítások"
+      "header": "Átfedés beállítások"
     },
     "download": {
       "starting": "Letöltés elkezdve...",
@@ -212,7 +212,7 @@
       "listening": "Hallgatás...",
       "toggleMuteKeybind": "Némítás",
       "togglePushToTalkKeybind": "Push-to-talk",
-      "toggleOverlayKeybind": "Overlay gyorsgomb",
+      "toggleOverlayKeybind": "Átfedés gyorsgomb",
       "toggleDeafKeybind": "Süketítés gyorsgomb"
     },
     "wsKilled": {
@@ -236,7 +236,7 @@
     },
     "upcomingRoomsCard": {
       "upcomingRooms": "Ütemzett szobák",
-      "exploreMoreRooms": "További szokák felfedzése"
+      "exploreMoreRooms": "További szobák felfedezése"
     },
     "search": {
       "placeholder": "Kereshet szobákat, felhasználókat vagy kategóriákat",
@@ -252,7 +252,7 @@
         "modalSubtitle": "Biztosan kijelentkezne?"
       },
       "debugAudio": {
-        "debugAudio": "Audióhibák elhárítása",
+        "debugAudio": "Audió hibakereső",
         "stopDebugger": "Hibakereső leállítása"
       },
       "downloadApp": "App letöltése"
@@ -288,7 +288,7 @@
       "whisper": "Privát üzenet",
       "welcomeMessage": "Üdv a beszélgetésben!",
       "roomDescription": "Szoba leírása",
-      "disabled": "Csevegés letiltva"
+      "disabled": "Chat letiltva"
     },
     "roomStatus": {
       "fuelingRocket": "Rakéta feltöltése",
