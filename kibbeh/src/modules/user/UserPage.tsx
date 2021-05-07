@@ -10,7 +10,7 @@ import { UserProfileController } from "./UserProfileController";
 
 interface UserPageProps {
   username: string;
-  user: User;
+  user: User | null;
 }
 
 
@@ -18,7 +18,7 @@ export const UserPage: PageComponent<UserPageProps> = ({ username, user }) => {
   const { query } = useRouter();
   return (
     <DefaultDesktopLayout>
-      <HeaderController title={user.displayName} embed={{ image: user.avatarUrl }} description={user.bio ? user.bio : undefined} />
+      { user ? <HeaderController title={user.displayName} embed={{ image: user.avatarUrl }} description={user.bio ? user.bio : undefined} /> : "" }
       <MiddlePanel>
         <UserProfileController key={username} />
       </MiddlePanel>
@@ -29,8 +29,7 @@ export const UserPage: PageComponent<UserPageProps> = ({ username, user }) => {
 UserPage.getInitialProps = async ({ query }) => {
   const username = typeof query.username === "string" ? query.username : "";
   const res = await fetch(`${apiBaseUrl}/user/${username}`);
-  const user: { user: User } = await res.json();
-  console.log(user);
+  const user: { user: User | null} = await res.json();
   return { username, user: user.user };
 };
 
