@@ -61,8 +61,8 @@
     "inviteList": {
       "roomGone": "Rüm gon; gö bak",
       "shareRoomLink": "S̈är Rüm Link",
-      "inviteFollowers": "Yü kan invït yor folöwərz þat or onlïn:",
-      "whenFollowersOnline": "Wen yör folöwərz or onlïn, þä wil s̈ö up hër."
+      "inviteFollowers": "Yü kan invït yor folöərz þat or onlïn:",
+      "whenFollowersOnline": "Wen yör folöərz or onlïn, þä wil s̈ö up hër."
     },
     "login": {
       "headerText": "Täkiŋ vöës konvrsäs̈onz tü þə mün 🚀",
@@ -79,12 +79,13 @@
     },
     "myProfile": {
       "logout": "Logawt",
-      "probablyLoading": "probäblë löwdiŋ...",
+      "probablyLoading": "probäblë lödiŋ...",
       "voiceSettings": "Vöës Setiŋz",
       "overlaySettings": "Övrlä Setiŋz",
       "soundSettings": "Sawnd Setiŋz",
       "deleteAccount": "Dlët Akawnt",
-      "couldNotFindUser": "Sorë, wë kud not fïnd þat yüzr"
+      "couldNotFindUser": "Sorë, wë kud not fïnd þat yüzr",
+      "privacySettings": "Prïvasë Setiŋz"
     },
     "notFound": {
       "whoopsError": "Wəps! Þis päj got lost in konvrsäs̈on.",
@@ -107,12 +108,12 @@
     },
     "viewUser": {
       "editProfile": "Edit Pröfïl",
-      "followsYou": "Folöwz yü",
-      "followers": "folöwrz",
-      "following": "folöwiŋ",
-      "followHim": "Folöw",
-      "unfollow": "Unfolöw",
-      "followingHim": "Folöwiŋ",
+      "followsYou": "Folöz yü",
+      "followers": "folörz",
+      "following": "folöiŋ",
+      "followHim": "Folö",
+      "unfollow": "Unfolö",
+      "followingHim": "Folöiŋ",
       "copyProfileUrl": "Kopë Pröfïl URL",
       "urlCopied": "URL kopëd tü klipbörd",
       "about": "Abawt",
@@ -134,7 +135,7 @@
     }
   },
   "components": {
-    "_comment": "Kompönent UI Intrnas̈ənəlïzäs̈on Striŋs",
+    "_comment": "Kompönent UI Intərnas̈ənəlïzäs̈un Striŋz",
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
@@ -274,7 +275,7 @@
     }
   },
   "modules": {
-    "_comment": "Modyülz UI Intrnas̈ənəlïzäs̈on Striŋs",
+    "_comment": "Modyülz UI Intərnas̈ənəlïzäs̈un Striŋz",
     "feed": {
       "yourFeed": "Yör fëd"
     },
