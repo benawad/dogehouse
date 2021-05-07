@@ -24,5 +24,6 @@ export const createRecordingTransport = async (router: Router) => {
   //   ],
   // });
   console.log(listenIp);
+  console.log(process.env);
   return { rtpTransport, port, ip: listenIp.announcedIp || "127.0.0.1" };
 };
