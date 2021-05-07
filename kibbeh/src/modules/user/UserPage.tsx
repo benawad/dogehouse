@@ -18,7 +18,7 @@ export const UserPage: PageComponent<UserPageProps> = ({ username, user }) => {
   const { query } = useRouter();
   return (
     <DefaultDesktopLayout>
-      { user ? <HeaderController title={user.displayName} embed={{ image: user.avatarUrl }} description={user.bio ? user.bio : undefined} /> : "" }
+      { user ? <HeaderController title={user.displayName} embed={{ image: user.avatarUrl }} description={user.bio ? user.bio : undefined} /> : <HeaderController /> }
       <MiddlePanel>
         <UserProfileController key={username} />
       </MiddlePanel>
