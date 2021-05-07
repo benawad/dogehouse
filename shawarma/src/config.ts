@@ -37,6 +37,7 @@ export const config = {
           mimeType: "audio/opus",
           clockRate: 48000,
           channels: 2,
+          preferredPayloadType: 120,
         },
       ] as RtpCodecCapability[],
     },
