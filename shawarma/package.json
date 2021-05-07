@@ -7,6 +7,7 @@
     "watch": "tsc -w",
     "start": "node dist/index.js",
     "build": "tsc",
+    "rtp": "ts-node src/rtp-test.ts",
     "dev": "cross-env DEBUG=shawarma:* nodemon dist/index.js",
     "dev2": "cross-env QUEUE_ID=1 DEBUG=shawarma:* nodemon dist/index.js",
     "dev:ts": "cross-env DEBUG=shawarma:*  ts-node src",
@@ -25,6 +26,8 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mediasoup": "^3.6.31",
+    "mediasoup-client": "^3.6.30",
+    "mediasoup-client-aiortc": "^3.6.3",
     "ws": "^7.4.2"
   },
   "devDependencies": {

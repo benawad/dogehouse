@@ -6,7 +6,7 @@ defmodule Banana do
 
       {:ok, pid} =
         ReceivePipeline.start_link(%{
-          audio_port: 20317
+          audio_port: 23180
         })
 
       ReceivePipeline.play(pid)
