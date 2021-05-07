@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: yarn i18",
+  "_comment": "to contribute to this you can see the translation guide in the /en-C directory.",
   "common": {
     "loadMore": "Löd Mör",
     "loading": "Lödiŋ...",
