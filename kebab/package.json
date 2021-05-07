@@ -8,12 +8,12 @@
     "dogehouse"
   ],
   "description": "The official DogeHouse API client.",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "lint": "eslint src/",
+    "lint": "eslint src",
     "test": "jest",
     "postinstall": "npm run build"
   },
@@ -21,8 +21,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@types/uuid": "^8.3.0",
-    "@types/ws": "^7.4.2",
     "isomorphic-unfetch": "^3.1.0",
     "isomorphic-ws": "^4.0.1",
     "mediasoup-client": "^3.6.30",
@@ -32,6 +30,8 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
+    "@types/uuid": "^8.3.0",
+    "@types/ws": "^7.4.2",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.25.0",

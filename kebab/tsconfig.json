@@ -4,7 +4,7 @@
     "module": "commonjs",
     "declaration": true,
     "skipLibCheck": true,
-    "outDir": "./lib",
+    "outDir": "./dist",
     "strict": true,
     "lib": ["dom", "ES6"],
     "esModuleInterop": true
