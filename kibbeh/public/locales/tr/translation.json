@@ -102,15 +102,15 @@
       "about": "Hakkında",
       "bot": "Bot",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips"
+        "about": "Hakkında",
+        "rooms": "Odalar",
+        "scheduled": "Planlanmış",
+        "recorded": "Kaydedildi",
+        "clips": "Klipler"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "block": "Engelle",
+      "unblock": "Engeli kaldır",
+      "sendDM": "Özel mesaj gönder"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",
@@ -217,7 +217,7 @@
         "makePrivate": "Odayı gizli yap",
         "renamePublic": "Herkese açık oda adı seç",
         "renamePrivate": "Gizli oda adı seç",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "sohbeti devre dışı bırak"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },
@@ -270,7 +270,7 @@
         "debugAudio": "Ses Hatalarını Ayıkla",
         "stopDebugger": "Hata Ayıklamayı Durdur"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Uygulamayı İndir"
     }
   },
   "modules": {
@@ -305,7 +305,7 @@
       "whisper": "Fısılda",
       "welcomeMessage": "Sohbete hoş geldin!",
       "roomDescription": "Oda Açıklaması",
-      "disabled": "room chat has been disabled"
+      "disabled": "oda sohbeti devre dışı bırakıldı"
     },
     "roomStatus": {
       "fuelingRocket": "Yakıt dolduruluyor",
