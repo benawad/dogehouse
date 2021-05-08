@@ -170,13 +170,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/events@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@types/events@npm:3.0.0"
-  checksum: 1407d79d6d5291caa89f27ef0f180eb133bc5a12f11886bd68f9ef9cffb962a575571d1b4d02d30a7329fe9b85d29b7c10543ed6dc516ad20f9a1e89c1e9c9b8
-  languageName: node
-  linkType: hard
-
 "@types/express-serve-static-core@npm:^4.17.18":
   version: 4.17.19
   resolution: "@types/express-serve-static-core@npm:4.17.19"
@@ -589,13 +582,6 @@ __metadata:
     raw-body: 2.4.0
     type-is: ~1.6.17
   checksum: 18c2a81df5eabc7e3541bc9ace394b88e6fbd390989b5e764ff34c3f9dbd097e19986c31baa9b855ec5c2cff2b79157449afb0cdfb97bb99c11d6239b2c47a34
-  languageName: node
-  linkType: hard
-
-"bowser@npm:^2.11.0":
-  version: 2.11.0
-  resolution: "bowser@npm:2.11.0"
-  checksum: d51e10d18909b7d01dd58c35466c63d419d503acda732ea6ca6a80c9cdc5c1bbf7c77abfcf620f75bba62521048292faec6d27b7e92f44bcd82b5f89bf46052f
   languageName: node
   linkType: hard
 
@@ -1234,20 +1220,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"event-target-shim@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "event-target-shim@npm:5.0.1"
-  checksum: d176477a31adf328ff50148886e46cef3f61ff8bdc1d6db161f6b3ead2501085d5652a81fab8dddc59aed93727231c0b5c8a0948de77ae401b2d977a3d18329e
-  languageName: node
-  linkType: hard
-
-"events@npm:^3.3.0":
-  version: 3.3.0
-  resolution: "events@npm:3.3.0"
-  checksum: 56fa12567013e85b98782a1d971442ea29df057129d8a94432711fd68303357594ea37bfbe234860e28581a7768f943a8bea88c16b48aa01b96acf804bc01d52
-  languageName: node
-  linkType: hard
-
 "express@npm:^4.17.1":
   version: 4.17.1
   resolution: "express@npm:4.17.1"
@@ -1304,16 +1276,6 @@ __metadata:
   version: 1.4.0
   resolution: "extsprintf@npm:1.4.0"
   checksum: 092e011574324c5cddd78b5a27f869c2703613c1140eb7763aef8f5b0e33769a9b4c7dbcc50acd39b6afebe79bf66adcec73bf3c84e095c5bcfb42306d128ad0
-  languageName: node
-  linkType: hard
-
-"fake-mediastreamtrack@npm:^1.1.3":
-  version: 1.1.6
-  resolution: "fake-mediastreamtrack@npm:1.1.6"
-  dependencies:
-    event-target-shim: ^5.0.1
-    uuid: ^8.1.0
-  checksum: 82237e997937f43b6f6f6caab36700541d9451c511b2814e0faea785274cc453b6932b76927cba122b61146067606a4d28267a8582e87afaecafcfbea828a98c
   languageName: node
   linkType: hard
 
@@ -2246,38 +2208,6 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"mediasoup-client-aiortc@npm:^3.6.3":
-  version: 3.6.3
-  resolution: "mediasoup-client-aiortc@npm:3.6.3"
-  dependencies:
-    event-target-shim: ^5.0.1
-    fake-mediastreamtrack: ^1.1.3
-    netstring: ^0.3.0
-    sdp-transform: ^2.14.0
-    uuid: ^7.0.3
-  peerDependencies:
-    mediasoup-client: ^3.6.2
-  checksum: 2ce06094d1080ab5be800171c299851d4b5b15f7b8b624361d76def98433b7ac1ef903dd57c9ca1ae2f220437e2c540765dc1c2cb2611f97e1afa9fbc81f39dc
-  languageName: node
-  linkType: hard
-
-"mediasoup-client@npm:^3.6.30":
-  version: 3.6.30
-  resolution: "mediasoup-client@npm:3.6.30"
-  dependencies:
-    "@types/debug": ^4.1.5
-    "@types/events": ^3.0.0
-    awaitqueue: ^2.3.3
-    bowser: ^2.11.0
-    debug: ^4.3.1
-    events: ^3.3.0
-    h264-profile-level-id: ^1.0.1
-    sdp-transform: ^2.14.1
-    supports-color: ^8.1.1
-  checksum: 3b59f86b11c7a0f69e3df005c5f5472e9408dde05e1a55f4a091c12770b59c871932931910bcf008c3d9693a7019baba19cead9897f1aa09e787dd8c6a29c76b
-  languageName: node
-  linkType: hard
-
 "mediasoup@npm:^3.6.31":
   version: 3.6.37
   resolution: "mediasoup@npm:3.6.37"
@@ -3170,15 +3100,6 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"sdp-transform@npm:^2.14.0, sdp-transform@npm:^2.14.1":
-  version: 2.14.1
-  resolution: "sdp-transform@npm:2.14.1"
-  bin:
-    sdp-verify: checker.js
-  checksum: f533b4ac09255e6cb79a6942715e77b537e28111fc97b106819ed16ca9acaed1a49d5da47392bf63b3f72cb4ca5ad7d79dd1f4972633ad2863c3b2d7664e950a
-  languageName: node
-  linkType: hard
-
 "semver-diff@npm:^3.1.1":
   version: 3.1.1
   resolution: "semver-diff@npm:3.1.1"
@@ -3287,8 +3208,6 @@ resolve@^1.10.0:
     express: ^4.17.1
     jsonwebtoken: ^8.5.1
     mediasoup: ^3.6.31
-    mediasoup-client: ^3.6.30
-    mediasoup-client-aiortc: ^3.6.3
     nodemon: ^2.0.7
     ts-node: 9.1.1
     typescript: ^4.1.3
@@ -3892,16 +3811,7 @@ typescript@^4.1.3:
   languageName: node
   linkType: hard
 
-"uuid@npm:^7.0.3":
-  version: 7.0.3
-  resolution: "uuid@npm:7.0.3"
-  bin:
-    uuid: dist/bin/uuid
-  checksum: a56be8a5bbf2bae755d749d0693637274935b5ae250dfaaaf79241391cf1a7c142a202492196363ec62ec51a476e5e3fc4de2944d854abf2e9b35a33e0e31d4c
-  languageName: node
-  linkType: hard
-
-"uuid@npm:^8.1.0, uuid@npm:^8.3.2":
+"uuid@npm:^8.3.2":
   version: 8.3.2
   resolution: "uuid@npm:8.3.2"
   bin:
