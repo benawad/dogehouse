@@ -11,7 +11,6 @@ defmodule Beef.Schemas.User do
 
     # TODO: Make this a separate Schema that sees the same table.
 
-    @derive {Poison.Encoder, only: [:id, :displayName, :numFollowers, :avatarUrl]}
     @derive {Jason.Encoder, only: [:id, :displayName, :numFollowers, :avatarUrl]}
 
     @primary_key false
@@ -56,11 +55,6 @@ defmodule Beef.Schemas.User do
           currentRoomId: Ecto.UUID.t(),
           currentRoom: Room.t() | Ecto.Association.NotLoaded.t()
         }
-
-  @derive {Poison.Encoder,
-           only: ~w(id whisperPrivacySetting username avatarUrl bannerUrl bio online
-             lastOnline currentRoomId displayName numFollowing numFollowers
-             currentRoom youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a}
 
   @primary_key {:id, :binary_id, []}
   schema "users" do
