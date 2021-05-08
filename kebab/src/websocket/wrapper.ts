@@ -162,6 +162,10 @@ export const wrap = (connection: Connection) => ({
       connection.sendCall("room:deafen", { deafened: isDeafened }),
     userCreateBot: (username: string): Promise<CreateBotResponse> =>
       connection.sendCall(`user:create_bot`, { username }),
+    userSetContributions: (username: string, value: number) =>
+      connection.sendCall(`user:set_contributions`, { username, value }),
+    userSetStaff: (username: string, value: boolean) =>
+      connection.sendCall(`user:set_staff`, { username, value }),
     ban: (username: string, reason: string) =>
       connection.send(`ban`, { username, reason }),
     deleteScheduledRoom: (id: string): Promise =>

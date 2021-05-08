@@ -52,6 +52,8 @@ export type User = {
   id: UUID;
   followsYou?: boolean;
   botOwnerId?: string | null;
+  contributions: number;
+  staff: boolean;
   displayName: string;
   currentRoomId?: UUID | null;
   currentRoom: Room;
@@ -99,6 +101,8 @@ export type BaseUser = {
   numFollowers: number;
   currentRoom?: Room;
   botOwnerId?: string;
+  contributions: number;
+  staff: boolean;
 };
 
 export type PaginatedBaseUsers = {
