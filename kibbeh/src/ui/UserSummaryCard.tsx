@@ -10,6 +10,8 @@ export type badge = {
   color: "white" | "grey";
   content: React.ReactNode;
   variant: "primary" | "secondary" | "primary-700";
+  classname?: string;
+  title?: string;
 };
 
 export interface UserSummaryCardProps {
@@ -36,15 +38,19 @@ interface WebsiteProps {
 
 export const Badges: React.FC<BadgesProps> = ({ badges }) => {
   return (
-    <div className="flex mt-2">
-      {badges.map(({ content, variant, color }, i) => (
-        <span className="mr-1" key={i}>
-          <UserBadge variant={variant} color={color}>
-            {content}
-          </UserBadge>
-        </span>
+    <>
+      {badges.map(({ content, variant, color, classname, title }, i) => (
+        <UserBadge
+          title={title}
+          variant={variant}
+          color={color}
+          className={classname}
+          key={i}
+        >
+          {content}
+        </UserBadge>
       ))}
-    </div>
+    </>
   );
 };
 

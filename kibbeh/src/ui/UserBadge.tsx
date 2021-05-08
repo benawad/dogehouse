@@ -15,6 +15,7 @@ interface UserBadgeProps {
   variant?: keyof typeof badgeVariants;
   color?: keyof typeof colorVariants;
   className?: string;
+  title?: string;
 }
 
 export const UserBadge: React.FC<UserBadgeProps> = ({
@@ -22,9 +23,11 @@ export const UserBadge: React.FC<UserBadgeProps> = ({
   color = "white",
   variant = "primary-700",
   className = "",
+  title = "",
 }) => {
   return (
     <div
+      title={title}
       className={`flex ${badgeVariants[variant]} select-none text-xs px-1 font-bold ${colorVariants[color]} justify-center items-center mr-1 rounded ${className}`}
       style={{ height: "16px", minWidth: "31px", width: "max-content" }}
     >

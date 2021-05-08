@@ -1,4 +1,4 @@
-import React, { ReactChild, useState } from "react";
+import React, { ReactChild, useEffect, useState } from "react";
 import { ProfileHeaderWrapper } from "./ProfileHeaderWrapper";
 import { Button } from "./Button";
 import { UserBadge } from "./UserBadge";
@@ -15,6 +15,7 @@ import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { useTypeSafeUpdateQuery } from "../shared-hooks/useTypeSafeUpdateQuery";
 import { EditProfileModal } from "../modules/user/EditProfileModal";
 import { usePreloadPush } from "../shared-components/ApiPreloadLink";
+import { badge, Badges } from "./UserSummaryCard";
 
 export interface ProfileHeaderProps {
   displayName: string;
@@ -51,6 +52,41 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const preloadPush = usePreloadPush();
   const update = useTypeSafeUpdateQuery();
+
+  const [badges, setBadges] = useState<Array<badge>>([]);
+  useEffect(() => {
+    if (user.staff) {
+      setBadges((b) =>
+        b.concat({
+          content: "ƉS",
+          variant: "primary",
+          color: "white",
+          title: "DogeHouse Staff",
+        })
+      );
+    }
+    if (user.contributions > 0) {
+      setBadges((b) =>
+        b.concat({
+          content: "ƉC",
+          variant: "primary",
+          color: "white",
+          title: "DogeHouse Contributor",
+        })
+      );
+    }
+
+    if (user.botOwnerId) {
+      setBadges((b) =>
+        b.concat({
+          content: t("pages.viewUser.bot"),
+          variant: "primary",
+          color: "white",
+          title: t("pages.viewUser.bot"),
+        })
+      );
+    }
+  }, [user]);
 
   return (
     // @TODO: Add the cover api (once it's implemented)}
@@ -94,14 +130,8 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
             ""
           )}
         </div>
-        <div className="mt-2">
-          {user.botOwnerId ? (
-            <UserBadge color="white" variant="primary">
-              {t("pages.viewUser.bot")}
-            </UserBadge>
-          ) : (
-            ""
-          )}
+        <div className="mt-2 flex">
+          <Badges badges={badges} />
           {children}
         </div>
       </div>
