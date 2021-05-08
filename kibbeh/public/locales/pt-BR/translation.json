@@ -103,7 +103,17 @@
       "copyProfileUrl": "copiar url do perfil",
       "urlCopied": "URL copiado para a área de transferência",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "Configurações do microfone",

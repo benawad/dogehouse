@@ -104,7 +104,17 @@
       "urlCopied": "URL Cwopied to Cwipboard (❤´艸｀❤)",
       "unfollow": "Unfowwow",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "OWO Voice Settings (✿ ♡‿♡)",
