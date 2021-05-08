@@ -95,6 +95,22 @@ defmodule Beef.Queries.Users do
     )
   end
 
+  def update_set_contributions(query, contributions) do
+    update(query,
+      set: [
+        contributions: ^contributions
+      ]
+    )
+  end
+
+  def update_set_staff(query, is_staff) do
+    update(query,
+      set: [
+        staff: ^is_staff
+      ]
+    )
+  end
+
   def update_set_online_true(query) do
     update(query,
       set: [

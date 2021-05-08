@@ -54,4 +54,31 @@ defmodule Kousa.User do
       _ -> {:error, "tried to ban #{user_id_to_ban} but that user didn't exist"}
     end
   end
+
+  def set_staff(username_to_make_staff, value, opts) do
+    authorized_github_id = Application.get_env(:kousa, :ben_github_id, "")
+
+    with %{githubId: ^authorized_github_id} <- Users.get_by_id(opts[:admin_id]) do
+      user_to_make_staff = Users.get_by_username(username_to_make_staff)
+      Users.set_staff(user_to_make_staff.id, value)
+      :ok
+    else
+      _ ->
+        {:error, "tried to make #{username_to_make_staff} super admin but that user didn't exist"}
+    end
+  end
+
+  def set_contributions(username_to_change_contributions, value, opts) do
+    authorized_github_id = Application.get_env(:kousa, :ben_github_id, "")
+
+    with %{githubId: ^authorized_github_id} <- Users.get_by_id(opts[:admin_id]) do
+      user_to_change_contributions = Users.get_by_username(username_to_change_contributions)
+      Users.set_contributions(user_to_change_contributions.id, value)
+      :ok
+    else
+      _ ->
+        {:error,
+         "tried to make #{username_to_change_contributions} super admin but that user didn't exist"}
+    end
+  end
 end
