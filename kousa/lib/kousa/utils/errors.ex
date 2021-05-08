@@ -11,7 +11,7 @@ defmodule Kousa.Utils.Errors do
   end
 
   def changeset_to_first_err_message(changeset) do
-    Poison.encode!(changeset)
+    Jason.encode!(changeset)
   end
 
   def changeset_to_first_err_message_with_field_name(%{errors: [{field, {message, values}}]}) do

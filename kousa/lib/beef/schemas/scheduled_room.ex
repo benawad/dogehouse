@@ -12,18 +12,6 @@ defmodule Beef.Schemas.ScheduledRoom do
           scheduledFor: DateTime.t()
         }
 
-  @derive {Poison.Encoder,
-           only: [
-             :id,
-             :name,
-             :numAttending,
-             :scheduledFor,
-             :description,
-             :roomId,
-             :creator,
-             :creatorId
-           ]}
-
   @derive {Jason.Encoder,
            only: [
              :id,

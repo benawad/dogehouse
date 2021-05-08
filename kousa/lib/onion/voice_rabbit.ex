@@ -74,7 +74,7 @@ defmodule Onion.VoiceRabbit do
         {:basic_deliver, payload, %{delivery_tag: _tag, redelivered: _redelivered}},
         %State{} = state
       ) do
-    data = Poison.decode!(payload)
+    data = Jason.decode!(payload)
 
     case data do
       %{"uid" => user_id} ->

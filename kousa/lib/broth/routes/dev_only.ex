@@ -20,7 +20,7 @@ defmodule Broth.Routes.DevOnly do
       |> put_resp_content_type("application/json")
       |> send_resp(
         200,
-        Poison.encode!(
+        Jason.encode!(
           Kousa.Utils.TokenUtils.create_tokens(
             if(is_nil(user),
               do:
@@ -46,7 +46,7 @@ defmodule Broth.Routes.DevOnly do
     else
       conn
       |> put_resp_content_type("application/json")
-      |> send_resp(400, Poison.encode!(%{"error" => "no"}))
+      |> send_resp(400, Jason.encode!(%{"error" => "no"}))
     end
   end
 end

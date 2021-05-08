@@ -10,7 +10,6 @@ defmodule Beef.Schemas.Follow do
           followerId: Ecto.UUID.t()
         }
 
-  @derive {Poison.Encoder, only: [:userId, :followerId]}
   @primary_key false
   schema "followers" do
     # person who is being followed
