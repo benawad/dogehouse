@@ -1,5 +1,4 @@
 import { User } from "@dogehouse/kebab";
-import { useRouter } from "next/router";
 import React from "react";
 import { apiBaseUrl } from "../../lib/constants";
 import { PageComponent } from "../../types/PageComponent";
@@ -13,24 +12,32 @@ interface UserPageProps {
   user: User | null;
 }
 
-
 export const UserPage: PageComponent<UserPageProps> = ({ username, user }) => {
-  const { query } = useRouter();
   return (
-    <DefaultDesktopLayout>
-      { user ? <HeaderController title={user.displayName} embed={{ image: user.avatarUrl }} description={user.bio ? user.bio : undefined} /> : <HeaderController /> }
-      <MiddlePanel>
-        <UserProfileController key={username} />
-      </MiddlePanel>
-    </DefaultDesktopLayout>
+    <>
+      {user ? (
+        <HeaderController
+          title={user.displayName}
+          embed={{ image: user.avatarUrl }}
+          description={user.bio ? user.bio : undefined}
+        />
+      ) : (
+        <HeaderController />
+      )}
+      <DefaultDesktopLayout>
+        <MiddlePanel>
+          <UserProfileController key={username} />
+        </MiddlePanel>
+      </DefaultDesktopLayout>
+    </>
   );
 };
 
 UserPage.getInitialProps = async ({ query }) => {
   const username = typeof query.username === "string" ? query.username : "";
   const res = await fetch(`${apiBaseUrl}/user/${username}`);
-  const user: { user: User | null} = await res.json();
-  return { username, user: user.user };
+  const { user }: { user: User | null } = await res.json();
+  return { username, user };
 };
 
 UserPage.ws = true;
