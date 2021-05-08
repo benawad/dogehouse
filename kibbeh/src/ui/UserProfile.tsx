@@ -30,8 +30,8 @@ export const UserProfile: React.FC<UserProfileProps> = ({
         })
       );
 
-      setTags((t) =>
-        t.concat({
+      setTags((ot) =>
+        ot.concat({
           icon: "dogeStaff",
           children: "DogeHouse Staff",
         })
@@ -47,8 +47,8 @@ export const UserProfile: React.FC<UserProfileProps> = ({
         })
       );
 
-      setTags((t) =>
-        t.concat({
+      setTags((ot) =>
+        ot.concat({
           icon: "dogeContributor",
           children: "DogeHouse Contributor",
         })
