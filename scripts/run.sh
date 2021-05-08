@@ -12,4 +12,5 @@ cd ../kibbeh
 yarn dev &
 cd ../kousa
 source .envrc
+mix deps.get
 iex -S mix
