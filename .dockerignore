@@ -1,2 +1,7 @@
 docker/
 .docker/
+node_modules
+dist
+lib
+_build
+.elixir_ls
