@@ -22,7 +22,7 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
   const wrapper = wrap(conn);
 
   useEffect(() => {
-    if (conn.user.username !== "Amitoj") {
+    if (conn.user.username !== "benawad") {
       showErrorToast("nice try");
       replace("/dash");
     }
@@ -46,7 +46,7 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
     }
   }, [user]);
 
-  if (conn.user.username !== "Amitoj") {
+  if (conn.user.username !== "benawad") {
     return <MiddlePanel />;
   }
 
