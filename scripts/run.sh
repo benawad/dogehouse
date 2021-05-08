@@ -13,4 +13,5 @@ yarn dev &
 cd ../kousa
 source .envrc
 mix deps.get
+mix ecto.migrate
 iex -S mix
