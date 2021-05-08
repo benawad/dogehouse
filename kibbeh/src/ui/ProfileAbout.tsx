@@ -1,6 +1,7 @@
 import React from "react";
 import { SolidLink } from "../icons";
 import { kFormatter } from "../lib/kFormatter";
+import { TextParser } from "../modules/display/TextParser";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { UserBadgeLg, UserBadgeLgProps } from "./UserBadgeLg";
@@ -56,7 +57,7 @@ export const ProfileAbout: React.FC<ProfileAboutProps> = ({
         </div>
       </div>
       <div className="text-primary-100 text-sm pb-2 whitespace-pre-wrap max-h-5l overflow-y-auto">
-        {description}
+        {<TextParser>{description || ""}</TextParser>}
       </div>
       {link && (
         <div className="flex flex-row items-center mb-4">
