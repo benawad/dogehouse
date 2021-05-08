@@ -35,9 +35,13 @@ export const UserPage: PageComponent<UserPageProps> = ({ username, user }) => {
 
 UserPage.getInitialProps = async ({ query }) => {
   const username = typeof query.username === "string" ? query.username : "";
-  const res = await fetch(`${apiBaseUrl}/user/${username}`);
-  const { user }: { user: User | null } = await res.json();
-  return { username, user };
+  try {
+    const res = await fetch(`${apiBaseUrl}/user/${username}`);
+    const { user }: { user: User | null } = await res.json();
+    return { username, user };
+  } catch {
+    return { username, user: null };
+  }
 };
 
 UserPage.ws = true;
