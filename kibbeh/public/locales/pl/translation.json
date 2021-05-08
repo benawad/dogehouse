@@ -23,8 +23,8 @@
     "title": "DogeHouse",
     "dashboard": "Tablica",
     "connectionTaken": "Połączenie zostało podjęte",
-    "mutedTitle": "Wyciszony | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse"
+    "mutedTitle": "Wyciszony mikrofon | DogeHouse",
+    "deafenedTitle": "Wyciszony dźwięk | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -45,7 +45,7 @@
       "createRoom": "Nowy pokój",
       "editRoom": "Edytuj pokój",
       "refresh": "Odśwież",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "Pobierz aplikację DogeHouse na komputer już dzisiaj!"
     },
     "inviteList": {
       "roomGone": "Pokój usunięty, wróć",
@@ -106,15 +106,15 @@
       "about": "O profilu",
       "bot": "Bot",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips"
+        "about": "O profilu",
+        "rooms": "Pokoje",
+        "scheduled": "Zaplanowane",
+        "recorded": "Nagrane",
+        "clips": "Klipy"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "block": "Zablokuj",
+      "unblock": "Odblokuj",
+      "sendDM": "Wyślij prywatną wiadomość"
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",
@@ -132,11 +132,11 @@
     },
     "download": {
       "starting": "Rozpoczynanie pobierania...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "failed": "Nie można było rozpocząć automatycznego pobierania, spróbuj ponownie później",
+      "visit_gh": "Odwiedź Github Releases",
+      "prompt": "Naciśnij przycisk poniżej aby rozpocząć pobieranie",
+      "download_now": "Pobierz teraz",
+      "download_for": "Pobierz dla %platform% (%ext%)"
     }
   },
   "components": {
@@ -162,9 +162,9 @@
       "speaker": "Mówiący",
       "listener": "Słuchacz",
       "chat": "Czat",
-      "toggleDeafMicBtn": "Przełącz wyciszenie",
-      "deafen": "Wycisz",
-      "undeafen": "Odcisz"
+      "toggleDeafMicBtn": "Przełącz wyciszenie mikrofonu",
+      "deafen": "Wycisz dźwięk",
+      "undeafen": "Odcisz dźwięk"
     },
     "deviceNotSupported": {
       "notSupported": "Twoje urządzenie nie jest obecnie wspierane. Możesz zgłosić to",
@@ -221,7 +221,7 @@
         "debugAudio": "Debuguj audio",
         "stopDebugger": "Wyłącz debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Pobierz aplikację"
     },
     "modals": {
       "createRoomModal": {
