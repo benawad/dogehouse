@@ -8,6 +8,7 @@
     "start": "node dist/index.js",
     "build": "tsc",
     "rtp": "ts-node src/rtp-test.ts",
+    "rabbit": "ts-node src/rabbit-test.ts",
     "dev": "cross-env DEBUG=shawarma:* nodemon dist/index.js",
     "dev2": "cross-env QUEUE_ID=1 DEBUG=shawarma:* nodemon dist/index.js",
     "dev:ts": "cross-env DEBUG=shawarma:*  ts-node src",
