@@ -2,7 +2,6 @@ defmodule Broth.Routes.User do
   import Plug.Conn
 
   alias Beef.Users
-  alias Ecto.UUID
 
   use Plug.Router
 
@@ -10,13 +9,14 @@ defmodule Broth.Routes.User do
   plug(:match)
   plug(:dispatch)
 
-  get "/:id" do
-    %Plug.Conn{params: %{"id" => id}} = conn
-        conn
-        |> put_resp_content_type("application/json")
-        |> send_resp(
-          200,
-          Poison.encode!(%{user: Users.get_by_username(id)})
-        )
+  get "/:username" do
+    %Plug.Conn{params: %{"username" => username}} = conn
+
+    conn
+    |> put_resp_content_type("application/json")
+    |> send_resp(
+      200,
+      Jason.encode!(%{user: Users.get_by_username(username)})
+    )
   end
 end
