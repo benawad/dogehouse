@@ -49,7 +49,7 @@ export const UserBadgeLg: React.FC<UserBadgeLgProps> = ({ icon, children }) => {
       ) : (
         ""
       )}
-      <span className="">{children}</span>
+      <span className="text-sm">{children}</span>
     </div>
   );
 };
