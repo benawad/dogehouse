@@ -25,6 +25,7 @@ export interface ProfileHeaderProps {
   canDM?: boolean;
   isCurrentUser?: boolean;
   user: UserWithFollowInfo;
+  badges?: badge[];
 }
 
 export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
@@ -35,6 +36,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   canDM,
   isCurrentUser,
   pfp = "https://dogehouse.tv/favicon.ico",
+  badges = [],
 }) => {
   const { mutateAsync, isLoading: followLoading } = useTypeSafeMutation(
     "follow"
@@ -52,41 +54,6 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const preloadPush = usePreloadPush();
   const update = useTypeSafeUpdateQuery();
-
-  const [badges, setBadges] = useState<Array<badge>>([]);
-  useEffect(() => {
-    if (user.staff) {
-      setBadges((b) =>
-        b.concat({
-          content: "ƉS",
-          variant: "primary",
-          color: "white",
-          title: "DogeHouse Staff",
-        })
-      );
-    }
-    if (user.contributions > 0) {
-      setBadges((b) =>
-        b.concat({
-          content: "ƉC",
-          variant: "primary",
-          color: "white",
-          title: "DogeHouse Contributor",
-        })
-      );
-    }
-
-    if (user.botOwnerId) {
-      setBadges((b) =>
-        b.concat({
-          content: t("pages.viewUser.bot"),
-          variant: "primary",
-          color: "white",
-          title: t("pages.viewUser.bot"),
-        })
-      );
-    }
-  }, [user]);
 
   return (
     // @TODO: Add the cover api (once it's implemented)}
