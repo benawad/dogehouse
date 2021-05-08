@@ -1,0 +1,327 @@
+{
+  "_comment": "to contribute to this you can see the translation guide in the /en-C directory.",
+  "common": {
+    "loadMore": "Löd Mör",
+    "loading": "Lödiŋ...",
+    "noUsersFound": "Nö yüzrz fawnd!",
+    "ok": "Ök",
+    "yes": "Yes",
+    "no": "Nö",
+    "cancel": "Kansəl",
+    "save": "Säv",
+    "edit": "Edit",
+    "delete": "Dəlët",
+    "joinRoom": "Jöën Rüm",
+    "copyLink": "Kopë Link",
+    "copied": "Kopëd!",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Plëz nöt runiŋ DogeHouse wiðawt aksesibilitë pərmis̈onz mä koz unwontəd erərz"
+  },
+  "header": {
+    "_comment": "Män Hedər UI Intərnas̈ənəlïzäs̈un Striŋz",
+    "title": "DogeHouse",
+    "dashboard": "Das̈börd",
+    "connectionTaken": "Koneks̈un Täkən",
+    "mutedTitle": "Myütəd | DogeHouse",
+    "deafenedTitle": "Defənd | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Män Fətər UI Intərnas̈ənəlïzäs̈un Striŋz",
+    "link_1": "Örijin Störë",
+    "link_2": "Discord",
+    "link_3": "Rëpört ä Bug"
+  },
+  "pages": {
+    "_comment": "Rëspektiv Päj UI Intərnas̈ənəlïzäs̈un Striŋz",
+    "banUser": {
+      "ban": "Ban"
+    },
+    "download": {
+      "prompt": "Dawnlöd þə DogeHouse Desktop ap",
+      "download_for": "Dawnlöd för %platform% (%ext%)",
+      "failed": "Unäbəl tü dətekt platförm, plëz trï ägen lätər ör vizit GitHub Rëlësəz",
+      "visit_gh": "Vizit GitHub Rëlësez"
+    },
+    "followingOnlineList": {
+      "listHeader": "List uv yüzərz þat ar not in ä prïvit rüm and yü folö.",
+      "currentRoom": "Kərəntlë in:",
+      "startPrivateRoom": "Stort ä prïvit rüm wið þem"
+    },
+    "followList": {
+      "followHim": "Folö",
+      "followingHim": "Folöiŋ"
+    },
+    "home": {
+      "createRoom": "Nü̈ Rüm",
+      "editRoom": "Edit Rüm",
+      "refresh": "Rëfres̈",
+      "desktopAlert": "Dawnlöd þə DogeHouse desktop ap tüdä!"
+    },
+    "inviteList": {
+      "roomGone": "Rüm gon; gö bak",
+      "shareRoomLink": "S̈är Rüm Link",
+      "inviteFollowers": "Yü kan invït yor folöərz þat or onlïn:",
+      "whenFollowersOnline": "Wen yör folöərz or onlïn, þä wil s̈ö up hër."
+    },
+    "login": {
+      "headerText": "Täkiŋ vöës konvrsäs̈onz tü þə mün 🚀",
+      "featureText_1": "Dərk ðëm",
+      "featureText_2": "Öpen Sïn-əps",
+      "featureText_3": "Kros-Platförm Səport",
+      "featureText_4": "Öpen Sörs",
+      "featureText_5": "Tekst C̈at",
+      "featureText_6": "Pawrd bï Döj",
+      "loginGithub": "Login wið GitHub",
+      "loginTwitter": "Login wið Twitter",
+      "loginDiscord": "Login wið Discord",
+      "createTestUser": "Crëä̈t Test Yüzr"
+    },
+    "myProfile": {
+      "logout": "Logawt",
+      "probablyLoading": "probäblë lödiŋ...",
+      "voiceSettings": "Vöës Setiŋz",
+      "overlaySettings": "Övrlä Setiŋz",
+      "soundSettings": "Sawnd Setiŋz",
+      "deleteAccount": "Dlët Akawnt",
+      "couldNotFindUser": "Sorë, wë kud not fïnd þat yüzr",
+      "privacySettings": "Prïvasë Setiŋz"
+    },
+    "notFound": {
+      "whoopsError": "Wəps! Þis päj got lost in konvrsäs̈on.",
+      "goHomeMessage": "Not tü wrë. Yü kan",
+      "goHomeLinkText": "gö höm"
+    },
+    "room": {
+      "speakers": "Spëkrz",
+      "requestingToSpeak": "Rekwestiŋ tü Spëk",
+      "listeners": "Lisenrz",
+      "allowAll": "Alaw əl",
+      "allowAllConfirm": "Ər yü s̈r? Þis wil alaw əl {{count}} rekwestiŋ yüzrz tü spëk"
+    },
+    "searchUser": {
+      "search": "src̈..."
+    },
+    "soundEffectSettings": {
+      "header": "Sawndz",
+      "title": "Sawnd Setiŋz"
+    },
+    "viewUser": {
+      "editProfile": "Edit Pröfïl",
+      "followsYou": "Folöz yü",
+      "followers": "folörz",
+      "following": "folöiŋ",
+      "followHim": "Folö",
+      "unfollow": "Unfolö",
+      "followingHim": "Folöiŋ",
+      "copyProfileUrl": "Kopë Pröfïl URL",
+      "urlCopied": "URL kopëd tü klipbörd",
+      "about": "Abawt",
+      "bot": "Bot"
+    },
+    "voiceSettings": {
+      "header": "Vöës Setiŋz",
+      "mic": "Mïk:",
+      "permissionError": "Nö mïks fawnd, yü ïþr hav nun plugd in ör havn't givn þis websït prmis̈on.",
+      "refresh": "Rëfres̈ Mïk List",
+      "volume": "Volyüm:"
+    },
+    "overlaySettings": {
+      "header": "Övrlä Setiŋz",
+      "input": {
+        "errorMsg": "Plëz entr ä valid ap tïtl",
+        "label": "Ap tïtl"
+      }
+    }
+  },
+  "components": {
+    "_comment": "Kompönent UI Intərnas̈ənəlïzäs̈un Striŋz",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Band Yüzrz",
+      "unban": "Unban",
+      "noBans": "No won haz bën band yet"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Lëv Krnt Röm",
+      "confirmLeaveRoom": "Ər yü s̈r yü wont tü lëv?",
+      "leave": "Lëv",
+      "inviteUsersToRoomBtn": "Invit Yüzrz tü Rüm",
+      "invite": "Invit",
+      "toggleMuteMicBtn": "Togl Myüt",
+      "toggleDeafMicBtn": "Togl Defen",
+      "mute": "Myüt",
+      "unmute": "Unmyüt",
+      "deafen": "Defen",
+      "undeafen": "Undefen",
+      "makeRoomPublicBtn": "Mäk Rüm Public!",
+      "settings": "Setiŋz",
+      "speaker": "Spëkr",
+      "listener": "Lisenr",
+      "chat": "C̈at"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Yör devis is kurentlë not supörtd. Yü kan krëät an",
+      "linkText": "is̈ü on GitHub",
+      "addSupport": "and Ï wil trï adiŋ səport för yör devis."
+    },
+    "followingOnline": {
+      "people": "Pëpol",
+      "online": "ONLIN",
+      "noOnline": "Yü hav 0 frendz onlïn rït naw",
+      "showMore": "S̈ö mör"
+    },
+    "inviteButton": {
+      "invited": "Invïtd!",
+      "inviteToRoom": "Invït tü rüm"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Prmis̈on dënïd trïiŋ tü akses yör mïk (yü mä nëd tü gö intü brawsr setiŋz and rëlöd þə pëj)",
+      "dismiss": "Dismis",
+      "tryAgain": "Trï Ägän"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "Set Këbïnd",
+      "listening": "Liseniŋ...",
+      "toggleMuteKeybind": "Togl myüt këbïnd",
+      "toggleDeafKeybind": "Togl defen këbïnd",
+      "toggleOverlayKeybind": "Togl övrlä këbïnd",
+      "togglePushToTalkKeybind": "Togl pus̈-tü-tak këbïnd"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "Nö ədëö konsümr för sum rëson"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcəmiŋ rümz",
+      "exploreMoreRooms": "Eksplör mör rümz"
+    },
+    "addToCalendar": {
+      "add": "Ad tü Kalendr"
+    },
+    "wsKilled": {
+      "description": "WebSocket wəz kild bï þə srvr. Þis yüs̈üalë hapnz wen yü öpn þe websit in anəþr tab.",
+      "reconnect": "Rekonekt"
+    },
+    "search": {
+      "placeholder": "Src̈ för rümz, yüzrz ör kategörëz",
+      "placeholderShort": "Src̈"
+    },
+    "settingsDropdown": {
+      "profile": "Profil",
+      "language": "Laŋgwaj",
+      "reportABug": "Rëport Ä Bəg",
+      "useOldVersion": "Yüz Old Vrzon",
+      "logOut": {
+        "button": "Log awt",
+        "modalSubtitle": "Ər yü s̈r yü want tü logawt?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debəg Ədëö",
+        "stopDebugger": "Stop Debəgr"
+      },
+      "downloadApp": "Dawnlöd App"
+    },
+    "modals": {
+      "createRoomModal": {
+        "subtitle": "Fil þe folowiŋ fëldz tü start ä nü rüm",
+        "public": "Public",
+        "private": "Prïvit",
+        "roomName": "Rüm näm",
+        "roomDescription": "Rüm descrips̈on",
+        "descriptionError": "Maks lenð 500",
+        "nameError": "Must bë bëtwën 2 tü 60 karictrz lon"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Nü Rüm Krëäted",
+        "roomInviteFrom": "Rüm Invit frəm",
+        "justStarted": "Þä just stərted",
+        "likeToJoin": ", wəd yü lïk tü jöën?",
+        "inviteReceived": "yü'v bën invitd tü"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Yüzrnäm täkn",
+        "avatarUrlError": "Invalid imag",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar URL",
+        "bannerUrlLabel": "Twitter banr URL",
+        "displayNameError": "Lenð 2 tü 50 karaktrz",
+        "displayNameLabel": "Displä Näm",
+        "usernameError": "Lenð 4 tü 15 karaktrz and önlë alfanümerik/undrscör",
+        "usernameLabel": "Yüzrnäm",
+        "bioError": "Maks lenð uv 160 characters",
+        "bioLabel": "Bïö"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Ər yü s̈r yü wont tü blok ðis yüzr frəm jöëniŋ anë rüm yü evr krëät?",
+        "blockUser": "Blok yüzr",
+        "makeMod": "Promot tü Mod",
+        "unmod": "Demot frəm Mod",
+        "addAsSpeaker": "Ad az Spëkr",
+        "moveToListener": "Müv tü Lisenr",
+        "unBanFromChat": "Unban frəm C̈at",
+        "banFromChat": "Ban frəm C̈at",
+        "banFromRoom": "Ban frəm Rüm",
+        "goBackToListener": "Gö Bak tü Lisenr",
+        "deleteMessage": "Dlët þis Mesəj",
+        "makeRoomCreator": "Promot tü Admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "rekwïr prmis̈on tü spëk",
+        "makePublic": "mäk rüm public",
+        "makePrivate": "mäk rüm prïvit",
+        "renamePublic": "Set public rüm näm",
+        "renamePrivate": "Set prïvit rüm näm"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modyülz UI Intərnas̈ənəlïzäs̈un Striŋz",
+    "feed": {
+      "yourFeed": "Yör fëd"
+    },
+    "scheduledRooms": {
+      "title": "Skejüld Rümz",
+      "noneFound": "nun fawnd",
+      "allRooms": "əl scheduled rümz",
+      "myRooms": "my skejüld rümz",
+      "scheduleRoomHeader": "skejül Rüm",
+      "startRoom": "stərt rüm",
+      "tommorow": "TÜMÖRÖ",
+      "today": "TÜDÄ",
+      "modal": {
+        "needsFuture": "nëdz tü bë in þə fyüc̈ur",
+        "roomName": "rüm näm",
+        "roomDescription": "Deskrips̈on",
+        "minLength": "min lenð 2"
+      },
+      "deleteModal": {
+        "areYouSure": "Ər yü s̈r yü wont tü dlët þis skejüld rüm?"
+      }
+    },
+    "roomChat": {
+      "title": "C̈at",
+      "emotesSoon": "[ëmötz sün]",
+      "bannedAlert": "Yü hav bën band frəm c̈at",
+      "waitAlert": "Yü hav tü wät ä secund bëfor sendiŋ anəþr mesəj",
+      "search": "Src̈",
+      "searchResults": "Src̈ Rezultz",
+      "recent": "Frekwentlë Yüzd",
+      "sendMessage": "Send ä Mesəj",
+      "whisper": "Wispr",
+      "welcomeMessage": "Welcom tü c̈at!",
+      "roomDescription": "Rüm deskrips̈on"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fyüliŋ roket",
+      "takingOff": "Takiŋ of",
+      "inSpace": "In späs",
+      "approachingMoon": "Apröc̈iŋ mün",
+      "lunarDoge": "Lünr Döj",
+      "approachingSun": "Apröc̈iŋ sun",
+      "solarDoge": "Solr Döj",
+      "approachingGalaxy": "Apröc̈iŋ galaksë",
+      "galacticDoge": "Galaktik Döj",
+      "spottedLife": "Planet wið lif spotd"
+    }
+  }
+}
