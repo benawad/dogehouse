@@ -1,5 +1,9 @@
 import { useTranslation } from "react-i18next";
-import { TranslationKeys } from "../generated/translationKeys";
+
+import { Paths } from "../types/util-types";
+import translations from "../../public/locales/en/translation.json";
+
+type TranslationKeys = Paths<typeof translations>;
 
 interface DateTranslationType {
   time?: Date;
