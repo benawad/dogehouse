@@ -104,7 +104,17 @@
       "copyProfileUrl": "Skopiuj URL profilu",
       "urlCopied": "URL zostało skopiowane do schowka",
       "about": "O profilu",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",

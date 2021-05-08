@@ -100,7 +100,17 @@
       "urlCopied": "Bağlantı kopyalandı",
       "unfollow": "Takipten çık",
       "about": "Hakkında",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",

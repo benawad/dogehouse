@@ -100,7 +100,17 @@
       "urlCopied": "URL kopieret til udklipsholder",
       "unfollow": "Følg ikke længere",
       "about": "Om",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "Lydindstillinger",

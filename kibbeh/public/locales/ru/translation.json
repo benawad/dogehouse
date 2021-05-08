@@ -104,7 +104,17 @@
       "urlCopied": "URL профиля скопирован",
       "unfollow": "Отписаться",
       "about": "About",
-      "bot": "Бот"
+      "bot": "Бот",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",

@@ -104,7 +104,17 @@
       "urlCopied": "یو آر ایل کو کلپ بورڈ میں کاپی کیا گیا",
       "unfollow": "ان فالو کریں",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "آواز کی ترتیبات",
