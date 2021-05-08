@@ -114,10 +114,20 @@
       "followHim": "Follow",
       "unfollow": "Unfollow",
       "followingHim": "Following",
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
       "copyProfileUrl": "Copy Profile URL",
       "urlCopied": "URL copied to clipboard",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      }
     },
     "voiceSettings": {
       "header": "Voice Settings",

@@ -104,7 +104,17 @@
       "urlCopied": "URL ক্লিপবোর্ডে কপি করা হয়েছে",
       "unfollow": "অনুসরণ বাতিল করুন",
       "about": "সম্বন্ধে",
-      "bot": "বট"
+      "bot": "বট",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
