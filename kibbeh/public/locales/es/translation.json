@@ -87,7 +87,10 @@
       "allowAllConfirm": "¿Estás seguro? Esto dejará hablar a los {{count}} usuarios que quieren hablar"
     },
     "searchUser": { "search": "Buscar..." },
-    "soundEffectSettings": { "header": "Sonidos", "title": "Ajustes de sonido" },
+    "soundEffectSettings": {
+      "header": "Sonidos",
+      "title": "Ajustes de sonido"
+    },
     "viewUser": {
       "editProfile": "Editar perfil",
       "followsYou": "Te sigue",
@@ -99,7 +102,17 @@
       "copyProfileUrl": "Copiar URL del perfil",
       "urlCopied": "URL copiado en el portapapeles",
       "about": "Acerca de",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "Ajustes de voz",

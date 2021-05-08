@@ -5,7 +5,6 @@ defmodule Beef.Schemas.UserBlock do
 
   alias Beef.Schemas.User
 
-  @derive {Poison.Encoder, only: [:userId, :userIdBlocked]}
   @primary_key false
   schema "user_blocks" do
     belongs_to(:user, User, foreign_key: :userId, type: :binary_id)

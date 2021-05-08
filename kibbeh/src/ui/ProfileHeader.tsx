@@ -167,7 +167,9 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
                 }
               }}
             >
-              {user.iBlockedThem ? "unblock" : "block"}
+              {user.iBlockedThem
+                ? t("pages.viewUser.unblock")
+                : t("pages.viewUser.block")}
             </Button>
           )}
           {!isCurrentUser && (
@@ -209,7 +211,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
           )}
           {canDM ? (
             <Button size="small" color="secondary" icon={<SolidMessages />}>
-              Send DM
+              {t("pages.viewUser.sendDM")}
             </Button>
           ) : (
             ""

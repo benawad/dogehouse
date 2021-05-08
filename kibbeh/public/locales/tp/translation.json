@@ -104,7 +104,17 @@
       "copyProfileUrl": "tu e sitelen tawa pi jan ni",
       "urlCopied": "ni li tu",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "sitelen lawa pi kalama uta",

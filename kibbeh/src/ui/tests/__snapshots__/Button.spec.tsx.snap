@@ -2,7 +2,7 @@
 
 exports[`Button should match snapshot 1`] = `
 <button
-  class="flex outline-none focus:ring-4 focus:ring-primary py-2 px-6 text-sm rounded-lg  text-button bg-accent hover:bg-accent-hover disabled:text-accent-disabled disabled:bg-accent-hover font-bold flex items-center justify-center "
+  class="flex outline-none focus:ring-4 focus:ring-primary py-2 px-6 text-sm rounded-lg  text-button bg-accent transition duration-200 ease-in-out hover:bg-accent-hover disabled:text-accent-disabled disabled:bg-accent-hover font-bold flex items-center justify-center "
   data-testid="button"
   disabled=""
 >

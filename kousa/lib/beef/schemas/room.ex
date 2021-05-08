@@ -16,8 +16,6 @@ defmodule Beef.Schemas.Room do
           peoplePreviewList: [User.Preview.t()]
         }
 
-  @derive {Poison.Encoder, only: ~w(id name description numPeopleInside isPrivate autoSpeaker
-           creatorId peoplePreviewList voiceServerId inserted_at)a}
   @derive {Jason.Encoder,
            only:
              ~w(id name description numPeopleInside isPrivate chatMode chatThrottle autoSpeaker

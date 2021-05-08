@@ -113,7 +113,17 @@
       "urlCopied": "Ο συνδεσμος αντιγράφθηκε στο πρόχειρο",
       "unfollow": "Ξε-ακολουθήστε",
       "about": "Βιογραφικό",
-      "bot": "Ρομπότ"
+      "bot": "Ρομπότ",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",

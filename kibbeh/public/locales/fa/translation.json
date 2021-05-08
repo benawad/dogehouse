@@ -117,7 +117,17 @@
       "copyProfileUrl": "کپی کردن آدرس نمایه",
       "urlCopied": "آدرس در حافظه موقت کپی شد",
       "about": "درباره",
-      "bot": "بات"
+      "bot": "بات",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "تنظیمات صدا",

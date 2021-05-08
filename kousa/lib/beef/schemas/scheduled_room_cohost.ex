@@ -10,7 +10,6 @@ defmodule Beef.Schemas.ScheduledRoomCohost do
           scheduledRoomId: Ecto.UUID.t()
         }
 
-  @derive {Poison.Encoder, only: [:userId, :scheduledRoomId]}
   @primary_key false
   schema "scheduled_room_cohosts" do
     belongs_to(:user, User, foreign_key: :userId, type: :binary_id)

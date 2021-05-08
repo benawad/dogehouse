@@ -13,7 +13,7 @@ defmodule Broth.Routes.DiscordAuth do
         %{
           redirect_base_url: fetch_query_params(conn).query_params["redirect_after_base"]
         }
-        |> Poison.encode!()
+        |> Jason.encode!()
         |> Base.encode64()
       else
         "web"
@@ -45,7 +45,7 @@ defmodule Broth.Routes.DiscordAuth do
          state <- Map.get(conn.query_params, "state", ""),
          {:ok, json} <- Base.decode64(state),
          {:ok, %{"redirect_base_url" => redirect_base_url}} when is_binary(redirect_base_url) <-
-           Poison.decode(json) do
+           Jason.decode(json) do
       redirect_base_url
     else
       _ ->
