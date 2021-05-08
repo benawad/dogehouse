@@ -11,6 +11,7 @@ defmodule Broth do
   alias Broth.Routes.Room
   alias Broth.Routes.Stats
   alias Broth.Routes.BotAuth
+  alias Broth.Routes.User
   use Plug.Router
 
   if Mix.env() == :test do
@@ -51,6 +52,7 @@ defmodule Broth do
   forward("/dev", to: DevOnly)
   forward("/scheduled-room", to: ScheduledRoom)
   forward("/room", to: Room)
+  forward("/user", to: User)
   forward("/stats", to: Stats)
   forward("/bot", to: BotAuth)
 
