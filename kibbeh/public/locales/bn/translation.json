@@ -77,7 +77,7 @@
       "deleteAccount": "অ্যাকাউন্ট ডিলিট করুন",
       "overlaySettings": "ওভারলে সেটিংস এ যান",
       "couldNotFindUser": "দুঃখিত, আমরা সেই ইউজারকে খুঁজে পাইনি",
-      "privacySettings": "Privacy settings"
+      "privacySettings": "গোপনীয়তা সেটিংস"
     },
     "notFound": {
       "whoopsError": "উফ! এই পেজের বার্তালাপ কেটে গেছে।",
@@ -247,7 +247,7 @@
         "makePrivate": "রুমটাকে প্রাইভেট করুন",
         "renamePublic": "পাবলিক রুমের নাম সেট করুন",
         "renamePrivate": "প্রাইভেট রুমের নাম সেট করুন",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "চ্যাট অফ করুন"
       }
     },
     "followingOnline": {
@@ -277,7 +277,7 @@
         "debugAudio": "অডিও ডিবাগ করুন",
         "stopDebugger": "ডিবাগার বন্ধ করুন"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "ডাউনলোড করুন অ্যাপ্লিকেশনটি"
     }
   },
   "modules": {
@@ -313,7 +313,7 @@
       "whisper": "ফিসফিস",
       "welcomeMessage": "চ্যাট এ স্বাগতম!",
       "roomDescription": "রুমের বর্ণনা",
-      "disabled": "room chat has been disabled"
+      "disabled": "রুম চ্যাট অফ করা হয়েছে"
     },
     "roomStatus": {
       "fuelingRocket": "রকেটে জ্বালানি দেওয়া হচ্ছে",

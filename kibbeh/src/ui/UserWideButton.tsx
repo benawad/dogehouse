@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { SingleUser } from "./UserAvatar";
 import { Button } from "./Button";
 import { BaseUser } from "@dogehouse/kebab";

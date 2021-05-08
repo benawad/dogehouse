@@ -35,7 +35,8 @@ export const navigateThroughQueriedUsers = (e: any) => {
     const selected = queriedUsernames[activeIndex];
 
     setMessage(
-      `${message.substring(0, message.lastIndexOf("@") + 1)}${selected.username
+      `${message.substring(0, message.lastIndexOf("@") + 1)}${
+        selected.username
       } `
     );
     setQueriedUsernames([]);

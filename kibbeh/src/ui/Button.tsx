@@ -13,7 +13,7 @@ const sizeClassnames = {
 
 const colorClassnames = {
   primary:
-    "text-button bg-accent hover:bg-accent-hover disabled:text-accent-disabled disabled:bg-accent-hover",
+    "text-button bg-accent transition duration-200 ease-in-out hover:bg-accent-hover disabled:text-accent-disabled disabled:bg-accent-hover",
   secondary:
     "text-button bg-primary-700 hover:bg-primary-600 disabled:text-primary-300",
   "secondary-800":
@@ -50,11 +50,9 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       disabled={disabled || loading}
-      className={`flex outline-none focus:ring-4 focus:ring-${color} ${
-        sizeClassnames[size]
-      } ${transition ? `transition duration-200 ease-in-out` : ``} ${
-        colorClassnames[color]
-      } font-bold flex items-center justify-center ${className}`}
+      className={`flex outline-none focus:ring-4 focus:ring-${color} ${sizeClassnames[size]
+        } ${transition ? `transition duration-200 ease-in-out` : ``} ${colorClassnames[color]
+        } font-bold flex items-center justify-center ${className}`}
       data-testid="button"
       {...props}
     >
