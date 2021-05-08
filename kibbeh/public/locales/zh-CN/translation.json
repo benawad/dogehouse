@@ -100,7 +100,17 @@
       "urlCopied": "个人主页链接已复制到剪贴板",
       "unfollow": "取消关注",
       "about": "关于ta",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "语音设置",

@@ -103,7 +103,17 @@
       "urlCopied": "URL kopiran u međuspremnik",
       "unfollow": "Prestani pratiti",
       "about": "O",
-      "bot": "Robot"
+      "bot": "Robot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "Postavke glasa",

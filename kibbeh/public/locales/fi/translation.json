@@ -101,7 +101,17 @@
       "urlCopied": "Osoite kopioitu leikepöydälle",
       "unfollow": "Lopeta seuraaminen",
       "about": "Tietoa käyttäjästä",
-      "bot": "Botti"
+      "bot": "Botti",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM"
     },
     "voiceSettings": {
       "header": "Puheasetukset",
