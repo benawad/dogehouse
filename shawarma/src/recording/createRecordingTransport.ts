@@ -1,17 +1,18 @@
 import { Router } from "mediasoup/lib/Router";
 // import { FFmpeg } from "./ffmpeg";
-import { getPort } from "./port";
+// import { getPort } from "./port";
 
 export const createRecordingTransport = async (router: Router) => {
-  const listenIp = process.env.IP_A!;
+  const listenIp = process.env.IP_A || "127.0.0.1";
   const rtpTransport = await router.createPlainTransport({
     listenIp,
   });
 
-  const port = await getPort();
+  const port = 20389;
+  // await getPort();
 
   await rtpTransport.connect({
-    ip: listenIp || "127.0.0.1",
+    ip: listenIp,
     port,
   });
 
@@ -23,5 +24,5 @@ export const createRecordingTransport = async (router: Router) => {
   //   ],
   // });
   console.log(listenIp);
-  return { rtpTransport, port, ip: listenIp || "127.0.0.1" };
+  return { rtpTransport, port, ip: listenIp };
 };

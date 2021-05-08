@@ -32,6 +32,7 @@ defmodule Banana.MixProject do
             {:membrane_rtp_opus_plugin, "~> 0.2.0"},
             {:membrane_sdl_plugin, "~> 0.5.0"},
             {:membrane_portaudio_plugin, "~> 0.5.1"},
+            {:membrane_file_plugin, "~> 0.5.0"},
             {:membrane_hackney_plugin, "~> 0.4.0"},
             {:ex_libsrtp, "~> 0.1.0"},
             {:membrane_realtimer_plugin, "~> 0.1.0"},

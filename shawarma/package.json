@@ -26,8 +26,6 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mediasoup": "^3.6.31",
-    "mediasoup-client": "^3.6.30",
-    "mediasoup-client-aiortc": "^3.6.3",
     "ws": "^7.4.2"
   },
   "devDependencies": {

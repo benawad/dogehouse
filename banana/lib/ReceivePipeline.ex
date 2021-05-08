@@ -14,11 +14,11 @@ defmodule Broth.RTP.ReceivePipeline do
       children: [
         audio_src: %Membrane.Element.UDP.Source{
           local_port_no: audio_port,
-          local_address: {127, 0, 0, 1},
+          local_address: {127, 0, 0, 1}
         },
         rtp: %RTP.SessionBin{
-          secure?: false,
           # secure?: true,
+          secure?: false,
           srtp_policies: [
             %ExLibSRTP.Policy{
               ssrc: :any_inbound,
@@ -62,11 +62,11 @@ defmodule Broth.RTP.ReceivePipeline do
       children: %{
         audio_decoder: Membrane.Opus.Decoder,
         converter: %Membrane.FFmpeg.SWResample.Converter{
-          input_caps: %Membrane.Caps.Audio.Raw{
-            format: :s16le,
-            sample_rate: 48000,
-            channels: 1
-          },
+          # input_caps: %Membrane.Caps.Audio.Raw{
+          #   format: :s16le,
+          #   sample_rate: 48000,
+          #   channels: 1
+          # },
           output_caps: %Membrane.Caps.Audio.Raw{
             format: :s16le,
             sample_rate: 48000,
@@ -74,12 +74,14 @@ defmodule Broth.RTP.ReceivePipeline do
           }
         },
         audio_player: Membrane.PortAudio.Sink
+        # file_sink: %Membrane.File.Sink{location: "./test.opus"},
       },
       links: [
         link(:rtp)
         |> via_out(Pad.ref(:output, audio_ssrc))
         |> to(:audio_decoder)
         |> to(:converter)
+        # |> to(:file_sink)
         |> to(:audio_player)
       ],
       stream_sync: :sinks
