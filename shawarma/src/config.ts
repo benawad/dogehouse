@@ -48,7 +48,7 @@ export const config = {
     webRtcTransport: {
       listenIps: [
         {
-          ip: process.env.WEBRTC_LISTEN_IP || "192.168.1.165",
+          ip: process.env.WEBRTC_LISTEN_IP || "127.0.0.1",
           announcedIp: process.env.A_IP || undefined,
         },
         // { ip: "192.168.42.68", announcedIp: null },
