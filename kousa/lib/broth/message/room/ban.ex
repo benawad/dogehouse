@@ -9,6 +9,14 @@ defmodule Broth.Message.Room.Ban do
 
   alias Kousa.Utils.UUID
 
+  @spec changeset(
+          {map, map}
+          | %{
+              :__struct__ => atom | %{:__changeset__ => map, optional(any) => any},
+              optional(atom) => any
+            },
+          :invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}
+        ) :: %{:valid? => boolean, optional(any) => any}
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:userId, :shouldBanIp])
