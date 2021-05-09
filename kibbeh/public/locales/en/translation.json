@@ -112,8 +112,9 @@
       "search": "search..."
     },
     "soundEffectSettings": {
+      "title": "Sound Settings",
       "header": "Sounds",
-      "title": "Sound Settings"
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "Edit Profile",

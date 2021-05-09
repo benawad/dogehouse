@@ -89,7 +89,11 @@
       "allowAllConfirm": "Bisch der sicher? Das wird all {{count}} Benutzer wo wennd rede dBerechtigung dazue gäh"
     },
     "searchUser": { "search": "Sueche..." },
-    "soundEffectSettings": { "header": "Ton", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Ton",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profil bearbeite",
       "followsYou": "folgt dir",

@@ -89,7 +89,11 @@
       "allowAllConfirm": "Oled sa kindel? See tegevus lubab kõigil {{count}} taotlejal rääkida"
     },
     "searchUser": { "search": "otsi..." },
-    "soundEffectSettings": { "header": "Helid", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Helid",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "muuda profiili",
       "followsYou": "jälgib sind",

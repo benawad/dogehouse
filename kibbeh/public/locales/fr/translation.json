@@ -89,7 +89,11 @@
       "allowAllConfirm": "Êtes-vous sûr? Cela autorisera {{count}} utilisateurs en attente de parler"
     },
     "searchUser": { "search": "recherche..." },
-    "soundEffectSettings": { "header": "Sons", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Sons",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Éditer le profil",
       "followsYou": "Vous suit",

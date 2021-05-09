@@ -89,7 +89,11 @@
       "allowAllConfirm": "Bist du sicher? Damit erteilst du {{count}} Benutzern Redeberechtigungen."
     },
     "searchUser": { "search": "Suchen..." },
-    "soundEffectSettings": { "header": "Ton", "title": "Toneinstellungen" },
+    "soundEffectSettings": {
+      "header": "Ton",
+      "title": "Toneinstellungen",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profil bearbeiten",
       "followsYou": "Folgt dir",

@@ -88,7 +88,11 @@
       "allowAllConfirm": "Sei sicuro? Questo permetterà a {{count}} che vogliono parlare di prendere la parola"
     },
     "searchUser": { "search": "Cerca..." },
-    "soundEffectSettings": { "header": "Suoni", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Suoni",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Modifica profilo",
       "followsYou": "Ti segue",

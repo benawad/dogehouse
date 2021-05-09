@@ -92,7 +92,11 @@
       "allowAllConfirm": "Ishonchingiz komilmi? Bu {{count}} foydalanuvchilariga gapirish uchun ruxsat so'rab murojaat qilganlarga gapirishga imkon beradi"
     },
     "searchUser": { "search": "Qidirish..." },
-    "soundEffectSettings": { "header": "Tovushlar", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Tovushlar",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profilni tahrirlash",
       "followsYou": "Obunachilaringiz",

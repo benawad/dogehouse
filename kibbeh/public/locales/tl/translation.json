@@ -88,7 +88,11 @@
       "allowAllConfirm": "Sigurado? Ang buong bilang {{count}} na tao ay papayagang makapag salita"
     },
     "searchUser": { "search": "maghanap..." },
-    "soundEffectSettings": { "header": "Tunog", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Tunog",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "I-edit ang profile",
       "followsYou": "mga sumusunod sayo",

@@ -92,7 +92,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "தேடு..." },
-    "soundEffectSettings": { "header": "ஒலிகள்", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "ஒலிகள்",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "சுயவிவரத்தைத் திருத்து",
       "followsYou": "உங்களைப் பின்தொடர்கிறார்",

@@ -88,7 +88,11 @@
       "allowAllConfirm": "Er du sikker? Dette giver tilladelse til alle {{count}} brugere der anmoder om tilladelse til at tale"
     },
     "searchUser": { "search": "Søger..." },
-    "soundEffectSettings": { "header": "Lyde", "title": "Lydstillinger" },
+    "soundEffectSettings": {
+      "header": "Lyde",
+      "title": "Lydstillinger",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Rediger profil",
       "followsYou": "Følger dig",

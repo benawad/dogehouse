@@ -89,7 +89,11 @@
       "allowAllConfirm": "Jsi si jistý? Tohle povolí všem {{count}} žádajícím uživatelům mluvit"
     },
     "searchUser": { "search": "Hledat..." },
-    "soundEffectSettings": { "header": "Zvuky", "title": "Nastavení zvuku" },
+    "soundEffectSettings": {
+      "header": "Zvuky",
+      "title": "Nastavení zvuku",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Upravit profil",
       "followsYou": "Sleduje tě.",

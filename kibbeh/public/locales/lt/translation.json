@@ -89,7 +89,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Ieškoma..." },
-    "soundEffectSettings": { "header": "Garsai", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Garsai",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Redaguoti profilį",
       "followsYou": "Seka tave",

@@ -88,7 +88,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "검색..." },
-    "soundEffectSettings": { "header": "소리", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "소리",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "프로필 변경",
       "followsYou": "나를 팔로우하는 사람들",

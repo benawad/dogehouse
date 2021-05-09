@@ -88,7 +88,11 @@
       "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
     },
     "searchUser": { "search": "搜索..." },
-    "soundEffectSettings": { "header": "声音", "title": "声音设置" },
+    "soundEffectSettings": {
+      "header": "声音",
+      "title": "声音设置",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",

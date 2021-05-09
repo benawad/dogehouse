@@ -88,7 +88,11 @@
       "allowAllConfirm": "你確定嗎? 這將會允許所有 {{count}} 發出請求的用戶發言"
     },
     "searchUser": { "search": "搜尋..." },
-    "soundEffectSettings": { "header": "聲音", "title": "聲音設定" },
+    "soundEffectSettings": {
+      "header": "聲音",
+      "title": "聲音設定",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "編輯個人主頁",
       "followsYou": "正在追蹤你",

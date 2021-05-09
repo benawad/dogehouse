@@ -89,7 +89,11 @@
       "allowAllConfirm": "Təsdiqləyirsiniz? Bu seçim {{count}} istifadəçiyə danışma haqqı verəcəkdir"
     },
     "searchUser": { "search": "Axtarış..." },
-    "soundEffectSettings": { "header": "Səslər", "title": "Səs paratmertləri" },
+    "soundEffectSettings": {
+      "header": "Səslər",
+      "title": "Səs paratmertləri",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profildə düzəliş et",
       "followsYou": "Sizi izləyənlər",

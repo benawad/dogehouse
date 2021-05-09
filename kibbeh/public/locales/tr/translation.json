@@ -88,7 +88,11 @@
       "allowAllConfirm": "Emin misiniz? Bu, talep eden {{count}} kullanıcının konuşmasına izin verecektir"
     },
     "searchUser": { "search": "Ara..." },
-    "soundEffectSettings": { "header": "Sesler", "title": "Ses Ayarları" },
+    "soundEffectSettings": {
+      "header": "Sesler",
+      "title": "Ses Ayarları",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profili düzenle",
       "followsYou": "Seni takip ediyor",

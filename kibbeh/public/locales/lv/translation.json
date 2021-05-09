@@ -89,7 +89,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "meklēšana..." },
-    "soundEffectSettings": { "header": "skaņas", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "skaņas",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "rediģēt profilu",
       "followsYou": "seko jums",

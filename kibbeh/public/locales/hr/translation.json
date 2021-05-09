@@ -90,7 +90,11 @@
       "speakers": "Govornici"
     },
     "searchUser": { "search": "traži..." },
-    "soundEffectSettings": { "header": "Zvuči", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Zvuči",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "uredi profil",
       "followYou": "vas prati",

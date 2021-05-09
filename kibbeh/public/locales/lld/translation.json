@@ -91,7 +91,8 @@
     "searchUser": { "search": "Chirida..." },
     "soundEffectSettings": {
       "header": "Sonns",
-      "title": "Impostaziuns dl sonn"
+      "title": "Impostaziuns dl sonn",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "Modifichëia profil",

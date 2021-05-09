@@ -90,7 +90,8 @@
     "searchUser": { "search": "ค้นหา..." },
     "soundEffectSettings": {
       "header": "การแจ้งเตือนเสียง",
-      "title": "การตั้งค่าเสียง"
+      "title": "การตั้งค่าเสียง",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "แก้ไขโปรไฟล์",

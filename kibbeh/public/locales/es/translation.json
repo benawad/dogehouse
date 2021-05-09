@@ -89,7 +89,8 @@
     "searchUser": { "search": "Buscar..." },
     "soundEffectSettings": {
       "header": "Sonidos",
-      "title": "Ajustes de sonido"
+      "title": "Ajustes de sonido",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "Editar perfil",

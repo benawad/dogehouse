@@ -89,7 +89,11 @@
       "allowAllConfirm": "Ste prepričani? To bo omogočilo vsem {{count}}, ki zahtevajo, da govorijo"
     },
     "searchUser": { "search": "Iskanje..." },
-    "soundEffectSettings": { "header": "Zvoki", "title": "Nastavitve zvoka" },
+    "soundEffectSettings": {
+      "header": "Zvoki",
+      "title": "Nastavitve zvoka",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Uredite profil",
       "followsYou": "ti sledijo",

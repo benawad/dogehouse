@@ -89,7 +89,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Zeucke..." },
-    "soundEffectSettings": { "header": "Geluide", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Geluide",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profiel bewirke",
       "followsYou": "Volgt dich",

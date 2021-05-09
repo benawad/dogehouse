@@ -95,7 +95,11 @@
       "allowAllConfirm": "Ər yü s̈r? Þis wil alaw əl {{count}} rekwestiŋ yüzrz tü spëk"
     },
     "searchUser": { "search": "src̈..." },
-    "soundEffectSettings": { "header": "Sawndz", "title": "Sawnd Setiŋz" },
+    "soundEffectSettings": {
+      "header": "Sawndz",
+      "title": "Sawnd Setiŋz",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Edit Pröfïl",
       "followsYou": "Folöz yü",

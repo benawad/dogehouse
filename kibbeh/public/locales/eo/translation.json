@@ -89,7 +89,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "serĉi..." },
-    "soundEffectSettings": { "header": "Sonoj", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Sonoj",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "redakti profilon",
       "followsYou": "sekvas vin",

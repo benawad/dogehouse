@@ -90,7 +90,8 @@
     "searchUser": { "search": "buscar..." },
     "soundEffectSettings": {
       "header": "Sons",
-      "title": "Configurações de áudio"
+      "title": "Configurações de áudio",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "editar perfil",

@@ -95,7 +95,11 @@
       "allowAllConfirm": "مطمئنی؟ با این کار به همه {{count}} درخواست کنندگان اجازه صحبت می دهید"
     },
     "searchUser": { "search": "جستجو کردن..." },
-    "soundEffectSettings": { "header": "صدا", "title": "تنظیمات صدا" },
+    "soundEffectSettings": {
+      "header": "صدا",
+      "title": "تنظیمات صدا",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "ویرایش نمایه",
       "followsYou": "شما را دنبال می کند",

@@ -95,7 +95,11 @@
       "allowAllConfirm": "u crazy? dis will let {{count}} kittehs talk"
     },
     "searchUser": { "search": "search..." },
-    "soundEffectSettings": { "header": "Sounds", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Sounds",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "mak profile difernt",
       "followsYou": "stalks u",

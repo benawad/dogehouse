@@ -89,7 +89,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "leita..." },
-    "soundEffectSettings": { "header": "Hljóðin", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Hljóðin",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "breyta prófíl",
       "followsYou": "fylgir þér",

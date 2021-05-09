@@ -88,7 +88,11 @@
       "allowAllConfirm": "Si si istý? Povolíš rozprávať všetkým {{count}} žiadateľom"
     },
     "searchUser": { "search": "hľadať..." },
-    "soundEffectSettings": { "header": "Zvuky", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Zvuky",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "upraviť profil",
       "followsYou": "sleduje ťa",
