@@ -34,7 +34,9 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Αποκλεισμός" },
+    "admin": {
+      "ban": "Αποκλεισμός"
+    },
     "followingOnlineList": {
       "listHeader": "Xρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
       "currentRoom": "Aυτή τη στιγμή βρίσκεστε σε:",
@@ -100,8 +102,13 @@
       "allowAll": "Να επιτρέπονται όλα",
       "allowAllConfirm": "Είστε σίγουροι; Αυτό θα επιτρέψει σε όλους τους {{count}} χρήστες που έχουν ζητήσει, να μιλήσουν"
     },
-    "searchUser": { "search": "αναζήτηση..." },
-    "soundEffectSettings": { "header": "Ήχοι", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "αναζήτηση..."
+    },
+    "soundEffectSettings": {
+      "header": "Ήχοι",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "Επεξεργασία προφίλ",
       "followsYou": "Σας ακολουθεί",
@@ -192,7 +199,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "Δεν υπάρχει δέκτης ήχου για κάποιο λόγο"
     },
-    "addToCalendar": { "add": "Προσθήκη στο Ημερολόγιο" },
+    "addToCalendar": {
+      "add": "Προσθήκη στο Ημερολόγιο"
+    },
     "wsKilled": {
       "description": "Το WebSocket διακόπηκε από τον σέρβερ. Αυτό συμβαίνει συνήθως όταν ανοίγετε την ιστοσελίδα σε άλλη καρτέλα.",
       "reconnect": "Επανασύνδεση"
@@ -326,6 +335,8 @@
       "galacticDoge": "Γαλαξιακό Doge",
       "spottedLife": "Εντοπίστηκε πλανήτης με ζωή!"
     },
-    "feed": { "yourFeed": "Η ροή σας" }
+    "feed": {
+      "yourFeed": "Η ροή σας"
+    }
   }
 }

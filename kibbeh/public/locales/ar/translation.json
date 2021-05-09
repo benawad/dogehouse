@@ -34,13 +34,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "حظر" },
+    "admin": {
+      "ban": "حظر"
+    },
     "followingOnlineList": {
       "listHeader": "قائمة المستخدمين غير المتواجدين في غرفة خاصة وأنت تتابعهم.",
       "currentRoom": "حاليا في:",
       "startPrivateRoom": "ابدأ غرفة خاصة معهم"
     },
-    "followList": { "followHim": "تابع", "followingHim": "متابع" },
+    "followList": {
+      "followHim": "تابع",
+      "followingHim": "متابع"
+    },
     "home": {
       "createRoom": "ابدأ غرفة",
       "refresh": "تحديث",
@@ -88,8 +93,13 @@
       "allowAll": "السماح للكل",
       "allowAllConfirm": "هل انت متأكد ؟ هذا سيسمح لـ {{count}} مستخدم بالتحدث"
     },
-    "searchUser": { "search": "ابحث..." },
-    "soundEffectSettings": { "header": "الأصوات", "title": "اعدادات الصوت" },
+    "searchUser": {
+      "search": "ابحث..."
+    },
+    "soundEffectSettings": {
+      "header": "الأصوات",
+      "title": "اعدادات الصوت"
+    },
     "viewUser": {
       "editProfile": "تعديل الحساب",
       "followsYou": "يتابعك",
@@ -121,7 +131,10 @@
       "volume": "ارتفاع الصوت:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
@@ -167,7 +180,10 @@
       "linkText": "GitHub مشكلة على",
       "addSupport": "و سوف أحاول أن أدعم جهازك!"
     },
-    "inviteButton": { "invited": "مدعو", "inviteToRoom": "إدعو إلى الغرفة" },
+    "inviteButton": {
+      "invited": "مدعو",
+      "inviteToRoom": "إدعو إلى الغرفة"
+    },
     "micPermissionBanner": {
       "permissionDenied": "تم رفض الإذن عند محاولة الوصول إلى الميكروفون الخاص بك (قد تحتاج إلى الدخول إلى إعدادات المتصفح وإعادة تحميل الصفحة)",
       "dismiss": "رفض",
@@ -181,8 +197,12 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": { "noAudioMessage": "لا يوجد مستهلك صوتي لسبب ما" },
-    "addToCalendar": { "add": "أضف إلى التقويم" },
+    "userVolumeSlider": {
+      "noAudioMessage": "لا يوجد مستهلك صوتي لسبب ما"
+    },
+    "addToCalendar": {
+      "add": "أضف إلى التقويم"
+    },
     "wsKilled": {
       "description": "تمت مقاطعة الإتصال بواسطة الخادم. يحدث هذا عادةً عند فتح موقع الويب في علامة تبويب أخرى.",
       "reconnect": "أعد الاتصال"
@@ -316,6 +336,8 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "اكتشاف كوكب فيه حياه"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

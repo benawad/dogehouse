@@ -34,13 +34,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "malpermeso" },
+    "admin": {
+      "ban": "malpermeso"
+    },
     "followingOnlineList": {
       "listHeader": "Listo de uzantoj, kiuj ne estas en privata ĉambro kaj kiun vi sekvas.",
       "currentRoom": "nuntempe en:",
       "startPrivateRoom": "komencu privatan ĉambron kun ili"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following"
+    },
     "home": {
       "createRoom": "Kreu Ĉambron",
       "refresh": "Refreŝigu",
@@ -88,8 +93,13 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": { "search": "serĉi..." },
-    "soundEffectSettings": { "header": "Sonoj", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "serĉi..."
+    },
+    "soundEffectSettings": {
+      "header": "Sonoj",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "redakti profilon",
       "followsYou": "sekvas vin",
@@ -185,8 +195,12 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": { "noAudioMessage": "neniu audio-konsumanto ial" },
-    "addToCalendar": { "add": "Aldoni al Kalendaro" },
+    "userVolumeSlider": {
+      "noAudioMessage": "neniu audio-konsumanto ial"
+    },
+    "addToCalendar": {
+      "add": "Aldoni al Kalendaro"
+    },
     "wsKilled": {
       "description": "WebSocket estis mortigita de la servilo. Ĉi tio kutime okazas kiam vi malfermas la retejon en alia langeto.",
       "reconnect": "rekonekti"
@@ -320,6 +334,8 @@
       "galacticDoge": "Galaksia Doge",
       "spottedLife": "Planedo kun vivo ekvidita"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

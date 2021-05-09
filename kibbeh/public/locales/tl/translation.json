@@ -33,13 +33,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Ban" },
+    "admin": {
+      "ban": "Ban"
+    },
     "followingOnlineList": {
       "listHeader": "Listahan nang mga tao na hindi pribado at iyong sinundan",
       "currentRoom": "kasalukuyan nasa:",
       "startPrivateRoom": "magsimula ng isang pribadong silid sa kanila"
     },
-    "followList": { "followHim": "I-follow", "followingHim": "sinusubaybayan" },
+    "followList": {
+      "followHim": "I-follow",
+      "followingHim": "sinusubaybayan"
+    },
     "home": {
       "createRoom": "Bagong silid",
       "editRoom": "Edit Room",
@@ -87,8 +92,13 @@
       "allowAll": "Payagan lahat",
       "allowAllConfirm": "Sigurado? Ang buong bilang {{count}} na tao ay papayagang makapag salita"
     },
-    "searchUser": { "search": "maghanap..." },
-    "soundEffectSettings": { "header": "Tunog", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "maghanap..."
+    },
+    "soundEffectSettings": {
+      "header": "Tunog",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "I-edit ang profile",
       "followsYou": "mga sumusunod sayo",
@@ -190,12 +200,16 @@
       "togglePushToTalkKeybind": "I-toggle ang push-to-talk keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": { "noAudioMessage": "Walang makitang audio consumer" },
+    "userVolumeSlider": {
+      "noAudioMessage": "Walang makitang audio consumer"
+    },
     "upcomingRoomsCard": {
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore more rooms"
     },
-    "addToCalendar": { "add": "Idagdag sa kalendaryo" },
+    "addToCalendar": {
+      "add": "Idagdag sa kalendaryo"
+    },
     "wsKilled": {
       "description": "Pinatay ng server ang websocket. Karaniwang magyayari ito dahil naka bukas ang website sa ibang tab.",
       "reconnect": "kumonekta"
@@ -274,7 +288,9 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": { "yourFeed": "Your feed" },
+    "feed": {
+      "yourFeed": "Your feed"
+    },
     "scheduledRooms": {
       "title": "Mga Nakaiskedyul na",
       "noneFound": "walang nakita",

@@ -34,13 +34,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "באן" },
+    "admin": {
+      "ban": "באן"
+    },
     "followingOnlineList": {
       "listHeader": "רשימת משתמשים שאתה עוקב אחרייהם שלא בחדר פרטי.",
       "currentRoom": "ב:",
       "startPrivateRoom": "צור חדר פרטי איתם"
     },
-    "followList": { "followHim": "עקוב", "followingHim": "עוקב" },
+    "followList": {
+      "followHim": "עקוב",
+      "followingHim": "עוקב"
+    },
     "home": {
       "createRoom": "צור חדר",
       "refresh": "טען מחדש",
@@ -88,8 +93,13 @@
       "allowAll": "הרשה לכולם",
       "allowAllConfirm": "המשתמשים המבקשים רשות יכולת דיבור {{count}} אתה בטוח? זה יאפשר לכל"
     },
-    "searchUser": { "search": "חפש..." },
-    "soundEffectSettings": { "header": "צלילים", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "חפש..."
+    },
+    "soundEffectSettings": {
+      "header": "צלילים",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "ערוך פרופיל",
       "followsYou": "עוקב אחריך",
@@ -121,7 +131,10 @@
       "volume": "עוצמת קול:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings"
     },
     "download": {
@@ -165,7 +178,10 @@
       "linkText": "בעיות בGitHub.",
       "addSupport": "וננסה להוסיף תמיכה למכשיר שלך."
     },
-    "inviteButton": { "invited": "מוזמן", "inviteToRoom": "הזמן לחדר" },
+    "inviteButton": {
+      "invited": "מוזמן",
+      "inviteToRoom": "הזמן לחדר"
+    },
     "micPermissionBanner": {
       "permissionDenied": "ההרשאה נדחתה בניסיון לגשת למיקרופון שלך (יתכן שתצטרך להיכנס להגדרות הדפדפן ולטעון מחדש את הדף)",
       "dismiss": "סגור",
@@ -179,8 +195,12 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": { "noAudioMessage": "שום צרכן קול משום מה" },
-    "addToCalendar": { "add": "הוסף ליומן" },
+    "userVolumeSlider": {
+      "noAudioMessage": "שום צרכן קול משום מה"
+    },
+    "addToCalendar": {
+      "add": "הוסף ליומן"
+    },
     "wsKilled": {
       "description": "הWebSocket נסגר על ידי השרת. זה קורה בדרך כלל כשפותחים את האתר בלשונית אחרת.",
       "reconnect": "התחבר מחדש"
@@ -284,7 +304,9 @@
       },
       "tommorow": "מחר",
       "today": "היום",
-      "deleteModal": { "areYouSure": "האם אתה בטוח שתרצה למחוק את החדר הזה?" }
+      "deleteModal": {
+        "areYouSure": "האם אתה בטוח שתרצה למחוק את החדר הזה?"
+      }
     },
     "roomChat": {
       "title": "צ'אט",
@@ -312,6 +334,8 @@
       "galacticDoge": "גלקטי Doge",
       "spottedLife": "כוכב לכת עם חיים נמצא"
     },
-    "feed": { "yourFeed": "הסיפור שלך" }
+    "feed": {
+      "yourFeed": "הסיפור שלך"
+    }
   }
 }

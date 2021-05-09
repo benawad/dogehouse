@@ -34,7 +34,9 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "banish" },
+    "admin": {
+      "ban": "banish"
+    },
     "download": {
       "prompt": "get da desktp ap",
       "download_for": "get fur %platform% (%ext%)",
@@ -46,7 +48,10 @@
       "currentRoom": "rn ur in:",
       "startPrivateRoom": "go in private howse wit dem"
     },
-    "followList": { "followHim": "stalk", "followingHim": "stalking" },
+    "followList": {
+      "followHim": "stalk",
+      "followingHim": "stalking"
+    },
     "home": {
       "createRoom": "mak new howse",
       "editRoom": "mak howse difernt",
@@ -94,8 +99,13 @@
       "allowAll": "let all spek",
       "allowAllConfirm": "u crazy? dis will let {{count}} kittehs talk"
     },
-    "searchUser": { "search": "search..." },
-    "soundEffectSettings": { "header": "Sounds", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "search..."
+    },
+    "soundEffectSettings": {
+      "header": "Sounds",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "mak profile difernt",
       "followsYou": "stalks u",
@@ -172,7 +182,10 @@
       "noOnline": "u has no fwens",
       "showMore": "Show more"
     },
-    "inviteButton": { "invited": "Invited!", "inviteToRoom": "Invite to room" },
+    "inviteButton": {
+      "invited": "Invited!",
+      "inviteToRoom": "Invite to room"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
       "dismiss": "Dismiss",
@@ -193,7 +206,9 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore more rooms"
     },
-    "addToCalendar": { "add": "Add to Calendar" },
+    "addToCalendar": {
+      "add": "Add to Calendar"
+    },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "Reconnect"
@@ -272,7 +287,9 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": { "yourFeed": "Your feed" },
+    "feed": {
+      "yourFeed": "Your feed"
+    },
     "scheduledRooms": {
       "title": "Scheduled Rooms",
       "noneFound": "none found",

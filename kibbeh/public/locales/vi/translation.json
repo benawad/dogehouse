@@ -34,13 +34,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "cấm" },
+    "admin": {
+      "ban": "cấm"
+    },
     "followingOnlineList": {
       "listHeader": "Danh sách người dùng bạn theo dõi đang ở trong một phòng nào đó mà không phải là phòng riêng.",
       "currentRoom": "phòng hiện tại:",
       "startPrivateRoom": "tạo phòng riêng tư với họ"
     },
-    "followList": { "followHim": "theo dõi", "followingHim": "đang theo dõi" },
+    "followList": {
+      "followHim": "theo dõi",
+      "followingHim": "đang theo dõi"
+    },
     "home": {
       "createRoom": "Tạo phòng",
       "refresh": "Làm mới",
@@ -88,8 +93,13 @@
       "allowAll": "Cho phép tất cả",
       "allowAllConfirm": "Bạn có chắc không? Hành động này sẽ cho phép {{count}} người dùng có quyền nói"
     },
-    "searchUser": { "search": "tìm kiếm..." },
-    "soundEffectSettings": { "header": "Âm thanh", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "tìm kiếm..."
+    },
+    "soundEffectSettings": {
+      "header": "Âm thanh",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "chỉnh sửa hồ sơ",
       "followsYou": "Theo dõi bạn",
@@ -168,7 +178,10 @@
       "linkText": "issue tại GitHub",
       "addSupport": "tôi sẽ thêm hỗ trợ cho thiết bị của bạn."
     },
-    "inviteButton": { "invited": "đã mời", "inviteToRoom": "mời vào phòng" },
+    "inviteButton": {
+      "invited": "đã mời",
+      "inviteToRoom": "mời vào phòng"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Không có quyền truy cập mic của bạn (thử xem lại cài đặt của trình duyệt và tải lại trang)",
       "dismiss": "bỏ qua",
@@ -185,7 +198,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "không có âm thanh vì một số lý do"
     },
-    "addToCalendar": { "add": "Thêm vào lịch" },
+    "addToCalendar": {
+      "add": "Thêm vào lịch"
+    },
     "wsKilled": {
       "description": "WebSocket đã bị ngắt kết nối bởi server. Điều này thường là do bạn đang mở trang web ở nhiều tab khác nhau.",
       "reconnect": "kết nối lại"
@@ -319,6 +334,8 @@
       "galacticDoge": "Doge đang bay quanh thiên hà",
       "spottedLife": "Đã tìm thấy hành tinh có sự sống"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

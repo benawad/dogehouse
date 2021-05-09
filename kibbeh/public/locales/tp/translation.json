@@ -34,7 +34,9 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ken ala" },
+    "admin": {
+      "ban": "ken ala"
+    },
     "followingOnlineList": {
       "listHeader": "jan ni li lon ala e tomo pi jan wan. sina lukin e jan ni.",
       "currentRoom": "sina lon:",
@@ -91,8 +93,13 @@
       "allowAll": "Ken jan ale e toki",
       "allowAllConfirm": "sina wile e ni? ni li ken jan ale {{count}} e toki."
     },
-    "searchUser": { "search": "o lukin..." },
-    "soundEffectSettings": { "header": "Kalama", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "o lukin..."
+    },
+    "soundEffectSettings": {
+      "header": "Kalama",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "ante e jan sina",
       "followsYou": "li lukin e sina",
@@ -188,8 +195,12 @@
       "togglePushToTalkKeybind": "nena pi ante e \"utala la toki\"",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": { "noAudioMessage": "ali li kute e kalama" },
-    "addToCalendar": { "add": "sitelen e ni lon lipu tenpo suno" },
+    "userVolumeSlider": {
+      "noAudioMessage": "ali li kute e kalama"
+    },
+    "addToCalendar": {
+      "add": "sitelen e ni lon lipu tenpo suno"
+    },
     "wsKilled": {
       "description": "ilo pi pana sona li moli e linja sona. tenpo tu la sina open e lipu len ni la ni li kama.",
       "reconnect": "tenpo tu la o pali e linja sona."
@@ -323,6 +334,8 @@
       "galacticDoge": "soweli Doge lon kulupu suno",
       "spottedLife": "ona li lukin e ma. ma ni li jo e moli ala."
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

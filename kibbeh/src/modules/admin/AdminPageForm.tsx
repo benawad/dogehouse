@@ -51,7 +51,7 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
   return (
     <MiddlePanel>
       <div>
-        <h3 className="text-primary-100">Ban</h3>
+        <h3 className="text-primary-100">{t("pages.admin.ban")}</h3>
         <div className="flex">
           <Input
             className={`mb-4`}
@@ -75,11 +75,13 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
             }
           }}
         >
-          {t("pages.banUser.ban")}
+          {t("pages.admin.ban")}
         </Button>
       </div>
       <div className="mt-6">
-        <h3 className="text-primary-100">User Staff & Contributions</h3>
+        <h3 className="text-primary-100">
+          {t("pages.admin.userStaffandContrib")}
+        </h3>
         <Input
           className={`mb-4`}
           autoFocus
@@ -90,17 +92,17 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
         <Input
           className={`mb-4`}
           autoFocus
-          placeholder="Contributions"
+          placeholder={t("pages.admin.contributions")}
           value={contributions}
           onChange={(e) => setContributions(Number(e.target.value))}
           type="number"
         />
         <label className="inline-flex mb-4">
-          <div className={`text-primary-100`}>Staff: </div>
+          <div className={`text-primary-100`}>{t("pages.admin.staff")}</div>
           <Input
             className={`ml-2`}
             autoFocus
-            placeholder="Contributions"
+            placeholder={t("pages.admin.staff")}
             checked={isStaff}
             onChange={(e) => setIsStaff(e.target.checked)}
             type="checkbox"

@@ -33,13 +33,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "प्रतिबन्ध" },
+    "admin": {
+      "ban": "प्रतिबन्ध"
+    },
     "followingOnlineList": {
       "listHeader": "प्रयोगकर्ताहरूको सूची जो प्राइवेट रूम छैनन् र तपाइँ फॉलो गर्नुहुन्छा।",
       "currentRoom": "अहिले हुनुहुन्छ:",
       "startPrivateRoom": "यीनीहरू संग एक प्राइवेट रूम शुरू गर्नुहोस्"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following"
+    },
     "home": {
       "createRoom": "रूम बनाउनुहोस",
       "refresh": "Refresh",
@@ -87,8 +92,13 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": { "search": "खोजी गर्नुहोस्..." },
-    "soundEffectSettings": { "header": "साउंड", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "खोजी गर्नुहोस्..."
+    },
+    "soundEffectSettings": {
+      "header": "साउंड",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "प्रोफाइल सम्पादन गर्नुहोस",
       "followsYou": "follows you",
@@ -120,7 +130,10 @@
       "volume": "भोल्युम:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings"
     },
     "download": {
@@ -184,7 +197,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "कुनै कारणका लागि कुनै अडियो उपभोक्ता छैन"
     },
-    "addToCalendar": { "add": "क्यालेन्डरमा थप्नुहोस" },
+    "addToCalendar": {
+      "add": "क्यालेन्डरमा थप्नुहोस"
+    },
     "wsKilled": {
       "description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "पुनः जडान गर्नुहोस्"
@@ -318,6 +333,8 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

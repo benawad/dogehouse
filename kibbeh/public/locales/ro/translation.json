@@ -34,13 +34,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "blochează" },
+    "admin": {
+      "ban": "blochează"
+    },
     "followingOnlineList": {
       "listHeader": "Lista utilizatorilor care nu se află într-o cameră privată și pe care o urmăriți.",
       "currentRoom": "Deocamdată în:",
       "startPrivateRoom": "Începe o cameră privată cu ei"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following"
+    },
     "home": {
       "createRoom": "Creează cameră",
       "refresh": "Refresh",
@@ -88,8 +93,13 @@
       "allowAll": "Permiteți-le pe toate",
       "allowAllConfirm": "Esti sigur? Asta ar lasa toti {{count}} utilizatori sa vorbeasca"
     },
-    "searchUser": { "search": "caută..." },
-    "soundEffectSettings": { "header": "Sunete", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "caută..."
+    },
+    "soundEffectSettings": {
+      "header": "Sunete",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "Editează profil",
       "followsYou": "Te urmărește",
@@ -121,7 +131,10 @@
       "volume": "Volum:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings"
     },
     "download": {
@@ -185,7 +198,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "niciun consumator audio dintr-un motiv oarecare"
     },
-    "addToCalendar": { "add": "Adaugă în Calendar" },
+    "addToCalendar": {
+      "add": "Adaugă în Calendar"
+    },
     "wsKilled": {
       "description": "Websocket a fost omorât de către server. Asta se întamplă de obicei cănd website-ul este deschis în altă filă.",
       "reconnect": "Reconectează-te"
@@ -319,6 +334,8 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

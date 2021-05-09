@@ -33,13 +33,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Verban" },
+    "admin": {
+      "ban": "Verban"
+    },
     "followingOnlineList": {
       "listHeader": "Lijst van gebruikers die je volgt en niet in een privékamer zijn.",
       "currentRoom": "Momenteel in:",
       "startPrivateRoom": "Start een privékamer met deze persoon"
     },
-    "followList": { "followHim": "Volg", "followingHim": "Volgend" },
+    "followList": {
+      "followHim": "Volg",
+      "followingHim": "Volgend"
+    },
     "home": {
       "createRoom": "Kamer maken",
       "refresh": "Verversen",
@@ -87,8 +92,13 @@
       "allowAll": "Iedereen toestaan",
       "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan {{count}} verzoekende gebruikers om te spreken"
     },
-    "searchUser": { "search": "Zoeken..." },
-    "soundEffectSettings": { "header": "Geluiden", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "Zoeken..."
+    },
+    "soundEffectSettings": {
+      "header": "Geluiden",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "Profiel bewerken",
       "followsYou": "Volgt jou",
@@ -187,7 +197,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "Geen audioapparaat (om een of andere reden)"
     },
-    "addToCalendar": { "add": "Voeg toe aan agenda" },
+    "addToCalendar": {
+      "add": "Voeg toe aan agenda"
+    },
     "wsKilled": {
       "description": "WebSocket is gestopt door de server. Dit gebeurt meestal als je de site open hebt staan in een ander tabblad.",
       "reconnect": "Opnieuw verbinden"
@@ -321,6 +333,8 @@
       "galacticDoge": "Galactische Doge",
       "spottedLife": "Planeet met leven gespot"
     },
-    "feed": { "yourFeed": "Je Feed" }
+    "feed": {
+      "yourFeed": "Je Feed"
+    }
   }
 }

@@ -33,13 +33,18 @@
   },
   "pages": {
     "_comment": "İlgili sayfa arayüz ulusallaştırma yazıları",
-    "banUser": { "ban": "Yasakla" },
+    "admin": {
+      "ban": "Yasakla"
+    },
     "followingOnlineList": {
       "listHeader": "Senin takip ettiğin ve özel odada olmayan kullanıcıların listesi.",
       "currentRoom": "Şu anki oda:",
       "startPrivateRoom": "Onlarla özel bir oda oluştur"
     },
-    "followList": { "followHim": "Takip Et", "followingHim": "Takiptesin" },
+    "followList": {
+      "followHim": "Takip Et",
+      "followingHim": "Takiptesin"
+    },
     "home": {
       "createRoom": "Oda oluştur",
       "refresh": "Yenile",
@@ -87,8 +92,13 @@
       "allowAll": "Herkese izin ver",
       "allowAllConfirm": "Emin misiniz? Bu, talep eden {{count}} kullanıcının konuşmasına izin verecektir"
     },
-    "searchUser": { "search": "Ara..." },
-    "soundEffectSettings": { "header": "Sesler", "title": "Ses Ayarları" },
+    "searchUser": {
+      "search": "Ara..."
+    },
+    "soundEffectSettings": {
+      "header": "Sesler",
+      "title": "Ses Ayarları"
+    },
     "viewUser": {
       "editProfile": "Profili düzenle",
       "followsYou": "Seni takip ediyor",
@@ -220,8 +230,12 @@
         "chatDisabled": "sohbeti devre dışı bırak"
       }
     },
-    "userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },
-    "addToCalendar": { "add": "Takvime Ekle" },
+    "userVolumeSlider": {
+      "noAudioMessage": "Nedense ses alıcısı yok"
+    },
+    "addToCalendar": {
+      "add": "Takvime Ekle"
+    },
     "keyboardShortcuts": {
       "setKeybind": "Tuş Ata",
       "listening": "Dinleniyor",
@@ -319,6 +333,8 @@
       "galacticDoge": "Galaktik doge'u",
       "spottedLife": "Yaşam tespit edilen gezegen"
     },
-    "feed": { "yourFeed": "Akışın" }
+    "feed": {
+      "yourFeed": "Akışın"
+    }
   }
 }

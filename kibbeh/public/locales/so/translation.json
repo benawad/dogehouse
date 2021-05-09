@@ -34,13 +34,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "mamnuuc" },
+    "admin": {
+      "ban": "mamnuuc"
+    },
     "followingOnlineList": {
       "listHeader": "Liiska isticmaaleyaasha aan ku jirin qol gaar ah oo aad raacday.",
       "currentRoom": "hadda ku jira:",
       "startPrivateRoom": "qol gaar ah la bilow"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following"
+    },
     "home": {
       "createRoom": "Abuur qol",
       "refresh": "Cusbooneysii",
@@ -88,8 +93,13 @@
       "allowAll": "Dhammaan oggolow",
       "allowAllConfirm": "Ma hubtaa? Tani waxay u oggolaan doontaa dhammaan {{count}} Isticmaalayaasha inay codsadaan inay hadlaan"
     },
-    "searchUser": { "search": "raadi..." },
-    "soundEffectSettings": { "header": "Codka", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "raadi..."
+    },
+    "soundEffectSettings": {
+      "header": "Codka",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "wax ka beddel koontada",
       "followsYou": "adiga kuraacay",
@@ -188,7 +198,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"
     },
-    "addToCalendar": { "add": "Ku dar Kalendarkaga" },
+    "addToCalendar": {
+      "add": "Ku dar Kalendarkaga"
+    },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "dib ugu xirmo"
@@ -238,7 +250,7 @@
       },
       "roomSettingsModal": {
         "requirePermission": "Waxay u baahnaan doonaan ogolaansho si ay uhadlaan",
-    "makePublic": "qolka ka dhig qol guud",
+        "makePublic": "qolka ka dhig qol guud",
         "makePrivate": "qolka ka dhig qol gaar",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
@@ -322,6 +334,8 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "meeraha laga helay nolasha"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

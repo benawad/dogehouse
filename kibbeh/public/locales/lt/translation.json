@@ -34,13 +34,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Užblokuoti" },
+    "admin": {
+      "ban": "Užblokuoti"
+    },
     "followingOnlineList": {
       "listHeader": "Sąrašas žmonių kurie nėra tavo privačiame kambaryje, tačiau tave seka",
       "currentRoom": "Šiuo metu yra:",
       "startPrivateRoom": "Sukurti privatų kambarį su jais"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following"
+    },
     "home": {
       "createRoom": "Sukurti kambarį",
       "refresh": "Refresh",
@@ -88,8 +93,13 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": { "search": "Ieškoma..." },
-    "soundEffectSettings": { "header": "Garsai", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "Ieškoma..."
+    },
+    "soundEffectSettings": {
+      "header": "Garsai",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "Redaguoti profilį",
       "followsYou": "Seka tave",
@@ -121,7 +131,10 @@
       "volume": "Garsas:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings"
     },
     "download": {
@@ -185,7 +198,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "dėl kokių nors priežasčių nėra garso vartotojo"
     },
-    "addToCalendar": { "add": "Pridėti į kalendorių" },
+    "addToCalendar": {
+      "add": "Pridėti į kalendorių"
+    },
     "wsKilled": {
       "description": "„Websocket“ užlaužtas serveris. Paprastai tai atsitinka, kai atidarote svetainę kitame skirtuke.",
       "reconnect": "Prisijungti iš naujo"
@@ -319,6 +334,8 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

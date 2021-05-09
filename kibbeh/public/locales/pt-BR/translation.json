@@ -33,13 +33,18 @@
   },
   "pages": {
     "_comment": "Interface respectiva da página para tradução",
-    "banUser": { "ban": "expulsar" },
+    "admin": {
+      "ban": "expulsar"
+    },
     "followingOnlineList": {
       "listHeader": "Lista de usuários que você segue que não estão em uma sala privada.",
       "currentRoom": "atualmente em:",
       "startPrivateRoom": "iniciar uma sala privada com ele"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following"
+    },
     "home": {
       "createRoom": "Criar Sala",
       "refresh": "Atualizar",
@@ -87,7 +92,9 @@
       "allowAll": "Permitir todos",
       "allowAllConfirm": "Você tem certeza? Isso permitirá que todos os {{count}} usuários solicitantes falem"
     },
-    "searchUser": { "search": "buscar..." },
+    "searchUser": {
+      "search": "buscar..."
+    },
     "soundEffectSettings": {
       "header": "Sons",
       "title": "Configurações de áudio"
@@ -222,8 +229,12 @@
         "chatDisabled": "disable chat"
       }
     },
-    "userVolumeSlider": { "noAudioMessage": "não tem áudio por algum motivo" },
-    "addToCalendar": { "add": "Adicionar ao Calendário" },
+    "userVolumeSlider": {
+      "noAudioMessage": "não tem áudio por algum motivo"
+    },
+    "addToCalendar": {
+      "add": "Adicionar ao Calendário"
+    },
     "keyboardShortcuts": {
       "setKeybind": "definir atalho no teclado",
       "listening": "ouvindo",
@@ -321,6 +332,8 @@
       "galacticDoge": "Doge galático",
       "spottedLife": "Encontrado planeta com vida"
     },
-    "feed": { "yourFeed": "Seu Feed" }
+    "feed": {
+      "yourFeed": "Seu Feed"
+    }
   }
 }

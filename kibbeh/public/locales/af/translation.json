@@ -34,13 +34,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "verbod" },
+    "admin": {
+      "ban": "verbod"
+    },
     "followingOnlineList": {
       "listHeader": "Lys van gebruikers wie nie in private kamers is nie, en vir wie jy volg",
       "currentRoom": "tans in:",
       "startPrivateRoom": "Begin 'n private kamer saam met hulle"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following"
+    },
     "home": {
       "createRoom": "Skep Kamer",
       "refresh": "Refresh",
@@ -88,8 +93,13 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": { "search": "soek..." },
-    "soundEffectSettings": { "header": "Klanke", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "soek..."
+    },
+    "soundEffectSettings": {
+      "header": "Klanke",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "wysig profiel",
       "followsYou": "volg jou",
@@ -121,7 +131,10 @@
       "volume": "volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
@@ -167,7 +180,10 @@
       "linkText": "kwessie op GitHub",
       "addSupport": "meld en ons sal probeer om ondersteuning vir jou testel by te voeg."
     },
-    "inviteButton": { "invited": "Genooi", "inviteToRoom": "Nooi na kamer" },
+    "inviteButton": {
+      "invited": "Genooi",
+      "inviteToRoom": "Nooi na kamer"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Toestemming ontken om jou mikrofoon te gebruik (jy mag dalk in jou blaaier instellings die bladsy te moet herlaai)",
       "dismiss": "ontslaan",
@@ -184,7 +200,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "geen klank verbruiker vir een of ander rede"
     },
-    "addToCalendar": { "add": "Voeg in kalender" },
+    "addToCalendar": {
+      "add": "Voeg in kalender"
+    },
     "wsKilled": {
       "description": "WebSocket was vernietig deur die bediener. Dit gebeur gewoonlik as jy die webtuiste oopmaak in 'n ander oortjie.",
       "reconnect": "verbind weer"
@@ -318,6 +336,8 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

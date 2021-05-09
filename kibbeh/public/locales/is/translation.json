@@ -34,13 +34,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ban" },
+    "admin": {
+      "ban": "ban"
+    },
     "followingOnlineList": {
       "listHeader": "Listi yfir notendur sem eru ekki í einkaherbergi og þú fylgir.",
       "currentRoom": "núna í",
       "startPrivateRoom": "stofnaðu einkaspjallrásin með þeim"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following"
+    },
     "home": {
       "createRoom": "Stofna Spjallrás",
       "refresh": "Refresh",
@@ -88,8 +93,13 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": { "search": "leita..." },
-    "soundEffectSettings": { "header": "Hljóðin", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "leita..."
+    },
+    "soundEffectSettings": {
+      "header": "Hljóðin",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "breyta prófíl",
       "followsYou": "fylgir þér",
@@ -121,7 +131,10 @@
       "volume": "hljóðstyrkur:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings"
     },
     "download": {
@@ -165,7 +178,10 @@
       "linkText": "beiðni á GitHub",
       "addSupport": "og þá verður reynt að bæta við stuðningi fyrir tækið þitt."
     },
-    "inviteButton": { "invited": "boðið", "inviteToRoom": "bjóða í spjallrás" },
+    "inviteButton": {
+      "invited": "boðið",
+      "inviteToRoom": "bjóða í spjallrás"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Leyfi hafnað þegar reynt var að fá aðgang að hljóðnemanum þínum (þú gætir þurft að fara í vafrastillingar og endurhlaða síðuna)",
       "dismiss": "segja upp",
@@ -182,7 +198,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "enginn hljóðnotandi af einhverjum ástæðum"
     },
-    "addToCalendar": { "add": "Bæta við dagatal" },
+    "addToCalendar": {
+      "add": "Bæta við dagatal"
+    },
     "wsKilled": {
       "description": "WebSocket tengingin var drepinn af netþjóninum. Þetta gerist venjulega þegar þú opnar vefsíðuna á öðrum flipa.",
       "reconnect": "endurræsa tengingu"
@@ -316,6 +334,8 @@
       "galacticDoge": "Vetrarbrautar Doge",
       "spottedLife": "Pláneta með lífi fundin"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

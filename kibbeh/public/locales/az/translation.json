@@ -34,13 +34,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ban" },
+    "admin": {
+      "ban": "ban"
+    },
     "followingOnlineList": {
       "listHeader": "Gizli otaqda olmayan və sizin izlədiyiniz istifadəçilər",
       "currentRoom": "Hazırda:",
       "startPrivateRoom": "Gizli otaq yaradın"
     },
-    "followList": { "followHim": "İzlə", "followingHim": "İzlənir" },
+    "followList": {
+      "followHim": "İzlə",
+      "followingHim": "İzlənir"
+    },
     "home": {
       "createRoom": "Otaq yaratmaq",
       "refresh": "Yenilə",
@@ -88,8 +93,13 @@
       "allowAll": "Hərkəsə icazə ver",
       "allowAllConfirm": "Təsdiqləyirsiniz? Bu seçim {{count}} istifadəçiyə danışma haqqı verəcəkdir"
     },
-    "searchUser": { "search": "Axtarış..." },
-    "soundEffectSettings": { "header": "Səslər", "title": "Səs paratmertləri" },
+    "searchUser": {
+      "search": "Axtarış..."
+    },
+    "soundEffectSettings": {
+      "header": "Səslər",
+      "title": "Səs paratmertləri"
+    },
     "viewUser": {
       "editProfile": "Profildə düzəliş et",
       "followsYou": "Sizi izləyənlər",
@@ -190,7 +200,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "Bir səbəbə görə səs qəbuledici yoxdur!"
     },
-    "addToCalendar": { "add": "Kalendara əlavə et" },
+    "addToCalendar": {
+      "add": "Kalendara əlavə et"
+    },
     "wsKilled": {
       "description": "WebSocket server tərəfindən bağlandı. Bu adətən birdən çox səhifədə saytı açdığınız zaman baş verir.",
       "reconnect": "Yenidən bağlantı qur"
@@ -324,6 +336,8 @@
       "galacticDoge": "Qalaktika dog-u",
       "spottedLife": "Həyat olan planet aşkarlandı"
     },
-    "feed": { "yourFeed": "Sənin lentin" }
+    "feed": {
+      "yourFeed": "Sənin lentin"
+    }
   }
 }

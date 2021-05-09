@@ -32,13 +32,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Banear" },
+    "admin": {
+      "ban": "Banear"
+    },
     "followingOnlineList": {
       "listHeader": "Lista de usuarios que sigues y que no se encuentran en una sala privada.",
       "currentRoom": "Actualmente en la sala:",
       "startPrivateRoom": "Empezar una sala privada con ellos"
     },
-    "followList": { "followHim": "Seguir", "followingHim": "Siguiendo" },
+    "followList": {
+      "followHim": "Seguir",
+      "followingHim": "Siguiendo"
+    },
     "home": {
       "createRoom": "Crear sala",
       "editRoom": "Editar sala",
@@ -86,7 +91,9 @@
       "allowAll": "Permitir todos",
       "allowAllConfirm": "¿Estás seguro? Esto dejará hablar a los {{count}} usuarios que quieren hablar"
     },
-    "searchUser": { "search": "Buscar..." },
+    "searchUser": {
+      "search": "Buscar..."
+    },
     "soundEffectSettings": {
       "header": "Sonidos",
       "title": "Ajustes de sonido"
@@ -199,7 +206,9 @@
       "upcomingRooms": "Próximas salas",
       "exploreMoreRooms": "Explorar nuevas salas"
     },
-    "addToCalendar": { "add": "Añadir al calendario" },
+    "addToCalendar": {
+      "add": "Añadir al calendario"
+    },
     "wsKilled": {
       "description": "El Websocket fue eliminado por el servidor. Esto suele suceder cuando abres el sitio web en otra pestaña.",
       "reconnect": "Reconectar"
@@ -277,7 +286,9 @@
     }
   },
   "modules": {
-    "feed": { "yourFeed": "Tu inicio" },
+    "feed": {
+      "yourFeed": "Tu inicio"
+    },
     "scheduledRooms": {
       "title": "Salas programadas",
       "noneFound": "No se ha encontrado ninguna",

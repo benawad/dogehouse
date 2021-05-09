@@ -34,13 +34,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Blokirajte" },
+    "admin": {
+      "ban": "Blokirajte"
+    },
     "followingOnlineList": {
       "listHeader": "Seznam uporabnikov, ki jim sledite in niso v zasebni sobi.",
       "currentRoom": "Trenutno v:",
       "startPrivateRoom": "Začnite zasebno sobo s tem uporabnikom"
     },
-    "followList": { "followHim": "sledi", "followingHim": "sledijo" },
+    "followList": {
+      "followHim": "sledi",
+      "followingHim": "sledijo"
+    },
     "home": {
       "createRoom": "Ustvarite sobo",
       "refresh": "Osvežite",
@@ -88,8 +93,13 @@
       "allowAll": "Dovoli vsem",
       "allowAllConfirm": "Ste prepričani? To bo omogočilo vsem {{count}}, ki zahtevajo, da govorijo"
     },
-    "searchUser": { "search": "Iskanje..." },
-    "soundEffectSettings": { "header": "Zvoki", "title": "Nastavitve zvoka" },
+    "searchUser": {
+      "search": "Iskanje..."
+    },
+    "soundEffectSettings": {
+      "header": "Zvoki",
+      "title": "Nastavitve zvoka"
+    },
     "viewUser": {
       "editProfile": "Uredite profil",
       "followsYou": "ti sledijo",
@@ -188,7 +198,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "Iz nekega razloga ni odjemalca zvoka"
     },
-    "addToCalendar": { "add": "Dodajte v koledar" },
+    "addToCalendar": {
+      "add": "Dodajte v koledar"
+    },
     "wsKilled": {
       "description": "Povezava s spletno vtičnico je bila prekinjena. To se ponavadi zgodi, ko se ta spletna stran odpre v novem zavihku.",
       "reconnect": "Ponovno se povežite"
@@ -322,6 +334,8 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Najden planet z življenjem"
     },
-    "feed": { "yourFeed": "Vaši Kanali" }
+    "feed": {
+      "yourFeed": "Vaši Kanali"
+    }
   }
 }

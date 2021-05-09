@@ -33,13 +33,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "zabanovať" },
+    "admin": {
+      "ban": "zabanovať"
+    },
     "followingOnlineList": {
       "listHeader": "Zoznam používateľov ktorých sleduješ a niesú v súkromnej miestnosti",
       "currentRoom": "aktuálne v:",
       "startPrivateRoom": "začať s nimi súkromnú miestnosť"
     },
-    "followList": { "followHim": "Sledovať", "followingHim": "Sledovaný" },
+    "followList": {
+      "followHim": "Sledovať",
+      "followingHim": "Sledovaný"
+    },
     "home": {
       "createRoom": "Vytvoriť miestnosť",
       "refresh": "Obnoviť",
@@ -87,8 +92,13 @@
       "allowAll": "Povoliť rozprávať všetkým",
       "allowAllConfirm": "Si si istý? Povolíš rozprávať všetkým {{count}} žiadateľom"
     },
-    "searchUser": { "search": "hľadať..." },
-    "soundEffectSettings": { "header": "Zvuky", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "hľadať..."
+    },
+    "soundEffectSettings": {
+      "header": "Zvuky",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "upraviť profil",
       "followsYou": "sleduje ťa",
@@ -187,7 +197,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "z nejakého dôvodu nemáme žiadny zvuk"
     },
-    "addToCalendar": { "add": "Pridať do kalendára" },
+    "addToCalendar": {
+      "add": "Pridať do kalendára"
+    },
     "wsKilled": {
       "description": "Websocket ukončený zo strany serveru. To sa väčšinou stáva ak máš stránku otvorenú v ďalšej záložke.",
       "reconnect": "obnoviť pripojenie"
@@ -321,6 +333,8 @@
       "galacticDoge": "Galaktický Doge",
       "spottedLife": "Zahliadnutá planéta so životom"
     },
-    "feed": { "yourFeed": "Tvoj feed" }
+    "feed": {
+      "yourFeed": "Tvoj feed"
+    }
   }
 }

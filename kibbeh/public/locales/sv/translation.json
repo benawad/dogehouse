@@ -33,13 +33,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "bannlys" },
+    "admin": {
+      "ban": "bannlys"
+    },
     "followingOnlineList": {
       "listHeader": "Personer du följer",
       "currentRoom": "Ansluten till:",
       "startPrivateRoom": "Skapa ett privat rum med dem"
     },
-    "followList": { "followHim": "Följ", "followingHim": "Följer" },
+    "followList": {
+      "followHim": "Följ",
+      "followingHim": "Följer"
+    },
     "home": {
       "createRoom": "Skapa ett rum",
       "refresh": "Uppdatera",
@@ -87,8 +92,13 @@
       "allowAll": "Tillåt alla",
       "allowAllConfirm": "Är du säker på detta sergeant? Detta kommer tillåta {{count}} användare att få tala. Det kan utplåna månen! 🚀☢️"
     },
-    "searchUser": { "search": "Sök..." },
-    "soundEffectSettings": { "header": "Ljud", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "Sök..."
+    },
+    "soundEffectSettings": {
+      "header": "Ljud",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "Redigera profil",
       "followsYou": "Följer dig",
@@ -222,7 +232,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "Ingen ljudanvändare av någon anledning"
     },
-    "addToCalendar": { "add": "Spara i kalender" },
+    "addToCalendar": {
+      "add": "Spara i kalender"
+    },
     "deviceNotSupported": {
       "notSupported": "Din enhet stöds inte. Du kan skapa ett",
       "linkText": "issue på GitHub",
@@ -321,6 +333,8 @@
       "galacticDoge": "Galaktiskdoge",
       "spottedLife": "Planet med liv upptäckt"
     },
-    "feed": { "yourFeed": "Ditt flöde" }
+    "feed": {
+      "yourFeed": "Ditt flöde"
+    }
   }
 }

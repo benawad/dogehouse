@@ -34,13 +34,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Zablokuj" },
+    "admin": {
+      "ban": "Zablokuj"
+    },
     "followingOnlineList": {
       "listHeader": "Lista użytkowników którzy nie są w prywatnym pokoju i których obserwujesz.",
       "currentRoom": "Obecnie w:",
       "startPrivateRoom": "Załóż z nim prywatny pokój"
     },
-    "followList": { "followHim": "Obserwuj", "followingHim": "Obserwujący" },
+    "followList": {
+      "followHim": "Obserwuj",
+      "followingHim": "Obserwujący"
+    },
     "home": {
       "createRoom": "Nowy pokój",
       "editRoom": "Edytuj pokój",
@@ -88,7 +93,9 @@
       "allowAll": "Dopuść wszystkich",
       "allowAllConfirm": "Czy na pewno? To dopuści {{count}} użytkowników do mówienia"
     },
-    "searchUser": { "search": "szukaj..." },
+    "searchUser": {
+      "search": "szukaj..."
+    },
     "soundEffectSettings": {
       "header": "Dźwięk",
       "title": "Ustawienia dźwięku"
@@ -194,12 +201,16 @@
       "toggleOverlayKeybind": "Nakładka",
       "togglePushToTalkKeybind": "Naciśnij i mów"
     },
-    "userVolumeSlider": { "noAudioMessage": "Brak urządzenia audio" },
+    "userVolumeSlider": {
+      "noAudioMessage": "Brak urządzenia audio"
+    },
     "upcomingRoomsCard": {
       "upcomingRooms": "Nadchodzące spotkania w pokojach",
       "exploreMoreRooms": "Odkrywaj pokoje"
     },
-    "addToCalendar": { "add": "Dodaj do kalendarza" },
+    "addToCalendar": {
+      "add": "Dodaj do kalendarza"
+    },
     "wsKilled": {
       "description": "WebSocket został zabity przez serwer. Dzieje się tak kiedy otwierasz stronę w nowej karcie.",
       "reconnect": "Połącz ponownie"
@@ -278,7 +289,9 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": { "yourFeed": "Twoje pokoje" },
+    "feed": {
+      "yourFeed": "Twoje pokoje"
+    },
     "scheduledRooms": {
       "title": "Zaplanowane pokoje",
       "noneFound": "nie znaleziono",

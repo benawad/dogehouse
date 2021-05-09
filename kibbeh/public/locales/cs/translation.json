@@ -34,13 +34,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Zabanovat" },
+    "admin": {
+      "ban": "Zabanovat"
+    },
     "followingOnlineList": {
       "listHeader": "Seznam uživatelů které sleduješ a nejsou v soukromé místnosti",
       "currentRoom": "Právě v:",
       "startPrivateRoom": "Otevřít soukromou místnost"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following"
+    },
     "home": {
       "createRoom": "Vytvořit místnost",
       "refresh": "Obnovit",
@@ -88,8 +93,13 @@
       "allowAll": "Povolit všem",
       "allowAllConfirm": "Jsi si jistý? Tohle povolí všem {{count}} žádajícím uživatelům mluvit"
     },
-    "searchUser": { "search": "Hledat..." },
-    "soundEffectSettings": { "header": "Zvuky", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "Hledat..."
+    },
+    "soundEffectSettings": {
+      "header": "Zvuky",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "Upravit profil",
       "followsYou": "Sleduje tě.",
@@ -190,7 +200,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "Z nějakého důvodu není vysílán zvuk"
     },
-    "addToCalendar": { "add": "Přidat do kalendáře" },
+    "addToCalendar": {
+      "add": "Přidat do kalendáře"
+    },
     "wsKilled": {
       "description": "Server tě odpojil. Neotevřel jsi další okno?",
       "reconnect": "Připojit se znovu"
@@ -324,6 +336,8 @@
       "galacticDoge": "Galaktický Doge",
       "spottedLife": "Planeta se životem objevena"
     },
-    "feed": { "yourFeed": "Tvůj Feed" }
+    "feed": {
+      "yourFeed": "Tvůj Feed"
+    }
   }
 }
