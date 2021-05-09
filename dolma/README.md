@@ -2,7 +2,7 @@
 Dolma Token Transcoder<br>
 <a href="https://www.npmjs.com/package/@dogehouse/dolma"><img src="https://img.shields.io/npm/v/@dogehouse/dolma?style=for-the-badge"></a>
 </h1>
-This is a token transcoder that is used to encode and decode DogeHouse chat message token arrays.  This package is written for bot/bot library devlopers to be able to easily transcode dogehouse chat message tokens.
+This is a token transcoder that is used to encode and decode DogeHouse chat message token arrays.  This package is written for bot/bot library developers to be able to easily transcode dogehouse chat message tokens.  
 
 ## How to install
 
@@ -53,7 +53,7 @@ Returns:
 */
 ```
 
-In this example, you will see that you can have an mixed array with strings, and unitokens! A unitoken is a token object where you define your object key as the token type, and the value as the value of the token, doing so would look like such: `{link: "https://google.com"}`, and this can be done for all token types.
+In this example, you will see that you can have a mixed array with strings, and unitokens!  A unitoken is a token object where you define your object key as the token type, and the value as the value of the token, doing so would look like such: `{link: "https://google.com"}`, and this can be done for all token types.
 
 ```ts
 import { dolma } from "dolma";

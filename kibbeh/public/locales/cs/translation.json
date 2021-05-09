@@ -69,12 +69,12 @@
     "myProfile": {
       "logout": "Odhlásit se",
       "probablyLoading": "Nejspíš se to načítá...",
-      "voiceSettings": "Přejít na nastavení hlasu",
-      "soundSettings": "Přejít na nastavení zvuku",
+      "voiceSettings": "Nastavení hlasu",
+      "soundSettings": "Nastavení zvuku",
       "deleteAccount": "Smazat účet",
-      "overlaySettings": "Přejít na nastavení overlaye",
+      "overlaySettings": "Nastavení overlaye",
       "couldNotFindUser": "Uživatel bohužel nenalezen...",
-      "privacySettings": "Privacy settings"
+      "privacySettings": "Nastavení soukromí"
     },
     "notFound": {
       "whoopsError": "Upst! Tahle místnost se ztratila v konverzaci.",
@@ -89,7 +89,7 @@
       "allowAllConfirm": "Jsi si jistý? Tohle povolí všem {{count}} žádajícím uživatelům mluvit"
     },
     "searchUser": { "search": "Hledat..." },
-    "soundEffectSettings": { "header": "Zvuky", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Zvuky", "title": "Nastavení zvuku" },
     "viewUser": {
       "editProfile": "Upravit profil",
       "followsYou": "Sleduje tě.",
@@ -103,15 +103,16 @@
       "about": "O uživateli",
       "bot": "Bot",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips"
+        "about": "O uživateli",
+        "rooms": "Místnosti",
+        "scheduled": "Naplánováno",
+        "recorded": "Nahráno",
+        "clips": "Klipy"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "block": "Blokovat",
+      "unblock": "Odblokovat",
+      "sendDM": "Poslat zprávu",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Nastavení hlasu",
@@ -131,7 +132,7 @@
     },
     "download": {
       "starting": "Zahájení stahování...",
-      "failed": "Could not auto-download, prosím zkus to později",
+      "failed": "Stahování selhalo, prosím zkus to později",
       "visit_gh": "Navštívit Github Releases",
       "prompt": "Kliknutím na tlačítko níže zahájíš stahování",
       "download_now": "Stáhnout nyní",

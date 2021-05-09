@@ -99,7 +99,7 @@
       "copyProfileUrl": "Profil bağlantısını kopyala",
       "urlCopied": "Bağlantı kopyalandı",
       "unfollow": "Takipten çık",
-      "about": "Hakkında",
+      "about": "",
       "bot": "Bot",
       "profileTabs": {
         "about": "Hakkında",
@@ -110,7 +110,8 @@
       },
       "block": "Engelle",
       "unblock": "Engeli kaldır",
-      "sendDM": "Özel mesaj gönder"
+      "sendDM": "Özel mesaj gönder",
+      "aboutSuffix": "Hakkında"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",
