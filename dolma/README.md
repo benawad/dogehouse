@@ -55,7 +55,7 @@ import { dolma } from 'dolma';
 
 const arr = ["I'm", {mention: "HoloPanio"},", and I'd like to goto", {block: "Paris, France"},"one day", {emote: "catJAM"}, "Also",{link: 'https://google.com'}, "is epic!"];
 
-const tokens = dolma.encode(str);
+const tokens = dolma.encode(arr);
 
 console.log(tokens);
 
