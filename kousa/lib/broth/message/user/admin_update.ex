@@ -1,16 +1,17 @@
-defmodule Broth.Message.User.SetContributions do
+defmodule Broth.Message.User.SetStaff do
   use Broth.Message.Call
 
   @primary_key false
   embedded_schema do
     field(:username, :string)
-    field(:value, :integer)
+    field(:staff, :boolean)
+    field(:contributions, :integer)
   end
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:username, :value])
-    |> validate_required([:username, :value])
+    |> cast(data, [:username, :staff, :contributions])
+    |> validate_required([:username, :staff, :contributions])
   end
 
   defmodule Reply do
@@ -26,7 +27,12 @@ defmodule Broth.Message.User.SetContributions do
   def execute(changeset, state) do
     with {:ok, request} <- apply_action(changeset, :validate),
          :ok <-
-           Kousa.User.set_contributions(request.username, request.value, admin_id: state.user.id) do
+           Kousa.User.set_staff_and_contributions(
+             request.username,
+             request.staff,
+             request.contributions,
+             admin_id: state.user.id
+           ) do
       {:reply, %Reply{}, state}
     end
   end

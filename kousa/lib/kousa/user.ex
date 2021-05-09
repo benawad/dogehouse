@@ -55,30 +55,18 @@ defmodule Kousa.User do
     end
   end
 
-  def set_staff(username_to_make_staff, value, opts) do
+  def set_staff_and_contributions(username_to_change, staff, contributions, opts) do
     authorized_github_id = Application.get_env(:kousa, :ben_github_id, "")
 
     with %{githubId: ^authorized_github_id} <- Users.get_by_id(opts[:admin_id]) do
-      user_to_make_staff = Users.get_by_username(username_to_make_staff)
-      Users.set_staff(user_to_make_staff.id, value)
-      :ok
-    else
-      _ ->
-        {:error, "tried to make #{username_to_make_staff} super admin but that user didn't exist"}
-    end
-  end
-
-  def set_contributions(username_to_change_contributions, value, opts) do
-    authorized_github_id = Application.get_env(:kousa, :ben_github_id, "")
-
-    with %{githubId: ^authorized_github_id} <- Users.get_by_id(opts[:admin_id]) do
-      user_to_change_contributions = Users.get_by_username(username_to_change_contributions)
-      Users.set_contributions(user_to_change_contributions.id, value)
+      user_to_change = Users.get_by_username(username_to_change)
+      Users.set_staff(user_to_change.id, staff)
+      Users.set_contributions(user_to_change.id, contributions)
       :ok
     else
       _ ->
         {:error,
-         "tried to make #{username_to_change_contributions} super admin but that user didn't exist"}
+         "tried to change #{username_to_change}'s staff and contributions but that user didn't exist"}
     end
   end
 end

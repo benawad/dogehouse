@@ -1,4 +1,4 @@
-defmodule BrothTest.User.SetContributionsTest do
+defmodule BrothTest.User.SetStaffTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
@@ -17,18 +17,19 @@ defmodule BrothTest.User.SetContributionsTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket user:set_staff operation" do
+  describe "the websocket user:admin_update operation" do
     test "doesn't work for not-ben awad", t do
-      contributor = Factory.create(User)
-      WsClientFactory.create_client_for(contributor)
+      staffed = Factory.create(User)
+      WsClientFactory.create_client_for(staffed)
 
       ref =
-        WsClient.send_call(t.client_ws, "user:set_contributions", %{
-          "username" => contributor.username,
-          "value" => 100
+        WsClient.send_call(t.client_ws, "user:admin_update", %{
+          "username" => staffed.username,
+          "staff" => true,
+          "contributions" => 100
         })
 
-      WsClient.assert_error("user:set_contributions", ref, %{"message" => message})
+      WsClient.assert_error("user:admin_update", ref, %{"message" => message})
       assert message =~ "but that user didn't exist"
     end
 
@@ -39,19 +40,20 @@ defmodule BrothTest.User.SetContributionsTest do
       |> User.changeset(%{githubId: @ben_github_id})
       |> Beef.Repo.update!()
 
-      contributor = Factory.create(User)
+      staffed = Factory.create(User)
 
       ref =
-        WsClient.send_call(t.client_ws, "user:set_contributions", %{
-          "username" => contributor.username,
-          "value" => 100
+        WsClient.send_call(t.client_ws, "user:admin_update", %{
+          "username" => staffed.username,
+          "staff" => true,
+          "contributions" => 100
         })
 
-      WsClient.assert_reply("user:set_contributions:reply", ref, reply)
+      WsClient.assert_reply("user:admin_update:reply", ref, reply)
       refute is_map_key(reply, "error")
 
       # check that the user has been updated.
-      assert %{contributions: 100} = Users.get_by_id(contributor.id)
+      assert %{staff: true} = Users.get_by_id(staffed.id)
     end
   end
 end
