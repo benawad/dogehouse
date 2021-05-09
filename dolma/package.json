@@ -2,10 +2,11 @@
   "name": "@dogehouse/dolma",
   "author": "Jackson Roberts <jackson@holopanio.com>",
   "description": "A chat token transcoder for DogeHouse and associated projects",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "license": "MIT",
   "main": "src/index",
   "scripts": {
+    "test": "tsc; node test/run.js; tsc -b . --clean",
     "clean": "tsc -b . --clean",
     "build": "tsc;"
   },
