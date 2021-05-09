@@ -102,15 +102,15 @@
       "about": "Tentang",
       "bot": "Bot",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips"
+        "about": "Tentang",
+        "rooms": "Ruangan",
+        "scheduled": "Terjadwal",
+        "recorded": "Terekam",
+        "clips": "Klip"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM",
+      "block": "Blokir",
+      "unblock": "Berhenti blokir",
+      "sendDM": "Kirim DM",
       "aboutSuffix": ""
     },
     "voiceSettings": {
@@ -151,7 +151,7 @@
       "leave": "Keluar",
       "inviteUsersToRoomBtn": "Undang pengguna ke ruangan",
       "invite": "Undang",
-      "toggleMuteMicBtn": "Atur mikrofon untuk membisu",
+      "toggleMuteMicBtn": "Beralih mikrofon untuk membisu",
       "mute": "Bisu",
       "unmute": "Suarakan",
       "makeRoomPublicBtn": "Buat ruangan publik!",
@@ -178,12 +178,12 @@
       "tryAgain": "Coba lagi"
     },
     "keyboardShortcuts": {
-      "setKeybind": "Atur tombol",
+      "setKeybind": "Beralih tombol",
       "listening": "Menunggu tombol",
-      "toggleMuteKeybind": "Atur tombol untuk membisu",
-      "togglePushToTalkKeybind": "Atur tombol klik-untuk-bicara",
-      "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleMuteKeybind": "Beralih tombol untuk membisu",
+      "togglePushToTalkKeybind": "Beralih tombol klik-untuk-bicara",
+      "toggleOverlayKeybind": "Beralih tombol lapisan",
+      "toggleDeafKeybind": "Beralih tombol menulikan"
     },
     "userVolumeSlider": { "noAudioMessage": "Perangkat audio tidak ditemukan" },
     "addToCalendar": { "add": "Tambahkan ke Kalender" },
