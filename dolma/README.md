@@ -70,7 +70,7 @@ const arr = [
   "is epic!",
 ];
 
-const tokens = dolma.encode(str);
+const tokens = dolma.encode(arr);
 
 console.log(tokens);
 
