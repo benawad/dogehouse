@@ -126,7 +126,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Mikrofon topilmadi, ulanmagan yoki brauzerga tegishli ruxsat berilmagan.",
       "refresh": "Mikrofonlar ro'yxatini yangilash",
-      "volume": "Tovush:"
+      "volume": "Tovush:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Qoplama Sozlamalari",

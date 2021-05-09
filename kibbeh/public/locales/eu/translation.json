@@ -122,7 +122,8 @@
       "mic": "mikrofonoa:",
       "permissionError": "ez dira mikrofonorik aurkitu, you either have none plugged in or haven't given this website permission.",
       "refresh": "mikrofono zerrenda berriro kargatu",
-      "volume": "ozentasuna:"
+      "volume": "ozentasuna:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",

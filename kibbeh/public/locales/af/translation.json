@@ -123,7 +123,8 @@
       "mic": "mikrofoon:",
       "permissionError": "Geen mikrofone gevind nie. Jy het óf geen ingeprop nie, of jy het nie vir hierdie webtuiste toestemming gegee nie.",
       "refresh": "herlaai mikrofoon lys",
-      "volume": "volume:"
+      "volume": "volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },

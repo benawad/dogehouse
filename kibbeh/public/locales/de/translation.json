@@ -123,7 +123,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlosen oder diese Seite besitzt nicht die benötigten Berechtigungen.",
       "volume": "Lautstärke:",
-      "refresh": "Mikrofonliste aktualisieren"
+      "refresh": "Mikrofonliste aktualisieren",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {

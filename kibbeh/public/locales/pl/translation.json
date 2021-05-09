@@ -123,7 +123,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Nie znaleziono mikrofonów. Sprawdź podłączenie oraz pozwolenia tej stronie.",
       "refresh": "Odśwież listę mikrofonów",
-      "volume": "Głośność:"
+      "volume": "Głośność:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Ustawienia nakładki",

@@ -123,7 +123,8 @@
       "mic": "ميكروفون:",
       "permissionError": "لم يتم العثور على ميكروفونات ، إما أنك لم تقم بتوصيل أي ميكروفون أو لم تمنحنا إذن الوصول.",
       "refresh": "تحديث قائمة الميكروفونات",
-      "volume": "ارتفاع الصوت:"
+      "volume": "ارتفاع الصوت:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },

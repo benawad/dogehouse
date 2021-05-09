@@ -123,7 +123,8 @@
       "mic": "Mic:",
       "permissionError": "Nu mics found, uu eithew haz nune pwugged in ow hazn't given this website pewmission. ;_;",
       "refresh": "Wefwesh mic wist (｀へ´)",
-      "volume": "Volume:"
+      "volume": "Volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },

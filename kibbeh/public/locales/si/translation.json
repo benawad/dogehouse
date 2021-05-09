@@ -123,7 +123,8 @@
       "mic": "mic:",
       "permissionError": "mics එකක් හමුවූයේ නැත.ඔබ එකක් සම්බන්ධ නොමැත හෝ මෙම වෙබ් අඩවියට අවසර දී නොමැත",
       "refresh": "mic ලැයිස්තුව refresh කරන්න",
-      "volume": "පරිමාව:"
+      "volume": "පරිමාව:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",

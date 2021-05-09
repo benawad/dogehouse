@@ -123,7 +123,8 @@
       "mic": "Microfon:",
       "permissionError": "Degun microfon ciafé, plü dessigü ne as nia dé les autorisaziuns nezesciaries a DogeHouse por podëi l'adoré o ne as nia un taché ite.",
       "refresh": "Ciaria da nü la lista di microfons",
-      "volume": "Volum:"
+      "volume": "Volum:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {

@@ -123,7 +123,8 @@
       "mic": "מיקרופון:",
       "permissionError": "לא נמצאו מיקרופונים, או שאין מיקרופון מחובר או שלא נתת אישור לאתר זה.",
       "refresh": "רענן את רשימת המיקרופונים",
-      "volume": "עוצמת קול:"
+      "volume": "עוצמת קול:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },

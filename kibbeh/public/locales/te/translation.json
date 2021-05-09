@@ -122,7 +122,8 @@
       "mic": "మైక్:",
       "permissionError": "మైక్స్ కనుగొనబడలేదు, మీరు ఏదీ ప్లగ్ ఇన్ చేయలేదు లేదా ఈ వెబ్‌సైట్ అనుమతి ఇవ్వలేదు.",
       "refresh": "మైక్ లిస్ట్  రిఫ్రెష్ చేయండి",
-      "volume": "volume:"
+      "volume": "volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",

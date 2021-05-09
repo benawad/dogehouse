@@ -122,7 +122,8 @@
       "mic": "Microfoon:",
       "permissionError": "Geen microfoon gevonden, waarschijnlijk is er geen microfoon aangesloten of heb je geen toestemming gegeven.",
       "refresh": "Microfoonlijst verversen",
-      "volume": "Volume:"
+      "volume": "Volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {

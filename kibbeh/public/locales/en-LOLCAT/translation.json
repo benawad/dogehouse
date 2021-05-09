@@ -129,7 +129,8 @@
       "mic": "Mic:",
       "permissionError": "No mics found, you either have none plugged in or haven't given this website permission.",
       "refresh": "Refresh Mic List",
-      "volume": "Volume:"
+      "volume": "Volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",

@@ -121,7 +121,8 @@
       "mic": "Micrófono:",
       "permissionError": "No se encontraron micrófonos; puede que no esté conectado o no se le ha otorgado permiso al sitio web.",
       "refresh": "Recargar la lista de micrófonos",
-      "volume": "Volumen:"
+      "volume": "Volumen:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Opciones del overlay",

@@ -123,7 +123,8 @@
       "mic": "mikrofoni:",
       "permissionError": "nuk u gjend asnjë mikrofon, ju ndoshta nuk e keni lidhur ose nuk i keni dhënë leje kesaj faqeje.",
       "refresh": "rifresko listën e mikrofonëve",
-      "volume": "volumi:"
+      "volume": "volumi:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },

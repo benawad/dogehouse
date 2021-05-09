@@ -123,7 +123,8 @@
       "permissionError": "Mikrofon bulunamadı. Ya takılı değil ya da bu web sitesine izin vermediniz.",
       "refesh": "Mikrofon listesini yenile",
       "volume": "Ses seviyesi:",
-      "refresh": "Mikrofon listesini yenile"
+      "refresh": "Mikrofon listesini yenile",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {

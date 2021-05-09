@@ -123,7 +123,8 @@
       "mic": "mic:",
       "permissionError": "không tìm thấy mic, bạn có thể chưa cắm hoặc chưa cấp quyền cho trang web này..",
       "refresh": "làm mới danh sách mic",
-      "volume": "âm lượng:"
+      "volume": "âm lượng:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Cài đặt Overlay",

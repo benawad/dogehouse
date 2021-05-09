@@ -125,7 +125,8 @@
       "mic": "mikrofon:",
       "permissionError": "nisu pronađeni mikrofoni, ili ih nitko nije priključio ili niste dali dopuštenje ovom web mjestu.",
       "refresh": "osvježi popis mikrofona",
-      "volume": "jačina zvuka:"
+      "volume": "jačina zvuka:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Postavke Prekrivača",

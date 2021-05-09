@@ -123,7 +123,8 @@
       "mic": "マイク:",
       "permissionError": "マイクが見つかりませんでした。 マイクが接続されていることを確認し、アクセスを許可してください。",
       "refresh": "更新",
-      "volume": "ボリューム:"
+      "volume": "ボリューム:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },

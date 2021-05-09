@@ -126,7 +126,8 @@
       "mic": "ilo pi lipu e kalama:",
       "permissionError": "ilo pi lipu e kalama li lon ala, sina jo ala e ni anu lipu len ni ken ala e lipu e kalama.",
       "refresh": "tenpo tu la kama jo e sitelen pi ilo pi lipu e kalama",
-      "volume": "wawa pi kalama:"
+      "volume": "wawa pi kalama:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "sitelen lawa pi sitelen sewi sitelen sina",

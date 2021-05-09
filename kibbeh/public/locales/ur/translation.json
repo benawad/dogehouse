@@ -123,7 +123,8 @@
       "mic": "مائک:",
       "permissionError": "کوئی mics نہیں ملا ، آپ نے یا تو کسی نے پلگ ان نہیں لیا ہے یا اس ویب سائٹ کو اجازت نہیں دی ہے۔",
       "refresh": "مائک کی فہرست کو تازہ کریں",
-      "volume": "حجم:"
+      "volume": "حجم:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },

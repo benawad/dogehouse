@@ -122,7 +122,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Ingen mikrofon hittades, du har antingen ingen inkopplad eller så har du inte gett hemsidan tillåtelse.",
       "refresh": "Uppdatera mikrofonlistan",
-      "volume": "Volym:"
+      "volume": "Volym:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlayinställningar",

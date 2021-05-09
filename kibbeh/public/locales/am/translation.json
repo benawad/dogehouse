@@ -124,7 +124,8 @@
       "permissionError": "ምንም የስቴሪዮ አገኘ, ወይ አንዳቸውም ሲሰካ ወይም በዚህ ድር ጣቢያ ፍቃድ የተሰጠው አልቻሉም፡፡",
       "refesh": "አድስ ማይክሮፎኑን ዝርዝር",
       "volume": "ድምጽ:",
-      "refresh": "refresh mic list"
+      "refresh": "refresh mic list",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },

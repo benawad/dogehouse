@@ -121,7 +121,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Nem található mikrofon. Vagy nincs csatlakoztatva, vagy nem adta meg az engedélyt.",
       "refresh": "Elérhető mikrofonok frissítése",
-      "volume": "Hangerő:"
+      "volume": "Hangerő:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },

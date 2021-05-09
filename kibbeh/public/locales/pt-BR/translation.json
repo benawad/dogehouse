@@ -122,7 +122,8 @@
       "mic": "microfone:",
       "permissionError": "não foram encontrados microfones, você não conectou um ou você não deu permissão para este website.",
       "refresh": "recarregar lista de microfones",
-      "volume": "volume:"
+      "volume": "volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {

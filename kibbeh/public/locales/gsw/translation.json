@@ -123,7 +123,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Keis Mikrofon gfunge, es isch entweder keis agschlosse oder die Site het nid die nötige Berechtigunge.",
       "volume": "Luutsterchi:",
-      "refresh": "Mikrofonliste aktualisiere"
+      "refresh": "Mikrofonliste aktualisiere",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },

@@ -123,7 +123,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Mikrofona ni bilo mogoče najti. Morda ni priključen ali pa stran nima potrebnih pravic.",
       "refresh": "Osvežite seznam mikrofonov",
-      "volume": "Glasnost:"
+      "volume": "Glasnost:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {

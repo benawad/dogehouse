@@ -122,7 +122,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Ingen mikrofoner fundet, du har enten ikke koblet nogen til eller ikke givet denne hjemmeside tilladelse.",
       "refresh": "Opdater mikrofonliste",
-      "volume": "Lydstyrke:"
+      "volume": "Lydstyrke:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },

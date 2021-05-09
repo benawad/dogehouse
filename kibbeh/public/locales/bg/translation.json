@@ -123,7 +123,8 @@
       "mic": "микрофон:",
       "permissionError": "не бяха открити микрофони, най-вероятно няма вързани или нямат разрешение да бъдат ползвани.",
       "refresh": "опресняване на списък с микрофони",
-      "volume": "ниво на звук:"
+      "volume": "ниво на звук:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },

@@ -122,7 +122,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Mikrofon tidak ditemukan, mungkin kamu belum memasangnya atau belum memberikan website ini akses.",
       "refresh": "Muat ulang daftar mikrofon",
-      "volume": "Suara:"
+      "volume": "Suara:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {

@@ -122,7 +122,8 @@
       "mic": "Mic:",
       "permissionError": " Walang makitang mikropono, maaring ito ay hindi nakaplug o hindi nabigyang permiso ang website na ito",
       "refresh": "I-refresh and listahan ng mikropono",
-      "volume": "Volume:"
+      "volume": "Volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",

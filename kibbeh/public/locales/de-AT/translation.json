@@ -123,7 +123,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Kane Mikrofone gfunden, es is entweda kans augschlossen oder de Seitn besitzt ned die benötigten Berechtigungen.",
       "volume": "Lautstärkn:",
-      "refresh": "Mikrofonliste aktualisiern"
+      "refresh": "Mikrofonliste aktualisiern",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",

@@ -122,7 +122,8 @@
       "mic": "ไมโครโฟน:",
       "permissionError": "ไม่พบไมโครโฟน, คุณอาจจะลืมเสียบไมโครโฟน หรือ ลืมที่จะให้สิทธิ์ไมโครโฟนแก่เว็บไซต์.",
       "refresh": "รีเฟรชไมโครโฟน",
-      "volume": "ระดับเสียง:"
+      "volume": "ระดับเสียง:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "App Title ไม่ถูกต้อง", "label": "ใส่ App Title" },

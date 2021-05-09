@@ -141,6 +141,7 @@
       }
     },
     "voiceSettings": {
+      "title": "Voice Settings",
       "header": "Voice Settings",
       "mic": "Mic:",
       "permissionError": "No mics found, you either have none plugged in or haven't given this website permission.",

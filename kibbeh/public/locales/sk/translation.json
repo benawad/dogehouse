@@ -122,7 +122,8 @@
       "mic": "mikrofón:",
       "permissionError": "žiadne mikrofóny nenájdené, buď žiaden nie je zapojený alebo si neudelil stránke oprávnenie.",
       "refresh": "obnoviť zoznam mikrofónov",
-      "volume": "hlasitosť:"
+      "volume": "hlasitosť:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {

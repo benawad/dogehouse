@@ -122,7 +122,8 @@
       "mic": "mic:",
       "permissionError": "कोई माइक नहीं मिला, आपने या तो इस वेबसाइट को अनुमति नहीं दी है या माइक प्लग इन नहीं किया है।",
       "refresh": "रिफ्रेश माइक लिस्ट",
-      "volume": "volume:"
+      "volume": "volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },

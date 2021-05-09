@@ -123,7 +123,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Mikrofon tapılmadı, ya mikrofonu taxmamısınız ya da sayt üçün lazımlı icazəni verməmisiniz.",
       "refresh": "Yenilə",
-      "volume": "Səs:"
+      "volume": "Səs:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
