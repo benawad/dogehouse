@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useDownloadAlertStore } from "../../global-stores/useDownloadAlertStore";
 import { isServer } from "../../lib/isServer";
+import { useScreenType } from "../../shared-hooks/useScreenType";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
@@ -164,7 +165,17 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
     refetchOnMount: "always",
   });
   const updater = useTypeSafeUpdateQuery();
+  const screenType = useScreenType();
+  const { currentRoomId } = useCurrentRoomIdStore();
 
+  let mb = "mb-7";
+  if (screenType === "fullscreen") {
+    if (currentRoomId) {
+      mb = "mb-15";
+    } else {
+      mb = "mb-8";
+    }
+  }
   // useEffect(() => {
   //   if (isElectron() && isMac) {
   //     modalAlert(t("common.requestPermissions"));
@@ -187,7 +198,7 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
         />
       }
     >
-      <div className="flex flex-1 flex-col mb-7" data-testid="feed">
+      <div className={`flex flex-1 flex-col ${mb}`} data-testid="feed">
         <div className="flex flex-col space-y-4">
           {data?.scheduledRooms?.map((sr) => (
             <EditScheduleRoomModalController
