@@ -23,7 +23,7 @@
     "mutedTitle": "已关闭麦克风 | DogeHouse",
     "deafenedTitle": "已静音 | DogeHouse",
     "dashboard": "概览",
-    "connectionTaken": "Connection Taken"
+    "connectionTaken": "连接已被占用"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -73,7 +73,7 @@
       "deleteAccount": "删除账号",
       "overlaySettings": "覆盖层设置",
       "couldNotFindUser": "对不起，无法找到该用户",
-      "privacySettings": "Privacy settings"
+      "privacySettings": "隐私设置"
     },
     "notFound": {
       "whoopsError": "哎呀，这页在聊天中被丢掉了",
@@ -100,18 +100,17 @@
       "urlCopied": "个人主页链接已复制到剪贴板",
       "unfollow": "取消关注",
       "about": "关于ta",
-      "bot": "Bot",
+      "bot": "机器人",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips"
+        "about": "关于",
+        "rooms": "聊天室",
+        "scheduled": "已安排",
+        "recorded": "已录制",
+        "clips": "片段"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM",
-      "aboutSuffix": ""
+      "block": "屏蔽",
+      "unblock": "取消屏蔽",
+      "sendDM": "发送消息"
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -214,7 +213,7 @@
         "makePrivate": "把聊天室设为私人",
         "renamePublic": "设置公开聊天室名称",
         "renamePrivate": "设置私人聊天室名称",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "禁止聊天"
       }
     },
     "userVolumeSlider": {
@@ -260,7 +259,7 @@
       "useOldVersion": "使用旧版本",
       "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
       "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" },
-      "downloadApp": "Download App"
+      "downloadApp": "下载APP"
     }
   },
   "modules": {
@@ -294,7 +293,7 @@
       "whisper": "私信",
       "welcomeMessage": "欢迎来到文字聊天!",
       "roomDescription": "聊天室介绍",
-      "disabled": "room chat has been disabled"
+      "disabled": "聊天室聊天已经被禁止"
     },
     "roomStatus": {
       "fuelingRocket": "火箭在加油",
