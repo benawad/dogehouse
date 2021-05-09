@@ -33,18 +33,13 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "Blokir"
-    },
+    "banUser": { "ban": "Blokir" },
     "followingOnlineList": {
       "listHeader": "Daftar pengguna yang tidak ada di ruangan privat dan kamu ikuti.",
       "currentRoom": "Saat ini di:",
       "startPrivateRoom": "Mulai ruangan privat dengan mereka"
     },
-    "followList": {
-      "followHim": "Ikuti",
-      "followingHim": "Mengikuti"
-    },
+    "followList": { "followHim": "Ikuti", "followingHim": "Mengikuti" },
     "home": {
       "createRoom": "Buat Ruangan",
       "refresh": "Segarkan",
@@ -92,13 +87,8 @@
       "allowAll": "Izinkan semua",
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
     },
-    "searchUser": {
-      "search": "cari..."
-    },
-    "soundEffectSettings": {
-      "header": "Bunyi",
-      "title": "Pengaturan Bunyi"
-    },
+    "searchUser": { "search": "cari..." },
+    "soundEffectSettings": { "header": "Bunyi", "title": "Pengaturan Bunyi" },
     "viewUser": {
       "editProfile": "Ubah profil",
       "followsYou": "Mengikutimu",
@@ -120,7 +110,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Pengaturan Suara",
@@ -194,12 +185,8 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Perangkat audio tidak ditemukan"
-    },
-    "addToCalendar": {
-      "add": "Tambahkan ke Kalender"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Perangkat audio tidak ditemukan" },
+    "addToCalendar": { "add": "Tambahkan ke Kalender" },
     "wsKilled": {
       "description": "WebSocket dihentikan oleh server. Biasanya terjadi karena kamu membuka laman web ini di tab lain.",
       "reconnect": "Menghubungkan kembali"
@@ -333,8 +320,6 @@
       "galacticDoge": "Doge di galaksi",
       "spottedLife": "Planet dengan kehidupan ditemukan"
     },
-    "feed": {
-      "yourFeed": "Feed kamu"
-    }
+    "feed": { "yourFeed": "Feed kamu" }
   }
 }

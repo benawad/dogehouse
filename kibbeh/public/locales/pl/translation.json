@@ -114,7 +114,8 @@
       },
       "block": "Zablokuj",
       "unblock": "Odblokuj",
-      "sendDM": "Wyślij prywatną wiadomość"
+      "sendDM": "Wyślij prywatną wiadomość",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",
