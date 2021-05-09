@@ -72,7 +72,8 @@
       "soundSettings": "Ses ayarlarına git",
       "deleteAccount": "Hesabı sil",
       "overlaySettings": "Kaplama ayarlarına git",
-      "couldNotFindUser": "Üzgünüz, böyle bir kullanıcı bulamadık"
+      "couldNotFindUser": "Üzgünüz, böyle bir kullanıcı bulamadık",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Uups! Bu sayfa sohbette kayboldu.",
@@ -98,8 +99,19 @@
       "copyProfileUrl": "Profil bağlantısını kopyala",
       "urlCopied": "Bağlantı kopyalandı",
       "unfollow": "Takipten çık",
-      "about": "Hakkında",
-      "bot": "Bot"
+      "about": "",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "Hakkında",
+        "rooms": "Odalar",
+        "scheduled": "Planlanmış",
+        "recorded": "Kaydedildi",
+        "clips": "Klipler"
+      },
+      "block": "Engelle",
+      "unblock": "Engeli kaldır",
+      "sendDM": "Özel mesaj gönder",
+      "aboutSuffix": "Hakkında"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",
@@ -205,7 +217,8 @@
         "makePublic": "Odayı herkese açık yap",
         "makePrivate": "Odayı gizli yap",
         "renamePublic": "Herkese açık oda adı seç",
-        "renamePrivate": "Gizli oda adı seç"
+        "renamePrivate": "Gizli oda adı seç",
+        "chatDisabled": "sohbeti devre dışı bırak"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },
@@ -258,7 +271,7 @@
         "debugAudio": "Ses Hatalarını Ayıkla",
         "stopDebugger": "Hata Ayıklamayı Durdur"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Uygulamayı İndir"
     }
   },
   "modules": {
@@ -292,7 +305,8 @@
       "sendMessage": "Mesaj Gönder",
       "whisper": "Fısılda",
       "welcomeMessage": "Sohbete hoş geldin!",
-      "roomDescription": "Oda Açıklaması"
+      "roomDescription": "Oda Açıklaması",
+      "disabled": "oda sohbeti devre dışı bırakıldı"
     },
     "roomStatus": {
       "fuelingRocket": "Yakıt dolduruluyor",

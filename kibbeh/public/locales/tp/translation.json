@@ -76,7 +76,8 @@
       "overlaySettings": "open e sitelen lawa pi sitelen sewi sitelen sina",
       "soundSettings": "open e sitelen lawa pi kalama",
       "deleteAccount": "pakala e jan sina",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",
@@ -103,7 +104,18 @@
       "copyProfileUrl": "tu e sitelen tawa pi jan ni",
       "urlCopied": "ni li tu",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "sitelen lawa pi kalama uta",
@@ -231,7 +243,8 @@
         "makePublic": "kulupu e tomo",
         "makePrivate": "kulupu ala e tomo",
         "renamePublic": "ante e nimi tomo kulupu",
-        "renamePrivate": "ante e nimi tomo pi kulupu ala"
+        "renamePrivate": "ante e nimi tomo pi kulupu ala",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -296,7 +309,8 @@
       "sendMessage": "pana e sitelen",
       "whisper": "Toki pi kalama lili",
       "welcomeMessage": "Kama pona lon toki sitelen!",
-      "roomDescription": "sitelen tomo"
+      "roomDescription": "sitelen tomo",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "telo suli li tawa tawa palisa pi kon pi sewi mute",

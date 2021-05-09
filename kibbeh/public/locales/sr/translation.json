@@ -72,7 +72,8 @@
       "soundSettings": "идите на подешавања звука",
       "deleteAccount": "Обришите налог",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Упс! Ова страница се изгубила у разговору.",
@@ -99,7 +100,18 @@
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Подешавања гласа",
@@ -223,7 +235,8 @@
         "makePublic": "Учините собу јавном",
         "makePrivate": "Учините собу приватном",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -288,7 +301,8 @@
       "sendMessage": "Пошаљите поруку",
       "whisper": "Шапћите",
       "welcomeMessage": "Добро дошли у ћаскање!",
-      "roomDescription": "Опис собе"
+      "roomDescription": "Опис собе",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

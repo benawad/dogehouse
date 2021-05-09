@@ -6,7 +6,6 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
-  alias Broth.Message.Room.Update
   alias KousaTest.Support.Factory
 
   setup do
@@ -20,7 +19,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   describe "when you send an update message" do
     test "it populates update fields", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{name: "foobar"}}} =
+      assert {:ok, %{payload: %Room{name: "foobar"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",
@@ -31,7 +30,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
                )
 
       # short form also allowed
-      assert {:ok, %{payload: %Update{name: "foobar"}}} =
+      assert {:ok, %{payload: %Room{name: "foobar"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "op" => "room:update",
@@ -92,7 +91,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   describe "when you send an update message to change description" do
     test "it validates", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{description: "foobar"}}} =
+      assert {:ok, %{payload: %Room{description: "foobar"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",
@@ -106,7 +105,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   describe "when you send an update message to change privacy" do
     test "it validates", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{isPrivate: true}}} =
+      assert {:ok, %{payload: %Room{isPrivate: true}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",
@@ -120,11 +119,37 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   describe "when you send an update message to change autoSpeaker" do
     test "it validates", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{autoSpeaker: true}}} =
+      assert {:ok, %{payload: %Room{autoSpeaker: true}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",
                    "payload" => %{"autoSpeaker" => true},
+                   "reference" => uuid
+                 },
+                 state
+               )
+    end
+  end
+
+  describe "when you send an update message to change chatThrottle" do
+    test "it validates", %{uuid: uuid, state: state} do
+      assert {:ok, %{payload: %Room{chatThrottle: 2000}}} =
+               BrothTest.Support.Message.validate(
+                 %{
+                   "operator" => "room:update",
+                   "payload" => %{"chatThrottle" => 2000},
+                   "reference" => uuid
+                 },
+                 state
+               )
+    end
+
+    test "providing negative number is not allowed", %{uuid: uuid, state: state} do
+      assert {:error, %{errors: %{chatThrottle: "must be greater than or equal to %{number}"}}} =
+               BrothTest.Support.Message.validate(
+                 %{
+                   "operator" => "room:update",
+                   "payload" => %{"chatThrottle" => -1},
                    "reference" => uuid
                  },
                  state

@@ -23,8 +23,8 @@
     "title": "DogeHouse",
     "dashboard": "Tablica",
     "connectionTaken": "Połączenie zostało podjęte",
-    "mutedTitle": "Wyciszony | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse"
+    "mutedTitle": "Wyciszony mikrofon | DogeHouse",
+    "deafenedTitle": "Wyciszony dźwięk | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -45,7 +45,7 @@
       "createRoom": "Nowy pokój",
       "editRoom": "Edytuj pokój",
       "refresh": "Odśwież",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "Pobierz aplikację DogeHouse na komputer już dzisiaj!"
     },
     "inviteList": {
       "roomGone": "Pokój usunięty, wróć",
@@ -54,7 +54,7 @@
       "whenFollowersOnline": "Kiedy twoi obserwujący są online, pokażą się oni tutaj."
     },
     "login": {
-      "headerText": "Przenosimy rozmowy głosowe na księżyc 🚀",
+      "headerText": "Zabieramy rozmowy głosowe na księżyc 🚀",
       "featureText_1": "Tryb ciemny",
       "featureText_2": "Otwarte Zapisy",
       "featureText_3": "Wsparcie międzyplatformowe",
@@ -73,7 +73,8 @@
       "overlaySettings": "Ustawienia nakładki",
       "soundSettings": "Ustawienia dźwięku",
       "deleteAccount": "Usuń konto",
-      "couldNotFindUser": "Przepraszamy, nie udało się znaleźć tego użytkownika"
+      "couldNotFindUser": "Przepraszamy, nie udało się znaleźć tego użytkownika",
+      "privacySettings": "Ustawienia prywatności"
     },
     "notFound": {
       "whoopsError": "Ups! Ta strona zagubiła się w konwersacji.",
@@ -102,8 +103,19 @@
       "followingHim": "Obserwujesz",
       "copyProfileUrl": "Skopiuj URL profilu",
       "urlCopied": "URL zostało skopiowane do schowka",
-      "about": "About",
-      "bot": "Bot"
+      "about": "O profilu",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "O profilu",
+        "rooms": "Pokoje",
+        "scheduled": "Zaplanowane",
+        "recorded": "Nagrane",
+        "clips": "Klipy"
+      },
+      "block": "Zablokuj",
+      "unblock": "Odblokuj",
+      "sendDM": "Wyślij prywatną wiadomość",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",
@@ -120,12 +132,12 @@
       }
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "starting": "Rozpoczynanie pobierania...",
+      "failed": "Nie można było rozpocząć automatycznego pobierania, spróbuj ponownie później",
+      "visit_gh": "Odwiedź Github Releases",
+      "prompt": "Naciśnij przycisk poniżej aby rozpocząć pobieranie",
+      "download_now": "Pobierz teraz",
+      "download_for": "Pobierz dla %platform% (%ext%)"
     }
   },
   "components": {
@@ -151,9 +163,9 @@
       "speaker": "Mówiący",
       "listener": "Słuchacz",
       "chat": "Czat",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Przełącz wyciszenie mikrofonu",
+      "deafen": "Wycisz dźwięk",
+      "undeafen": "Odcisz dźwięk"
     },
     "deviceNotSupported": {
       "notSupported": "Twoje urządzenie nie jest obecnie wspierane. Możesz zgłosić to",
@@ -179,7 +191,7 @@
       "setKeybind": "Skrót klawiszowy",
       "listening": "Słuchanie...",
       "toggleMuteKeybind": "Wyciszanie",
-      "toggleDeafKeybind": "Toggle deafen keybind",
+      "toggleDeafKeybind": "Skrót klawiszowy przełącznika wyciszenia",
       "toggleOverlayKeybind": "Nakładka",
       "togglePushToTalkKeybind": "Naciśnij i mów"
     },
@@ -190,12 +202,12 @@
     },
     "addToCalendar": { "add": "Dodaj do kalendarza" },
     "wsKilled": {
-      "description": "WebSocket został zabity przez serwer. Dzieje się tak kiedy otwierasz strone w nowej karcie.",
+      "description": "WebSocket został zabity przez serwer. Dzieje się tak kiedy otwierasz stronę w nowej karcie.",
       "reconnect": "Połącz ponownie"
     },
     "search": {
       "placeholder": "Znajdź pokój, użytkowników lub kategorie",
-      "placeholderShort": "Search"
+      "placeholderShort": "Szukaj"
     },
     "settingsDropdown": {
       "profile": "Twój profil",
@@ -210,7 +222,7 @@
         "debugAudio": "Debuguj audio",
         "stopDebugger": "Wyłącz debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Pobierz aplikację"
     },
     "modals": {
       "createRoomModal": {
@@ -239,7 +251,7 @@
         "usernameLabel": "Nazwa użytkownika",
         "bioError": "Maksymalna długość to 160 znaków",
         "bioLabel": "Bio",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bannerUrlLabel": "URL baneru na Twitterze"
       },
       "profileModal": {
         "blockUserConfirm": "Czy jesteś pewny, że chcesz zablokować użytkownikowi możliwość dołączania do każdego stworzonego przez Ciebie pokoju?",
@@ -260,7 +272,8 @@
         "makePublic": "upublicznij pokój",
         "makePrivate": "uczyń pokój prywatnym",
         "renamePublic": "Ustaw publiczną nazwę pokoju",
-        "renamePrivate": "Ustaw prywatną nazwę pokoju"
+        "renamePrivate": "Ustaw prywatną nazwę pokoju",
+        "chatDisabled": "wyłącz czat"
       }
     }
   },
@@ -297,7 +310,8 @@
       "sendMessage": "Wyślij wiadomość",
       "whisper": "Szept",
       "welcomeMessage": "Witamy na czacie!",
-      "roomDescription": "Opis pokoju"
+      "roomDescription": "Opis pokoju",
+      "disabled": "czat pokoju został wyłączony"
     },
     "roomStatus": {
       "fuelingRocket": "Tankowanie rakiety",

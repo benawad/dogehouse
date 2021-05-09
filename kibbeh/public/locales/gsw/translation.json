@@ -73,7 +73,8 @@
       "soundSettings": "Tonistellige",
       "deleteAccount": "Konto lösche",
       "overlaySettings": "Gang zu de Overlay Istellige",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Hoppla! Die Site isch im Gspräch verlore gange.",
@@ -100,7 +101,18 @@
       "urlCopied": "URL id Zwüscheablag kopiert",
       "unfollow": "Entfolge",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Sprachistellige",
@@ -203,7 +215,8 @@
         "makePublic": "Ruum öffentlech mache",
         "makePrivate": "Ruum privat mache",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": {
@@ -289,7 +302,8 @@
       "sendMessage": "E Nachricht schicke",
       "whisper": "Flüstere",
       "welcomeMessage": "Willkomme im Chat!",
-      "roomDescription": "Ruumbeschribig"
+      "roomDescription": "Ruumbeschribig",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Ragete wird tankt",

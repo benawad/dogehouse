@@ -72,7 +72,8 @@
       "soundSettings": "Ga naar geluidsinstellingen",
       "deleteAccount": "Verwijder account",
       "overlaySettings": "Ga naar overlay-instellingen",
-      "couldNotFindUser": "Sorry, die gebruiker kon niet gevonden worden"
+      "couldNotFindUser": "Sorry, die gebruiker kon niet gevonden worden",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oeps! Deze pagina is verloren gegaan tijdens het gesprek.",
@@ -99,7 +100,18 @@
       "urlCopied": "Link gekopieerd naar klembord",
       "unfollow": "Ontvolgen",
       "about": "Over",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",
@@ -119,9 +131,9 @@
       "starting": "Aan het downloaden...",
       "failed": "De automatische download is mislukt, probeer het later nog een keer",
       "visit_gh": "Bezoek Github Releases",
-      "prompt": "Click on the button below to start download",
+      "prompt": "Klik op de onderstaande knop om te downloaden",
       "download_now": "Nu downloaden",
-      "download_for": "Download voor {{platform}}"
+      "download_for": "Download voor %platform% (%ext%)"
     }
   },
   "components": {
@@ -229,7 +241,8 @@
         "makePublic": "Maak kamer openbaar",
         "makePrivate": "Maak kamer privé",
         "renamePublic": "Stel openbare kamernaam in",
-        "renamePrivate": "Stel privékamernaam in"
+        "renamePrivate": "Stel privékamernaam in",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -294,7 +307,8 @@
       "sendMessage": "Stuur een Bericht",
       "whisper": "Fluister",
       "welcomeMessage": "Welkom in de chat!",
-      "roomDescription": "Kamer omschrijving"
+      "roomDescription": "Kamer omschrijving",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Raket aan het tanken",

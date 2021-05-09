@@ -8,7 +8,7 @@ defmodule Broth.Routes.BotAuth do
   plug(Plug.Parsers,
     parsers: [:json],
     pass: ["text/*"],
-    json_decoder: Poison
+    json_decoder: Jason
   )
 
   plug(:match)
@@ -39,7 +39,7 @@ defmodule Broth.Routes.BotAuth do
         |> put_resp_content_type("application/json")
         |> send_resp(
           429,
-          Poison.encode!(%{error: "too many invalid requests"})
+          Jason.encode!(%{error: "too many invalid requests"})
         )
       else
         user = Users.get_by_api_key(api_key)
@@ -55,7 +55,7 @@ defmodule Broth.Routes.BotAuth do
             |> put_resp_content_type("application/json")
             |> send_resp(
               400,
-              Poison.encode!(%{error: "invalid input"})
+              Jason.encode!(%{error: "invalid input"})
             )
 
           not is_nil(user.reasonForBan) ->
@@ -63,7 +63,7 @@ defmodule Broth.Routes.BotAuth do
             |> put_resp_content_type("application/json")
             |> send_resp(
               400,
-              Poison.encode!(%{error: "your account is banned"})
+              Jason.encode!(%{error: "your account is banned"})
             )
 
           true ->
@@ -71,7 +71,7 @@ defmodule Broth.Routes.BotAuth do
             |> put_resp_content_type("application/json")
             |> send_resp(
               200,
-              Poison.encode!(%{
+              Jason.encode!(%{
                 username: user.username,
                 accessToken: Kousa.AccessToken.generate_and_sign!(%{"userId" => user.id}),
                 refreshToken:
@@ -89,7 +89,7 @@ defmodule Broth.Routes.BotAuth do
         |> put_resp_content_type("application/json")
         |> send_resp(
           400,
-          Poison.encode!(%{error: "invalid input"})
+          Jason.encode!(%{error: "invalid input"})
         )
     end
   end

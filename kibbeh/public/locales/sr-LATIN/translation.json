@@ -73,7 +73,8 @@
       "soundSettings": "idi na podešavanje zvuka",
       "deleteAccount": "obriši nalog",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Izvini, nismo pronašli ovog korisnika"
+      "couldNotFindUser": "Izvini, nismo pronašli ovog korisnika",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ova stranica se izgubila u razgovoru.",
@@ -100,7 +101,18 @@
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
       "about": "Opis",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Podešavanja glasa",
@@ -224,7 +236,8 @@
         "makePublic": "učini sobu javnom",
         "makePrivate": "učini sobu privatnom",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -289,7 +302,8 @@
       "sendMessage": "Pošalji poruku",
       "whisper": "šapći",
       "welcomeMessage": "Dobrodošli u ćaskanje!",
-      "roomDescription": "opis sobe"
+      "roomDescription": "opis sobe",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

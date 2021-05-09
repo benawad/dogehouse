@@ -73,7 +73,8 @@
       "soundSettings": "Nastavitve zvoka",
       "deleteAccount": "Izbrišite račun",
       "overlaySettings": "odprite nastavitve za okna",
-      "couldNotFindUser": "Tega uporabnika žal ni bilo mogoče najti"
+      "couldNotFindUser": "Tega uporabnika žal ni bilo mogoče najti",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ta stran se je v pogovoru izgubila.",
@@ -100,7 +101,18 @@
       "urlCopied": "povezava kopirana v odložišče",
       "unfollow": "Prenehajte slediti",
       "about": "O",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Nastavitve zvoka",
@@ -230,7 +242,8 @@
         "makePublic": "Naredite sobo javno",
         "makePrivate": "Naredite sobo zasebno",
         "renamePublic": "Nastavite javno ime sobe",
-        "renamePrivate": "Nastavite zasebno ime sobe"
+        "renamePrivate": "Nastavite zasebno ime sobe",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -295,7 +308,8 @@
       "sendMessage": "Pošljite sporočilo",
       "whisper": "Šepetajte",
       "welcomeMessage": "Pozdravljeni v klepetu!",
-      "roomDescription": "Opis sobe"
+      "roomDescription": "Opis sobe",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Natakanje goriva v raketo",

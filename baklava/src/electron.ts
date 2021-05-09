@@ -69,7 +69,7 @@ function createMainWindow() {
     width: 1500,
     height: 800,
     minWidth: 400,
-    minHeight: 640,
+    minHeight: 600,
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
@@ -146,7 +146,8 @@ function createMainWindow() {
         urlHost == ALLOWED_HOSTS[4] &&
         urlObj.pathname !== "/login" &&
         urlObj.pathname !== "/session" &&
-        urlObj.pathname !== "/sessions/two-factor"
+        urlObj.pathname !== "/sessions/two-factor" &&
+        urlObj.pathname !== "/sessions/two-factor/webauthn"
       ) {
         event.preventDefault();
         shell.openExternal(url);

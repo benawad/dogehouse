@@ -73,7 +73,8 @@
       "soundSettings": "go t' sound settings",
       "deleteAccount": "Cleave Him to the Brisket!",
       "overlaySettings": "go t' overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Blast ye! This page got lost in natter.",
@@ -100,7 +101,18 @@
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Voice Settings",
@@ -224,7 +236,8 @@
         "makePublic": "Make Cabin Public",
         "makePrivate": "Make Cabin Private",
         "renamePublic": "Set Public Cabin Name",
-        "renamePrivate": "Set Private Cabin Name"
+        "renamePrivate": "Set Private Cabin Name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -289,7 +302,8 @@
       "sendMessage": "Send a Message in a bottle",
       "whisper": "Whisper",
       "welcomeMessage": "Ahoy t' chat!",
-      "roomDescription": "cabin description"
+      "roomDescription": "cabin description",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fuelin' rocket",

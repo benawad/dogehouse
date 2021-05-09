@@ -21,8 +21,8 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Stíšený | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
-    "dashboard": "Dashboard",
+    "deafenedTitle": "Vypnutý zvuk | DogeHouse",
+    "dashboard": "Nástenka",
     "connectionTaken": "Connection Taken"
   },
   "footer": {
@@ -44,7 +44,7 @@
       "createRoom": "Vytvoriť miestnosť",
       "refresh": "Obnoviť",
       "editRoom": "Upraviť miestnosť",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "Stiahni si DogeHouse aplikáciu už dnes!"
     },
     "inviteList": {
       "roomGone": "miestnosť je fuč, vráť sa",
@@ -60,19 +60,20 @@
       "featureText_4": "Open Source",
       "featureText_5": "Textový chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "prihlásiť se cez GitHub",
-      "loginTwitter": "prihlásiť se cez Twitter",
-      "createTestUser": "vytvoriť testovacieho používateľa",
-      "loginDiscord": "Login with Discord"
+      "loginGithub": "Prihlásiť sa cez GitHub",
+      "loginTwitter": "Prihlásiť sa cez Twitter",
+      "createTestUser": "Vytvoriť testovacieho používateľa",
+      "loginDiscord": "Prihlásiť sa cez Discord"
     },
     "myProfile": {
-      "logout": "odhlásiť sa",
+      "logout": "Odhlásiť sa",
       "probablyLoading": "zrejme načítam...",
       "voiceSettings": "otvoriť nastavenia hlasu",
       "soundSettings": "otvoriť nastavenia zvuku",
       "deleteAccount": "odstrániť účet",
       "overlaySettings": "otvoriť nastavenia prekresľovania",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Užívateľ nenájdený",
+      "privacySettings": "Nastavenia súkromia"
     },
     "notFound": {
       "whoopsError": "Uups! Táto stránka sa stratila v konverzácii.",
@@ -98,8 +99,19 @@
       "copyProfileUrl": "skopírovať url profilu",
       "urlCopied": "URL skopírované do schránky",
       "unfollow": "Prestať sledovať",
-      "about": "About",
-      "bot": "Bot"
+      "about": "O používateľovi",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",
@@ -113,15 +125,15 @@
         "errorMsg": "Nesprávny názov aplikácie",
         "label": "Vlož názov aplikácie"
       },
-      "header": "Nastavenia Prekresľovania"
+      "header": "Nastavenia prekresľovania"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "starting": "Začínam sťahovať...",
+      "failed": "Automatické stihnutie zlyhalo, skús znova neskôr",
+      "visit_gh": "Pozrieť vydania na Githube",
+      "prompt": "Pre začatie sťahovania klikni na tlačidlo",
+      "download_now": "Stiahnuť teraz",
+      "download_for": "Stiahnuť pre %platform% (%ext%)"
     }
   },
   "components": {
@@ -147,9 +159,9 @@
       "speaker": "Rozprávač",
       "listener": "Poslúchač",
       "chat": "Chat",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Prepnúť stíšenie zvuku",
+      "deafen": "Vypnúť zvuk",
+      "undeafen": "Zapnúť zvuk"
     },
     "deviceNotSupported": {
       "notSupported": "Tvoje zariadenie nie je podporované. Môžeš vytvoriť:",
@@ -171,7 +183,7 @@
       "toggleMuteKeybind": "prepínač stíšenia",
       "togglePushToTalkKeybind": "prepínač push-to-talk",
       "toggleOverlayKeybind": "prepínač prekreslenia",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "prepinač stíšenia zvuku"
     },
     "userVolumeSlider": {
       "noAudioMessage": "z nejakého dôvodu nemáme žiadny zvuk"
@@ -222,14 +234,15 @@
         "goBackToListener": "vrátiť sa k poslucháčovi",
         "deleteMessage": "zmazať túto správu",
         "makeRoomCreator": "udeliť správcu miestnosti",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "odbanovať z chatu"
       },
       "roomSettingsModal": {
         "requirePermission": "Poslucháči musia požiadať o povolenie rozprávať",
         "makePublic": "zverejniť miestnosť",
         "makePrivate": "zosúkromniť miestnosť",
         "renamePublic": "Nastaviť názov verejnej miestnosti",
-        "renamePrivate": "Nastaviť názov súkromnej miestnosti"
+        "renamePrivate": "Nastaviť názov súkromnej miestnosti",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -244,7 +257,7 @@
     },
     "search": {
       "placeholder": "Vyhľadaj miestnosti, užívateľov alebo kategórie",
-      "placeholderShort": "Search"
+      "placeholderShort": "Hľadať"
     },
     "settingsDropdown": {
       "profile": "Profil",
@@ -256,10 +269,10 @@
         "modalSubtitle": "Si si istý, že sa chceš odhlásiť?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "Debugovať Audio",
+        "stopDebugger": "Zastaviť Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Stiahnuť aplikáciu"
     }
   },
   "modules": {
@@ -277,10 +290,10 @@
         "minLength": "minimálne 2 znaky",
         "roomDescription": "Popis"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "ZAJTRA",
+      "today": "DNES",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Si si istý, že chceš zmazať túto naplánovanú miestnosť?"
       }
     },
     "roomChat": {
@@ -294,7 +307,8 @@
       "sendMessage": "Odoslať správu",
       "whisper": "Pošepkať",
       "welcomeMessage": "Vitaj v chate!",
-      "roomDescription": "popis miestnosti"
+      "roomDescription": "popis miestnosti",
+      "disabled": "chat miestnosti bol vypnutý"
     },
     "roomStatus": {
       "fuelingRocket": "Tankujeme raketu",

@@ -84,7 +84,8 @@
       "overlaySettings": "Overlay Settings",
       "soundSettings": "Sound Settings",
       "deleteAccount": "Delete Account",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy Settings"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",
@@ -113,10 +114,21 @@
       "followHim": "Follow",
       "unfollow": "Unfollow",
       "followingHim": "Following",
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
       "copyProfileUrl": "Copy Profile URL",
       "urlCopied": "URL copied to clipboard",
       "about": "About",
-      "bot": "Bot"
+      "aboutSuffix": "",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      }
     },
     "voiceSettings": {
       "header": "Voice Settings",
@@ -266,6 +278,7 @@
       },
       "roomSettingsModal": {
         "requirePermission": "require permission to speak",
+        "chatDisabled": "disable chat",
         "makePublic": "make room public",
         "makePrivate": "make room private",
         "renamePublic": "Set public room name",
@@ -308,7 +321,8 @@
       "sendMessage": "Send a Message",
       "whisper": "Whisper",
       "welcomeMessage": "Welcome to chat!",
-      "roomDescription": "Room description"
+      "roomDescription": "Room description",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

@@ -72,7 +72,8 @@
       "soundSettings": "Definições de som",
       "deleteAccount": "Apagar conta",
       "overlaySettings": "Ir para definições de Overlay",
-      "couldNotFindUser": "Desculpa, não conseguimos encontrar esse utilizador"
+      "couldNotFindUser": "Desculpa, não conseguimos encontrar esse utilizador",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Esta página perdeu-se na conversa.",
@@ -99,7 +100,18 @@
       "urlCopied": "URL copiado",
       "unfollow": "Deixar de Seguir",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Definições de voz",
@@ -204,7 +216,8 @@
         "makePublic": "Tornar a sala pública",
         "makePrivate": "Tornar a sala privada",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": {
@@ -293,7 +306,8 @@
       "sendMessage": "Enviar mensagem",
       "whisper": "Sussurro",
       "welcomeMessage": "Bem-vindo ao chat!",
-      "roomDescription": "descrição da sala"
+      "roomDescription": "descrição da sala",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "A abastecer o foguetão",

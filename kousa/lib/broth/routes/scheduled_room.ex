@@ -19,7 +19,7 @@ defmodule Broth.Routes.ScheduledRoom do
         |> put_resp_content_type("application/json")
         |> send_resp(
           200,
-          Poison.encode!(%{room: ScheduledRooms.get_by_id(uuid)})
+          Jason.encode!(%{room: ScheduledRooms.get_by_id(uuid)})
         )
 
       _ ->
@@ -27,7 +27,7 @@ defmodule Broth.Routes.ScheduledRoom do
         |> put_resp_content_type("application/json")
         |> send_resp(
           200,
-          Poison.encode!(%{error: "invalid id"})
+          Jason.encode!(%{error: "invalid id"})
         )
     end
   end

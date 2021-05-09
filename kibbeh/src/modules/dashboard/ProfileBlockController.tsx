@@ -70,7 +70,7 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
       <ProfileBlock
         top={
           currentRoomId ? (
-            <MinimizedRoomCardController roomId={currentRoomId} />
+            <MinimizedRoomCardController />
           ) : (
             <UserSummaryCard
               onClick={() => setShowEditProfileModal(true)}

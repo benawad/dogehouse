@@ -48,6 +48,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "kk", flag: "🇰🇿", label: "Қазақша" }, // Kazakh
     { value: "ko", flag: "🇰🇷", label: "한국어" }, // Korean
     { value: "li", flag: "🇳🇱", label: "Limburgs" }, // Limburgish
+    { value: "lld", flag: "🐐", label: "Ladin" }, // Ladin
     { value: "lt", flag: "🇱🇹", label: "Lietuvių" }, // Lithuanian
     { value: "lv", flag: "🇱🇻", label: "Latviešu" }, // Latvian
     { value: "nb", flag: "🇳🇴", label: "Norsk Bokmål" }, // Norwegian Bokmål
@@ -82,6 +83,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   const noveltyLanguages = [
     /* Other languages */
     { value: "grc", flag: "🧓", label: "Αρχαία Ελληνικά" }, // Ancient Greek
+    { value: "en-C", flag: "🆕", label: "C'z Iŋglis̈" }, // C's English
+    { value: "en-LOLCAT", flag: "🐈", label: "LOLCAT" },
     { value: "en-PIRATE", flag: "☠️", label: "Pirate" },
     { value: "en-AU", flag: "🇦🇺", label: "uɐᴉꞁɐɹʇsnⱯ" }, // Australian
     { value: "en-OWO", flag: "💕", label: "OwO Engwish" },

@@ -8,7 +8,7 @@ import {
   DtlsParameters,
   ConsumerOptions,
   RtpCapabilities,
-  RtpParameters
+  RtpParameters,
 } from "mediasoup-client/lib/types";
 
 /**
@@ -18,36 +18,42 @@ type Handler<Data> = (data: Data) => void;
 
 /**
  * Creates a wrapper object that allows you to make websocket voice related calls using functions
- * @param connection - reference to the websocket connection
- * @returns Wrapper object
+ * @param {raw.Connection} connection - reference to the websocket connection
+ * @returns {connection} Wrapper object
  */
 export const wrap = (connection: raw.Connection) => ({
   connection,
+
   /**
    * Allows you to subscribe to various pre-defined websocket voice events
    */
   subscribe: {
     closeConsumer: (handler: Handler<{ producerId: UUID }>) =>
       connection.addListener("close_consumer", handler),
-    newPeerSpeaker: (handler: Handler<{ peerId: UUID, consumerParameters: ConsumerOptions }>) =>
-      connection.addListener("new-peer-speaker", handler),
-    youJoinedAsPeer: (handler: Handler<{
-      routerRtpCapabilities: RtpCapabilities,
-      recvTransportOptions: TransportOptions
-    }>) =>
-      connection.addListener("you-joined-as-peer", handler),
-    youJoinedAsSpeaker: (handler: Handler<{
-      routerRtpCapabilities: RtpCapabilities,
-      recvTransportOptions: TransportOptions,
-      sendTransportOptions: TransportOptions
-    }>) =>
-      connection.addListener("you-joined-as-speaker", handler),
-    youBecameSpeaker: (handler: Handler<{ sendTransportOptions: TransportOptions }>) =>
-      connection.addListener("you-are-now-a-speaker", handler),
+    newPeerSpeaker: (
+      handler: Handler<{ peerId: UUID; consumerParameters: ConsumerOptions }>
+    ) => connection.addListener("new-peer-speaker", handler),
+    youJoinedAsPeer: (
+      handler: Handler<{
+        routerRtpCapabilities: RtpCapabilities;
+        recvTransportOptions: TransportOptions;
+      }>
+    ) => connection.addListener("you-joined-as-peer", handler),
+    youJoinedAsSpeaker: (
+      handler: Handler<{
+        routerRtpCapabilities: RtpCapabilities;
+        recvTransportOptions: TransportOptions;
+        sendTransportOptions: TransportOptions;
+      }>
+    ) => connection.addListener("you-joined-as-speaker", handler),
+    youBecameSpeaker: (
+      handler: Handler<{ sendTransportOptions: TransportOptions }>
+    ) => connection.addListener("you-are-now-a-speaker", handler),
   },
+
   /**
-  * Allows you to call functions that return information about the ws voice state
-  */
+   * Allows you to call functions that return information about the ws voice state
+   */
   query: {
     getConsumersParameters: (
       rtpCapabilities: RtpCapabilities
@@ -58,9 +64,10 @@ export const wrap = (connection: raw.Connection) => ({
         "@get-recv-tracks-done"
       ),
   },
+
   /**
-  * Allows you to call functions that mutate the ws voice state
-  */
+   * Allows you to call functions that mutate the ws voice state
+   */
   mutation: {
     connectTransport: (
       transportId: UUID,
@@ -83,7 +90,15 @@ export const wrap = (connection: raw.Connection) => ({
     ): Promise<{ id: UUID } | { error: string }> =>
       connection.fetch(
         "@send-track",
-        { transportId, kind, rtpParameters, rtpCapabilities, paused, appData, direction },
+        {
+          transportId,
+          kind,
+          rtpParameters,
+          rtpCapabilities,
+          paused,
+          appData,
+          direction,
+        },
         `@send-track-${direction}-done`
       ),
   },

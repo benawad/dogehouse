@@ -22,13 +22,13 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Muet | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Assourdi | DogeHouse",
+    "dashboard": "Tableau de board",
+    "connectionTaken": "Lien Pris"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
-    "link_1": "Origin Story",
+    "link_1": "Histoire d'origine",
     "link_2": "Discord",
     "link_3": "Signaler un problème"
   },
@@ -59,7 +59,7 @@
       "featureText_2": "Inscriptions ouvertes",
       "featureText_3": "Support Multi-plateforme",
       "featureText_4": "Open Source",
-      "featureText_5": "Chat Textuel",
+      "featureText_5": "Tchat Textuel",
       "featureText_6": "Alimenté par Doge",
       "loginGithub": "Se connecter avec GitHub",
       "loginTwitter": "Se connecter avec Twitter",
@@ -73,12 +73,13 @@
       "overlaySettings": "Paramètres de l'overlay",
       "soundSettings": "Paramètres Audio",
       "deleteAccount": "Supprimer le Compte",
-      "couldNotFindUser": "Désolé, nous ne parvenons pas à trouver cet utilisateur"
+      "couldNotFindUser": "Désolé, nous ne parvenons pas à trouver cet utilisateur",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oups ! Cette page s'est perdue dans la conversation.",
       "goHomeMessage": "Ne vous inquiétez pas. Vous pouvez",
-      "goHomeLinkText": "retourner à l'accueil"
+      "goHomeLinkText": "Retourner à l'accueil"
     },
     "room": {
       "speakers": "Interlocuteurs",
@@ -100,7 +101,18 @@
       "urlCopied": "Lien copié dans le presse-papier",
       "unfollow": "Unfollow",
       "about": "À propos de",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Paramètres vocaux",
@@ -136,18 +148,18 @@
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "Quitter la salle actuelle",
-      "confirmLeaveRoom": "Êtes-vous sûr de vouloir quitter ?",
+      "confirmLeaveRoom": "Êtes-vous sûr de vouloir quitter?",
       "leave": "Quitter",
       "inviteUsersToRoomBtn": "Inviter des utilisateurs dans la salle",
       "invite": "Inviter",
       "toggleMuteMicBtn": "Activer / Désactiver le microphone",
       "mute": "Rendre muet",
       "unmute": "Rétablir la voix",
-      "makeRoomPublicBtn": "Rendre la salle publique !",
+      "makeRoomPublicBtn": "Rendre la salle publique!",
       "settings": "Paramètres",
       "speaker": "Interlocuteur",
       "listener": "Auditeur",
-      "chat": "Chat",
+      "chat": "Tchat",
       "toggleDeafMicBtn": "Activer / Désactiver le son",
       "deafen": "Couper le son",
       "undeafen": "Rétablier le son"
@@ -174,7 +186,7 @@
     },
     "keyboardShortcuts": {
       "setKeybind": "Changer les raccourcis clavier",
-      "listening": "Écoute...",
+      "listening": "Écoutant...",
       "toggleMuteKeybind": "Activer / Désactiver le raccourci clavier pour rendre muet",
       "toggleOverlayKeybind": "Activer / Désactiver le raccourci clavier pour l'overlay",
       "togglePushToTalkKeybind": "Activer / Désactiver le raccourci clavier appuyer-pour-parler",
@@ -209,7 +221,7 @@
         "debugAudio": "Débugger l'audio",
         "stopDebugger": "Arreter le débuggage"
       },
-      "downloadApp": "Télécharger l'App"
+      "downloadApp": "Télécharger l'Application"
     },
     "modals": {
       "createRoomModal": {
@@ -247,8 +259,8 @@
         "unmod": "Enlever les permissions",
         "addAsSpeaker": "Ajouter en tant qu'interlocuteur",
         "moveToListener": "Rendre auditeur",
-        "unBanFromChat": "Débannir du chat",
-        "banFromChat": "Bannir du chat",
+        "unBanFromChat": "Débannir du tchat",
+        "banFromChat": "Bannir du tchat",
         "banFromRoom": "Bannir de la salle",
         "goBackToListener": "Retourner chez les auditeurs",
         "deleteMessage": "Supprimer ce message",
@@ -259,7 +271,8 @@
         "makePublic": "rendre la salle publique",
         "makePrivate": "rendre la salle privée",
         "renamePublic": "Changer le nom de la salle publique",
-        "renamePrivate": "Changer le nom de la salle privée"
+        "renamePrivate": "Changer le nom de la salle privée",
+        "chatDisabled": "Désactiver tchat"
       }
     }
   },
@@ -286,17 +299,18 @@
       }
     },
     "roomChat": {
-      "title": "Chat",
+      "title": "Tchat",
       "emotesSoon": "[emotes bientôt]",
-      "bannedAlert": "Vous avez été banni du chat",
+      "bannedAlert": "Vous avez été banni du tchat",
       "waitAlert": "Vous devez attendre une seconde avant d'envoyer un nouveau message",
       "search": "Rechercher",
       "searchResults": "Résultats de recherche",
       "recent": "Fréquemment utilisées",
       "sendMessage": "Envoyer un message",
       "whisper": "Chuchotement",
-      "welcomeMessage": "Bienvenue dans le chat !",
-      "roomDescription": "Description de la salle"
+      "welcomeMessage": "Bienvenue dans le tchat !",
+      "roomDescription": "Description de la salle",
+      "disabled": "Le tchat a été désactivé"
     },
     "roomStatus": {
       "fuelingRocket": "Ravitaillement de la fusée",

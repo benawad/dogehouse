@@ -76,7 +76,8 @@
       "soundSettings": "перейти до звукових налаштувань",
       "deleteAccount": "видалити аккаунт",
       "overlaySettings": "перейти до налаштувань накладення",
-      "couldNotFindUser": "Вибачте, ми не змогли знайти даного користувача"
+      "couldNotFindUser": "Вибачте, ми не змогли знайти даного користувача",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Упс! Ця сторінка загубилася в розмові.",
@@ -103,7 +104,18 @@
       "urlCopied": "Посилання скопійовано",
       "unfollow": "Відписатися",
       "about": "About",
-      "bot": "Бот"
+      "bot": "Бот",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Голосові налаштування",
@@ -231,7 +243,8 @@
         "makePublic": "зробити кімнату загальнодоступною",
         "makePrivate": "зробити кімнату приватною",
         "renamePublic": "Встановити ім'я публічної кімнати",
-        "renamePrivate": "Встановити ім'я приватної кімнати"
+        "renamePrivate": "Встановити ім'я приватної кімнати",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -296,7 +309,8 @@
       "sendMessage": "Надіслати Повідомлення",
       "whisper": "Шепотіти",
       "welcomeMessage": "Ласкаво просимо до чату!",
-      "roomDescription": "Опис кімнати"
+      "roomDescription": "Опис кімнати",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Заправляємо ракету",

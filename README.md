@@ -35,6 +35,8 @@
 | [pilaf](pilaf)       |   React Native App    |
 | [kibbeh](kibbeh)     |   Next.js frontend    |
 | [kebab](kebab)       |      API Client       |
+| [dolma](dolma)       | Chat Token Transcoder |
+
 
 ## Branches
 

@@ -20,10 +20,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "ปิดเสียง | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "mutedTitle": "ปิดไมค์ | DogeHouse",
+    "deafenedTitle": "ปิดเสียง | DogeHouse",
+    "dashboard": "แดชบอร์ด",
+    "connectionTaken": "เชื่อมต่อแล้ว"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -44,7 +44,7 @@
       "createRoom": "สร้างห้อง",
       "refresh": "รีเฟรช",
       "editRoom": "แก้ไขห้อง",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "ดาวน์โหลด Dogehouse เวอร์ชั่นเดสก์ท็อป ได้แล้ววันนี้!"
     },
     "inviteList": {
       "roomGone": "ไม่พบห้อง, กรุณากลับไปที่หน้าหลัก",
@@ -72,7 +72,8 @@
       "soundSettings": "การตั้งค่าการแจ้งเตือนเสียง",
       "deleteAccount": "ลบบัญชี",
       "overlaySettings": "การตั้งค่าโอเวอร์เลย์",
-      "couldNotFindUser": "ขออภัย ไม่สามารถหาผู้ใช้คนนั้นได้"
+      "couldNotFindUser": "ขออภัย ไม่สามารถหาผู้ใช้คนนั้นได้",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "โอ๊ะ! ไม่พบหน้าที่คุณค้นหา.",
@@ -89,7 +90,7 @@
     "searchUser": { "search": "ค้นหา..." },
     "soundEffectSettings": {
       "header": "การแจ้งเตือนเสียง",
-      "title": "Sound Settings"
+      "title": "การตั้งค่าเสียง"
     },
     "viewUser": {
       "editProfile": "แก้ไขโปรไฟล์",
@@ -101,8 +102,19 @@
       "copyProfileUrl": "คัดลอกลิงก์โปรไฟล์",
       "urlCopied": "คัดลอกลิงก์เรียบร้อย",
       "unfollow": "เลิกติดตาม",
-      "about": "About",
-      "bot": "Bot"
+      "about": "เกี่ยวกับ",
+      "bot": "บอท",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "การตั้งค่าเสียง",
@@ -112,16 +124,16 @@
       "volume": "ระดับเสียง:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": { "errorMsg": "App Title ไม่ถูกต้อง", "label": "ใส่ App Title" },
       "header": "การตั้งค่าโอเวอร์เลย์"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "starting": "กำลังดาวน์โหลด...",
+      "failed": "ไม่สามารถดาวน์โหลดได้, โปรดลองใหม่ในภายหลัง.",
+      "visit_gh": "เยี่ยมชมใน Github",
+      "prompt": "คลิ๊กที่ปุ่มด้านล่างเพื่อเริ่มการดาวน์โหลด.",
+      "download_now": "ดาวน์โหลดตอนนี้",
+      "download_for": "ดาวน์โหลดสำหรับ %platform% (%ext%)"
     }
   },
   "components": {
@@ -147,9 +159,9 @@
       "speaker": "ผู้พูด",
       "listener": "ผู้ฟัง",
       "chat": "แชท",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "เปิด/ปิด เสียง",
+      "deafen": "ปิดเสียง",
+      "undeafen": "เปิดเสียง"
     },
     "deviceNotSupported": {
       "notSupported": "ขณะนี้เรายังไม่รองรับอุปกรณ์ของคุณ คุณสามารถแจ้งปัญหาได้ที่",
@@ -166,12 +178,12 @@
       "tryAgain": "ลองใหม่อีกครั้ง"
     },
     "keyboardShortcuts": {
-      "setKeybind": "ตั้งค่า Keybind",
-      "listening": "กำลังตรวจจับ Keybind",
-      "toggleMuteKeybind": "Keybind เปิด/ปิด ไมโครโฟน",
-      "togglePushToTalkKeybind": "Keybind เปิด/ปิด Push to Talk",
-      "toggleOverlayKeybind": "Keybind เปิด/ปิด โอเวอร์เลย์",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "setKeybind": "ตั้งค่าคีย์ลัด",
+      "listening": "กำลังตรวจจับ คีย์ลัด",
+      "toggleMuteKeybind": "คีย์ลัด เปิด/ปิด ไมโครโฟน",
+      "togglePushToTalkKeybind": "คีย์ลัด เปิด/ปิด Push to Talk",
+      "toggleOverlayKeybind": "คีย์ลัด เปิด/ปิด โอเวอร์เลย์",
+      "toggleDeafKeybind": "คีย์ลัด เปิด/ปิด เสียง"
     },
     "userVolumeSlider": { "noAudioMessage": "ไม่พบลำโพง" },
     "addToCalendar": { "add": "เพิ่มไปยังปฏิทิน" },
@@ -206,7 +218,7 @@
         "usernameLabel": "ชื่อผู้ใช้",
         "bioError": "ความยาวสูงสุด 160 ตัวอักษร",
         "bioLabel": "คำอธิบาย",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bannerUrlLabel": "URL รูปหน้าปกทวิตเตอร์"
       },
       "profileModal": {
         "blockUserConfirm": "คุณแน่ใจหรือไม่ที่จะบล็อกผู้ใช้นี้จากทุกห้องที่คุณสร้าง?",
@@ -227,7 +239,8 @@
         "makePublic": "ตั้งให้เป็นห้องสาธารณะ",
         "makePrivate": "ตั้งให้เป็นห้องส่วนตัว",
         "renamePublic": "ตั้งชื่อห้องสาธารณะ",
-        "renamePrivate": "ตั้งชื่อห้องส่วนตัว"
+        "renamePrivate": "ตั้งชื่อห้องส่วนตัว",
+        "chatDisabled": "ปิดแชท"
       }
     },
     "followingOnline": {
@@ -242,7 +255,7 @@
     },
     "search": {
       "placeholder": "ค้นหาห้อง ผู้ใช้ หรือหมวดหมู่",
-      "placeholderShort": "Search"
+      "placeholderShort": "ค้นหา"
     },
     "settingsDropdown": {
       "profile": "โปรไฟล์",
@@ -254,10 +267,10 @@
         "modalSubtitle": "คุณแน่ใจหรือไม่ที่จะออกจากระบบ"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "แก้ไขข้อบกพร่องเสียง",
+        "stopDebugger": "ปิดการแก้ไขข้อบกพร่อง"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "ดาวน์โหลดแอป"
     }
   },
   "modules": {
@@ -275,11 +288,9 @@
         "minLength": "ขั้นต่ำ 2 ตัวอักษร",
         "roomDescription": "รายละเอียด"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
-      }
+      "tommorow": "พรุ่งนี้",
+      "today": "วันนี้",
+      "deleteModal": { "areYouSure": "แน่ใจหรือไม่ที่จะลบกำหนดการนี้?" }
     },
     "roomChat": {
       "title": "แชท",
@@ -292,7 +303,8 @@
       "sendMessage": "ส่งข้อความ",
       "whisper": "กระซิบ",
       "welcomeMessage": "ยินดีต้อนรับสู่ห้องแชท!",
-      "roomDescription": "คำอธิบายห้อง"
+      "roomDescription": "คำอธิบายห้อง",
+      "disabled": "แชทถูกปิดสำหรับห้องนี้"
     },
     "roomStatus": {
       "fuelingRocket": "กำลังเติมเชื้อเพลิงยาน",

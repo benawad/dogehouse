@@ -72,7 +72,8 @@
       "soundSettings": "Ljudinställningar",
       "deleteAccount": "Radera konto",
       "overlaySettings": "Overlayinställningar",
-      "couldNotFindUser": "Förlåt, vi kunde inte hitta den användaren"
+      "couldNotFindUser": "Förlåt, vi kunde inte hitta den användaren",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Denna sida blev förlorad i konversationen.",
@@ -99,7 +100,18 @@
       "urlCopied": "Länken har kopierats",
       "unfollow": "Sluta följa",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Röstinställningar",
@@ -204,7 +216,8 @@
         "makePublic": "Gör rum offentligt",
         "makePrivate": "Gör rum privat",
         "renamePublic": "Ange ett offentligt rumsnamn",
-        "renamePrivate": "Ange ett privat rumsnamn"
+        "renamePrivate": "Ange ett privat rumsnamn",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": {
@@ -294,7 +307,8 @@
       "sendMessage": "Skicka ett meddelande",
       "whisper": "Direktmeddelande",
       "welcomeMessage": "Välkommen till chatten!",
-      "roomDescription": "Rumbeskrivning"
+      "roomDescription": "Rumbeskrivning",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Tankar raket",

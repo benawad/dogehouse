@@ -73,7 +73,8 @@
       "overlaySettings": "cài đặt overlay",
       "soundSettings": "cài đặt âm thanh",
       "deleteAccount": "xóa tài khoản",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Á! Đi lạc đâu đây.",
@@ -100,7 +101,18 @@
       "copyProfileUrl": "sao chép liên kết hồ sơ",
       "urlCopied": "Đã sao chép liên kết",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Cài đặt giọng nói",
@@ -227,7 +239,8 @@
         "makePublic": "chuyển thành phòng công khai",
         "makePrivate": "chuyển thành phòng riêng tư",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -292,7 +305,8 @@
       "sendMessage": "Gửi tin nhắn",
       "whisper": "Thì thầm",
       "welcomeMessage": "Chào mừng đến với phòng trò chuyện!",
-      "roomDescription": "mô tả phòng"
+      "roomDescription": "mô tả phòng",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Tên lửa đang đổ xăng",

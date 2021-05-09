@@ -73,7 +73,8 @@
       "soundSettings": "shko te cilësimet e tingullit",
       "deleteAccount": "fshije llogarinë",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Kjo faqja humbi në bisedë.",
@@ -100,7 +101,18 @@
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Cilësime e zërit",
@@ -224,7 +236,8 @@
         "makePublic": "bëje dhomën publike",
         "makePrivate": "bëje dhomën private",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -289,7 +302,8 @@
       "sendMessage": "Dërgo një mesazh",
       "whisper": "Përshpërit",
       "welcomeMessage": "Mirë se erdhët në chat!",
-      "roomDescription": "përshkrimi i dhomës"
+      "roomDescription": "përshkrimi i dhomës",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

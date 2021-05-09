@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, { useState } from "react";
 import { BaseSettingsItem } from "./BaseSettingsItem";
 import { SingleUser } from "./UserAvatar";
 import { Button } from "./Button";
@@ -11,24 +11,29 @@ export interface ChangeAvatarCardProps {
 export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
   avatarUrl,
 }) => {
+  const [baseAvatarUrl, setAvatarUrl] = useState(avatarUrl);
+
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const MAX_FILE_SIZE = 3145728;
     const file = (e.target.files as FileList)[0];
 
     if (file.size > MAX_FILE_SIZE) return; // show error toast
 
-    // handle upload
-    console.log(file);
+    if (file.size < 1) return;
+
+    // add upload to image store/github/twitter
+    setAvatarUrl(URL.createObjectURL(file));
   };
 
   const handleImageDelete = () => {
-    // handle delete
+    // handle delete and change image to default and setAvatarUrl to default avatar
+    setAvatarUrl("");
   };
 
   return (
     <BaseSettingsItem className="flex items-center px-4 py-3">
       <div>
-        <SingleUser src={avatarUrl} />
+        <SingleUser src={baseAvatarUrl} />
       </div>
       <div className="flex flex-col ml-5">
         <div className="flex items-center">

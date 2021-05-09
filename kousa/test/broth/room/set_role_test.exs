@@ -60,6 +60,50 @@ defmodule BrothTest.Room.SetRoleTest do
       refute Beef.RoomPermissions.speaker?(speaker_id, room_id)
     end
 
+    test "mods can't move other mods to listeners", t do
+      room_id = t.room_id
+
+      # make sure the user is in there.
+      assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
+  
+      # create a user that is logged in and will be moded.
+      mod1 = %{id: mod1_id} = Factory.create(User)
+      mod1_ws = WsClientFactory.create_client_for(mod1)
+  
+      # create another user that is logged in and will be moded.
+      mod2 = %{id: mod2_id} = Factory.create(User)
+      mod2_ws = WsClientFactory.create_client_for(mod2)
+  
+      # join the mod1 user into the room
+      WsClient.do_call(mod1_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+  
+      # join the mod2 user into the room
+      WsClient.do_call(mod2_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+  
+      # make mod1 user a mod
+      Beef.RoomPermissions.set_is_mod(mod1_id, room_id, true)
+      assert Beef.RoomPermissions.mod?(mod1_id, room_id)
+  
+      # make mod2 user a mod
+      Beef.RoomPermissions.set_is_mod(mod2_id, room_id, true)
+      assert Beef.RoomPermissions.mod?(mod2_id, room_id)
+  
+      # set mod2 as speaker
+      Beef.RoomPermissions.set_speaker(mod2_id, room_id, true)
+      assert Beef.RoomPermissions.speaker?(mod2_id, room_id)
+  
+      # set mod2 as listener using mod1
+      WsClient.send_msg(mod1_ws, "room:set_role", %{
+        "userId" => mod2_id,
+        "role" => "listener"
+      })
+  
+      #mod1 can't move mod2 to listeners
+      refute Beef.RoomPermissions.listener?(mod2_id, room_id)
+    end
+
     @tag :skip
     test "you can make yourself a listener"
 

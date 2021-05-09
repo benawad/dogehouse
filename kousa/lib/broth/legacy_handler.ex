@@ -72,11 +72,7 @@ defmodule Broth.LegacyHandler do
 
             _ ->
               {muteMap, deafMap, autoSpeaker, activeSpeakerMap} =
-                if room_id do
-                  Onion.RoomSession.get_maps(room_id)
-                else
-                  {%{}, false, %{}}
-                end
+                Onion.RoomSession.get_maps(room_id)
 
               payload = %{
                 room: room,
@@ -85,7 +81,8 @@ defmodule Broth.LegacyHandler do
                 deafMap: deafMap,
                 activeSpeakerMap: activeSpeakerMap,
                 roomId: room_id,
-                autoSpeaker: autoSpeaker
+                autoSpeaker: autoSpeaker,
+                chatMode: Onion.Chat.get(room_id, :chat_mode)
               }
 
               %{d: payload, op: "fetch_done", fetchId: fetch_id}

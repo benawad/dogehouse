@@ -73,7 +73,8 @@
       "soundSettings": "Mergi la setările de sunet",
       "deleteAccount": "Şterge cont",
       "overlaySettings": "Accesați setările de suprapunere",
-      "couldNotFindUser": "Scuze, noi nu am putut gasi acel utilizatori"
+      "couldNotFindUser": "Scuze, noi nu am putut gasi acel utilizatori",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Această pagină a fost pierdută în conversație.",
@@ -100,7 +101,18 @@
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Sunete Voce",
@@ -227,7 +239,8 @@
         "makePublic": "Fă camera publică",
         "makePrivate": "Fă camera privată",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -292,7 +305,8 @@
       "sendMessage": "Trimite un mesaj",
       "whisper": "Șoptește",
       "welcomeMessage": "Bine ai venit în chat!",
-      "roomDescription": "Descriere cameră"
+      "roomDescription": "Descriere cameră",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

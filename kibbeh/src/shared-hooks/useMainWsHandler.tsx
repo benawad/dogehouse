@@ -103,6 +103,39 @@ export const useMainWsHandler = () => {
           );
         }
       ),
+      conn.addListener<any>(
+        "room_chat_throttle_change",
+        ({ roomId, chatThrottle, name }) => {
+          updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
+            !data || "error" in data
+              ? data
+              : {
+                  ...data,
+                  room: {
+                    ...data.room,
+                    name,
+                    chatThrottle,
+                  },
+                }
+          );
+        }
+      ),
+      conn.addListener<any>(
+        "room_chat_mode_changed",
+        ({ roomId, chatMode }) => {
+          updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
+            !data || "error" in data
+              ? data
+              : {
+                  ...data,
+                  room: {
+                    ...data.room,
+                    chatMode,
+                  },
+                }
+          );
+        }
+      ),
       conn.addListener<any>("banned", () => {
         showErrorToast("you got banned");
         conn.close();
@@ -222,7 +255,7 @@ export const useMainWsHandler = () => {
           );
         }
       ),
-      conn.addListener<any>("mod_changed", ({ userId, roomId }) => {
+      conn.addListener<any>("mod_changed", ({ userId, roomId, isMod }) => {
         updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
           !data || "error" in data
             ? data
@@ -234,7 +267,7 @@ export const useMainWsHandler = () => {
                         ...x,
                         roomPermissions: mergeRoomPermission(
                           x.roomPermissions,
-                          { isMod: !x.roomPermissions?.isMod }
+                          { isMod }
                         ),
                       }
                     : x

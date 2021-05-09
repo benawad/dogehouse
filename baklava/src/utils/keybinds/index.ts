@@ -27,7 +27,7 @@ export let CURRENT_INVITE_KEY = "Control+7";
 export let CURRENT_MUTE_KEY = "Control+m";
 export let CURRENT_DEAF_KEY = "Control+1";
 export let CURRENT_CHAT_KEY = "Control+9";
-export let CURRENT_OVERLAY_KEY = "Control+Tab";
+export let CURRENT_OVERLAY_KEY = "Control+2";
 export let CURRENT_PTT_KEY = ["0", "Control"];
 export let CURRENT_PTT_KEY_STRING = "0,control"
 

@@ -8,7 +8,8 @@ defmodule Broth.SocketHandler do
             compression: nil,
             version: nil,
             callers: [],
-            user_ids_i_am_blocking: []
+            user_ids_i_am_blocking: [],
+            whisperPrivacySetting: nil
 
   @type state :: %__MODULE__{
           user: nil | Beef.Schemas.User.t(),
@@ -46,6 +47,7 @@ defmodule Broth.SocketHandler do
     state = %__MODULE__{
       ip: ip,
       user_ids_i_am_blocking: [],
+      whisperPrivacySetting: :on,
       encoding: encoding,
       compression: compression,
       callers: get_callers(request)
@@ -142,10 +144,13 @@ defmodule Broth.SocketHandler do
   end
 
   def chat_impl(
-        {"chat:" <> _room_id, %Broth.Message{payload: %Broth.Message.Chat.Send{from: from}}} = p1,
+        {"chat:" <> _room_id,
+         %Broth.Message{payload: %Broth.Message.Chat.Send{from: from, isWhisper: isWhisper}}} =
+          p1,
         %__MODULE__{} = state
       ) do
-    if Enum.any?(state.user_ids_i_am_blocking, &(&1 == from)) do
+    if (isWhisper == true and not is_nil(state.user) and state.user.whisperPrivacySetting == :off) or
+         Enum.any?(state.user_ids_i_am_blocking, &(&1 == from)) do
       ws_push(nil, state)
     else
       real_chat_impl(p1, state)

@@ -72,7 +72,8 @@
       "soundSettings": "聲音設定",
       "deleteAccount": "刪除帳號",
       "overlaySettings": "介面設定",
-      "couldNotFindUser": "很抱歉，我們找不到這名用戶"
+      "couldNotFindUser": "很抱歉，我們找不到這名用戶",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "噢！這一頁不見了‧",
@@ -99,7 +100,18 @@
       "urlCopied": "連結已被複製簿被",
       "unfollow": "取消追蹤",
       "about": "關於",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "語音設定",
@@ -221,7 +233,8 @@
         "makePublic": "把房間設定為公開",
         "makePrivate": "把房間設定為私人",
         "renamePublic": "重設公開房間名字",
-        "renamePrivate": "重設私人房間名字"
+        "renamePrivate": "重設私人房間名字",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -278,7 +291,8 @@
       "sendMessage": "發送訊息",
       "whisper": "密語",
       "welcomeMessage": "歡迎來到房間!",
-      "roomDescription": "房間簡介"
+      "roomDescription": "房間簡介",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "火箭正在加油",

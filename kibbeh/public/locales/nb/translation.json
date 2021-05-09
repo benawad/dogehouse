@@ -72,7 +72,8 @@
       "soundSettings": "Gå til lydinnstillinger",
       "deleteAccount": "Slett konto",
       "overlaySettings": "Gå til overleggsinnstillinger",
-      "couldNotFindUser": "Beklager, vi kunne ikke finne denne brukeren.."
+      "couldNotFindUser": "Beklager, vi kunne ikke finne denne brukeren..",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oi sann! Denne siden ble tapt i samtalen.",
@@ -99,7 +100,18 @@
       "urlCopied": "URL kopiert til utklippstavlen",
       "unfollow": "Slutt å følge",
       "about": "Om bruker",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",
@@ -226,7 +238,8 @@
         "makePublic": "Gjør rommet offentlig",
         "makePrivate": "Gjør rommet privat",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -291,7 +304,8 @@
       "sendMessage": "Send en melding",
       "whisper": "Hviske",
       "welcomeMessage": "Velkommen til chatten!",
-      "roomDescription": "Rombeskrivelse"
+      "roomDescription": "Rombeskrivelse",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fyller på rakkett med drivstoff",

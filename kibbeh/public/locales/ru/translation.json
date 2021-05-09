@@ -76,7 +76,8 @@
       "soundSettings": "Настройки звука",
       "deleteAccount": "Удалить аккаунт",
       "overlaySettings": "Настройки оверлея",
-      "couldNotFindUser": "К сожалению, мы не можем найти этого пользователя"
+      "couldNotFindUser": "К сожалению, мы не можем найти этого пользователя",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Упс! Эта страница была потеряна.",
@@ -103,7 +104,18 @@
       "urlCopied": "URL профиля скопирован",
       "unfollow": "Отписаться",
       "about": "About",
-      "bot": "Бот"
+      "bot": "Бот",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -231,7 +243,8 @@
         "makePublic": "сделать комнату публичной",
         "makePrivate": "сделать комнату приватной",
         "renamePublic": "Установить название общей комнаты",
-        "renamePrivate": "Установить название приватной комнаты"
+        "renamePrivate": "Установить название приватной комнаты",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -296,7 +309,8 @@
       "sendMessage": "Отправить сообщение",
       "whisper": "Шепнуть",
       "welcomeMessage": "Добро пожаловать в чат!",
-      "roomDescription": "описание комнаты"
+      "roomDescription": "описание комнаты",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "заправляем ракету",

@@ -73,7 +73,8 @@
       "soundSettings": "Ääniasetukset",
       "overlaySettings": "Overlay-asetukset",
       "deleteAccount": "Poista tili",
-      "couldNotFindUser": "Käyttäjää ei löytynyt"
+      "couldNotFindUser": "Käyttäjää ei löytynyt",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Hups! Tämä sivu katosi keskusteluun.",
@@ -100,7 +101,18 @@
       "urlCopied": "Osoite kopioitu leikepöydälle",
       "unfollow": "Lopeta seuraaminen",
       "about": "Tietoa käyttäjästä",
-      "bot": "Botti"
+      "bot": "Botti",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Puheasetukset",
@@ -228,7 +240,8 @@
         "makePublic": "Tee huoneesta julkinen",
         "makePrivate": "Tee huoneesta yksityinen",
         "renamePublic": "Aseta julkinen huoneen nimi",
-        "renamePrivate": "Aseta yksityinen huoneen nimi"
+        "renamePrivate": "Aseta yksityinen huoneen nimi",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -293,7 +306,8 @@
       "sendMessage": "Lähetä viesti",
       "whisper": "Kuiskaus",
       "welcomeMessage": "Tervetuloa chattiin!",
-      "roomDescription": "Huoneen kuvaus"
+      "roomDescription": "Huoneen kuvaus",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Tankkaamassa rakettia",

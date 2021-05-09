@@ -24,7 +24,7 @@ defmodule Broth.Routes.GitHubAuth do
           ),
         redirect_to_next: redirect_to_next
       }
-      |> Poison.encode!()
+      |> Jason.encode!()
       |> Base.encode64()
 
     %{conn | params: Map.put(conn.params, "state", state)}
@@ -54,7 +54,7 @@ defmodule Broth.Routes.GitHubAuth do
          {:ok,
           %{"redirect_base_url" => redirect_base_url, "redirect_to_next" => redirect_to_next}}
          when is_binary(redirect_base_url) <-
-           Poison.decode(json) do
+           Jason.decode(json) do
       cond do
         redirect_to_next ->
           "https://next.dogehouse.tv"

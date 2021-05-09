@@ -73,7 +73,8 @@
       "soundSettings": "اذهب إلى إعدادات الصوت",
       "deleteAccount": "حذف الحساب",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "عفوا، لم نعثر على هذا المستخدم"
+      "couldNotFindUser": "عفوا، لم نعثر على هذا المستخدم",
+      "privacySettings": "إعدادات الخصوصية"
     },
     "notFound": {
       "whoopsError": "عذرا! ضاعت هذه الصفحة بين المحادثات.",
@@ -99,8 +100,19 @@
       "copyProfileUrl": "انسخ رابط البروفايل",
       "urlCopied": "تم نسخ الرابط",
       "unfollow": "الغاء المتابعة",
-      "about": "About",
-      "bot": "Bot"
+      "about": "حول",
+      "bot": "بوت",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "إعدادات المحادثة الصوتية",
@@ -117,11 +129,11 @@
     },
     "download": {
       "starting": "...بدأ التحميل",
-      "failed": "Could not auto-download, please try again later",
+      "failed": "لم يتم التنزيل التلقائيو الرجاء المحاولة لاحقاً",
       "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "prompt": "أنقر للتنزيل",
+      "download_now": "تنزيل الآن",
+      "download_for": "تنزيل إلى %platform% (%ext%)"
     }
   },
   "components": {
@@ -224,13 +236,14 @@
         "makePublic": "جعل الغرفة عامة",
         "makePrivate": "جعل الغرفة خاصة",
         "renamePublic": "اختار اسم الغرفة العامة",
-        "renamePrivate": "اختار اسم الغرفة الخاصة"
+        "renamePrivate": "اختار اسم الغرفة الخاصة",
+        "chatDisabled": "تعطيل المحادثة"
       }
     },
     "followingOnline": {
       "people": "أشخاص",
       "online": "اونلاين",
-      "noOnline": "لديك 0 اصدفاء اونلاين الان",
+      "noOnline": "لديك 0 اصدقاء اونلاين الان",
       "showMore": "اظهر المزيد"
     },
     "upcomingRoomsCard": {
@@ -239,7 +252,7 @@
     },
     "search": {
       "placeholder": "ابحث عن غرف، اشخاص او تصنيفات",
-      "placeholderShort": "Search"
+      "placeholderShort": "بحث"
     },
     "settingsDropdown": {
       "profile": "الحساب الشخصي",
@@ -254,7 +267,7 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "تنزيل التطبيق"
     }
   },
   "modules": {
@@ -289,7 +302,8 @@
       "sendMessage": "أرسل رسالة",
       "whisper": "إرسل رسالة خاصة",
       "welcomeMessage": "مرحبا بك في المحادثة!",
-      "roomDescription": "وصف الغرفة"
+      "roomDescription": "وصف الغرفة",
+      "disabled": "تم تعطيل المحادثة"
     },
     "roomStatus": {
       "fuelingRocket": "عبي الصاروخ بنزين",

@@ -1,10 +1,11 @@
 defmodule Beef.Schemas.Room do
   use Ecto.Schema
+  use Broth.Message.Push
   import Ecto.Changeset
   @timestamps_opts [type: :utc_datetime_usec]
 
   alias Beef.Schemas.User
-
+  @type chatMode :: :default | :disabled | :follower_only
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
           name: String.t(),
@@ -15,9 +16,9 @@ defmodule Beef.Schemas.Room do
           peoplePreviewList: [User.Preview.t()]
         }
 
-  @derive {Poison.Encoder, only: ~w(id name description numPeopleInside isPrivate
-           creatorId peoplePreviewList voiceServerId inserted_at)a}
-  @derive {Jason.Encoder, only: ~w(id name description numPeopleInside isPrivate
+  @derive {Jason.Encoder,
+           only:
+             ~w(id name description numPeopleInside isPrivate chatMode chatThrottle autoSpeaker
            creatorId peoplePreviewList voiceServerId inserted_at)a}
 
   @primary_key {:id, :binary_id, []}
@@ -27,7 +28,9 @@ defmodule Beef.Schemas.Room do
     field(:numPeopleInside, :integer)
     field(:isPrivate, :boolean)
     field(:voiceServerId, :string)
-    field(:autoSpeaker, :boolean, virtual: true)
+    field(:autoSpeaker, :boolean, default: false)
+    field(:chatThrottle, :integer, default: 1000)
+    field(:chatMode, Ecto.Enum, values: [:default, :disabled, :follower_only])
 
     # TODO: change this to creator!
     belongs_to(:user, User, foreign_key: :creatorId, type: :binary_id)
@@ -50,7 +53,10 @@ defmodule Beef.Schemas.Room do
       :isPrivate,
       :numPeopleInside,
       :voiceServerId,
-      :description
+      :description,
+      :chatMode,
+      :chatThrottle,
+      :autoSpeaker
     ])
     |> validate_required([:name, :creatorId])
     |> validate_length(:name, min: 2, max: 60)
@@ -64,8 +70,9 @@ defmodule Beef.Schemas.Room do
         ) :: Ecto.Changeset.t()
   def edit_changeset(room, attrs) do
     room
-    |> cast(attrs, [:id, :name, :isPrivate, :description])
+    |> cast(attrs, [:id, :name, :isPrivate, :description, :autoSpeaker, :chatMode, :chatThrottle])
     |> validate_length(:name, min: 2, max: 60)
+    |> validate_number(:chatThrottle, greater_than_or_equal_to: 0)
     |> validate_length(:description, max: 500)
   end
 end

@@ -73,7 +73,8 @@
       "soundSettings": "skaņas iestatījumi",
       "deleteAccount": "dzēst kontu",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Šī lapa tika pazaudēta sarunā.",
@@ -100,7 +101,18 @@
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Mikrofona iestatījumi",
@@ -230,7 +242,8 @@
         "makePublic": "padarīt istabu publisku",
         "makePrivate": "padarīt istabu privātu",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -295,7 +308,8 @@
       "sendMessage": "Nosūtīt ziņu",
       "whisper": "Čukstēt",
       "welcomeMessage": "Laipni lūgti čatā!",
-      "roomDescription": "istabas apraksts"
+      "roomDescription": "istabas apraksts",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Raķetes uzpilde",

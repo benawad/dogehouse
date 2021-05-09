@@ -23,7 +23,7 @@ defmodule Broth.Routes.Room do
             |> put_resp_content_type("application/json")
             |> send_resp(
               400,
-              Poison.encode!(%{error: "room does not exist"})
+              Jason.encode!(%{error: "room does not exist"})
             )
 
           room.isPrivate ->
@@ -31,7 +31,7 @@ defmodule Broth.Routes.Room do
             |> put_resp_content_type("application/json")
             |> send_resp(
               400,
-              Poison.encode!(%{error: "room is not public"})
+              Jason.encode!(%{error: "room is not public"})
             )
 
           true ->
@@ -39,7 +39,7 @@ defmodule Broth.Routes.Room do
             |> put_resp_content_type("application/json")
             |> send_resp(
               200,
-              Poison.encode!(%{room: room})
+              Jason.encode!(%{room: room})
             )
         end
 
@@ -48,7 +48,7 @@ defmodule Broth.Routes.Room do
         |> put_resp_content_type("application/json")
         |> send_resp(
           400,
-          Poison.encode!(%{error: "invalid id"})
+          Jason.encode!(%{error: "invalid id"})
         )
     end
   end

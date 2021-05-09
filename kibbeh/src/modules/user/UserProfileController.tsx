@@ -87,8 +87,15 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
               {t("pages.myProfile.overlaySettings")}
             </Button>
           ) : null}
-          <Button size="small" onClick={() => push(`/sound-effect-settings`)}>
+          <Button
+            style={{ marginRight: "10px" }}
+            size="small"
+            onClick={() => push(`/sound-effect-settings`)}
+          >
             {t("pages.myProfile.soundSettings")}
+          </Button>
+          <Button size="small" onClick={() => push(`/privacy-settings`)}>
+            {t("pages.myProfile.privacySettings")}
           </Button>
         </div>
       )}

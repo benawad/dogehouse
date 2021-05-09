@@ -21,7 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Bisu | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
+    "deafenedTitle": "Menulikan | DogeHouse",
     "dashboard": "Dasbor",
     "connectionTaken": "Koneksi Diambil"
   },
@@ -71,8 +71,9 @@
       "voiceSettings": "Pengaturan suara",
       "soundSettings": "Pengaturan bunyi",
       "deleteAccount": "Hapus akun",
-      "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Maaf, kami tidak bisa menemukan pengguna itu"
+      "overlaySettings": "Pergi ke pengaturan lapisan",
+      "couldNotFindUser": "Maaf, kami tidak bisa menemukan pengguna itu",
+      "privacySettings": "Pengaturan privasi"
     },
     "notFound": {
       "whoopsError": "Oops! Halaman ini hilang dalam percakapan.",
@@ -81,7 +82,7 @@
     },
     "room": {
       "speakers": "Pembicara",
-      "requestingToSpeak": "Meminta untuk bicara",
+      "requestingToSpeak": "Mohon bicara",
       "listeners": "Pendengar",
       "allowAll": "Izinkan semua",
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
@@ -98,19 +99,33 @@
       "copyProfileUrl": "Salin url profil",
       "urlCopied": "URL disalin ke papan klip",
       "unfollow": "Berhenti mengikuti",
-      "about": "About",
-      "bot": "Bot"
+      "about": "Tentang",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "Tentang",
+        "rooms": "Ruangan",
+        "scheduled": "Terjadwal",
+        "recorded": "Terekam",
+        "clips": "Klip"
+      },
+      "block": "Blokir",
+      "unblock": "Berhenti blokir",
+      "sendDM": "Kirim DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Pengaturan Suara",
       "mic": "Mikrofon:",
       "permissionError": "Mikrofon tidak ditemukan, mungkin kamu belum memasangnya atau belum memberikan website ini akses.",
       "refresh": "Muat ulang daftar mikrofon",
-      "volume": "Volume:"
+      "volume": "Suara:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "input": {
+        "errorMsg": "Judul aplikasi tidak valid",
+        "label": "Memasukkan judul aplikasi"
+      },
+      "header": "Pengaturan lapisan"
     },
     "download": {
       "starting": "Mengunduh...",
@@ -136,7 +151,7 @@
       "leave": "Keluar",
       "inviteUsersToRoomBtn": "Undang pengguna ke ruangan",
       "invite": "Undang",
-      "toggleMuteMicBtn": "Atur mikrofon untuk membisu",
+      "toggleMuteMicBtn": "Beralih mikrofon untuk membisu",
       "mute": "Bisu",
       "unmute": "Suarakan",
       "makeRoomPublicBtn": "Buat ruangan publik!",
@@ -144,14 +159,14 @@
       "speaker": "Pembicara",
       "listener": "Pendengar",
       "chat": "Percakapan",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Beralih menulikan",
+      "deafen": "menulikan",
+      "undeafen": "Izinkan suara"
     },
     "deviceNotSupported": {
       "notSupported": "Perangkatmu saat ini belum didukung. Kamu bisa membuat",
       "linkText": "isu di GitHub",
-      "addSupport": "dan saya akan coba menambahkan dukungan untuk perangkatmu."
+      "addSupport": "dan kami akan coba menambahkan dukungan untuk perangkatmu."
     },
     "inviteButton": {
       "invited": "Diundang!",
@@ -163,12 +178,12 @@
       "tryAgain": "Coba lagi"
     },
     "keyboardShortcuts": {
-      "setKeybind": "Atur tombol",
+      "setKeybind": "Beralih tombol",
       "listening": "Menunggu tombol",
-      "toggleMuteKeybind": "Atur tombol untuk membisu",
-      "togglePushToTalkKeybind": "Atur tombol klik-untuk-bicara",
-      "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleMuteKeybind": "Beralih tombol untuk membisu",
+      "togglePushToTalkKeybind": "Beralih tombol klik-untuk-bicara",
+      "toggleOverlayKeybind": "Beralih tombol lapisan",
+      "toggleDeafKeybind": "Beralih tombol menulikan"
     },
     "userVolumeSlider": { "noAudioMessage": "Perangkat audio tidak ditemukan" },
     "addToCalendar": { "add": "Tambahkan ke Kalender" },
@@ -203,7 +218,7 @@
         "usernameLabel": "Nama pengguna",
         "bioError": "Maksimal 160 karakter",
         "bioLabel": "Biodata",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bannerUrlLabel": "Spanduk Twitter URL"
       },
       "profileModal": {
         "blockUserConfirm": "Anda yakin memblokir pengguna ini untuk bergabung ke ruangan yang anda buat?",
@@ -224,7 +239,8 @@
         "makePublic": "buat ruangan jadi publik",
         "makePrivate": "buat ruangan jadi privat",
         "renamePublic": "Ubah nama ruangan publik",
-        "renamePrivate": "Ubah nama ruangan privat"
+        "renamePrivate": "Ubah nama ruangan privat",
+        "chatDisabled": "nonaktifkan percakapan"
       }
     },
     "followingOnline": {
@@ -254,7 +270,7 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Berhentikan Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Unduh aplikasi"
     }
   },
   "modules": {
@@ -289,7 +305,8 @@
       "sendMessage": "Kirim Pesan",
       "whisper": "Bisikan",
       "welcomeMessage": "Selamat datang di percakapan!",
-      "roomDescription": "Deskripsi ruangan"
+      "roomDescription": "Deskripsi ruangan",
+      "disabled": "percakapan sudah dinonaktifkan"
     },
     "roomStatus": {
       "fuelingRocket": "Mengisi bahan bakar roket",
@@ -303,6 +320,6 @@
       "galacticDoge": "Doge di galaksi",
       "spottedLife": "Planet dengan kehidupan ditemukan"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Feed kamu" }
   }
 }

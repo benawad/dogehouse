@@ -73,7 +73,8 @@
       "soundSettings": "עבור להגדרות סאונד",
       "deleteAccount": "מחק חשבון",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "סליחה, לא הצלחנו למצוא את משתמש זה."
+      "couldNotFindUser": "סליחה, לא הצלחנו למצוא את משתמש זה.",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "אופס! הדף הזה הלך לאיבוד בשיחה.",
@@ -100,7 +101,18 @@
       "urlCopied": "הקישור הועתק",
       "unfollow": "הפסק מעקב",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "הגדרות קול",
@@ -222,7 +234,8 @@
         "makePublic": "הפוך חדר לציבורי",
         "makePrivate": "הפוך חדר לפרטי",
         "renamePublic": "הגדר את שם החדר הציבורי",
-        "renamePrivate": "הגדר את השם של החדר הפרטי"
+        "renamePrivate": "הגדר את השם של החדר הפרטי",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -285,7 +298,8 @@
       "sendMessage": "שלח הודעה",
       "whisper": "הודעה פרטית",
       "welcomeMessage": "ברוכים הבאים לצ'אט!",
-      "roomDescription": "תיאור החדר"
+      "roomDescription": "תיאור החדר",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "מטדלק את הרקטה",
