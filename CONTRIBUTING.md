@@ -68,7 +68,7 @@ Navigate to `/kibbeh`
 
 ## Supporting translation in new components
 1. Add your translation key into the English `translation.json` located in `kibbeh/public/locales/en/translation.json`. Make sure it is put in an appropriate section that makes sense.
-2. Run `yarn i18`. This will generate all fields into all other `translation.json`.
+2. Run `yarn i18`. This will sync all fields in all languages, if field doesn't exist it will copy it over from `en`.
 3. Use your translation key in your code. This is done by using `useTypeSafeTranslation` like this: `const { t } = useTypeSafeTranslation();`. You can now call `t` and get your desired translation key.
 
 ## Devcontainer Full Local Development
