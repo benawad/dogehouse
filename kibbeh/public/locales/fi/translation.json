@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Lista seuraamistasi käyttäjistä, jotka eivät ole yksityisessä huoneessa.",
       "currentRoom": "Paikalla:",
-      "startPrivateRoom": "Luo yksityinen huone heidän kanssaan"
+      "startPrivateRoom": "Luo yksityinen huone heidän kanssaan",
+      "title": "People"
     },
-    "followList": { "followHim": "Seuraa", "followingHim": "Seurannassa" },
+    "followList": {
+      "followHim": "Seuraa",
+      "followingHim": "Seurannassa",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Luo huone",
       "refresh": "Päivitä",

@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "Personer du följer",
       "currentRoom": "Ansluten till:",
-      "startPrivateRoom": "Skapa ett privat rum med dem"
+      "startPrivateRoom": "Skapa ett privat rum med dem",
+      "title": "People"
     },
-    "followList": { "followHim": "Följ", "followingHim": "Följer" },
+    "followList": {
+      "followHim": "Följ",
+      "followingHim": "Följer",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Skapa ett rum",
       "refresh": "Uppdatera",

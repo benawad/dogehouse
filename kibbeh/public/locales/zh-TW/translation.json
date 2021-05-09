@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "你追蹤的且不在私人房間內的使用者",
       "currentRoom": "目前的房間:",
-      "startPrivateRoom": "開啟私人房間"
+      "startPrivateRoom": "開啟私人房間",
+      "title": "People"
     },
-    "followList": { "followHim": "追蹤", "followingHim": "已追蹤" },
+    "followList": {
+      "followHim": "追蹤",
+      "followingHim": "已追蹤",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "新增房間",
       "refresh": "重新整理",

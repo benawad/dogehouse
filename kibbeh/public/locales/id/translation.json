@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "Daftar pengguna yang tidak ada di ruangan privat dan kamu ikuti.",
       "currentRoom": "Saat ini di:",
-      "startPrivateRoom": "Mulai ruangan privat dengan mereka"
+      "startPrivateRoom": "Mulai ruangan privat dengan mereka",
+      "title": "People"
     },
-    "followList": { "followHim": "Ikuti", "followingHim": "Mengikuti" },
+    "followList": {
+      "followHim": "Ikuti",
+      "followingHim": "Mengikuti",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Buat Ruangan",
       "refresh": "Segarkan",

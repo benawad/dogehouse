@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Lys van gebruikers wie nie in private kamers is nie, en vir wie jy volg",
       "currentRoom": "tans in:",
-      "startPrivateRoom": "Begin 'n private kamer saam met hulle"
+      "startPrivateRoom": "Begin 'n private kamer saam met hulle",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Skep Kamer",
       "refresh": "Refresh",

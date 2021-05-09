@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Списък от потребители, които не са в ",
       "currentRoom": "в момента в:",
-      "startPrivateRoom": "start a private room with them"
+      "startPrivateRoom": "start a private room with them",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Създай стая",
       "refresh": "Опресни",

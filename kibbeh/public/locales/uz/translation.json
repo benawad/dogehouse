@@ -38,11 +38,15 @@
     "followingOnlineList": {
       "listHeader": "Yopiq xonada bo'lmagan va siz obuna bo'lgan foydalanuvchilar ro'yxati.",
       "currentRoom": "Hozirgi xona",
-      "startPrivateRoom": "Maxsus xona yarating"
+      "startPrivateRoom": "Maxsus xona yarating",
+      "title": "People"
     },
     "followList": {
       "followHim": "Obuna bo'lish",
-      "followingHim": "Obunachisiz "
+      "followingHim": "Obunachisiz ",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "Xona yaratish",

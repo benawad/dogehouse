@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "List of users that are not in a private room and you follow.",
       "currentRoom": "orain:",
-      "startPrivateRoom": "hasi saio pribatu bat"
+      "startPrivateRoom": "hasi saio pribatu bat",
+      "title": "People"
     },
-    "followList": { "followHim": "Follow", "followingHim": "Following" },
+    "followList": {
+      "followHim": "Follow",
+      "followingHim": "Following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Gela Sortu",
       "editRoom": "Edit Room",

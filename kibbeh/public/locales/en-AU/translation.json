@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "˙ʍoꞁꞁoɟ noʎ puɐ ɯooɹ ǝʇɐʌᴉɹd ɐ uᴉ ʇou ǝɹɐ ʇɐɥʇ sɹǝsn ɟo ʇsᴉꞀ",
       "currentRoom": ":uᴉ ʎꞁʇuǝɹɹnɔ",
-      "startPrivateRoom": "ɯǝɥʇ ɥʇᴉʍ ɯooɹ ǝʇɐʌᴉɹd ɐ ʇɹɐʇs"
+      "startPrivateRoom": "ɯǝɥʇ ɥʇᴉʍ ɯooɹ ǝʇɐʌᴉɹd ɐ ʇɹɐʇs",
+      "title": "People"
     },
-    "followList": { "followHim": "ʍoꞁꞁoɟ", "followingHim": "ƃuᴉʍoꞁꞁoɟ" },
+    "followList": {
+      "followHim": "ʍoꞁꞁoɟ",
+      "followingHim": "ƃuᴉʍoꞁꞁoɟ",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "ɯooᴚ ǝʇɐǝɹƆ",
       "refresh": "ɥsǝɹɟǝᴚ",

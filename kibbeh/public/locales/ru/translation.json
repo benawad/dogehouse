@@ -38,11 +38,15 @@
     "followingOnlineList": {
       "listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
       "currentRoom": "Текущая комната",
-      "startPrivateRoom": "Создать приватную комнату"
+      "startPrivateRoom": "Создать приватную комнату",
+      "title": "People"
     },
     "followList": {
       "followHim": "Подписаться",
-      "followingHim": "Вы подписаны"
+      "followingHim": "Вы подписаны",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "Создать комнату",

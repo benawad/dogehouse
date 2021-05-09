@@ -44,9 +44,16 @@
     "followingOnlineList": {
       "listHeader": "List uv yüzərz þat ar not in ä prïvit rüm and yü folö.",
       "currentRoom": "Kərəntlë in:",
-      "startPrivateRoom": "Stort ä prïvit rüm wið þem"
+      "startPrivateRoom": "Stort ä prïvit rüm wið þem",
+      "title": "People"
     },
-    "followList": { "followHim": "Folö", "followingHim": "Folöiŋ" },
+    "followList": {
+      "followHim": "Folö",
+      "followingHim": "Folöiŋ",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Nü̈ Rüm",
       "editRoom": "Edit Rüm",

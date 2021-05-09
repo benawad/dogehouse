@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "Lijst van gebruikers die je volgt en niet in een privékamer zijn.",
       "currentRoom": "Momenteel in:",
-      "startPrivateRoom": "Start een privékamer met deze persoon"
+      "startPrivateRoom": "Start een privékamer met deze persoon",
+      "title": "People"
     },
-    "followList": { "followHim": "Volg", "followingHim": "Volgend" },
+    "followList": {
+      "followHim": "Volg",
+      "followingHim": "Volgend",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Kamer maken",
       "refresh": "Verversen",

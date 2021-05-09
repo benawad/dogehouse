@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "प्रयोगकर्ताहरूको सूची जो प्राइवेट रूम छैनन् र तपाइँ फॉलो गर्नुहुन्छा।",
       "currentRoom": "अहिले हुनुहुन्छ:",
-      "startPrivateRoom": "यीनीहरू संग एक प्राइवेट रूम शुरू गर्नुहोस्"
+      "startPrivateRoom": "यीनीहरू संग एक प्राइवेट रूम शुरू गर्नुहोस्",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "रूम बनाउनुहोस",
       "refresh": "Refresh",

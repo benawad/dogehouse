@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Lista de utënc che te stas do y che ne é nia te na ciamena privata.",
       "currentRoom": "Te chësc mumënt este colié a:",
-      "startPrivateRoom": "Scomëncia na ciamena privata cun ël"
+      "startPrivateRoom": "Scomëncia na ciamena privata cun ël",
+      "title": "People"
     },
-    "followList": { "followHim": "Stá do", "followingHim": "Bele sté do" },
+    "followList": {
+      "followHim": "Stá do",
+      "followingHim": "Bele sté do",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Cheriëia na ciamena",
       "refresh": "Ciaria danü",

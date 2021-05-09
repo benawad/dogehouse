@@ -44,9 +44,16 @@
     "followingOnlineList": {
       "listHeader": "لیست کاربرانی که در یک اتاق خصوصی نیستند و آنها را دنبال می کنید.",
       "currentRoom": "در حال حاضر در:",
-      "startPrivateRoom": "با آنها یک اتاق خصوصی راه اندازی کنید"
+      "startPrivateRoom": "با آنها یک اتاق خصوصی راه اندازی کنید",
+      "title": "People"
     },
-    "followList": { "followHim": "دنبال کردن", "followingHim": "دنبال شده" },
+    "followList": {
+      "followHim": "دنبال کردن",
+      "followingHim": "دنبال شده",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "اتاق جدید",
       "editRoom": "ویرایش اتاق",

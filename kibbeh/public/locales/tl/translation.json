@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "Listahan nang mga tao na hindi pribado at iyong sinundan",
       "currentRoom": "kasalukuyan nasa:",
-      "startPrivateRoom": "magsimula ng isang pribadong silid sa kanila"
+      "startPrivateRoom": "magsimula ng isang pribadong silid sa kanila",
+      "title": "People"
     },
-    "followList": { "followHim": "I-follow", "followingHim": "sinusubaybayan" },
+    "followList": {
+      "followHim": "I-follow",
+      "followingHim": "sinusubaybayan",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Bagong silid",
       "editRoom": "Edit Room",

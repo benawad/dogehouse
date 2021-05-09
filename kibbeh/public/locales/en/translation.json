@@ -44,13 +44,17 @@
       "visit_gh": "Visit GitHub Releases"
     },
     "followingOnlineList": {
+      "title": "People",
       "listHeader": "List of users that are not in a private room and you follow.",
       "currentRoom": "Currently in:",
       "startPrivateRoom": "Start a private room with them"
     },
     "followList": {
+      "title": "People",
       "followHim": "Follow",
-      "followingHim": "Following"
+      "followingHim": "Following",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "New room",

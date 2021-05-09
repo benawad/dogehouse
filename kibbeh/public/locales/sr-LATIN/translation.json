@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Spisak korisnika koji nisu u privatnoj sobi i koje pratite.",
       "currentRoom": "trenutno u:",
-      "startPrivateRoom": "započni privatnu sobu sa njima"
+      "startPrivateRoom": "započni privatnu sobu sa njima",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Kreiraj sobu",
       "refresh": "Refresh",

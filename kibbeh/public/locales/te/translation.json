@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "ప్రైవేట్ గదిలో లేని మరియు మీరు అనుసరించే వినియోగదారుల జాబితా.",
       "currentRoom": "ప్రస్తుతం:",
-      "startPrivateRoom": "వారితో ఒక ప్రైవేట్ గదిని ప్రారంభించండి"
+      "startPrivateRoom": "వారితో ఒక ప్రైవేట్ గదిని ప్రారంభించండి",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "గదిని సృష్టించండి",
       "refresh": "Refresh",

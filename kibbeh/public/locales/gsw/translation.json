@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Benutzer, wo du fougsch, aber nid imne private Ruum si.",
       "currentRoom": "Grad in:",
-      "startPrivateRoom": "En private Ruum mit däm Benutzer starte"
+      "startPrivateRoom": "En private Ruum mit däm Benutzer starte",
+      "title": "People"
     },
-    "followList": { "followHim": "Folge", "followingHim": "Am folge" },
+    "followList": {
+      "followHim": "Folge",
+      "followingHim": "Am folge",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Ruum erstelle",
       "refresh": "Aktualisiere",

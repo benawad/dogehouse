@@ -38,11 +38,15 @@
     "followingOnlineList": {
       "listHeader": "যেসব ইউজারকে আপনি অনুসরণ করেন কিন্তু এখন তারা কোনো প্রাইভেট রুম এ নেই।",
       "currentRoom": "ভেতরে আছেন:",
-      "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন"
+      "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন",
+      "title": "People"
     },
     "followList": {
       "followHim": "অনুসরণ করুন",
-      "followingHim": "অনুসরণ করছেন"
+      "followingHim": "অনুসরণ করছেন",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "রুম বানান",

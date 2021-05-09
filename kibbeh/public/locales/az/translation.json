@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Gizli otaqda olmayan və sizin izlədiyiniz istifadəçilər",
       "currentRoom": "Hazırda:",
-      "startPrivateRoom": "Gizli otaq yaradın"
+      "startPrivateRoom": "Gizli otaq yaradın",
+      "title": "People"
     },
-    "followList": { "followHim": "İzlə", "followingHim": "İzlənir" },
+    "followList": {
+      "followHim": "İzlə",
+      "followingHim": "İzlənir",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Otaq yaratmaq",
       "refresh": "Yenilə",

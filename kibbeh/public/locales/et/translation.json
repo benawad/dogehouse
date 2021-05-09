@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Kasutajad, keda jälgid ja kes ei ole privaatses ruumis",
       "currentRoom": "praegu sees:",
-      "startPrivateRoom": "loo nendega privaatne ruum"
+      "startPrivateRoom": "loo nendega privaatne ruum",
+      "title": "People"
     },
-    "followList": { "followHim": "jälgi", "followingHim": "jälgid" },
+    "followList": {
+      "followHim": "jälgi",
+      "followingHim": "jälgid",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Loo ruum",
       "refresh": "Värskenda",

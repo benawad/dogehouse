@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "Senin takip ettiğin ve özel odada olmayan kullanıcıların listesi.",
       "currentRoom": "Şu anki oda:",
-      "startPrivateRoom": "Onlarla özel bir oda oluştur"
+      "startPrivateRoom": "Onlarla özel bir oda oluştur",
+      "title": "People"
     },
-    "followList": { "followHim": "Takip Et", "followingHim": "Takiptesin" },
+    "followList": {
+      "followHim": "Takip Et",
+      "followingHim": "Takiptesin",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Oda oluştur",
       "refresh": "Yenile",

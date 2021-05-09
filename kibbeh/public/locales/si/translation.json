@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "පෞද්ගලික සමූහයක නොමැති ඔබ හඹායන පරිශීලකයින්",
       "currentRoom": "දැනට සිටින්නේ:",
-      "startPrivateRoom": "ඔවුන් සමග පෞද්ගලික සමූහයක් අරඹන්න"
+      "startPrivateRoom": "ඔවුන් සමග පෞද්ගලික සමූහයක් අරඹන්න",
+      "title": "People"
     },
-    "followList": { "followHim": "හඹා යන්න", "followingHim": "හඹා යන්නන්" },
+    "followList": {
+      "followHim": "හඹා යන්න",
+      "followingHim": "හඹා යන්නන්",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "සමූහයක් අරඹන්න",
       "refresh": "Refresh",

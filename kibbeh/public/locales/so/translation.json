@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Liiska isticmaaleyaasha aan ku jirin qol gaar ah oo aad raacday.",
       "currentRoom": "hadda ku jira:",
-      "startPrivateRoom": "qol gaar ah la bilow"
+      "startPrivateRoom": "qol gaar ah la bilow",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Abuur qol",
       "refresh": "Cusbooneysii",

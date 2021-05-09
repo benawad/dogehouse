@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "רשימת משתמשים שאתה עוקב אחרייהם שלא בחדר פרטי.",
       "currentRoom": "ב:",
-      "startPrivateRoom": "צור חדר פרטי איתם"
+      "startPrivateRoom": "צור חדר פרטי איתם",
+      "title": "People"
     },
-    "followList": { "followHim": "עקוב", "followingHim": "עוקב" },
+    "followList": {
+      "followHim": "עקוב",
+      "followingHim": "עוקב",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "צור חדר",
       "refresh": "טען מחדש",

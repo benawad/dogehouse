@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "フォローしていて、非公開ルームには参加していないユーザー",
       "currentRoom": "参加中:",
-      "startPrivateRoom": "非公開ルームを開始"
+      "startPrivateRoom": "非公開ルームを開始",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "ルーム作成",
       "refresh": "更新",

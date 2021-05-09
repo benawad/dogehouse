@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Benutzer, denen du folgst, die nicht in einem privaten Raum sind.",
       "currentRoom": "Zurzeit in:",
-      "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer eröffnen"
+      "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer eröffnen",
+      "title": "People"
     },
-    "followList": { "followHim": "Folgen", "followingHim": "Entfolgen" },
+    "followList": {
+      "followHim": "Folgen",
+      "followingHim": "Entfolgen",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Raum erstellen",
       "refresh": "Aktualisieren",

@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "Liste over brukere som ikke er i et privat rom, og som du følger.",
       "currentRoom": "For tiden i:",
-      "startPrivateRoom": "Start et privat rom med dem"
+      "startPrivateRoom": "Start et privat rom med dem",
+      "title": "People"
     },
-    "followList": { "followHim": "følg", "followingHim": "følger" },
+    "followList": {
+      "followHim": "følg",
+      "followingHim": "følger",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Lag et rom",
       "refresh": "Last inn på nytt",

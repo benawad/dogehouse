@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "قائمة المستخدمين غير المتواجدين في غرفة خاصة وأنت تتابعهم.",
       "currentRoom": "حاليا في:",
-      "startPrivateRoom": "ابدأ غرفة خاصة معهم"
+      "startPrivateRoom": "ابدأ غرفة خاصة معهم",
+      "title": "People"
     },
-    "followList": { "followHim": "تابع", "followingHim": "متابع" },
+    "followList": {
+      "followHim": "تابع",
+      "followingHim": "متابع",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "ابدأ غرفة",
       "refresh": "تحديث",

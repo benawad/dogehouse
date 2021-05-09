@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "Lista di utenti che segui e che non sono in una stanza privata.",
       "currentRoom": "In questo momento è connesso a:",
-      "startPrivateRoom": "Avvia una stanza privata con lui"
+      "startPrivateRoom": "Avvia una stanza privata con lui",
+      "title": "People"
     },
-    "followList": { "followHim": "Segui", "followingHim": "Segui già" },
+    "followList": {
+      "followHim": "Segui",
+      "followingHim": "Segui già",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Crea una stanza",
       "refresh": "Ricarica",

@@ -38,11 +38,15 @@
     "followingOnlineList": {
       "listHeader": "jan ni li lon ala e tomo pi jan wan. sina lukin e jan ni.",
       "currentRoom": "sina lon:",
-      "startPrivateRoom": "pali e tenpo poka ona"
+      "startPrivateRoom": "pali e tenpo poka ona",
+      "title": "People"
     },
     "followList": {
       "followHim": "o lukin",
-      "followingHim": "sina lukin e ona"
+      "followingHim": "sina lukin e ona",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "pali e tomo",

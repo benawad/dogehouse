@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "وہ لوگ جنھیں آپ فالو کرتیں ہیں ور وو اس وقت نجی روم میں نہیں ہیں",
       "currentRoom": "موجودہ روم:",
-      "startPrivateRoom": "ان کے ساتھ ایک نجی روم شروع کریں"
+      "startPrivateRoom": "ان کے ساتھ ایک نجی روم شروع کریں",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "روم بنائیں",
       "refresh": "ریفریش",

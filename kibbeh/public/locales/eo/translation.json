@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Listo de uzantoj, kiuj ne estas en privata ĉambro kaj kiun vi sekvas.",
       "currentRoom": "nuntempe en:",
-      "startPrivateRoom": "komencu privatan ĉambron kun ili"
+      "startPrivateRoom": "komencu privatan ĉambron kun ili",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Kreu Ĉambron",
       "refresh": "Refreŝigu",

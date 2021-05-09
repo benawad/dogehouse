@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Жабық бөлмеде емес сіз жазылған қолданушылар тізімі",
       "currentRoom": "қазір :",
-      "startPrivateRoom": "Олармен жабық бөлме ашу"
+      "startPrivateRoom": "Олармен жабық бөлме ашу",
+      "title": "People"
     },
-    "followList": { "followHim": "жазылу", "followingHim": "Сіз жазылдыңыз" },
+    "followList": {
+      "followHim": "жазылу",
+      "followingHim": "Сіз жазылдыңыз",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Бөлме ашу",
       "refresh": "Жаңарту",

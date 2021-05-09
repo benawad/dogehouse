@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "您所关注的不在私人聊天室的人。",
       "currentRoom": "所在的聊天室:",
-      "startPrivateRoom": "跟ta进入私人聊天室"
+      "startPrivateRoom": "跟ta进入私人聊天室",
+      "title": "People"
     },
-    "followList": { "followHim": "关注ta", "followingHim": "已经关注" },
+    "followList": {
+      "followHim": "关注ta",
+      "followingHim": "已经关注",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "新建聊天室",
       "refresh": "刷新",

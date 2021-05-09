@@ -38,7 +38,8 @@
     "followingOnlineList": {
       "listHeader": "Xρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
       "currentRoom": "Aυτή τη στιγμή βρίσκεστε σε:",
-      "startPrivateRoom": "Δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
+      "startPrivateRoom": "Δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους",
+      "title": "People"
     },
     "download": {
       "starting": "Εκίνηση κατεβάσματως...",
@@ -51,7 +52,10 @@
     "followList": {
       "followHim": "Ακολουθήστε",
       "ακολουθήστε": "Ακολουθείτε",
-      "followingHim": "Ακολουθείτε"
+      "followingHim": "Ακολουθείτε",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "Δημιουργία δωματίου",

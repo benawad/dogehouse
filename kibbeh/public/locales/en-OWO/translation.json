@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "<3 Wist of usews that awe nut in a pwivate woom and uu fowwow. :3",
       "currentRoom": "UwU Cuwwentwy in:",
-      "startPrivateRoom": "<3 Stawt a pwivate woom with them x3"
+      "startPrivateRoom": "<3 Stawt a pwivate woom with them x3",
+      "title": "People"
     },
-    "followList": { "followHim": "Follow", "followingHim": "Following" },
+    "followList": {
+      "followHim": "Follow",
+      "followingHim": "Following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "OwO Cweate Woom (ʘᗩʘ')",
       "refresh": " Wefwesh (◠‿◠✿)",

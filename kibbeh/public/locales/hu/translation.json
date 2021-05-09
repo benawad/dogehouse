@@ -36,9 +36,16 @@
     "followingOnlineList": {
       "listHeader": "Követett felhasználók nyilvános szobában.",
       "currentRoom": "Jelenleg itt:",
-      "startPrivateRoom": "Privát szoba létrehozása velük"
+      "startPrivateRoom": "Privát szoba létrehozása velük",
+      "title": "People"
     },
-    "followList": { "followHim": "követés", "followingHim": "követve" },
+    "followList": {
+      "followHim": "követés",
+      "followingHim": "követve",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Szoba létrehozása",
       "refresh": "Frissítés",

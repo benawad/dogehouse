@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "ห้องสาธารณะที่ผู้คนที่คุณกำลังติดตามใช้งานอยู่",
       "currentRoom": "ขณะนี้อยู่ใน:",
-      "startPrivateRoom": "สร้างห้องส่วนตัว"
+      "startPrivateRoom": "สร้างห้องส่วนตัว",
+      "title": "People"
     },
-    "followList": { "followHim": "ติดตาม", "followingHim": "กำลังติดตาม" },
+    "followList": {
+      "followHim": "ติดตาม",
+      "followingHim": "กำลังติดตาม",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "สร้างห้อง",
       "refresh": "รีเฟรช",

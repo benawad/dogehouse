@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Danh sách người dùng bạn theo dõi đang ở trong một phòng nào đó mà không phải là phòng riêng.",
       "currentRoom": "phòng hiện tại:",
-      "startPrivateRoom": "tạo phòng riêng tư với họ"
+      "startPrivateRoom": "tạo phòng riêng tư với họ",
+      "title": "People"
     },
-    "followList": { "followHim": "theo dõi", "followingHim": "đang theo dõi" },
+    "followList": {
+      "followHim": "theo dõi",
+      "followingHim": "đang theo dõi",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Tạo phòng",
       "refresh": "Làm mới",

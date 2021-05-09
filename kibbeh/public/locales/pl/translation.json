@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Lista użytkowników którzy nie są w prywatnym pokoju i których obserwujesz.",
       "currentRoom": "Obecnie w:",
-      "startPrivateRoom": "Załóż z nim prywatny pokój"
+      "startPrivateRoom": "Załóż z nim prywatny pokój",
+      "title": "People"
     },
-    "followList": { "followHim": "Obserwuj", "followingHim": "Obserwujący" },
+    "followList": {
+      "followHim": "Obserwuj",
+      "followingHim": "Obserwujący",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Nowy pokój",
       "editRoom": "Edytuj pokój",

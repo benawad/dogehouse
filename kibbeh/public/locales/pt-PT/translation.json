@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "Lista de utilizadores que segues e que não se encontram numa sala privada.",
       "currentRoom": "Atualmente em:",
-      "startPrivateRoom": "Iniciar uma sala privada com eles"
+      "startPrivateRoom": "Iniciar uma sala privada com eles",
+      "title": "People"
     },
-    "followList": { "followHim": "seguir", "followingHim": "a seguir" },
+    "followList": {
+      "followHim": "seguir",
+      "followingHim": "a seguir",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Criar sala",
       "refresh": "Atualizar",

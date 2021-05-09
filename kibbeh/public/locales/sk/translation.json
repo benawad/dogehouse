@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "Zoznam používateľov ktorých sleduješ a niesú v súkromnej miestnosti",
       "currentRoom": "aktuálne v:",
-      "startPrivateRoom": "začať s nimi súkromnú miestnosť"
+      "startPrivateRoom": "začať s nimi súkromnú miestnosť",
+      "title": "People"
     },
-    "followList": { "followHim": "Sledovať", "followingHim": "Sledovaný" },
+    "followList": {
+      "followHim": "Sledovať",
+      "followingHim": "Sledovaný",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Vytvoriť miestnosť",
       "refresh": "Obnoviť",

@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Lietotāju saraksts, kuri ir publiskā istabā un kuriem Jūs sekojat.",
       "currentRoom": "Pašlaik istabā:",
-      "startPrivateRoom": "Izveidot privātu istabu ar viņiem"
+      "startPrivateRoom": "Izveidot privātu istabu ar viņiem",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Izveidot istabu",
       "refresh": "Atjaunot",

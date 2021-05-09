@@ -38,11 +38,15 @@
     "followingOnlineList": {
       "listHeader": "Список користувачів, які не перебувають у приватній кімнаті і за якими ви стежите",
       "currentRoom": "зараз у:",
-      "startPrivateRoom": "почніть з ними приватну кімнату"
+      "startPrivateRoom": "почніть з ними приватну кімнату",
+      "title": "People"
     },
     "followList": {
       "followHim": "відстежувати",
-      "followingHim": "відстежуєте"
+      "followingHim": "відстежуєте",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "Створити кімнату",
