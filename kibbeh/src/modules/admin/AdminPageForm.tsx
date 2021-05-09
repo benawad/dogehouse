@@ -35,7 +35,7 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
         setUser(u as UserWithFollowInfo);
       }
     });
-  }, [username, wrapper.query]);
+  }, [username]);
 
   useEffect(() => {
     if (user) {
