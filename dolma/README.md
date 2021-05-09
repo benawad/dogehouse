@@ -2,7 +2,7 @@
 Dolma Token Transcoder<br>
 <a href="https://www.npmjs.com/package/@dogehouse/dolma"><img src="https://img.shields.io/npm/v/@dogehouse/dolma?style=for-the-badge"></a>
 </h1>
-This is a token transcoder that is used to encode and decode DogeHouse chat message token arrays.  This package is written for bot/bot library devlopers to be able to easily transcode dogehouse chat message tokens.  
+This is a token transcoder that is used to encode and decode DogeHouse chat message token arrays.  This package is written for bot/bot library developers to be able to easily transcode dogehouse chat message tokens.  
 
 ## How to install
 To install this, simply go to your project and run the following command:
