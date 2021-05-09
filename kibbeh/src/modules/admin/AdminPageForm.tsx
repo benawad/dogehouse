@@ -35,7 +35,7 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
         setUser(u as UserWithFollowInfo);
       }
     });
-  }, [username]);
+  }, [username, wrapper.query]);
 
   useEffect(() => {
     if (user) {
@@ -110,8 +110,7 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
       <div className="flex">
         <Button
           onClick={() => {
-            wrapper.mutation.userSetContributions(username, contributions);
-            wrapper.mutation.userSetStaff(username, isStaff);
+            wrapper.mutation.userAdminUpdate(username, isStaff, contributions);
           }}
         >
           Save

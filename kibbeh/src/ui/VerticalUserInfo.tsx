@@ -1,6 +1,6 @@
 import { UserWithFollowInfo } from "@dogehouse/kebab";
 import normalizeUrl from "normalize-url";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { linkRegex } from "../lib/constants";
 import { kFormatter } from "../lib/kFormatter";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
@@ -16,52 +16,42 @@ interface VerticalUserInfoProps {
 
 export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
   const { t } = useTypeSafeTranslation();
-  const [badges, setBadges] = useState<Array<badge>>([]);
-  useEffect(() => {
-    if (user.staff) {
-      setBadges((b) =>
-        b.concat({
-          content: "ƉS",
-          variant: "primary",
-          color: "white",
-          title: "DogeHouse Staff",
-        })
-      );
-    }
-    if (user.contributions > 0) {
-      setBadges((b) =>
-        b.concat({
-          content: "ƉC",
-          variant: "primary",
-          color: "white",
-          title: "DogeHouse Contributor",
-        })
-      );
-    }
+  const badges: badge[] = [];
+  if (user.staff) {
+    badges.push({
+      content: "ƉS",
+      variant: "primary",
+      color: "white",
+      title: "DogeHouse Staff",
+    });
+  }
+  if (user.contributions > 0) {
+    badges.push({
+      content: "ƉC",
+      variant: "primary",
+      color: "white",
+      title: "DogeHouse Contributor",
+    });
+  }
 
-    if (user.botOwnerId) {
-      setBadges((b) =>
-        b.concat({
-          content: t("pages.viewUser.bot"),
-          variant: "primary",
-          color: "white",
-          title: t("pages.viewUser.bot"),
-        })
-      );
-    }
+  if (user.botOwnerId) {
+    badges.push({
+      content: t("pages.viewUser.bot"),
+      variant: "primary",
+      color: "white",
+      title: t("pages.viewUser.bot"),
+    });
+  }
 
-    if (user.followsYou) {
-      setBadges((b) =>
-        b.concat({
-          content: t("pages.viewUser.followsYou"),
-          variant: "primary-700",
-          color: "grey",
-          title: t("pages.viewUser.followsYou"),
-          classname: "ml-1",
-        })
-      );
-    }
-  }, [user]);
+  if (user.followsYou) {
+    badges.push({
+      content: t("pages.viewUser.followsYou"),
+      variant: "primary-700",
+      color: "grey",
+      title: t("pages.viewUser.followsYou"),
+      classname: "ml-1",
+    });
+  }
   return (
     <>
       <HeaderController

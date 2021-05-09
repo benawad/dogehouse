@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { UserWithFollowInfo } from "@dogehouse/kebab";
 import { ProfileHeader } from "./ProfileHeader";
 import { ProfileAbout } from "./ProfileAbout";
@@ -17,55 +17,41 @@ export const UserProfile: React.FC<UserProfileProps> = ({
   isCurrentUser,
 }) => {
   const { t } = useTypeSafeTranslation();
-  const [badges, setBadges] = useState<Array<badge>>([]);
-  const [tags, setTags] = useState<Array<UserBadgeLgProps>>([]);
-  useEffect(() => {
-    if (user.staff) {
-      setBadges((b) =>
-        b.concat({
-          content: "ƉS",
-          variant: "primary",
-          color: "white",
-          title: "DogeHouse Staff",
-        })
-      );
+  const badges: badge[] = [];
+  const tags: UserBadgeLgProps[] = [];
+  if (user.staff) {
+    badges.push({
+      content: "ƉS",
+      variant: "primary",
+      color: "white",
+      title: "DogeHouse Staff",
+    });
+    tags.push({
+      icon: "dogeStaff",
+      children: "DogeHouse Staff",
+    });
+  }
+  if (user.contributions > 0) {
+    badges.push({
+      content: "ƉC",
+      variant: "primary",
+      color: "white",
+      title: "DogeHouse Contributor",
+    });
+    tags.push({
+      icon: "dogeContributor",
+      children: "DogeHouse Contributor",
+    });
+  }
 
-      setTags((ot) =>
-        ot.concat({
-          icon: "dogeStaff",
-          children: "DogeHouse Staff",
-        })
-      );
-    }
-    if (user.contributions > 0) {
-      setBadges((b) =>
-        b.concat({
-          content: "ƉC",
-          variant: "primary",
-          color: "white",
-          title: "DogeHouse Contributor",
-        })
-      );
-
-      setTags((ot) =>
-        ot.concat({
-          icon: "dogeContributor",
-          children: "DogeHouse Contributor",
-        })
-      );
-    }
-
-    if (user.botOwnerId) {
-      setBadges((b) =>
-        b.concat({
-          content: t("pages.viewUser.bot"),
-          variant: "primary",
-          color: "white",
-          title: t("pages.viewUser.bot"),
-        })
-      );
-    }
-  }, [user]);
+  if (user.botOwnerId) {
+    badges.push({
+      content: t("pages.viewUser.bot"),
+      variant: "primary",
+      color: "white",
+      title: t("pages.viewUser.bot"),
+    });
+  }
   return (
     <>
       <ProfileHeader

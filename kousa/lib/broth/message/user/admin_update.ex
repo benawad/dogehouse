@@ -1,4 +1,4 @@
-defmodule Broth.Message.User.SetStaff do
+defmodule Broth.Message.User.AdminUpdate do
   use Broth.Message.Call
 
   @primary_key false
