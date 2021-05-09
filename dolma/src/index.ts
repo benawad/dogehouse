@@ -17,4 +17,4 @@ export function dolma(values?: Array<Unitoken | MessageToken | string> | string)
 }
 
 dolma['encode'] = encodeTokens;
-dolma['decode'] = decodeTokens
+dolma['decode'] = decodeTokens;
