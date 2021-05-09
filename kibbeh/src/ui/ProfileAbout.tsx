@@ -32,7 +32,7 @@ export const ProfileAbout: React.FC<ProfileAboutProps> = ({
       style={{ maxWidth: 640 }}
     >
       <div className="text-primary-100 font-bold text-xl pb-4">
-        {t("pages.viewUser.about")} {username}
+        {t("pages.viewUser.about") !== "" ? t("pages.viewUser.about") : null} {username} {t("pages.viewUser.aboutSuffix") !== "" ? t("pages.viewUser.aboutSuffix") : null}
       </div>
       <div className="flex mb-2">
         <div className="flex px-2 rounded-8 transition duration-200 ease-in-out hover:bg-primary-700">
