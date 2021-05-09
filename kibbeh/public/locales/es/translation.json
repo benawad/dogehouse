@@ -280,7 +280,14 @@
         "makePrivate": "Hacer la sala privada",
         "renamePublic": "Configurar el nombre de la sala pública",
         "renamePrivate": "Configurar el nombre de la sala privada",
-        "chatDisabled": "Deshabilitar chat"
+        "chatDisabled": "Deshabilitar chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "messagesDropdown": {

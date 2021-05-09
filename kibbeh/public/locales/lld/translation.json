@@ -253,7 +253,14 @@
         "makePrivate": "Privatisëia la ciamena",
         "renamePublic": "Modifichëia l inom dla ciamena publica",
         "renamePrivate": "Modifichëia l inom dla ciamena privata",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

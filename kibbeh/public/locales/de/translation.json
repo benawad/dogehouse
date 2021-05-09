@@ -231,7 +231,14 @@
         "makePrivate": "Raum privat machen",
         "renamePublic": "Öffentlichen Raum-Namen setzen",
         "renamePrivate": "Privaten Raum-Namen setzen",
-        "chatDisabled": "Chat ausschalten"
+        "chatDisabled": "Chat ausschalten",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": {

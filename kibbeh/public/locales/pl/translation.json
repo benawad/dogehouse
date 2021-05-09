@@ -280,7 +280,14 @@
         "makePrivate": "uczyń pokój prywatnym",
         "renamePublic": "Ustaw publiczną nazwę pokoju",
         "renamePrivate": "Ustaw prywatną nazwę pokoju",
-        "chatDisabled": "wyłącz czat"
+        "chatDisabled": "wyłącz czat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "messagesDropdown": {

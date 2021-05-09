@@ -247,7 +247,14 @@
         "makePrivate": "ตั้งให้เป็นห้องส่วนตัว",
         "renamePublic": "ตั้งชื่อห้องสาธารณะ",
         "renamePrivate": "ตั้งชื่อห้องส่วนตัว",
-        "chatDisabled": "ปิดแชท"
+        "chatDisabled": "ปิดแชท",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

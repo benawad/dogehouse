@@ -253,7 +253,14 @@
         "makePrivate": "Naredite sobo zasebno",
         "renamePublic": "Nastavite javno ime sobe",
         "renamePrivate": "Nastavite zasebno ime sobe",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

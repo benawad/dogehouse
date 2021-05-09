@@ -282,7 +282,14 @@
         "makePrivate": "rendre la salle privée",
         "renamePublic": "Changer le nom de la salle publique",
         "renamePrivate": "Changer le nom de la salle privée",
-        "chatDisabled": "Désactiver tchat"
+        "chatDisabled": "Désactiver tchat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "messagesDropdown": {

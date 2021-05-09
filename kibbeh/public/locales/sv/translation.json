@@ -227,7 +227,14 @@
         "makePrivate": "Gör rum privat",
         "renamePublic": "Ange ett offentligt rumsnamn",
         "renamePrivate": "Ange ett privat rumsnamn",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": {

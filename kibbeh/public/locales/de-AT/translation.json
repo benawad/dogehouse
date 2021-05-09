@@ -229,7 +229,14 @@
         "makePrivate": "Raum privat mochen",
         "renamePublic": "Öffentlichn Raumnaumn festlegn",
         "renamePrivate": "Privatn Raumnaumn festlegn",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": {

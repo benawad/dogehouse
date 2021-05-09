@@ -255,7 +255,14 @@
         "makePrivate": "Otağı gizli et",
         "renamePublic": "Hərkəsə açıq otaq adı quraşdır",
         "renamePrivate": "Gizli otaq adı quraşdır",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

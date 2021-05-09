@@ -294,7 +294,13 @@
       },
       "roomSettingsModal": {
         "requirePermission": "require permission to speak",
-        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        },
         "makePublic": "make room public",
         "makePrivate": "make room private",
         "renamePublic": "Set public room name",

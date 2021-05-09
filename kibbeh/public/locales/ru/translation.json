@@ -254,7 +254,14 @@
         "makePrivate": "сделать комнату приватной",
         "renamePublic": "Установить название общей комнаты",
         "renamePrivate": "Установить название приватной комнаты",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

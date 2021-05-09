@@ -247,7 +247,14 @@
         "makePrivate": "جعل الغرفة خاصة",
         "renamePublic": "اختار اسم الغرفة العامة",
         "renamePrivate": "اختار اسم الغرفة الخاصة",
-        "chatDisabled": "تعطيل المحادثة"
+        "chatDisabled": "تعطيل المحادثة",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

@@ -280,7 +280,14 @@
         "makePublic": "اتاق را عمومی کنید",
         "makePrivate": "اتاق را خصوصی کنید",
         "renamePublic": "نام اتاق عمومی را تنظیم کنید",
-        "renamePrivate": "نام اتاق خصوصی را تنظیم کنید"
+        "renamePrivate": "نام اتاق خصوصی را تنظیم کنید",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "messagesDropdown": {

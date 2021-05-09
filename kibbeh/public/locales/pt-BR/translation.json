@@ -227,7 +227,14 @@
         "makePrivate": "fazer a sala privada",
         "renamePublic": "Definir nome da sala pública",
         "renamePrivate": "Definir nome da sala privada",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": { "noAudioMessage": "não tem áudio por algum motivo" },

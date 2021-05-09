@@ -228,7 +228,14 @@
         "makePrivate": "Odayı gizli yap",
         "renamePublic": "Herkese açık oda adı seç",
         "renamePrivate": "Gizli oda adı seç",
-        "chatDisabled": "sohbeti devre dışı bırak"
+        "chatDisabled": "sohbeti devre dışı bırak",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },

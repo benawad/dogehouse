@@ -251,7 +251,14 @@
         "makePrivate": "Gør rum privat",
         "renamePublic": "Skift navnet på offentligt rum",
         "renamePrivate": "Skift navnet på privat rum",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

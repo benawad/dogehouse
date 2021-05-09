@@ -273,7 +273,14 @@
         "makePrivate": "xonani xususiy qilish",
         "renamePublic": "Umumiy xonani qayta nomlash",
         "renamePrivate": "Xususiy xonani qayta nomlash",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

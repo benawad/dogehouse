@@ -254,7 +254,14 @@
         "makePrivate": "kulupu ala e tomo",
         "renamePublic": "ante e nimi tomo kulupu",
         "renamePrivate": "ante e nimi tomo pi kulupu ala",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

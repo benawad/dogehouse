@@ -272,7 +272,14 @@
         "makePrivate": "mäk rüm prïvit",
         "renamePublic": "Set public rüm näm",
         "renamePrivate": "Set prïvit rüm näm",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "messagesDropdown": {

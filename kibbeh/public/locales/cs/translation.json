@@ -255,7 +255,14 @@
         "makePrivate": "Udělat místnost soukromou",
         "renamePublic": "Nastavit jméno veřejné místnosti",
         "renamePrivate": "Nastavit jméno soukromé místnosti",
-        "chatDisabled": "Vypnout chat"
+        "chatDisabled": "Vypnout chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

@@ -224,7 +224,14 @@
         "makePrivate": "把聊天室设为私人",
         "renamePublic": "设置公开聊天室名称",
         "renamePrivate": "设置私人聊天室名称",
-        "chatDisabled": "禁止聊天"
+        "chatDisabled": "禁止聊天",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": {

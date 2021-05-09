@@ -247,7 +247,14 @@
         "makePrivate": "Make Cabin Private",
         "renamePublic": "Set Public Cabin Name",
         "renamePrivate": "Set Private Cabin Name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

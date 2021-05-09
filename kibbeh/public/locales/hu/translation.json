@@ -223,7 +223,14 @@
         "makePrivate": "Szoba priváttá állítása",
         "renamePublic": "Szoba publikus nevének beállítása",
         "renamePrivate": "Szoba privát nevének beállítása",
-        "chatDisabled": "Chat kikapcsolása"
+        "chatDisabled": "Chat kikapcsolása",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Valamilyen okból nincs hallgató" },

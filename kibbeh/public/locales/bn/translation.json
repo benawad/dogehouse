@@ -258,7 +258,14 @@
         "makePrivate": "রুমটাকে প্রাইভেট করুন",
         "renamePublic": "পাবলিক রুমের নাম সেট করুন",
         "renamePrivate": "প্রাইভেট রুমের নাম সেট করুন",
-        "chatDisabled": "চ্যাট অফ করুন"
+        "chatDisabled": "চ্যাট অফ করুন",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

@@ -257,7 +257,14 @@
         "makePrivate": "Κάντε το δωμάτιο ιδιωτικό",
         "renamePublic": "Ορίστε ένα όνομα για το δημόσιο δωμάτιο",
         "renamePrivate": "Ορίστε ένα όνομα για το ιδιωτικό δωμάτιο",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

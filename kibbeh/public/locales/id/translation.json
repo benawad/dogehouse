@@ -250,7 +250,14 @@
         "makePrivate": "buat ruangan jadi privat",
         "renamePublic": "Ubah nama ruangan publik",
         "renamePrivate": "Ubah nama ruangan privat",
-        "chatDisabled": "nonaktifkan percakapan"
+        "chatDisabled": "nonaktifkan percakapan",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {

@@ -244,7 +244,14 @@
         "makePrivate": "把房間設定為私人",
         "renamePublic": "重設公開房間名字",
         "renamePrivate": "重設私人房間名字",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
