@@ -134,6 +134,11 @@
       "prompt": "Klicka på knappen nedan för att starta nedladdningen",
       "download_now": "Ladda ner nu",
       "download_for": "Ladda ner för %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

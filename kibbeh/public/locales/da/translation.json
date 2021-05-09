@@ -133,6 +133,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download nu",
       "download_for": "Download til %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

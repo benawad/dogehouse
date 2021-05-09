@@ -134,6 +134,11 @@
       "prompt": "Tekan tombol di bawah untuk memulai mengunduh",
       "download_now": "Unduh Sekarang",
       "download_for": "Unduh untuk %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

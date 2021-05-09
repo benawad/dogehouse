@@ -132,6 +132,11 @@
       "prompt": "לחץ על כפתור זה כדי להתחיל בהורדה",
       "download_now": "הורד עכשיו",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

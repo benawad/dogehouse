@@ -133,6 +133,11 @@
         "errorMsg": "لطفاً یک عنوان معتبر برای برنامه وارد کنید.",
         "label": "عنوان برنامه"
       }
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

@@ -134,6 +134,11 @@
       "prompt": "أنقر للتنزيل",
       "download_now": "تنزيل الآن",
       "download_for": "تنزيل إلى %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

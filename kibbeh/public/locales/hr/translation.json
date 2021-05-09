@@ -137,6 +137,11 @@
       "prompt": "Pritisnite na gumb kako biste započeli preuzimanje",
       "download_now": "Preuzmi Sada",
       "download_for": "Preuzmi za {{platform}}"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

@@ -136,6 +136,11 @@
       "prompt": "Haz clic en el botón de abajo para iniciar la descarga",
       "download_now": "Descargar ahora",
       "download_for": "Descargar para %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

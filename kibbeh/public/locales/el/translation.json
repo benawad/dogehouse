@@ -139,6 +139,11 @@
         "label": "Εισάγετε τον τίτλο της εφαρμογής"
       },
       "header": "Ρυθμίσεις overlay"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

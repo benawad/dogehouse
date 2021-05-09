@@ -131,6 +131,11 @@
       "prompt": "Klikk på knappen nedenfor, for å starte nedlastningen",
       "download_now": "Last ned nå",
       "download_for": "Nedlastning for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

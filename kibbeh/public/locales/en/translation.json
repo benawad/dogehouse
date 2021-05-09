@@ -92,6 +92,15 @@
       "goHomeMessage": "Not to worry. You can",
       "goHomeLinkText": "go home"
     },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
+    },
     "room": {
       "speakers": "Speakers",
       "requestingToSpeak": "Requesting to Speak",

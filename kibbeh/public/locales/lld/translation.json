@@ -138,6 +138,11 @@
       "prompt": "Clichëia söl buttun dessot por mët man la desciariada",
       "download_now": "Desciaria sëgn",
       "download_for": "Desciaria por %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

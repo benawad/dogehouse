@@ -130,6 +130,11 @@
     "overlaySettings": {
       "header": "Övrlä Setiŋz",
       "input": { "errorMsg": "Plëz entr ä valid ap tïtl", "label": "Ap tïtl" }
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

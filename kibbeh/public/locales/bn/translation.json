@@ -140,6 +140,11 @@
       "prompt": "নিচের বাটনটিতে ক্লিক করুন ডাউনলোড শুরু করতে",
       "download_now": "ডাউনলোড করুন এখন",
       "download_for": "%platform% (%ext%)-এর জন্য ডাউনলোড করুন"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

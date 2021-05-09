@@ -138,6 +138,11 @@
       "prompt": "Нажмите на кнопку ниже, чтобы начать загрузку",
       "download_now": "Скачать сейчас",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

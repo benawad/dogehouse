@@ -138,6 +138,11 @@
       "prompt": "Натисніть на кнопку нижче, щоб розпочати завантаження",
       "download_now": "Завантажити зараз",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

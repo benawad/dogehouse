@@ -137,6 +137,11 @@
       "prompt": "Aşağıdakı düyməyə basaraq yükləməni başladın",
       "download_now": "İndi yüklə",
       "download_for": "{{platform}} üçün yüklə"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

@@ -135,6 +135,11 @@
       "prompt": "Aloita lataaminen klikkaamalla alla olevaa painiketta",
       "download_now": "Lataa nyt",
       "download_for": "Lataa %platform%ille (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

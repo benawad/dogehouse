@@ -133,6 +133,11 @@
         "errorMsg": "Please enter a valid app title",
         "label": "App title"
       }
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

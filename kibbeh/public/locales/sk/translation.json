@@ -134,6 +134,11 @@
       "prompt": "Pre začatie sťahovania klikni na tlačidlo",
       "download_now": "Stiahnuť teraz",
       "download_for": "Stiahnuť pre %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {

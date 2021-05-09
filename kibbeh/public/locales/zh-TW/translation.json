@@ -131,6 +131,11 @@
       "prompt": "點擊以下按鈕開始下載",
       "download_now": "現在就下載",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
