@@ -34,17 +34,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "utesteng"
+      "ban": "utesteng",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Liste over brukere som ikke er i et privat rom, og som du følger.",
       "currentRoom": "For tiden i:",
       "startPrivateRoom": "Start et privat rom med dem"
     },
-    "followList": {
-      "followHim": "følg",
-      "followingHim": "følger"
-    },
+    "followList": { "followHim": "følg", "followingHim": "følger" },
     "home": {
       "createRoom": "Lag et rom",
       "refresh": "Last inn på nytt",
@@ -92,13 +92,8 @@
       "allowAll": "Tillat alle",
       "allowAllConfirm": "Er du sikker? Dette vil tillate alle {{count}} spørrende brukere til å snakke"
     },
-    "searchUser": {
-      "search": "søk..."
-    },
-    "soundEffectSettings": {
-      "header": "Lyder",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "søk..." },
+    "soundEffectSettings": { "header": "Lyder", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Rediger profil",
       "followsYou": "Følger deg",
@@ -120,7 +115,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",
@@ -130,10 +126,7 @@
       "volume": "Volum:"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Ugyldig tittel",
-        "label": "Angi tittel"
-      },
+      "input": { "errorMsg": "Ugyldig tittel", "label": "Angi tittel" },
       "header": "Innstillinger for overlegg"
     },
     "download": {
@@ -197,9 +190,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Ingen lydmottaker av en eller annen grunn"
     },
-    "addToCalendar": {
-      "add": "Legg til i Kalender"
-    },
+    "addToCalendar": { "add": "Legg til i Kalender" },
     "wsKilled": {
       "description": "Tilkoblingen din ble avsluttet av serveren. Dette skjer vanligvis når du åpner nettsiden i en annen fane.",
       "reconnect": "Koble til igjen"
@@ -284,6 +275,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -333,8 +328,6 @@
       "galacticDoge": "Galakse-doge",
       "spottedLife": "Planet med liv oppdaget"
     },
-    "feed": {
-      "yourFeed": "Din Feed"
-    }
+    "feed": { "yourFeed": "Din Feed" }
   }
 }

@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "blockian"
+      "ban": "blockian",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Benutzer, denen du foigst, die oba in an privaten Raum san.",
       "currentRoom": "Zurzeit in:",
       "startPrivateRoom": "An neichn Raum mit dem Benutzer starten"
     },
-    "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "Raum erstön",
       "refresh": "Aktualisiern",
@@ -93,13 +93,8 @@
       "allowAll": "Ollen erlaubn",
       "allowAllConfirm": "Bist da sicha? Dadurch kennan olle {{count}} anfragenden Bnutzer spröchn"
     },
-    "searchUser": {
-      "search": "Suachn..."
-    },
-    "soundEffectSettings": {
-      "header": "Ton",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "Suachn..." },
+    "soundEffectSettings": { "header": "Ton", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Profü beorbeiten",
       "followsYou": "foigt da",
@@ -121,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Sprocheinstöllungen",
@@ -148,9 +144,7 @@
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",
-    "addToCalendar": {
-      "add": "Zum Kalenda hinzufügn"
-    },
+    "addToCalendar": { "add": "Zum Kalenda hinzufügn" },
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
@@ -285,6 +279,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +332,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet mit Lebn gsichtet"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization String",
     "admin": {
-      "ban": "zabrani"
+      "ban": "zabrani",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Popis korisnika koji nisu u privatnoj sobi, a vi ih pratite",
       "currentRoom": "trenutno u:",
       "startPrivateRoom": "započnite privatnu sobu s njima"
     },
-    "followList": {
-      "followHim": "zaprati",
-      "followingHim": "pratitelji"
-    },
+    "followList": { "followHim": "zaprati", "followingHim": "pratitelji" },
     "home": {
       "createRoom": "Stvori sobu",
       "refresh": "Osvježi",
@@ -94,13 +94,8 @@
       "allowAllConfirm": "Jeste li sigurni? Ovo će omogućiti svim {{count}} korisnicima koji zahtijevaju da govore",
       "speakers": "Govornici"
     },
-    "searchUser": {
-      "search": "traži..."
-    },
-    "soundEffectSettings": {
-      "header": "Zvuči",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "traži..." },
+    "soundEffectSettings": { "header": "Zvuči", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "uredi profil",
       "followYou": "vas prati",
@@ -123,7 +118,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Postavke glasa",
@@ -180,10 +176,7 @@
       "linkText": "'issue' na GitHubu",
       "addSupport": "i pokušati ćemo dodati podršku za vaš uređaj."
     },
-    "inviteButton": {
-      "invited": "pozvan",
-      "inviteToRoom": "pozovi u sobu"
-    },
+    "inviteButton": { "invited": "pozvan", "inviteToRoom": "pozovi u sobu" },
     "micPermissionBanner": {
       "permissionDenied": "Dozvola odbijena za pokušaj pristupa vašem mikrofonu (možda ćete trebati ući u postavke preglednika i ponovo učitati stranicu)",
       "dismiss": "zanemari",
@@ -200,9 +193,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "iz nekog razloga nema potrošača zvuka"
     },
-    "addToCalendar": {
-      "add": "Dodaj u kalendar"
-    },
+    "addToCalendar": { "add": "Dodaj u kalendar" },
     "wsKilled": {
       "description": "Poslužitelj je ubio WebSocket. To se obično događa kada web mjesto otvorite na drugoj kartici.",
       "reconnect": "ponovno se poveži"
@@ -287,6 +278,10 @@
         "stopDebugger": "Zaustavi Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -336,8 +331,6 @@
       "galacticDoge": "Galaktički doge",
       "spottedLife": "Planeta sa životom uočena"
     },
-    "feed": {
-      "yourFeed": "Vaš Feed"
-    }
+    "feed": { "yourFeed": "Vaš Feed" }
   }
 }

@@ -23,7 +23,7 @@
     "mutedTitle": "已关闭麦克风 | DogeHouse",
     "deafenedTitle": "已静音 | DogeHouse",
     "dashboard": "概览",
-    "connectionTaken": "Connection Taken"
+    "connectionTaken": "连接已被占用"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -34,17 +34,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "踢出用户"
+      "ban": "踢出用户",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "您所关注的不在私人聊天室的人。",
       "currentRoom": "所在的聊天室:",
       "startPrivateRoom": "跟ta进入私人聊天室"
     },
-    "followList": {
-      "followHim": "关注ta",
-      "followingHim": "已经关注"
-    },
+    "followList": { "followHim": "关注ta", "followingHim": "已经关注" },
     "home": {
       "createRoom": "新建聊天室",
       "refresh": "刷新",
@@ -78,7 +78,7 @@
       "deleteAccount": "删除账号",
       "overlaySettings": "覆盖层设置",
       "couldNotFindUser": "对不起，无法找到该用户",
-      "privacySettings": "Privacy settings"
+      "privacySettings": "隐私设置"
     },
     "notFound": {
       "whoopsError": "哎呀，这页在聊天中被丢掉了",
@@ -92,13 +92,8 @@
       "allowAll": "允许全体成员讲话",
       "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
     },
-    "searchUser": {
-      "search": "搜索..."
-    },
-    "soundEffectSettings": {
-      "header": "声音",
-      "title": "声音设置"
-    },
+    "searchUser": { "search": "搜索..." },
+    "soundEffectSettings": { "header": "声音", "title": "声音设置" },
     "viewUser": {
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
@@ -110,17 +105,18 @@
       "urlCopied": "个人主页链接已复制到剪贴板",
       "unfollow": "取消关注",
       "about": "关于ta",
-      "bot": "Bot",
+      "bot": "机器人",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips"
+        "about": "关于",
+        "rooms": "聊天室",
+        "scheduled": "已安排",
+        "recorded": "已录制",
+        "clips": "片段"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "block": "屏蔽",
+      "unblock": "取消屏蔽",
+      "sendDM": "发送消息",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -130,10 +126,7 @@
       "volume": "音量:"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "不允许的App标题",
-        "label": "输入App标题"
-      },
+      "input": { "errorMsg": "不允许的App标题", "label": "输入App标题" },
       "header": "覆盖层设置"
     },
     "download": {
@@ -226,15 +219,13 @@
         "makePrivate": "把聊天室设为私人",
         "renamePublic": "设置公开聊天室名称",
         "renamePrivate": "设置私人聊天室名称",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "禁止聊天"
       }
     },
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"
     },
-    "addToCalendar": {
-      "add": "加到日历"
-    },
+    "addToCalendar": { "add": "加到日历" },
     "keyboardShortcuts": {
       "setKeybind": "设置快捷键",
       "listening": "等待输入",
@@ -252,10 +243,7 @@
       "linkText": "在GitHub开启一个报告",
       "addSupport": "我将会尝试支持您的设备"
     },
-    "inviteButton": {
-      "invited": "被邀请",
-      "inviteToRoom": "邀请进入聊天室"
-    },
+    "inviteButton": { "invited": "被邀请", "inviteToRoom": "邀请进入聊天室" },
     "followingOnline": {
       "people": "用户",
       "online": "在线",
@@ -275,15 +263,13 @@
       "language": "语言",
       "reportABug": "反馈Bug",
       "useOldVersion": "使用旧版本",
-      "logOut": {
-        "button": "登出",
-        "modalSubtitle": "是否确定登出?"
-      },
-      "debugAudio": {
-        "debugAudio": "调试声音",
-        "stopDebugger": "取消调试"
-      },
-      "downloadApp": "Download App"
+      "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
+      "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" },
+      "downloadApp": "下载APP"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -303,9 +289,7 @@
       },
       "tommorow": "明天",
       "today": "今天",
-      "deleteModal": {
-        "areYouSure": "你确定要删除此预定的聊天室？"
-      }
+      "deleteModal": { "areYouSure": "你确定要删除此预定的聊天室？" }
     },
     "roomChat": {
       "title": "文字聊天",
@@ -319,7 +303,7 @@
       "whisper": "私信",
       "welcomeMessage": "欢迎来到文字聊天!",
       "roomDescription": "聊天室介绍",
-      "disabled": "room chat has been disabled"
+      "disabled": "聊天室聊天已经被禁止"
     },
     "roomStatus": {
       "fuelingRocket": "火箭在加油",
@@ -333,8 +317,6 @@
       "galacticDoge": "宇宙 Doge",
       "spottedLife": "已发现新生命"
     },
-    "feed": {
-      "yourFeed": "您的推送"
-    }
+    "feed": { "yourFeed": "您的推送" }
   }
 }

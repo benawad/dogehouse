@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "blockieren"
+      "ban": "blockieren",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Benutzer, denen du folgst, die nicht in einem privaten Raum sind.",
       "currentRoom": "Zurzeit in:",
       "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer eröffnen"
     },
-    "followList": {
-      "followHim": "Folgen",
-      "followingHim": "Entfolgen"
-    },
+    "followList": { "followHim": "Folgen", "followingHim": "Entfolgen" },
     "home": {
       "createRoom": "Raum erstellen",
       "refresh": "Aktualisieren",
@@ -78,7 +78,8 @@
       "soundSettings": "Soundeinstellungen",
       "deleteAccount": "Konto löschen",
       "overlaySettings": "Overlay-Einstellungen löschen",
-      "couldNotFindUser": "Wir konnten diesen Benutzer leider nicht finden. "
+      "couldNotFindUser": "Wir konnten diesen Benutzer leider nicht finden. ",
+      "privacySettings": "Privacy Settings"
     },
     "notFound": {
       "whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",
@@ -92,13 +93,8 @@
       "allowAll": "Alle zulassen",
       "allowAllConfirm": "Bist du sicher? Damit erteilst du {{count}} Benutzern Redeberechtigungen."
     },
-    "searchUser": {
-      "search": "Suchen..."
-    },
-    "soundEffectSettings": {
-      "header": "Ton",
-      "title": "Toneinstellungen"
-    },
+    "searchUser": { "search": "Suchen..." },
+    "soundEffectSettings": { "header": "Ton", "title": "Toneinstellungen" },
     "viewUser": {
       "editProfile": "Profil bearbeiten",
       "followsYou": "Folgt dir",
@@ -120,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
@@ -149,9 +146,7 @@
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",
-    "addToCalendar": {
-      "add": "Zum Kalender hinzufügen"
-    },
+    "addToCalendar": { "add": "Zum Kalender hinzufügen" },
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
@@ -286,6 +281,10 @@
         "stopDebugger": "Stoppe Debugger"
       },
       "downloadApp": "App herunterladen"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -335,8 +334,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet mit Leben gefunden!"
     },
-    "feed": {
-      "yourFeed": "Dein Feed"
-    }
+    "feed": { "yourFeed": "Dein Feed" }
   }
 }

@@ -35,7 +35,10 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "منع کردن"
+      "ban": "منع کردن",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "download": {
       "prompt": "برنامه DogeHouse Desktop را بارگیری کنید",
@@ -48,10 +51,7 @@
       "currentRoom": "در حال حاضر در:",
       "startPrivateRoom": "با آنها یک اتاق خصوصی راه اندازی کنید"
     },
-    "followList": {
-      "followHim": "دنبال کردن",
-      "followingHim": "دنبال شده"
-    },
+    "followList": { "followHim": "دنبال کردن", "followingHim": "دنبال شده" },
     "home": {
       "createRoom": "اتاق جدید",
       "editRoom": "ویرایش اتاق",
@@ -99,13 +99,8 @@
       "allowAll": "اجازه دادن به همه",
       "allowAllConfirm": "مطمئنی؟ با این کار به همه {{count}} درخواست کنندگان اجازه صحبت می دهید"
     },
-    "searchUser": {
-      "search": "جستجو کردن..."
-    },
-    "soundEffectSettings": {
-      "header": "صدا",
-      "title": "تنظیمات صدا"
-    },
+    "searchUser": { "search": "جستجو کردن..." },
+    "soundEffectSettings": { "header": "صدا", "title": "تنظیمات صدا" },
     "viewUser": {
       "editProfile": "ویرایش نمایه",
       "followsYou": "شما را دنبال می کند",
@@ -127,7 +122,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "تنظیمات صدا",
@@ -206,9 +202,7 @@
       "upcomingRooms": "اتاق های آینده",
       "exploreMoreRooms": "در اتاق های بیشتری کاوش کنید"
     },
-    "addToCalendar": {
-      "add": "افزودن به تقویم"
-    },
+    "addToCalendar": { "add": "افزودن به تقویم" },
     "wsKilled": {
       "description": "اتصال به سرور قطع شد. ممکن است برنامه را در صفحه ای دیگر باز کرده اید",
       "reconnect": "اتصال دوباره"
@@ -283,13 +277,15 @@
         "renamePublic": "نام اتاق عمومی را تنظیم کنید",
         "renamePrivate": "نام اتاق خصوصی را تنظیم کنید"
       }
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "فید شما"
-    },
+    "feed": { "yourFeed": "فید شما" },
     "scheduledRooms": {
       "title": "اتاق های برنامه ریزی شده",
       "noneFound": "هیچ کدام پیدا نشد",

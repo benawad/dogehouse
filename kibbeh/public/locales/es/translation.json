@@ -33,17 +33,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "Banear"
+      "ban": "Banear",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Lista de usuarios que sigues y que no se encuentran en una sala privada.",
       "currentRoom": "Actualmente en la sala:",
       "startPrivateRoom": "Empezar una sala privada con ellos"
     },
-    "followList": {
-      "followHim": "Seguir",
-      "followingHim": "Siguiendo"
-    },
+    "followList": { "followHim": "Seguir", "followingHim": "Siguiendo" },
     "home": {
       "createRoom": "Crear sala",
       "editRoom": "Editar sala",
@@ -91,9 +91,7 @@
       "allowAll": "Permitir todos",
       "allowAllConfirm": "¿Estás seguro? Esto dejará hablar a los {{count}} usuarios que quieren hablar"
     },
-    "searchUser": {
-      "search": "Buscar..."
-    },
+    "searchUser": { "search": "Buscar..." },
     "soundEffectSettings": {
       "header": "Sonidos",
       "title": "Ajustes de sonido"
@@ -119,7 +117,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Ajustes de voz",
@@ -206,9 +205,7 @@
       "upcomingRooms": "Próximas salas",
       "exploreMoreRooms": "Explorar nuevas salas"
     },
-    "addToCalendar": {
-      "add": "Añadir al calendario"
-    },
+    "addToCalendar": { "add": "Añadir al calendario" },
     "wsKilled": {
       "description": "El Websocket fue eliminado por el servidor. Esto suele suceder cuando abres el sitio web en otra pestaña.",
       "reconnect": "Reconectar"
@@ -283,12 +280,14 @@
         "renamePrivate": "Configurar el nombre de la sala privada",
         "chatDisabled": "Deshabilitar chat"
       }
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
-    "feed": {
-      "yourFeed": "Tu inicio"
-    },
+    "feed": { "yourFeed": "Tu inicio" },
     "scheduledRooms": {
       "title": "Salas programadas",
       "noneFound": "No se ha encontrado ninguna",

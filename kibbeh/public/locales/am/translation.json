@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "አግድ"
+      "ban": "አግድ",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "የግል ክፍል ውስጥ ናቸው እና የሚከተሉ ተጠቃሚዎች ዝርዝር፡፡",
       "currentRoom": "በአሁኑ ጊዜ ውስጥ:",
       "startPrivateRoom": "ከእነሱ ጋር አንድ የግል ክፍል መጀመር"
     },
-    "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "ክፍል ፍጠር",
       "refresh": "Refresh",
@@ -93,13 +93,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "ፈልግ ..."
-    },
-    "soundEffectSettings": {
-      "header": "ድምፆች",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "ፈልግ ..." },
+    "soundEffectSettings": { "header": "ድምፆች", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "መገለጫ ቀይር",
       "followsYou": "እርስዎን ይከተላል",
@@ -121,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "የድምፅ ቅንብሮች",
@@ -132,10 +128,7 @@
       "refresh": "refresh mic list"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
@@ -181,10 +174,7 @@
       "linkText": "በ GitHub ላይ ተናገሩ",
       "addSupport": "እኔም ለመሣሪያዎ ድጋፍ ለማከል አሞክራልሁ፡፡"
     },
-    "inviteButton": {
-      "invited": "ተጋብዘዋል",
-      "inviteToRoom": "ወደ ክፍል ጋብዝ"
-    },
+    "inviteButton": { "invited": "ተጋብዘዋል", "inviteToRoom": "ወደ ክፍል ጋብዝ" },
     "micPermissionBanner": {
       "permissionDenied": "ፈቃድ መተግበሪያው ማይክሮፎኑን ለመድረስ እየሞከረ ካደ (እርስዎ የአሳሽ ቅንብሮች ወደ ሂድ እና ገጹን ዳግም መጫን ሊኖርብዎ ይችላል)",
       "dismiss": "አሰናብት",
@@ -198,12 +188,8 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "በሆነ ምክንያት ምንም ድምጽ ተጠቃሚ የለም"
-    },
-    "addToCalendar": {
-      "add": "ወደ ቀን መቁጠሪያ ጨምር"
-    },
+    "userVolumeSlider": { "noAudioMessage": "በሆነ ምክንያት ምንም ድምጽ ተጠቃሚ የለም" },
+    "addToCalendar": { "add": "ወደ ቀን መቁጠሪያ ጨምር" },
     "wsKilled": {
       "description": "WebSocket በአገልጋዩ ተቋረጠ. ሌላ ትር ውስጥ ያለውን ድረ ገጽ በመክፈት የተከሰተ ይሆናል፡፡",
       "reconnect": "መልሰህ ተገናኝ"
@@ -288,6 +274,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -337,8 +327,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

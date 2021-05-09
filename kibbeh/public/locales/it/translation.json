@@ -34,17 +34,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "Bandisci"
+      "ban": "Bandisci",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Lista di utenti che segui e che non sono in una stanza privata.",
       "currentRoom": "In questo momento è connesso a:",
       "startPrivateRoom": "Avvia una stanza privata con lui"
     },
-    "followList": {
-      "followHim": "Segui",
-      "followingHim": "Segui già"
-    },
+    "followList": { "followHim": "Segui", "followingHim": "Segui già" },
     "home": {
       "createRoom": "Crea una stanza",
       "refresh": "Ricarica",
@@ -92,13 +92,8 @@
       "allowAll": "Permetti a tutti",
       "allowAllConfirm": "Sei sicuro? Questo permetterà a {{count}} che vogliono parlare di prendere la parola"
     },
-    "searchUser": {
-      "search": "Cerca..."
-    },
-    "soundEffectSettings": {
-      "header": "Suoni",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "Cerca..." },
+    "soundEffectSettings": { "header": "Suoni", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Modifica profilo",
       "followsYou": "Ti segue",
@@ -120,7 +115,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Impostazioni della voce",
@@ -197,9 +193,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Nessun audio è disponibile per qualche motivo"
     },
-    "addToCalendar": {
-      "add": "Aggiungi al calendario"
-    },
+    "addToCalendar": { "add": "Aggiungi al calendario" },
     "wsKilled": {
       "description": "Il websocket è stato messo fuori uso dal server. Questo accade solitamente quando riapri il sito in un'altra scheda.",
       "reconnect": "Riconnettiti"
@@ -284,6 +278,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -333,8 +331,6 @@
       "galacticDoge": "Doge galattico",
       "spottedLife": "Avvistato pianeta con forme di vita"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

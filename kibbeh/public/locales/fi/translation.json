@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "Estä"
+      "ban": "Estä",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Lista seuraamistasi käyttäjistä, jotka eivät ole yksityisessä huoneessa.",
       "currentRoom": "Paikalla:",
       "startPrivateRoom": "Luo yksityinen huone heidän kanssaan"
     },
-    "followList": {
-      "followHim": "Seuraa",
-      "followingHim": "Seurannassa"
-    },
+    "followList": { "followHim": "Seuraa", "followingHim": "Seurannassa" },
     "home": {
       "createRoom": "Luo huone",
       "refresh": "Päivitä",
@@ -93,13 +93,8 @@
       "allowAll": "Hyväksy kaikki",
       "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
-    "searchUser": {
-      "search": "Hae..."
-    },
-    "soundEffectSettings": {
-      "header": "Äänet",
-      "title": "Ääniasetukset"
-    },
+    "searchUser": { "search": "Hae..." },
+    "soundEffectSettings": { "header": "Äänet", "title": "Ääniasetukset" },
     "viewUser": {
       "editProfile": "Muokkaa profiilia",
       "followsYou": "Seuraa sinua",
@@ -121,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Puheasetukset",
@@ -195,12 +191,8 @@
       "toggleOverlayKeybind": "Overlay-pikanäppäin",
       "toggleDeafKeybind": "Hiljennys-pikanäppäin"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Ei äänen ulostulolaitteita"
-    },
-    "addToCalendar": {
-      "add": "Lisää kalenteriin"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Ei äänen ulostulolaitteita" },
+    "addToCalendar": { "add": "Lisää kalenteriin" },
     "wsKilled": {
       "description": "Palvelin katkaisi yhteyden. Tämä johtuu yleensä sivuston avaamisesta useampaan välilehteen.",
       "reconnect": "Yhdistä uudelleen"
@@ -285,6 +277,10 @@
         "stopDebugger": "Pysäytä debuggeri"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +330,6 @@
       "galacticDoge": "Galaktinen Doge",
       "spottedLife": "Havaittiin planeetta, jossa on elämää"
     },
-    "feed": {
-      "yourFeed": "Syötteesi"
-    }
+    "feed": { "yourFeed": "Syötteesi" }
   }
 }

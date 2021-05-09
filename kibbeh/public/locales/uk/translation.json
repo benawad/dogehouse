@@ -35,7 +35,10 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "заблокувати"
+      "ban": "заблокувати",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Список користувачів, які не перебувають у приватній кімнаті і за якими ви стежите",
@@ -93,13 +96,8 @@
       "allowAll": "Дозволити все",
       "allowAllConfirm": "Ви впевнені? Це дозволить усім {{count}} запитуючим користувачам розмовляти"
     },
-    "searchUser": {
-      "search": "шукати..."
-    },
-    "soundEffectSettings": {
-      "header": "Звуки",
-      "title": "Налаштування звуку"
-    },
+    "searchUser": { "search": "шукати..." },
+    "soundEffectSettings": { "header": "Звуки", "title": "Налаштування звуку" },
     "viewUser": {
       "editProfile": "редагувати профіль",
       "followsYou": "підписані на вас",
@@ -121,7 +119,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Голосові налаштування",
@@ -195,12 +194,8 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "немає аудіозв'язку"
-    },
-    "addToCalendar": {
-      "add": "Додати до календаря"
-    },
+    "userVolumeSlider": { "noAudioMessage": "немає аудіозв'язку" },
+    "addToCalendar": { "add": "Додати до календаря" },
     "wsKilled": {
       "description": "Вебсокет був видалений сервером. Зазвичай це відбувається, коли ви відкриваєте веб-сайт в іншій вкладці.",
       "reconnect": "переєднатися"
@@ -285,6 +280,10 @@
         "stopDebugger": "Зупинити налагодження"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +333,6 @@
       "galacticDoge": "Галактичний Doge",
       "spottedLife": "Помічена планета з життям"
     },
-    "feed": {
-      "yourFeed": "Ваша Стрічка"
-    }
+    "feed": { "yourFeed": "Ваша Стрічка" }
   }
 }

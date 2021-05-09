@@ -35,7 +35,10 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "бан"
+      "ban": "бан",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
@@ -93,13 +96,8 @@
       "allowAll": "Разрешить всем",
       "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить"
     },
-    "searchUser": {
-      "search": "Поиск..."
-    },
-    "soundEffectSettings": {
-      "header": "Звуки",
-      "title": "Настройки звука"
-    },
+    "searchUser": { "search": "Поиск..." },
+    "soundEffectSettings": { "header": "Звуки", "title": "Настройки звука" },
     "viewUser": {
       "editProfile": "редактировать профиль",
       "followsYou": "подписаны на вас",
@@ -121,7 +119,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -195,12 +194,8 @@
       "toggleOverlayKeybind": "переключить привязку клавиши оверлея",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "нет аудиосвязи"
-    },
-    "addToCalendar": {
-      "add": "Добавить в Календарь"
-    },
+    "userVolumeSlider": { "noAudioMessage": "нет аудиосвязи" },
+    "addToCalendar": { "add": "Добавить в Календарь" },
     "wsKilled": {
       "description": "Вебсокет был удален сервером. Обычно это происходит когда вы открываете сайт в другой вкладке.",
       "reconnect": "Переподключиться"
@@ -285,6 +280,10 @@
         "stopDebugger": "Остановить отладчик"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +333,6 @@
       "galacticDoge": "галактический Doge",
       "spottedLife": "замечена планета с жизнью"
     },
-    "feed": {
-      "yourFeed": "Ваша лента"
-    }
+    "feed": { "yourFeed": "Ваша лента" }
   }
 }

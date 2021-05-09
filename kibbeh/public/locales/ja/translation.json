@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "BAN"
+      "ban": "BAN",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "フォローしていて、非公開ルームには参加していないユーザー",
       "currentRoom": "参加中:",
       "startPrivateRoom": "非公開ルームを開始"
     },
-    "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "ルーム作成",
       "refresh": "更新",
@@ -93,13 +93,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "検索..."
-    },
-    "soundEffectSettings": {
-      "header": "音声設定",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "検索..." },
+    "soundEffectSettings": { "header": "音声設定", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "プロフィールを編集",
       "followsYou": "フォローされています",
@@ -121,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "マイク設定",
@@ -131,10 +127,7 @@
       "volume": "ボリューム:"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
     },
     "download": {
@@ -178,10 +171,7 @@
       "linkText": "GitHubでissueを作成",
       "addSupport": "するとサポートを受けられます。"
     },
-    "inviteButton": {
-      "invited": "招待",
-      "inviteToRoom": "ルームに招待"
-    },
+    "inviteButton": { "invited": "招待", "inviteToRoom": "ルームに招待" },
     "micPermissionBanner": {
       "permissionDenied": "マイクへのアクセスが許可されていません（ブラウザーの設定を変更して、ページを再読み込みする必要があるかもしれません）",
       "dismiss": "無視",
@@ -195,12 +185,8 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "何らかの原因で音声が出ません"
-    },
-    "addToCalendar": {
-      "add": "カレンダーに追加"
-    },
+    "userVolumeSlider": { "noAudioMessage": "何らかの原因で音声が出ません" },
+    "addToCalendar": { "add": "カレンダーに追加" },
     "wsKilled": {
       "description": "WebSocketがサーバーによって強制終了されました。 これは通常、別のタブで開いたときに発生します。",
       "reconnect": "再接続"
@@ -285,6 +271,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +324,6 @@
       "galacticDoge": "銀河系犬 / Galactic Doge",
       "spottedLife": "新たな生命を発見"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "bloķēšana"
+      "ban": "bloķēšana",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Lietotāju saraksts, kuri ir publiskā istabā un kuriem Jūs sekojat.",
       "currentRoom": "Pašlaik istabā:",
       "startPrivateRoom": "Izveidot privātu istabu ar viņiem"
     },
-    "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "Izveidot istabu",
       "refresh": "Atjaunot",
@@ -93,13 +93,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "meklēšana..."
-    },
-    "soundEffectSettings": {
-      "header": "skaņas",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "meklēšana..." },
+    "soundEffectSettings": { "header": "skaņas", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "rediģēt profilu",
       "followsYou": "seko jums",
@@ -121,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Mikrofona iestatījumi",
@@ -198,9 +194,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "nezināmu iemeslu dēļ, nav pieejama audiosaziņa"
     },
-    "addToCalendar": {
-      "add": "Pievienot kalendārā"
-    },
+    "addToCalendar": { "add": "Pievienot kalendārā" },
     "wsKilled": {
       "description": "Serveris iznīcināja WebSocket. Parasti tas notiek, kad jūs atverat mājaslapu citā logā.",
       "reconnect": "atkārtoti pievienoties"
@@ -285,6 +279,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +332,6 @@
       "galacticDoge": "Galaktiskais doge",
       "spottedLife": "Pamanīta planēta ar dzīvību radību"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

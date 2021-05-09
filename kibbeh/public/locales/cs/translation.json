@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "Zabanovat"
+      "ban": "Zabanovat",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Seznam uživatelů které sleduješ a nejsou v soukromé místnosti",
       "currentRoom": "Právě v:",
       "startPrivateRoom": "Otevřít soukromou místnost"
     },
-    "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "Vytvořit místnost",
       "refresh": "Obnovit",
@@ -93,13 +93,8 @@
       "allowAll": "Povolit všem",
       "allowAllConfirm": "Jsi si jistý? Tohle povolí všem {{count}} žádajícím uživatelům mluvit"
     },
-    "searchUser": {
-      "search": "Hledat..."
-    },
-    "soundEffectSettings": {
-      "header": "Zvuky",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "Hledat..." },
+    "soundEffectSettings": { "header": "Zvuky", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Upravit profil",
       "followsYou": "Sleduje tě.",
@@ -121,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Nastavení hlasu",
@@ -200,9 +196,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Z nějakého důvodu není vysílán zvuk"
     },
-    "addToCalendar": {
-      "add": "Přidat do kalendáře"
-    },
+    "addToCalendar": { "add": "Přidat do kalendáře" },
     "wsKilled": {
       "description": "Server tě odpojil. Neotevřel jsi další okno?",
       "reconnect": "Připojit se znovu"
@@ -287,6 +281,10 @@
         "stopDebugger": "Zastavit ladění"
       },
       "downloadApp": "Stáhnout aplikaci"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -336,8 +334,6 @@
       "galacticDoge": "Galaktický Doge",
       "spottedLife": "Planeta se životem objevena"
     },
-    "feed": {
-      "yourFeed": "Tvůj Feed"
-    }
+    "feed": { "yourFeed": "Tvůj Feed" }
   }
 }

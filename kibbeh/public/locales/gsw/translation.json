@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "blockiere"
+      "ban": "blockiere",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Benutzer, wo du fougsch, aber nid imne private Ruum si.",
       "currentRoom": "Grad in:",
       "startPrivateRoom": "En private Ruum mit däm Benutzer starte"
     },
-    "followList": {
-      "followHim": "Folge",
-      "followingHim": "Am folge"
-    },
+    "followList": { "followHim": "Folge", "followingHim": "Am folge" },
     "home": {
       "createRoom": "Ruum erstelle",
       "refresh": "Aktualisiere",
@@ -93,13 +93,8 @@
       "allowAll": "Alles erlaube",
       "allowAllConfirm": "Bisch der sicher? Das wird all {{count}} Benutzer wo wennd rede dBerechtigung dazue gäh"
     },
-    "searchUser": {
-      "search": "Sueche..."
-    },
-    "soundEffectSettings": {
-      "header": "Ton",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "Sueche..." },
+    "soundEffectSettings": { "header": "Ton", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Profil bearbeite",
       "followsYou": "folgt dir",
@@ -121,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Sprachistellige",
@@ -131,10 +127,7 @@
       "refresh": "Mikrofonliste aktualisiere"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Istellige"
     },
     "download": {
@@ -148,9 +141,7 @@
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",
-    "addToCalendar": {
-      "add": "Zum Kalender hinzuefüege"
-    },
+    "addToCalendar": { "add": "Zum Kalender hinzuefüege" },
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
@@ -253,10 +244,7 @@
       "linkText": "Issue uf GitHub",
       "addSupport": "erstelle und ich werde versueche, d Ungerstützig für dis Grät hinzuefüege."
     },
-    "inviteButton": {
-      "invited": "iglade",
-      "inviteToRoom": "zum Ruum ilade"
-    },
+    "inviteButton": { "invited": "iglade", "inviteToRoom": "zum Ruum ilade" },
     "followingOnline": {
       "people": "People",
       "online": "ONLINE",
@@ -285,6 +273,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +326,6 @@
       "galacticDoge": "Galaxie-Doge",
       "spottedLife": "Planet mit lebe gfunge"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

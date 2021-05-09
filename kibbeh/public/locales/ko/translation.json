@@ -34,17 +34,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "유저 차단"
+      "ban": "유저 차단",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "비공개 채팅방에 있지 않은 팔로우하는 사람들.",
       "currentRoom": "채팅방:",
       "startPrivateRoom": "비공개 채팅방에 입장하기."
     },
-    "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "방 만들기",
       "refresh": "새로고침",
@@ -92,13 +92,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "검색..."
-    },
-    "soundEffectSettings": {
-      "header": "소리",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "검색..." },
+    "soundEffectSettings": { "header": "소리", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "프로필 변경",
       "followsYou": "나를 팔로우하는 사람들",
@@ -120,7 +115,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "음성 설정",
@@ -177,10 +173,7 @@
       "linkText": "깃허브에 이슈를 생성하시면",
       "addSupport": "빠른 시일 내에 기기에 대한 지원을 추가하겠습니다"
     },
-    "inviteButton": {
-      "invited": "초대됨",
-      "inviteToRoom": "초대하기"
-    },
+    "inviteButton": { "invited": "초대됨", "inviteToRoom": "초대하기" },
     "micPermissionBanner": {
       "permissionDenied": "마이크 액세스가 거부되었습니다 (설정을 변경하고 페이지를 새로 고침해야 할 수도 있음)",
       "dismiss": "무시하기",
@@ -197,9 +190,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "오디오 컨수머를 찾을수 없었습니다"
     },
-    "addToCalendar": {
-      "add": "달력에 추가"
-    },
+    "addToCalendar": { "add": "달력에 추가" },
     "wsKilled": {
       "description": "웹 소켓 연결이 해제되었습니다. 주로 다른 탭에서 웹사이트를 여는 경우에 발생하는 오류 입니다.",
       "reconnect": "다시 연결"
@@ -284,6 +275,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -303,9 +298,7 @@
       },
       "tommorow": "내일",
       "today": "오늘",
-      "deleteModal": {
-        "areYouSure": "정말 예약 된 방을 제거하시겠습니까?"
-      }
+      "deleteModal": { "areYouSure": "정말 예약 된 방을 제거하시겠습니까?" }
     },
     "roomChat": {
       "title": "문자 채팅",
@@ -333,8 +326,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "생명체가 있는 새로운 행성에 도착"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

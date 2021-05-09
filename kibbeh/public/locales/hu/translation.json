@@ -33,17 +33,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "ban"
+      "ban": "ban",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Követett felhasználók nyilvános szobában.",
       "currentRoom": "Jelenleg itt:",
       "startPrivateRoom": "Privát szoba létrehozása velük"
     },
-    "followList": {
-      "followHim": "követés",
-      "followingHim": "követve"
-    },
+    "followList": { "followHim": "követés", "followingHim": "követve" },
     "home": {
       "createRoom": "Szoba létrehozása",
       "refresh": "Frissítés",
@@ -91,13 +91,8 @@
       "allowAll": "Mindegyik engedélyezése",
       "allowAllConfirm": "Biztos benne? Ezzel engedélyezi mind a {{count}} felhasználónak, hogy beszéljen"
     },
-    "searchUser": {
-      "search": "keresés..."
-    },
-    "soundEffectSettings": {
-      "header": "Hangok",
-      "title": "Hangbeállítások"
-    },
+    "searchUser": { "search": "keresés..." },
+    "soundEffectSettings": { "header": "Hangok", "title": "Hangbeállítások" },
     "viewUser": {
       "editProfile": "Fiók szerkesztése",
       "followsYou": "Követ téged",
@@ -119,7 +114,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Hangbeállítások",
@@ -129,10 +125,7 @@
       "volume": "Hangerő:"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Átfedés beállítások"
     },
     "download": {
@@ -228,12 +221,8 @@
         "chatDisabled": "Chat kikapcsolása"
       }
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Valamilyen okból nincs hallgató"
-    },
-    "addToCalendar": {
-      "add": "Felvétel naptárba"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Valamilyen okból nincs hallgató" },
+    "addToCalendar": { "add": "Felvétel naptárba" },
     "keyboardShortcuts": {
       "setKeybind": "Gyorsbillentyű beállítása",
       "listening": "Hallgatás...",
@@ -283,6 +272,10 @@
         "stopDebugger": "Hibakereső leállítása"
       },
       "downloadApp": "App letöltése"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -301,9 +294,7 @@
       },
       "tommorow": "HOLNAP",
       "today": "MA",
-      "deleteModal": {
-        "areYouSure": "Biztosan törölné az ütemzett szobát?"
-      }
+      "deleteModal": { "areYouSure": "Biztosan törölné az ütemzett szobát?" }
     },
     "roomChat": {
       "title": "Chat",
@@ -331,8 +322,6 @@
       "galacticDoge": "Galaktikus Doge",
       "spottedLife": "Élhető bolygó felfedezve"
     },
-    "feed": {
-      "yourFeed": "Hírfolyamod"
-    }
+    "feed": { "yourFeed": "Hírfolyamod" }
   }
 }

@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "përjashto"
+      "ban": "përjashto",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Lista e përdoruesve që nuk janë në një dhomë private dhe ti i ndjek.",
       "currentRoom": "për momentin në:",
       "startPrivateRoom": "fillo një dhomë private me ta"
     },
-    "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "Krijo dhomë",
       "refresh": "Refresh",
@@ -93,13 +93,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "kerko..."
-    },
-    "soundEffectSettings": {
-      "header": "Tingujt",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "kerko..." },
+    "soundEffectSettings": { "header": "Tingujt", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "redakto profilin",
       "followsYou": "ju ndjek",
@@ -121,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Cilësime e zërit",
@@ -131,10 +127,7 @@
       "volume": "volumi:"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
     },
     "download": {
@@ -178,10 +171,7 @@
       "linkText": "çështje në GitHub",
       "addSupport": "dhe unë do të mundohem të shtoj mbështetje për paisjen tuaj."
     },
-    "inviteButton": {
-      "invited": "ftuar",
-      "inviteToRoom": "fto në dhomë"
-    },
+    "inviteButton": { "invited": "ftuar", "inviteToRoom": "fto në dhomë" },
     "micPermissionBanner": {
       "permissionDenied": "Leja për akses te mikrofoni nuk u dha (ju mund të shkoni në cilësimet e shfletuesit dhe ringarkoni faqen)",
       "dismiss": "largo",
@@ -198,9 +188,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "për ndonjë arsye nuk ka asnje konsumator audio"
     },
-    "addToCalendar": {
-      "add": "Shto në kalendar"
-    },
+    "addToCalendar": { "add": "Shto në kalendar" },
     "wsKilled": {
       "description": "WebSocketi u ndalua nga serveri. Kjo ndodh zakonisht kur hap një faqe të re në skedinë tjetër.",
       "reconnect": "ri-lidhu"
@@ -285,6 +273,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +326,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

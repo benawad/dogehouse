@@ -35,7 +35,10 @@
   "pages": {
     "_comment": "Rëspektiv Päj UI Intərnas̈ənəlïzäs̈un Striŋz",
     "admin": {
-      "ban": "Ban"
+      "ban": "Ban",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "download": {
       "prompt": "Dawnlöd þə DogeHouse Desktop ap",
@@ -48,10 +51,7 @@
       "currentRoom": "Kərəntlë in:",
       "startPrivateRoom": "Stort ä prïvit rüm wið þem"
     },
-    "followList": {
-      "followHim": "Folö",
-      "followingHim": "Folöiŋ"
-    },
+    "followList": { "followHim": "Folö", "followingHim": "Folöiŋ" },
     "home": {
       "createRoom": "Nü̈ Rüm",
       "editRoom": "Edit Rüm",
@@ -99,13 +99,8 @@
       "allowAll": "Alaw əl",
       "allowAllConfirm": "Ər yü s̈r? Þis wil alaw əl {{count}} rekwestiŋ yüzrz tü spëk"
     },
-    "searchUser": {
-      "search": "src̈..."
-    },
-    "soundEffectSettings": {
-      "header": "Sawndz",
-      "title": "Sawnd Setiŋz"
-    },
+    "searchUser": { "search": "src̈..." },
+    "soundEffectSettings": { "header": "Sawndz", "title": "Sawnd Setiŋz" },
     "viewUser": {
       "editProfile": "Edit Pröfïl",
       "followsYou": "Folöz yü",
@@ -117,7 +112,18 @@
       "copyProfileUrl": "Kopë Pröfïl URL",
       "urlCopied": "URL kopëd tü klipbörd",
       "about": "Abawt",
-      "bot": "Bot"
+      "bot": "Bot",
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": "",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      }
     },
     "voiceSettings": {
       "header": "Vöës Setiŋz",
@@ -128,10 +134,7 @@
     },
     "overlaySettings": {
       "header": "Övrlä Setiŋz",
-      "input": {
-        "errorMsg": "Plëz entr ä valid ap tïtl",
-        "label": "Ap tïtl"
-      }
+      "input": { "errorMsg": "Plëz entr ä valid ap tïtl", "label": "Ap tïtl" }
     }
   },
   "components": {
@@ -172,10 +175,7 @@
       "noOnline": "Yü hav 0 frendz onlïn rït naw",
       "showMore": "S̈ö mör"
     },
-    "inviteButton": {
-      "invited": "Invïtd!",
-      "inviteToRoom": "Invït tü rüm"
-    },
+    "inviteButton": { "invited": "Invïtd!", "inviteToRoom": "Invït tü rüm" },
     "micPermissionBanner": {
       "permissionDenied": "Prmis̈on dënïd trïiŋ tü akses yör mïk (yü mä nëd tü gö intü brawsr setiŋz and rëlöd þə pëj)",
       "dismiss": "Dismis",
@@ -189,16 +189,12 @@
       "toggleOverlayKeybind": "Togl övrlä këbïnd",
       "togglePushToTalkKeybind": "Togl pus̈-tü-tak këbïnd"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Nö ədëö konsümr för sum rëson"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Nö ədëö konsümr för sum rëson" },
     "upcomingRoomsCard": {
       "upcomingRooms": "Upcəmiŋ rümz",
       "exploreMoreRooms": "Eksplör mör rümz"
     },
-    "addToCalendar": {
-      "add": "Ad tü Kalendr"
-    },
+    "addToCalendar": { "add": "Ad tü Kalendr" },
     "wsKilled": {
       "description": "WebSocket wəz kild bï þə srvr. Þis yüs̈üalë hapnz wen yü öpn þe websit in anəþr tab.",
       "reconnect": "Rekonekt"
@@ -270,15 +266,18 @@
         "makePublic": "mäk rüm public",
         "makePrivate": "mäk rüm prïvit",
         "renamePublic": "Set public rüm näm",
-        "renamePrivate": "Set prïvit rüm näm"
+        "renamePrivate": "Set prïvit rüm näm",
+        "chatDisabled": "disable chat"
       }
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
     "_comment": "Modyülz UI Intərnas̈ənəlïzäs̈un Striŋz",
-    "feed": {
-      "yourFeed": "Yör fëd"
-    },
+    "feed": { "yourFeed": "Yör fëd" },
     "scheduledRooms": {
       "title": "Skejüld Rümz",
       "noneFound": "nun fawnd",
@@ -309,7 +308,8 @@
       "sendMessage": "Send ä Mesəj",
       "whisper": "Wispr",
       "welcomeMessage": "Welcom tü c̈at!",
-      "roomDescription": "Rüm deskrips̈on"
+      "roomDescription": "Rüm deskrips̈on",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fyüliŋ roket",

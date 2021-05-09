@@ -34,17 +34,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "Verban"
+      "ban": "Verban",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Lijst van gebruikers die je volgt en niet in een privékamer zijn.",
       "currentRoom": "Momenteel in:",
       "startPrivateRoom": "Start een privékamer met deze persoon"
     },
-    "followList": {
-      "followHim": "Volg",
-      "followingHim": "Volgend"
-    },
+    "followList": { "followHim": "Volg", "followingHim": "Volgend" },
     "home": {
       "createRoom": "Kamer maken",
       "refresh": "Verversen",
@@ -92,13 +92,8 @@
       "allowAll": "Iedereen toestaan",
       "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan {{count}} verzoekende gebruikers om te spreken"
     },
-    "searchUser": {
-      "search": "Zoeken..."
-    },
-    "soundEffectSettings": {
-      "header": "Geluiden",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "Zoeken..." },
+    "soundEffectSettings": { "header": "Geluiden", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Profiel bewerken",
       "followsYou": "Volgt jou",
@@ -120,7 +115,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",
@@ -197,9 +193,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Geen audioapparaat (om een of andere reden)"
     },
-    "addToCalendar": {
-      "add": "Voeg toe aan agenda"
-    },
+    "addToCalendar": { "add": "Voeg toe aan agenda" },
     "wsKilled": {
       "description": "WebSocket is gestopt door de server. Dit gebeurt meestal als je de site open hebt staan in een ander tabblad.",
       "reconnect": "Opnieuw verbinden"
@@ -284,6 +278,10 @@
         "stopDebugger": "Debugger stoppen"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -333,8 +331,6 @@
       "galacticDoge": "Galactische Doge",
       "spottedLife": "Planeet met leven gespot"
     },
-    "feed": {
-      "yourFeed": "Je Feed"
-    }
+    "feed": { "yourFeed": "Je Feed" }
   }
 }

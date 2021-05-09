@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "ban >:3"
+      "ban": "ban >:3",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "<3 Wist of usews that awe nut in a pwivate woom and uu fowwow. :3",
       "currentRoom": "UwU Cuwwentwy in:",
       "startPrivateRoom": "<3 Stawt a pwivate woom with them x3"
     },
-    "followList": {
-      "followHim": "Follow",
-      "followingHim": "Following"
-    },
+    "followList": { "followHim": "Follow", "followingHim": "Following" },
     "home": {
       "createRoom": "OwO Cweate Woom (ʘᗩʘ')",
       "refresh": " Wefwesh (◠‿◠✿)",
@@ -93,9 +93,7 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "Seawch... >_<"
-    },
+    "searchUser": { "search": "Seawch... >_<" },
     "soundEffectSettings": {
       "header": "OWO Sounds :D",
       "title": "Sound Settings"
@@ -121,7 +119,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "OWO Voice Settings (✿ ♡‿♡)",
@@ -131,10 +130,7 @@
       "volume": "Volume:"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
     },
     "download": {
@@ -178,10 +174,7 @@
       "linkText": "issue on GitHub",
       "addSupport": "and I wiww twy adding suppowt fow uuw device. x3"
     },
-    "inviteButton": {
-      "invited": "Invited!",
-      "inviteToRoom": "Invite to Woom"
-    },
+    "inviteButton": { "invited": "Invited!", "inviteToRoom": "Invite to Woom" },
     "micPermissionBanner": {
       "permissionDenied": "Huohhhh. Pewmission denied twying to access uuw mic (uu may need to go into bwowsew settings and wewoad da page) (❁´◡`❁)",
       "dismiss": "Dismiss",
@@ -198,9 +191,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Nu audio consumew fow some weason D:"
     },
-    "addToCalendar": {
-      "add": "Add to Cawendaw ^_^"
-    },
+    "addToCalendar": { "add": "Add to Cawendaw ^_^" },
     "wsKilled": {
       "description": " WebSocket was kiwwed by da sewvew. This usuawwy happens when uu open da website in anuthew tab. ;3",
       "reconnect": "Weconnect (；ω；)"
@@ -285,6 +276,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +329,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Pwanet with uwu life spotted (• o •)"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

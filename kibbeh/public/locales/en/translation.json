@@ -123,6 +123,7 @@
       "copyProfileUrl": "Copy Profile URL",
       "urlCopied": "URL copied to clipboard",
       "about": "About",
+      "aboutSuffix": "",
       "bot": "Bot",
       "profileTabs": {
         "about": "About",

@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "ban"
+      "ban": "ban",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "List o' users that are nah in a private cabin 'n ye follow.",
       "currentRoom": "currently in:",
       "startPrivateRoom": "start a private cabin wit' 'em"
     },
-    "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "Create Cabin",
       "refresh": "Refresh",
@@ -93,13 +93,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Ye sure? Ye will allow all {{count}} skallywags to speak!"
     },
-    "searchUser": {
-      "search": "searchin' fer booty..."
-    },
-    "soundEffectSettings": {
-      "header": "Sounds",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "searchin' fer booty..." },
+    "soundEffectSettings": { "header": "Sounds", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "avast ye profile",
       "followsYou": "follows you",
@@ -121,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Voice Settings",
@@ -131,10 +127,7 @@
       "volume": "volume:"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
     },
     "download": {
@@ -178,10 +171,7 @@
       "linkText": "issue on GitHub",
       "addSupport": "'n I will try addin' support fer yer device."
     },
-    "inviteButton": {
-      "invited": "invited",
-      "inviteToRoom": "invite t' cabin"
-    },
+    "inviteButton": { "invited": "invited", "inviteToRoom": "invite t' cabin" },
     "micPermissionBanner": {
       "permissionDenied": "Permission denied trying t' access yer mic (ye may needs t' go into browser settings 'n reload the page)",
       "dismiss": "dismiss",
@@ -198,9 +188,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer fer some reason"
     },
-    "addToCalendar": {
-      "add": "Add t' Calendar"
-    },
+    "addToCalendar": { "add": "Add t' Calendar" },
     "wsKilled": {
       "description": "WebSocket was scuttled by the server. This usually happens when ye open the website in another tab.",
       "reconnect": "reconnect"
@@ -285,6 +273,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +326,6 @@
       "galacticDoge": "Galactic doge been spotted",
       "spottedLife": "Planet wit' life spotted"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

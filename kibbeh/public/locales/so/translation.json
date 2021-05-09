@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "mamnuuc"
+      "ban": "mamnuuc",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Liiska isticmaaleyaasha aan ku jirin qol gaar ah oo aad raacday.",
       "currentRoom": "hadda ku jira:",
       "startPrivateRoom": "qol gaar ah la bilow"
     },
-    "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "Abuur qol",
       "refresh": "Cusbooneysii",
@@ -93,13 +93,8 @@
       "allowAll": "Dhammaan oggolow",
       "allowAllConfirm": "Ma hubtaa? Tani waxay u oggolaan doontaa dhammaan {{count}} Isticmaalayaasha inay codsadaan inay hadlaan"
     },
-    "searchUser": {
-      "search": "raadi..."
-    },
-    "soundEffectSettings": {
-      "header": "Codka",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "raadi..." },
+    "soundEffectSettings": { "header": "Codka", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "wax ka beddel koontada",
       "followsYou": "adiga kuraacay",
@@ -121,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "hagaajinta codka",
@@ -198,9 +194,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"
     },
-    "addToCalendar": {
-      "add": "Ku dar Kalendarkaga"
-    },
+    "addToCalendar": { "add": "Ku dar Kalendarkaga" },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "dib ugu xirmo"
@@ -285,6 +279,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Dajiso Appka"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +332,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "meeraha laga helay nolasha"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

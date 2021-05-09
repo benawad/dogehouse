@@ -34,17 +34,17 @@
   "pages": {
     "_comment": "İlgili sayfa arayüz ulusallaştırma yazıları",
     "admin": {
-      "ban": "Yasakla"
+      "ban": "Yasakla",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Senin takip ettiğin ve özel odada olmayan kullanıcıların listesi.",
       "currentRoom": "Şu anki oda:",
       "startPrivateRoom": "Onlarla özel bir oda oluştur"
     },
-    "followList": {
-      "followHim": "Takip Et",
-      "followingHim": "Takiptesin"
-    },
+    "followList": { "followHim": "Takip Et", "followingHim": "Takiptesin" },
     "home": {
       "createRoom": "Oda oluştur",
       "refresh": "Yenile",
@@ -92,13 +92,8 @@
       "allowAll": "Herkese izin ver",
       "allowAllConfirm": "Emin misiniz? Bu, talep eden {{count}} kullanıcının konuşmasına izin verecektir"
     },
-    "searchUser": {
-      "search": "Ara..."
-    },
-    "soundEffectSettings": {
-      "header": "Sesler",
-      "title": "Ses Ayarları"
-    },
+    "searchUser": { "search": "Ara..." },
+    "soundEffectSettings": { "header": "Sesler", "title": "Ses Ayarları" },
     "viewUser": {
       "editProfile": "Profili düzenle",
       "followsYou": "Seni takip ediyor",
@@ -109,7 +104,7 @@
       "copyProfileUrl": "Profil bağlantısını kopyala",
       "urlCopied": "Bağlantı kopyalandı",
       "unfollow": "Takipten çık",
-      "about": "Hakkında",
+      "about": "",
       "bot": "Bot",
       "profileTabs": {
         "about": "Hakkında",
@@ -120,7 +115,8 @@
       },
       "block": "Engelle",
       "unblock": "Engeli kaldır",
-      "sendDM": "Özel mesaj gönder"
+      "sendDM": "Özel mesaj gönder",
+      "aboutSuffix": "Hakkında"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",
@@ -230,12 +226,8 @@
         "chatDisabled": "sohbeti devre dışı bırak"
       }
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Nedense ses alıcısı yok"
-    },
-    "addToCalendar": {
-      "add": "Takvime Ekle"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },
+    "addToCalendar": { "add": "Takvime Ekle" },
     "keyboardShortcuts": {
       "setKeybind": "Tuş Ata",
       "listening": "Dinleniyor",
@@ -285,6 +277,10 @@
         "stopDebugger": "Hata Ayıklamayı Durdur"
       },
       "downloadApp": "Uygulamayı İndir"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -333,8 +329,6 @@
       "galacticDoge": "Galaktik doge'u",
       "spottedLife": "Yaşam tespit edilen gezegen"
     },
-    "feed": {
-      "yourFeed": "Akışın"
-    }
+    "feed": { "yourFeed": "Akışın" }
   }
 }

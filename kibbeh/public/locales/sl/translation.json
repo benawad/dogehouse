@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "Blokirajte"
+      "ban": "Blokirajte",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Seznam uporabnikov, ki jim sledite in niso v zasebni sobi.",
       "currentRoom": "Trenutno v:",
       "startPrivateRoom": "Začnite zasebno sobo s tem uporabnikom"
     },
-    "followList": {
-      "followHim": "sledi",
-      "followingHim": "sledijo"
-    },
+    "followList": { "followHim": "sledi", "followingHim": "sledijo" },
     "home": {
       "createRoom": "Ustvarite sobo",
       "refresh": "Osvežite",
@@ -93,13 +93,8 @@
       "allowAll": "Dovoli vsem",
       "allowAllConfirm": "Ste prepričani? To bo omogočilo vsem {{count}}, ki zahtevajo, da govorijo"
     },
-    "searchUser": {
-      "search": "Iskanje..."
-    },
-    "soundEffectSettings": {
-      "header": "Zvoki",
-      "title": "Nastavitve zvoka"
-    },
+    "searchUser": { "search": "Iskanje..." },
+    "soundEffectSettings": { "header": "Zvoki", "title": "Nastavitve zvoka" },
     "viewUser": {
       "editProfile": "Uredite profil",
       "followsYou": "ti sledijo",
@@ -121,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Nastavitve zvoka",
@@ -198,9 +194,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Iz nekega razloga ni odjemalca zvoka"
     },
-    "addToCalendar": {
-      "add": "Dodajte v koledar"
-    },
+    "addToCalendar": { "add": "Dodajte v koledar" },
     "wsKilled": {
       "description": "Povezava s spletno vtičnico je bila prekinjena. To se ponavadi zgodi, ko se ta spletna stran odpre v novem zavihku.",
       "reconnect": "Ponovno se povežite"
@@ -285,6 +279,10 @@
         "stopDebugger": "Ustavite razhroščevalec"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +332,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Najden planet z življenjem"
     },
-    "feed": {
-      "yourFeed": "Vaši Kanali"
-    }
+    "feed": { "yourFeed": "Vaši Kanali" }
   }
 }

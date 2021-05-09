@@ -34,17 +34,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "blokeatu"
+      "ban": "blokeatu",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "List of users that are not in a private room and you follow.",
       "currentRoom": "orain:",
       "startPrivateRoom": "hasi saio pribatu bat"
     },
-    "followList": {
-      "followHim": "Follow",
-      "followingHim": "Following"
-    },
+    "followList": { "followHim": "Follow", "followingHim": "Following" },
     "home": {
       "createRoom": "Gela Sortu",
       "editRoom": "Edit Room",
@@ -92,13 +92,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "bilatu..."
-    },
-    "soundEffectSettings": {
-      "header": "Soinuak",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "bilatu..." },
+    "soundEffectSettings": { "header": "Soinuak", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "editatu profila",
       "followsYou": "jarraitzen zaitu",
@@ -120,7 +115,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Ahots aukerak",
@@ -207,9 +203,7 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore more rooms"
     },
-    "addToCalendar": {
-      "add": "Egutegira gehitu"
-    },
+    "addToCalendar": { "add": "Egutegira gehitu" },
     "wsKilled": {
       "description": "Serbitzariak websocket-a ezabatu du. Hau gertatzen da web-orrialdea beste fitxa batean irekeitzen denean.",
       "reconnect": "berriro konektatu"
@@ -284,13 +278,15 @@
         "renamePrivate": "Set private room name",
         "chatDisabled": "disable chat"
       }
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Your feed"
-    },
+    "feed": { "yourFeed": "Your feed" },
     "scheduledRooms": {
       "title": "Gela programatuak",
       "noneFound": "ez da bakar bat ere aurkitu",

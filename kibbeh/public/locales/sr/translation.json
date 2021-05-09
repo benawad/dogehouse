@@ -34,17 +34,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "забраните"
+      "ban": "забраните",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Корисници који нису у приватној соби и које пратите.",
       "currentRoom": "тренутно у:",
       "startPrivateRoom": "Започните приватну собу"
     },
-    "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "Направите собу",
       "refresh": "Refresh",
@@ -92,13 +92,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "Претражите..."
-    },
-    "soundEffectSettings": {
-      "header": "Звукови",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "Претражите..." },
+    "soundEffectSettings": { "header": "Звукови", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Уредите профил",
       "followsYou": "Прати вас",
@@ -120,7 +115,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Подешавања гласа",
@@ -130,10 +126,7 @@
       "volume": "гласноћа:"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
     },
     "download": {
@@ -177,10 +170,7 @@
       "linkText": "пријаву на GitHub-у",
       "addSupport": "и покушаћу да додам подршку за Ваш уређај."
     },
-    "inviteButton": {
-      "invited": "Позван",
-      "inviteToRoom": "Позван у собу"
-    },
+    "inviteButton": { "invited": "Позван", "inviteToRoom": "Позван у собу" },
     "micPermissionBanner": {
       "permissionDenied": "Дозвола одбијена за покушај приступа микрофону (можда ћете морати да уђете у подешавања прегледача и поново учитате страницу)",
       "dismiss": "Одбаците",
@@ -197,9 +187,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Из неког разлога нема потрошача звука"
     },
-    "addToCalendar": {
-      "add": "Додајте у календар"
-    },
+    "addToCalendar": { "add": "Додајте у календар" },
     "wsKilled": {
       "description": "Websocket је убио сервер. То се обично дешава када отворите веб локацију на другој картици.",
       "reconnect": "Поново повежите"
@@ -284,6 +272,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -333,8 +325,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

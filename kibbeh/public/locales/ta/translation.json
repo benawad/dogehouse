@@ -35,7 +35,10 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "தடை செய்"
+      "ban": "தடை செய்",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "ஒரு தனியார் அறையில் இல்லாத, நீங்கள் பின்பற்றும் பயனர்களின்.",
@@ -93,13 +96,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "தேடு..."
-    },
-    "soundEffectSettings": {
-      "header": "ஒலிகள்",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "தேடு..." },
+    "soundEffectSettings": { "header": "ஒலிகள்", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "சுயவிவரத்தைத் திருத்து",
       "followsYou": "உங்களைப் பின்தொடர்கிறார்",
@@ -121,7 +119,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "குரல் அமைப்பு",
@@ -198,9 +197,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "சில காரணங்களால் ஆடியோ நுகர்வோர் இல்லை"
     },
-    "addToCalendar": {
-      "add": "காலெண்டரில் சேர்"
-    },
+    "addToCalendar": { "add": "காலெண்டரில் சேர்" },
     "wsKilled": {
       "description": "WebSocket server'ஆல் கொல்லப்பட்டது . நீங்கள் மற்றொரு தாவலில் வலைத்தளத்தைத் திறக்கும்போது இது வழக்கமாக நிகழ்கிறது.",
       "reconnect": "மீண்டும் இணைக்கவும்"
@@ -285,6 +282,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +335,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "வாழ்க்கையுடன் ஒரு கிரகத்தைக் கண்டுபிடித்துவிட்டோம்"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

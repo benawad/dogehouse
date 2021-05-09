@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "бан"
+      "ban": "бан",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Списък от потребители, които не са в ",
       "currentRoom": "в момента в:",
       "startPrivateRoom": "start a private room with them"
     },
-    "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "Създай стая",
       "refresh": "Опресни",
@@ -93,13 +93,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "търсене..."
-    },
-    "soundEffectSettings": {
-      "header": "Звук",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "търсене..." },
+    "soundEffectSettings": { "header": "Звук", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "промяна на профил",
       "followsYou": "следват те",
@@ -121,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Звукови настройки",
@@ -131,10 +127,7 @@
       "volume": "ниво на звук:"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
@@ -180,10 +173,7 @@
       "linkText": "issue в GitHub",
       "addSupport": "и аз ще пробвам да добавя поддръжка за вашето устройство."
     },
-    "inviteButton": {
-      "invited": "поканен",
-      "inviteToRoom": "канене в стаята"
-    },
+    "inviteButton": { "invited": "поканен", "inviteToRoom": "канене в стаята" },
     "micPermissionBanner": {
       "permissionDenied": "Проблем с позволенията в браузъра (може да се наложи да отидете в настройките на браузъра и да презаредите страницата)",
       "dismiss": "отхвърляне",
@@ -200,9 +190,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "по някаква причина няма звуков консуматор"
     },
-    "addToCalendar": {
-      "add": "Добави към календар"
-    },
+    "addToCalendar": { "add": "Добави към календар" },
     "wsKilled": {
       "description": "WebSocket-а беше спрян от сървъра. Това обикновенно се случва, когато сайта е отворен в друг прозорец.",
       "reconnect": "повторно свързване"
@@ -287,6 +275,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -336,8 +328,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

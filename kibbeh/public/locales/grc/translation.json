@@ -35,17 +35,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "αποκλεισμός"
+      "ban": "αποκλεισμός",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "Χρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
       "currentRoom": "αυτή τη στιγμή βρίσκεστε σε:",
       "startPrivateRoom": "δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
     },
-    "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "Δημιουργία Δωματίου",
       "refresh": "Επαναφόρτωση",
@@ -93,13 +93,8 @@
       "allowAll": "Επιτρέψτε τα όλα",
       "allowAllConfirm": "Είστε σίγουρος; Αυτό θα επιτρέψει όλους τους {{count}} χρήστες που έχουν ζητήσει να μιλήσουν"
     },
-    "searchUser": {
-      "search": "αναζήτηση..."
-    },
-    "soundEffectSettings": {
-      "header": "Ήχοι",
-      "title": "Sound Settings"
-    },
+    "searchUser": { "search": "αναζήτηση..." },
+    "soundEffectSettings": { "header": "Ήχοι", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "επεξεργασία προφίλ",
       "followsYou": "σας ακολουθεί",
@@ -121,7 +116,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",
@@ -198,9 +194,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "δεν υπάρχει δέκτης ήχου για κάποιο λόγο"
     },
-    "addToCalendar": {
-      "add": "Προσθήκη στο Ημερολόγιο"
-    },
+    "addToCalendar": { "add": "Προσθήκη στο Ημερολόγιο" },
     "wsKilled": {
       "description": "Το WebSocket διακόπηκε από τον διακομιστή. Αυτό συμβαίνει συνήθως όταν ανοίγετε την ιστοσελίδα σε άλλη καρτέλα.",
       "reconnect": "επανασύνδεση"
@@ -285,6 +279,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -334,8 +332,6 @@
       "galacticDoge": "Γαλαξιακό Doge",
       "spottedLife": "Εντοπίστηκε πλανήτης με ζωή"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

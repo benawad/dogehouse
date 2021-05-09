@@ -34,17 +34,17 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "แบน"
+      "ban": "แบน",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "ห้องสาธารณะที่ผู้คนที่คุณกำลังติดตามใช้งานอยู่",
       "currentRoom": "ขณะนี้อยู่ใน:",
       "startPrivateRoom": "สร้างห้องส่วนตัว"
     },
-    "followList": {
-      "followHim": "ติดตาม",
-      "followingHim": "กำลังติดตาม"
-    },
+    "followList": { "followHim": "ติดตาม", "followingHim": "กำลังติดตาม" },
     "home": {
       "createRoom": "สร้างห้อง",
       "refresh": "รีเฟรช",
@@ -92,9 +92,7 @@
       "allowAll": "อนุญาตทั้งหมด",
       "allowAllConfirm": "แน่ใจหรือไม่? คุณกำลังอนุมัติให้ผู้ใช้ {{count}} คน ขึ้นมาเป็นผู้พูด"
     },
-    "searchUser": {
-      "search": "ค้นหา..."
-    },
+    "searchUser": { "search": "ค้นหา..." },
     "soundEffectSettings": {
       "header": "การแจ้งเตือนเสียง",
       "title": "การตั้งค่าเสียง"
@@ -120,7 +118,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "การตั้งค่าเสียง",
@@ -130,10 +129,7 @@
       "volume": "ระดับเสียง:"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "App Title ไม่ถูกต้อง",
-        "label": "ใส่ App Title"
-      },
+      "input": { "errorMsg": "App Title ไม่ถูกต้อง", "label": "ใส่ App Title" },
       "header": "การตั้งค่าโอเวอร์เลย์"
     },
     "download": {
@@ -194,12 +190,8 @@
       "toggleOverlayKeybind": "คีย์ลัด เปิด/ปิด โอเวอร์เลย์",
       "toggleDeafKeybind": "คีย์ลัด เปิด/ปิด เสียง"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "ไม่พบลำโพง"
-    },
-    "addToCalendar": {
-      "add": "เพิ่มไปยังปฏิทิน"
-    },
+    "userVolumeSlider": { "noAudioMessage": "ไม่พบลำโพง" },
+    "addToCalendar": { "add": "เพิ่มไปยังปฏิทิน" },
     "wsKilled": {
       "description": "ตัดการเชื่อมต่อโดยเซิร์ฟเวอร์ อาจจะเป็นเพราะการเปิดเว็บไซต์หลายหน้าจอ",
       "reconnect": "เชื่อมต่อใหม่อีกครั้ง"
@@ -284,6 +276,10 @@
         "stopDebugger": "ปิดการแก้ไขข้อบกพร่อง"
       },
       "downloadApp": "ดาวน์โหลดแอป"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -303,9 +299,7 @@
       },
       "tommorow": "พรุ่งนี้",
       "today": "วันนี้",
-      "deleteModal": {
-        "areYouSure": "แน่ใจหรือไม่ที่จะลบกำหนดการนี้?"
-      }
+      "deleteModal": { "areYouSure": "แน่ใจหรือไม่ที่จะลบกำหนดการนี้?" }
     },
     "roomChat": {
       "title": "แชท",
@@ -333,8 +327,6 @@
       "galacticDoge": "ถึงกาแลคซี่แล้ว",
       "spottedLife": "พบดาวเอเลี่ยนแล้ว!"
     },
-    "feed": {
-      "yourFeed": "ฟีดของคุณ"
-    }
+    "feed": { "yourFeed": "ฟีดของคุณ" }
   }
 }

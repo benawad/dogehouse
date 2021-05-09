@@ -35,7 +35,10 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
-      "ban": "ব্যান করুন"
+      "ban": "ব্যান করুন",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions"
     },
     "followingOnlineList": {
       "listHeader": "যেসব ইউজারকে আপনি অনুসরণ করেন কিন্তু এখন তারা কোনো প্রাইভেট রুম এ নেই।",
@@ -93,13 +96,8 @@
       "allowAll": "সবাইকে অনুমতি দিন",
       "allowAllConfirm": "আপনি কি নিশ্চিত? এটা অনুমতি দেবে সব {{count}} জন অনুরোধ করা ইউজারদের কথা বলতে"
     },
-    "searchUser": {
-      "search": "খুঁজুন..."
-    },
-    "soundEffectSettings": {
-      "header": "সাউন্ডস",
-      "title": "সাউন্ড সেটিংস"
-    },
+    "searchUser": { "search": "খুঁজুন..." },
+    "soundEffectSettings": { "header": "সাউন্ডস", "title": "সাউন্ড সেটিংস" },
     "viewUser": {
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",
@@ -121,7 +119,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
@@ -200,9 +199,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "কিছু কারনে অডিও কনসিউম করা যাইনি"
     },
-    "addToCalendar": {
-      "add": "ক্যালেন্ডারে যুক্ত করুন"
-    },
+    "addToCalendar": { "add": "ক্যালেন্ডারে যুক্ত করুন" },
     "wsKilled": {
       "description": "সার্ভারের দ্বারা ওয়েবসকেটটি শেষ হয়ে গেছে। এটি সাধারণত হয় যখন আপনি ওয়েবসাইটটি আরেকটি ট্যাব এ ওপেন করেন।",
       "reconnect": "পুনরায় সংযোগ করুন"
@@ -287,6 +284,10 @@
         "stopDebugger": "ডিবাগার বন্ধ করুন"
       },
       "downloadApp": "ডাউনলোড করুন অ্যাপ্লিকেশনটি"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     }
   },
   "modules": {
@@ -336,8 +337,6 @@
       "galacticDoge": "গ্যালাকটিক Doge",
       "spottedLife": "গ্রহে জীবনের সন্ধান পাওয়া গেছে"
     },
-    "feed": {
-      "yourFeed": "আপনার ফিড"
-    }
+    "feed": { "yourFeed": "আপনার ফিড" }
   }
 }
