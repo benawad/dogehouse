@@ -48,7 +48,7 @@ Returns:
 */
 ```
 
-In this example, you will see that you can have an mixed array with strings, and unitokens!  A unitoken is a token object where you define your object key as the token type, and the value as the value of the token, doing so would look like such: `{link: "https://google.com"}`, and this can be done for all token types.
+In this example, you will see that you can have a mixed array with strings, and unitokens!  A unitoken is a token object where you define your object key as the token type, and the value as the value of the token, doing so would look like such: `{link: "https://google.com"}`, and this can be done for all token types.
 
 ```ts
 import { dolma } from 'dolma';
