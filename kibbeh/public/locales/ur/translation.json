@@ -240,7 +240,8 @@
         "goBackToListener": "سننے والوں کے پاس واپس جائیں",
         "deleteMessage": "اس پیغام کو حذف کریں",
         "makeRoomCreator": "روم ایڈمن بنائیں",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "بولنے کی اجازت کی ضرورت ہے",

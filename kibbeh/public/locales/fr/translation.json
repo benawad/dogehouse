@@ -274,7 +274,8 @@
         "banFromRoom": "Bannir de la salle",
         "goBackToListener": "Retourner chez les auditeurs",
         "deleteMessage": "Supprimer ce message",
-        "makeRoomCreator": "Transférer la propriété de la salle"
+        "makeRoomCreator": "Transférer la propriété de la salle",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "requiert la permission de parler",

@@ -247,7 +247,8 @@
         "goBackToListener": "Dinləyiciyə geri qayıt",
         "deleteMessage": "Bu mesajı sil",
         "makeRoomCreator": "Otaq admini et",
-        "unBanFromChat": "Çatdan banı ləğv et"
+        "unBanFromChat": "Çatdan banı ləğv et",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Danışmaq üçün icazə istə",

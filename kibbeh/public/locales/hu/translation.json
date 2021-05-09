@@ -215,7 +215,8 @@
         "goBackToListener": "Visszalépés hallgatóvá",
         "deleteMessage": "Üzenet törlése",
         "makeRoomCreator": "Előreléptetés tulajdonossá",
-        "unBanFromChat": "Szoba kitiltás visszavonása"
+        "unBanFromChat": "Szoba kitiltás visszavonása",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Beszélői engedélyre van szükség",

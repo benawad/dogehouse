@@ -239,7 +239,8 @@
         "goBackToListener": "kthenu në dëgjues",
         "deleteMessage": "fshije këtë mesazh",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "kërko leje për të folur",

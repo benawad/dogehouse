@@ -241,7 +241,8 @@
         "goBackToListener": "श्रोताको लागि पछाडि जानुहोस",
         "deleteMessage": "यो मेसेज मेटाउनुहोस",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "बोल्नको लागि अनुमति चाहिन्छ",

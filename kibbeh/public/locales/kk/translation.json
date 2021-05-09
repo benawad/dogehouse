@@ -243,7 +243,8 @@
         "goBackToListener": "тыңдарман болу",
         "deleteMessage": "осы хабарламаны жою",
         "makeRoomCreator": "бөлме админы қылдыру",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Мұнда сөйлеу үшін рұқсат алу қажет",

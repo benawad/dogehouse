@@ -269,7 +269,8 @@
         "banFromRoom": "Ban from Room",
         "goBackToListener": "Go Back to Listener",
         "deleteMessage": "Delete this Message",
-        "makeRoomCreator": "Promote to Admin"
+        "makeRoomCreator": "Promote to Admin",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "require permission to speak",

@@ -223,7 +223,8 @@
         "goBackToListener": "Zurück zum Zuhörer",
         "deleteMessage": "Nachricht löschen",
         "makeRoomCreator": "Zum Raumadmin befördern",
-        "unBanFromChat": "Vom Chat entbannen"
+        "unBanFromChat": "Vom Chat entbannen",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlangen",

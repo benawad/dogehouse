@@ -241,7 +241,8 @@
         "goBackToListener": "청취자로 돌아가기",
         "deleteMessage": "이 메세지 삭제",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "발언권이 필요합니다",

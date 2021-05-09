@@ -221,7 +221,8 @@
         "goBackToListener": "Zruck zum Zuhörer",
         "deleteMessage": "Nochricht löschn",
         "makeRoomCreator": "zum Raumadmin befördern",
-        "unBanFromChat": "Vom Chat entblockian"
+        "unBanFromChat": "Vom Chat entblockian",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlaungen",

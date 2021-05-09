@@ -264,7 +264,8 @@
         "banFromRoom": "Ban frəm Rüm",
         "goBackToListener": "Gö Bak tü Lisenr",
         "deleteMessage": "Dlët þis Mesəj",
-        "makeRoomCreator": "Promot tü Admin"
+        "makeRoomCreator": "Promot tü Admin",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "rekwïr prmis̈on tü spëk",

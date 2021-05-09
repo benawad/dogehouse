@@ -239,7 +239,8 @@
         "goBackToListener": "Go back t' shipmate",
         "deleteMessage": "Scuttle this message",
         "makeRoomCreator": "Make cabin cap'n",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Require permission t' speak",

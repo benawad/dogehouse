@@ -272,7 +272,8 @@
         "banFromRoom": "ممنوعیت ورود به اتاق",
         "goBackToListener": "بازگشت به شنونده",
         "deleteMessage": "این پیام را حذف کنید",
-        "makeRoomCreator": "به مدیر ارتقا دهید"
+        "makeRoomCreator": "به مدیر ارتقا دهید",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "نیاز به گرفتن اجازه برای صحبت دارد",

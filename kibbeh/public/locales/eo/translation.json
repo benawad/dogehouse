@@ -243,7 +243,8 @@
         "goBackToListener": "reiru al aŭskultanto",
         "deleteMessage": "forigu ĉi tiun mesaĝon",
         "makeRoomCreator": "fari ĉambron administranto",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "postulas permeson paroli",

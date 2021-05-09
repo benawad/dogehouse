@@ -273,7 +273,8 @@
         "banFromRoom": "gela blokeatu",
         "goBackToListener": "bueltatu entzule izatera",
         "deleteMessage": "mezua ezabatu",
-        "makeRoomCreator": "Promote to Admin"
+        "makeRoomCreator": "Promote to Admin",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "baimenak behar dituzu hitz egiteko",

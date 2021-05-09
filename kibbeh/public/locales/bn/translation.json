@@ -250,7 +250,8 @@
         "goBackToListener": "শ্রোতাতে ফিরে যান",
         "deleteMessage": "মেসেজটি মুছে ফেলুন",
         "makeRoomCreator": "রুম অ্যাডমিন তৈরি করুন",
-        "unBanFromChat": "চ্যাট থেকে আনব্যান করুন"
+        "unBanFromChat": "চ্যাট থেকে আনব্যান করুন",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",

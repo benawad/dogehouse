@@ -244,7 +244,8 @@
         "goBackToListener": "vrátiť sa k poslucháčovi",
         "deleteMessage": "zmazať túto správu",
         "makeRoomCreator": "udeliť správcu miestnosti",
-        "unBanFromChat": "odbanovať z chatu"
+        "unBanFromChat": "odbanovať z chatu",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Poslucháči musia požiadať o povolenie rozprávať",

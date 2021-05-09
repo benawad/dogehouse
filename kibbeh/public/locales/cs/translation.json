@@ -247,7 +247,8 @@
         "goBackToListener": "Přesunout se do posluchačů",
         "deleteMessage": "Smazat tuto zprávu",
         "makeRoomCreator": "Předat místnost",
-        "unBanFromChat": "Odbanovat z chatu"
+        "unBanFromChat": "Odbanovat z chatu",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Požádat o přesunutí do mluvících",

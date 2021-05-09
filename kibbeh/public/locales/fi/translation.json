@@ -243,7 +243,8 @@
         "goBackToListener": "Palaa kuuntelijaksi",
         "deleteMessage": "Poista viesti",
         "makeRoomCreator": "Ylennä huoneen ylläpitäjäksi",
-        "unBanFromChat": "Poista esto chatista"
+        "unBanFromChat": "Poista esto chatista",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Puhuminen vaatii oikeuden",

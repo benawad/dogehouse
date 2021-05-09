@@ -245,7 +245,8 @@
         "goBackToListener": "kļūt par klausītāju",
         "deleteMessage": "izdzēst šo ziņu",
         "makeRoomCreator": "iestatīt par šis istabas administrātoru",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "pieprasīt runāšanas atļauju",

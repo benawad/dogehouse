@@ -245,7 +245,8 @@
         "goBackToListener": "Ku laabo Dhageystayaasha",
         "deleteMessage": "tirtir fariintan",
         "makeRoomCreator": "samee maamulaha qolka",
-        "unBanFromChat": "Ka qaad mamnuucida hadalka"
+        "unBanFromChat": "Ka qaad mamnuucida hadalka",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Waxay u baahnaan doonaan ogolaansho si ay uhadlaan",

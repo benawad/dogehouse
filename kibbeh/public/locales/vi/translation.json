@@ -242,7 +242,8 @@
         "goBackToListener": "trở về làm thính giả",
         "deleteMessage": "xóa tin nhắn này",
         "makeRoomCreator": "cho làm quản trị viên",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "phải được cấp quyền mới có thể nói",

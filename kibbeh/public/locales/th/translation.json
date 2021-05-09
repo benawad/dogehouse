@@ -239,7 +239,8 @@
         "goBackToListener": "กลับไปเป็นผู้ฟัง",
         "deleteMessage": "ลบข้อความ",
         "makeRoomCreator": "แต่งตั้งเป็นแอดมินห้อง",
-        "unBanFromChat": "ปลดแบนจากแชท"
+        "unBanFromChat": "ปลดแบนจากแชท",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "ต้องใช้สิทธิ์ในการพูด",

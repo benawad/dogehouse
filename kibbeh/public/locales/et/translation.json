@@ -239,7 +239,8 @@
         "goBackToListener": "mine tagasi kuulajatesse",
         "deleteMessage": "kustuta sõnum",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "nõua luba rääkimiseks",

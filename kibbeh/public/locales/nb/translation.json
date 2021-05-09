@@ -241,7 +241,8 @@
         "goBackToListener": "Gå tilbake til lytter",
         "deleteMessage": "Slett denne meldingen",
         "makeRoomCreator": "Opprett rom-administrator",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Krev tillatelse for å snakke",

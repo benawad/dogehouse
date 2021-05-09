@@ -216,7 +216,8 @@
         "goBackToListener": "回到听者",
         "deleteMessage": "删除此信息",
         "makeRoomCreator": "设为聊天室管理员",
-        "unBanFromChat": "恢复此人使用文字聊天"
+        "unBanFromChat": "恢复此人使用文字聊天",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "需要允许才能说话",

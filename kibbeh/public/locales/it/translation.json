@@ -244,7 +244,8 @@
         "goBackToListener": "Torna ad essere un ascoltatore",
         "deleteMessage": "Elimina questo messaggio",
         "makeRoomCreator": "Rendi amministratore della stanza",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Richiedi permesso per parlare",

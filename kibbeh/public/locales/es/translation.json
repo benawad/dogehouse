@@ -272,7 +272,8 @@
         "banFromRoom": "Banear de la sala",
         "goBackToListener": "Volver a ser oyente",
         "deleteMessage": "Eliminar mensaje",
-        "makeRoomCreator": "Hacer administrador de la sala"
+        "makeRoomCreator": "Hacer administrador de la sala",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Solicitar permiso para hablar",

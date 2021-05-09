@@ -243,7 +243,8 @@
         "goBackToListener": "Gå tilbage til lytter",
         "deleteMessage": "Slet denne besked",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Fjern bandlysning fra chatten"
+        "unBanFromChat": "Fjern bandlysning fra chatten",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "kræv tilladelse for at tale",

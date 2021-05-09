@@ -245,7 +245,8 @@
         "goBackToListener": "Va zoruch ad ester n ascutadú",
         "deleteMessage": "Eliminëia chësc messaje",
         "makeRoomCreator": "Fá deventé n aministradú tla ciamena",
-        "unBanFromChat": "Tola demez l ban por la discusciun"
+        "unBanFromChat": "Tola demez l ban por la discusciun",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Damana l autorisaziun por baié",

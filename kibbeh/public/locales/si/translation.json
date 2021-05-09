@@ -245,7 +245,8 @@
         "goBackToListener": "අසන්නෙක් ලෙසට යන්න",
         "deleteMessage": "පිළිතුර ඉවත් කරන්න",
         "makeRoomCreator": "පරිපාලක කරන්න",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "කතා කරන්න අවසර ගන්න",

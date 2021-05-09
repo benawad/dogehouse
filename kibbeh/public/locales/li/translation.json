@@ -242,7 +242,8 @@
         "goBackToListener": "Gank terug noa loestereer",
         "deleteMessage": "Disè bericht verwijdere",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Toesjtimming neudig om te sjpreke",

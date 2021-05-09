@@ -241,7 +241,8 @@
         "goBackToListener": "върни се към слушател",
         "deleteMessage": "изтриване на това съобщение",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "изискване на позволение за говорене",

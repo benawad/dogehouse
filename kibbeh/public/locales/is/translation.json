@@ -239,7 +239,8 @@
         "goBackToListener": "fara aftur til hlustandans",
         "deleteMessage": "eyða skilaboðum",
         "makeRoomCreator": "gera að rásarstjórnenda",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "þurfa leyfi til að tala",

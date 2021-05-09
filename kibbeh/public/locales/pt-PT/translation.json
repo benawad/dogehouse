@@ -219,7 +219,8 @@
         "goBackToListener": "voltar a ouvinte",
         "deleteMessage": "Apagar mensagem",
         "makeRoomCreator": "Tornar administrador da sala",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Pedir permissão para falar",

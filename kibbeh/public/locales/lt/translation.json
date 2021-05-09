@@ -242,7 +242,8 @@
         "goBackToListener": "Gražinti atgal į klausytojus",
         "deleteMessage": "Ištrinti šią žinutę",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Reikalingas patvirtinimas kalbėti",

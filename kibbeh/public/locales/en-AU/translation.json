@@ -242,7 +242,8 @@
         "goBackToListener": "ɹǝuǝʇsᴉꞁ oʇ ʞɔɐq oƃ",
         "deleteMessage": "ǝƃɐssǝɯ sᴉɥʇ ǝʇǝꞁǝp",
         "makeRoomCreator": "uᴉɯpɐ ɯooɹ ǝʞɐɯ",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "ʞɐǝds oʇ uoᴉssᴉɯɹǝd ǝɹᴉnbǝɹ",

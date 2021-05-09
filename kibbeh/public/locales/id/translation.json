@@ -242,7 +242,8 @@
         "goBackToListener": "Kembali ke pendengar",
         "deleteMessage": "Hapus pesan ini",
         "makeRoomCreator": "Buat admin ruangan",
-        "unBanFromChat": "Bolehkan di percakapan"
+        "unBanFromChat": "Bolehkan di percakapan",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "membutuhkan izin untuk berbicara",

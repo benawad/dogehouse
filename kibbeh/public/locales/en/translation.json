@@ -288,6 +288,7 @@
         "unBanFromChat": "Unban from Chat",
         "banFromChat": "Ban from Chat",
         "banFromRoom": "Ban from Room",
+        "banIPFromRoom": "Ban IP from Room",
         "goBackToListener": "Go Back to Listener",
         "deleteMessage": "Delete this Message",
         "makeRoomCreator": "Promote to Admin"

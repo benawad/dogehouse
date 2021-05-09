@@ -237,7 +237,8 @@
         "goBackToListener": "חזור למקשיב",
         "deleteMessage": "מחק הודעה זו",
         "makeRoomCreator": "הפוך למנהל חדר",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "דרוש אישור לדבר",

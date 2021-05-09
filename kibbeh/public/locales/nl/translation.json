@@ -244,7 +244,8 @@
         "goBackToListener": "Ga terug naar luisteraar",
         "deleteMessage": "Verwijder dit bericht",
         "makeRoomCreator": "kamerbeheerder maken",
-        "unBanFromChat": "Ontban van chat"
+        "unBanFromChat": "Ontban van chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Toestemming nodig om te spreken",

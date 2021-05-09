@@ -246,7 +246,8 @@
         "goBackToListener": "стать слушателем",
         "deleteMessage": "удалить это сообщение",
         "makeRoomCreator": "назначить админом комнаты",
-        "unBanFromChat": "Разбанить в чате"
+        "unBanFromChat": "Разбанить в чате",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "чтобы разговаривать здесь требуется разрешение",

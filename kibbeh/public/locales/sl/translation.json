@@ -245,7 +245,8 @@
         "goBackToListener": "Nazaj k poslušalcem",
         "deleteMessage": "Izbrišite sporočilo ",
         "makeRoomCreator": "Nastavite kot administratorja sobe",
-        "unBanFromChat": "Prekličite odstranitev iz klepeta"
+        "unBanFromChat": "Prekličite odstranitev iz klepeta",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Potrebno dovoljenje za govor",

@@ -219,7 +219,8 @@
         "goBackToListener": "Gå tillbaka till lyssnare",
         "deleteMessage": "Ta bort meddelande",
         "makeRoomCreator": "Gör till rumsadministratör",
-        "unBanFromChat": "Ta bort avstängning från chatt"
+        "unBanFromChat": "Ta bort avstängning från chatt",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Be om tillåtelse att prata",

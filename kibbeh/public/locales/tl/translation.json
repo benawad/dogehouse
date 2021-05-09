@@ -271,7 +271,8 @@
         "banFromRoom": "ban sa room",
         "goBackToListener": "bumalik sa nakikinig",
         "deleteMessage": "I-delete ang mensahe",
-        "makeRoomCreator": "gawing room admin"
+        "makeRoomCreator": "gawing room admin",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "kailangan nag pahintulot para magsalita",

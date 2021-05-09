@@ -241,7 +241,8 @@
         "goBackToListener": "go back to listener",
         "deleteMessage": "ఈ సందేశాన్ని తొలగించండి",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "నాకు మాట్లాడటానికి అనుమతి కావాలి",
