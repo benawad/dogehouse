@@ -68,9 +68,8 @@ Navigate to `/kibbeh`
 
 ## Supporting translation in new components
 1. Add your translation key into the English `translation.json` located in `kibbeh/public/locales/en/translation.json`. Make sure it is put in an appropriate section that makes sense.
-2. Run `yarn gen:i18:keys`. This will add your key into `translationKeys.ts`.
+2. Run `yarn i18`. This will generate all fields into all other `translation.json`.
 3. Use your translation key in your code. This is done by using `useTypeSafeTranslation` like this: `const { t } = useTypeSafeTranslation();`. You can now call `t` and get your desired translation key.
-4. Run `yarn i18` to generate all fields into all other `translation.json`.
 
 ## Devcontainer Full Local Development
 For VSCode users, we're able to use devcontainers which allows you to create development environments that already have all the tools and services configured and ready to go.
