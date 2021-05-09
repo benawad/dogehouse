@@ -105,5 +105,5 @@ dist
 
 .package-lock.json
 
-test/
+wip.ts
 .package-lock.json
