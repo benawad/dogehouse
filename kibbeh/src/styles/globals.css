@@ -133,7 +133,7 @@ img.emoji {
   height: 1.3em;
   width: 1.3em;
   margin: 0 0.05em 0 0.1em;
-  vertical-align: sub;
+  vertical-align: text-top;
   display: inline;
   -webkit-user-drag: none;
   -moz-user-drag: none;
