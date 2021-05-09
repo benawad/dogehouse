@@ -279,6 +279,11 @@
         "stopDebugger": "ডিবাগার বন্ধ করুন"
       },
       "downloadApp": "ডাউনলোড করুন অ্যাপ্লিকেশনটি"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {

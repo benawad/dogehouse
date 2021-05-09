@@ -259,6 +259,11 @@
       "logOut": { "button": "登出", "modalSubtitle": "你確定要登出嗎？" },
       "debugAudio": { "debugAudio": "除錯音頻", "stopDebugger": "停止除錯" },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {

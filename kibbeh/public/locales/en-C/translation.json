@@ -264,6 +264,11 @@
         "renamePrivate": "Set prïvit rüm näm",
         "chatDisabled": "disable chat"
       }
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {

@@ -276,6 +276,11 @@
         "stopDebugger": "Stoppe Debugger"
       },
       "downloadApp": "App herunterladen"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {

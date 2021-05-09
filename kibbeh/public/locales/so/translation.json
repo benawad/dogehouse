@@ -274,6 +274,11 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Dajiso Appka"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {

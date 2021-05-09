@@ -271,6 +271,11 @@
         "stopDebugger": "Berhentikan Debugger"
       },
       "downloadApp": "Unduh aplikasi"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {

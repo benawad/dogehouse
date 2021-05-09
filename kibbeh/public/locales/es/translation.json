@@ -275,6 +275,11 @@
         "renamePrivate": "Configurar el nombre de la sala privada",
         "chatDisabled": "Deshabilitar chat"
       }
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {

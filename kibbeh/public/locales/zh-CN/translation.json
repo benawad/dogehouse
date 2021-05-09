@@ -110,7 +110,8 @@
       },
       "block": "屏蔽",
       "unblock": "取消屏蔽",
-      "sendDM": "发送消息"
+      "sendDM": "发送消息",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -260,6 +261,11 @@
       "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
       "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" },
       "downloadApp": "下载APP"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {

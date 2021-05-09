@@ -271,6 +271,11 @@
         "renamePrivate": "Set private room name",
         "chatDisabled": "disable chat"
       }
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {

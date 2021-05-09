@@ -187,6 +187,11 @@
       "invited": "Invited!",
       "inviteToRoom": "Invite to room"
     },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
       "dismiss": "Dismiss",

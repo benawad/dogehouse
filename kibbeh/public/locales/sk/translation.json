@@ -273,6 +273,11 @@
         "stopDebugger": "Zastaviť Debugger"
       },
       "downloadApp": "Stiahnuť aplikáciu"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {

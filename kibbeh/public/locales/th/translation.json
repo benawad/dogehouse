@@ -271,6 +271,11 @@
         "stopDebugger": "ปิดการแก้ไขข้อบกพร่อง"
       },
       "downloadApp": "ดาวน์โหลดแอป"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {

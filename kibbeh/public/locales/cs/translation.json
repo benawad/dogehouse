@@ -276,6 +276,11 @@
         "stopDebugger": "Zastavit ladění"
       },
       "downloadApp": "Stáhnout aplikaci"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {

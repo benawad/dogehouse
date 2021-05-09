@@ -272,6 +272,11 @@
         "renamePublic": "نام اتاق عمومی را تنظیم کنید",
         "renamePrivate": "نام اتاق خصوصی را تنظیم کنید"
       }
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {

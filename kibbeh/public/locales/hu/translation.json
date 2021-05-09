@@ -267,6 +267,11 @@
         "stopDebugger": "Hibakereső leállítása"
       },
       "downloadApp": "App letöltése"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
