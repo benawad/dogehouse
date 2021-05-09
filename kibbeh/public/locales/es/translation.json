@@ -330,7 +330,12 @@
       "whisper": "Susurrar",
       "welcomeMessage": "¡Bienvenido al chat!",
       "roomDescription": "Descripción de la sala",
-      "disabled": "El chat ha sido deshabilitado"
+      "disabled": "El chat ha sido deshabilitado",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Llenando el cohete de combustible",

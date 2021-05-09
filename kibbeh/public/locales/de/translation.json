@@ -334,7 +334,12 @@
       "whisper": "Flüstern",
       "welcomeMessage": "Willkommen im Chat!",
       "roomDescription": "Raumbeschreibung",
-      "disabled": "Der Chat wurde vom Raum ausgeschaltet"
+      "disabled": "Der Chat wurde vom Raum ausgeschaltet",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Rakete wird getankt!",

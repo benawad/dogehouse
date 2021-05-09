@@ -331,7 +331,12 @@
       "whisper": "پچ پچ",
       "welcomeMessage": "به چت خوش آمدید!",
       "roomDescription": "توضیحات اتاق",
-      "disabled": "گفتگوی اتاق غیرفعال شده است"
+      "disabled": "گفتگوی اتاق غیرفعال شده است",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "سوخت موشک",

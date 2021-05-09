@@ -323,7 +323,12 @@
       "whisper": "Wispr",
       "welcomeMessage": "Welcom tü c̈at!",
       "roomDescription": "Rüm deskrips̈on",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fyüliŋ roket",

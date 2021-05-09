@@ -326,7 +326,12 @@
       "whisper": "إرسل رسالة خاصة",
       "welcomeMessage": "مرحبا بك في المحادثة!",
       "roomDescription": "وصف الغرفة",
-      "disabled": "تم تعطيل المحادثة"
+      "disabled": "تم تعطيل المحادثة",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "عبي الصاروخ بنزين",

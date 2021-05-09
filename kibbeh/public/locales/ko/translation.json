@@ -326,7 +326,12 @@
       "whisper": "속삭이기",
       "welcomeMessage": "챗에 오신걸 환영합니다!",
       "roomDescription": "방 설명",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "로켓 연료 주입중..",

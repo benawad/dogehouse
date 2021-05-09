@@ -334,7 +334,12 @@
       "whisper": "Pichirlash",
       "welcomeMessage": "Suhbatga xush kelibsiz!",
       "roomDescription": "xona tavsifi",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "raketaga yonilg'i quyilmoqda",

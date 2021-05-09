@@ -326,7 +326,12 @@
       "whisper": "Whispew <{^v^}>",
       "welcomeMessage": "UwU Wewcome to chat! (✿ ♡‿♡)",
       "roomDescription": "Woom Descwiption（＾ｖ＾）",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fuewing rocket uwu",

@@ -324,7 +324,12 @@
       "whisper": "กระซิบ",
       "welcomeMessage": "ยินดีต้อนรับสู่ห้องแชท!",
       "roomDescription": "คำอธิบายห้อง",
-      "disabled": "แชทถูกปิดสำหรับห้องนี้"
+      "disabled": "แชทถูกปิดสำหรับห้องนี้",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "กำลังเติมเชื้อเพลิงยาน",

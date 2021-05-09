@@ -326,7 +326,12 @@
       "whisper": "Përshpërit",
       "welcomeMessage": "Mirë se erdhët në chat!",
       "roomDescription": "përshkrimi i dhomës",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

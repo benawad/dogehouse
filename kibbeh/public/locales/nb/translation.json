@@ -328,7 +328,12 @@
       "whisper": "Hviske",
       "welcomeMessage": "Velkommen til chatten!",
       "roomDescription": "Rombeskrivelse",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fyller på rakkett med drivstoff",

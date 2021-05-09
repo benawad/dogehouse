@@ -329,7 +329,12 @@
       "whisper": "Bisikan",
       "welcomeMessage": "Selamat datang di percakapan!",
       "roomDescription": "Deskripsi ruangan",
-      "disabled": "percakapan sudah dinonaktifkan"
+      "disabled": "percakapan sudah dinonaktifkan",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Mengisi bahan bakar roket",

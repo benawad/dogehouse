@@ -333,7 +333,12 @@
       "whisper": "Toki pi kalama lili",
       "welcomeMessage": "Kama pona lon toki sitelen!",
       "roomDescription": "sitelen tomo",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "telo suli li tawa tawa palisa pi kon pi sewi mute",

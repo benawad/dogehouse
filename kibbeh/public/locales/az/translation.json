@@ -334,7 +334,12 @@
       "whisper": "Pıçıltı",
       "welcomeMessage": "Çata xoş gəlmisiniz!",
       "roomDescription": "Otaq haqqında",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Roket yanacağı doldurulur.",

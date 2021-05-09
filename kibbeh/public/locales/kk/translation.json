@@ -330,7 +330,12 @@
       "whisper": "Сыбырлау",
       "welcomeMessage": "Чатқа қош келдіңіз!",
       "roomDescription": "Бөлме сипаттамасы",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Зымыранға жанармай құйылуда",

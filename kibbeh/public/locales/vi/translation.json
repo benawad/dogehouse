@@ -329,7 +329,12 @@
       "whisper": "Thì thầm",
       "welcomeMessage": "Chào mừng đến với phòng trò chuyện!",
       "roomDescription": "mô tả phòng",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tên lửa đang đổ xăng",

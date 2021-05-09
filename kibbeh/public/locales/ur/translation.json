@@ -327,7 +327,12 @@
       "whisper": "سرگوشی",
       "welcomeMessage": "چیٹ میں خوش آمدید!",
       "roomDescription": "کمرے کی تفصیل",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

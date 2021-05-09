@@ -328,7 +328,12 @@
       "whisper": "Прошепни",
       "welcomeMessage": "Добре дошъл в чата!",
       "roomDescription": "описание на стаята",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

@@ -332,7 +332,12 @@
       "whisper": "fariin gaar ah",
       "welcomeMessage": "Ku soo dhawow wada hadalka!",
       "roomDescription": "qeexida qolka",
-      "disabled": "qolka sheekaysigiisa waa la joojiyay"
+      "disabled": "qolka sheekaysigiisa waa la joojiyay",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

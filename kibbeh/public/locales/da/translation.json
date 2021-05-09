@@ -330,7 +330,12 @@
       "whisper": "Hvisk",
       "welcomeMessage": "Velkommen til chatten!",
       "roomDescription": "Rum beskrivelse",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tanker raket",

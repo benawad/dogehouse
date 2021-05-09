@@ -337,7 +337,12 @@
       "whisper": "ফিসফিস",
       "welcomeMessage": "চ্যাট এ স্বাগতম!",
       "roomDescription": "রুমের বর্ণনা",
-      "disabled": "রুম চ্যাট অফ করা হয়েছে"
+      "disabled": "রুম চ্যাট অফ করা হয়েছে",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "রকেটে জ্বালানি দেওয়া হচ্ছে",

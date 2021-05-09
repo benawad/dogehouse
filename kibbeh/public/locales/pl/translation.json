@@ -331,7 +331,12 @@
       "whisper": "Szept",
       "welcomeMessage": "Witamy na czacie!",
       "roomDescription": "Opis pokoju",
-      "disabled": "czat pokoju został wyłączony"
+      "disabled": "czat pokoju został wyłączony",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tankowanie rakiety",

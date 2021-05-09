@@ -331,7 +331,12 @@
       "whisper": "Šaputanje",
       "welcomeMessage": "Dobrodošli u chat!",
       "roomDescription": "opis sobe",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Raketa za punjenje gorivom",

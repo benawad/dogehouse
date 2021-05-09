@@ -332,7 +332,12 @@
       "whisper": "Ψιθυρίστε",
       "welcomeMessage": "Καλως ήλθατε στη συζήτηση!",
       "roomDescription": "Περιγραφή Δωματίου",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Ανεφοδιασμός πυραύλου",

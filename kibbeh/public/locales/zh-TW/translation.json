@@ -315,7 +315,12 @@
       "whisper": "密語",
       "welcomeMessage": "歡迎來到房間!",
       "roomDescription": "房間簡介",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "火箭正在加油",

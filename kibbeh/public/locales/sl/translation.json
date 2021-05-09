@@ -332,7 +332,12 @@
       "whisper": "Šepetajte",
       "welcomeMessage": "Pozdravljeni v klepetu!",
       "roomDescription": "Opis sobe",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Natakanje goriva v raketo",

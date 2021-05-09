@@ -326,7 +326,12 @@
       "whisper": "Sosista",
       "welcomeMessage": "Tere tulemast vestlusesse!",
       "roomDescription": "ruumi kirjeldus",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tankimas raketti",

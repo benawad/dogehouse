@@ -329,7 +329,12 @@
       "whisper": "Floestere",
       "welcomeMessage": "Welkom in de chat!",
       "roomDescription": "Kamer umsjrieving",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Raket tanken",

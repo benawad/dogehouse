@@ -331,7 +331,12 @@
       "whisper": "Pošepkať",
       "welcomeMessage": "Vitaj v chate!",
       "roomDescription": "popis miestnosti",
-      "disabled": "chat miestnosti bol vypnutý"
+      "disabled": "chat miestnosti bol vypnutý",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tankujeme raketu",

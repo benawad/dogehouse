@@ -328,7 +328,12 @@
       "whisper": "Whisper",
       "welcomeMessage": "చాట్‌కు స్వాగతం!",
       "roomDescription": "గది వివరణ",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

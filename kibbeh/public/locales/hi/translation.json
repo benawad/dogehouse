@@ -325,7 +325,12 @@
       "whisper": "व्हिस्पर ",
       "welcomeMessage": "चैट में आपका स्वागत है!",
       "roomDescription": "रूम के बारे में",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

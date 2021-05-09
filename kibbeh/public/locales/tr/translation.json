@@ -329,7 +329,12 @@
       "whisper": "Fısılda",
       "welcomeMessage": "Sohbete hoş geldin!",
       "roomDescription": "Oda Açıklaması",
-      "disabled": "oda sohbeti devre dışı bırakıldı"
+      "disabled": "oda sohbeti devre dışı bırakıldı",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Yakıt dolduruluyor",

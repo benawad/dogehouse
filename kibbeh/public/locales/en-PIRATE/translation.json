@@ -326,7 +326,12 @@
       "whisper": "Whisper",
       "welcomeMessage": "Ahoy t' chat!",
       "roomDescription": "cabin description",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fuelin' rocket",

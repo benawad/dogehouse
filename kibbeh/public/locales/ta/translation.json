@@ -335,7 +335,12 @@
       "whisper": "கிசுகிசுக்கவும்",
       "welcomeMessage": "அரட்டைக்கு வரவேற்கிறோம்!",
       "roomDescription": "அறை விளக்கம்",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Rocket'க்கு petrol போடுகிறோம் ",

@@ -322,7 +322,12 @@
       "whisper": "Privát üzenet",
       "welcomeMessage": "Üdv a beszélgetésben!",
       "roomDescription": "Szoba leírása",
-      "disabled": "Chat letiltva"
+      "disabled": "Chat letiltva",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Rakéta feltöltése",

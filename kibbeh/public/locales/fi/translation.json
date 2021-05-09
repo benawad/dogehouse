@@ -330,7 +330,12 @@
       "whisper": "Kuiskaus",
       "welcomeMessage": "Tervetuloa chattiin!",
       "roomDescription": "Huoneen kuvaus",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tankkaamassa rakettia",

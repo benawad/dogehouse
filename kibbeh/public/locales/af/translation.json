@@ -328,7 +328,12 @@
       "whisper": "Fluister",
       "welcomeMessage": "Welkom by die gesprek!",
       "roomDescription": "Kamerbeskrywing",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

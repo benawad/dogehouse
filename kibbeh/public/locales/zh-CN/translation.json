@@ -317,7 +317,12 @@
       "whisper": "私信",
       "welcomeMessage": "欢迎来到文字聊天!",
       "roomDescription": "聊天室介绍",
-      "disabled": "聊天室聊天已经被禁止"
+      "disabled": "聊天室聊天已经被禁止",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "火箭在加油",

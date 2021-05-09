@@ -329,7 +329,12 @@
       "whisper": "ɹǝdsᴉɥM",
       "welcomeMessage": "¡ʇɐɥɔ oʇ ǝɯoɔꞁǝM",
       "roomDescription": "uoᴉʇdᴉɹɔsǝp ɯooɹ",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "ʇǝʞɔoɹ ƃuᴉꞁǝnᖵ",

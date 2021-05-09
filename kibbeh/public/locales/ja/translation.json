@@ -324,7 +324,12 @@
       "whisper": "ささやく",
       "welcomeMessage": "チャットへようこそ！",
       "roomDescription": "ルームの説明",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "燃料補給中",

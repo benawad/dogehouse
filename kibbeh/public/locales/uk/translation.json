@@ -333,7 +333,12 @@
       "whisper": "Шепотіти",
       "welcomeMessage": "Ласкаво просимо до чату!",
       "roomDescription": "Опис кімнати",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Заправляємо ракету",

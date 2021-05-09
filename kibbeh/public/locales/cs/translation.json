@@ -334,7 +334,12 @@
       "whisper": "Šeptem",
       "welcomeMessage": "Vítej v chatu!",
       "roomDescription": "Popis místnosti",
-      "disabled": "Chat této místnosti byl vypnut"
+      "disabled": "Chat této místnosti byl vypnut",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Plníme raketu",
