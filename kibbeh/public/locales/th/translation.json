@@ -113,7 +113,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "การตั้งค่าเสียง",
@@ -289,9 +290,7 @@
       },
       "tommorow": "พรุ่งนี้",
       "today": "วันนี้",
-      "deleteModal": {
-        "areYouSure": "แน่ใจหรือไม่ที่จะลบกำหนดการนี้?"
-      }
+      "deleteModal": { "areYouSure": "แน่ใจหรือไม่ที่จะลบกำหนดการนี้?" }
     },
     "roomChat": {
       "title": "แชท",

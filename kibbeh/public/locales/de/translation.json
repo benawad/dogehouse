@@ -1,4 +1,3 @@
-
 {
   "_comment": "if you change this file, do: yarn i18",
   "common": {
@@ -74,7 +73,8 @@
       "soundSettings": "Soundeinstellungen",
       "deleteAccount": "Konto löschen",
       "overlaySettings": "Overlay-Einstellungen löschen",
-      "couldNotFindUser": "Wir konnten diesen Benutzer leider nicht finden. "
+      "couldNotFindUser": "Wir konnten diesen Benutzer leider nicht finden. ",
+      "privacySettings": "Privacy Settings"
     },
     "notFound": {
       "whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",
@@ -111,7 +111,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",

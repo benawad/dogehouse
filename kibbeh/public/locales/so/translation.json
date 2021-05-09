@@ -111,7 +111,8 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "hagaajinta codka",
@@ -238,7 +239,7 @@
       },
       "roomSettingsModal": {
         "requirePermission": "Waxay u baahnaan doonaan ogolaansho si ay uhadlaan",
-    "makePublic": "qolka ka dhig qol guud",
+        "makePublic": "qolka ka dhig qol guud",
         "makePrivate": "qolka ka dhig qol gaar",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",

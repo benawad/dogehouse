@@ -33,18 +33,13 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "Blokir"
-    },
+    "banUser": { "ban": "Blokir" },
     "followingOnlineList": {
       "listHeader": "Daftar pengguna yang tidak ada di ruangan privat dan kamu ikuti.",
       "currentRoom": "Saat ini di:",
       "startPrivateRoom": "Mulai ruangan privat dengan mereka"
     },
-    "followList": {
-      "followHim": "Ikuti",
-      "followingHim": "Mengikuti"
-    },
+    "followList": { "followHim": "Ikuti", "followingHim": "Mengikuti" },
     "home": {
       "createRoom": "Buat Ruangan",
       "refresh": "Segarkan",
@@ -92,13 +87,8 @@
       "allowAll": "Izinkan semua",
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
     },
-    "searchUser": {
-      "search": "cari..."
-    },
-    "soundEffectSettings": {
-      "header": "Bunyi",
-      "title": "Pengaturan Bunyi"
-    },
+    "searchUser": { "search": "cari..." },
+    "soundEffectSettings": { "header": "Bunyi", "title": "Pengaturan Bunyi" },
     "viewUser": {
       "editProfile": "Ubah profil",
       "followsYou": "Mengikutimu",
@@ -112,15 +102,16 @@
       "about": "Tentang",
       "bot": "Bot",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips"
+        "about": "Tentang",
+        "rooms": "Ruangan",
+        "scheduled": "Terjadwal",
+        "recorded": "Terekam",
+        "clips": "Klip"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "block": "Blokir",
+      "unblock": "Berhenti blokir",
+      "sendDM": "Kirim DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Pengaturan Suara",
@@ -160,7 +151,7 @@
       "leave": "Keluar",
       "inviteUsersToRoomBtn": "Undang pengguna ke ruangan",
       "invite": "Undang",
-      "toggleMuteMicBtn": "Atur mikrofon untuk membisu",
+      "toggleMuteMicBtn": "Beralih mikrofon untuk membisu",
       "mute": "Bisu",
       "unmute": "Suarakan",
       "makeRoomPublicBtn": "Buat ruangan publik!",
@@ -187,19 +178,15 @@
       "tryAgain": "Coba lagi"
     },
     "keyboardShortcuts": {
-      "setKeybind": "Atur tombol",
+      "setKeybind": "Beralih tombol",
       "listening": "Menunggu tombol",
-      "toggleMuteKeybind": "Atur tombol untuk membisu",
-      "togglePushToTalkKeybind": "Atur tombol klik-untuk-bicara",
-      "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleMuteKeybind": "Beralih tombol untuk membisu",
+      "togglePushToTalkKeybind": "Beralih tombol klik-untuk-bicara",
+      "toggleOverlayKeybind": "Beralih tombol lapisan",
+      "toggleDeafKeybind": "Beralih tombol menulikan"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Perangkat audio tidak ditemukan"
-    },
-    "addToCalendar": {
-      "add": "Tambahkan ke Kalender"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Perangkat audio tidak ditemukan" },
+    "addToCalendar": { "add": "Tambahkan ke Kalender" },
     "wsKilled": {
       "description": "WebSocket dihentikan oleh server. Biasanya terjadi karena kamu membuka laman web ini di tab lain.",
       "reconnect": "Menghubungkan kembali"
@@ -333,8 +320,6 @@
       "galacticDoge": "Doge di galaksi",
       "spottedLife": "Planet dengan kehidupan ditemukan"
     },
-    "feed": {
-      "yourFeed": "Feed kamu"
-    }
+    "feed": { "yourFeed": "Feed kamu" }
   }
 }
