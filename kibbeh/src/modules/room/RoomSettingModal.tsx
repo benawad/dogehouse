@@ -15,12 +15,6 @@ interface RoomSettingsModalProps {
   onRequestClose: () => void;
 }
 
-const options = [
-  { label: "enabled", value: "default" },
-  { label: "disabled", value: "disabled" },
-  { label: "follower only", value: "follower_only" },
-];
-
 export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
   open,
   onRequestClose,
@@ -29,6 +23,12 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
   const data = useCurrentRoomFromCache();
   const updater = useTypeSafeUpdateQuery();
   const { t } = useTypeSafeTranslation();
+
+  const options = [
+    { label: t("components.modals.roomSettingsModal.chat.enabled"), value: "default" },
+    { label: t("components.modals.roomSettingsModal.chat.disabled"), value: "disabled" },
+    { label: t("components.modals.roomSettingsModal.chat.followerOnly"), value: "follower_only" },
+  ];
 
   return (
     <Modal isOpen={open} onRequestClose={onRequestClose}>
@@ -59,7 +59,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
 
           <label className={`items-center my-1`} htmlFor="chat-cooldown">
             <div className={`text-primary-100 mb-1`}>
-              Chat Cooldown (milliseconds)
+              {t("components.modals.roomSettingsModal.chatCooldown")}
             </div>
             <Input
               defaultValue={data.room.chatThrottle}
@@ -88,7 +88,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
 
           {/* chat disabled */}
           <label className={`mt-2`} htmlFor="chat-mode">
-            <div className={`text-primary-100 mb-1`}>Chat</div>
+            <div className={`text-primary-100 mb-1`}>{t("components.modals.roomSettingsModal.chat.label")}</div>
             <NativeSelect
               value={data.room.chatMode}
               onChange={(e) => {

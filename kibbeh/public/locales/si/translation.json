@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "පෞද්ගලික සමූහයක නොමැති ඔබ හඹායන පරිශීලකයින්",
       "currentRoom": "දැනට සිටින්නේ:",
-      "startPrivateRoom": "ඔවුන් සමග පෞද්ගලික සමූහයක් අරඹන්න"
+      "startPrivateRoom": "ඔවුන් සමග පෞද්ගලික සමූහයක් අරඹන්න",
+      "title": "People"
     },
-    "followList": { "followHim": "හඹා යන්න", "followingHim": "හඹා යන්නන්" },
+    "followList": {
+      "followHim": "හඹා යන්න",
+      "followingHim": "හඹා යන්නන්",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "සමූහයක් අරඹන්න",
       "refresh": "Refresh",
@@ -89,7 +96,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "සොයන්න..." },
-    "soundEffectSettings": { "header": "ශබ්ද", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "ශබ්ද",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "profile එක සංස්කරණය කරන්න",
       "followsYou": "ඔබව හඹා යයි",
@@ -119,7 +130,8 @@
       "mic": "mic:",
       "permissionError": "mics එකක් හමුවූයේ නැත.ඔබ එකක් සම්බන්ධ නොමැත හෝ මෙම වෙබ් අඩවියට අවසර දී නොමැත",
       "refresh": "mic ලැයිස්තුව refresh කරන්න",
-      "volume": "පරිමාව:"
+      "volume": "පරිමාව:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",
@@ -135,6 +147,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -235,7 +252,8 @@
         "goBackToListener": "අසන්නෙක් ලෙසට යන්න",
         "deleteMessage": "පිළිතුර ඉවත් කරන්න",
         "makeRoomCreator": "පරිපාලක කරන්න",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "කතා කරන්න අවසර ගන්න",
@@ -243,7 +261,14 @@
         "makePrivate": "සමූහය පෞද්ගලික කරන්න",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -274,6 +299,11 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -309,7 +339,12 @@
       "whisper": "කොඳුරන්න",
       "welcomeMessage": "chat එකට පිළිගන්නවා!",
       "roomDescription": "සමූහයේ විස්තර",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

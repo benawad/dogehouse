@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "˙ʍoꞁꞁoɟ noʎ puɐ ɯooɹ ǝʇɐʌᴉɹd ɐ uᴉ ʇou ǝɹɐ ʇɐɥʇ sɹǝsn ɟo ʇsᴉꞀ",
       "currentRoom": ":uᴉ ʎꞁʇuǝɹɹnɔ",
-      "startPrivateRoom": "ɯǝɥʇ ɥʇᴉʍ ɯooɹ ǝʇɐʌᴉɹd ɐ ʇɹɐʇs"
+      "startPrivateRoom": "ɯǝɥʇ ɥʇᴉʍ ɯooɹ ǝʇɐʌᴉɹd ɐ ʇɹɐʇs",
+      "title": "People"
     },
-    "followList": { "followHim": "ʍoꞁꞁoɟ", "followingHim": "ƃuᴉʍoꞁꞁoɟ" },
+    "followList": {
+      "followHim": "ʍoꞁꞁoɟ",
+      "followingHim": "ƃuᴉʍoꞁꞁoɟ",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "ɯooᴚ ǝʇɐǝɹƆ",
       "refresh": "ɥsǝɹɟǝᴚ",
@@ -89,7 +96,11 @@
       "allowAllConfirm": "ʞɐǝds oʇ sɹǝsn ƃuᴉʇsǝnbǝɹ {{count}} ꞁꞁɐ ʍoꞁꞁɐ ꞁꞁᴉʍ sᴉɥ⊥ ¿ǝɹns noʎ ǝɹⱯ"
     },
     "searchUser": { "search": "˙˙˙ɥɔɹɐǝs" },
-    "soundEffectSettings": { "header": "spunoS", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "spunoS",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "ǝꞁᴉɟoɹd ʇᴉpǝ",
       "followsYou": "noʎ sʍoꞁꞁoɟ",
@@ -119,7 +130,8 @@
       "mic": ":ɔᴉɯ",
       "permissionError": "˙uoᴉssᴉɯɹǝd ǝʇᴉsqǝʍ sᴉɥʇ uǝʌᴉƃ ʇ,uǝʌɐɥ ɹo uᴉ pǝƃƃnꞁd ǝuou ǝʌɐɥ ɹǝɥʇᴉǝ noʎ 'punoɟ sɔᴉɯ ou",
       "refresh": "ʇsᴉꞁ ɔᴉɯ ɥsǝɹɟǝɹ",
-      "volume": ":ǝɯnꞁoʌ"
+      "volume": ":ǝɯnꞁoʌ",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "sƃuᴉʇʇǝS ʎɐꞁɹǝʌO",
@@ -135,6 +147,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -232,7 +249,8 @@
         "goBackToListener": "ɹǝuǝʇsᴉꞁ oʇ ʞɔɐq oƃ",
         "deleteMessage": "ǝƃɐssǝɯ sᴉɥʇ ǝʇǝꞁǝp",
         "makeRoomCreator": "uᴉɯpɐ ɯooɹ ǝʞɐɯ",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "ʞɐǝds oʇ uoᴉssᴉɯɹǝd ǝɹᴉnbǝɹ",
@@ -240,7 +258,14 @@
         "makePrivate": "ǝʇɐʌᴉɹd ɯooɹ ǝʞɐɯ",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -271,6 +296,11 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -306,7 +336,12 @@
       "whisper": "ɹǝdsᴉɥM",
       "welcomeMessage": "¡ʇɐɥɔ oʇ ǝɯoɔꞁǝM",
       "roomDescription": "uoᴉʇdᴉɹɔsǝp ɯooɹ",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "ʇǝʞɔoɹ ƃuᴉꞁǝnᖵ",
