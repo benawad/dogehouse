@@ -39,14 +39,14 @@
       "listHeader": "Lista użytkowników którzy nie są w prywatnym pokoju i których obserwujesz.",
       "currentRoom": "Obecnie w:",
       "startPrivateRoom": "Załóż z nim prywatny pokój",
-      "title": "People"
+      "title": "Osoby"
     },
     "followList": {
       "followHim": "Obserwuj",
       "followingHim": "Obserwujący",
-      "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "title": "Osoby",
+      "followingNone": "Nie obserwuje nikogo",
+      "noFollowers": "Brak obserwujących"
     },
     "home": {
       "createRoom": "Nowy pokój",
@@ -99,7 +99,7 @@
     "soundEffectSettings": {
       "header": "Dźwięk",
       "title": "Ustawienia dźwięku",
-      "playSound": "Play Sound"
+      "playSound": "Odtwórz dźwięk"
     },
     "viewUser": {
       "editProfile": "Edytuj profil",
@@ -131,7 +131,7 @@
       "permissionError": "Nie znaleziono mikrofonów. Sprawdź podłączenie oraz pozwolenia tej stronie.",
       "refresh": "Odśwież listę mikrofonów",
       "volume": "Głośność:",
-      "title": "Voice Settings"
+      "title": "Ustawienia głosu"
     },
     "overlaySettings": {
       "header": "Ustawienia nakładki",
@@ -149,9 +149,9 @@
       "download_for": "Pobierz dla %platform% (%ext%)"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
-      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+      "title": "Ustawienia prywatności",
+      "header": "Ustawienia prywatności",
+      "whispers": { "label": "Szepty", "on": "Włączone", "off": "Wyłączone" }
     }
   },
   "components": {
@@ -280,7 +280,7 @@
         "goBackToListener": "Powróć do słuchacza",
         "deleteMessage": "Usuń tą wiadomość",
         "makeRoomCreator": "Awansuj na administratora pokoju",
-        "banIPFromRoom": "Ban IP from Room"
+        "banIPFromRoom": "Zablokuj IP z pokoju"
       },
       "roomSettingsModal": {
         "requirePermission": "wymaga pozwolenia na mówienie",
@@ -289,19 +289,19 @@
         "renamePublic": "Ustaw publiczną nazwę pokoju",
         "renamePrivate": "Ustaw prywatną nazwę pokoju",
         "chatDisabled": "wyłącz czat",
-        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chatCooldown": "Odnowienie pisania na czacie (milisekundy)",
         "chat": {
-          "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "label": "Czat",
+          "enabled": "Włączony",
+          "disabled": "Wyłączony",
+          "followerOnly": "Tylko dla obserwujących"
         }
       }
     },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "Wiadomości",
+      "showMore": "Pokaż więcej",
+      "noMessages": "Brak nowych wiadomości"
     }
   },
   "modules": {
@@ -340,9 +340,9 @@
       "roomDescription": "Opis pokoju",
       "disabled": "czat pokoju został wyłączony",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "wiadomość",
+        "retracted": "wycofana",
+        "deleted": "usunięta"
       }
     },
     "roomStatus": {
