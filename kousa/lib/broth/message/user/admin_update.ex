@@ -11,7 +11,7 @@ defmodule Broth.Message.User.AdminUpdate do
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:username, :staff, :contributions])
-    |> validate_required([:username, :staff, :contributions])
+    |> validate_required([:username])
   end
 
   defmodule Reply do
@@ -27,7 +27,7 @@ defmodule Broth.Message.User.AdminUpdate do
   def execute(changeset, state) do
     with {:ok, request} <- apply_action(changeset, :validate),
          :ok <-
-           Kousa.User.set_staff_and_contributions(
+           Kousa.User.admin_update_with(
              request.username,
              request.staff,
              request.contributions,

@@ -53,7 +53,7 @@ defmodule BrothTest.User.AdminUpdateTest do
       refute is_map_key(reply, "error")
 
       # check that the user has been updated.
-      assert %{staff: true} = Users.get_by_id(staffed.id)
+      assert %{staff: true, contributions: 100} = Users.get_by_id(staffed.id)
     end
   end
 end

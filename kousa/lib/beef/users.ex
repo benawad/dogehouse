@@ -55,9 +55,6 @@ defmodule Beef.Users do
   defdelegate set_user_left_current_room(user_id), to: Beef.Mutations.Users
   defdelegate set_offline(user_id), to: Beef.Mutations.Users
 
-  defdelegate set_staff_and_contributions(user_id, is_staff, contributions),
-    to: Beef.Mutations.Users
-
   defdelegate set_current_room(user_id, room_id), to: Beef.Mutations.Users
   defdelegate create_bot(user_id, username), to: Beef.Mutations.Users
 

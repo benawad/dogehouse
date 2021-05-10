@@ -123,6 +123,14 @@ defmodule Beef.Schemas.User do
     ])
   end
 
+  def admin_update_changeset(user, attrs) do
+    user
+    |> cast(attrs, [
+      :staff,
+      :contributions
+    ])
+  end
+
   def edit_changeset(user, attrs) do
     user
     |> cast(attrs, [
