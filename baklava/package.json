@@ -40,7 +40,6 @@
     "build": {
         "appId": "com.electron.dogehouse",
         "productName": "DogeHouse",
-        "asar": true,
         "afterSign": "electron-builder-notarize",
         "mac": {
             "hardenedRuntime": true,
@@ -93,10 +92,6 @@
         "directories": {
             "output": "./builds"
         },
-        "asarUnpack": [
-            "./dist/utils/keybinds/worker.js",
-            "./node_modules/globalkey/**/*"
-        ],
         "extends": null
     },
     "devDependencies": {
@@ -123,7 +118,7 @@
         "electron-log": "^4.3.2",
         "electron-overlay-window": "^1.0.4",
         "electron-updater": "^4.3.8",
-        "globalkey": "^1.0.5",
+        "globalkey": "^1.0.6",
         "i18next": "^20.0.0",
         "i18next-node-fs-backend": "^2.1.3"
     },
