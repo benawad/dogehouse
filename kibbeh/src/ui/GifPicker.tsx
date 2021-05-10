@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Gif } from './Gif';
-import { GifResponse } from '@dogehouse/kebab/lib/entities';
+import { GifResponse, Image } from '@dogehouse/kebab/lib/entities';
 import { giphy } from '@dogehouse/kebab/lib/http/giphy';
 import { http } from '@dogehouse/kebab/lib/index';
 import { useGifPickerStore } from '../global-stores/useGifPickerStore';
@@ -9,13 +9,17 @@ import { useTypeSafeTranslation } from '../shared-hooks/useTypeSafeTranslation';
 import { SearchBar } from './Search/SearchBar';
 
 interface RoomChatGifSearchProps {
+    selectGifHandler: (gif: GifResponse) => void
 }
 
-export const GifPicker: React.FC<RoomChatGifSearchProps> = () => {
+export const GifPicker: React.FC<RoomChatGifSearchProps> = ({
+    selectGifHandler
+}) => {
     const [gifResults, setGifResults] = useState(new Array<GifResponse>());
 
     const {
         setQuery,
+        setToggle,
         toggle,
         query,
     } = useGifPickerStore();
@@ -32,19 +36,27 @@ export const GifPicker: React.FC<RoomChatGifSearchProps> = () => {
                 console.error(err);
             });
     }
-    const queryGifs = (callBack: (response: GifResponse[]) => void) => {
-        giphy().queryGifs(query)
-            .then(resp => callBack(resp.data))
-            .catch(err => {
-                console.error(err);
-            });
+    const queryGifs = (query: string, callBack: (response: GifResponse[]) => void) => {
+        if (query != null && query.length > 0) {
+            giphy().queryGifs(query)
+                .then(resp => callBack(resp.data))
+                .catch(err => {
+                    console.error(err);
+                });
+        } else {
+            trendingGifs(setGifResults);
+        }
     }
     useEffect(() => {
         trendingGifs(setGifResults);
     }, []);
 
     const gifClick = (id: string) => {
-
+        const index = gifResults.findIndex(x => x.id === id);
+        if (index > -1) {
+            selectGifHandler(gifResults[index]);
+        }
+        setToggle(false);
     }
 
     if (!toggle) return null;
@@ -61,7 +73,7 @@ export const GifPicker: React.FC<RoomChatGifSearchProps> = () => {
                                 clearInterval(timeout);
                                 setQuery(e.target.value);
                                 timeout = setTimeout(() => {
-                                    queryGifs(setGifResults);
+                                    queryGifs(e.target.value, setGifResults);
                                 }, 1500);
                             }}
                             autoComplete='off'
@@ -89,7 +101,7 @@ export const GifPicker: React.FC<RoomChatGifSearchProps> = () => {
                                 title={x.title}
                                 enabledGif={true}
                                 togglable={true}
-                                className='cursor-pointer'
+                                className='cursor-pointer w-full'
                                 clickHandler={gifClick}
                             />
                         );

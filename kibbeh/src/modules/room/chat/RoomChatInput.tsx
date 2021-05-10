@@ -128,7 +128,11 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
             setMessage(newMsg);
           }}
         />
-        <GifPicker />
+        <GifPicker
+          selectGifHandler={(gif) => {
+            alert('How are we going to handle this? E.g. message type?');
+          }}
+        />
       </div>
       <div className="flex items-stretch">
         <div className="flex-1">
