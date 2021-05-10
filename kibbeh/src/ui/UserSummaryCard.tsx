@@ -100,7 +100,9 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
             <span className="text-primary-300 text-left break-all">
               @{username}
             </span>
-            <Badges badges={badges} />
+            <span className="flex mt-1">
+              <Badges badges={badges} />
+            </span>
           </div>
         </div>
       </button>
