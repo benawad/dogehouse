@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "Lista de utilizadores que segues e que não se encontram numa sala privada.",
       "currentRoom": "Atualmente em:",
-      "startPrivateRoom": "Iniciar uma sala privada com eles"
+      "startPrivateRoom": "Iniciar uma sala privada com eles",
+      "title": "People"
     },
-    "followList": { "followHim": "seguir", "followingHim": "a seguir" },
+    "followList": {
+      "followHim": "seguir",
+      "followingHim": "a seguir",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Criar sala",
       "refresh": "Atualizar",
@@ -88,7 +95,11 @@
       "allowAllConfirm": "De certeza? Isto permitirá todos os {{count}} utilizadores a pedir, falar"
     },
     "searchUser": { "search": "Procurar..." },
-    "soundEffectSettings": { "header": "Sons", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Sons",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Editar perfil",
       "followsYou": "Seguem-te",
@@ -110,14 +121,16 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Definições de voz",
       "mic": "Microfone:",
       "permissionError": "Não foram encontrados microfones; ou não foram dadas permissões, ou não estão corretamente ligados.",
       "refresh": "Atualizar lista de microfones",
-      "volume": "Volume:"
+      "volume": "Volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -133,6 +146,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -208,7 +226,8 @@
         "goBackToListener": "voltar a ouvinte",
         "deleteMessage": "Apagar mensagem",
         "makeRoomCreator": "Tornar administrador da sala",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Pedir permissão para falar",
@@ -216,7 +235,14 @@
         "makePrivate": "Tornar a sala privada",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": {
@@ -272,6 +298,11 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -306,7 +337,12 @@
       "whisper": "Sussurro",
       "welcomeMessage": "Bem-vindo ao chat!",
       "roomDescription": "descrição da sala",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "A abastecer o foguetão",

@@ -1853,6 +1853,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dogehouse/dolma@workspace:dolma":
+  version: 0.0.0-use.local
+  resolution: "@dogehouse/dolma@workspace:dolma"
+  dependencies:
+    "@types/node": ^15.0.2
+  languageName: unknown
+  linkType: soft
+
 "@dogehouse/kebab@workspace:kebab":
   version: 0.0.0-use.local
   resolution: "@dogehouse/kebab@workspace:kebab"
@@ -4357,6 +4365,13 @@ __metadata:
   version: 14.14.44
   resolution: "@types/node@npm:14.14.44"
   checksum: 5c4db716325fc8a25b5b76b800acf0ff00c8fa1e7cfcb764fc79d79594939488cb9d2a756e188eb8e8a36da51e8e2be1ffe859be901b338779cb0aa12ad73b3a
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^15.0.2":
+  version: 15.0.2
+  resolution: "@types/node@npm:15.0.2"
+  checksum: ea8dd741bf16ad3318cca505783b7c211a5c8bea49202f99ba88d2ce8a804e994e1fd1b575b994e434e8b8ead810da966d588ea112998f8fe8d95cd74c396f8a
   languageName: node
   linkType: hard
 

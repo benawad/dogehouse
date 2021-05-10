@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Lista utilizatorilor care nu se află într-o cameră privată și pe care o urmăriți.",
       "currentRoom": "Deocamdată în:",
-      "startPrivateRoom": "Începe o cameră privată cu ei"
+      "startPrivateRoom": "Începe o cameră privată cu ei",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Creează cameră",
       "refresh": "Refresh",
@@ -89,7 +96,11 @@
       "allowAllConfirm": "Esti sigur? Asta ar lasa toti {{count}} utilizatori sa vorbeasca"
     },
     "searchUser": { "search": "caută..." },
-    "soundEffectSettings": { "header": "Sunete", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Sunete",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Editează profil",
       "followsYou": "Te urmărește",
@@ -111,14 +122,16 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Sunete Voce",
       "mic": "mic:",
       "permissionError": "Nu au fost găsite microfoane - ori nu ai unul conectat ori pagina aceasta nu are permisiune.",
       "refresh": "Reîmprospătează lista de microfoane",
-      "volume": "Volum:"
+      "volume": "Volum:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -131,6 +144,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -231,7 +249,8 @@
         "goBackToListener": "Du-te înapoi la ascultător",
         "deleteMessage": "Şterge acest mesaj",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Necesită permisiunea de a vorbi",
@@ -239,7 +258,14 @@
         "makePrivate": "Fă camera privată",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -270,6 +296,11 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -305,7 +336,12 @@
       "whisper": "Șoptește",
       "welcomeMessage": "Bine ai venit în chat!",
       "roomDescription": "Descriere cameră",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

@@ -34,17 +34,19 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "Banëia"
-    },
+    "banUser": { "ban": "Banëia" },
     "followingOnlineList": {
       "listHeader": "Lista de utënc che te stas do y che ne é nia te na ciamena privata.",
       "currentRoom": "Te chësc mumënt este colié a:",
-      "startPrivateRoom": "Scomëncia na ciamena privata cun ël"
+      "startPrivateRoom": "Scomëncia na ciamena privata cun ël",
+      "title": "People"
     },
     "followList": {
       "followHim": "Stá do",
-      "followingHim": "Bele sté do"
+      "followingHim": "Bele sté do",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "Cheriëia na ciamena",
@@ -78,7 +80,8 @@
       "soundSettings": "Modifichëia impostaziuns di sonns",
       "deleteAccount": "Eliminëia account",
       "overlaySettings": "Vá ales impostaziuns dl overlay",
-      "couldNotFindUser": "Al se desplej, ne un nia ciafé chël utënt"
+      "couldNotFindUser": "Al se desplej, ne un nia ciafé chël utënt",
+      "privacySettings": "Privacy Settings"
     },
     "notFound": {
       "whoopsError": "Ostia! Chësta plata é jüda pordüda tla conversaziun.",
@@ -92,12 +95,11 @@
       "allowAll": "Conzedi a düc",
       "allowAllConfirm": "Es sigü? Chësc conzedará a {{count}} utënc che ó baié de pudëi ciacolè"
     },
-    "searchUser": {
-      "search": "Chirida..."
-    },
+    "searchUser": { "search": "Chirida..." },
     "soundEffectSettings": {
       "header": "Sonns",
-      "title": "Impostaziuns dl sonn"
+      "title": "Impostaziuns dl sonn",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "Modifichëia profil",
@@ -109,14 +111,27 @@
       "copyProfileUrl": "Copiëia link dl profil",
       "urlCopied": "Link copié tles anotaziuns",
       "unfollow": "Lascia da sté do",
-      "about": "About"
+      "about": "About",
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": "",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      }
     },
     "voiceSettings": {
       "header": "Impostaziuns dla usc",
       "mic": "Microfon:",
       "permissionError": "Degun microfon ciafé, plü dessigü ne as nia dé les autorisaziuns nezesciaries a DogeHouse por podëi l'adoré o ne as nia un taché ite.",
       "refresh": "Ciaria da nü la lista di microfons",
-      "volume": "Volum:"
+      "volume": "Volum:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -132,6 +147,11 @@
       "prompt": "Clichëia söl buttun dessot por mët man la desciariada",
       "download_now": "Desciaria sëgn",
       "download_for": "Desciaria por %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -186,9 +206,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Degun audio é desponibl por val' rajun"
     },
-    "addToCalendar": {
-      "add": "Ajunta al calënder"
-    },
+    "addToCalendar": { "add": "Ajunta al calënder" },
     "wsKilled": {
       "description": "Le websocket é fora funziun dal server. Chësc sozed scialdi canche deures na plata danü te n'atra scheda.",
       "reconnect": "Ciaria danü"
@@ -234,14 +252,23 @@
         "goBackToListener": "Va zoruch ad ester n ascutadú",
         "deleteMessage": "Eliminëia chësc messaje",
         "makeRoomCreator": "Fá deventé n aministradú tla ciamena",
-        "unBanFromChat": "Tola demez l ban por la discusciun"
+        "unBanFromChat": "Tola demez l ban por la discusciun",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Damana l autorisaziun por baié",
         "makePublic": "Publichëia la ciamena",
         "makePrivate": "Privatisëia la ciamena",
         "renamePublic": "Modifichëia l inom dla ciamena publica",
-        "renamePrivate": "Modifichëia l inom dla ciamena privata"
+        "renamePrivate": "Modifichëia l inom dla ciamena privata",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -270,7 +297,13 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Archita Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -305,7 +338,13 @@
       "sendMessage": "Mené n messaje",
       "whisper": "Mormorëia",
       "welcomeMessage": "Benvenuto nella chat!",
-      "roomDescription": "Descriziun dla ciamena"
+      "roomDescription": "Descriziun dla ciamena",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Refornimënt racheta",
@@ -319,8 +358,6 @@
       "galacticDoge": "Doge dla galassia",
       "spottedLife": "Afustié planët cun formes de vita"
     },
-    "feed": {
-      "yourFeed": "Tó feed"
-    }
+    "feed": { "yourFeed": "Tó feed" }
   }
 }

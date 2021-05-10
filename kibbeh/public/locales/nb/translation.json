@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "Liste over brukere som ikke er i et privat rom, og som du følger.",
       "currentRoom": "For tiden i:",
-      "startPrivateRoom": "Start et privat rom med dem"
+      "startPrivateRoom": "Start et privat rom med dem",
+      "title": "People"
     },
-    "followList": { "followHim": "følg", "followingHim": "følger" },
+    "followList": {
+      "followHim": "følg",
+      "followingHim": "følger",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Lag et rom",
       "refresh": "Last inn på nytt",
@@ -88,7 +95,11 @@
       "allowAllConfirm": "Er du sikker? Dette vil tillate alle {{count}} spørrende brukere til å snakke"
     },
     "searchUser": { "search": "søk..." },
-    "soundEffectSettings": { "header": "Lyder", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Lyder",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Rediger profil",
       "followsYou": "Følger deg",
@@ -110,14 +121,16 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",
       "mic": "Mikrofon:",
       "permissionError": "Ingen mikrofoner er funnet, du har enten ingen enheter tilgjenngelig, eller så har du ikke gitt tillatelse til å bruke den.",
       "refresh": "Oppdater mikrofon-listen",
-      "volume": "Volum:"
+      "volume": "Volum:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Ugyldig tittel", "label": "Angi tittel" },
@@ -130,6 +143,11 @@
       "prompt": "Klikk på knappen nedenfor, for å starte nedlastningen",
       "download_now": "Last ned nå",
       "download_for": "Nedlastning for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -230,7 +248,8 @@
         "goBackToListener": "Gå tilbake til lytter",
         "deleteMessage": "Slett denne meldingen",
         "makeRoomCreator": "Opprett rom-administrator",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Krev tillatelse for å snakke",
@@ -238,7 +257,14 @@
         "makePrivate": "Gjør rommet privat",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -269,6 +295,11 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -304,7 +335,12 @@
       "whisper": "Hviske",
       "welcomeMessage": "Velkommen til chatten!",
       "roomDescription": "Rombeskrivelse",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fyller på rakkett med drivstoff",

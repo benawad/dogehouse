@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "你追蹤的且不在私人房間內的使用者",
       "currentRoom": "目前的房間:",
-      "startPrivateRoom": "開啟私人房間"
+      "startPrivateRoom": "開啟私人房間",
+      "title": "People"
     },
-    "followList": { "followHim": "追蹤", "followingHim": "已追蹤" },
+    "followList": {
+      "followHim": "追蹤",
+      "followingHim": "已追蹤",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "新增房間",
       "refresh": "重新整理",
@@ -88,7 +95,11 @@
       "allowAllConfirm": "你確定嗎? 這將會允許所有 {{count}} 發出請求的用戶發言"
     },
     "searchUser": { "search": "搜尋..." },
-    "soundEffectSettings": { "header": "聲音", "title": "聲音設定" },
+    "soundEffectSettings": {
+      "header": "聲音",
+      "title": "聲音設定",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "編輯個人主頁",
       "followsYou": "正在追蹤你",
@@ -110,14 +121,16 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "語音設定",
       "mic": "麥克風:",
       "permissionError": "沒有找到麥克風，請確認有插入或者要允許本網站使用麥克風的權限‧",
       "refresh": "更新麥克風列表",
-      "volume": "音量:"
+      "volume": "音量:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "無效的 app 標題 ", "label": "輸入 App 標題" },
@@ -130,6 +143,11 @@
       "prompt": "點擊以下按鈕開始下載",
       "download_now": "現在就下載",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -225,7 +243,8 @@
         "goBackToListener": "回到聽眾",
         "deleteMessage": "删除此訊息",
         "makeRoomCreator": "設定為房間主人",
-        "unBanFromChat": "解禁用戶使用文字聊天"
+        "unBanFromChat": "解禁用戶使用文字聊天",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "需要許可才能發言",
@@ -233,7 +252,14 @@
         "makePrivate": "把房間設定為私人",
         "renamePublic": "重設公開房間名字",
         "renamePrivate": "重設私人房間名字",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -258,6 +284,11 @@
       "logOut": { "button": "登出", "modalSubtitle": "你確定要登出嗎？" },
       "debugAudio": { "debugAudio": "除錯音頻", "stopDebugger": "停止除錯" },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -291,7 +322,12 @@
       "whisper": "密語",
       "welcomeMessage": "歡迎來到房間!",
       "roomDescription": "房間簡介",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "火箭正在加油",
