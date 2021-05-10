@@ -1,12 +1,12 @@
 
 import React, { useEffect, useState } from 'react';
 import { Gif } from './Gif';
-import { GifResponse, Image } from '@dogehouse/kebab/lib/entities';
+import { GifResponse } from '@dogehouse/kebab/lib/entities';
 import { giphy } from '@dogehouse/kebab/lib/http/giphy';
-import { http } from '@dogehouse/kebab/lib/index';
 import { useGifPickerStore } from '../global-stores/useGifPickerStore';
 import { useTypeSafeTranslation } from '../shared-hooks/useTypeSafeTranslation';
 import { SearchBar } from './Search/SearchBar';
+import { giphyApiKey } from '../lib/constants';
 
 interface RoomChatGifSearchProps {
     selectGifHandler: (gif: GifResponse) => void
@@ -16,6 +16,7 @@ export const GifPicker: React.FC<RoomChatGifSearchProps> = ({
     selectGifHandler
 }) => {
     const [gifResults, setGifResults] = useState(new Array<GifResponse>());
+    const [timer, setTimer] = useState(setTimeout(() => { }, 1000));
 
     const {
         setQuery,
@@ -27,10 +28,9 @@ export const GifPicker: React.FC<RoomChatGifSearchProps> = ({
 
 
 
-    let timeout = setTimeout(() => { }, 1500);
 
     const trendingGifs = (callBack: (response: GifResponse[]) => void) => {
-        giphy().trendingGifs()
+        giphy(giphyApiKey).trendingGifs(25, 'r')
             .then(resp => callBack(resp.data))
             .catch(err => {
                 console.error(err);
@@ -38,7 +38,7 @@ export const GifPicker: React.FC<RoomChatGifSearchProps> = ({
     }
     const queryGifs = (query: string, callBack: (response: GifResponse[]) => void) => {
         if (query != null && query.length > 0) {
-            giphy().queryGifs(query)
+            giphy(giphyApiKey).queryGifs(query, 25, 'r')
                 .then(resp => callBack(resp.data))
                 .catch(err => {
                     console.error(err);
@@ -49,6 +49,13 @@ export const GifPicker: React.FC<RoomChatGifSearchProps> = ({
     }
     useEffect(() => {
         trendingGifs(setGifResults);
+        if (!toggle) {
+            setQuery("");
+        }
+        return () => {
+            setTimer(setTimeout(() => { }, 1000));
+            setQuery("");
+        };
     }, []);
 
     const gifClick = (id: string) => {
@@ -59,7 +66,9 @@ export const GifPicker: React.FC<RoomChatGifSearchProps> = ({
         setToggle(false);
     }
 
-    if (!toggle) return null;
+    if (!toggle) {
+        return null;
+    }
 
     return (
         <div className=''>
@@ -70,11 +79,15 @@ export const GifPicker: React.FC<RoomChatGifSearchProps> = ({
                             value={query}
                             placeholder={t('modules.roomChat.queryGif')}
                             onChange={(e) => {
-                                clearInterval(timeout);
+                                if (timer) {
+                                    clearTimeout(timer);
+                                    setTimer(setTimeout(() => { }, 1000));
+                                }
                                 setQuery(e.target.value);
-                                timeout = setTimeout(() => {
-                                    queryGifs(e.target.value, setGifResults);
-                                }, 1500);
+                                setTimer(
+                                    setTimeout(() => {
+                                        queryGifs(e.target.value, setGifResults);
+                                    }, 1500));
                             }}
                             autoComplete='off'
                         />
@@ -91,7 +104,7 @@ export const GifPicker: React.FC<RoomChatGifSearchProps> = ({
                 <div
                     className={`flex grid grid-cols-1 w-full  max-h-16 overflow-y-scroll scrollbar-thin scrollbar-thumb-rounded-xl scrollbar-thumb-primary-800 rounded-t-lg`}
                 >
-                    {gifResults.map((x, i) => {
+                    {gifResults.map((x) => {
                         return (
                             <Gif
                                 key={x.id}
