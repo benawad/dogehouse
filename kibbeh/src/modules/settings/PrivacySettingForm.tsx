@@ -14,7 +14,9 @@ export const PrivacySettingForm: React.FC<PrivacySettingFormProps> = ({}) => {
   const { t } = useTypeSafeTranslation();
   return (
     <div>
-      <div className="text-primary-100 mb-2">{t("pages.privacySettings.whispers.label")}:</div>
+      <div className="text-primary-100 mb-2">
+        {t("pages.privacySettings.whispers.label")}:
+      </div>
       <div>
         <NativeSelect
           value={user.whisperPrivacySetting}
@@ -25,7 +27,10 @@ export const PrivacySettingForm: React.FC<PrivacySettingFormProps> = ({}) => {
             mutateAsync([{ whisperPrivacySetting }]);
           }}
         >
-          {[t("pages.privacySettings.whispers.on"), t("pages.privacySettings.whispers.off")].map((v) => (
+          {[
+            t("pages.privacySettings.whispers.on"),
+            t("pages.privacySettings.whispers.off"),
+          ].map((v) => (
             <option value={v} key={v}>
               {v}&nbsp;&nbsp;&nbsp;
             </option>
