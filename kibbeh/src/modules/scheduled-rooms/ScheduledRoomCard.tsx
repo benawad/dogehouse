@@ -19,12 +19,14 @@ interface ScheduledRoomCardProps {
   onDeleteComplete: () => void;
   info: ScheduledRoom;
   noCopyLinkButton?: boolean;
+  noEditOrDeleteButton?: boolean;
 }
 
 export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
   onEdit,
   onDeleteComplete,
   noCopyLinkButton,
+  noEditOrDeleteButton = false,
   info: { id, name, scheduledFor, creator, description, roomId },
 }) => {
   const { push } = useRouter();
@@ -96,7 +98,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
               {noCopyLinkButton ? null : (
                 <CopyScheduleRoomLinkButton text={url} />
               )}
-              {isCreator ? (
+              {isCreator && !noEditOrDeleteButton ? (
                 <>
                   <BoxedIcon onClick={() => onEdit()}>
                     <Edit size={18} />
