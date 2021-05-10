@@ -1,4 +1,4 @@
-import { MessageToken, Unitoken } from "../util/types/token";
+import { MessageToken, Unitoken } from "../util/types/tokenTypes";
 import { encodeTokens } from "./encode";
 
 export function decodeTokens(all: Array<Unitoken | MessageToken | string> | string): string {

@@ -61,5 +61,19 @@ export default [
 			{ t: 'text', v: 'is' },
 			{ t: 'text', v: 'epic!' }
 		  ]
+	},
+
+	{
+		name: "Mixed unitoken and strings encoding test 1",
+		type: "encode",
+
+		input: ["Dogecoin to the moon!!!", { emote: "CryptoDOGE" }],
+		expectedOutput: [
+			{ t: 'text', v: 'Dogecoin' },
+			{ t: 'text', v: 'to' },
+			{ t: 'text', v: 'the' },
+			{ t: 'text', v: 'moon!!!' },
+			{ t: 'emote', v: 'CryptoDOGE' }
+		  ]
 	}
 ];
