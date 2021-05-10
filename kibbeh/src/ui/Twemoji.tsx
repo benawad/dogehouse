@@ -21,7 +21,7 @@ export const ParseTextToTwemoji: React.FC<TwemojiProps> = ({
   return (
     <>
       {chars.map((e, i) =>
-        regex.test(e) ? (
+        eRegex().test(e) ? (
           <img
             {...props}
             key={i}

@@ -116,6 +116,13 @@ defmodule Beef.Schemas.User do
     |> validate_required([:username, :githubId, :avatarUrl, :bannerUrl])
   end
 
+  def api_key_changeset(user, attrs) do
+    user
+    |> cast(attrs, [
+      :apiKey
+    ])
+  end
+
   def edit_changeset(user, attrs) do
     user
     |> cast(attrs, [

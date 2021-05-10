@@ -7,13 +7,15 @@ import { LeftPanel, MiddlePanel, RightPanel } from "../layouts/GridPanels";
 import { HeaderController } from "../../modules/display/HeaderController";
 import { MainLayout } from "../layouts/MainLayout";
 import { FollowersOnlineWrapper } from "../../ui/FollowersOnline";
+import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 
 interface UserPageProps {}
 
 export const FollowingOnlinePage: PageComponent<UserPageProps> = ({}) => {
+  const { t } = useTypeSafeTranslation();
   return (
     <WaitForWsAndAuth>
-      <HeaderController embed={{}} title="People" />
+      <HeaderController embed={{}} title={t("pages.followingOnlineList.title")} />
       <MainLayout
         leftPanel={<FollowingOnlineController />}
         rightPanel={<ProfileBlockController />}

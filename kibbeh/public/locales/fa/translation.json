@@ -34,9 +34,7 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "منع کردن"
-    },
+    "banUser": { "ban": "منع کردن" },
     "download": {
       "prompt": "برنامه DogeHouse Desktop را بارگیری کنید",
       "download_for": "بارگیری کنید برای %platform% (%ext%)",
@@ -46,11 +44,15 @@
     "followingOnlineList": {
       "listHeader": "لیست کاربرانی که در یک اتاق خصوصی نیستند و آنها را دنبال می کنید.",
       "currentRoom": "در حال حاضر در:",
-      "startPrivateRoom": "با آنها یک اتاق خصوصی راه اندازی کنید"
+      "startPrivateRoom": "با آنها یک اتاق خصوصی راه اندازی کنید",
+      "title": "People"
     },
     "followList": {
       "followHim": "دنبال کردن",
-      "followingHim": "دنبال شده"
+      "followingHim": "دنبال شده",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "اتاق جدید",
@@ -99,12 +101,11 @@
       "allowAll": "اجازه دادن به همه",
       "allowAllConfirm": "مطمئنی؟ با این کار به همه {{count}} درخواست کنندگان اجازه صحبت می دهید"
     },
-    "searchUser": {
-      "search": "جستجو کردن..."
-    },
+    "searchUser": { "search": "جستجو کردن..." },
     "soundEffectSettings": {
       "header": "صدا",
-      "title": "تنظیمات صدا"
+      "title": "تنظیمات صدا",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "ویرایش نمایه",
@@ -127,14 +128,16 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "تنظیمات صدا",
       "mic": "میکروفون:",
       "permissionError": "هیچ میکروفونی یافت نشد،شما میکروفون را متصل نکرده و یا به این وبسایت اجازه نداده اید.",
       "refresh": "بارگذاری مجدد لیست میکروفون",
-      "volume": "بلندی صدا"
+      "volume": "بلندی صدا",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "تنظیمات همپوشانی",
@@ -142,6 +145,11 @@
         "errorMsg": "لطفاً یک عنوان معتبر برای برنامه وارد کنید.",
         "label": "عنوان برنامه"
       }
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -206,9 +214,7 @@
       "upcomingRooms": "اتاق های آینده",
       "exploreMoreRooms": "در اتاق های بیشتری کاوش کنید"
     },
-    "addToCalendar": {
-      "add": "افزودن به تقویم"
-    },
+    "addToCalendar": { "add": "افزودن به تقویم" },
     "wsKilled": {
       "description": "اتصال به سرور قطع شد. ممکن است برنامه را در صفحه ای دیگر باز کرده اید",
       "reconnect": "اتصال دوباره"
@@ -273,7 +279,8 @@
         "banFromRoom": "ممنوعیت ورود به اتاق",
         "goBackToListener": "بازگشت به شنونده",
         "deleteMessage": "این پیام را حذف کنید",
-        "makeRoomCreator": "به مدیر ارتقا دهید"
+        "makeRoomCreator": "به مدیر ارتقا دهید",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "نیاز به گرفتن اجازه برای صحبت دارد",
@@ -281,15 +288,25 @@
         "makePublic": "اتاق را عمومی کنید",
         "makePrivate": "اتاق را خصوصی کنید",
         "renamePublic": "نام اتاق عمومی را تنظیم کنید",
-        "renamePrivate": "نام اتاق خصوصی را تنظیم کنید"
+        "renamePrivate": "نام اتاق خصوصی را تنظیم کنید",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "فید شما"
-    },
+    "feed": { "yourFeed": "فید شما" },
     "scheduledRooms": {
       "title": "اتاق های برنامه ریزی شده",
       "noneFound": "هیچ کدام پیدا نشد",
@@ -321,7 +338,12 @@
       "whisper": "پچ پچ",
       "welcomeMessage": "به چت خوش آمدید!",
       "roomDescription": "توضیحات اتاق",
-      "disabled": "گفتگوی اتاق غیرفعال شده است"
+      "disabled": "گفتگوی اتاق غیرفعال شده است",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "سوخت موشک",

@@ -76,7 +76,7 @@ export const SoundEffectSettings: PageComponent<ChatSettingsProps> = () => {
                 onClick={() => playSoundEffect(k as PossibleSoundEffect, true)}
                 className={`ml-4`}
               >
-                play sound
+                {t("pages.soundEffectSettings.playSound")}
               </Button>
             </div>
           );

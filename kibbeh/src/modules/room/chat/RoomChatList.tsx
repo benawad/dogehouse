@@ -173,11 +173,11 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, userMap }) => {
                       <div className={`inline mr-1 space-x-1`}>
                         {messages[index].deleted ? (
                           <span className="inline text-primary-300 italic">
-                            message{" "}
+                            {t("modules.roomChat.messageDeletion.message") + " "}
                             {messages[index].deleterId ===
                             messages[index].userId
-                              ? "retracted"
-                              : "deleted"}
+                              ? t("modules.roomChat.messageDeletion.retracted")
+                              : t("modules.roomChat.messageDeletion.deleted")}
                           </span>
                         ) : (
                           messages[index].tokens.map(({ t: token, v }, i) => {

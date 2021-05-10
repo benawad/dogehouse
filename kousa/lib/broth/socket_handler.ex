@@ -149,7 +149,6 @@ defmodule Broth.SocketHandler do
           p1,
         %__MODULE__{} = state
       ) do
-
     if (isWhisper == true and not is_nil(state.user) and state.user.whisperPrivacySetting == :off) or
          Enum.any?(state.user_ids_i_am_blocking, &(&1 == from)) do
       ws_push(nil, state)

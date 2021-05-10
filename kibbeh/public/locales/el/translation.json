@@ -38,7 +38,8 @@
     "followingOnlineList": {
       "listHeader": "Xρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
       "currentRoom": "Aυτή τη στιγμή βρίσκεστε σε:",
-      "startPrivateRoom": "Δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
+      "startPrivateRoom": "Δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους",
+      "title": "People"
     },
     "download": {
       "starting": "Εκίνηση κατεβάσματως...",
@@ -51,7 +52,10 @@
     "followList": {
       "followHim": "Ακολουθήστε",
       "ακολουθήστε": "Ακολουθείτε",
-      "followingHim": "Ακολουθείτε"
+      "followingHim": "Ακολουθείτε",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "Δημιουργία δωματίου",
@@ -101,7 +105,11 @@
       "allowAllConfirm": "Είστε σίγουροι; Αυτό θα επιτρέψει σε όλους τους {{count}} χρήστες που έχουν ζητήσει, να μιλήσουν"
     },
     "searchUser": { "search": "αναζήτηση..." },
-    "soundEffectSettings": { "header": "Ήχοι", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Ήχοι",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Επεξεργασία προφίλ",
       "followsYou": "Σας ακολουθεί",
@@ -123,14 +131,16 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",
       "mic": "Μικρόφωνο:",
       "permissionError": "Δεν βρέθηκε μικρόφωνο, είτε δεν έχετε κανένα συνδεδεμένο είτε δεν έχετε δώσει άδεια.",
       "refresh": "Ανανέωση λίστας μικροφώνων",
-      "volume": "Ένταση ήχου:"
+      "volume": "Ένταση ήχου:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -138,6 +148,11 @@
         "label": "Εισάγετε τον τίτλο της εφαρμογής"
       },
       "header": "Ρυθμίσεις overlay"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -238,7 +253,8 @@
         "goBackToListener": "Επιστροφή σε ακροατή",
         "deleteMessage": "Διαγράψτε αυτό το μήνυμα",
         "makeRoomCreator": "Μετατροπή σε διαχειριστή δωματίου",
-        "unBanFromChat": "Κατάργηση αποκλεισμού από την συζήτηση"
+        "unBanFromChat": "Κατάργηση αποκλεισμού από την συζήτηση",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Να απαιτείται άδεια για ομιλία",
@@ -246,7 +262,14 @@
         "makePrivate": "Κάντε το δωμάτιο ιδιωτικό",
         "renamePublic": "Ορίστε ένα όνομα για το δημόσιο δωμάτιο",
         "renamePrivate": "Ορίστε ένα όνομα για το ιδιωτικό δωμάτιο",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -277,6 +300,11 @@
         "stopDebugger": "Σταματήστε το Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -312,7 +340,12 @@
       "whisper": "Ψίθυρος",
       "welcomeMessage": "Καλως ήλθατε στο Τσάτ!",
       "roomDescription": "Περιγραφή δωματίου",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Ανεφοδιασμός πυραύλου",

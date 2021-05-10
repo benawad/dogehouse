@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Danh sách người dùng bạn theo dõi đang ở trong một phòng nào đó mà không phải là phòng riêng.",
       "currentRoom": "phòng hiện tại:",
-      "startPrivateRoom": "tạo phòng riêng tư với họ"
+      "startPrivateRoom": "tạo phòng riêng tư với họ",
+      "title": "People"
     },
-    "followList": { "followHim": "theo dõi", "followingHim": "đang theo dõi" },
+    "followList": {
+      "followHim": "theo dõi",
+      "followingHim": "đang theo dõi",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Tạo phòng",
       "refresh": "Làm mới",
@@ -89,7 +96,11 @@
       "allowAllConfirm": "Bạn có chắc không? Hành động này sẽ cho phép {{count}} người dùng có quyền nói"
     },
     "searchUser": { "search": "tìm kiếm..." },
-    "soundEffectSettings": { "header": "Âm thanh", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Âm thanh",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "chỉnh sửa hồ sơ",
       "followsYou": "Theo dõi bạn",
@@ -111,14 +122,16 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Cài đặt giọng nói",
       "mic": "mic:",
       "permissionError": "không tìm thấy mic, bạn có thể chưa cắm hoặc chưa cấp quyền cho trang web này..",
       "refresh": "làm mới danh sách mic",
-      "volume": "âm lượng:"
+      "volume": "âm lượng:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Cài đặt Overlay",
@@ -134,6 +147,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -231,7 +249,8 @@
         "goBackToListener": "trở về làm thính giả",
         "deleteMessage": "xóa tin nhắn này",
         "makeRoomCreator": "cho làm quản trị viên",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "phải được cấp quyền mới có thể nói",
@@ -239,7 +258,14 @@
         "makePrivate": "chuyển thành phòng riêng tư",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -270,6 +296,11 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -305,7 +336,12 @@
       "whisper": "Thì thầm",
       "welcomeMessage": "Chào mừng đến với phòng trò chuyện!",
       "roomDescription": "mô tả phòng",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tên lửa đang đổ xăng",

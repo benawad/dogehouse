@@ -143,11 +143,15 @@ function createMainWindow() {
       shell.openExternal(url);
     } else {
       if (
-        urlHost == ALLOWED_HOSTS[4] &&
-        urlObj.pathname !== "/login" &&
-        urlObj.pathname !== "/session" &&
-        urlObj.pathname !== "/sessions/two-factor" &&
-        urlObj.pathname !== "/sessions/two-factor/webauthn"
+        (urlHost == ALLOWED_HOSTS[3] &&
+          urlObj.pathname !== "/login" &&
+          urlObj.pathname !== "/session" &&
+          urlObj.pathname !== "/sessions/two-factor" &&
+          urlObj.pathname !== "/sessions/two-factor/webauthn") ||
+        (
+          urlHost == ALLOWED_HOSTS[8] &&
+          urlObj.pathname !== "/account/login_verification"
+        )
       ) {
         event.preventDefault();
         shell.openExternal(url);

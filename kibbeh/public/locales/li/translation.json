@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Liest van gebroekers die dich volgst mèr niet in inge perseunlijke kamer zitten.",
       "currentRoom": "Op t moment in:",
-      "startPrivateRoom": "Sjtart inge perseunlijke kamer mit disè persoon"
+      "startPrivateRoom": "Sjtart inge perseunlijke kamer mit disè persoon",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Kamer make",
       "refresh": "Verviesje",
@@ -89,7 +96,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Zeucke..." },
-    "soundEffectSettings": { "header": "Geluide", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Geluide",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profiel bewirke",
       "followsYou": "Volgt dich",
@@ -111,14 +122,16 @@
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM"
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Sjpraak",
       "mic": "Microfoon:",
       "permissionError": "Ging microfoon gevonge, du hubs waarschinlik ging microfoon aangesjloate of ging toesjtimming gegive.",
       "refresh": "Verviesj microfoonliest",
-      "volume": "Volume:"
+      "volume": "Volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -131,6 +144,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -231,7 +249,8 @@
         "goBackToListener": "Gank terug noa loestereer",
         "deleteMessage": "Disè bericht verwijdere",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Toesjtimming neudig om te sjpreke",
@@ -239,7 +258,14 @@
         "makePrivate": "Maak kamer perseunlijke",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -270,6 +296,11 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -305,7 +336,12 @@
       "whisper": "Floestere",
       "welcomeMessage": "Welkom in de chat!",
       "roomDescription": "Kamer umsjrieving",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Raket tanken",

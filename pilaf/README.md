@@ -15,7 +15,7 @@
 
 # What is this folder?
 
-This folder is called pilaf it is the ReactNative Application
+This folder is pilaf ([pi·laf](https://en.wikipedia.org/wiki/Pilaf)) and it contains everything related to the [React Native](https://reactnative.dev/) app.
 
 # How can I contribute?
 
