@@ -197,7 +197,7 @@ function createMainWindow() {
   });
 }
 
-function createSpalshWindow() {
+function createSplashWindow() {
   splash = new BrowserWindow({
     width: 300,
     height: 410,
@@ -233,7 +233,7 @@ if (!instanceLock) {
 } else {
   app.on("ready", () => {
     localize().then(async () => {
-      createSpalshWindow();
+      createSplashWindow();
       if (!__prod__) skipUpdateCheck(splash);
       if (__prod__ && !isLinux) await autoUpdater.checkForUpdates();
       if (isLinux && __prod__) {
