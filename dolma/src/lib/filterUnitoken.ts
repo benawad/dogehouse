@@ -1,5 +1,7 @@
-import { MessageToken, MessageTokenType, Unitoken } from "../util/types/token";
-import { newToken } from "./token";
+import { MessageToken, MessageTokenType, Unitoken } from "../util/types/tokenTypes";
+import { msgToken } from "./msgToken";
+
+const newToken = msgToken.newToken;
 
 export function filterUnitoken(token: any): MessageToken | null {
 	const keys = Object.keys(token);
