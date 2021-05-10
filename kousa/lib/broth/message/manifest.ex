@@ -3,10 +3,12 @@ defmodule Broth.Message.Manifest do
   alias Broth.Message.Chat
   alias Broth.Message.Room
   alias Broth.Message.User
+  alias Broth.Message.WebRTC
   alias Broth.Message.Misc
 
   @actions %{
     "test:operator" => BrothTest.MessageTest.TestOperator,
+    "webrtc:signal" => WebRTC.Signal,
     "user:create_bot" => User.CreateBot,
     "user:ban" => User.Ban,
     "user:block" => User.Block,

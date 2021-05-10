@@ -5,6 +5,7 @@ alias Broth.Message.Room
 alias Broth.Message.Chat
 alias Broth.Message.Auth
 alias Broth.Message.Misc
+alias Broth.Message.WebRTC
 
 defenum(
   Broth.Message.Types.Operator,
@@ -52,6 +53,7 @@ defenum(
     # auth and maintenance commands 192..254
     {Auth.Request, 193},
     {Misc.Search, 210},
+    {WebRTC.Signal, 250},
     # etc 255 - 317
     {BrothTest.MessageTest.TestOperator, 255}
   ]

@@ -24,6 +24,7 @@ import { ConfirmModal } from "../shared-components/ConfirmModal";
 import isElectron from "is-electron";
 import Head from "next/head";
 import { useHostStore } from "../global-stores/useHostStore";
+import { WebRtcApp2 } from "../modules/webrtc/WebRtcApp2";
 
 if (!isServer) {
   init_i18n();
@@ -88,7 +89,8 @@ function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
           <SoundEffectPlayer />
           <ErrorToastController />
-          <WebRtcApp />
+          {/* <WebRtcApp /> */}
+          <WebRtcApp2 />
           <KeybindListener />
           <InvitedToJoinRoomModal />
           <ConfirmModal />

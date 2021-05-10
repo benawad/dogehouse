@@ -73,7 +73,7 @@ defmodule Kousa.Follow do
     {:ok}
   end
 
-  @spec notify_followers_you_created_a_room(String.t(), Room.t()) :: {:ok, pid()}
+  @spec notify_followers_you_created_a_room(Ecto.UUID.t(), Room.t()) :: {:ok, pid()}
   def notify_followers_you_created_a_room(user_id, room) do
     Task.start(fn -> sync_notify_followers_you_created_a_room(user_id, room) end)
   end

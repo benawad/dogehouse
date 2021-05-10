@@ -267,7 +267,8 @@ defmodule Kousa.Room do
   defp set_listener(room_id, user_id, setter_id) do
     # TODO: refactor this to be simpler.  The list of
     # creators and mods should be in the preloads of the room.
-    with {auth, _} <- Rooms.get_room_status(setter_id), {role, _} <- Rooms.get_room_status(user_id) do
+    with {auth, _} <- Rooms.get_room_status(setter_id),
+         {role, _} <- Rooms.get_room_status(user_id) do
       if auth == :creator or (auth == :mod and role not in [:creator, :mod]) do
         internal_set_listener(user_id, room_id)
       end
@@ -386,11 +387,13 @@ defmodule Kousa.Room do
         do: "join-as-speaker",
         else: "join-as-new-peer"
 
-    Onion.VoiceRabbit.send(room.voiceServerId, %{
-      op: op,
-      d: %{roomId: room.id, peerId: user_id},
-      uid: user_id
-    })
+    Onion.AudioPipeline.new_peer(room.id, user_id, :participant)
+
+    # Onion.VoiceRabbit.send(room.voiceServerId, %{
+    #   op: op,
+    #   d: %{roomId: room.id, peerId: user_id},
+    #   uid: user_id
+    # })
   end
 
   @spec create_room(
@@ -443,11 +446,13 @@ defmodule Kousa.Room do
 
         Onion.RoomSession.join_room(room.id, user_id, muted?, deafened?, no_fan: true)
 
-        Onion.VoiceRabbit.send(room.voiceServerId, %{
-          op: "create-room",
-          d: %{roomId: id},
-          uid: user_id
-        })
+        # Onion.VoiceRabbit.send(room.voiceServerId, %{
+        #   op: "create-room",
+        #   d: %{roomId: id},
+        #   uid: user_id
+        # })
+        Onion.AudioPipeline.start(room.id)
+        # Onion.AudioPipeline.new_peer(room.id, user_id, :participant)
 
         join_vc_room(user_id, room, true)
 

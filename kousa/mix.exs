@@ -58,6 +58,12 @@ defmodule Kousa.MixProject do
       {:prometheus_ex, "~> 3.0"},
       {:prometheus_plugs, "~> 1.1.1"},
       {:timex, "~> 3.6"},
+      # membrane
+      {:membrane_core,
+       github: "membraneframework/membrane_core", branch: "master", override: true},
+      {:membrane_webrtc_plugin, github: "membraneframework/membrane_webrtc_plugin"},
+      {:membrane_element_tee, "~> 0.4.1"},
+      {:membrane_element_fake, "~> 0.4.0"},
       # style ENFORCEMENT
       {:credo, "~> 1.5.5"},
       # test helpers
