@@ -7,6 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "run": "NEXT_PUBLIC_API_BASE_URL=http://localhost:4001 next dev",
     "compile": "tsc",
     "sync:i18": "ts-node --project scripts/tsconfig.json scripts/syncTranslations.ts",
     "i18": "yarn sync:i18",

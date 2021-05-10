@@ -5,7 +5,7 @@ yarn install
 cd ../kebab
 yarn build
 cd ../kibbeh
-yarn dev &
+yarn run &
 cd ../kousa
 source .envrc
 mix deps.get
