@@ -30,7 +30,7 @@ defmodule BrothTest.User.SetStaffTest do
         })
 
       WsClient.assert_error("user:admin_update", ref, %{"message" => message})
-      assert message =~ "but that user didn't exist"
+      assert message =~ "not authorized"
     end
 
     @ben_github_id Application.compile_env!(:kousa, :ben_github_id)
