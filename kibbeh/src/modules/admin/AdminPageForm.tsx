@@ -37,7 +37,6 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
       <h3 className="text-primary-100">Username</h3>
       <div className="flex">
         <Input
-          className={`mb-4`}
           autoFocus
           placeholder="username to perform actions on"
           value={username}
