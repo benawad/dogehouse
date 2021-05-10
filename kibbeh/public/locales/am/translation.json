@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "የግል ክፍል ውስጥ ናቸው እና የሚከተሉ ተጠቃሚዎች ዝርዝር፡፡",
       "currentRoom": "በአሁኑ ጊዜ ውስጥ:",
-      "startPrivateRoom": "ከእነሱ ጋር አንድ የግል ክፍል መጀመር"
+      "startPrivateRoom": "ከእነሱ ጋር አንድ የግል ክፍል መጀመር",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "ክፍል ፍጠር",
       "refresh": "Refresh",
@@ -89,7 +96,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "ፈልግ ..." },
-    "soundEffectSettings": { "header": "ድምፆች", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "ድምፆች",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "መገለጫ ቀይር",
       "followsYou": "እርስዎን ይከተላል",
@@ -120,7 +131,8 @@
       "permissionError": "ምንም የስቴሪዮ አገኘ, ወይ አንዳቸውም ሲሰካ ወይም በዚህ ድር ጣቢያ ፍቃድ የተሰጠው አልቻሉም፡፡",
       "refesh": "አድስ ማይክሮፎኑን ዝርዝር",
       "volume": "ድምጽ:",
-      "refresh": "refresh mic list"
+      "refresh": "refresh mic list",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -135,6 +147,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -230,7 +247,8 @@
         "goBackToListener": "አዳማጭ ይመለሱ",
         "deleteMessage": "ይህን መልዕክት ሰርዝ",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "መናገር ፈቃድ ይጠይቃል",
@@ -238,7 +256,14 @@
         "makePrivate": "ክፍሉን የግል ያድርጉ",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -269,6 +294,11 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -304,7 +334,12 @@
       "whisper": "ተንሸካሾክ",
       "welcomeMessage": "ለውይይት እንኳን ደህና መጡ!",
       "roomDescription": "ክፍል መግለጫ",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

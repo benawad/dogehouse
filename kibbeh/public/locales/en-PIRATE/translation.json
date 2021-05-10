@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "List o' users that are nah in a private cabin 'n ye follow.",
       "currentRoom": "currently in:",
-      "startPrivateRoom": "start a private cabin wit' 'em"
+      "startPrivateRoom": "start a private cabin wit' 'em",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Create Cabin",
       "refresh": "Refresh",
@@ -89,7 +96,11 @@
       "allowAllConfirm": "Ye sure? Ye will allow all {{count}} skallywags to speak!"
     },
     "searchUser": { "search": "searchin' fer booty..." },
-    "soundEffectSettings": { "header": "Sounds", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Sounds",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "avast ye profile",
       "followsYou": "follows you",
@@ -119,7 +130,8 @@
       "mic": "mic:",
       "permissionError": "no mics found, ye either 'ave none plugged in or haven't given this website permission.",
       "refresh": "refresh mic list",
-      "volume": "volume:"
+      "volume": "volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -132,6 +144,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -229,7 +246,8 @@
         "goBackToListener": "Go back t' shipmate",
         "deleteMessage": "Scuttle this message",
         "makeRoomCreator": "Make cabin cap'n",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Require permission t' speak",
@@ -237,7 +255,14 @@
         "makePrivate": "Make Cabin Private",
         "renamePublic": "Set Public Cabin Name",
         "renamePrivate": "Set Private Cabin Name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -268,6 +293,11 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -303,7 +333,12 @@
       "whisper": "Whisper",
       "welcomeMessage": "Ahoy t' chat!",
       "roomDescription": "cabin description",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fuelin' rocket",

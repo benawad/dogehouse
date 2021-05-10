@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "Daftar pengguna yang tidak ada di ruangan privat dan kamu ikuti.",
       "currentRoom": "Saat ini di:",
-      "startPrivateRoom": "Mulai ruangan privat dengan mereka"
+      "startPrivateRoom": "Mulai ruangan privat dengan mereka",
+      "title": "People"
     },
-    "followList": { "followHim": "Ikuti", "followingHim": "Mengikuti" },
+    "followList": {
+      "followHim": "Ikuti",
+      "followingHim": "Mengikuti",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Buat Ruangan",
       "refresh": "Segarkan",
@@ -88,7 +95,11 @@
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
     },
     "searchUser": { "search": "cari..." },
-    "soundEffectSettings": { "header": "Bunyi", "title": "Pengaturan Bunyi" },
+    "soundEffectSettings": {
+      "header": "Bunyi",
+      "title": "Pengaturan Bunyi",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Ubah profil",
       "followsYou": "Mengikutimu",
@@ -118,7 +129,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Mikrofon tidak ditemukan, mungkin kamu belum memasangnya atau belum memberikan website ini akses.",
       "refresh": "Muat ulang daftar mikrofon",
-      "volume": "Suara:"
+      "volume": "Suara:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -134,6 +146,11 @@
       "prompt": "Tekan tombol di bawah untuk memulai mengunduh",
       "download_now": "Unduh Sekarang",
       "download_for": "Unduh untuk %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -232,7 +249,8 @@
         "goBackToListener": "Kembali ke pendengar",
         "deleteMessage": "Hapus pesan ini",
         "makeRoomCreator": "Buat admin ruangan",
-        "unBanFromChat": "Bolehkan di percakapan"
+        "unBanFromChat": "Bolehkan di percakapan",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "membutuhkan izin untuk berbicara",
@@ -240,7 +258,14 @@
         "makePrivate": "buat ruangan jadi privat",
         "renamePublic": "Ubah nama ruangan publik",
         "renamePrivate": "Ubah nama ruangan privat",
-        "chatDisabled": "nonaktifkan percakapan"
+        "chatDisabled": "nonaktifkan percakapan",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -271,6 +296,11 @@
         "stopDebugger": "Berhentikan Debugger"
       },
       "downloadApp": "Unduh aplikasi"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -306,7 +336,12 @@
       "whisper": "Bisikan",
       "welcomeMessage": "Selamat datang di percakapan!",
       "roomDescription": "Deskripsi ruangan",
-      "disabled": "percakapan sudah dinonaktifkan"
+      "disabled": "percakapan sudah dinonaktifkan",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Mengisi bahan bakar roket",
