@@ -1,4 +1,4 @@
-import React, { MouseEvent, TouchEvent } from "react";
+import React, { HTMLAttributes, MouseEvent, TouchEvent } from "react";
 
 interface GifProps {
     clickHandler: (id: string) => void;
@@ -19,8 +19,14 @@ export const Gif: React.FC<GifProps> = ({
     className,
     id,
     togglable,
-    enabledGif }) => {
+    enabledGif
+}) => {
 
+    const toggleMouse = (e: MouseEvent<HTMLElement, globalThis.MouseEvent> | TouchEvent<HTMLElement>) => {
+        if (!enabledGif) {
+            toggle(e);
+        }
+    }
     const toggle = (e: MouseEvent<HTMLElement, globalThis.MouseEvent> | TouchEvent<HTMLElement>) => {
         if (togglable) {
             e.currentTarget.setAttribute('src', e.currentTarget.getAttribute('src') === srcGif ? srcStill : srcGif);
@@ -34,8 +40,8 @@ export const Gif: React.FC<GifProps> = ({
         <img
             onClick={clicked}
             onTouchStart={clicked}
-            onMouseEnter={toggle}
-            onMouseLeave={toggle}
+            onMouseEnter={toggleMouse}
+            onMouseLeave={toggleMouse}
             className={className}
             alt={title}
             src={enabledGif ? srcGif : srcStill}
