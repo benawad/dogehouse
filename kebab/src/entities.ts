@@ -14,7 +14,9 @@ export type UserPreview = {
   avatarUrl: string | null;
 };
 
+//enums 
 export type ChatMode = "default" | "disabled" | "follower_only";
+export type GifRating = "g" | "pg" | "pg-13" | "r";
 
 export type Room = {
   id: string;
@@ -29,6 +31,7 @@ export type Room = {
   inserted_at: string;
   chatMode: ChatMode;
   chatThrottle: number;
+  gifRating: GifRating;
 };
 
 export interface ScheduledRoom {
@@ -59,6 +62,7 @@ export type User = {
   avatarUrl: string;
   bannerUrl: string | null;
   whisperPrivacySetting: "on" | "off";
+  gifRating: GifRating;
 };
 
 export type MessageToken<T extends string = string, V = unknown> = {
@@ -131,3 +135,18 @@ export type CurrentRoom = Room & {
 };
 
 export type BooleanMap = Record<UUID, boolean>;
+
+export type Image = {
+  url: string;
+  width: number;
+  height: number;
+}
+export type GifResponse = {
+  id: string;
+  title: string;
+  images: {
+    original: Image;
+    original_still: Image;
+  }
+
+}

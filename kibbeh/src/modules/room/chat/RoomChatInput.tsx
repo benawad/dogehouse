@@ -11,12 +11,16 @@ import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
 import { EmojiPicker } from "../../../ui/EmojiPicker";
 import { useEmojiPickerStore } from "../../../global-stores/useEmojiPickerStore";
+import { useGifPickerStore } from "../../../global-stores/useGifPickerStore";
 import { navigateThroughQueriedUsers } from "./navigateThroughQueriedUsers";
 import { navigateThroughQueriedEmojis } from "./navigateThroughQueriedEmojis";
 import { useTypeSafeQuery } from "../../../shared-hooks/useTypeSafeQuery";
 import { useCurrentRoomIdStore } from "../../../global-stores/useCurrentRoomIdStore";
 import { useScreenType } from "../../../shared-hooks/useScreenType";
 import { useCurrentRoomFromCache } from "../../../shared-hooks/useCurrentRoomFromCache";
+import { Gif } from "../../../icons/Gif";
+import { GifPicker } from "../../../ui/GifPicker";
+
 
 interface ChatInputProps {
   users: RoomUser[];
@@ -26,6 +30,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   const { message, setMessage } = useRoomChatStore();
   const { setQueriedUsernames } = useRoomChatMentionStore();
   const { setOpen, open, queryMatches } = useEmojiPickerStore();
+  const { setToggle, toggle } = useGifPickerStore();
   const conn = useConn();
   const me = conn.user;
   const inputRef = useRef<HTMLInputElement>(null);
@@ -116,13 +121,14 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
             const newMsg = [
               message.slice(0, position),
               (message.endsWith(" ") ? "" : " ") +
-                (`:${emoji.short_names[0]}:` || "") +
-                " ",
+              (`:${emoji.short_names[0]}:` || "") +
+              " ",
               message.slice(position),
             ].join("");
             setMessage(newMsg);
           }}
         />
+        <GifPicker />
       </div>
       <div className="flex items-stretch">
         <div className="flex-1">
@@ -156,8 +162,15 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
                 position = 0;
               }}
             >
-              <Smiley style={{ inlineSize: "23px" }}></Smiley>
+              <Smiley style={{ inlineSize: "23px" }} />
             </div>
+            <div
+              className={`right-12 cursor-pointer flex flex-row-reverse fill-current text-primary-200 mr-3`}
+              onClick={() => setToggle(!toggle)}
+            >
+              <Gif style={{ inlineSize: "23px" }} />
+            </div>
+
           </div>
         </div>
 
