@@ -5,7 +5,6 @@ defmodule Beef.RoomBlocks do
   alias Beef.Schemas.RoomBlock
   alias Beef.Repo
   alias Beef.Users
-  alias IO
 
   def unban(room_id, user_id) do
     from(rb in RoomBlock, where: rb.userId == ^user_id and rb.roomId == ^room_id)
