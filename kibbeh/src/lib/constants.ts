@@ -4,6 +4,7 @@ export const isStaging = process.env.NEXT_PUBLIC_IS_STAGING === "true";
 export const baseUrl =
   process.env.NEXT_PUBLIC_BASE_URL || "https://dogehouse.tv";
 export const loginNextPathKey = "@dogehouse/login-next";
+export const giphyApiKey = process.env.GIPHY_API_KEY || "6LUOMGMniuSzekTB3ASp4p1o8kqu8OJY";
 
 export const linkRegex = /(^|\s)(https?:\/\/)(www\.)?([-a-z0-9]{1,63}\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\.[a-z]{1,6}(\/[-\\w@\\+\\.~#\\?&/=%]*)?[^\s()]+/;
 export const codeBlockRegex = /`([^`]*)`/g;
