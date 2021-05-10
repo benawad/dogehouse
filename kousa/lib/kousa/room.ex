@@ -1,5 +1,6 @@
 defmodule Kousa.Room do
   alias Kousa.Utils.VoiceServerUtils
+  alias Kousa.Utils.Hash
   alias Beef.Users
   alias Beef.Follows
   alias Beef.Rooms
@@ -104,7 +105,11 @@ defmodule Kousa.Room do
           modId: user_id,
           userId: user_id_to_block_from_room,
           roomId: room.id,
-          ip: if(should_ban_ip, do: Users.get_ip(user_id_to_block_from_room), else: nil)
+          ip:
+            if(should_ban_ip,
+              do: Hash.hash_ip(Users.get_ip(user_id_to_block_from_room)),
+              else: nil
+            )
         })
 
         internal_kick_from_room(user_id_to_block_from_room, room.id)

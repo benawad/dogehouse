@@ -23,6 +23,7 @@ defmodule Kousa.Auth do
     alias Onion.UserSession
     alias Onion.RoomSession
     alias Beef.Rooms
+    alias Kousa.Utils.Hash
 
     if user do
       # note that this will start the session and will be ignored if the
@@ -40,8 +41,11 @@ defmodule Kousa.Auth do
         bot_owner_id: user.botOwnerId
       )
 
-      if user.ip != ip do
-        Beef.Users.set_ip(user.id, ip)
+      # TODO: Check the error being outputted by Argon2
+      with {:error, _} <- Hash.check_hash(user, ip) do
+        with hash <- Kousa.Utils.Hash.hash_ip(ip) do
+          Beef.Users.set_ip(user.id, hash)
+        end
       end
 
       # currently we only allow one active websocket connection per-user

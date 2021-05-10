@@ -101,7 +101,7 @@ defmodule BrothTest.SetListenerTest do
     # set mod2 as listener using mod1
     WsClient.send_msg_legacy(mod1_ws, "set_listener", %{"userId" => mod2_id})
 
-    #mod1 can't move mod2 to listeners
+    # mod1 can't move mod2 to listeners
     refute Beef.RoomPermissions.listener?(mod2_id, room_id)
   end
 end

@@ -24,7 +24,7 @@ defmodule Broth.Routes.DiscordAuth do
       callback_url: Application.get_env(:kousa, :api_url) <> "/auth/discord/callback",
       options: [
         default_scope: "identify email",
-        prompt: "none" 
+        prompt: "none"
       ]
     })
     |> Ueberauth.Strategy.Discord.handle_request!()

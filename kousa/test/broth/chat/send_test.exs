@@ -355,7 +355,6 @@ defmodule BrothTest.Chat.SendTest do
       user_id = t.user.id
       room_id = t.room_id
 
-
       WsClient.do_call(t.client_ws, "room:update", %{
         "chatThrottle" => 50
       })
@@ -376,12 +375,12 @@ defmodule BrothTest.Chat.SendTest do
         _,
         t.client_ws
       )
+
       WsClient.assert_frame(
         "chat:send",
         _,
         listener_ws
       )
-
 
       # send second message before the throttle limit is finished, half time of total throttle
       Process.sleep(25)
@@ -391,6 +390,7 @@ defmodule BrothTest.Chat.SendTest do
         "chat:send",
         t.client_ws
       )
+
       WsClient.refute_frame(
         "chat:send",
         listener_ws
@@ -399,17 +399,18 @@ defmodule BrothTest.Chat.SendTest do
       # this message should not be throttled
       Process.sleep(51)
       WsClient.send_msg(t.client_ws, "chat:send_msg", %{"tokens" => @text_token})
+
       WsClient.assert_frame(
         "chat:send",
         _,
         t.client_ws
       )
+
       WsClient.assert_frame(
         "chat:send",
         _,
         listener_ws
       )
-
     end
   end
 
