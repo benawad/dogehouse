@@ -60,13 +60,11 @@ defmodule Kousa.User do
 
     with %{githubId: ^authorized_github_id} <- Users.get_by_id(opts[:admin_id]) do
       user_to_change = Users.get_by_username(username_to_change)
-      Users.set_staff(user_to_change.id, staff)
-      Users.set_contributions(user_to_change.id, contributions)
+      Users.set_staff_and_contributions(user_to_change.id, staff, contributions)
       :ok
     else
       _ ->
-        {:error,
-         "tried to change #{username_to_change}'s staff and contributions but that user didn't exist"}
+        {:error, "not authorized"}
     end
   end
 end

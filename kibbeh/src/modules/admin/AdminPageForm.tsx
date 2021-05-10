@@ -16,7 +16,6 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
   const [reason, setReason] = useState("");
   const [contributions, setContributions] = useState(0);
   const [isStaff, setIsStaff] = useState(false);
-  const [user, setUser] = useState<UserWithFollowInfo>();
   const { t } = useTypeSafeTranslation();
   const { replace } = useRouter();
   const wrapper = wrap(conn);
@@ -28,21 +27,6 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    wrapper.query.getUserProfile(username).then((u) => {
-      if (u) {
-        setUser(u as UserWithFollowInfo);
-      }
-    });
-  }, [username]);
-
-  useEffect(() => {
-    if (user) {
-      setContributions(user.contributions);
-      setIsStaff(user.staff);
-    }
-  }, [user]);
 
   if (conn.user.username !== "benawad") {
     return <MiddlePanel />;
