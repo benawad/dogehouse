@@ -1,59 +1,62 @@
 defmodule BrothTest.Message.User.AdminUpdateTest do
   use ExUnit.Case, async: true
-  use KousaTest.Support.EctoSandbox
 
-  alias Beef.Schemas.User
-  alias Beef.Users
-  alias BrothTest.WsClient
-  alias BrothTest.WsClientFactory
-  alias KousaTest.Support.Factory
+  @moduletag :message
 
-  require WsClient
+  alias Broth.Message.User.AdminUpdate
 
   setup do
-    user = Factory.create(User)
-    client_ws = WsClientFactory.create_client_for(user)
-
-    {:ok, user: user, client_ws: client_ws}
+    {:ok, username: UUID.uuid4()}
   end
 
-  describe "the websocket user:admin_update operation" do
-    test "doesn't work for not-ben awad", t do
-      staffed = Factory.create(User)
-      WsClientFactory.create_client_for(staffed)
+  describe "when you send an admin_update message" do
+    test "it populates id", %{username: username} do
+      assert {:ok,
+              %{
+                payload: %AdminUpdate{
+                  username: ^username,
+                  staff: true,
+                  contributions: 100
+                }
+              }} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "user:admin_update",
+                 "payload" => %{"username" => username, "staff" => true, "contributions" => 100},
+                 "reference" => UUID.uuid4()
+               })
 
-      ref =
-        WsClient.send_call(t.client_ws, "user:admin_update", %{
-          "username" => staffed.username,
-          "staff" => true,
-          "contributions" => 100
-        })
-
-      WsClient.assert_error("user:admin_update", ref, %{"message" => message})
-      assert message =~ "not authorized"
+      # short form also allowed
+      assert {:ok,
+              %{
+                payload: %AdminUpdate{
+                  username: ^username,
+                  staff: true,
+                  contributions: 100
+                }
+              }} =
+               BrothTest.Support.Message.validate(%{
+                 "op" => "user:admin_update",
+                 "p" => %{"username" => username, "staff" => true, "contributions" => 100},
+                 "ref" => UUID.uuid4()
+               })
     end
 
-    @ben_github_id Application.compile_env!(:kousa, :ben_github_id)
+    test "omitting the username is not allowed" do
+      assert {:error, %{errors: %{username: "can't be blank"}}} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "user:admin_update",
+                 "payload" => %{"staff" => true, "contributions" => 100},
+                 "reference" => UUID.uuid4()
+               })
+    end
 
-    test "works for ben awad", t do
-      t.user
-      |> User.changeset(%{githubId: @ben_github_id})
-      |> Beef.Repo.update!()
-
-      staffed = Factory.create(User)
-
-      ref =
-        WsClient.send_call(t.client_ws, "user:admin_update", %{
-          "username" => staffed.username,
-          "staff" => true,
-          "contributions" => 100
-        })
-
-      WsClient.assert_reply("user:admin_update:reply", ref, reply)
-      refute is_map_key(reply, "error")
-
-      # check that the user has been updated.
-      assert %{staff: true, contributions: 100} = Users.get_by_id(staffed.id)
+    test "omitting the reference is not allowed", %{uuid: uuid} do
+      assert {:error,
+              %{errors: [reference: {"is required for Broth.Message.User.AdminUpdate", _}]}} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "user:admin_update",
+                 "payload" => %{"username" => username, "staff" => true, "contributions" => 100}
+               })
     end
   end
 end
