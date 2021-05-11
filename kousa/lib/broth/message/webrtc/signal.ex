@@ -21,14 +21,14 @@ defmodule Broth.Message.WebRTC.Signal do
         %{"sdp" => sdp} ->
           Onion.AudioPipeline.signal(
             Users.get_current_room_id(user_id),
-            user_id,
+            self(),
             {:sdp_answer, sdp}
           )
 
         %{"candidate" => candidate} ->
           Onion.AudioPipeline.signal(
             Users.get_current_room_id(user_id),
-            user_id,
+            self(),
             {:candidate, candidate}
           )
       end

@@ -115,6 +115,7 @@ export const WebRtcApp2: React.FC<App2Props> = () => {
           };
           // this.localTracks.forEach((track) =>
           // );
+          peerConn.current.addTrack(micStream.getTracks()[0], micStream);
         } else {
           peerConn.current.createOffer({ iceRestart: true });
         }
@@ -125,9 +126,6 @@ export const WebRtcApp2: React.FC<App2Props> = () => {
           await peerConn.current.setLocalDescription(answer);
 
           conn.sendCast("webrtc:signal", { data: answer });
-          console.log("setting track");
-          console.log(micStream.getTracks());
-          peerConn.current.addTrack(micStream.getTracks()[0], micStream);
         } catch (error) {
           console.error(error);
         }

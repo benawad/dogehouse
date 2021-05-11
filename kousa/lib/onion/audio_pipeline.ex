@@ -4,6 +4,7 @@ defmodule Onion.AudioPipeline do
   alias Membrane.WebRTC.EndpointBin
   alias Membrane.WebRTC.Track
   alias Membrane.WebRTC.Endpoint
+  alias Broth.SocketHandler
 
   require Membrane.Logger
 
@@ -74,31 +75,31 @@ defmodule Onion.AudioPipeline do
     end
   end
 
-  def signal(room_id, peer_id, msg) do
-    send_to_room(room_id, {:signal, peer_id, msg})
+  def signal(room_id, peer_pid, msg) do
+    send_to_room(room_id, {:signal, peer_pid, msg})
   end
 
-  @spec new_peer(Ecto.UUID.t(), Ecto.UUID.t(), :participant) :: nil
-  def new_peer(room_id, peer_id, peer_type) do
-    send_to_room(room_id, {:new_peer, peer_id, peer_type})
+  @spec new_peer(Ecto.UUID.t(), pid(), :participant) :: nil
+  def new_peer(room_id, peer_pid, peer_type) do
+    send_to_room(room_id, {:new_peer, peer_pid, peer_type})
   end
 
   @impl true
-  def handle_other({:new_peer, peer_id, peer_type}, ctx, state) do
-    # send(peer_id, {:new_peer, {:ok, state.max_display_num}, ref})
+  def handle_other({:new_peer, peer_pid, peer_type}, ctx, state) do
+    # send(peer_pid, {:new_peer, {:ok, state.max_display_num}, ref})
 
-    if Map.has_key?(ctx.children, {:endpoint, peer_id}) do
+    if Map.has_key?(ctx.children, {:endpoint, peer_pid}) do
       Membrane.Logger.warn("Peer already connected, ignoring")
       {:ok, state}
     else
-      Membrane.Logger.info("New peer #{inspect(peer_id)}")
-      # Process.monitor(peer_id)
+      Membrane.Logger.info("New peer #{inspect(peer_pid)}")
+      # Process.monitor(peer_pid)
 
       tracks = new_tracks()
 
-      endpoint = Endpoint.new(peer_id, :participant, tracks, %{}) |> IO.inspect(label: "99")
+      endpoint = Endpoint.new(peer_pid, :participant, tracks, %{})
 
-      endpoint_bin = {:endpoint, peer_id} |> IO.inspect(label: "101")
+      endpoint_bin = {:endpoint, peer_pid}
 
       children = %{
         endpoint_bin => %EndpointBin{
@@ -113,9 +114,9 @@ defmodule Onion.AudioPipeline do
             pkey: Application.get_env(:kousa, :dtls_pkey),
             cert: Application.get_env(:kousa, :dtls_cert)
           ],
-          # TODO: change peer_id to something that will easier identify peer when we introduce
+          # TODO: change peer_pid to something that will easier identify peer when we introduce
           # participants labelling
-          log_metadata: [peer: peer_id]
+          log_metadata: [peer: peer_pid]
         }
       }
 
@@ -123,8 +124,8 @@ defmodule Onion.AudioPipeline do
 
       tracks_msgs =
         flat_map_children(ctx, fn
-          # {:endpoint, other_peer_id} = endpoint_bin
-          # when other_peer_id != state.active_screensharing ->
+          # {:endpoint, other_peer_pid} = endpoint_bin
+          # when other_peer_pid != state.active_screensharing ->
           #   [forward: {endpoint_bin, {:add_tracks, tracks}}]
           endpoint_bin ->
             [forward: {endpoint_bin, {:add_tracks, tracks}}]
@@ -135,20 +136,20 @@ defmodule Onion.AudioPipeline do
 
       spec = %ParentSpec{children: children, links: links}
 
-      state = put_in(state.endpoints[peer_id], endpoint) |> IO.inspect(label: "138")
+      state = put_in(state.endpoints[peer_pid], endpoint)
       {{:ok, [spec: spec] ++ tracks_msgs}, state}
     end
   end
 
   @impl true
-  def handle_other({:signal, peer_id, msg}, _ctx, state) do
-    {{:ok, forward: {{:endpoint, peer_id}, {:signal, msg}}}, state}
+  def handle_other({:signal, peer_pid, msg}, _ctx, state) do
+    {{:ok, forward: {{:endpoint, peer_pid}, {:signal, msg}}}, state}
   end
 
-  def handle_other({:remove_peer, peer_id}, ctx, state) do
-    case maybe_remove_peer(peer_id, ctx, state) do
+  def handle_other({:remove_peer, peer_pid}, ctx, state) do
+    case maybe_remove_peer(peer_pid, ctx, state) do
       {:absent, [], state} ->
-        Membrane.Logger.info("Peer #{inspect(peer_id)} already removed")
+        Membrane.Logger.info("Peer #{inspect(peer_pid)} already removed")
         {:ok, state}
 
       {:present, actions, state} ->
@@ -194,8 +195,8 @@ defmodule Onion.AudioPipeline do
         |> to(fake)
       ] ++
         flat_map_children(ctx, fn
-          {:endpoint, peer_id} = other_endpoint
-          when endpoint_bin != other_endpoint and peer_id != state.active_screensharing ->
+          {:endpoint, peer_pid} = other_endpoint
+          when endpoint_bin != other_endpoint and peer_pid != state.active_screensharing ->
             [
               link(tee)
               |> via_in(Pad.ref(:input, track_id),
@@ -222,7 +223,7 @@ defmodule Onion.AudioPipeline do
 
   def handle_notification(
         {:signal, {:sdp_offer, sdp}},
-        {:endpoint, peer_id},
+        {:endpoint, peer_pid},
         _ctx,
         state
       ) do
@@ -235,19 +236,19 @@ defmodule Onion.AudioPipeline do
     #     }
     #   end)
 
-    Onion.UserSession.send_ws(peer_id, :web, %{
+    SocketHandler.remote_send(peer_pid, %{
       op: "webrtc:offer:in",
       d: %{data: %{"type" => "offer", "sdp" => sdp}}
     })
 
-    # send(peer_id, {:signal, message, participants})
+    # send(peer_pid, {:signal, message, participants})
     {:ok, state}
   end
 
-  def handle_notification({:signal, message}, {:endpoint, peer_id}, _ctx, state) do
+  def handle_notification({:signal, message}, {:endpoint, peer_pid}, _ctx, state) do
     case message do
       {:candidate, candidate, sdp_mline_index} ->
-        Onion.UserSession.send_ws(peer_id, :web, %{
+        SocketHandler.remote_send(peer_pid, %{
           op: "webrtc:candidate:in",
           d: %{"candidate" => candidate, "sdpMLineIndex" => sdp_mline_index}
         })
@@ -259,26 +260,26 @@ defmodule Onion.AudioPipeline do
     {:ok, state}
   end
 
-  defp maybe_remove_peer(peer_id, ctx, state) do
-    endpoint = ctx.children[{:endpoint, peer_id}]
+  defp maybe_remove_peer(peer_pid, ctx, state) do
+    endpoint = ctx.children[{:endpoint, peer_pid}]
 
     if endpoint == nil or endpoint.terminating? do
       {:absent, [], state}
     else
-      {endpoint, state} = pop_in(state, [:endpoints, peer_id])
+      {endpoint, state} = pop_in(state, [:endpoints, peer_pid])
       tracks = Enum.map(Endpoint.get_tracks(endpoint), &%Track{&1 | enabled?: false})
 
       children =
         Endpoint.get_tracks(endpoint)
         |> Enum.map(fn track -> track.id end)
-        |> Enum.flat_map(&[tee: {peer_id, &1}, fake: {peer_id, &1}])
+        |> Enum.flat_map(&[tee: {peer_pid, &1}, fake: {peer_pid, &1}])
         |> Enum.filter(&Map.has_key?(ctx.children, &1))
 
-      children = [endpoint: peer_id] ++ children
+      children = [endpoint: peer_pid] ++ children
 
       tracks_msgs =
         flat_map_children(ctx, fn
-          {:endpoint, id} when id != peer_id ->
+          {:endpoint, id} when id != peer_pid ->
             [forward: {{:endpoint, id}, {:add_tracks, tracks}}]
 
           _child ->
@@ -286,7 +287,7 @@ defmodule Onion.AudioPipeline do
         end)
 
       state =
-        if state.active_screensharing == peer_id do
+        if state.active_screensharing == peer_pid do
           %{state | active_screensharing: nil}
         else
           state

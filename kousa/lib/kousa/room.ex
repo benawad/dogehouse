@@ -387,7 +387,7 @@ defmodule Kousa.Room do
         do: "join-as-speaker",
         else: "join-as-new-peer"
 
-    Onion.AudioPipeline.new_peer(room.id, user_id, :participant)
+    Onion.AudioPipeline.new_peer(room.id, self(), :participant)
 
     # Onion.VoiceRabbit.send(room.voiceServerId, %{
     #   op: op,
