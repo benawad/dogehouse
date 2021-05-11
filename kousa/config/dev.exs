@@ -1,12 +1,12 @@
 use Mix.Config
 
-config :logger, level: :info
+# config :logger, level: :info
 
 database_url =
   System.get_env("DATABASE_URL") ||
     "postgres://postgres:postgres@localhost/kousa_repo2"
 
-config :kousa, Beef.Repo, url: database_url
+config :kousa, Beef.Repo, url: database_url, log: false
 
 # TODO: remove system environment variables and make
 # dev deployment easier
