@@ -83,18 +83,19 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
       </div>
 
       <div>
-        {activeTab === "about" ? (
-          <ProfileAbout
-            className={"mt-2"}
-            username={user.username}
-            followers={user.numFollowers}
-            following={user.numFollowing}
-            description={user.bio}
-            tags={[]}
-          />
-        ) : null}
+        <ProfileAbout
+          className={activeTab !== "about" ? "hidden" : ""}
+          username={user.username}
+          followers={user.numFollowers}
+          following={user.numFollowing}
+          description={user.bio}
+          tags={[]}
+        />
 
-        {activeTab === "scheduled" ? <ProfileScheduled user={user} /> : null}
+        <ProfileScheduled
+          user={user}
+          className={activeTab !== "scheduled" ? "hidden" : ""}
+        />
       </div>
     </>
   );

@@ -1,7 +1,4 @@
-import {
-  GetScheduledRoomsResponse,
-  UserWithFollowInfo,
-} from "@dogehouse/kebab";
+import { ScheduledRoom, UserWithFollowInfo } from "@dogehouse/kebab";
 import React, { useEffect, useState } from "react";
 import { useConn } from "../shared-hooks/useConn";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
@@ -40,13 +37,15 @@ export const ProfileScheduled: React.FC<ProfileScheduledProps> = ({
       style={{ maxWidth: 640 }}
     >
       {scheduledRooms &&
-        scheduledRooms.map((r) => (
-          <ScheduledRoomCard
-            noEditOrDeleteButton={true}
-            info={r}
-            onEdit={() => {}}
-            onDeleteComplete={() => {}}
-          />
+        scheduledRooms.map((r: ScheduledRoom) => (
+          <div className={`mt-4`} key={r.id}>
+            <ScheduledRoomCard
+              noEditOrDeleteButton={true}
+              info={r}
+              onEdit={() => {}}
+              onDeleteComplete={() => {}}
+            />
+          </div>
         ))}
       {scheduledRooms.length === 0 ? (
         <span className="p-4 w-full text-base bg-primary-800 rounded-lg flex flex-col text-primary-100">
