@@ -140,7 +140,8 @@ export type Image = {
   url: string;
   width: number;
   height: number;
-}
+};
+
 export type GifResponse = {
   id: string;
   title: string;
