@@ -1,5 +1,5 @@
 import * as encodingTests from './tests/encoding';
-import { dolma } from '../';
+import dolma from '../';
 
 interface CompletedTest {
   started: Date,

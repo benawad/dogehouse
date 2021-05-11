@@ -14,8 +14,8 @@ msgToken.tokens = rawTokens.default;
 msgToken.types = tokenTypes;
 
 msgToken.getUnitoken = (token: rawTokens.Unitoken): MessageTokenType | null => {
-	const utKeys = Object.keys(token); 
-	let tkn = null;
+	const utKeys = Object.keys(token);
+	let tkn: MessageTokenType = 'text';
 
 	tokenTypes.map(tt => { if (tt == utKeys[0]) tkn = tt });
 
