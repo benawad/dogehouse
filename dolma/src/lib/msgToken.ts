@@ -4,7 +4,7 @@ import { MessageToken, MessageTokenType } from "../util/types/tokenTypes";
 import * as rawTokens from '../tokens';
 
 //@ts-ignore
-const tokenTypes: MessageTokenType[] = Object.keys(rawTokens.default); 
+const tokenTypes: MessageTokenType[] = Object.keys(rawTokens.default);
 
 export function msgToken() {
 
@@ -19,25 +19,23 @@ msgToken.get = (tokenType: MessageTokenType) => {
 }
 
 msgToken.getType = (raw: string): MessageTokenType => {
-	let type = null;
+	let type: MessageTokenType = 'text';
 	tokenTypes.forEach(tt => {
 		if (msgToken.validate(tt, raw)) {
 			type = tt;
 		}
 	});
-
-	if (!type) return 'text';
-	else return type;
+	return type;
 }
 
-msgToken.getValue = (tkn: MessageTokenType, raw: string): string =>  {
+msgToken.getValue = (tkn: MessageTokenType, raw: string): string => {
 	const regex = msgToken.get(tkn).regex;
 	if (!regex) return raw;
 	else return msgToken.get(tkn).format(raw.replace(regex, '$1'));
 }
 
 msgToken.newToken = (tk: MessageTokenType, value: string) => {
-	const genToken = (t: MessageTokenType, v: string) => { return {t, v} }
+	const genToken = (t: MessageTokenType, v: string) => { return { t, v } }
 	let val = msgToken.get(tk).format(value);
 	return genToken(tk, val);
 }

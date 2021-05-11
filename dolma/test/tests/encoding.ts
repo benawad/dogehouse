@@ -23,7 +23,7 @@ export default [
 			{ t: 'text', v: 'is' },
 			{ t: 'text', v: 'pretty' },
 			{ t: 'text', v: 'great!' }
-		  ]
+		]
 	},
 
 	{
@@ -60,7 +60,7 @@ export default [
 			{ t: 'link', v: 'https://github.com/' },
 			{ t: 'text', v: 'is' },
 			{ t: 'text', v: 'epic!' }
-		  ]
+		]
 	},
 
 	{
@@ -74,6 +74,6 @@ export default [
 			{ t: 'text', v: 'the' },
 			{ t: 'text', v: 'moon!!!' },
 			{ t: 'emote', v: 'CryptoDOGE' }
-		  ]
+		]
 	}
 ];

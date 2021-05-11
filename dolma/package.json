@@ -4,11 +4,11 @@
   "description": "A chat token transcoder for DogeHouse and associated projects",
   "version": "1.2.0",
   "license": "MIT",
-  "main": "src/index",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "tsc; node test/run.js; tsc -b . --clean",
+    "test": "tsc && node lib/test/run.js && tsc -b . --clean",
     "clean": "tsc -b . --clean",
-    "build": "tsc;"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
