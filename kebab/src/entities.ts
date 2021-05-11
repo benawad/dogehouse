@@ -14,7 +14,7 @@ export type UserPreview = {
   avatarUrl: string | null;
 };
 
-//enums 
+// enums
 export type ChatMode = "default" | "disabled" | "follower_only";
 export type GifRating = "g" | "pg" | "pg-13" | "r";
 
