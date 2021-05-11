@@ -194,8 +194,8 @@ defmodule Onion.AudioPipeline do
         |> to(fake)
       ] ++
         flat_map_children(ctx, fn
-          other_endpoint
-          when endpoint_bin != other_endpoint ->
+          {:endpoint, id} = other_endpoint
+          when endpoint_id != id ->
             [
               link(tee)
               |> via_in(Pad.ref(:input, track_id),
