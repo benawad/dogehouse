@@ -27,13 +27,13 @@ msgToken.getType = (raw: string): MessageTokenType => {
 	});
 
 	if (!type) return 'text';
-	else return type;
+	return type;
 }
 
 msgToken.getValue = (tkn: MessageTokenType, raw: string): string =>  {
 	const regex = msgToken.get(tkn).regex;
 	if (!regex) return raw;
-	else return msgToken.get(tkn).format(raw.replace(regex, '$1'));
+	return msgToken.get(tkn).format(raw.replace(regex, '$1'));
 }
 
 msgToken.newToken = (tk: MessageTokenType, value: string) => {
@@ -47,5 +47,5 @@ msgToken.validate = (token: MessageTokenType, str: string): string | false => {
 	if (!tkn.regex) return str;
 
 	if (str.match(tkn.regex)) return str.replace(tkn.regex, '$1');
-	else return false;
+	return false;
 }
