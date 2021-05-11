@@ -344,8 +344,8 @@
       "disabled": "রুম চ্যাট অফ করা হয়েছে",
       "messageDeletion": {
         "message": "মেসেজ",
-        "retracted": "ডিলিট করা হয়েছে",
-        "deleted": "ডিলিট করেছেন"
+        "retracted": "ডিলিট করেছেন",
+        "deleted": "ডিলিট করা হয়েছে"
       }
     },
     "roomStatus": {
