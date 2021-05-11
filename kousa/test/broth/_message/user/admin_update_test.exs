@@ -10,7 +10,7 @@ defmodule BrothTest.Message.User.AdminUpdateTest do
   end
 
   describe "when you send an admin_update message" do
-    test "it populates id", %{username: username} do
+    test "it populates username", %{username: username} do
       assert {:ok,
               %{
                 payload: %AdminUpdate{
@@ -56,6 +56,36 @@ defmodule BrothTest.Message.User.AdminUpdateTest do
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:admin_update",
                  "payload" => %{"username" => username, "staff" => true, "contributions" => 100}
+               })
+    end
+
+    test "omitting staff is allowed", %{username: username} do
+      assert {:ok,
+              %{
+                payload: %AdminUpdate{
+                  username: ^username,
+                  contributions: 100
+                }
+              }} =
+               BrothTest.Support.Message.validate(%{
+                 "op" => "user:admin_update",
+                 "p" => %{"username" => username, "contributions" => 100},
+                 "ref" => UUID.uuid4()
+               })
+    end
+
+    test "omitting contributions is allowed", %{username: username} do
+      assert {:ok,
+              %{
+                payload: %AdminUpdate{
+                  username: ^username,
+                  staff: true
+                }
+              }} =
+               BrothTest.Support.Message.validate(%{
+                 "op" => "user:admin_update",
+                 "p" => %{"username" => username, "staff" => true},
+                 "ref" => UUID.uuid4()
                })
     end
   end
