@@ -10,6 +10,7 @@ It uses ElectronJS as a wrapper for [dogehouse.tv](https://dogehouse.tv) and add
 - Global keybinds
 - Splash screen
 - Localization
+- Discord RPC
 
 ## How to run
 
@@ -18,9 +19,9 @@ It uses ElectronJS as a wrapper for [dogehouse.tv](https://dogehouse.tv) and add
 - Run `yarn install`
 - Ensure [Rust](https://www.rust-lang.org/learn/get-started) is installed
 - Install `nj-cli` by running `cargo install nj-cli`
-- Run `yarn build:globkey`
+- Run `yarn build:globalkey`
 - Run `yarn start`
-- *(Optional)* Run `yarn build:%YOUR_PLATFORM_CODE%` and install the app from the build *(located in `/builds`)*
+- _(Optional)_ Run `yarn build:%YOUR_PLATFORM_CODE%` and install the app from the build _(located in `/builds`)_
 
 If you encounter any errors while building please create a new issue for it or ask for help on the [Discord](https://discord.gg/wCbKBZF9cV0).
 

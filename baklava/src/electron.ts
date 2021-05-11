@@ -11,7 +11,8 @@ import {
 import i18n from "i18next";
 import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
-import { RegisterKeybinds, exitApp } from "./utils/keybinds";
+import { RegisterKeybinds } from "./utils/keybinds";
+
 import { HandleVoiceTray } from "./utils/tray";
 import {
   ALLOWED_HOSTS,
@@ -24,7 +25,7 @@ import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
 import electronLogger from "electron-log";
-import { startRPC } from "./utils/rpc";
+import { startRPC, stopRPC } from "./utils/rpc";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -44,7 +45,7 @@ i18n.use(Backend);
 electronLogger.transports.file.level = "debug";
 autoUpdater.logger = electronLogger;
 // just in case we have to revert to a build
-autoUpdater.allowDowngrade = true;
+autoUpdater.allowDowngrade = false;
 
 if (isWin) app.setAppUserModelId("DogeHouse");
 
@@ -197,7 +198,7 @@ function createMainWindow() {
   });
 }
 
-function createSpalshWindow() {
+function createSplashWindow() {
   splash = new BrowserWindow({
     width: 300,
     height: 410,
@@ -229,11 +230,12 @@ if (!instanceLock) {
   if (process.env.hotReload) {
     app.relaunch();
   }
-  exitApp();
+  stopRPC();
+  app.quit()
 } else {
   app.on("ready", () => {
     localize().then(async () => {
-      createSpalshWindow();
+      createSplashWindow();
       if (!__prod__) skipUpdateCheck(splash);
       if (__prod__ && !isLinux) await autoUpdater.checkForUpdates();
       if (isLinux && __prod__) {
@@ -280,7 +282,8 @@ autoUpdater.on("update-not-available", () => {
   skipUpdateCheck(splash);
 });
 app.on("window-all-closed", async () => {
-  await exitApp();
+  stopRPC();
+  app.quit()
 });
 app.on("activate", () => {
   if (mainWindow === null) {
