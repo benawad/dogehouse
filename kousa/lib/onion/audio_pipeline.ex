@@ -64,8 +64,7 @@ defmodule Onion.AudioPipeline do
      %{
        room_id: room_id,
        endpoints: %{},
-       max_display_num: max_display_num,
-       active_screensharing: nil
+       max_display_num: max_display_num
      }}
   end
 
@@ -143,7 +142,7 @@ defmodule Onion.AudioPipeline do
 
   @impl true
   def handle_other({:signal, peer_pid, msg}, _ctx, state) do
-    {{:ok, forward: {{:endpoint, peer_pid}, {:signal, msg}}}, state}
+    {{:ok, forward: {{:endpoint, peer_pid}, {:signal, msg} |> IO.inspect(label: "146")}}, state}
   end
 
   def handle_other({:remove_peer, peer_pid}, ctx, state) do
@@ -195,8 +194,8 @@ defmodule Onion.AudioPipeline do
         |> to(fake)
       ] ++
         flat_map_children(ctx, fn
-          {:endpoint, peer_pid} = other_endpoint
-          when endpoint_bin != other_endpoint and peer_pid != state.active_screensharing ->
+          other_endpoint
+          when endpoint_bin != other_endpoint ->
             [
               link(tee)
               |> via_in(Pad.ref(:input, track_id),
@@ -285,13 +284,6 @@ defmodule Onion.AudioPipeline do
           _child ->
             []
         end)
-
-      state =
-        if state.active_screensharing == peer_pid do
-          %{state | active_screensharing: nil}
-        else
-          state
-        end
 
       {:present, [remove_child: children] ++ tracks_msgs, state}
     end
