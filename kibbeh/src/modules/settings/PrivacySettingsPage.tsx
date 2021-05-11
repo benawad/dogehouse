@@ -14,7 +14,9 @@ export const PrivacySettingsPage: PageComponent<ChatSettingsProps> = () => {
     <DefaultDesktopLayout>
       <HeaderController embed={{}} title={t("pages.privacySettings.title")} />
       <MiddlePanel>
-        <h1 className={`pb-4 text-4xl text-primary-100`}>{t("pages.privacySettings.header")}</h1>
+        <h1 className={`pb-4 text-4xl text-primary-100`}>
+          {t("pages.privacySettings.header")}
+        </h1>
 
         <PrivacySettingForm />
       </MiddlePanel>

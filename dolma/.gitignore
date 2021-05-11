@@ -107,3 +107,5 @@ dist
 
 wip.ts
 .package-lock.json
+
+/lib
