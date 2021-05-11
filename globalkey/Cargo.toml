@@ -1,0 +1,20 @@
+[package]
+name = "globalkey"
+description = "A rust node library for global key listeners in electron apps"
+version = "0.1.0"
+edition = "2018"
+license = "MIT"
+build = "src/build.rs"
+authors = ["Will Lane <williamlane923@gmail.com>"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+device_query = "0.2.8"
+lazy_static = "1.4.0"
+node-bindgen = "4.3.0"
+stoppable_thread = "0.2.1"
+
+[build-dependencies]
+node-bindgen = { version = "4.3.0", features = ["build"] }
