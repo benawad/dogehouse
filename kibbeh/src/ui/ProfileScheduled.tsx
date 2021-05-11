@@ -1,8 +1,7 @@
-import { ScheduledRoom, UserWithFollowInfo } from "@dogehouse/kebab";
+import { ScheduledRoom, UserWithFollowInfo, wrap } from "@dogehouse/kebab";
 import React, { useEffect, useState } from "react";
 import { useConn } from "../shared-hooks/useConn";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
-import { wrap } from "@dogehouse/kebab";
 import { ScheduledRoomCard } from "../modules/scheduled-rooms/ScheduledRoomCard";
 
 export interface ProfileScheduledProps
