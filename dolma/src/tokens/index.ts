@@ -4,6 +4,14 @@ import * as mention from './types/mention';
 import * as emote from './types/emote';
 import * as link from './types/link';
 
+export interface Unitoken {
+	text?: string
+	block?: string
+	mention?: string,
+	emote?: string,
+	link?: string,
+}
+
 export default {
 	text: text.default,
 	block: block.default,
