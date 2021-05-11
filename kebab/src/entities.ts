@@ -149,5 +149,4 @@ export type GifResponse = {
     original: Image;
     original_still: Image;
   }
-
 }
