@@ -35,51 +35,52 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
         className={`w-full flex items-center justify-around ${className}`}
         {...props}
       >
-        {tabs.about ? (
-          <button
-            className={`py-1 text-primary-100 text-base font-bold border-b-2 border-primary-900 transition hover:border-accent focus:outline-no-chrome
-               ${activeTab === "about" && `border-accent text-accent`}`}
-            onClick={() => setActiveTab("about")}
-          >
-            {t("pages.viewUser.profileTabs.about")}
-          </button>
-        ) : null}
-        {tabs.rooms ? (
-          <button
-            className={`py-1 text-primary-100 text-base font-bold border-b-2 border-primary-900 transition hover:border-accent focus:outline-no-chrome
-               ${activeTab === "rooms" && `border-accent text-accent`}`}
-            onClick={() => setActiveTab("rooms")}
-          >
-            {t("pages.viewUser.profileTabs.rooms")}
-          </button>
-        ) : null}
-        {tabs.scheduled ? (
-          <button
-            className={`py-1 text-primary-100 text-base font-bold border-b-2 border-primary-900 transition hover:border-accent focus:outline-no-chrome
-               ${activeTab === "scheduled" && `border-accent text-accent`}`}
-            onClick={() => setActiveTab("scheduled")}
-          >
-            {t("pages.viewUser.profileTabs.scheduled")}
-          </button>
-        ) : null}
-        {tabs.recorded ? (
-          <button
-            className={`py-1 text-primary-100 text-base font-bold border-b-2 border-primary-900 transition hover:border-accent focus:outline-no-chrome
-               ${activeTab === "recorded" && `border-accent text-accent`}`}
-            onClick={() => setActiveTab("recorded")}
-          >
-            {t("pages.viewUser.profileTabs.recorded")}
-          </button>
-        ) : null}
-        {tabs.clips ? (
-          <button
-            className={`py-1 text-primary-100 text-base font-bold border-b-2 border-primary-900 transition hover:border-accent focus:outline-no-chrome
-               ${activeTab === "clips" && `border-accent text-accent`}`}
-            onClick={() => setActiveTab("clips")}
-          >
-            {t("pages.viewUser.profileTabs.clips")}
-          </button>
-        ) : null}
+        <button
+          className={`py-1 text-primary-100 text-base font-bold border-b-2 border-primary-900 transition hover:border-accent focus:outline-no-chrome
+               ${activeTab === "about" && `border-accent text-accent`} ${
+            !tabs.about ? "hidden" : ""
+          }`}
+          onClick={() => setActiveTab("about")}
+        >
+          {t("pages.viewUser.profileTabs.about")}
+        </button>
+
+        <button
+          className={`py-1 text-primary-100 text-base font-bold border-b-2 border-primary-900 transition hover:border-accent focus:outline-no-chrome
+               ${activeTab === "rooms" && `border-accent text-accent`} ${
+            !tabs.rooms ? "hidden" : ""
+          }`}
+          onClick={() => setActiveTab("rooms")}
+        >
+          {t("pages.viewUser.profileTabs.rooms")}
+        </button>
+        <button
+          className={`py-1 text-primary-100 text-base font-bold border-b-2 border-primary-900 transition hover:border-accent focus:outline-no-chrome
+               ${activeTab === "scheduled" && `border-accent text-accent`} ${
+            !tabs.scheduled ? "hidden" : ""
+          }`}
+          onClick={() => setActiveTab("scheduled")}
+        >
+          {t("pages.viewUser.profileTabs.scheduled")}
+        </button>
+        <button
+          className={`py-1 text-primary-100 text-base font-bold border-b-2 border-primary-900 transition hover:border-accent focus:outline-no-chrome
+               ${activeTab === "recorded" && `border-accent text-accent`} ${
+            !tabs.recorded ? "hidden" : ""
+          }`}
+          onClick={() => setActiveTab("recorded")}
+        >
+          {t("pages.viewUser.profileTabs.recorded")}
+        </button>
+        <button
+          className={`py-1 text-primary-100 text-base font-bold border-b-2 border-primary-900 transition hover:border-accent focus:outline-no-chrome
+               ${activeTab === "clips" && `border-accent text-accent`} ${
+            !tabs.clips ? "hidden" : ""
+          }`}
+          onClick={() => setActiveTab("clips")}
+        >
+          {t("pages.viewUser.profileTabs.clips")}
+        </button>
       </div>
 
       <div>
