@@ -55,7 +55,7 @@ defmodule Broth.Message.Room.GetScheduled do
 
           {:reply, %Reply{rooms: rooms, nextCursor: next_cursor}, state}
 
-        %{userId: u, range: "all"} when u != "self" or u != user_id ->
+        %{userId: u, range: "all"} when u != "self" and u != user_id ->
           {rooms, next_cursor} =
             Kousa.ScheduledRoom.get_scheduled_rooms(
               u,
