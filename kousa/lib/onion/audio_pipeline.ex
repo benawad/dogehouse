@@ -169,6 +169,10 @@ defmodule Onion.AudioPipeline do
     {:ok, state}
   end
 
+  def handle_notification({:vad, val}, {:endpoint, endpoint_id}, _ctx, state) do
+    {:ok, state}
+  end
+
   @impl true
   def handle_notification({:new_track, track_id, encoding}, endpoint_bin, ctx, state) do
     Membrane.Logger.info("New incoming #{encoding} track #{track_id}")
