@@ -38,7 +38,7 @@ export const ProfileScheduled: React.FC<ProfileScheduledProps> = ({
     >
       {scheduledRooms &&
         scheduledRooms.map((r: ScheduledRoom) => (
-          <div className={`mt-4`} key={r.id}>
+          <div className={`mb-4`} key={r.id}>
             <ScheduledRoomCard
               noEditOrDeleteButton={true}
               info={r}
