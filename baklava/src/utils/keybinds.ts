@@ -139,3 +139,9 @@ export async function RegisterKeybinds(bWindows: bWindowsType) {
         up => { }
     );
 }
+
+export function exitApp() {
+    globalkey.stop();
+    stopRPC();
+    app.quit();
+}
