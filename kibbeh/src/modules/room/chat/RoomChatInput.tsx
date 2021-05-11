@@ -130,7 +130,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
         />
         <GifPicker
           selectGifHandler={(gif) => {
-            alert('How are we going to handle this? E.g. message type?');
+            console.log("Handle via setMessage");
           }}
         />
       </div>
