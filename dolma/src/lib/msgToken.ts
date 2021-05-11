@@ -13,6 +13,15 @@ export function msgToken() {
 msgToken.tokens = rawTokens.default;
 msgToken.types = tokenTypes;
 
+msgToken.getUnitoken = (token: rawTokens.Unitoken): MessageTokenType | null => {
+	const utKeys = Object.keys(token); 
+	let tkn = null;
+
+	tokenTypes.map(tt => { if (tt == utKeys[0]) tkn = tt });
+
+	return tkn;
+}
+
 msgToken.get = (tokenType: MessageTokenType) => {
 	const tkn = rawTokens.default[tokenType];
 	return tkn;

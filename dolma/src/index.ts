@@ -1,6 +1,7 @@
 import { decodeTokens } from "./lib/decode";
 import { encodeTokens } from "./lib/encode";
-import { MessageToken, Unitoken } from "./util/types/tokenTypes";
+import { Unitoken } from "./tokens";
+import { MessageToken} from "./util/types/tokenTypes";
 
 interface RootMethodResponse {
 	encoded: MessageToken[],
