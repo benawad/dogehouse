@@ -50,7 +50,7 @@ defmodule BrothTest.Message.User.AdminUpdateTest do
                })
     end
 
-    test "omitting the reference is not allowed", %{uuid: uuid} do
+    test "omitting the reference is not allowed", %{username: username} do
       assert {:error,
               %{errors: [reference: {"is required for Broth.Message.User.AdminUpdate", _}]}} =
                BrothTest.Support.Message.validate(%{
