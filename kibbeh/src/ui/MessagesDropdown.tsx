@@ -14,7 +14,9 @@ export const MessagesDropdown: React.FC<MessagesDropdownProps> = ({
   return (
     <BaseOverlay
       title={t("components.messagesDropdown.title")}
-      actionButton={messageList.length ? t("components.messagesDropdown.showMore") : ""}
+      actionButton={
+        messageList.length ? t("components.messagesDropdown.showMore") : ""
+      }
     >
       {messageList.length > 0 ? (
         messageList.map((message, idx) => (
