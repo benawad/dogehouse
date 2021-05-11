@@ -153,7 +153,11 @@
     "privacySettings": {
       "title": "Nastavení soukromí",
       "header": "Nastavení soukromí",
-      "whispers": { "label": "Zprávy šeptem", "on": "Zapnuté", "off": "Vypnuté" }
+      "whispers": {
+        "label": "Zprávy šeptem",
+        "on": "Zapnuté",
+        "off": "Vypnuté"
+      }
     }
   },
   "components": {
