@@ -21,21 +21,20 @@ export const Gif: React.FC<GifProps> = ({
     togglable,
     enabledGif
 }) => {
-
-    const toggleMouse = (e: MouseEvent<HTMLElement, globalThis.MouseEvent> | TouchEvent<HTMLElement>) => {
-        if (!enabledGif) {
-            toggle(e);
-        }
-    }
     const toggle = (e: MouseEvent<HTMLElement, globalThis.MouseEvent> | TouchEvent<HTMLElement>) => {
         if (togglable) {
             e.currentTarget.setAttribute('src', e.currentTarget.getAttribute('src') === srcGif ? srcStill : srcGif);
         }
-    }
+    };
+    const toggleMouse = (e: MouseEvent<HTMLElement, globalThis.MouseEvent> | TouchEvent<HTMLElement>) => {
+        if (!enabledGif) {
+            toggle(e);
+        }
+    };
     const clicked = (e: MouseEvent<HTMLElement, globalThis.MouseEvent> | TouchEvent<HTMLElement>) => {
         toggle(e);
         clickHandler(id);
-    }
+    };
     return (
         <img
             onClick={clicked}
