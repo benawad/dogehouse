@@ -34,19 +34,29 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ব্যান করুন" },
+    "admin": {
+      "ban": "ব্যান করুন",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "যেসব ইউজারকে আপনি অনুসরণ করেন কিন্তু এখন তারা কোনো প্রাইভেট রুম এ নেই।",
       "currentRoom": "ভেতরে আছেন:",
       "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন",
-      "title": "People"
+      "title": "মানুষ"
     },
     "followList": {
       "followHim": "অনুসরণ করুন",
       "followingHim": "অনুসরণ করছেন",
-      "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "title": "মানুষ",
+      "followingNone": "কাউকে অনুসরণ করছেন না",
+      "noFollowers": "কোনো অনুসরণকারী নেই"
     },
     "home": {
       "createRoom": "রুম বানান",
@@ -99,7 +109,7 @@
     "soundEffectSettings": {
       "header": "সাউন্ডস",
       "title": "সাউন্ড সেটিংস",
-      "playSound": "Play Sound"
+      "playSound": "সাউন্ড প্লে করুন"
     },
     "viewUser": {
       "editProfile": "প্রোফাইল এডিট করুন",
@@ -114,15 +124,15 @@
       "about": "সম্বন্ধে",
       "bot": "বট",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips"
+        "about": "সম্বন্ধে",
+        "rooms": "রুমগুলো",
+        "scheduled": "পরিকল্পিত",
+        "recorded": "রেকর্ড করেছেন",
+        "clips": "ক্লিপগুলো"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM",
+      "block": "ব্লক করুন",
+      "unblock": "আনব্লক করুন",
+      "sendDM": "মেসেজ করুন",
       "aboutSuffix": ""
     },
     "voiceSettings": {
@@ -131,7 +141,7 @@
       "permissionError": "কোনো মাইক খুঁজে পাওয়া যাইনি, আপনি কোনো মাইক প্লাগ করেননি অথবা এই ওয়েবসাইটকে পারমিশন দেননি।",
       "refresh": "মাইক লিস্ট রিফ্রেশ করুন",
       "volume": "ভলিউম:",
-      "title": "Voice Settings"
+      "title": "ভয়েস সেটিংস"
     },
     "overlaySettings": {
       "input": {
@@ -151,9 +161,9 @@
       "download_for": "%platform% (%ext%)-এর জন্য ডাউনলোড করুন"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
-      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+      "title": "গোপনীয়তা সেটিংস",
+      "header": "গোপনীয়তা সেটিংস",
+      "whispers": { "label": "ফিসফিস", "on": "অন", "off": "অফ" }
     }
   },
   "components": {
@@ -255,7 +265,7 @@
         "deleteMessage": "মেসেজটি মুছে ফেলুন",
         "makeRoomCreator": "রুম অ্যাডমিন তৈরি করুন",
         "unBanFromChat": "চ্যাট থেকে আনব্যান করুন",
-        "banIPFromRoom": "Ban IP from Room"
+        "banIPFromRoom": "রুম থেকে IP ব্যান করুন"
       },
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
@@ -264,12 +274,12 @@
         "renamePublic": "পাবলিক রুমের নাম সেট করুন",
         "renamePrivate": "প্রাইভেট রুমের নাম সেট করুন",
         "chatDisabled": "চ্যাট অফ করুন",
-        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chatCooldown": "চ্যাট কুলডাউন (মিলিসেকেন্ড)",
         "chat": {
-          "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "label": "চ্যাট",
+          "enabled": "অন করা",
+          "disabled": "অফ করা",
+          "followerOnly": "অনুসরণকারীদের জন্য শুধু"
         }
       }
     },
@@ -302,10 +312,14 @@
       },
       "downloadApp": "ডাউনলোড করুন অ্যাপ্লিকেশনটি"
     },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "মেসেজগুলো",
+      "showMore": "আরো দেখুন",
+      "noMessages": "কোনো নতুন মেসেজ নেই"
     }
   },
   "modules": {
@@ -343,9 +357,9 @@
       "roomDescription": "রুমের বর্ণনা",
       "disabled": "রুম চ্যাট অফ করা হয়েছে",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "মেসেজ",
+        "retracted": "ডিলিট করেছেন",
+        "deleted": "ডিলিট করা হয়েছে"
       }
     },
     "roomStatus": {

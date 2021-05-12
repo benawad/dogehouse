@@ -34,7 +34,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "தடை செய்" },
+    "admin": {
+      "ban": "தடை செய்",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "ஒரு தனியார் அறையில் இல்லாத, நீங்கள் பின்பற்றும் பயனர்களின்.",
       "currentRoom": "தற்போது இருப்பவர்கள்:",
@@ -299,6 +309,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",

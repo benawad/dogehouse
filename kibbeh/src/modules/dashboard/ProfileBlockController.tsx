@@ -36,7 +36,7 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
       content: "ƉS",
       variant: "primary",
       color: "white",
-      title: "DogeHouse Staff",
+      title: t("components.userBadges.dhStaff"),
     });
   }
   if (conn.user.contributions > 0) {
@@ -44,7 +44,7 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
       content: "ƉC",
       variant: "primary",
       color: "white",
-      title: "DogeHouse Contributor",
+      title: t("components.userBadges.dhContributor"),
     });
   }
 

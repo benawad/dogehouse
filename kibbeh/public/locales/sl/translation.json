@@ -34,7 +34,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Blokirajte" },
+    "admin": {
+      "ban": "Blokirajte",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Seznam uporabnikov, ki jim sledite in niso v zasebni sobi.",
       "currentRoom": "Trenutno v:",
@@ -299,6 +309,10 @@
         "stopDebugger": "Ustavite razhroščevalec"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",

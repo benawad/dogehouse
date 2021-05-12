@@ -33,7 +33,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "забраните" },
+    "admin": {
+      "ban": "забраните",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Корисници који нису у приватној соби и које пратите.",
       "currentRoom": "тренутно у:",
@@ -292,6 +302,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",

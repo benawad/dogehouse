@@ -34,7 +34,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Zablokuj" },
+    "admin": {
+      "ban": "Zablokuj",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Lista użytkowników którzy nie są w prywatnym pokoju i których obserwujesz.",
       "currentRoom": "Obecnie w:",
@@ -297,6 +307,10 @@
           "followerOnly": "Follower Only"
         }
       }
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",

@@ -34,7 +34,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Užblokuoti" },
+    "admin": {
+      "ban": "Užblokuoti",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Sąrašas žmonių kurie nėra tavo privačiame kambaryje, tačiau tave seka",
       "currentRoom": "Šiuo metu yra:",
@@ -296,6 +306,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",

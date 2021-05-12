@@ -34,7 +34,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "bloķēšana" },
+    "admin": {
+      "ban": "bloķēšana",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Lietotāju saraksts, kuri ir publiskā istabā un kuriem Jūs sekojat.",
       "currentRoom": "Pašlaik istabā:",
@@ -299,6 +309,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",

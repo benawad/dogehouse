@@ -33,7 +33,17 @@
   },
   "pages": {
     "_comment": "Interface respectiva da página para tradução",
-    "banUser": { "ban": "expulsar" },
+    "admin": {
+      "ban": "expulsar",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Lista de usuários que você segue que não estão em uma sala privada.",
       "currentRoom": "atualmente em:",
@@ -296,6 +306,10 @@
         "stopDebugger": "Parar debug"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",
