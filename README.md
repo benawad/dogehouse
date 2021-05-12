@@ -36,7 +36,7 @@
 | [kibbeh](kibbeh)      |   Next.js frontend        |
 | [kebab](kebab)        |      API Client           |
 | [dolma](dolma)        | Chat Token Transcoder     |
-| [globalkey](globalkey)| Global Keystroke Listener |
+| [globalkey](globalkey)| [Baklava](baklava)'s Global Keystroke Listener |
 
 
 ## Branches
