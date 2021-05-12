@@ -17,6 +17,7 @@ import { useTypeSafeQuery } from "../../../shared-hooks/useTypeSafeQuery";
 import { useCurrentRoomIdStore } from "../../../global-stores/useCurrentRoomIdStore";
 import { useScreenType } from "../../../shared-hooks/useScreenType";
 import { useCurrentRoomFromCache } from "../../../shared-hooks/useCurrentRoomFromCache";
+import { lastIndexOf } from "lodash";
 
 interface ChatInputProps {
   users: RoomUser[];
@@ -119,8 +120,10 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
                 (`:${emoji.short_names[0]}:` || "") +
                 " ",
               message.slice(position),
-            ].join("");
-            setMessage(newMsg);
+            ];
+            newMsg[0] = newMsg[0].slice(0,newMsg[0].lastIndexOf(":"));
+            const formattedMsg = newMsg.join("");
+            setMessage(formattedMsg);
           }}
         />
       </div>
