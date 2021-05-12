@@ -37,7 +37,12 @@
       "ban": "zabanovať",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Zoznam používateľov ktorých sleduješ a niesú v súkromnej miestnosti",
@@ -99,9 +104,7 @@
       "allowAll": "Povoliť rozprávať všetkým",
       "allowAllConfirm": "Si si istý? Povolíš rozprávať všetkým {{count}} žiadateľom"
     },
-    "searchUser": {
-      "search": "hľadať..."
-    },
+    "searchUser": { "search": "hľadať..." },
     "soundEffectSettings": {
       "header": "Zvuky",
       "title": "Sound Settings",
@@ -157,11 +160,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -216,9 +215,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "z nejakého dôvodu nemáme žiadny zvuk"
     },
-    "addToCalendar": {
-      "add": "Pridať do kalendára"
-    },
+    "addToCalendar": { "add": "Pridať do kalendára" },
     "wsKilled": {
       "description": "Websocket ukončený zo strany serveru. To sa väčšinou stáva ak máš stránku otvorenú v ďalšej záložke.",
       "reconnect": "obnoviť pripojenie"
@@ -374,8 +371,6 @@
       "galacticDoge": "Galaktický Doge",
       "spottedLife": "Zahliadnutá planéta so životom"
     },
-    "feed": {
-      "yourFeed": "Tvoj feed"
-    }
+    "feed": { "yourFeed": "Tvoj feed" }
   }
 }

@@ -38,7 +38,12 @@
       "ban": "አግድ",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "የግል ክፍል ውስጥ ናቸው እና የሚከተሉ ተጠቃሚዎች ዝርዝር፡፡",
@@ -100,9 +105,7 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "ፈልግ ..."
-    },
+    "searchUser": { "search": "ፈልግ ..." },
     "soundEffectSettings": {
       "header": "ድምፆች",
       "title": "Sound Settings",
@@ -142,10 +145,7 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
@@ -161,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -200,10 +196,7 @@
       "linkText": "በ GitHub ላይ ተናገሩ",
       "addSupport": "እኔም ለመሣሪያዎ ድጋፍ ለማከል አሞክራልሁ፡፡"
     },
-    "inviteButton": {
-      "invited": "ተጋብዘዋል",
-      "inviteToRoom": "ወደ ክፍል ጋብዝ"
-    },
+    "inviteButton": { "invited": "ተጋብዘዋል", "inviteToRoom": "ወደ ክፍል ጋብዝ" },
     "micPermissionBanner": {
       "permissionDenied": "ፈቃድ መተግበሪያው ማይክሮፎኑን ለመድረስ እየሞከረ ካደ (እርስዎ የአሳሽ ቅንብሮች ወደ ሂድ እና ገጹን ዳግም መጫን ሊኖርብዎ ይችላል)",
       "dismiss": "አሰናብት",
@@ -217,12 +210,8 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "በሆነ ምክንያት ምንም ድምጽ ተጠቃሚ የለም"
-    },
-    "addToCalendar": {
-      "add": "ወደ ቀን መቁጠሪያ ጨምር"
-    },
+    "userVolumeSlider": { "noAudioMessage": "በሆነ ምክንያት ምንም ድምጽ ተጠቃሚ የለም" },
+    "addToCalendar": { "add": "ወደ ቀን መቁጠሪያ ጨምር" },
     "wsKilled": {
       "description": "WebSocket በአገልጋዩ ተቋረጠ. ሌላ ትር ውስጥ ያለውን ድረ ገጽ በመክፈት የተከሰተ ይሆናል፡፡",
       "reconnect": "መልሰህ ተገናኝ"
@@ -378,8 +367,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

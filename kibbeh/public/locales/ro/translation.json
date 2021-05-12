@@ -38,7 +38,12 @@
       "ban": "blochează",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Lista utilizatorilor care nu se află într-o cameră privată și pe care o urmăriți.",
@@ -100,9 +105,7 @@
       "allowAll": "Permiteți-le pe toate",
       "allowAllConfirm": "Esti sigur? Asta ar lăsa toti {{count}} utilizatori sa vorbeasca"
     },
-    "searchUser": {
-      "search": "caută..."
-    },
+    "searchUser": { "search": "caută..." },
     "soundEffectSettings": {
       "header": "Sunete",
       "title": "Sound Settings",
@@ -217,9 +220,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "niciun consumator audio dintr-un motiv oarecare"
     },
-    "addToCalendar": {
-      "add": "Adaugă în Calendar"
-    },
+    "addToCalendar": { "add": "Adaugă în Calendar" },
     "wsKilled": {
       "description": "Conexiunea a fost oprită de server. Asta se întamplă de obicei cănd website-ul este deschis în altă filă.",
       "reconnect": "Reconectează-te"
@@ -375,8 +376,6 @@
       "galacticDoge": "Doge galactic",
       "spottedLife": "Planetă cu viață găsită"
     },
-    "feed": {
-      "yourFeed": "Fluxul tău"
-    }
+    "feed": { "yourFeed": "Fluxul tău" }
   }
 }

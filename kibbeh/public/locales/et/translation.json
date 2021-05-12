@@ -38,7 +38,12 @@
       "ban": "bänni",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Kasutajad, keda jälgid ja kes ei ole privaatses ruumis",
@@ -100,9 +105,7 @@
       "allowAll": "Luba kõik",
       "allowAllConfirm": "Oled sa kindel? See tegevus lubab kõigil {{count}} taotlejal rääkida"
     },
-    "searchUser": {
-      "search": "otsi..."
-    },
+    "searchUser": { "search": "otsi..." },
     "soundEffectSettings": {
       "header": "Helid",
       "title": "Sound Settings",
@@ -141,10 +144,7 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Ülekatte Sätted"
     },
     "download": {
@@ -158,11 +158,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -197,10 +193,7 @@
       "linkText": "GitHub'is veateate",
       "addSupport": "ning üritame lisada toe teie seadmele."
     },
-    "inviteButton": {
-      "invited": "kutsutud",
-      "inviteToRoom": "kutsu ruumi"
-    },
+    "inviteButton": { "invited": "kutsutud", "inviteToRoom": "kutsu ruumi" },
     "micPermissionBanner": {
       "permissionDenied": "Ligipääs mikrofonile keelatud (võib-olla peate vaatama brauseri sätteid ning lehte värskendama)",
       "dismiss": "tühista",
@@ -217,9 +210,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "pole ühtegi audiotarbijat mingil põhjusel"
     },
-    "addToCalendar": {
-      "add": "Lisa kalendrisse"
-    },
+    "addToCalendar": { "add": "Lisa kalendrisse" },
     "wsKilled": {
       "description": "Veebipesa suleti serveri poolt. See juhtub tavaliselt siis, kui avad veebilehe teisel vahelehel.",
       "reconnect": "ühenda uuesti"
@@ -375,8 +366,6 @@
       "galacticDoge": "Galaktiline-Doge",
       "spottedLife": "Planeet eluga"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

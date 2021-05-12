@@ -38,7 +38,12 @@
       "ban": "Ban",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "download": {
       "prompt": "Dawnlöd þə DogeHouse Desktop ap",
@@ -106,9 +111,7 @@
       "allowAll": "Alaw əl",
       "allowAllConfirm": "Ər yü s̈r? Þis wil alaw əl {{count}} rekwestiŋ yüzrz tü spëk"
     },
-    "searchUser": {
-      "search": "src̈..."
-    },
+    "searchUser": { "search": "src̈..." },
     "soundEffectSettings": {
       "header": "Sawndz",
       "title": "Sawnd Setiŋz",
@@ -148,19 +151,12 @@
     },
     "overlaySettings": {
       "header": "Övrlä Setiŋz",
-      "input": {
-        "errorMsg": "Plëz entr ä valid ap tïtl",
-        "label": "Ap tïtl"
-      }
+      "input": { "errorMsg": "Plëz entr ä valid ap tïtl", "label": "Ap tïtl" }
     },
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -201,10 +197,7 @@
       "noOnline": "Yü hav 0 frendz onlïn rït naw",
       "showMore": "S̈ö mör"
     },
-    "inviteButton": {
-      "invited": "Invïtd!",
-      "inviteToRoom": "Invït tü rüm"
-    },
+    "inviteButton": { "invited": "Invïtd!", "inviteToRoom": "Invït tü rüm" },
     "micPermissionBanner": {
       "permissionDenied": "Prmis̈on dënïd trïiŋ tü akses yör mïk (yü mä nëd tü gö intü brawsr setiŋz and rëlöd þə pëj)",
       "dismiss": "Dismis",
@@ -218,16 +211,12 @@
       "toggleOverlayKeybind": "Togl övrlä këbïnd",
       "togglePushToTalkKeybind": "Togl pus̈-tü-tak këbïnd"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Nö ədëö konsümr för sum rëson"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Nö ədëö konsümr för sum rëson" },
     "upcomingRoomsCard": {
       "upcomingRooms": "Upcəmiŋ rümz",
       "exploreMoreRooms": "Eksplör mör rümz"
     },
-    "addToCalendar": {
-      "add": "Ad tü Kalendr"
-    },
+    "addToCalendar": { "add": "Ad tü Kalendr" },
     "wsKilled": {
       "description": "WebSocket wəz kild bï þə srvr. Þis yüs̈üalë hapnz wen yü öpn þe websit in anəþr tab.",
       "reconnect": "Rekonekt"
@@ -323,9 +312,7 @@
   },
   "modules": {
     "_comment": "Modyülz UI Intərnas̈ənəlïzäs̈un Striŋz",
-    "feed": {
-      "yourFeed": "Yör fëd"
-    },
+    "feed": { "yourFeed": "Yör fëd" },
     "scheduledRooms": {
       "title": "Skejüld Rümz",
       "noneFound": "nun fawnd",

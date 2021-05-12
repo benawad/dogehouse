@@ -38,7 +38,12 @@
       "ban": "Estä",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Lista seuraamistasi käyttäjistä, jotka eivät ole yksityisessä huoneessa.",
@@ -100,9 +105,7 @@
       "allowAll": "Hyväksy kaikki",
       "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
-    "searchUser": {
-      "search": "Hae..."
-    },
+    "searchUser": { "search": "Hae..." },
     "soundEffectSettings": {
       "header": "Äänet",
       "title": "Ääniasetukset",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -214,12 +213,8 @@
       "toggleOverlayKeybind": "Overlay-pikanäppäin",
       "toggleDeafKeybind": "Hiljennys-pikanäppäin"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Ei äänen ulostulolaitteita"
-    },
-    "addToCalendar": {
-      "add": "Lisää kalenteriin"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Ei äänen ulostulolaitteita" },
+    "addToCalendar": { "add": "Lisää kalenteriin" },
     "wsKilled": {
       "description": "Palvelin katkaisi yhteyden. Tämä johtuu yleensä sivuston avaamisesta useampaan välilehteen.",
       "reconnect": "Yhdistä uudelleen"
@@ -375,8 +370,6 @@
       "galacticDoge": "Galaktinen Doge",
       "spottedLife": "Havaittiin planeetta, jossa on elämää"
     },
-    "feed": {
-      "yourFeed": "Syötteesi"
-    }
+    "feed": { "yourFeed": "Syötteesi" }
   }
 }

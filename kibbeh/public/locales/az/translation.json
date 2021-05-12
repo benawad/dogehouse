@@ -38,7 +38,12 @@
       "ban": "ban",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Gizli otaqda olmayan və sizin izlədiyiniz istifadəçilər",
@@ -100,9 +105,7 @@
       "allowAll": "Hərkəsə icazə ver",
       "allowAllConfirm": "Təsdiqləyirsiniz? Bu seçim {{count}} istifadəçiyə danışma haqqı verəcəkdir"
     },
-    "searchUser": {
-      "search": "Axtarış..."
-    },
+    "searchUser": { "search": "Axtarış..." },
     "soundEffectSettings": {
       "header": "Səslər",
       "title": "Səs paratmertləri",
@@ -160,11 +163,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -219,9 +218,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Bir səbəbə görə səs qəbuledici yoxdur!"
     },
-    "addToCalendar": {
-      "add": "Kalendara əlavə et"
-    },
+    "addToCalendar": { "add": "Kalendara əlavə et" },
     "wsKilled": {
       "description": "WebSocket server tərəfindən bağlandı. Bu adətən birdən çox səhifədə saytı açdığınız zaman baş verir.",
       "reconnect": "Yenidən bağlantı qur"
@@ -377,8 +374,6 @@
       "galacticDoge": "Qalaktika dog-u",
       "spottedLife": "Həyat olan planet aşkarlandı"
     },
-    "feed": {
-      "yourFeed": "Sənin lentin"
-    }
+    "feed": { "yourFeed": "Sənin lentin" }
   }
 }

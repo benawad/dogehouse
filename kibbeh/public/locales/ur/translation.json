@@ -38,7 +38,12 @@
       "ban": "پابندی لگائیں",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "وہ لوگ جنھیں آپ فالو کرتیں ہیں ور وو اس وقت نجی روم میں نہیں ہیں",
@@ -100,9 +105,7 @@
       "allowAll": "سب کو اجازت دیں",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "تلاش کریں"
-    },
+    "searchUser": { "search": "تلاش کریں" },
     "soundEffectSettings": {
       "header": "آواز کی ترتیبات",
       "title": "Sound Settings",
@@ -141,10 +144,7 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
     },
     "download": {
@@ -158,11 +158,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -214,12 +210,8 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "کسی وجہ سے آڈیو صارف نہیں ہے"
-    },
-    "addToCalendar": {
-      "add": "کیلنڈر میں شامل کریں"
-    },
+    "userVolumeSlider": { "noAudioMessage": "کسی وجہ سے آڈیو صارف نہیں ہے" },
+    "addToCalendar": { "add": "کیلنڈر میں شامل کریں" },
     "wsKilled": {
       "description": "ویبسکیٹ سرور کے ذریعہ ہلاک ہوگئی تھی۔ یہ عام طور پر ہوتا ہے جب آپ کسی دوسرے ٹیب میں ویب سائٹ کھولتے ہیں۔",
       "reconnect": "دوبارہ جڑنا"
@@ -375,8 +367,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

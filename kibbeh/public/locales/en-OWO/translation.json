@@ -38,7 +38,12 @@
       "ban": "ban >:3",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "<3 Wist of usews that awe nut in a pwivate woom and uu fowwow. :3",
@@ -100,9 +105,7 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "Seawch... >_<"
-    },
+    "searchUser": { "search": "Seawch... >_<" },
     "soundEffectSettings": {
       "header": "OWO Sounds :D",
       "title": "Sound Settings",
@@ -141,10 +144,7 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
     },
     "download": {
@@ -158,11 +158,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -197,10 +193,7 @@
       "linkText": "issue on GitHub",
       "addSupport": "and I wiww twy adding suppowt fow uuw device. x3"
     },
-    "inviteButton": {
-      "invited": "Invited!",
-      "inviteToRoom": "Invite to Woom"
-    },
+    "inviteButton": { "invited": "Invited!", "inviteToRoom": "Invite to Woom" },
     "micPermissionBanner": {
       "permissionDenied": "Huohhhh. Pewmission denied twying to access uuw mic (uu may need to go into bwowsew settings and wewoad da page) (❁´◡`❁)",
       "dismiss": "Dismiss",
@@ -217,9 +210,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Nu audio consumew fow some weason D:"
     },
-    "addToCalendar": {
-      "add": "Add to Cawendaw ^_^"
-    },
+    "addToCalendar": { "add": "Add to Cawendaw ^_^" },
     "wsKilled": {
       "description": " WebSocket was kiwwed by da sewvew. This usuawwy happens when uu open da website in anuthew tab. ;3",
       "reconnect": "Weconnect (；ω；)"
@@ -375,8 +366,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Pwanet with uwu life spotted (• o •)"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

@@ -38,7 +38,12 @@
       "ban": "blockieren",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Benutzer, denen du folgst, die nicht in einem privaten Raum sind.",
@@ -100,9 +105,7 @@
       "allowAll": "Alle zulassen",
       "allowAllConfirm": "Bist du sicher? Damit erteilst du {{count}} Benutzern Redeberechtigungen."
     },
-    "searchUser": {
-      "search": "Suchen..."
-    },
+    "searchUser": { "search": "Suchen..." },
     "soundEffectSettings": {
       "header": "Ton",
       "title": "Toneinstellungen",
@@ -160,18 +163,12 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",
-    "addToCalendar": {
-      "add": "Zum Kalender hinzufügen"
-    },
+    "addToCalendar": { "add": "Zum Kalender hinzufügen" },
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
@@ -377,8 +374,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet mit Leben gefunden!"
     },
-    "feed": {
-      "yourFeed": "Dein Feed"
-    }
+    "feed": { "yourFeed": "Dein Feed" }
   }
 }

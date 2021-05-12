@@ -37,7 +37,12 @@
       "ban": "utesteng",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Liste over brukere som ikke er i et privat rom, og som du følger.",
@@ -99,9 +104,7 @@
       "allowAll": "Tillat alle",
       "allowAllConfirm": "Er du sikker? Dette vil tillate alle {{count}} spørrende brukere til å snakke"
     },
-    "searchUser": {
-      "search": "søk..."
-    },
+    "searchUser": { "search": "søk..." },
     "soundEffectSettings": {
       "header": "Lyder",
       "title": "Sound Settings",
@@ -140,10 +143,7 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Ugyldig tittel",
-        "label": "Angi tittel"
-      },
+      "input": { "errorMsg": "Ugyldig tittel", "label": "Angi tittel" },
       "header": "Innstillinger for overlegg"
     },
     "download": {
@@ -157,11 +157,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -216,9 +212,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Ingen lydmottaker av en eller annen grunn"
     },
-    "addToCalendar": {
-      "add": "Legg til i Kalender"
-    },
+    "addToCalendar": { "add": "Legg til i Kalender" },
     "wsKilled": {
       "description": "Tilkoblingen din ble avsluttet av serveren. Dette skjer vanligvis når du åpner nettsiden i en annen fane.",
       "reconnect": "Koble til igjen"
@@ -374,8 +368,6 @@
       "galacticDoge": "Galakse-doge",
       "spottedLife": "Planet med liv oppdaget"
     },
-    "feed": {
-      "yourFeed": "Din Feed"
-    }
+    "feed": { "yourFeed": "Din Feed" }
   }
 }

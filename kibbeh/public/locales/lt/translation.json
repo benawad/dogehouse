@@ -38,7 +38,12 @@
       "ban": "Užblokuoti",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Sąrašas žmonių kurie nėra tavo privačiame kambaryje, tačiau tave seka",
@@ -100,9 +105,7 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "Ieškoma..."
-    },
+    "searchUser": { "search": "Ieškoma..." },
     "soundEffectSettings": {
       "header": "Garsai",
       "title": "Sound Settings",
@@ -141,10 +144,7 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
     },
     "download": {
@@ -158,11 +158,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -217,9 +213,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "dėl kokių nors priežasčių nėra garso vartotojo"
     },
-    "addToCalendar": {
-      "add": "Pridėti į kalendorių"
-    },
+    "addToCalendar": { "add": "Pridėti į kalendorių" },
     "wsKilled": {
       "description": "„Websocket“ užlaužtas serveris. Paprastai tai atsitinka, kai atidarote svetainę kitame skirtuke.",
       "reconnect": "Prisijungti iš naujo"
@@ -375,8 +369,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

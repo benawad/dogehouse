@@ -37,7 +37,12 @@
       "ban": "Banir",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Lista de utilizadores que segues e que não se encontram numa sala privada.",
@@ -99,9 +104,7 @@
       "allowAll": "Permitir todos",
       "allowAllConfirm": "De certeza? Isto permitirá todos os {{count}} utilizadores a pedir, falar"
     },
-    "searchUser": {
-      "search": "Procurar..."
-    },
+    "searchUser": { "search": "Procurar..." },
     "soundEffectSettings": {
       "header": "Sons",
       "title": "Configuração de Som",
@@ -157,11 +160,7 @@
     "privacySettings": {
       "title": "Configurações de Privacidade",
       "header": "Configurações de Privacidade",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -259,9 +258,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Sem consumidor de áudio devido a um erro desconhecido"
     },
-    "addToCalendar": {
-      "add": "Adicionar ao calendário"
-    },
+    "addToCalendar": { "add": "Adicionar ao calendário" },
     "keyboardShortcuts": {
       "setKeybind": "definir atalho",
       "listening": "a ouvir",
@@ -373,8 +370,6 @@
       "galacticDoge": "Doge galático",
       "spottedLife": "Encontrado planeta com vida"
     },
-    "feed": {
-      "yourFeed": "O teu Feed"
-    }
+    "feed": { "yourFeed": "O teu Feed" }
   }
 }

@@ -37,7 +37,12 @@
       "ban": "Blokir",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Daftar pengguna yang tidak ada di ruangan privat dan kamu ikuti.",
@@ -99,9 +104,7 @@
       "allowAll": "Izinkan semua",
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
     },
-    "searchUser": {
-      "search": "cari..."
-    },
+    "searchUser": { "search": "cari..." },
     "soundEffectSettings": {
       "header": "Bunyi",
       "title": "Pengaturan Bunyi",
@@ -157,11 +160,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -213,12 +212,8 @@
       "toggleOverlayKeybind": "Beralih tombol lapisan",
       "toggleDeafKeybind": "Beralih tombol menulikan"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Perangkat audio tidak ditemukan"
-    },
-    "addToCalendar": {
-      "add": "Tambahkan ke Kalender"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Perangkat audio tidak ditemukan" },
+    "addToCalendar": { "add": "Tambahkan ke Kalender" },
     "wsKilled": {
       "description": "WebSocket dihentikan oleh server. Biasanya terjadi karena kamu membuka laman web ini di tab lain.",
       "reconnect": "Menghubungkan kembali"
@@ -374,8 +369,6 @@
       "galacticDoge": "Doge di galaksi",
       "spottedLife": "Planet dengan kehidupan ditemukan"
     },
-    "feed": {
-      "yourFeed": "Feed kamu"
-    }
+    "feed": { "yourFeed": "Feed kamu" }
   }
 }

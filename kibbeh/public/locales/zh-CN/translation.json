@@ -37,7 +37,12 @@
       "ban": "踢出用户",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "您所关注的不在私人聊天室的人。",
@@ -99,9 +104,7 @@
       "allowAll": "允许全体成员讲话",
       "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
     },
-    "searchUser": {
-      "search": "搜索..."
-    },
+    "searchUser": { "search": "搜索..." },
     "soundEffectSettings": {
       "header": "声音",
       "title": "声音设置",
@@ -140,10 +143,7 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "不允许的App标题",
-        "label": "输入App标题"
-      },
+      "input": { "errorMsg": "不允许的App标题", "label": "输入App标题" },
       "header": "覆盖层设置"
     },
     "download": {
@@ -157,11 +157,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -259,9 +255,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"
     },
-    "addToCalendar": {
-      "add": "加到日历"
-    },
+    "addToCalendar": { "add": "加到日历" },
     "keyboardShortcuts": {
       "setKeybind": "设置快捷键",
       "listening": "等待输入",
@@ -279,10 +273,7 @@
       "linkText": "在GitHub开启一个报告",
       "addSupport": "我将会尝试支持您的设备"
     },
-    "inviteButton": {
-      "invited": "被邀请",
-      "inviteToRoom": "邀请进入聊天室"
-    },
+    "inviteButton": { "invited": "被邀请", "inviteToRoom": "邀请进入聊天室" },
     "followingOnline": {
       "people": "用户",
       "online": "在线",
@@ -302,14 +293,8 @@
       "language": "语言",
       "reportABug": "反馈Bug",
       "useOldVersion": "使用旧版本",
-      "logOut": {
-        "button": "登出",
-        "modalSubtitle": "是否确定登出?"
-      },
-      "debugAudio": {
-        "debugAudio": "调试声音",
-        "stopDebugger": "取消调试"
-      },
+      "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
+      "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" },
       "downloadApp": "下载APP"
     },
     "userBadges": {
@@ -339,9 +324,7 @@
       },
       "tommorow": "明天",
       "today": "今天",
-      "deleteModal": {
-        "areYouSure": "你确定要删除此预定的聊天室？"
-      }
+      "deleteModal": { "areYouSure": "你确定要删除此预定的聊天室？" }
     },
     "roomChat": {
       "title": "文字聊天",
@@ -374,8 +357,6 @@
       "galacticDoge": "宇宙 Doge",
       "spottedLife": "已发现新生命"
     },
-    "feed": {
-      "yourFeed": "您的推送"
-    }
+    "feed": { "yourFeed": "您的推送" }
   }
 }

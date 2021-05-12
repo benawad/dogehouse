@@ -38,7 +38,12 @@
       "ban": "αποκλεισμός",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Χρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
@@ -100,9 +105,7 @@
       "allowAll": "Επιτρέψτε τα όλα",
       "allowAllConfirm": "Είστε σίγουρος; Αυτό θα επιτρέψει όλους τους {{count}} χρήστες που έχουν ζητήσει να μιλήσουν"
     },
-    "searchUser": {
-      "search": "αναζήτηση..."
-    },
+    "searchUser": { "search": "αναζήτηση..." },
     "soundEffectSettings": {
       "header": "Ήχοι",
       "title": "Sound Settings",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -217,9 +216,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "δεν υπάρχει δέκτης ήχου για κάποιο λόγο"
     },
-    "addToCalendar": {
-      "add": "Προσθήκη στο Ημερολόγιο"
-    },
+    "addToCalendar": { "add": "Προσθήκη στο Ημερολόγιο" },
     "wsKilled": {
       "description": "Το WebSocket διακόπηκε από τον διακομιστή. Αυτό συμβαίνει συνήθως όταν ανοίγετε την ιστοσελίδα σε άλλη καρτέλα.",
       "reconnect": "επανασύνδεση"
@@ -375,8 +372,6 @@
       "galacticDoge": "Γαλαξιακό Doge",
       "spottedLife": "Εντοπίστηκε πλανήτης με ζωή"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

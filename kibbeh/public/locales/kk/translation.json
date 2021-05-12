@@ -38,7 +38,12 @@
       "ban": "бан",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Жабық бөлмеде емес сіз жазылған қолданушылар тізімі",
@@ -100,9 +105,7 @@
       "allowAll": "Барлығына рұқсат беру",
       "allowAllConfirm": "Бұл барлық рұқсат сұраған {{count}} қолданушыға, сөйлеуге мүмкіндік береді.Сіз сенімдісіз бе?"
     },
-    "searchUser": {
-      "search": "іздеу..."
-    },
+    "searchUser": { "search": "іздеу..." },
     "soundEffectSettings": {
       "header": "дыбыстар",
       "title": "Sound Settings",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -214,12 +213,8 @@
       "toggleOverlayKeybind": "Қабаттасуды осы перне арқылы өшіріп/қосу",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "белгісіз себептермен дыбыс жоқ"
-    },
-    "addToCalendar": {
-      "add": "Күнтізбеге қосу"
-    },
+    "userVolumeSlider": { "noAudioMessage": "белгісіз себептермен дыбыс жоқ" },
+    "addToCalendar": { "add": "Күнтізбеге қосу" },
     "wsKilled": {
       "description": "Вебсокетті сервер жойды. Бұл әдетте сайтты басқа бетте ашқан кезде болады.",
       "reconnect": "қайтадан қосылу"
@@ -375,8 +370,6 @@
       "galacticDoge": "Галакалық doge",
       "spottedLife": "Өмірі бар планета анықталды"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

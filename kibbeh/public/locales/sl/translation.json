@@ -38,7 +38,12 @@
       "ban": "Blokirajte",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Seznam uporabnikov, ki jim sledite in niso v zasebni sobi.",
@@ -100,9 +105,7 @@
       "allowAll": "Dovoli vsem",
       "allowAllConfirm": "Ste prepričani? To bo omogočilo vsem {{count}}, ki zahtevajo, da govorijo"
     },
-    "searchUser": {
-      "search": "Iskanje..."
-    },
+    "searchUser": { "search": "Iskanje..." },
     "soundEffectSettings": {
       "header": "Zvoki",
       "title": "Nastavitve zvoka",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -217,9 +216,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Iz nekega razloga ni odjemalca zvoka"
     },
-    "addToCalendar": {
-      "add": "Dodajte v koledar"
-    },
+    "addToCalendar": { "add": "Dodajte v koledar" },
     "wsKilled": {
       "description": "Povezava s spletno vtičnico je bila prekinjena. To se ponavadi zgodi, ko se ta spletna stran odpre v novem zavihku.",
       "reconnect": "Ponovno se povežite"
@@ -375,8 +372,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Najden planet z življenjem"
     },
-    "feed": {
-      "yourFeed": "Vaši Kanali"
-    }
+    "feed": { "yourFeed": "Vaši Kanali" }
   }
 }

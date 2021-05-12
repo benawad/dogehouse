@@ -38,7 +38,12 @@
       "ban": "Banëia",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Lista de utënc che te stas do y che ne é nia te na ciamena privata.",
@@ -100,9 +105,7 @@
       "allowAll": "Conzedi a düc",
       "allowAllConfirm": "Es sigü? Chësc conzedará a {{count}} utënc che ó baié de pudëi ciacolè"
     },
-    "searchUser": {
-      "search": "Chirida..."
-    },
+    "searchUser": { "search": "Chirida..." },
     "soundEffectSettings": {
       "header": "Sonns",
       "title": "Impostaziuns dl sonn",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -217,9 +216,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Degun audio é desponibl por val' rajun"
     },
-    "addToCalendar": {
-      "add": "Ajunta al calënder"
-    },
+    "addToCalendar": { "add": "Ajunta al calënder" },
     "wsKilled": {
       "description": "Le websocket é fora funziun dal server. Chësc sozed scialdi canche deures na plata danü te n'atra scheda.",
       "reconnect": "Ciaria danü"
@@ -375,8 +372,6 @@
       "galacticDoge": "Doge dla galassia",
       "spottedLife": "Afustié planët cun formes de vita"
     },
-    "feed": {
-      "yourFeed": "Tó feed"
-    }
+    "feed": { "yourFeed": "Tó feed" }
   }
 }

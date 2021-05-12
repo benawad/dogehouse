@@ -37,7 +37,12 @@
       "ban": "Yasakla",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Senin takip ettiğin ve özel odada olmayan kullanıcıların listesi.",
@@ -99,9 +104,7 @@
       "allowAll": "Herkese izin ver",
       "allowAllConfirm": "Emin misiniz? Bu, talep eden {{count}} kullanıcının konuşmasına izin verecektir"
     },
-    "searchUser": {
-      "search": "Ara..."
-    },
+    "searchUser": { "search": "Ara..." },
     "soundEffectSettings": {
       "header": "Sesler",
       "title": "Ses Ayarları",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -257,12 +256,8 @@
         }
       }
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Nedense ses alıcısı yok"
-    },
-    "addToCalendar": {
-      "add": "Takvime Ekle"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },
+    "addToCalendar": { "add": "Takvime Ekle" },
     "keyboardShortcuts": {
       "setKeybind": "Tuş Ata",
       "listening": "Dinleniyor",
@@ -374,8 +369,6 @@
       "galacticDoge": "Galaktik doge'u",
       "spottedLife": "Yaşam tespit edilen gezegen"
     },
-    "feed": {
-      "yourFeed": "Akışın"
-    }
+    "feed": { "yourFeed": "Akışın" }
   }
 }

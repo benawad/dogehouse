@@ -38,7 +38,12 @@
       "ban": "Zablokuj",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Lista użytkowników którzy nie są w prywatnym pokoju i których obserwujesz.",
@@ -100,9 +105,7 @@
       "allowAll": "Dopuść wszystkich",
       "allowAllConfirm": "Czy na pewno? To dopuści {{count}} użytkowników do mówienia"
     },
-    "searchUser": {
-      "search": "szukaj..."
-    },
+    "searchUser": { "search": "szukaj..." },
     "soundEffectSettings": {
       "header": "Dźwięk",
       "title": "Ustawienia dźwięku",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -220,16 +219,12 @@
       "toggleOverlayKeybind": "Nakładka",
       "togglePushToTalkKeybind": "Naciśnij i mów"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Brak urządzenia audio"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Brak urządzenia audio" },
     "upcomingRoomsCard": {
       "upcomingRooms": "Nadchodzące spotkania w pokojach",
       "exploreMoreRooms": "Odkrywaj pokoje"
     },
-    "addToCalendar": {
-      "add": "Dodaj do kalendarza"
-    },
+    "addToCalendar": { "add": "Dodaj do kalendarza" },
     "wsKilled": {
       "description": "WebSocket został zabity przez serwer. Dzieje się tak kiedy otwierasz stronę w nowej karcie.",
       "reconnect": "Połącz ponownie"
@@ -325,9 +320,7 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Twoje pokoje"
-    },
+    "feed": { "yourFeed": "Twoje pokoje" },
     "scheduledRooms": {
       "title": "Zaplanowane pokoje",
       "noneFound": "nie znaleziono",

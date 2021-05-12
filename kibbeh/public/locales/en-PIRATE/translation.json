@@ -38,7 +38,12 @@
       "ban": "ban",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "List o' users that are nah in a private cabin 'n ye follow.",
@@ -100,9 +105,7 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Ye sure? Ye will allow all {{count}} skallywags to speak!"
     },
-    "searchUser": {
-      "search": "searchin' fer booty..."
-    },
+    "searchUser": { "search": "searchin' fer booty..." },
     "soundEffectSettings": {
       "header": "Sounds",
       "title": "Sound Settings",
@@ -141,10 +144,7 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
     },
     "download": {
@@ -158,11 +158,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -197,10 +193,7 @@
       "linkText": "issue on GitHub",
       "addSupport": "'n I will try addin' support fer yer device."
     },
-    "inviteButton": {
-      "invited": "invited",
-      "inviteToRoom": "invite t' cabin"
-    },
+    "inviteButton": { "invited": "invited", "inviteToRoom": "invite t' cabin" },
     "micPermissionBanner": {
       "permissionDenied": "Permission denied trying t' access yer mic (ye may needs t' go into browser settings 'n reload the page)",
       "dismiss": "dismiss",
@@ -217,9 +210,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer fer some reason"
     },
-    "addToCalendar": {
-      "add": "Add t' Calendar"
-    },
+    "addToCalendar": { "add": "Add t' Calendar" },
     "wsKilled": {
       "description": "WebSocket was scuttled by the server. This usually happens when ye open the website in another tab.",
       "reconnect": "reconnect"
@@ -375,8 +366,6 @@
       "galacticDoge": "Galactic doge been spotted",
       "spottedLife": "Planet wit' life spotted"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

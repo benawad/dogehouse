@@ -38,7 +38,12 @@
       "ban": "taqiqlash",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Yopiq xonada bo'lmagan va siz obuna bo'lgan foydalanuvchilar ro'yxati.",
@@ -100,9 +105,7 @@
       "allowAll": "Barchaga ruxsat berish",
       "allowAllConfirm": "Ishonchingiz komilmi? Bu {{count}} foydalanuvchilariga gapirish uchun ruxsat so'rab murojaat qilganlarga gapirishga imkon beradi"
     },
-    "searchUser": {
-      "search": "Qidirish..."
-    },
+    "searchUser": { "search": "Qidirish..." },
     "soundEffectSettings": {
       "header": "Tovushlar",
       "title": "Sound Settings",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -214,12 +213,8 @@
       "toggleOverlayKeybind": "Keybind almashtirish tugmachasini biriktirish",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Audio yo'q"
-    },
-    "addToCalendar": {
-      "add": "Taqvimga qo'shish"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Audio yo'q" },
+    "addToCalendar": { "add": "Taqvimga qo'shish" },
     "wsKilled": {
       "description": "Veb-server server tomonidan o'chirildi. Bu odatda saytni boshqa yorliqda ochganda yuz beradi.",
       "reconnect": "Qayta qo'shilish"
@@ -325,9 +320,7 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Sizning tasmangiz"
-    },
+    "feed": { "yourFeed": "Sizning tasmangiz" },
     "scheduledRooms": {
       "title": "Rejalashtirilgan xonalar",
       "noneFound": "topilmadi",

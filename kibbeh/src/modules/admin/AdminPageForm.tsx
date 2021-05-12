@@ -1,4 +1,4 @@
-import { UserWithFollowInfo, wrap } from "@dogehouse/kebab";
+import { wrap } from "@dogehouse/kebab";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { showErrorToast } from "../../lib/showErrorToast";
@@ -34,21 +34,21 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
 
   return (
     <MiddlePanel>
-      <h3 className="text-primary-100">Username</h3>
+      <h3 className="text-primary-100">{t("pages.admin.username")}</h3>
       <div className="flex">
         <Input
           autoFocus
-          placeholder="username to perform actions on"
+          placeholder={t("pages.admin.usernamePlaceholder")}
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
       <div className="mt-6">
-        <h3 className="text-primary-100">Ban</h3>
+        <h3 className="text-primary-100">{t("pages.admin.ban")}</h3>
         <Input
           className={`mb-4`}
           autoFocus
-          placeholder="reason"
+          placeholder={t("pages.admin.reason")}
           value={reason}
           onChange={(e) => setReason(e.target.value)}
         />
@@ -63,7 +63,7 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
         </Button>
       </div>
       <div className="mt-6">
-        <h3 className="text-primary-100">User Staff</h3>
+        <h3 className="text-primary-100">{t("pages.admin.usrStaff")}</h3>
 
         <label className="inline-flex mb-4">
           <div className={`text-primary-100`}>{t("pages.admin.staff")}</div>
@@ -82,16 +82,18 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
               wrapper.mutation.userAdminUpdate(username, isStaff);
             }}
           >
-            Save
+            {t("common.save")}
           </Button>
         </div>
       </div>
       <div className="mt-6">
-        <h3 className="text-primary-100">User Contributions</h3>
+        <h3 className="text-primary-100">
+          {t("pages.admin.usrContributions")}
+        </h3>
         <Input
           className={`mb-4`}
           autoFocus
-          placeholder="Contributions"
+          placeholder={t("pages.admin.contributions")}
           value={contributions}
           onChange={(e) => setContributions(Number(e.target.value))}
           type="number"
@@ -106,7 +108,7 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
               );
             }}
           >
-            Save
+            {t("common.save")}
           </Button>
         </div>
       </div>

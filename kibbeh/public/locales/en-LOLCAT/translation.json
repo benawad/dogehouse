@@ -38,7 +38,12 @@
       "ban": "banish",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "download": {
       "prompt": "get da desktp ap",
@@ -106,9 +111,7 @@
       "allowAll": "let all spek",
       "allowAllConfirm": "u crazy? dis will let {{count}} kittehs talk"
     },
-    "searchUser": {
-      "search": "search..."
-    },
+    "searchUser": { "search": "search..." },
     "soundEffectSettings": {
       "header": "Sounds",
       "title": "Sound Settings",
@@ -156,11 +159,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -201,10 +200,7 @@
       "noOnline": "u has no fwens",
       "showMore": "Show more"
     },
-    "inviteButton": {
-      "invited": "Invited!",
-      "inviteToRoom": "Invite to room"
-    },
+    "inviteButton": { "invited": "Invited!", "inviteToRoom": "Invite to room" },
     "micPermissionBanner": {
       "permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
       "dismiss": "Dismiss",
@@ -225,9 +221,7 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore more rooms"
     },
-    "addToCalendar": {
-      "add": "Add to Calendar"
-    },
+    "addToCalendar": { "add": "Add to Calendar" },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "Reconnect"
@@ -323,9 +317,7 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Your feed"
-    },
+    "feed": { "yourFeed": "Your feed" },
     "scheduledRooms": {
       "title": "Scheduled Rooms",
       "noneFound": "none found",

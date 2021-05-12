@@ -37,7 +37,12 @@
       "ban": "Ban",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Listahan nang mga tao na hindi pribado at iyong sinundan",
@@ -99,9 +104,7 @@
       "allowAll": "Payagan lahat",
       "allowAllConfirm": "Sigurado? Ang buong bilang {{count}} na tao ay papayagang makapag salita"
     },
-    "searchUser": {
-      "search": "maghanap..."
-    },
+    "searchUser": { "search": "maghanap..." },
     "soundEffectSettings": {
       "header": "Tunog",
       "title": "Sound Settings",
@@ -157,11 +160,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -219,16 +218,12 @@
       "togglePushToTalkKeybind": "I-toggle ang push-to-talk keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Walang makitang audio consumer"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Walang makitang audio consumer" },
     "upcomingRoomsCard": {
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore more rooms"
     },
-    "addToCalendar": {
-      "add": "Idagdag sa kalendaryo"
-    },
+    "addToCalendar": { "add": "Idagdag sa kalendaryo" },
     "wsKilled": {
       "description": "Pinatay ng server ang websocket. Karaniwang magyayari ito dahil naka bukas ang website sa ibang tab.",
       "reconnect": "kumonekta"
@@ -324,9 +319,7 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Your feed"
-    },
+    "feed": { "yourFeed": "Your feed" },
     "scheduledRooms": {
       "title": "Mga Nakaiskedyul na",
       "noneFound": "walang nakita",

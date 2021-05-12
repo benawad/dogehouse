@@ -38,7 +38,12 @@
       "ban": "zabrani",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Popis korisnika koji nisu u privatnoj sobi, a vi ih pratite",
@@ -101,9 +106,7 @@
       "allowAllConfirm": "Jeste li sigurni? Ovo će omogućiti svim {{count}} korisnicima koji zahtijevaju da govore",
       "speakers": "Govornici"
     },
-    "searchUser": {
-      "search": "traži..."
-    },
+    "searchUser": { "search": "traži..." },
     "soundEffectSettings": {
       "header": "Zvuči",
       "title": "Sound Settings",
@@ -160,11 +163,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -199,10 +198,7 @@
       "linkText": "'issue' na GitHubu",
       "addSupport": "i pokušati ćemo dodati podršku za vaš uređaj."
     },
-    "inviteButton": {
-      "invited": "pozvan",
-      "inviteToRoom": "pozovi u sobu"
-    },
+    "inviteButton": { "invited": "pozvan", "inviteToRoom": "pozovi u sobu" },
     "micPermissionBanner": {
       "permissionDenied": "Dozvola odbijena za pokušaj pristupa vašem mikrofonu (možda ćete trebati ući u postavke preglednika i ponovo učitati stranicu)",
       "dismiss": "zanemari",
@@ -219,9 +215,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "iz nekog razloga nema potrošača zvuka"
     },
-    "addToCalendar": {
-      "add": "Dodaj u kalendar"
-    },
+    "addToCalendar": { "add": "Dodaj u kalendar" },
     "wsKilled": {
       "description": "Poslužitelj je ubio WebSocket. To se obično događa kada web mjesto otvorite na drugoj kartici.",
       "reconnect": "ponovno se poveži"
@@ -377,8 +371,6 @@
       "galacticDoge": "Galaktički doge",
       "spottedLife": "Planeta sa životom uočena"
     },
-    "feed": {
-      "yourFeed": "Vaš Feed"
-    }
+    "feed": { "yourFeed": "Vaš Feed" }
   }
 }

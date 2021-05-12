@@ -37,7 +37,12 @@
       "ban": "ban",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "ప్రైవేట్ గదిలో లేని మరియు మీరు అనుసరించే వినియోగదారుల జాబితా.",
@@ -99,9 +104,7 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "అన్వేషించు..."
-    },
+    "searchUser": { "search": "అన్వేషించు..." },
     "soundEffectSettings": {
       "header": "సౌండ్స్",
       "title": "Sound Settings",
@@ -157,11 +160,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -196,10 +195,7 @@
       "linkText": "ఫిర్యాదు సృష్టించవచ్చు",
       "addSupport": "మరియు నేను మీ పరికరానికి మద్దతును జోడించడానికి ప్రయత్నిస్తాను."
     },
-    "inviteButton": {
-      "invited": "invited",
-      "inviteToRoom": "invite to room"
-    },
+    "inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" },
     "micPermissionBanner": {
       "permissionDenied": "మీ మైక్‌ను యాక్సెస్ చేయడానికి అనుమతి నిరాకరించబడింది (మీరు బ్రౌజర్ సెట్టింగ్‌ల్లోకి వెళ్లి పేజీని మళ్లీ లోడ్ చేయాల్సి ఉంటుంది)",
       "dismiss": "దీన్ని కొట్టివేయాలా",
@@ -216,9 +212,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "కొన్ని కారణాల వల్ల ఆడియో వినియోగదారుడు లేరు"
     },
-    "addToCalendar": {
-      "add": "క్యాలెండర్‌కు జోడించండి"
-    },
+    "addToCalendar": { "add": "క్యాలెండర్‌కు జోడించండి" },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "తిరిగి కనెక్ట్ చేయండి"
@@ -374,8 +368,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

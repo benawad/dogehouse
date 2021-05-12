@@ -38,7 +38,12 @@
       "ban": "заблокувати",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Список користувачів, які не перебувають у приватній кімнаті і за якими ви стежите",
@@ -100,9 +105,7 @@
       "allowAll": "Дозволити все",
       "allowAllConfirm": "Ви впевнені? Це дозволить усім {{count}} запитуючим користувачам розмовляти"
     },
-    "searchUser": {
-      "search": "шукати..."
-    },
+    "searchUser": { "search": "шукати..." },
     "soundEffectSettings": {
       "header": "Звуки",
       "title": "Налаштування звуку",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -214,12 +213,8 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "немає аудіозв'язку"
-    },
-    "addToCalendar": {
-      "add": "Додати до календаря"
-    },
+    "userVolumeSlider": { "noAudioMessage": "немає аудіозв'язку" },
+    "addToCalendar": { "add": "Додати до календаря" },
     "wsKilled": {
       "description": "Вебсокет був видалений сервером. Зазвичай це відбувається, коли ви відкриваєте веб-сайт в іншій вкладці.",
       "reconnect": "переєднатися"
@@ -375,8 +370,6 @@
       "galacticDoge": "Галактичний Doge",
       "spottedLife": "Помічена планета з життям"
     },
-    "feed": {
-      "yourFeed": "Ваша Стрічка"
-    }
+    "feed": { "yourFeed": "Ваша Стрічка" }
   }
 }

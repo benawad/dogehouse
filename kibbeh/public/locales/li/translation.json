@@ -38,7 +38,12 @@
       "ban": "Banne",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Liest van gebroekers die dich volgst mèr niet in inge perseunlijke kamer zitten.",
@@ -100,9 +105,7 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "Zeucke..."
-    },
+    "searchUser": { "search": "Zeucke..." },
     "soundEffectSettings": {
       "header": "Geluide",
       "title": "Sound Settings",
@@ -141,10 +144,7 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
     },
     "download": {
@@ -158,11 +158,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -217,9 +213,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Ging audioapparaat veur ing of andere reje"
     },
-    "addToCalendar": {
-      "add": "Voeg toe aan agenda"
-    },
+    "addToCalendar": { "add": "Voeg toe aan agenda" },
     "wsKilled": {
       "description": "WebSocket is gejstopt durch de server. Dit gebeurt vaak wannier de site opensjteet in inge andere tabblad.",
       "reconnect": "Opnuj verbinge"
@@ -375,8 +369,6 @@
       "galacticDoge": "Galactische hond",
       "spottedLife": "Planeet mit leefe gesjpot"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

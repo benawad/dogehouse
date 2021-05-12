@@ -38,7 +38,12 @@
       "ban": "blockiere",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Benutzer, wo du fougsch, aber nid imne private Ruum si.",
@@ -100,9 +105,7 @@
       "allowAll": "Alles erlaube",
       "allowAllConfirm": "Bisch der sicher? Das wird all {{count}} Benutzer wo wennd rede dBerechtigung dazue gäh"
     },
-    "searchUser": {
-      "search": "Sueche..."
-    },
+    "searchUser": { "search": "Sueche..." },
     "soundEffectSettings": {
       "header": "Ton",
       "title": "Sound Settings",
@@ -141,10 +144,7 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Istellige"
     },
     "download": {
@@ -158,18 +158,12 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",
-    "addToCalendar": {
-      "add": "Zum Kalender hinzuefüege"
-    },
+    "addToCalendar": { "add": "Zum Kalender hinzuefüege" },
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
@@ -280,10 +274,7 @@
       "linkText": "Issue uf GitHub",
       "addSupport": "erstelle und ich werde versueche, d Ungerstützig für dis Grät hinzuefüege."
     },
-    "inviteButton": {
-      "invited": "iglade",
-      "inviteToRoom": "zum Ruum ilade"
-    },
+    "inviteButton": { "invited": "iglade", "inviteToRoom": "zum Ruum ilade" },
     "followingOnline": {
       "people": "People",
       "online": "ONLINE",
@@ -375,8 +366,6 @@
       "galacticDoge": "Galaxie-Doge",
       "spottedLife": "Planet mit lebe gfunge"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

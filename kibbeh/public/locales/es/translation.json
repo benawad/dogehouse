@@ -36,7 +36,12 @@
       "ban": "Banear",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Lista de usuarios que sigues y que no se encuentran en una sala privada.",
@@ -98,9 +103,7 @@
       "allowAll": "Permitir todos",
       "allowAllConfirm": "¿Estás seguro? Esto dejará hablar a los {{count}} usuarios que quieren hablar"
     },
-    "searchUser": {
-      "search": "Buscar..."
-    },
+    "searchUser": { "search": "Buscar..." },
     "soundEffectSettings": {
       "header": "Sonidos",
       "title": "Ajustes de sonido",
@@ -156,11 +159,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -225,9 +224,7 @@
       "upcomingRooms": "Próximas salas",
       "exploreMoreRooms": "Explorar nuevas salas"
     },
-    "addToCalendar": {
-      "add": "Añadir al calendario"
-    },
+    "addToCalendar": { "add": "Añadir al calendario" },
     "wsKilled": {
       "description": "El Websocket fue eliminado por el servidor. Esto suele suceder cuando abres el sitio web en otra pestaña.",
       "reconnect": "Reconectar"
@@ -322,9 +319,7 @@
     }
   },
   "modules": {
-    "feed": {
-      "yourFeed": "Tu inicio"
-    },
+    "feed": { "yourFeed": "Tu inicio" },
     "scheduledRooms": {
       "title": "Salas programadas",
       "noneFound": "No se ha encontrado ninguna",

@@ -38,7 +38,12 @@
       "ban": "Zabanovat",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Seznam uživatelů které sleduješ a nejsou v soukromé místnosti",
@@ -100,9 +105,7 @@
       "allowAll": "Povolit všem",
       "allowAllConfirm": "Jsi si jistý? Tohle povolí všem {{count}} žádajícím uživatelům mluvit"
     },
-    "searchUser": {
-      "search": "Hledat..."
-    },
+    "searchUser": { "search": "Hledat..." },
     "soundEffectSettings": {
       "header": "Zvuky",
       "title": "Nastavení zvuku",
@@ -219,9 +222,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Z nějakého důvodu není vysílán zvuk"
     },
-    "addToCalendar": {
-      "add": "Přidat do kalendáře"
-    },
+    "addToCalendar": { "add": "Přidat do kalendáře" },
     "wsKilled": {
       "description": "Server tě odpojil. Neotevřel jsi další okno?",
       "reconnect": "Připojit se znovu"
@@ -377,8 +378,6 @@
       "galacticDoge": "Galaktický Doge",
       "spottedLife": "Planeta se životem objevena"
     },
-    "feed": {
-      "yourFeed": "Tvůj Feed"
-    }
+    "feed": { "yourFeed": "Tvůj Feed" }
   }
 }

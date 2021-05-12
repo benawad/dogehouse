@@ -38,7 +38,12 @@
       "ban": "uɐq",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "˙ʍoꞁꞁoɟ noʎ puɐ ɯooɹ ǝʇɐʌᴉɹd ɐ uᴉ ʇou ǝɹɐ ʇɐɥʇ sɹǝsn ɟo ʇsᴉꞀ",
@@ -100,9 +105,7 @@
       "allowAll": "ꞁꞁɐ ʍoꞁꞁⱯ",
       "allowAllConfirm": "ʞɐǝds oʇ sɹǝsn ƃuᴉʇsǝnbǝɹ {{count}} ꞁꞁɐ ʍoꞁꞁɐ ꞁꞁᴉʍ sᴉɥ⊥ ¿ǝɹns noʎ ǝɹⱯ"
     },
-    "searchUser": {
-      "search": "˙˙˙ɥɔɹɐǝs"
-    },
+    "searchUser": { "search": "˙˙˙ɥɔɹɐǝs" },
     "soundEffectSettings": {
       "header": "spunoS",
       "title": "Sound Settings",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -197,10 +196,7 @@
       "linkText": "qnHʇᴉ⅁ uo ǝnssᴉ",
       "addSupport": "˙ǝɔᴉʌǝp ɹnoʎ ɹoɟ ʇɹoddns ƃuᴉppɐ ʎɹʇ ꞁꞁᴉʍ I puɐ"
     },
-    "inviteButton": {
-      "invited": "pǝʇᴉʌuᴉ",
-      "inviteToRoom": "ɯooɹ oʇ ǝʇᴉʌuᴉ"
-    },
+    "inviteButton": { "invited": "pǝʇᴉʌuᴉ", "inviteToRoom": "ɯooɹ oʇ ǝʇᴉʌuᴉ" },
     "micPermissionBanner": {
       "permissionDenied": "(ǝƃɐd ǝɥʇ pɐoꞁǝɹ puɐ sƃuᴉʇʇǝs ɹǝsʍoɹq oʇuᴉ oƃ oʇ pǝǝu ʎɐɯ noʎ) ɔᴉɯ ɹnoʎ ssǝɔɔɐ oʇ ƃuᴉʎɹʇ pǝᴉuǝp uoᴉssᴉɯɹǝԀ",
       "dismiss": "ssᴉɯsᴉp",
@@ -217,9 +213,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "uosɐǝɹ ǝɯos ɹoɟ ɹǝɯnsuoɔ oᴉpnɐ ou"
     },
-    "addToCalendar": {
-      "add": "ɹɐpuǝꞁɐƆ oʇ ppⱯ"
-    },
+    "addToCalendar": { "add": "ɹɐpuǝꞁɐƆ oʇ ppⱯ" },
     "wsKilled": {
       "description": "˙qɐʇ ɹǝɥʇouɐ uᴉ ǝʇᴉsqǝʍ ǝɥʇ uǝdo noʎ uǝɥʍ suǝddɐɥ ʎꞁꞁɐnsn sᴉɥ⊥ ˙ɹǝʌɹǝs ǝɥʇ ʎq pǝꞁꞁᴉʞ sɐʍ ʇǝʞɔoSqǝM",
       "reconnect": "ʇɔǝuuoɔǝɹ"
@@ -375,8 +369,6 @@
       "galacticDoge": "ǝƃoᗡ ɔᴉʇɔɐꞁɐ⅁",
       "spottedLife": "pǝʇʇods ǝɟᴉꞁ ɥʇᴉʍ ʇǝuɐꞁԀ"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

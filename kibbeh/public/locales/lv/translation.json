@@ -38,7 +38,12 @@
       "ban": "bloķēšana",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Lietotāju saraksts, kuri ir publiskā istabā un kuriem Jūs sekojat.",
@@ -100,9 +105,7 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "meklēšana..."
-    },
+    "searchUser": { "search": "meklēšana..." },
     "soundEffectSettings": {
       "header": "skaņas",
       "title": "Sound Settings",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -217,9 +216,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "nezināmu iemeslu dēļ, nav pieejama audiosaziņa"
     },
-    "addToCalendar": {
-      "add": "Pievienot kalendārā"
-    },
+    "addToCalendar": { "add": "Pievienot kalendārā" },
     "wsKilled": {
       "description": "Serveris iznīcināja WebSocket. Parasti tas notiek, kad jūs atverat mājaslapu citā logā.",
       "reconnect": "atkārtoti pievienoties"
@@ -375,8 +372,6 @@
       "galacticDoge": "Galaktiskais doge",
       "spottedLife": "Pamanīta planēta ar dzīvību radību"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

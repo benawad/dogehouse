@@ -38,7 +38,12 @@
       "ban": "бан",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
@@ -100,9 +105,7 @@
       "allowAll": "Разрешить всем",
       "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить"
     },
-    "searchUser": {
-      "search": "Поиск..."
-    },
+    "searchUser": { "search": "Поиск..." },
     "soundEffectSettings": {
       "header": "Звуки",
       "title": "Настройки звука",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -214,12 +213,8 @@
       "toggleOverlayKeybind": "переключить привязку клавиши оверлея",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "нет аудиосвязи"
-    },
-    "addToCalendar": {
-      "add": "Добавить в Календарь"
-    },
+    "userVolumeSlider": { "noAudioMessage": "нет аудиосвязи" },
+    "addToCalendar": { "add": "Добавить в Календарь" },
     "wsKilled": {
       "description": "Вебсокет был удален сервером. Обычно это происходит когда вы открываете сайт в другой вкладке.",
       "reconnect": "Переподключиться"
@@ -375,8 +370,6 @@
       "galacticDoge": "галактический Doge",
       "spottedLife": "замечена планета с жизнью"
     },
-    "feed": {
-      "yourFeed": "Ваша лента"
-    }
+    "feed": { "yourFeed": "Ваша лента" }
   }
 }

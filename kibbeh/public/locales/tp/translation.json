@@ -38,7 +38,12 @@
       "ban": "ken ala",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "jan ni li lon ala e tomo pi jan wan. sina lukin e jan ni.",
@@ -100,9 +105,7 @@
       "allowAll": "Ken jan ale e toki",
       "allowAllConfirm": "sina wile e ni? ni li ken jan ale {{count}} e toki."
     },
-    "searchUser": {
-      "search": "o lukin..."
-    },
+    "searchUser": { "search": "o lukin..." },
     "soundEffectSettings": {
       "header": "Kalama",
       "title": "Sound Settings",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -214,12 +213,8 @@
       "togglePushToTalkKeybind": "nena pi ante e \"utala la toki\"",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "ali li kute e kalama"
-    },
-    "addToCalendar": {
-      "add": "sitelen e ni lon lipu tenpo suno"
-    },
+    "userVolumeSlider": { "noAudioMessage": "ali li kute e kalama" },
+    "addToCalendar": { "add": "sitelen e ni lon lipu tenpo suno" },
     "wsKilled": {
       "description": "ilo pi pana sona li moli e linja sona. tenpo tu la sina open e lipu len ni la ni li kama.",
       "reconnect": "tenpo tu la o pali e linja sona."
@@ -375,8 +370,6 @@
       "galacticDoge": "soweli Doge lon kulupu suno",
       "spottedLife": "ona li lukin e ma. ma ni li jo e moli ala."
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

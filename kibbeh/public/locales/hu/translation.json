@@ -36,7 +36,12 @@
       "ban": "ban",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Követett felhasználók nyilvános szobában.",
@@ -98,9 +103,7 @@
       "allowAll": "Mindegyik engedélyezése",
       "allowAllConfirm": "Biztos benne? Ezzel engedélyezi mind a {{count}} felhasználónak, hogy beszéljen"
     },
-    "searchUser": {
-      "search": "keresés..."
-    },
+    "searchUser": { "search": "keresés..." },
     "soundEffectSettings": {
       "header": "Hangok",
       "title": "Hangbeállítások",
@@ -139,10 +142,7 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Átfedés beállítások"
     },
     "download": {
@@ -156,11 +156,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -255,12 +251,8 @@
         }
       }
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Valamilyen okból nincs hallgató"
-    },
-    "addToCalendar": {
-      "add": "Felvétel naptárba"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Valamilyen okból nincs hallgató" },
+    "addToCalendar": { "add": "Felvétel naptárba" },
     "keyboardShortcuts": {
       "setKeybind": "Gyorsbillentyű beállítása",
       "listening": "Hallgatás...",
@@ -337,9 +329,7 @@
       },
       "tommorow": "HOLNAP",
       "today": "MA",
-      "deleteModal": {
-        "areYouSure": "Biztosan törölné az ütemzett szobát?"
-      }
+      "deleteModal": { "areYouSure": "Biztosan törölné az ütemzett szobát?" }
     },
     "roomChat": {
       "title": "Chat",
@@ -372,8 +362,6 @@
       "galacticDoge": "Galaktikus Doge",
       "spottedLife": "Élhető bolygó felfedezve"
     },
-    "feed": {
-      "yourFeed": "Hírfolyamod"
-    }
+    "feed": { "yourFeed": "Hírfolyamod" }
   }
 }

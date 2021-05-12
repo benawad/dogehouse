@@ -37,7 +37,12 @@
       "ban": "แบน",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "ห้องสาธารณะที่ผู้คนที่คุณกำลังติดตามใช้งานอยู่",
@@ -99,9 +104,7 @@
       "allowAll": "อนุญาตทั้งหมด",
       "allowAllConfirm": "แน่ใจหรือไม่? คุณกำลังอนุมัติให้ผู้ใช้ {{count}} คน ขึ้นมาเป็นผู้พูด"
     },
-    "searchUser": {
-      "search": "ค้นหา..."
-    },
+    "searchUser": { "search": "ค้นหา..." },
     "soundEffectSettings": {
       "header": "การแจ้งเตือนเสียง",
       "title": "การตั้งค่าเสียง",
@@ -140,10 +143,7 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "App Title ไม่ถูกต้อง",
-        "label": "ใส่ App Title"
-      },
+      "input": { "errorMsg": "App Title ไม่ถูกต้อง", "label": "ใส่ App Title" },
       "header": "การตั้งค่าโอเวอร์เลย์"
     },
     "download": {
@@ -157,11 +157,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -213,12 +209,8 @@
       "toggleOverlayKeybind": "คีย์ลัด เปิด/ปิด โอเวอร์เลย์",
       "toggleDeafKeybind": "คีย์ลัด เปิด/ปิด เสียง"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "ไม่พบลำโพง"
-    },
-    "addToCalendar": {
-      "add": "เพิ่มไปยังปฏิทิน"
-    },
+    "userVolumeSlider": { "noAudioMessage": "ไม่พบลำโพง" },
+    "addToCalendar": { "add": "เพิ่มไปยังปฏิทิน" },
     "wsKilled": {
       "description": "ตัดการเชื่อมต่อโดยเซิร์ฟเวอร์ อาจจะเป็นเพราะการเปิดเว็บไซต์หลายหน้าจอ",
       "reconnect": "เชื่อมต่อใหม่อีกครั้ง"
@@ -339,9 +331,7 @@
       },
       "tommorow": "พรุ่งนี้",
       "today": "วันนี้",
-      "deleteModal": {
-        "areYouSure": "แน่ใจหรือไม่ที่จะลบกำหนดการนี้?"
-      }
+      "deleteModal": { "areYouSure": "แน่ใจหรือไม่ที่จะลบกำหนดการนี้?" }
     },
     "roomChat": {
       "title": "แชท",
@@ -374,8 +364,6 @@
       "galacticDoge": "ถึงกาแลคซี่แล้ว",
       "spottedLife": "พบดาวเอเลี่ยนแล้ว!"
     },
-    "feed": {
-      "yourFeed": "ฟีดของคุณ"
-    }
+    "feed": { "yourFeed": "ฟีดของคุณ" }
   }
 }

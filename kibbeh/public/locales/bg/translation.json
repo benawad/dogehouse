@@ -38,7 +38,12 @@
       "ban": "бан",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Списък от потребители, които не са в ",
@@ -100,9 +105,7 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "търсене..."
-    },
+    "searchUser": { "search": "търсене..." },
     "soundEffectSettings": {
       "header": "Звук",
       "title": "Sound Settings",
@@ -141,10 +144,7 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": {
-        "errorMsg": "Invalid app title",
-        "label": "Enter App Title"
-      },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
@@ -160,11 +160,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -199,10 +195,7 @@
       "linkText": "issue в GitHub",
       "addSupport": "и аз ще пробвам да добавя поддръжка за вашето устройство."
     },
-    "inviteButton": {
-      "invited": "поканен",
-      "inviteToRoom": "канене в стаята"
-    },
+    "inviteButton": { "invited": "поканен", "inviteToRoom": "канене в стаята" },
     "micPermissionBanner": {
       "permissionDenied": "Проблем с позволенията в браузъра (може да се наложи да отидете в настройките на браузъра и да презаредите страницата)",
       "dismiss": "отхвърляне",
@@ -219,9 +212,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "по някаква причина няма звуков консуматор"
     },
-    "addToCalendar": {
-      "add": "Добави към календар"
-    },
+    "addToCalendar": { "add": "Добави към календар" },
     "wsKilled": {
       "description": "WebSocket-а беше спрян от сървъра. Това обикновенно се случва, когато сайта е отворен в друг прозорец.",
       "reconnect": "повторно свързване"
@@ -377,8 +368,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

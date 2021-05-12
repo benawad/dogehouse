@@ -38,7 +38,12 @@
       "ban": "mamnuuc",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Liiska isticmaaleyaasha aan ku jirin qol gaar ah oo aad raacday.",
@@ -100,9 +105,7 @@
       "allowAll": "Dhammaan oggolow",
       "allowAllConfirm": "Ma hubtaa? Tani waxay u oggolaan doontaa dhammaan {{count}} Isticmaalayaasha inay codsadaan inay hadlaan"
     },
-    "searchUser": {
-      "search": "raadi..."
-    },
+    "searchUser": { "search": "raadi..." },
     "soundEffectSettings": {
       "header": "Codka",
       "title": "Sound Settings",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -217,9 +216,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"
     },
-    "addToCalendar": {
-      "add": "Ku dar Kalendarkaga"
-    },
+    "addToCalendar": { "add": "Ku dar Kalendarkaga" },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "dib ugu xirmo"
@@ -375,8 +372,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "meeraha laga helay nolasha"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

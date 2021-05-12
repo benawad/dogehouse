@@ -38,7 +38,12 @@
       "ban": "malpermeso",
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
       "listHeader": "Listo de uzantoj, kiuj ne estas en privata ĉambro kaj kiun vi sekvas.",
@@ -100,9 +105,7 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "serĉi..."
-    },
+    "searchUser": { "search": "serĉi..." },
     "soundEffectSettings": {
       "header": "Sonoj",
       "title": "Sound Settings",
@@ -158,11 +161,7 @@
     "privacySettings": {
       "title": "Privacy Settings",
       "header": "Privacy Settings",
-      "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -214,12 +213,8 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "neniu audio-konsumanto ial"
-    },
-    "addToCalendar": {
-      "add": "Aldoni al Kalendaro"
-    },
+    "userVolumeSlider": { "noAudioMessage": "neniu audio-konsumanto ial" },
+    "addToCalendar": { "add": "Aldoni al Kalendaro" },
     "wsKilled": {
       "description": "WebSocket estis mortigita de la servilo. Ĉi tio kutime okazas kiam vi malfermas la retejon en alia langeto.",
       "reconnect": "rekonekti"
@@ -375,8 +370,6 @@
       "galacticDoge": "Galaksia Doge",
       "spottedLife": "Planedo kun vivo ekvidita"
     },
-    "feed": {
-      "yourFeed": "Your Feed"
-    }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }
