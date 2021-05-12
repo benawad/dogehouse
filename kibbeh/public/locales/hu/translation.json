@@ -34,14 +34,14 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
       "ban": "ban",
-      "userStaffandContrib": "User Staff & Contributions",
+      "userStaffandContrib": "Staff & Hozzájáruló felhasználók",
       "staff": "Staff: ",
-      "contributions": "Contributions",
-      "username": "Username",
-      "usrStaff": "User Staff",
-      "usrContributions": "User Contributions",
-      "reason": "reason",
-      "usernamePlaceholder": "username to perform actions on"
+      "contributions": "Hozzájárulók",
+      "username": "Felhasználónév",
+      "usrStaff": "Staff felhasználó",
+      "usrContributions": "DogeHouse hozzájáruló",
+      "reason": "oka",
+      "usernamePlaceholder": "felhasználónév a műveletek végrehajtásához"
     },
     "followingOnlineList": {
       "listHeader": "Követett felhasználók nyilvános szobában.",
@@ -50,11 +50,11 @@
       "title": "People"
     },
     "followList": {
-      "followHim": "követés",
-      "followingHim": "követve",
-      "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "followHim": "Követés",
+      "followingHim": "Követve",
+      "title": "Felhasználók",
+      "followingNone": "Nem követ senkit",
+      "noFollowers": "Nincsenek követők"
     },
     "home": {
       "createRoom": "Szoba létrehozása",
@@ -107,7 +107,7 @@
     "soundEffectSettings": {
       "header": "Hangok",
       "title": "Hangbeállítások",
-      "playSound": "Play Sound"
+      "playSound": "Hang lejátszása"
     },
     "viewUser": {
       "editProfile": "Fiók szerkesztése",
@@ -154,9 +154,9 @@
       "download_for": "Letöltés %platform%-ra (%ext%)"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
-      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+      "title": "Személyes tér beállítások",
+      "header": "Személyes tér",
+      "whispers": { "label": "Whispers", "on": "Be", "off": "Ki" }
     }
   },
   "components": {
@@ -245,9 +245,9 @@
         "chatCooldown": "Chat Cooldown (milliseconds)",
         "chat": {
           "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "enabled": "Bekapcsolva",
+          "disabled": "Kikapcsolva",
+          "followerOnly": "Csak követők"
         }
       }
     },
@@ -305,12 +305,12 @@
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
-      "dhContributor": "DogeHouse Contributor"
+      "dhContributor": "DogeHouse Hozzájáruló"
     },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "Üzenetek",
+      "showMore": "Több megjelenítése",
+      "noMessages": "Nincsenek új üzenetek"
     }
   },
   "modules": {
@@ -345,9 +345,9 @@
       "roomDescription": "Szoba leírása",
       "disabled": "Chat letiltva",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "Üzenet",
+        "retracted": "visszavonva",
+        "deleted": "törölve"
       }
     },
     "roomStatus": {
