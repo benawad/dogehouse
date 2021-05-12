@@ -28,7 +28,7 @@ export const ProfileScheduled: React.FC<ProfileScheduledProps> = ({
       .then((res: any) => {
         setScheduledRooms(res.rooms);
       });
-  }, []);
+  }, [user.id]);
 
   return (
     <div
