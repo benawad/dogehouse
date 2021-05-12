@@ -73,7 +73,10 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
       >
         <div className={`flex justify-between`}>
           <div className="flex w-full">
-            <div className="flex flex-1 font-bold text-ellipsis overflow-hidden break-all mb-4">
+            <div
+              className="flex flex-1 font-bold text-ellipsis overflow-hidden break-all mb-4"
+              data-testid={`scheduledroom:name:${name}`}
+            >
               {name}
             </div>
             <div className="flex gap-2">

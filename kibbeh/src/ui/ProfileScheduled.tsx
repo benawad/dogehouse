@@ -46,7 +46,9 @@ const List = ({
 
   if (isOnlyPage && data.rooms.length === 0) {
     return (
-      <div className={`mt-8 text-xl ml-4`}>
+      <div
+        className={`mt-2 bg-primary-800 p-4 rounded-8 w-full leading-8 text-primary-100`}
+      >
         {t("modules.scheduledRooms.noneFound")}
       </div>
     );

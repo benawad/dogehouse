@@ -43,6 +43,7 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
                ${activeTab === "about" && `border-accent text-accent`} ${
             !tabs.about ? "hidden" : ""
           }`}
+          data-testid={`user:${user.username}:tab:about`}
           onClick={() => setActiveTab("about")}
         >
           {t("pages.viewUser.profileTabs.about")}
@@ -53,6 +54,7 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
                ${activeTab === "rooms" && `border-accent text-accent`} ${
             !tabs.rooms ? "hidden" : ""
           }`}
+          data-testid={`user:${user.username}:tab:rooms`}
           onClick={() => setActiveTab("rooms")}
         >
           {t("pages.viewUser.profileTabs.rooms")}
@@ -63,6 +65,7 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
             !tabs.scheduled ? "hidden" : ""
           }`}
           onClick={() => setActiveTab("scheduled")}
+          data-testid={`user:${user.username}:tab:scheduled`}
         >
           {t("pages.viewUser.profileTabs.scheduled")}
         </button>
@@ -72,6 +75,7 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
             !tabs.recorded ? "hidden" : ""
           }`}
           onClick={() => setActiveTab("recorded")}
+          data-testid={`user:${user.username}:tab:recorded`}
         >
           {t("pages.viewUser.profileTabs.recorded")}
         </button>
@@ -81,6 +85,7 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
             !tabs.clips ? "hidden" : ""
           }`}
           onClick={() => setActiveTab("clips")}
+          data-testid={`user:${user.username}:tab:clips`}
         >
           {t("pages.viewUser.profileTabs.clips")}
         </button>
