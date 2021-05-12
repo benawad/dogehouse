@@ -18,6 +18,8 @@ const user: UserWithFollowInfo = {
   bannerUrl: "",
   numFollowers: 696969,
   numFollowing: 0,
+  staff: true,
+  contributions: 100,
 };
 
 export const ScheduledTabActive: Story<ProfileTabsProps> = ({}) => {

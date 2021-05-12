@@ -15,13 +15,18 @@ defmodule BrothTest.Message.User.AdminUpdateTest do
               %{
                 payload: %AdminUpdate{
                   username: ^username,
-                  staff: true,
-                  contributions: 100
+                  user: %{
+                    staff: true,
+                    contributions: 100
+                  }
                 }
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:admin_update",
-                 "payload" => %{"username" => username, "staff" => true, "contributions" => 100},
+                 "payload" => %{
+                   "username" => username,
+                   "user" => %{"staff" => true, "contributions" => 100}
+                 },
                  "reference" => UUID.uuid4()
                })
 
@@ -30,13 +35,18 @@ defmodule BrothTest.Message.User.AdminUpdateTest do
               %{
                 payload: %AdminUpdate{
                   username: ^username,
-                  staff: true,
-                  contributions: 100
+                  user: %{
+                    staff: true,
+                    contributions: 100
+                  }
                 }
               }} =
                BrothTest.Support.Message.validate(%{
                  "op" => "user:admin_update",
-                 "p" => %{"username" => username, "staff" => true, "contributions" => 100},
+                 "p" => %{
+                   "username" => username,
+                   "user" => %{"staff" => true, "contributions" => 100}
+                 },
                  "ref" => UUID.uuid4()
                })
     end
@@ -45,7 +55,7 @@ defmodule BrothTest.Message.User.AdminUpdateTest do
       assert {:error, %{errors: %{username: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:admin_update",
-                 "payload" => %{"staff" => true, "contributions" => 100},
+                 "payload" => %{"user" => %{"staff" => true, "contributions" => 100}},
                  "reference" => UUID.uuid4()
                })
     end
@@ -55,7 +65,10 @@ defmodule BrothTest.Message.User.AdminUpdateTest do
               %{errors: [reference: {"is required for Broth.Message.User.AdminUpdate", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:admin_update",
-                 "payload" => %{"username" => username, "staff" => true, "contributions" => 100}
+                 "payload" => %{
+                   "username" => username,
+                   "user" => %{"staff" => true, "contributions" => 100}
+                 }
                })
     end
 
@@ -69,7 +82,10 @@ defmodule BrothTest.Message.User.AdminUpdateTest do
               }} =
                BrothTest.Support.Message.validate(%{
                  "op" => "user:admin_update",
-                 "p" => %{"username" => username, "contributions" => 100},
+                 "p" => %{
+                   "username" => username,
+                   "user" => %{"contributions" => 100}
+                 },
                  "ref" => UUID.uuid4()
                })
     end
@@ -84,7 +100,10 @@ defmodule BrothTest.Message.User.AdminUpdateTest do
               }} =
                BrothTest.Support.Message.validate(%{
                  "op" => "user:admin_update",
-                 "p" => %{"username" => username, "staff" => true},
+                 "p" => %{
+                   "username" => username,
+                   "user" => %{"staff" => true}
+                 },
                  "ref" => UUID.uuid4()
                })
     end
