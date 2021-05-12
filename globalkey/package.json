@@ -1,5 +1,5 @@
 {
-  "name": "globalkey",
+  "name": "@dogehouse/globalkey",
   "version": "1.0.7",
   "main": "dist/index.node",
   "types": "index.d.ts",
