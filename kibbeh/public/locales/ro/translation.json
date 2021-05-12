@@ -34,7 +34,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "blochează" },
+    "admin": {
+      "ban": "blochează",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Lista utilizatorilor care nu se află într-o cameră privată și pe care o urmăriți.",
       "currentRoom": "Deocamdată în:",
@@ -134,7 +144,10 @@
       "title": "Setări Voce"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Titlul de aplicație nu este valid", "label": "Introduceți Titlul Aplicației" },
+      "input": {
+        "errorMsg": "Titlul de aplicație nu este valid",
+        "label": "Introduceți Titlul Aplicației"
+      },
       "header": "Setări de suprapunere"
     },
     "download": {
@@ -148,7 +161,11 @@
     "privacySettings": {
       "title": "Setări de Confidențialitate",
       "header": "Setări de Confidențialitate",
-      "whispers": { "label": "Mesaje Private", "on": "Pornite", "off": "Oprite" }
+      "whispers": {
+        "label": "Mesaje Private",
+        "on": "Pornite",
+        "off": "Oprite"
+      }
     }
   },
   "components": {
@@ -296,6 +313,10 @@
         "stopDebugger": "Oprește Testul"
       },
       "downloadApp": "Descarcă Aplicația"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Mesaje",

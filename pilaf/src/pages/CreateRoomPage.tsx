@@ -111,7 +111,7 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
             <ScrollView keyboardShouldPersistTaps="handled">
               <Text style={styles.titleText}>Create Room</Text>
               <Text style={styles.descriptionText}>
-                Fill the following fileds to start a new room
+                Fill the following fields to start a new room
               </Text>
               <TextInput
                 placeholder={"Room name"}

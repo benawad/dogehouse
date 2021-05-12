@@ -34,7 +34,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Zabanovat" },
+    "admin": {
+      "ban": "Zabanovat",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Seznam uživatelů které sleduješ a nejsou v soukromé místnosti",
       "currentRoom": "Právě v:",
@@ -305,6 +315,10 @@
         "stopDebugger": "Zastavit ladění"
       },
       "downloadApp": "Stáhnout aplikaci"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Zprávy",

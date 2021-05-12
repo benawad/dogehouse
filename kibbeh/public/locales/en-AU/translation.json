@@ -34,7 +34,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "uɐq" },
+    "admin": {
+      "ban": "uɐq",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "˙ʍoꞁꞁoɟ noʎ puɐ ɯooɹ ǝʇɐʌᴉɹd ɐ uᴉ ʇou ǝɹɐ ʇɐɥʇ sɹǝsn ɟo ʇsᴉꞀ",
       "currentRoom": ":uᴉ ʎꞁʇuǝɹɹnɔ",
@@ -296,6 +306,10 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",

@@ -22,7 +22,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
       content: "ƉS",
       variant: "primary",
       color: "white",
-      title: "DogeHouse Staff",
+      title: t("components.userBadges.dhStaff"),
     });
   }
   if (user.contributions > 0) {
@@ -30,7 +30,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
       content: "ƉC",
       variant: "primary",
       color: "white",
-      title: "DogeHouse Contributor",
+      title: t("components.userBadges.dhContributor"),
     });
   }
 

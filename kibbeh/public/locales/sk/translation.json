@@ -33,7 +33,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "zabanovať" },
+    "admin": {
+      "ban": "zabanovať",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Zoznam používateľov ktorých sleduješ a niesú v súkromnej miestnosti",
       "currentRoom": "aktuálne v:",
@@ -298,6 +308,10 @@
         "stopDebugger": "Zastaviť Debugger"
       },
       "downloadApp": "Stiahnuť aplikáciu"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",

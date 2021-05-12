@@ -26,16 +26,17 @@
 
 ## Structure
 
-| Codebase             |      Description      |
-| :------------------- | :-------------------: |
-| [kousa](kousa)       |      Elixir API       |
-| [shawarma](shawarma) |     Voice Server      |
-| [dinner](dinner)     | Puppeteer shenanigans |
-| [baklava](baklava)   |   Electron Wrapper    |
-| [pilaf](pilaf)       |   React Native App    |
-| [kibbeh](kibbeh)     |   Next.js frontend    |
-| [kebab](kebab)       |      API Client       |
-| [dolma](dolma)       | Chat Token Transcoder |
+| Codebase              |      Description          |
+| :-------------------- | :-----------------------: |
+| [kousa](kousa)        |      Elixir API           |
+| [shawarma](shawarma)  |     Voice Server          |
+| [dinner](dinner)      | Puppeteer shenanigans     |
+| [baklava](baklava)    |   Electron Wrapper        |
+| [pilaf](pilaf)        |   React Native App        |
+| [kibbeh](kibbeh)      |   Next.js frontend        |
+| [kebab](kebab)        |      API Client           |
+| [dolma](dolma)        | Chat Token Transcoder     |
+| [globalkey](globalkey)| [Baklava](baklava)'s Global Keystroke Listener |
 
 
 ## Branches

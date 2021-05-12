@@ -33,7 +33,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "禁言" },
+    "admin": {
+      "ban": "禁言",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "你追蹤的且不在私人房間內的使用者",
       "currentRoom": "目前的房間:",
@@ -284,6 +294,10 @@
       "logOut": { "button": "登出", "modalSubtitle": "你確定要登出嗎？" },
       "debugAudio": { "debugAudio": "除錯音頻", "stopDebugger": "停止除錯" },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",
