@@ -34,7 +34,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "taqiqlash" },
+    "admin": {
+      "ban": "taqiqlash",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Yopiq xonada bo'lmagan va siz obuna bo'lgan foydalanuvchilar ro'yxati.",
       "currentRoom": "Hozirgi xona",
@@ -297,6 +307,10 @@
     "upcomingRoomsCard": {
       "upcomingRooms": "Yaqinlashib kelayotgan xonalar",
       "exploreMoreRooms": "Boshqa xonalarni izlanish"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",

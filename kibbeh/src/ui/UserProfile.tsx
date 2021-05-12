@@ -24,11 +24,11 @@ export const UserProfile: React.FC<UserProfileProps> = ({
       content: "ƉS",
       variant: "primary",
       color: "white",
-      title: "DogeHouse Staff",
+      title: t("components.userBadges.dhStaff"),
     });
     tags.push({
       icon: "dogeStaff",
-      children: "DogeHouse Staff",
+      children: t("components.userBadges.dhStaff"),
     });
   }
   if (user.contributions > 0) {
@@ -36,11 +36,11 @@ export const UserProfile: React.FC<UserProfileProps> = ({
       content: "ƉC",
       variant: "primary",
       color: "white",
-      title: "DogeHouse Contributor",
+      title: t("components.userBadges.dhContributor"),
     });
     tags.push({
       icon: "dogeContributor",
-      children: "DogeHouse Contributor",
+      children: t("components.userBadges.dhContributor"),
     });
   }
 

@@ -34,7 +34,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ব্যান করুন" },
+    "admin": {
+      "ban": "ব্যান করুন",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "যেসব ইউজারকে আপনি অনুসরণ করেন কিন্তু এখন তারা কোনো প্রাইভেট রুম এ নেই।",
       "currentRoom": "ভেতরে আছেন:",
@@ -301,6 +311,10 @@
         "stopDebugger": "ডিবাগার বন্ধ করুন"
       },
       "downloadApp": "ডাউনলোড করুন অ্যাপ্লিকেশনটি"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",
