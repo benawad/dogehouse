@@ -37,9 +37,16 @@
     "followingOnlineList": {
       "listHeader": "Lista de usuários que você segue que não estão em uma sala privada.",
       "currentRoom": "atualmente em:",
-      "startPrivateRoom": "iniciar uma sala privada com ele"
+      "startPrivateRoom": "iniciar uma sala privada com ele",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Criar Sala",
       "refresh": "Atualizar",
@@ -90,7 +97,8 @@
     "searchUser": { "search": "buscar..." },
     "soundEffectSettings": {
       "header": "Sons",
-      "title": "Configurações de áudio"
+      "title": "Configurações de áudio",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "editar perfil",
@@ -121,7 +129,8 @@
       "mic": "microfone:",
       "permissionError": "não foram encontrados microfones, você não conectou um ou você não deu permissão para este website.",
       "refresh": "recarregar lista de microfones",
-      "volume": "volume:"
+      "volume": "volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -137,6 +146,11 @@
       "prompt": "Clique no botão abaixo para começar a baixar",
       "download_now": "Baixe agora",
       "download_for": "Baixe para %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -212,7 +226,8 @@
         "goBackToListener": "voltar para ouvinte",
         "deleteMessage": "excluir essa mensagem",
         "makeRoomCreator": "criar sala de administração",
-        "unBanFromChat": "Desbanir do chat"
+        "unBanFromChat": "Desbanir do chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "precisar de permissão para falar",
@@ -220,7 +235,14 @@
         "makePrivate": "fazer a sala privada",
         "renamePublic": "Definir nome da sala pública",
         "renamePrivate": "Definir nome da sala privada",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": { "noAudioMessage": "não tem áudio por algum motivo" },
@@ -274,6 +296,11 @@
         "stopDebugger": "Parar debug"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -308,7 +335,12 @@
       "whisper": "Sussurrar",
       "welcomeMessage": "Bem vindo ao chat!",
       "roomDescription": "descrição da sala",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Abastecendo foguete",

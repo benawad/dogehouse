@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Gizli otaqda olmayan və sizin izlədiyiniz istifadəçilər",
       "currentRoom": "Hazırda:",
-      "startPrivateRoom": "Gizli otaq yaradın"
+      "startPrivateRoom": "Gizli otaq yaradın",
+      "title": "People"
     },
-    "followList": { "followHim": "İzlə", "followingHim": "İzlənir" },
+    "followList": {
+      "followHim": "İzlə",
+      "followingHim": "İzlənir",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Otaq yaratmaq",
       "refresh": "Yenilə",
@@ -89,7 +96,11 @@
       "allowAllConfirm": "Təsdiqləyirsiniz? Bu seçim {{count}} istifadəçiyə danışma haqqı verəcəkdir"
     },
     "searchUser": { "search": "Axtarış..." },
-    "soundEffectSettings": { "header": "Səslər", "title": "Səs paratmertləri" },
+    "soundEffectSettings": {
+      "header": "Səslər",
+      "title": "Səs paratmertləri",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profildə düzəliş et",
       "followsYou": "Sizi izləyənlər",
@@ -119,7 +130,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Mikrofon tapılmadı, ya mikrofonu taxmamısınız ya da sayt üçün lazımlı icazəni verməmisiniz.",
       "refresh": "Yenilə",
-      "volume": "Səs:"
+      "volume": "Səs:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -137,6 +149,11 @@
       "prompt": "Aşağıdakı düyməyə basaraq yükləməni başladın",
       "download_now": "İndi yüklə",
       "download_for": "{{platform}} üçün yüklə"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -237,7 +254,8 @@
         "goBackToListener": "Dinləyiciyə geri qayıt",
         "deleteMessage": "Bu mesajı sil",
         "makeRoomCreator": "Otaq admini et",
-        "unBanFromChat": "Çatdan banı ləğv et"
+        "unBanFromChat": "Çatdan banı ləğv et",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Danışmaq üçün icazə istə",
@@ -245,7 +263,14 @@
         "makePrivate": "Otağı gizli et",
         "renamePublic": "Hərkəsə açıq otaq adı quraşdır",
         "renamePrivate": "Gizli otaq adı quraşdır",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -276,6 +301,11 @@
         "stopDebugger": "İncələmən dayandır"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -311,7 +341,12 @@
       "whisper": "Pıçıltı",
       "welcomeMessage": "Çata xoş gəlmisiniz!",
       "roomDescription": "Otaq haqqında",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Roket yanacağı doldurulur.",

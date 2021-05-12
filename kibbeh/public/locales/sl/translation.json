@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Seznam uporabnikov, ki jim sledite in niso v zasebni sobi.",
       "currentRoom": "Trenutno v:",
-      "startPrivateRoom": "Začnite zasebno sobo s tem uporabnikom"
+      "startPrivateRoom": "Začnite zasebno sobo s tem uporabnikom",
+      "title": "People"
     },
-    "followList": { "followHim": "sledi", "followingHim": "sledijo" },
+    "followList": {
+      "followHim": "sledi",
+      "followingHim": "sledijo",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Ustvarite sobo",
       "refresh": "Osvežite",
@@ -89,7 +96,11 @@
       "allowAllConfirm": "Ste prepričani? To bo omogočilo vsem {{count}}, ki zahtevajo, da govorijo"
     },
     "searchUser": { "search": "Iskanje..." },
-    "soundEffectSettings": { "header": "Zvoki", "title": "Nastavitve zvoka" },
+    "soundEffectSettings": {
+      "header": "Zvoki",
+      "title": "Nastavitve zvoka",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Uredite profil",
       "followsYou": "ti sledijo",
@@ -119,7 +130,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Mikrofona ni bilo mogoče najti. Morda ni priključen ali pa stran nima potrebnih pravic.",
       "refresh": "Osvežite seznam mikrofonov",
-      "volume": "Glasnost:"
+      "volume": "Glasnost:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -135,6 +147,11 @@
       "prompt": "Za začetek prenosa kliknite spodnji gumb",
       "download_now": "Prenesite zdaj",
       "download_for": "Prenesite za %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -235,7 +252,8 @@
         "goBackToListener": "Nazaj k poslušalcem",
         "deleteMessage": "Izbrišite sporočilo ",
         "makeRoomCreator": "Nastavite kot administratorja sobe",
-        "unBanFromChat": "Prekličite odstranitev iz klepeta"
+        "unBanFromChat": "Prekličite odstranitev iz klepeta",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Potrebno dovoljenje za govor",
@@ -243,7 +261,14 @@
         "makePrivate": "Naredite sobo zasebno",
         "renamePublic": "Nastavite javno ime sobe",
         "renamePrivate": "Nastavite zasebno ime sobe",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -274,6 +299,11 @@
         "stopDebugger": "Ustavite razhroščevalec"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -309,7 +339,12 @@
       "whisper": "Šepetajte",
       "welcomeMessage": "Pozdravljeni v klepetu!",
       "roomDescription": "Opis sobe",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Natakanje goriva v raketo",

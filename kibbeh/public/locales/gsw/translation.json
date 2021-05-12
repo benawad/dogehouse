@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Benutzer, wo du fougsch, aber nid imne private Ruum si.",
       "currentRoom": "Grad in:",
-      "startPrivateRoom": "En private Ruum mit däm Benutzer starte"
+      "startPrivateRoom": "En private Ruum mit däm Benutzer starte",
+      "title": "People"
     },
-    "followList": { "followHim": "Folge", "followingHim": "Am folge" },
+    "followList": {
+      "followHim": "Folge",
+      "followingHim": "Am folge",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Ruum erstelle",
       "refresh": "Aktualisiere",
@@ -89,7 +96,11 @@
       "allowAllConfirm": "Bisch der sicher? Das wird all {{count}} Benutzer wo wennd rede dBerechtigung dazue gäh"
     },
     "searchUser": { "search": "Sueche..." },
-    "soundEffectSettings": { "header": "Ton", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Ton",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profil bearbeite",
       "followsYou": "folgt dir",
@@ -119,7 +130,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Keis Mikrofon gfunge, es isch entweder keis agschlosse oder die Site het nid die nötige Berechtigunge.",
       "volume": "Luutsterchi:",
-      "refresh": "Mikrofonliste aktualisiere"
+      "refresh": "Mikrofonliste aktualisiere",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -132,6 +144,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -208,7 +225,8 @@
         "goBackToListener": "Zrügg zum Zuehörer",
         "deleteMessage": "Nachricht lösche",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Rede verlange",
@@ -216,7 +234,14 @@
         "makePrivate": "Ruum privat mache",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": {
@@ -268,6 +293,11 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -303,7 +333,12 @@
       "whisper": "Flüstere",
       "welcomeMessage": "Willkomme im Chat!",
       "roomDescription": "Ruumbeschribig",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Ragete wird tankt",

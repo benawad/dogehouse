@@ -38,9 +38,16 @@
     "followingOnlineList": {
       "listHeader": "Lietotāju saraksts, kuri ir publiskā istabā un kuriem Jūs sekojat.",
       "currentRoom": "Pašlaik istabā:",
-      "startPrivateRoom": "Izveidot privātu istabu ar viņiem"
+      "startPrivateRoom": "Izveidot privātu istabu ar viņiem",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Izveidot istabu",
       "refresh": "Atjaunot",
@@ -89,7 +96,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "meklēšana..." },
-    "soundEffectSettings": { "header": "skaņas", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "skaņas",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "rediģēt profilu",
       "followsYou": "seko jums",
@@ -119,7 +130,8 @@
       "mic": "mikrofons:",
       "permissionError": "mikrofons nav atrasts, tas nav pieslēgts vai pārlūkam nav atbilstošās atļaujas.",
       "refresh": "atjaunināt mikrofonu sarakstu",
-      "volume": "skaļums:"
+      "volume": "skaļums:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",
@@ -135,6 +147,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -235,7 +252,8 @@
         "goBackToListener": "kļūt par klausītāju",
         "deleteMessage": "izdzēst šo ziņu",
         "makeRoomCreator": "iestatīt par šis istabas administrātoru",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "pieprasīt runāšanas atļauju",
@@ -243,7 +261,14 @@
         "makePrivate": "padarīt istabu privātu",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -274,6 +299,11 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -309,7 +339,12 @@
       "whisper": "Čukstēt",
       "welcomeMessage": "Laipni lūgti čatā!",
       "roomDescription": "istabas apraksts",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Raķetes uzpilde",

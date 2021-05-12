@@ -9,4 +9,6 @@ export const sampleBaseUser = {
   bio: "Software Consultant | YouTuber \r\n| React.js and GraphQL Enthusiast ",
   avatarUrl: "https://avatars.githubusercontent.com/u/7872329?v=4",
   bannerUrl: "https://avatars.githubusercontent.com/u/7872329?v=4",
+  staff: false,
+  contributions: 0,
 } as const;
