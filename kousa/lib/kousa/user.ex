@@ -76,48 +76,17 @@ defmodule Kousa.User do
     end
   end
 
-  def admin_update_with(username_to_change, staff, contributions, opts) do
+  def admin_update_with(changeset, admin) do
     authorized_github_id = Application.get_env(:kousa, :ben_github_id, "")
 
-    with %{githubId: ^authorized_github_id} <- Users.get_by_id(opts[:admin_id]) do
-      user_to_change = Users.get_by_username(username_to_change)
+    with %{githubId: ^authorized_github_id} <- admin do
+      case Users.update(changeset) do
+        {:ok, user} ->
+          {:ok, user}
 
-      cond do
-        not is_nil(staff) and not is_nil(contributions) ->
-          case user_to_change
-               |> User.admin_update_changeset(%{
-                 staff: staff,
-                 contributions: contributions
-               })
-               |> Users.update() do
-            {:ok, _} ->
-              :ok
-          end
-
-        not is_nil(staff) and is_nil(contributions) ->
-          case user_to_change
-               |> User.admin_update_changeset(%{
-                 staff: staff,
-                 contributions: user_to_change.contributions
-               })
-               |> Users.update() do
-            {:ok, _} ->
-              :ok
-          end
-
-        is_nil(staff) and not is_nil(contributions) ->
-          case user_to_change
-               |> User.admin_update_changeset(%{
-                 staff: user_to_change.staff,
-                 contributions: contributions
-               })
-               |> Users.update() do
-            {:ok, _} ->
-              :ok
-          end
+        error ->
+          error
       end
-
-      :ok
     else
       _ ->
         {:error, "not authorized"}
