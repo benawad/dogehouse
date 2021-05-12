@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
+import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import useWindowSize from "../../shared-hooks/useWindowSize";
 import { ProfileBlock } from "../../ui/ProfileBlock";
 import { UpcomingRoomsCard } from "../../ui/UpcomingRoomsCard";
-import { UserSummaryCard } from "../../ui/UserSummaryCard";
+import { badge, UserSummaryCard } from "../../ui/UserSummaryCard";
 import { CreateScheduleRoomModal } from "../scheduled-rooms/CreateScheduledRoomModal";
 import { EditProfileModal } from "../user/EditProfileModal";
 import { MinimizedRoomCardController } from "./MinimizedRoomCardController";
@@ -27,6 +28,34 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
   const { push } = useRouter();
   const update = useTypeSafeUpdateQuery();
   const { height } = useWindowSize();
+  const { t } = useTypeSafeTranslation();
+
+  const badges: badge[] = [];
+  if (conn.user.staff) {
+    badges.push({
+      content: "ƉS",
+      variant: "primary",
+      color: "white",
+      title: t("components.userBadges.dhStaff"),
+    });
+  }
+  if (conn.user.contributions > 0) {
+    badges.push({
+      content: "ƉC",
+      variant: "primary",
+      color: "white",
+      title: t("components.userBadges.dhContributor"),
+    });
+  }
+
+  if (conn.user.botOwnerId) {
+    badges.push({
+      content: t("pages.viewUser.bot"),
+      variant: "primary",
+      color: "white",
+      title: t("pages.viewUser.bot"),
+    });
+  }
 
   useEffect(() => {
     if (height && height < 780) {
@@ -74,7 +103,7 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
           ) : (
             <UserSummaryCard
               onClick={() => setShowEditProfileModal(true)}
-              badges={[]}
+              badges={badges}
               website=""
               isOnline={false}
               {...conn.user}

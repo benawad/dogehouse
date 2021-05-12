@@ -22,9 +22,9 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Microfon dezactivat | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
+    "deafenedTitle": "Sunet dezactivat | DogeHouse",
     "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "connectionTaken": "Conexiune Luată"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -34,25 +34,35 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "blochează" },
+    "admin": {
+      "ban": "blochează",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Lista utilizatorilor care nu se află într-o cameră privată și pe care o urmăriți.",
       "currentRoom": "Deocamdată în:",
       "startPrivateRoom": "Începe o cameră privată cu ei",
-      "title": "People"
+      "title": "Persoane"
     },
     "followList": {
-      "followHim": "follow",
-      "followingHim": "following",
-      "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "followHim": "Urmărește",
+      "followingHim": "Urmărind",
+      "title": "Persoane",
+      "followingNone": "Nu urmărești pe nimeni",
+      "noFollowers": "Nu ai urmăritorii"
     },
     "home": {
       "createRoom": "Creează cameră",
       "refresh": "Refresh",
       "editRoom": "Editeaza cameră",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "Descarcă aplicația DogeHouse pentru desktop!"
     },
     "inviteList": {
       "roomGone": "Camera a dispărut, du-te înapoi",
@@ -66,12 +76,12 @@
       "featureText_2": "Deschide Sign-Upuri",
       "featureText_3": "Suport pe mai multe platformeorm",
       "featureText_4": "Sursa deschisa",
-      "featureText_5": "Chat Text",
+      "featureText_5": "Conversație Text",
       "featureText_6": "Alimentat de Doge",
       "loginGithub": "Autentificare cu GitHub",
       "loginTwitter": "Autentificare cu Twitter",
       "createTestUser": "Creare utilizatori de test",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "Autentificare cu Discord"
     },
     "myProfile": {
       "logout": "Deconectați-vă",
@@ -81,7 +91,7 @@
       "deleteAccount": "Şterge cont",
       "overlaySettings": "Accesați setările de suprapunere",
       "couldNotFindUser": "Scuze, noi nu am putut gasi acel utilizatori",
-      "privacySettings": "Privacy settings"
+      "privacySettings": "Setări de Confidențialitate"
     },
     "notFound": {
       "whoopsError": "Ups! Această pagină a fost pierdută în conversație.",
@@ -93,7 +103,7 @@
       "requestingToSpeak": "Cere să vorbească",
       "listeners": "Ascultători",
       "allowAll": "Permiteți-le pe toate",
-      "allowAllConfirm": "Esti sigur? Asta ar lasa toti {{count}} utilizatori sa vorbeasca"
+      "allowAllConfirm": "Esti sigur? Asta ar lăsa toti {{count}} utilizatori sa vorbeasca"
     },
     "searchUser": { "search": "caută..." },
     "soundEffectSettings": {
@@ -105,24 +115,24 @@
       "editProfile": "Editează profil",
       "followsYou": "Te urmărește",
       "followers": "Urmăritori",
-      "following": "Urmărește",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow",
-      "about": "About",
+      "following": "Urmărind",
+      "followHim": "Urmărește",
+      "followingHim": "Urmărind",
+      "copyProfileUrl": "copiați adresa profilului",
+      "urlCopied": "adresă copiată",
+      "unfollow": "Oprește urmărirea",
+      "about": "Despre",
       "bot": "Bot",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips"
+        "about": "Despre",
+        "rooms": "Camere",
+        "scheduled": "Programate",
+        "recorded": "Înregistrate",
+        "clips": "Clipuri"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM",
+      "block": "Blochează",
+      "unblock": "Deblochează",
+      "sendDM": "Trimite mesaj privat",
       "aboutSuffix": ""
     },
     "voiceSettings": {
@@ -131,24 +141,31 @@
       "permissionError": "Nu au fost găsite microfoane - ori nu ai unul conectat ori pagina aceasta nu are permisiune.",
       "refresh": "Reîmprospătează lista de microfoane",
       "volume": "Volum:",
-      "title": "Voice Settings"
+      "title": "Setări Voce"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "input": {
+        "errorMsg": "Titlul de aplicație nu este valid",
+        "label": "Introduceți Titlul Aplicației"
+      },
+      "header": "Setări de suprapunere"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "starting": "Începere descărcarea...",
+      "failed": "Nu s-a putut descărca automat, încercați mai târziu",
+      "visit_gh": "Vizitați Github",
+      "prompt": "Apăsați pe butonul de mai jos pentru a începe descărcarea",
+      "download_now": "Descărcați Acum",
+      "download_for": "Descărcați pentru %platform% (%ext%)"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
-      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+      "title": "Setări de Confidențialitate",
+      "header": "Setări de Confidențialitate",
+      "whispers": {
+        "label": "Mesaje Private",
+        "on": "Pornite",
+        "off": "Oprite"
+      }
     }
   },
   "components": {
@@ -195,17 +212,17 @@
     "keyboardShortcuts": {
       "setKeybind": "Setează keybind",
       "listening": "Ascultare",
-      "toggleMuteKeybind": "Keybind comută mut",
+      "toggleMuteKeybind": "Keybind comută microfon",
       "togglePushToTalkKeybind": "Keybind comută push-to-talk",
-      "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleOverlayKeybind": "keybind comută suprapunere",
+      "toggleDeafKeybind": "Keybind comută sunet"
     },
     "userVolumeSlider": {
       "noAudioMessage": "niciun consumator audio dintr-un motiv oarecare"
     },
     "addToCalendar": { "add": "Adaugă în Calendar" },
     "wsKilled": {
-      "description": "Websocket a fost omorât de către server. Asta se întamplă de obicei cănd website-ul este deschis în altă filă.",
+      "description": "Conexiunea a fost oprită de server. Asta se întamplă de obicei cănd website-ul este deschis în altă filă.",
       "reconnect": "Reconectează-te"
     },
     "modals": {
@@ -216,17 +233,17 @@
         "roomDescription": "Descriere cameră",
         "descriptionError": "Lungime maximă de 500",
         "nameError": "Trebuie să fie între 2 și 60 caractere",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Completați următoarele informații pentru a creea o cameră nouă"
       },
       "invitedToJoinRoomModal": {
-        "newRoomCreated": "Nouă Cameră Creată",
+        "newRoomCreated": "Cameră Nouă Creată",
         "roomInviteFrom": "Invitație Cameră de la",
         "justStarted": "Tocmai au început",
         "likeToJoin": ", Vrei să te alături?",
         "inviteReceived": "Ai fost invitat să"
       },
       "editProfileModal": {
-        "usernameTaken": "Username deja folosit",
+        "usernameTaken": "Nume deja folosit",
         "avatarUrlError": "Imagine invalidă",
         "avatarUrlLabel": "URL avatar Github/Twitter/Discord",
         "displayNameError": "Lungime între 2 și 50 caractere",
@@ -249,58 +266,62 @@
         "goBackToListener": "Du-te înapoi la ascultător",
         "deleteMessage": "Şterge acest mesaj",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat",
-        "banIPFromRoom": "Ban IP from Room"
+        "unBanFromChat": "Permite în chat",
+        "banIPFromRoom": "Interzice IP-ul din Cameră"
       },
       "roomSettingsModal": {
         "requirePermission": "Necesită permisiunea de a vorbi",
         "makePublic": "Fă camera publică",
         "makePrivate": "Fă camera privată",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat",
-        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "renamePublic": "Setează numele camerei publice",
+        "renamePrivate": "Setează numele camerei private",
+        "chatDisabled": "dezactivează chat",
+        "chatCooldown": "Întârziere Chat (milliseconds)",
         "chat": {
-          "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "label": "Conversație",
+          "enabled": "Activat",
+          "disabled": "Dezactivat",
+          "followerOnly": "Doar urmăritori"
         }
       }
     },
     "followingOnline": {
-      "people": "People",
+      "people": "Persoane",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "noOnline": "Ai 0 prieteni online momentan",
+      "showMore": "Afișati mai multe"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Camere viitoare",
+      "exploreMoreRooms": "Explorează Mai Multe Camere"
     },
     "search": {
-      "placeholder": "Search for rooms, utilizatori or categories",
-      "placeholderShort": "Search"
+      "placeholder": "Caută camere, utilizatori sau categorii",
+      "placeholderShort": "Caută"
     },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Pprofil",
+      "language": "Limbă",
+      "reportABug": "Raportează o Problemă",
+      "useOldVersion": "Folosește Versiunea Veche",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Deconectare",
+        "modalSubtitle": "Sunteți sigur(ă) că vreți să vă deconectați?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "Testare Audio",
+        "stopDebugger": "Oprește Testul"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Descarcă Aplicația"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "Mesaje",
+      "showMore": "Afișează mai multe",
+      "noMessages": "Niciun mesaj nou"
     }
   },
   "modules": {
@@ -316,45 +337,45 @@
         "needsFuture": "Trebuie să fie în viitor",
         "roomName": "Numele camerei",
         "minLength": "De minim 2 caractere",
-        "roomDescription": "Description"
+        "roomDescription": "Descriere"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "MÂINE",
+      "today": "AZI",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Sigur vreți să ștergeți această cameră programată?"
       }
     },
     "roomChat": {
-      "title": "Chat",
+      "title": "Conversație",
       "emotesSoon": "[emote-uri în curând]",
-      "bannedAlert": "Ai fost interzis în chat",
-      "waitAlert": "Trebuie să aștepți o secundă până sa trimiți încă un mesaj.",
+      "bannedAlert": "Ai fost interzis din conversație",
+      "waitAlert": "Trebuie să aștepți o secundă până sa mai trimiți un mesaj.",
       "search": "Caută",
       "searchResults": "Rezultate Căutare",
       "recent": "Frecvent Utilizat",
       "sendMessage": "Trimite un mesaj",
       "whisper": "Șoptește",
-      "welcomeMessage": "Bine ai venit în chat!",
+      "welcomeMessage": "Bine ai venit în conversație!",
       "roomDescription": "Descriere cameră",
-      "disabled": "room chat has been disabled",
+      "disabled": "conversația a fost dezactivată",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "mesaj",
+        "retracted": "retras",
+        "deleted": "șters"
       }
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Alimentâm racheta",
+      "takingOff": "Decolăm",
+      "inSpace": "În spațiu",
+      "approachingMoon": "Ne apropiem de lună",
+      "lunarDoge": "Doge lunar",
+      "approachingSun": "Ne apropiem de soare",
+      "solarDoge": "Doge solar",
+      "approachingGalaxy": "Ne apropiem de galaxie",
+      "galacticDoge": "Doge galactic",
+      "spottedLife": "Planetă cu viață găsită"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Fluxul tău" }
   }
 }

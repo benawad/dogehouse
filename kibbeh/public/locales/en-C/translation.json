@@ -34,7 +34,17 @@
   },
   "pages": {
     "_comment": "Rëspektiv Päj UI Intərnas̈ənəlïzäs̈un Striŋz",
-    "banUser": { "ban": "Ban" },
+    "admin": {
+      "ban": "Ban",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "download": {
       "prompt": "Dawnlöd þə DogeHouse Desktop ap",
       "download_for": "Dawnlöd för %platform% (%ext%)",
@@ -289,6 +299,10 @@
           "followerOnly": "Follower Only"
         }
       }
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",

@@ -75,4 +75,21 @@ defmodule Kousa.User do
       _ -> {:error, "tried to ban #{user_id_to_ban} but that user didn't exist"}
     end
   end
+
+  def admin_update_with(changeset, admin) do
+    authorized_github_id = Application.get_env(:kousa, :ben_github_id, "")
+
+    with %{githubId: ^authorized_github_id} <- admin do
+      case Users.update(changeset) do
+        {:ok, user} ->
+          {:ok, user}
+
+        error ->
+          error
+      end
+    else
+      _ ->
+        {:error, "not authorized"}
+    end
+  end
 end

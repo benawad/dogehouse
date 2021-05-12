@@ -8,6 +8,7 @@ import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { SingleUser } from "./UserAvatar";
 import { HeaderController } from "../modules/display/HeaderController";
 import { UserBadge } from "./UserBadge";
+import { badge, Badges } from "./UserSummaryCard";
 
 interface VerticalUserInfoProps {
   user: UserWithFollowInfo;
@@ -15,6 +16,42 @@ interface VerticalUserInfoProps {
 
 export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
   const { t } = useTypeSafeTranslation();
+  const badges: badge[] = [];
+  if (user.staff) {
+    badges.push({
+      content: "ƉS",
+      variant: "primary",
+      color: "white",
+      title: t("components.userBadges.dhStaff"),
+    });
+  }
+  if (user.contributions > 0) {
+    badges.push({
+      content: "ƉC",
+      variant: "primary",
+      color: "white",
+      title: t("components.userBadges.dhContributor"),
+    });
+  }
+
+  if (user.botOwnerId) {
+    badges.push({
+      content: t("pages.viewUser.bot"),
+      variant: "primary",
+      color: "white",
+      title: t("pages.viewUser.bot"),
+    });
+  }
+
+  if (user.followsYou) {
+    badges.push({
+      content: t("pages.viewUser.followsYou"),
+      variant: "primary-700",
+      color: "grey",
+      title: t("pages.viewUser.followsYou"),
+      classname: "ml-1",
+    });
+  }
   return (
     <>
       <HeaderController
@@ -41,25 +78,10 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
             >
               @{user.username}
             </span>
-            {/* <Badges badges={badges} /> */}
           </div>
         </ApiPreloadLink>
-        <span className="mt-2 flex justify-center">
-          {user.botOwnerId ? (
-            <UserBadge color="white" variant="primary">
-              {t("pages.viewUser.bot")}
-            </UserBadge>
-          ) : (
-            ""
-          )}
-
-          {user.followsYou ? (
-            <UserBadge color="grey" variant="primary-700" className="ml-1">
-              {t("pages.viewUser.followsYou")}
-            </UserBadge>
-          ) : (
-            ""
-          )}
+        <span className="flex justify-center mt-2">
+          <Badges badges={badges} />
         </span>
 
         <div className="flex mt-2">

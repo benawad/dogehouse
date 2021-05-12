@@ -11,7 +11,8 @@ import {
 import i18n from "i18next";
 import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
-import { RegisterKeybinds, exitApp } from "./utils/keybinds";
+import { exitApp, RegisterKeybinds } from "./utils/keybinds";
+
 import { HandleVoiceTray } from "./utils/tray";
 import {
   ALLOWED_HOSTS,
@@ -197,7 +198,7 @@ function createMainWindow() {
   });
 }
 
-function createSpalshWindow() {
+function createSplashWindow() {
   splash = new BrowserWindow({
     width: 300,
     height: 410,
@@ -233,7 +234,7 @@ if (!instanceLock) {
 } else {
   app.on("ready", () => {
     localize().then(async () => {
-      createSpalshWindow();
+      createSplashWindow();
       if (!__prod__) skipUpdateCheck(splash);
       if (__prod__ && !isLinux) await autoUpdater.checkForUpdates();
       if (isLinux && __prod__) {
@@ -280,7 +281,7 @@ autoUpdater.on("update-not-available", () => {
   skipUpdateCheck(splash);
 });
 app.on("window-all-closed", async () => {
-  await exitApp();
+  exitApp();
 });
 app.on("activate", () => {
   if (mainWindow === null) {

@@ -33,7 +33,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Banir" },
+    "admin": {
+      "ban": "Banir",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Lista de utilizadores que segues e que não se encontram numa sala privada.",
       "currentRoom": "Atualmente em:",
@@ -70,7 +80,7 @@
       "loginGithub": "Entrar com GitHub",
       "loginTwitter": "Entrar com Twitter",
       "createTestUser": "Criar utilizador de teste",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "Entrar com Discord"
     },
     "myProfile": {
       "logout": "Sair",
@@ -80,7 +90,7 @@
       "deleteAccount": "Apagar conta",
       "overlaySettings": "Ir para definições de Overlay",
       "couldNotFindUser": "Desculpa, não conseguimos encontrar esse utilizador",
-      "privacySettings": "Privacy settings"
+      "privacySettings": "Configurações de Privacidade"
     },
     "notFound": {
       "whoopsError": "Ups! Esta página perdeu-se na conversa.",
@@ -97,8 +107,8 @@
     "searchUser": { "search": "Procurar..." },
     "soundEffectSettings": {
       "header": "Sons",
-      "title": "Sound Settings",
-      "playSound": "Play Sound"
+      "title": "Configuração de Som",
+      "playSound": "Tocar Som"
     },
     "viewUser": {
       "editProfile": "Editar perfil",
@@ -115,13 +125,13 @@
       "profileTabs": {
         "about": "About",
         "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
+        "scheduled": "Programado",
+        "recorded": "Gravado",
         "clips": "Clips"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM",
+      "block": "Bloquear",
+      "unblock": "Desbloquear",
+      "sendDM": "Mensagem",
       "aboutSuffix": ""
     },
     "voiceSettings": {
@@ -130,7 +140,7 @@
       "permissionError": "Não foram encontrados microfones; ou não foram dadas permissões, ou não estão corretamente ligados.",
       "refresh": "Atualizar lista de microfones",
       "volume": "Volume:",
-      "title": "Voice Settings"
+      "title": "Configurações de Voz"
     },
     "overlaySettings": {
       "input": {
@@ -148,8 +158,8 @@
       "download_for": "Download for %platform% (%ext%)"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
+      "title": "Configurações de Privacidade",
+      "header": "Configurações de Privacidade",
       "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
@@ -177,8 +187,8 @@
       "listener": "Ouvinte",
       "chat": "Chat",
       "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "deafen": "Desativar áudio",
+      "undeafen": "Reativar áudio"
     },
     "micPermissionBanner": {
       "permissionDenied": "Sem permissão para aceder ao microfone (poderás ter que de ir às configurações do teu navegador e atualizar a página)",
@@ -226,15 +236,15 @@
         "goBackToListener": "voltar a ouvinte",
         "deleteMessage": "Apagar mensagem",
         "makeRoomCreator": "Tornar administrador da sala",
-        "unBanFromChat": "Unban from Chat",
-        "banIPFromRoom": "Ban IP from Room"
+        "unBanFromChat": "Desbanir do Chat",
+        "banIPFromRoom": "Banir IP da Sala"
       },
       "roomSettingsModal": {
         "requirePermission": "Pedir permissão para falar",
         "makePublic": "Tornar a sala pública",
         "makePrivate": "Tornar a sala privada",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name",
+        "renamePublic": "Definir o nome da sala pública",
+        "renamePrivate": "Definir o nome da sala privada",
         "chatDisabled": "disable chat",
         "chatCooldown": "Chat Cooldown (milliseconds)",
         "chat": {
@@ -255,7 +265,7 @@
       "toggleMuteKeybind": "teclas de atalho para silenciar",
       "togglePushToTalkKeybind": "teclas de atalho para ativar o premir-para-falar",
       "toggleOverlayKeybind": "teclas de atalho para mostrar/esconder o Overlay",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "teclas de atalho para desativar o áudio"
     },
     "wsKilled": {
       "description": "O WebSocket foi quebrado pelo servidor. Isto geralmente acontece quando abres o site noutro separador.",
@@ -282,7 +292,7 @@
     },
     "search": {
       "placeholder": "Pesquisar salas, utilizadores ou categorias",
-      "placeholderShort": "Search"
+      "placeholderShort": "Pesquisa"
     },
     "settingsDropdown": {
       "profile": "Perfil",
@@ -299,9 +309,13 @@
       },
       "downloadApp": "Download App"
     },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
+      "title": "Mensagens",
+      "showMore": "Mostre Mais",
       "noMessages": "No new messages"
     }
   },
@@ -319,8 +333,8 @@
         "minLength": "mínimo de 2 caracteres",
         "roomDescription": "descrição da sala"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "AMANHÃ",
+      "today": "HOJE",
       "deleteModal": {
         "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
@@ -337,9 +351,9 @@
       "whisper": "Sussurro",
       "welcomeMessage": "Bem-vindo ao chat!",
       "roomDescription": "descrição da sala",
-      "disabled": "room chat has been disabled",
+      "disabled": "chat foi desativado",
       "messageDeletion": {
-        "message": "message",
+        "message": "mensagem",
         "retracted": "retracted",
         "deleted": "deleted"
       }

@@ -33,7 +33,17 @@
   },
   "pages": {
     "_comment": "İlgili sayfa arayüz ulusallaştırma yazıları",
-    "banUser": { "ban": "Yasakla" },
+    "admin": {
+      "ban": "Yasakla",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Senin takip ettiğin ve özel odada olmayan kullanıcıların listesi.",
       "currentRoom": "Şu anki oda:",
@@ -297,6 +307,10 @@
         "stopDebugger": "Hata Ayıklamayı Durdur"
       },
       "downloadApp": "Uygulamayı İndir"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
       "title": "Messages",
