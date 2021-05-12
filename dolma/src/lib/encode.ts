@@ -1,4 +1,5 @@
-import { MessageToken, Unitoken } from "../util/types/token";
+import { Unitoken } from "../tokens";
+import { MessageToken } from "../util/types/tokenTypes";
 import { decodeTokens } from "./decode";
 import { filterString } from "./filterString";
 import { filterUnitoken } from "./filterUnitoken";

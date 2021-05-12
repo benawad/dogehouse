@@ -5,21 +5,25 @@ Dolma Token Transcoder<br>
 This is a token transcoder that is used to encode and decode DogeHouse chat message token arrays.  This package is written for bot/bot library developers to be able to easily transcode dogehouse chat message tokens.  
 
 ## How to install
+
 To install this, simply go to your project and run the following command:
+
 ```cmd
-npm install dolma@latest --save
+yarn add dolma
 ```
 
 ## How to use
+
 This will show you how to encode and decode tokens
 
 ### Encoding Tokens
-In this example, you will see multiple ways to encode your tokens.  The first one is in plain text.  You can pass any string into the encoder and it will convert it into an array of Message Tokens.
+
+In this example, you will see multiple ways to encode your tokens. The first one is in plain text. You can pass any string into the encoder and it will convert it into an array of Message Tokens.
 
 ```ts
-import { dolma } from 'dolma';
+import { dolma } from "dolma";
 
-const str = "I'm @HoloPanio, and I'd like to goto `Paris, France` one day :catJAM: Also, https://google.com is epic!";
+const str = "I'm @HoloPanio, and I'd like to goto `Paris, France` one day :catJAM: Also, https://dogehouse.tv is epic!";
 
 const tokens = dolma.encode(str);
 
@@ -41,7 +45,7 @@ Returns:
   { t: 'text', v: 'day' },
   { t: 'emote', v: 'catJAM' },
   { t: 'text', v: 'Also,' },
-  { t: 'link', v: 'https://google.com' },
+  { t: 'link', v: 'https://dogehouse.tv' },
   { t: 'text', v: 'is' },
   { t: 'text', v: 'epic!' }
 ]
@@ -52,8 +56,7 @@ In this example, you will see that you can have a mixed array with strings, and 
 
 ```ts
 import { dolma } from 'dolma';
-
-const arr = ["I'm", {mention: "HoloPanio"},", and I'd like to goto", {block: "Paris, France"},"one day", {emote: "catJAM"}, "Also",{link: 'https://google.com'}, "is epic!"];
+const arr = ["I'm", {mention: "HoloPanio"},", and I'd like to goto", {block: "Paris, France"},"one day", {emote: "catJAM"}, "Also",{link: 'https://dogehouse.tv'}, "is epic!"];
 
 const tokens = dolma.encode(arr);
 
@@ -75,20 +78,20 @@ Returns:
   { t: 'text', v: 'day' },
   { t: 'emote', v: 'catJAM' },
   { t: 'text', v: 'Also,' },
-  { t: 'link', v: 'https://google.com' },
+  { t: 'link', v: 'https://dogehouse.tv' },
   { t: 'text', v: 'is' },
   { t: 'text', v: 'epic!' }
 ]
 */
 ```
-You can also pass in message tokens like `{t: 'link', v: 'https://google.com'}`, and it will work because the encoder checks for all possible methods that can be used.
-
+You can also pass in message tokens like `{t: 'link', v: 'https://dogehouse.tv'}`, and it will work because the encoder checks for all possible methods that can be used.
 
 ### Decoding Tokens
-When you get a payload from DogeHouse, you can use the decode method which will take the tokens, and turn it into a raw text string when you can use anywhere you please.  The decode method will always encode the data sent to it to ensure that the data is parsed correctly, so that means you can also pass in un-encoded data, such as the array in the previous example, and will print out a plain text string.  In this example, we will take the array from above, and return it to a plain text string using the decode method.
+
+When you get a payload from DogeHouse, you can use the decode method which will take the tokens, and turn it into a raw text string when you can use anywhere you please. The decode method will always encode the data sent to it to ensure that the data is parsed correctly, so that means you can also pass in un-encoded data, such as the array in the previous example, and will print out a plain text string. In this example, we will take the array from above, and return it to a plain text string using the decode method.
 
 ```ts
-import { dolma } from 'dolma';
+import { dolma } from "dolma";
 
 const tokens = [
   { t: 'text', v: "I'm" },
@@ -104,9 +107,10 @@ const tokens = [
   { t: 'text', v: 'day' },
   { t: 'emote', v: 'catJAM' },
   { t: 'text', v: 'Also,' },
-  { t: 'link', v: 'https://google.com' },
+  { t: 'link', v: 'https://dogehouse.tv' },
   { t: 'text', v: 'is' },
   { t: 'text', v: 'epic!' }
+
 ];
 
 const message = dolma.decode(tokens);

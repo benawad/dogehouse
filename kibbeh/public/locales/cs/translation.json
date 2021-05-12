@@ -39,14 +39,14 @@
       "listHeader": "Seznam uživatelů které sleduješ a nejsou v soukromé místnosti",
       "currentRoom": "Právě v:",
       "startPrivateRoom": "Otevřít soukromou místnost",
-      "title": "People"
+      "title": "Lidé"
     },
     "followList": {
-      "followHim": "follow",
-      "followingHim": "following",
-      "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "followHim": "sledovat",
+      "followingHim": "sleduješ",
+      "title": "Lidé",
+      "followingNone": "Nesleduješ nikoho",
+      "noFollowers": "Nemáš žádné sledující"
     },
     "home": {
       "createRoom": "Vytvořit místnost",
@@ -62,7 +62,7 @@
     },
     "login": {
       "headerText": "Voicechat, který stoupá ke hvězdám 🚀",
-      "featureText_1": "Temný motiv",
+      "featureText_1": "Tmavý motiv",
       "featureText_2": "Otevřené registrace",
       "featureText_3": "Funguje na všech platformách",
       "featureText_4": "Open Source",
@@ -99,7 +99,7 @@
     "soundEffectSettings": {
       "header": "Zvuky",
       "title": "Nastavení zvuku",
-      "playSound": "Play Sound"
+      "playSound": "Přehrát zvuk"
     },
     "viewUser": {
       "editProfile": "Upravit profil",
@@ -131,7 +131,7 @@
       "permissionError": "Buď nemáš mikrofon, nebo jsi jej nepovolil/a.",
       "refresh": "Znovu načíst mikrofon",
       "volume": "Hlasitost:",
-      "title": "Voice Settings"
+      "title": "Nastavení hlasu"
     },
     "overlaySettings": {
       "input": {
@@ -151,9 +151,13 @@
       "download_for": "Stáhnout pro %platform% (%ext%)"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
-      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+      "title": "Nastavení soukromí",
+      "header": "Nastavení soukromí",
+      "whispers": {
+        "label": "Zprávy šeptem",
+        "on": "Zapnuté",
+        "off": "Vypnuté"
+      }
     }
   },
   "components": {
@@ -255,7 +259,7 @@
         "deleteMessage": "Smazat tuto zprávu",
         "makeRoomCreator": "Předat místnost",
         "unBanFromChat": "Odbanovat z chatu",
-        "banIPFromRoom": "Ban IP from Room"
+        "banIPFromRoom": "Zabanovat IP z místnosti"
       },
       "roomSettingsModal": {
         "requirePermission": "Požádat o přesunutí do mluvících",
@@ -264,12 +268,12 @@
         "renamePublic": "Nastavit jméno veřejné místnosti",
         "renamePrivate": "Nastavit jméno soukromé místnosti",
         "chatDisabled": "Vypnout chat",
-        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chatCooldown": "Chat Cooldown (v milisekundách)",
         "chat": {
           "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "enabled": "Zapnut",
+          "disabled": "Vypnut",
+          "followerOnly": "Pouze pro sledující"
         }
       }
     },
@@ -303,9 +307,9 @@
       "downloadApp": "Stáhnout aplikaci"
     },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "Zprávy",
+      "showMore": "Ukázat více",
+      "noMessages": "Žádné nové zprávy"
     }
   },
   "modules": {
@@ -343,9 +347,9 @@
       "roomDescription": "Popis místnosti",
       "disabled": "Chat této místnosti byl vypnut",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "zpráva",
+        "retracted": "odvolána",
+        "deleted": "smazána"
       }
     },
     "roomStatus": {
