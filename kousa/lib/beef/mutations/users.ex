@@ -54,20 +54,6 @@ defmodule Beef.Mutations.Users do
     |> Repo.update_all([])
   end
 
-  def set_contributions(user_id, contributions) do
-    Query.start()
-    |> Query.filter_by_id(user_id)
-    |> Query.update_set_contributions(contributions)
-    |> Repo.update_all([])
-  end
-
-  def set_staff(user_id, is_staff) do
-    Query.start()
-    |> Query.filter_by_id(user_id)
-    |> Query.update_set_staff(is_staff)
-    |> Repo.update_all([])
-  end
-
   def set_user_left_current_room(user_id) do
     Onion.UserSession.set_current_room_id(user_id, nil)
 

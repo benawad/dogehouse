@@ -43,9 +43,16 @@
     "followingOnlineList": {
       "listHeader": "Lista e përdoruesve që nuk janë në një dhomë private dhe ti i ndjek.",
       "currentRoom": "për momentin në:",
-      "startPrivateRoom": "fillo një dhomë private me ta"
+      "startPrivateRoom": "fillo një dhomë private me ta",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Krijo dhomë",
       "refresh": "Refresh",
@@ -93,8 +100,14 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": { "search": "kerko..." },
-    "soundEffectSettings": { "header": "Tingujt", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "kerko..."
+    },
+    "soundEffectSettings": {
+      "header": "Tingujt",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "redakto profilin",
       "followsYou": "ju ndjek",
@@ -124,10 +137,14 @@
       "mic": "mikrofoni:",
       "permissionError": "nuk u gjend asnjë mikrofon, ju ndoshta nuk e keni lidhur ose nuk i keni dhënë leje kesaj faqeje.",
       "refresh": "rifresko listën e mikrofonëve",
-      "volume": "volumi:"
+      "volume": "volumi:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings"
     },
     "download": {
@@ -137,6 +154,15 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -171,7 +197,10 @@
       "linkText": "çështje në GitHub",
       "addSupport": "dhe unë do të mundohem të shtoj mbështetje për paisjen tuaj."
     },
-    "inviteButton": { "invited": "ftuar", "inviteToRoom": "fto në dhomë" },
+    "inviteButton": {
+      "invited": "ftuar",
+      "inviteToRoom": "fto në dhomë"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Leja për akses te mikrofoni nuk u dha (ju mund të shkoni në cilësimet e shfletuesit dhe ringarkoni faqen)",
       "dismiss": "largo",
@@ -188,7 +217,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "për ndonjë arsye nuk ka asnje konsumator audio"
     },
-    "addToCalendar": { "add": "Shto në kalendar" },
+    "addToCalendar": {
+      "add": "Shto në kalendar"
+    },
     "wsKilled": {
       "description": "WebSocketi u ndalua nga serveri. Kjo ndodh zakonisht kur hap një faqe të re në skedinë tjetër.",
       "reconnect": "ri-lidhu"
@@ -234,7 +265,8 @@
         "goBackToListener": "kthenu në dëgjues",
         "deleteMessage": "fshije këtë mesazh",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "kërko leje për të folur",
@@ -242,7 +274,14 @@
         "makePrivate": "bëje dhomën private",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -277,6 +316,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -312,7 +356,12 @@
       "whisper": "Përshpërit",
       "welcomeMessage": "Mirë se erdhët në chat!",
       "roomDescription": "përshkrimi i dhomës",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",
@@ -326,6 +375,8 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

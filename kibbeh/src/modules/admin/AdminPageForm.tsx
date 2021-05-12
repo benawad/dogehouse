@@ -16,7 +16,6 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
   const [reason, setReason] = useState("");
   const [contributions, setContributions] = useState(0);
   const [isStaff, setIsStaff] = useState(false);
-  const [user, setUser] = useState<UserWithFollowInfo>();
   const { t } = useTypeSafeTranslation();
   const { replace } = useRouter();
   const wrapper = wrap(conn);
@@ -29,38 +28,23 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    wrapper.query.getUserProfile(username).then((u) => {
-      if (u) {
-        setUser(u as UserWithFollowInfo);
-      }
-    });
-  }, [username, wrapper.query]);
-
-  useEffect(() => {
-    if (user) {
-      setContributions(user.contributions);
-      setIsStaff(user.staff);
-    }
-  }, [user]);
-
   if (conn.user.username !== "benawad") {
     return <MiddlePanel />;
   }
 
   return (
     <MiddlePanel>
-      <div>
-        <h3 className="text-primary-100">{t("pages.admin.ban")}</h3>
-        <div className="flex">
-          <Input
-            className={`mb-4`}
-            autoFocus
-            placeholder="username to ban..."
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
+      <h3 className="text-primary-100">Username</h3>
+      <div className="flex">
+        <Input
+          autoFocus
+          placeholder="username to perform actions on"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
+      <div className="mt-6">
+        <h3 className="text-primary-100">Ban</h3>
         <Input
           className={`mb-4`}
           autoFocus
@@ -79,24 +63,8 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
         </Button>
       </div>
       <div className="mt-6">
-        <h3 className="text-primary-100">
-          {t("pages.admin.userStaffandContrib")}
-        </h3>
-        <Input
-          className={`mb-4`}
-          autoFocus
-          placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <Input
-          className={`mb-4`}
-          autoFocus
-          placeholder={t("pages.admin.contributions")}
-          value={contributions}
-          onChange={(e) => setContributions(Number(e.target.value))}
-          type="number"
-        />
+        <h3 className="text-primary-100">User Staff</h3>
+
         <label className="inline-flex mb-4">
           <div className={`text-primary-100`}>{t("pages.admin.staff")}</div>
           <Input
@@ -108,15 +76,39 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
             type="checkbox"
           />
         </label>
+        <div className="flex">
+          <Button
+            onClick={() => {
+              wrapper.mutation.userAdminUpdate(username, isStaff);
+            }}
+          >
+            Save
+          </Button>
+        </div>
       </div>
-      <div className="flex">
-        <Button
-          onClick={() => {
-            wrapper.mutation.userAdminUpdate(username, isStaff, contributions);
-          }}
-        >
-          Save
-        </Button>
+      <div className="mt-6">
+        <h3 className="text-primary-100">User Contributions</h3>
+        <Input
+          className={`mb-4`}
+          autoFocus
+          placeholder="Contributions"
+          value={contributions}
+          onChange={(e) => setContributions(Number(e.target.value))}
+          type="number"
+        />
+        <div className="flex pb-5">
+          <Button
+            onClick={() => {
+              wrapper.mutation.userAdminUpdate(
+                username,
+                undefined,
+                contributions
+              );
+            }}
+          >
+            Save
+          </Button>
+        </div>
       </div>
     </MiddlePanel>
   );

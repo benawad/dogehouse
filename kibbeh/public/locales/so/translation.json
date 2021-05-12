@@ -43,9 +43,16 @@
     "followingOnlineList": {
       "listHeader": "Liiska isticmaaleyaasha aan ku jirin qol gaar ah oo aad raacday.",
       "currentRoom": "hadda ku jira:",
-      "startPrivateRoom": "qol gaar ah la bilow"
+      "startPrivateRoom": "qol gaar ah la bilow",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Abuur qol",
       "refresh": "Cusbooneysii",
@@ -93,8 +100,14 @@
       "allowAll": "Dhammaan oggolow",
       "allowAllConfirm": "Ma hubtaa? Tani waxay u oggolaan doontaa dhammaan {{count}} Isticmaalayaasha inay codsadaan inay hadlaan"
     },
-    "searchUser": { "search": "raadi..." },
-    "soundEffectSettings": { "header": "Codka", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "raadi..."
+    },
+    "soundEffectSettings": {
+      "header": "Codka",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "wax ka beddel koontada",
       "followsYou": "adiga kuraacay",
@@ -124,7 +137,8 @@
       "mic": "codbaahiye:",
       "permissionError": "Codbaahiye lama helin, kuugu ma xirno codbaahiye ama ogolasho umaaad siin websitka codbaahin.",
       "refresh": "Cusbooneysii liiska cod baahiyeyaasha",
-      "volume": "volume:"
+      "volume": "volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",
@@ -140,6 +154,15 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -194,7 +217,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"
     },
-    "addToCalendar": { "add": "Ku dar Kalendarkaga" },
+    "addToCalendar": {
+      "add": "Ku dar Kalendarkaga"
+    },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "dib ugu xirmo"
@@ -240,7 +265,8 @@
         "goBackToListener": "Ku laabo Dhageystayaasha",
         "deleteMessage": "tirtir fariintan",
         "makeRoomCreator": "samee maamulaha qolka",
-        "unBanFromChat": "Ka qaad mamnuucida hadalka"
+        "unBanFromChat": "Ka qaad mamnuucida hadalka",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Waxay u baahnaan doonaan ogolaansho si ay uhadlaan",
@@ -248,7 +274,14 @@
         "makePrivate": "qolka ka dhig qol gaar",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -283,6 +316,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -318,7 +356,12 @@
       "whisper": "fariin gaar ah",
       "welcomeMessage": "Ku soo dhawow wada hadalka!",
       "roomDescription": "qeexida qolka",
-      "disabled": "qolka sheekaysigiisa waa la joojiyay"
+      "disabled": "qolka sheekaysigiisa waa la joojiyay",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",
@@ -332,6 +375,8 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "meeraha laga helay nolasha"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

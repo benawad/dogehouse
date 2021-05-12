@@ -43,9 +43,16 @@
     "followingOnlineList": {
       "listHeader": "Lista de utënc che te stas do y che ne é nia te na ciamena privata.",
       "currentRoom": "Te chësc mumënt este colié a:",
-      "startPrivateRoom": "Scomëncia na ciamena privata cun ël"
+      "startPrivateRoom": "Scomëncia na ciamena privata cun ël",
+      "title": "People"
     },
-    "followList": { "followHim": "Stá do", "followingHim": "Bele sté do" },
+    "followList": {
+      "followHim": "Stá do",
+      "followingHim": "Bele sté do",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Cheriëia na ciamena",
       "refresh": "Ciaria danü",
@@ -93,10 +100,13 @@
       "allowAll": "Conzedi a düc",
       "allowAllConfirm": "Es sigü? Chësc conzedará a {{count}} utënc che ó baié de pudëi ciacolè"
     },
-    "searchUser": { "search": "Chirida..." },
+    "searchUser": {
+      "search": "Chirida..."
+    },
     "soundEffectSettings": {
       "header": "Sonns",
-      "title": "Impostaziuns dl sonn"
+      "title": "Impostaziuns dl sonn",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "Modifichëia profil",
@@ -127,7 +137,8 @@
       "mic": "Microfon:",
       "permissionError": "Degun microfon ciafé, plü dessigü ne as nia dé les autorisaziuns nezesciaries a DogeHouse por podëi l'adoré o ne as nia un taché ite.",
       "refresh": "Ciaria da nü la lista di microfons",
-      "volume": "Volum:"
+      "volume": "Volum:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -143,6 +154,15 @@
       "prompt": "Clichëia söl buttun dessot por mët man la desciariada",
       "download_now": "Desciaria sëgn",
       "download_for": "Desciaria por %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -197,7 +217,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "Degun audio é desponibl por val' rajun"
     },
-    "addToCalendar": { "add": "Ajunta al calënder" },
+    "addToCalendar": {
+      "add": "Ajunta al calënder"
+    },
     "wsKilled": {
       "description": "Le websocket é fora funziun dal server. Chësc sozed scialdi canche deures na plata danü te n'atra scheda.",
       "reconnect": "Ciaria danü"
@@ -243,7 +265,8 @@
         "goBackToListener": "Va zoruch ad ester n ascutadú",
         "deleteMessage": "Eliminëia chësc messaje",
         "makeRoomCreator": "Fá deventé n aministradú tla ciamena",
-        "unBanFromChat": "Tola demez l ban por la discusciun"
+        "unBanFromChat": "Tola demez l ban por la discusciun",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Damana l autorisaziun por baié",
@@ -251,7 +274,14 @@
         "makePrivate": "Privatisëia la ciamena",
         "renamePublic": "Modifichëia l inom dla ciamena publica",
         "renamePrivate": "Modifichëia l inom dla ciamena privata",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -286,6 +316,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -321,7 +356,12 @@
       "whisper": "Mormorëia",
       "welcomeMessage": "Benvenuto nella chat!",
       "roomDescription": "Descriziun dla ciamena",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Refornimënt racheta",
@@ -335,6 +375,8 @@
       "galacticDoge": "Doge dla galassia",
       "spottedLife": "Afustié planët cun formes de vita"
     },
-    "feed": { "yourFeed": "Tó feed" }
+    "feed": {
+      "yourFeed": "Tó feed"
+    }
   }
 }

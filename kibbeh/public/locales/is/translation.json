@@ -43,9 +43,16 @@
     "followingOnlineList": {
       "listHeader": "Listi yfir notendur sem eru ekki í einkaherbergi og þú fylgir.",
       "currentRoom": "núna í",
-      "startPrivateRoom": "stofnaðu einkaspjallrásin með þeim"
+      "startPrivateRoom": "stofnaðu einkaspjallrásin með þeim",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Stofna Spjallrás",
       "refresh": "Refresh",
@@ -93,8 +100,14 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": { "search": "leita..." },
-    "soundEffectSettings": { "header": "Hljóðin", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "leita..."
+    },
+    "soundEffectSettings": {
+      "header": "Hljóðin",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "breyta prófíl",
       "followsYou": "fylgir þér",
@@ -124,10 +137,14 @@
       "mic": "mic:",
       "permissionError": "engir hljóðnemar fundust, kannski hefurðu það ekki tengt eða hefur ekki gefið leyfi til að nota það.",
       "refresh": "endurnýja hljóðnemalistann",
-      "volume": "hljóðstyrkur:"
+      "volume": "hljóðstyrkur:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings"
     },
     "download": {
@@ -137,6 +154,15 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -171,7 +197,10 @@
       "linkText": "beiðni á GitHub",
       "addSupport": "og þá verður reynt að bæta við stuðningi fyrir tækið þitt."
     },
-    "inviteButton": { "invited": "boðið", "inviteToRoom": "bjóða í spjallrás" },
+    "inviteButton": {
+      "invited": "boðið",
+      "inviteToRoom": "bjóða í spjallrás"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Leyfi hafnað þegar reynt var að fá aðgang að hljóðnemanum þínum (þú gætir þurft að fara í vafrastillingar og endurhlaða síðuna)",
       "dismiss": "segja upp",
@@ -188,7 +217,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "enginn hljóðnotandi af einhverjum ástæðum"
     },
-    "addToCalendar": { "add": "Bæta við dagatal" },
+    "addToCalendar": {
+      "add": "Bæta við dagatal"
+    },
     "wsKilled": {
       "description": "WebSocket tengingin var drepinn af netþjóninum. Þetta gerist venjulega þegar þú opnar vefsíðuna á öðrum flipa.",
       "reconnect": "endurræsa tengingu"
@@ -234,7 +265,8 @@
         "goBackToListener": "fara aftur til hlustandans",
         "deleteMessage": "eyða skilaboðum",
         "makeRoomCreator": "gera að rásarstjórnenda",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "þurfa leyfi til að tala",
@@ -242,7 +274,14 @@
         "makePrivate": "gera að einkarás",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -277,6 +316,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -312,7 +356,12 @@
       "whisper": "Hvísla",
       "welcomeMessage": "Velkomin í spjallið!",
       "roomDescription": "Rásarlýsing",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fylli á eldflaugina",
@@ -326,6 +375,8 @@
       "galacticDoge": "Vetrarbrautar Doge",
       "spottedLife": "Pláneta með lífi fundin"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

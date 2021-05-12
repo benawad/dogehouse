@@ -42,9 +42,16 @@
     "followingOnlineList": {
       "listHeader": "Personer du följer",
       "currentRoom": "Ansluten till:",
-      "startPrivateRoom": "Skapa ett privat rum med dem"
+      "startPrivateRoom": "Skapa ett privat rum med dem",
+      "title": "People"
     },
-    "followList": { "followHim": "Följ", "followingHim": "Följer" },
+    "followList": {
+      "followHim": "Följ",
+      "followingHim": "Följer",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Skapa ett rum",
       "refresh": "Uppdatera",
@@ -92,8 +99,14 @@
       "allowAll": "Tillåt alla",
       "allowAllConfirm": "Är du säker på detta sergeant? Detta kommer tillåta {{count}} användare att få tala. Det kan utplåna månen! 🚀☢️"
     },
-    "searchUser": { "search": "Sök..." },
-    "soundEffectSettings": { "header": "Ljud", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "Sök..."
+    },
+    "soundEffectSettings": {
+      "header": "Ljud",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Redigera profil",
       "followsYou": "Följer dig",
@@ -123,7 +136,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Ingen mikrofon hittades, du har antingen ingen inkopplad eller så har du inte gett hemsidan tillåtelse.",
       "refresh": "Uppdatera mikrofonlistan",
-      "volume": "Volym:"
+      "volume": "Volym:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlayinställningar",
@@ -139,6 +153,15 @@
       "prompt": "Klicka på knappen nedan för att starta nedladdningen",
       "download_now": "Ladda ner nu",
       "download_for": "Ladda ner för %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -214,7 +237,8 @@
         "goBackToListener": "Gå tillbaka till lyssnare",
         "deleteMessage": "Ta bort meddelande",
         "makeRoomCreator": "Gör till rumsadministratör",
-        "unBanFromChat": "Ta bort avstängning från chatt"
+        "unBanFromChat": "Ta bort avstängning från chatt",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Be om tillåtelse att prata",
@@ -222,13 +246,22 @@
         "makePrivate": "Gör rum privat",
         "renamePublic": "Ange ett offentligt rumsnamn",
         "renamePrivate": "Ange ett privat rumsnamn",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": {
       "noAudioMessage": "Ingen ljudanvändare av någon anledning"
     },
-    "addToCalendar": { "add": "Spara i kalender" },
+    "addToCalendar": {
+      "add": "Spara i kalender"
+    },
     "deviceNotSupported": {
       "notSupported": "Din enhet stöds inte. Du kan skapa ett",
       "linkText": "issue på GitHub",
@@ -282,6 +315,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -317,7 +355,12 @@
       "whisper": "Direktmeddelande",
       "welcomeMessage": "Välkommen till chatten!",
       "roomDescription": "Rumbeskrivning",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tankar raket",
@@ -331,6 +374,8 @@
       "galacticDoge": "Galaktiskdoge",
       "spottedLife": "Planet med liv upptäckt"
     },
-    "feed": { "yourFeed": "Ditt flöde" }
+    "feed": {
+      "yourFeed": "Ditt flöde"
+    }
   }
 }

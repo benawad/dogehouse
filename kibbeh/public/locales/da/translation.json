@@ -42,9 +42,16 @@
     "followingOnlineList": {
       "listHeader": "Liste af brugere du følger, som ikke er i et privat rum.",
       "currentRoom": "tilsluttet til:",
-      "startPrivateRoom": "Start et privat rum med dem"
+      "startPrivateRoom": "Start et privat rum med dem",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Start Rum",
       "refresh": "Opdater",
@@ -92,8 +99,14 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Er du sikker? Dette giver tilladelse til alle {{count}} brugere der anmoder om tilladelse til at tale"
     },
-    "searchUser": { "search": "Søger..." },
-    "soundEffectSettings": { "header": "Lyde", "title": "Lydstillinger" },
+    "searchUser": {
+      "search": "Søger..."
+    },
+    "soundEffectSettings": {
+      "header": "Lyde",
+      "title": "Lydstillinger",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Rediger profil",
       "followsYou": "Følger dig",
@@ -123,10 +136,14 @@
       "mic": "Mikrofon:",
       "permissionError": "Ingen mikrofoner fundet, du har enten ikke koblet nogen til eller ikke givet denne hjemmeside tilladelse.",
       "refresh": "Opdater mikrofonliste",
-      "volume": "Lydstyrke:"
+      "volume": "Lydstyrke:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
@@ -138,6 +155,15 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download nu",
       "download_for": "Download til %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -192,7 +218,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "Ingen audio consumer af en eller anden grund"
     },
-    "addToCalendar": { "add": "Tilføj til kalender" },
+    "addToCalendar": {
+      "add": "Tilføj til kalender"
+    },
     "wsKilled": {
       "description": "Websocketen blev dræbt af serveren. Dette sker typisk når du har hjemmesiden åben i en anden fane.",
       "reconnect": "Tilslut igen"
@@ -238,7 +266,8 @@
         "goBackToListener": "Gå tilbage til lytter",
         "deleteMessage": "Slet denne besked",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Fjern bandlysning fra chatten"
+        "unBanFromChat": "Fjern bandlysning fra chatten",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "kræv tilladelse for at tale",
@@ -246,7 +275,14 @@
         "makePrivate": "Gør rum privat",
         "renamePublic": "Skift navnet på offentligt rum",
         "renamePrivate": "Skift navnet på privat rum",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -281,6 +317,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -316,7 +357,12 @@
       "whisper": "Hvisk",
       "welcomeMessage": "Velkommen til chatten!",
       "roomDescription": "Rum beskrivelse",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tanker raket",
@@ -330,6 +376,8 @@
       "galacticDoge": "Galaktisk Doge",
       "spottedLife": "Fået øje på planet med liv"
     },
-    "feed": { "yourFeed": "Din Feed" }
+    "feed": {
+      "yourFeed": "Din Feed"
+    }
   }
 }

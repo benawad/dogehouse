@@ -43,9 +43,16 @@
     "followingOnlineList": {
       "listHeader": "Lista użytkowników którzy nie są w prywatnym pokoju i których obserwujesz.",
       "currentRoom": "Obecnie w:",
-      "startPrivateRoom": "Załóż z nim prywatny pokój"
+      "startPrivateRoom": "Załóż z nim prywatny pokój",
+      "title": "People"
     },
-    "followList": { "followHim": "Obserwuj", "followingHim": "Obserwujący" },
+    "followList": {
+      "followHim": "Obserwuj",
+      "followingHim": "Obserwujący",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Nowy pokój",
       "editRoom": "Edytuj pokój",
@@ -93,10 +100,13 @@
       "allowAll": "Dopuść wszystkich",
       "allowAllConfirm": "Czy na pewno? To dopuści {{count}} użytkowników do mówienia"
     },
-    "searchUser": { "search": "szukaj..." },
+    "searchUser": {
+      "search": "szukaj..."
+    },
     "soundEffectSettings": {
       "header": "Dźwięk",
-      "title": "Ustawienia dźwięku"
+      "title": "Ustawienia dźwięku",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "Edytuj profil",
@@ -127,7 +137,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Nie znaleziono mikrofonów. Sprawdź podłączenie oraz pozwolenia tej stronie.",
       "refresh": "Odśwież listę mikrofonów",
-      "volume": "Głośność:"
+      "volume": "Głośność:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Ustawienia nakładki",
@@ -143,6 +154,15 @@
       "prompt": "Naciśnij przycisk poniżej aby rozpocząć pobieranie",
       "download_now": "Pobierz teraz",
       "download_for": "Pobierz dla %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -200,12 +220,16 @@
       "toggleOverlayKeybind": "Nakładka",
       "togglePushToTalkKeybind": "Naciśnij i mów"
     },
-    "userVolumeSlider": { "noAudioMessage": "Brak urządzenia audio" },
+    "userVolumeSlider": {
+      "noAudioMessage": "Brak urządzenia audio"
+    },
     "upcomingRoomsCard": {
       "upcomingRooms": "Nadchodzące spotkania w pokojach",
       "exploreMoreRooms": "Odkrywaj pokoje"
     },
-    "addToCalendar": { "add": "Dodaj do kalendarza" },
+    "addToCalendar": {
+      "add": "Dodaj do kalendarza"
+    },
     "wsKilled": {
       "description": "WebSocket został zabity przez serwer. Dzieje się tak kiedy otwierasz stronę w nowej karcie.",
       "reconnect": "Połącz ponownie"
@@ -270,7 +294,8 @@
         "banFromRoom": "Zablokuj z pokoju",
         "goBackToListener": "Powróć do słuchacza",
         "deleteMessage": "Usuń tą wiadomość",
-        "makeRoomCreator": "Awansuj na administratora pokoju"
+        "makeRoomCreator": "Awansuj na administratora pokoju",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "wymaga pozwolenia na mówienie",
@@ -278,17 +303,31 @@
         "makePrivate": "uczyń pokój prywatnym",
         "renamePublic": "Ustaw publiczną nazwę pokoju",
         "renamePrivate": "Ustaw prywatną nazwę pokoju",
-        "chatDisabled": "wyłącz czat"
+        "chatDisabled": "wyłącz czat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": { "yourFeed": "Twoje pokoje" },
+    "feed": {
+      "yourFeed": "Twoje pokoje"
+    },
     "scheduledRooms": {
       "title": "Zaplanowane pokoje",
       "noneFound": "nie znaleziono",
@@ -320,7 +359,12 @@
       "whisper": "Szept",
       "welcomeMessage": "Witamy na czacie!",
       "roomDescription": "Opis pokoju",
-      "disabled": "czat pokoju został wyłączony"
+      "disabled": "czat pokoju został wyłączony",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tankowanie rakiety",

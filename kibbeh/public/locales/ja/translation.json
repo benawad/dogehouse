@@ -43,9 +43,16 @@
     "followingOnlineList": {
       "listHeader": "フォローしていて、非公開ルームには参加していないユーザー",
       "currentRoom": "参加中:",
-      "startPrivateRoom": "非公開ルームを開始"
+      "startPrivateRoom": "非公開ルームを開始",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "ルーム作成",
       "refresh": "更新",
@@ -93,8 +100,14 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": { "search": "検索..." },
-    "soundEffectSettings": { "header": "音声設定", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "検索..."
+    },
+    "soundEffectSettings": {
+      "header": "音声設定",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "プロフィールを編集",
       "followsYou": "フォローされています",
@@ -124,10 +137,14 @@
       "mic": "マイク:",
       "permissionError": "マイクが見つかりませんでした。 マイクが接続されていることを確認し、アクセスを許可してください。",
       "refresh": "更新",
-      "volume": "ボリューム:"
+      "volume": "ボリューム:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings"
     },
     "download": {
@@ -137,6 +154,15 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -171,7 +197,10 @@
       "linkText": "GitHubでissueを作成",
       "addSupport": "するとサポートを受けられます。"
     },
-    "inviteButton": { "invited": "招待", "inviteToRoom": "ルームに招待" },
+    "inviteButton": {
+      "invited": "招待",
+      "inviteToRoom": "ルームに招待"
+    },
     "micPermissionBanner": {
       "permissionDenied": "マイクへのアクセスが許可されていません（ブラウザーの設定を変更して、ページを再読み込みする必要があるかもしれません）",
       "dismiss": "無視",
@@ -185,8 +214,12 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": { "noAudioMessage": "何らかの原因で音声が出ません" },
-    "addToCalendar": { "add": "カレンダーに追加" },
+    "userVolumeSlider": {
+      "noAudioMessage": "何らかの原因で音声が出ません"
+    },
+    "addToCalendar": {
+      "add": "カレンダーに追加"
+    },
     "wsKilled": {
       "description": "WebSocketがサーバーによって強制終了されました。 これは通常、別のタブで開いたときに発生します。",
       "reconnect": "再接続"
@@ -232,7 +265,8 @@
         "goBackToListener": "リスナーに戻る",
         "deleteMessage": "メッセージを削除",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "発言を許可制にする",
@@ -240,7 +274,14 @@
         "makePrivate": "ルームを非公開に変更",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -275,6 +316,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -310,7 +356,12 @@
       "whisper": "ささやく",
       "welcomeMessage": "チャットへようこそ！",
       "roomDescription": "ルームの説明",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "燃料補給中",
@@ -324,6 +375,8 @@
       "galacticDoge": "銀河系犬 / Galactic Doge",
       "spottedLife": "新たな生命を発見"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

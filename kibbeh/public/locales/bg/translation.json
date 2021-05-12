@@ -43,9 +43,16 @@
     "followingOnlineList": {
       "listHeader": "Списък от потребители, които не са в ",
       "currentRoom": "в момента в:",
-      "startPrivateRoom": "start a private room with them"
+      "startPrivateRoom": "start a private room with them",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Създай стая",
       "refresh": "Опресни",
@@ -93,8 +100,14 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": { "search": "търсене..." },
-    "soundEffectSettings": { "header": "Звук", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "търсене..."
+    },
+    "soundEffectSettings": {
+      "header": "Звук",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "промяна на профил",
       "followsYou": "следват те",
@@ -124,10 +137,14 @@
       "mic": "микрофон:",
       "permissionError": "не бяха открити микрофони, най-вероятно няма вързани или нямат разрешение да бъдат ползвани.",
       "refresh": "опресняване на списък с микрофони",
-      "volume": "ниво на звук:"
+      "volume": "ниво на звук:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
@@ -139,6 +156,15 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -173,7 +199,10 @@
       "linkText": "issue в GitHub",
       "addSupport": "и аз ще пробвам да добавя поддръжка за вашето устройство."
     },
-    "inviteButton": { "invited": "поканен", "inviteToRoom": "канене в стаята" },
+    "inviteButton": {
+      "invited": "поканен",
+      "inviteToRoom": "канене в стаята"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Проблем с позволенията в браузъра (може да се наложи да отидете в настройките на браузъра и да презаредите страницата)",
       "dismiss": "отхвърляне",
@@ -190,7 +219,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "по някаква причина няма звуков консуматор"
     },
-    "addToCalendar": { "add": "Добави към календар" },
+    "addToCalendar": {
+      "add": "Добави към календар"
+    },
     "wsKilled": {
       "description": "WebSocket-а беше спрян от сървъра. Това обикновенно се случва, когато сайта е отворен в друг прозорец.",
       "reconnect": "повторно свързване"
@@ -236,7 +267,8 @@
         "goBackToListener": "върни се към слушател",
         "deleteMessage": "изтриване на това съобщение",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "изискване на позволение за говорене",
@@ -244,7 +276,14 @@
         "makePrivate": "направи стаята частна",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -279,6 +318,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -314,7 +358,12 @@
       "whisper": "Прошепни",
       "welcomeMessage": "Добре дошъл в чата!",
       "roomDescription": "описание на стаята",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",
@@ -328,6 +377,8 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

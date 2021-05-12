@@ -43,9 +43,16 @@
     "followingOnlineList": {
       "listHeader": "Gizli otaqda olmayan və sizin izlədiyiniz istifadəçilər",
       "currentRoom": "Hazırda:",
-      "startPrivateRoom": "Gizli otaq yaradın"
+      "startPrivateRoom": "Gizli otaq yaradın",
+      "title": "People"
     },
-    "followList": { "followHim": "İzlə", "followingHim": "İzlənir" },
+    "followList": {
+      "followHim": "İzlə",
+      "followingHim": "İzlənir",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Otaq yaratmaq",
       "refresh": "Yenilə",
@@ -93,8 +100,14 @@
       "allowAll": "Hərkəsə icazə ver",
       "allowAllConfirm": "Təsdiqləyirsiniz? Bu seçim {{count}} istifadəçiyə danışma haqqı verəcəkdir"
     },
-    "searchUser": { "search": "Axtarış..." },
-    "soundEffectSettings": { "header": "Səslər", "title": "Səs paratmertləri" },
+    "searchUser": {
+      "search": "Axtarış..."
+    },
+    "soundEffectSettings": {
+      "header": "Səslər",
+      "title": "Səs paratmertləri",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profildə düzəliş et",
       "followsYou": "Sizi izləyənlər",
@@ -124,7 +137,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Mikrofon tapılmadı, ya mikrofonu taxmamısınız ya da sayt üçün lazımlı icazəni verməmisiniz.",
       "refresh": "Yenilə",
-      "volume": "Səs:"
+      "volume": "Səs:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -142,6 +156,15 @@
       "prompt": "Aşağıdakı düyməyə basaraq yükləməni başladın",
       "download_now": "İndi yüklə",
       "download_for": "{{platform}} üçün yüklə"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -196,7 +219,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "Bir səbəbə görə səs qəbuledici yoxdur!"
     },
-    "addToCalendar": { "add": "Kalendara əlavə et" },
+    "addToCalendar": {
+      "add": "Kalendara əlavə et"
+    },
     "wsKilled": {
       "description": "WebSocket server tərəfindən bağlandı. Bu adətən birdən çox səhifədə saytı açdığınız zaman baş verir.",
       "reconnect": "Yenidən bağlantı qur"
@@ -242,7 +267,8 @@
         "goBackToListener": "Dinləyiciyə geri qayıt",
         "deleteMessage": "Bu mesajı sil",
         "makeRoomCreator": "Otaq admini et",
-        "unBanFromChat": "Çatdan banı ləğv et"
+        "unBanFromChat": "Çatdan banı ləğv et",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Danışmaq üçün icazə istə",
@@ -250,7 +276,14 @@
         "makePrivate": "Otağı gizli et",
         "renamePublic": "Hərkəsə açıq otaq adı quraşdır",
         "renamePrivate": "Gizli otaq adı quraşdır",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -285,6 +318,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -320,7 +358,12 @@
       "whisper": "Pıçıltı",
       "welcomeMessage": "Çata xoş gəlmisiniz!",
       "roomDescription": "Otaq haqqında",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Roket yanacağı doldurulur.",
@@ -334,6 +377,8 @@
       "galacticDoge": "Qalaktika dog-u",
       "spottedLife": "Həyat olan planet aşkarlandı"
     },
-    "feed": { "yourFeed": "Sənin lentin" }
+    "feed": {
+      "yourFeed": "Sənin lentin"
+    }
   }
 }

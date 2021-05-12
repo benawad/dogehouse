@@ -43,9 +43,16 @@
     "followingOnlineList": {
       "listHeader": "Benutzer, denen du foigst, die oba in an privaten Raum san.",
       "currentRoom": "Zurzeit in:",
-      "startPrivateRoom": "An neichn Raum mit dem Benutzer starten"
+      "startPrivateRoom": "An neichn Raum mit dem Benutzer starten",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Raum erstön",
       "refresh": "Aktualisiern",
@@ -93,8 +100,14 @@
       "allowAll": "Ollen erlaubn",
       "allowAllConfirm": "Bist da sicha? Dadurch kennan olle {{count}} anfragenden Bnutzer spröchn"
     },
-    "searchUser": { "search": "Suachn..." },
-    "soundEffectSettings": { "header": "Ton", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "Suachn..."
+    },
+    "soundEffectSettings": {
+      "header": "Ton",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profü beorbeiten",
       "followsYou": "foigt da",
@@ -124,7 +137,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Kane Mikrofone gfunden, es is entweda kans augschlossen oder de Seitn besitzt ned die benötigten Berechtigungen.",
       "volume": "Lautstärkn:",
-      "refresh": "Mikrofonliste aktualisiern"
+      "refresh": "Mikrofonliste aktualisiern",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",
@@ -140,11 +154,22 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",
-    "addToCalendar": { "add": "Zum Kalenda hinzufügn" },
+    "addToCalendar": {
+      "add": "Zum Kalenda hinzufügn"
+    },
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
@@ -216,7 +241,8 @@
         "goBackToListener": "Zruck zum Zuhörer",
         "deleteMessage": "Nochricht löschn",
         "makeRoomCreator": "zum Raumadmin befördern",
-        "unBanFromChat": "Vom Chat entblockian"
+        "unBanFromChat": "Vom Chat entblockian",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlaungen",
@@ -224,7 +250,14 @@
         "makePrivate": "Raum privat mochen",
         "renamePublic": "Öffentlichn Raumnaumn festlegn",
         "renamePrivate": "Privatn Raumnaumn festlegn",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": {
@@ -283,6 +316,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -318,7 +356,12 @@
       "whisper": "Flüstern",
       "welcomeMessage": "Servus im Chat!",
       "roomDescription": "Raumbeschreibung",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Rakete betankn",
@@ -332,6 +375,8 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet mit Lebn gsichtet"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

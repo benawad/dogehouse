@@ -43,9 +43,16 @@
     "followingOnlineList": {
       "listHeader": "Kasutajad, keda jälgid ja kes ei ole privaatses ruumis",
       "currentRoom": "praegu sees:",
-      "startPrivateRoom": "loo nendega privaatne ruum"
+      "startPrivateRoom": "loo nendega privaatne ruum",
+      "title": "People"
     },
-    "followList": { "followHim": "jälgi", "followingHim": "jälgid" },
+    "followList": {
+      "followHim": "jälgi",
+      "followingHim": "jälgid",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Loo ruum",
       "refresh": "Värskenda",
@@ -93,8 +100,14 @@
       "allowAll": "Luba kõik",
       "allowAllConfirm": "Oled sa kindel? See tegevus lubab kõigil {{count}} taotlejal rääkida"
     },
-    "searchUser": { "search": "otsi..." },
-    "soundEffectSettings": { "header": "Helid", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "otsi..."
+    },
+    "soundEffectSettings": {
+      "header": "Helid",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "muuda profiili",
       "followsYou": "jälgib sind",
@@ -124,10 +137,14 @@
       "mic": "mikrofon:",
       "permissionError": "ühtegi mikrofoni ei leitud; mikrofone ei ole ühendatud või veebilehel puudub õigus neid kasutada.",
       "refresh": "värskenda mikrofonide loendit",
-      "volume": "helitugevus:"
+      "volume": "helitugevus:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Ülekatte Sätted"
     },
     "download": {
@@ -137,6 +154,15 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -171,7 +197,10 @@
       "linkText": "GitHub'is veateate",
       "addSupport": "ning üritame lisada toe teie seadmele."
     },
-    "inviteButton": { "invited": "kutsutud", "inviteToRoom": "kutsu ruumi" },
+    "inviteButton": {
+      "invited": "kutsutud",
+      "inviteToRoom": "kutsu ruumi"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Ligipääs mikrofonile keelatud (võib-olla peate vaatama brauseri sätteid ning lehte värskendama)",
       "dismiss": "tühista",
@@ -188,7 +217,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "pole ühtegi audiotarbijat mingil põhjusel"
     },
-    "addToCalendar": { "add": "Lisa kalendrisse" },
+    "addToCalendar": {
+      "add": "Lisa kalendrisse"
+    },
     "wsKilled": {
       "description": "Veebipesa suleti serveri poolt. See juhtub tavaliselt siis, kui avad veebilehe teisel vahelehel.",
       "reconnect": "ühenda uuesti"
@@ -234,7 +265,8 @@
         "goBackToListener": "mine tagasi kuulajatesse",
         "deleteMessage": "kustuta sõnum",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "nõua luba rääkimiseks",
@@ -242,7 +274,14 @@
         "makePrivate": "tee ruum privaatseks",
         "renamePublic": "Säti avaliku ruumi nimi",
         "renamePrivate": "Säti privaatse ruumi nimi",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -277,6 +316,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -312,7 +356,12 @@
       "whisper": "Sosista",
       "welcomeMessage": "Tere tulemast vestlusesse!",
       "roomDescription": "ruumi kirjeldus",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tankimas raketti",
@@ -326,6 +375,8 @@
       "galacticDoge": "Galaktiline-Doge",
       "spottedLife": "Planeet eluga"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

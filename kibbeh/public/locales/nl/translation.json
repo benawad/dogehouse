@@ -42,9 +42,16 @@
     "followingOnlineList": {
       "listHeader": "Lijst van gebruikers die je volgt en niet in een privékamer zijn.",
       "currentRoom": "Momenteel in:",
-      "startPrivateRoom": "Start een privékamer met deze persoon"
+      "startPrivateRoom": "Start een privékamer met deze persoon",
+      "title": "People"
     },
-    "followList": { "followHim": "Volg", "followingHim": "Volgend" },
+    "followList": {
+      "followHim": "Volg",
+      "followingHim": "Volgend",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Kamer maken",
       "refresh": "Verversen",
@@ -92,8 +99,14 @@
       "allowAll": "Iedereen toestaan",
       "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan {{count}} verzoekende gebruikers om te spreken"
     },
-    "searchUser": { "search": "Zoeken..." },
-    "soundEffectSettings": { "header": "Geluiden", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "Zoeken..."
+    },
+    "soundEffectSettings": {
+      "header": "Geluiden",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profiel bewerken",
       "followsYou": "Volgt jou",
@@ -123,7 +136,8 @@
       "mic": "Microfoon:",
       "permissionError": "Geen microfoon gevonden, waarschijnlijk is er geen microfoon aangesloten of heb je geen toestemming gegeven.",
       "refresh": "Microfoonlijst verversen",
-      "volume": "Volume:"
+      "volume": "Volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -139,6 +153,15 @@
       "prompt": "Klik op de onderstaande knop om te downloaden",
       "download_now": "Nu downloaden",
       "download_for": "Download voor %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -193,7 +216,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "Geen audioapparaat (om een of andere reden)"
     },
-    "addToCalendar": { "add": "Voeg toe aan agenda" },
+    "addToCalendar": {
+      "add": "Voeg toe aan agenda"
+    },
     "wsKilled": {
       "description": "WebSocket is gestopt door de server. Dit gebeurt meestal als je de site open hebt staan in een ander tabblad.",
       "reconnect": "Opnieuw verbinden"
@@ -239,7 +264,8 @@
         "goBackToListener": "Ga terug naar luisteraar",
         "deleteMessage": "Verwijder dit bericht",
         "makeRoomCreator": "kamerbeheerder maken",
-        "unBanFromChat": "Ontban van chat"
+        "unBanFromChat": "Ontban van chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Toestemming nodig om te spreken",
@@ -247,7 +273,14 @@
         "makePrivate": "Maak kamer privé",
         "renamePublic": "Stel openbare kamernaam in",
         "renamePrivate": "Stel privékamernaam in",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -282,6 +315,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -317,7 +355,12 @@
       "whisper": "Fluister",
       "welcomeMessage": "Welkom in de chat!",
       "roomDescription": "Kamer omschrijving",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Raket aan het tanken",
@@ -331,6 +374,8 @@
       "galacticDoge": "Galactische Doge",
       "spottedLife": "Planeet met leven gespot"
     },
-    "feed": { "yourFeed": "Je Feed" }
+    "feed": {
+      "yourFeed": "Je Feed"
+    }
   }
 }

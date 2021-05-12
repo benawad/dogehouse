@@ -43,9 +43,16 @@
     "followingOnlineList": {
       "listHeader": "Lista seuraamistasi käyttäjistä, jotka eivät ole yksityisessä huoneessa.",
       "currentRoom": "Paikalla:",
-      "startPrivateRoom": "Luo yksityinen huone heidän kanssaan"
+      "startPrivateRoom": "Luo yksityinen huone heidän kanssaan",
+      "title": "People"
     },
-    "followList": { "followHim": "Seuraa", "followingHim": "Seurannassa" },
+    "followList": {
+      "followHim": "Seuraa",
+      "followingHim": "Seurannassa",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Luo huone",
       "refresh": "Päivitä",
@@ -93,8 +100,14 @@
       "allowAll": "Hyväksy kaikki",
       "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
-    "searchUser": { "search": "Hae..." },
-    "soundEffectSettings": { "header": "Äänet", "title": "Ääniasetukset" },
+    "searchUser": {
+      "search": "Hae..."
+    },
+    "soundEffectSettings": {
+      "header": "Äänet",
+      "title": "Ääniasetukset",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Muokkaa profiilia",
       "followsYou": "Seuraa sinua",
@@ -124,7 +137,8 @@
       "mic": "Mikrofoni:",
       "permissionError": "Yhtään mikrofonia ei löytynyt. joko yhtään ei ole kytketty tai et ole antanut sivustolle lupaa käyttää mikrofonia.",
       "refresh": "Päivitä lista",
-      "volume": "Äänenvoimakkuus:"
+      "volume": "Äänenvoimakkuus:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay-asetukset",
@@ -140,6 +154,15 @@
       "prompt": "Aloita lataaminen klikkaamalla alla olevaa painiketta",
       "download_now": "Lataa nyt",
       "download_for": "Lataa %platform%ille (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -191,8 +214,12 @@
       "toggleOverlayKeybind": "Overlay-pikanäppäin",
       "toggleDeafKeybind": "Hiljennys-pikanäppäin"
     },
-    "userVolumeSlider": { "noAudioMessage": "Ei äänen ulostulolaitteita" },
-    "addToCalendar": { "add": "Lisää kalenteriin" },
+    "userVolumeSlider": {
+      "noAudioMessage": "Ei äänen ulostulolaitteita"
+    },
+    "addToCalendar": {
+      "add": "Lisää kalenteriin"
+    },
     "wsKilled": {
       "description": "Palvelin katkaisi yhteyden. Tämä johtuu yleensä sivuston avaamisesta useampaan välilehteen.",
       "reconnect": "Yhdistä uudelleen"
@@ -238,7 +265,8 @@
         "goBackToListener": "Palaa kuuntelijaksi",
         "deleteMessage": "Poista viesti",
         "makeRoomCreator": "Ylennä huoneen ylläpitäjäksi",
-        "unBanFromChat": "Poista esto chatista"
+        "unBanFromChat": "Poista esto chatista",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Puhuminen vaatii oikeuden",
@@ -246,7 +274,14 @@
         "makePrivate": "Tee huoneesta yksityinen",
         "renamePublic": "Aseta julkinen huoneen nimi",
         "renamePrivate": "Aseta yksityinen huoneen nimi",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -281,6 +316,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -316,7 +356,12 @@
       "whisper": "Kuiskaus",
       "welcomeMessage": "Tervetuloa chattiin!",
       "roomDescription": "Huoneen kuvaus",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tankkaamassa rakettia",
@@ -330,6 +375,8 @@
       "galacticDoge": "Galaktinen Doge",
       "spottedLife": "Havaittiin planeetta, jossa on elämää"
     },
-    "feed": { "yourFeed": "Syötteesi" }
+    "feed": {
+      "yourFeed": "Syötteesi"
+    }
   }
 }

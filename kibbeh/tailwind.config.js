@@ -113,6 +113,21 @@ module.exports = {
       transitionDuration: {
         400: "400ms",
       },
+      keyframes: {
+        breathe: {
+          "0%, 100%": {
+            boxShadow: "0 0 20px 2px var(--color-primary-100-translucent)",
+            borderColor: "var(--color-primary-300)",
+          },
+          "50%": {
+            boxShadow: "0 0 20px 2px transparent",
+            borderColor: "var(--color-primary-700)",
+          },
+        },
+      },
+      animation: {
+        "breathe-slow": "breathe 5s infinite ease-in-out",
+      },
     },
   },
   variants: {

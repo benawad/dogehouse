@@ -42,9 +42,16 @@
     "followingOnlineList": {
       "listHeader": "ห้องสาธารณะที่ผู้คนที่คุณกำลังติดตามใช้งานอยู่",
       "currentRoom": "ขณะนี้อยู่ใน:",
-      "startPrivateRoom": "สร้างห้องส่วนตัว"
+      "startPrivateRoom": "สร้างห้องส่วนตัว",
+      "title": "People"
     },
-    "followList": { "followHim": "ติดตาม", "followingHim": "กำลังติดตาม" },
+    "followList": {
+      "followHim": "ติดตาม",
+      "followingHim": "กำลังติดตาม",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "สร้างห้อง",
       "refresh": "รีเฟรช",
@@ -92,10 +99,13 @@
       "allowAll": "อนุญาตทั้งหมด",
       "allowAllConfirm": "แน่ใจหรือไม่? คุณกำลังอนุมัติให้ผู้ใช้ {{count}} คน ขึ้นมาเป็นผู้พูด"
     },
-    "searchUser": { "search": "ค้นหา..." },
+    "searchUser": {
+      "search": "ค้นหา..."
+    },
     "soundEffectSettings": {
       "header": "การแจ้งเตือนเสียง",
-      "title": "การตั้งค่าเสียง"
+      "title": "การตั้งค่าเสียง",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "แก้ไขโปรไฟล์",
@@ -126,10 +136,14 @@
       "mic": "ไมโครโฟน:",
       "permissionError": "ไม่พบไมโครโฟน, คุณอาจจะลืมเสียบไมโครโฟน หรือ ลืมที่จะให้สิทธิ์ไมโครโฟนแก่เว็บไซต์.",
       "refresh": "รีเฟรชไมโครโฟน",
-      "volume": "ระดับเสียง:"
+      "volume": "ระดับเสียง:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "App Title ไม่ถูกต้อง", "label": "ใส่ App Title" },
+      "input": {
+        "errorMsg": "App Title ไม่ถูกต้อง",
+        "label": "ใส่ App Title"
+      },
       "header": "การตั้งค่าโอเวอร์เลย์"
     },
     "download": {
@@ -139,6 +153,15 @@
       "prompt": "คลิ๊กที่ปุ่มด้านล่างเพื่อเริ่มการดาวน์โหลด.",
       "download_now": "ดาวน์โหลดตอนนี้",
       "download_for": "ดาวน์โหลดสำหรับ %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -190,8 +213,12 @@
       "toggleOverlayKeybind": "คีย์ลัด เปิด/ปิด โอเวอร์เลย์",
       "toggleDeafKeybind": "คีย์ลัด เปิด/ปิด เสียง"
     },
-    "userVolumeSlider": { "noAudioMessage": "ไม่พบลำโพง" },
-    "addToCalendar": { "add": "เพิ่มไปยังปฏิทิน" },
+    "userVolumeSlider": {
+      "noAudioMessage": "ไม่พบลำโพง"
+    },
+    "addToCalendar": {
+      "add": "เพิ่มไปยังปฏิทิน"
+    },
     "wsKilled": {
       "description": "ตัดการเชื่อมต่อโดยเซิร์ฟเวอร์ อาจจะเป็นเพราะการเปิดเว็บไซต์หลายหน้าจอ",
       "reconnect": "เชื่อมต่อใหม่อีกครั้ง"
@@ -237,7 +264,8 @@
         "goBackToListener": "กลับไปเป็นผู้ฟัง",
         "deleteMessage": "ลบข้อความ",
         "makeRoomCreator": "แต่งตั้งเป็นแอดมินห้อง",
-        "unBanFromChat": "ปลดแบนจากแชท"
+        "unBanFromChat": "ปลดแบนจากแชท",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "ต้องใช้สิทธิ์ในการพูด",
@@ -245,7 +273,14 @@
         "makePrivate": "ตั้งให้เป็นห้องส่วนตัว",
         "renamePublic": "ตั้งชื่อห้องสาธารณะ",
         "renamePrivate": "ตั้งชื่อห้องส่วนตัว",
-        "chatDisabled": "ปิดแชท"
+        "chatDisabled": "ปิดแชท",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -280,6 +315,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -299,7 +339,9 @@
       },
       "tommorow": "พรุ่งนี้",
       "today": "วันนี้",
-      "deleteModal": { "areYouSure": "แน่ใจหรือไม่ที่จะลบกำหนดการนี้?" }
+      "deleteModal": {
+        "areYouSure": "แน่ใจหรือไม่ที่จะลบกำหนดการนี้?"
+      }
     },
     "roomChat": {
       "title": "แชท",
@@ -313,7 +355,12 @@
       "whisper": "กระซิบ",
       "welcomeMessage": "ยินดีต้อนรับสู่ห้องแชท!",
       "roomDescription": "คำอธิบายห้อง",
-      "disabled": "แชทถูกปิดสำหรับห้องนี้"
+      "disabled": "แชทถูกปิดสำหรับห้องนี้",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "กำลังเติมเชื้อเพลิงยาน",
@@ -327,6 +374,8 @@
       "galacticDoge": "ถึงกาแลคซี่แล้ว",
       "spottedLife": "พบดาวเอเลี่ยนแล้ว!"
     },
-    "feed": { "yourFeed": "ฟีดของคุณ" }
+    "feed": {
+      "yourFeed": "ฟีดของคุณ"
+    }
   }
 }

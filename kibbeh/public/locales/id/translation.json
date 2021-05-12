@@ -42,9 +42,16 @@
     "followingOnlineList": {
       "listHeader": "Daftar pengguna yang tidak ada di ruangan privat dan kamu ikuti.",
       "currentRoom": "Saat ini di:",
-      "startPrivateRoom": "Mulai ruangan privat dengan mereka"
+      "startPrivateRoom": "Mulai ruangan privat dengan mereka",
+      "title": "People"
     },
-    "followList": { "followHim": "Ikuti", "followingHim": "Mengikuti" },
+    "followList": {
+      "followHim": "Ikuti",
+      "followingHim": "Mengikuti",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Buat Ruangan",
       "refresh": "Segarkan",
@@ -92,8 +99,14 @@
       "allowAll": "Izinkan semua",
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
     },
-    "searchUser": { "search": "cari..." },
-    "soundEffectSettings": { "header": "Bunyi", "title": "Pengaturan Bunyi" },
+    "searchUser": {
+      "search": "cari..."
+    },
+    "soundEffectSettings": {
+      "header": "Bunyi",
+      "title": "Pengaturan Bunyi",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Ubah profil",
       "followsYou": "Mengikutimu",
@@ -107,15 +120,15 @@
       "about": "Tentang",
       "bot": "Bot",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips"
+        "about": "Tentang",
+        "rooms": "Ruangan",
+        "scheduled": "Terjadwal",
+        "recorded": "Terekam",
+        "clips": "Klip"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM",
+      "block": "Blokir",
+      "unblock": "Berhenti blokir",
+      "sendDM": "Kirim DM",
       "aboutSuffix": ""
     },
     "voiceSettings": {
@@ -123,7 +136,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Mikrofon tidak ditemukan, mungkin kamu belum memasangnya atau belum memberikan website ini akses.",
       "refresh": "Muat ulang daftar mikrofon",
-      "volume": "Suara:"
+      "volume": "Suara:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -139,6 +153,15 @@
       "prompt": "Tekan tombol di bawah untuk memulai mengunduh",
       "download_now": "Unduh Sekarang",
       "download_for": "Unduh untuk %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -156,7 +179,7 @@
       "leave": "Keluar",
       "inviteUsersToRoomBtn": "Undang pengguna ke ruangan",
       "invite": "Undang",
-      "toggleMuteMicBtn": "Atur mikrofon untuk membisu",
+      "toggleMuteMicBtn": "Beralih mikrofon untuk membisu",
       "mute": "Bisu",
       "unmute": "Suarakan",
       "makeRoomPublicBtn": "Buat ruangan publik!",
@@ -183,15 +206,19 @@
       "tryAgain": "Coba lagi"
     },
     "keyboardShortcuts": {
-      "setKeybind": "Atur tombol",
+      "setKeybind": "Beralih tombol",
       "listening": "Menunggu tombol",
-      "toggleMuteKeybind": "Atur tombol untuk membisu",
-      "togglePushToTalkKeybind": "Atur tombol klik-untuk-bicara",
-      "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleMuteKeybind": "Beralih tombol untuk membisu",
+      "togglePushToTalkKeybind": "Beralih tombol klik-untuk-bicara",
+      "toggleOverlayKeybind": "Beralih tombol lapisan",
+      "toggleDeafKeybind": "Beralih tombol menulikan"
     },
-    "userVolumeSlider": { "noAudioMessage": "Perangkat audio tidak ditemukan" },
-    "addToCalendar": { "add": "Tambahkan ke Kalender" },
+    "userVolumeSlider": {
+      "noAudioMessage": "Perangkat audio tidak ditemukan"
+    },
+    "addToCalendar": {
+      "add": "Tambahkan ke Kalender"
+    },
     "wsKilled": {
       "description": "WebSocket dihentikan oleh server. Biasanya terjadi karena kamu membuka laman web ini di tab lain.",
       "reconnect": "Menghubungkan kembali"
@@ -237,7 +264,8 @@
         "goBackToListener": "Kembali ke pendengar",
         "deleteMessage": "Hapus pesan ini",
         "makeRoomCreator": "Buat admin ruangan",
-        "unBanFromChat": "Bolehkan di percakapan"
+        "unBanFromChat": "Bolehkan di percakapan",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "membutuhkan izin untuk berbicara",
@@ -245,7 +273,14 @@
         "makePrivate": "buat ruangan jadi privat",
         "renamePublic": "Ubah nama ruangan publik",
         "renamePrivate": "Ubah nama ruangan privat",
-        "chatDisabled": "nonaktifkan percakapan"
+        "chatDisabled": "nonaktifkan percakapan",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -280,6 +315,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -315,7 +355,12 @@
       "whisper": "Bisikan",
       "welcomeMessage": "Selamat datang di percakapan!",
       "roomDescription": "Deskripsi ruangan",
-      "disabled": "percakapan sudah dinonaktifkan"
+      "disabled": "percakapan sudah dinonaktifkan",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Mengisi bahan bakar roket",
@@ -329,6 +374,8 @@
       "galacticDoge": "Doge di galaksi",
       "spottedLife": "Planet dengan kehidupan ditemukan"
     },
-    "feed": { "yourFeed": "Feed kamu" }
+    "feed": {
+      "yourFeed": "Feed kamu"
+    }
   }
 }

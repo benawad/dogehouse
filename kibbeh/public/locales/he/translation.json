@@ -43,9 +43,16 @@
     "followingOnlineList": {
       "listHeader": "רשימת משתמשים שאתה עוקב אחרייהם שלא בחדר פרטי.",
       "currentRoom": "ב:",
-      "startPrivateRoom": "צור חדר פרטי איתם"
+      "startPrivateRoom": "צור חדר פרטי איתם",
+      "title": "People"
     },
-    "followList": { "followHim": "עקוב", "followingHim": "עוקב" },
+    "followList": {
+      "followHim": "עקוב",
+      "followingHim": "עוקב",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "צור חדר",
       "refresh": "טען מחדש",
@@ -93,8 +100,14 @@
       "allowAll": "הרשה לכולם",
       "allowAllConfirm": "המשתמשים המבקשים רשות יכולת דיבור {{count}} אתה בטוח? זה יאפשר לכל"
     },
-    "searchUser": { "search": "חפש..." },
-    "soundEffectSettings": { "header": "צלילים", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "חפש..."
+    },
+    "soundEffectSettings": {
+      "header": "צלילים",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "ערוך פרופיל",
       "followsYou": "עוקב אחריך",
@@ -124,10 +137,14 @@
       "mic": "מיקרופון:",
       "permissionError": "לא נמצאו מיקרופונים, או שאין מיקרופון מחובר או שלא נתת אישור לאתר זה.",
       "refresh": "רענן את רשימת המיקרופונים",
-      "volume": "עוצמת קול:"
+      "volume": "עוצמת קול:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings"
     },
     "download": {
@@ -137,6 +154,15 @@
       "prompt": "לחץ על כפתור זה כדי להתחיל בהורדה",
       "download_now": "הורד עכשיו",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -171,7 +197,10 @@
       "linkText": "בעיות בGitHub.",
       "addSupport": "וננסה להוסיף תמיכה למכשיר שלך."
     },
-    "inviteButton": { "invited": "מוזמן", "inviteToRoom": "הזמן לחדר" },
+    "inviteButton": {
+      "invited": "מוזמן",
+      "inviteToRoom": "הזמן לחדר"
+    },
     "micPermissionBanner": {
       "permissionDenied": "ההרשאה נדחתה בניסיון לגשת למיקרופון שלך (יתכן שתצטרך להיכנס להגדרות הדפדפן ולטעון מחדש את הדף)",
       "dismiss": "סגור",
@@ -185,8 +214,12 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": { "noAudioMessage": "שום צרכן קול משום מה" },
-    "addToCalendar": { "add": "הוסף ליומן" },
+    "userVolumeSlider": {
+      "noAudioMessage": "שום צרכן קול משום מה"
+    },
+    "addToCalendar": {
+      "add": "הוסף ליומן"
+    },
     "wsKilled": {
       "description": "הWebSocket נסגר על ידי השרת. זה קורה בדרך כלל כשפותחים את האתר בלשונית אחרת.",
       "reconnect": "התחבר מחדש"
@@ -232,7 +265,8 @@
         "goBackToListener": "חזור למקשיב",
         "deleteMessage": "מחק הודעה זו",
         "makeRoomCreator": "הפוך למנהל חדר",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "דרוש אישור לדבר",
@@ -240,7 +274,14 @@
         "makePrivate": "הפוך חדר לפרטי",
         "renamePublic": "הגדר את שם החדר הציבורי",
         "renamePrivate": "הגדר את השם של החדר הפרטי",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -275,6 +316,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -294,7 +340,9 @@
       },
       "tommorow": "מחר",
       "today": "היום",
-      "deleteModal": { "areYouSure": "האם אתה בטוח שתרצה למחוק את החדר הזה?" }
+      "deleteModal": {
+        "areYouSure": "האם אתה בטוח שתרצה למחוק את החדר הזה?"
+      }
     },
     "roomChat": {
       "title": "צ'אט",
@@ -308,7 +356,12 @@
       "whisper": "הודעה פרטית",
       "welcomeMessage": "ברוכים הבאים לצ'אט!",
       "roomDescription": "תיאור החדר",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "מטדלק את הרקטה",
@@ -322,6 +375,8 @@
       "galacticDoge": "גלקטי Doge",
       "spottedLife": "כוכב לכת עם חיים נמצא"
     },
-    "feed": { "yourFeed": "הסיפור שלך" }
+    "feed": {
+      "yourFeed": "הסיפור שלך"
+    }
   }
 }

@@ -43,11 +43,15 @@
     "followingOnlineList": {
       "listHeader": "যেসব ইউজারকে আপনি অনুসরণ করেন কিন্তু এখন তারা কোনো প্রাইভেট রুম এ নেই।",
       "currentRoom": "ভেতরে আছেন:",
-      "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন"
+      "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন",
+      "title": "People"
     },
     "followList": {
       "followHim": "অনুসরণ করুন",
-      "followingHim": "অনুসরণ করছেন"
+      "followingHim": "অনুসরণ করছেন",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "রুম বানান",
@@ -96,8 +100,14 @@
       "allowAll": "সবাইকে অনুমতি দিন",
       "allowAllConfirm": "আপনি কি নিশ্চিত? এটা অনুমতি দেবে সব {{count}} জন অনুরোধ করা ইউজারদের কথা বলতে"
     },
-    "searchUser": { "search": "খুঁজুন..." },
-    "soundEffectSettings": { "header": "সাউন্ডস", "title": "সাউন্ড সেটিংস" },
+    "searchUser": {
+      "search": "খুঁজুন..."
+    },
+    "soundEffectSettings": {
+      "header": "সাউন্ডস",
+      "title": "সাউন্ড সেটিংস",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",
@@ -127,7 +137,8 @@
       "mic": "মাইক:",
       "permissionError": "কোনো মাইক খুঁজে পাওয়া যাইনি, আপনি কোনো মাইক প্লাগ করেননি অথবা এই ওয়েবসাইটকে পারমিশন দেননি।",
       "refresh": "মাইক লিস্ট রিফ্রেশ করুন",
-      "volume": "ভলিউম:"
+      "volume": "ভলিউম:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -145,6 +156,15 @@
       "prompt": "নিচের বাটনটিতে ক্লিক করুন ডাউনলোড শুরু করতে",
       "download_now": "ডাউনলোড করুন এখন",
       "download_for": "%platform% (%ext%)-এর জন্য ডাউনলোড করুন"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -199,7 +219,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "কিছু কারনে অডিও কনসিউম করা যাইনি"
     },
-    "addToCalendar": { "add": "ক্যালেন্ডারে যুক্ত করুন" },
+    "addToCalendar": {
+      "add": "ক্যালেন্ডারে যুক্ত করুন"
+    },
     "wsKilled": {
       "description": "সার্ভারের দ্বারা ওয়েবসকেটটি শেষ হয়ে গেছে। এটি সাধারণত হয় যখন আপনি ওয়েবসাইটটি আরেকটি ট্যাব এ ওপেন করেন।",
       "reconnect": "পুনরায় সংযোগ করুন"
@@ -245,7 +267,8 @@
         "goBackToListener": "শ্রোতাতে ফিরে যান",
         "deleteMessage": "মেসেজটি মুছে ফেলুন",
         "makeRoomCreator": "রুম অ্যাডমিন তৈরি করুন",
-        "unBanFromChat": "চ্যাট থেকে আনব্যান করুন"
+        "unBanFromChat": "চ্যাট থেকে আনব্যান করুন",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
@@ -253,7 +276,14 @@
         "makePrivate": "রুমটাকে প্রাইভেট করুন",
         "renamePublic": "পাবলিক রুমের নাম সেট করুন",
         "renamePrivate": "প্রাইভেট রুমের নাম সেট করুন",
-        "chatDisabled": "চ্যাট অফ করুন"
+        "chatDisabled": "চ্যাট অফ করুন",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -288,6 +318,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -323,7 +358,12 @@
       "whisper": "ফিসফিস",
       "welcomeMessage": "চ্যাট এ স্বাগতম!",
       "roomDescription": "রুমের বর্ণনা",
-      "disabled": "রুম চ্যাট অফ করা হয়েছে"
+      "disabled": "রুম চ্যাট অফ করা হয়েছে",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "রকেটে জ্বালানি দেওয়া হচ্ছে",
@@ -337,6 +377,8 @@
       "galacticDoge": "গ্যালাকটিক Doge",
       "spottedLife": "গ্রহে জীবনের সন্ধান পাওয়া গেছে"
     },
-    "feed": { "yourFeed": "আপনার ফিড" }
+    "feed": {
+      "yourFeed": "আপনার ফিড"
+    }
   }
 }

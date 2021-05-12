@@ -42,9 +42,16 @@
     "followingOnlineList": {
       "listHeader": "Zoznam používateľov ktorých sleduješ a niesú v súkromnej miestnosti",
       "currentRoom": "aktuálne v:",
-      "startPrivateRoom": "začať s nimi súkromnú miestnosť"
+      "startPrivateRoom": "začať s nimi súkromnú miestnosť",
+      "title": "People"
     },
-    "followList": { "followHim": "Sledovať", "followingHim": "Sledovaný" },
+    "followList": {
+      "followHim": "Sledovať",
+      "followingHim": "Sledovaný",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Vytvoriť miestnosť",
       "refresh": "Obnoviť",
@@ -92,8 +99,14 @@
       "allowAll": "Povoliť rozprávať všetkým",
       "allowAllConfirm": "Si si istý? Povolíš rozprávať všetkým {{count}} žiadateľom"
     },
-    "searchUser": { "search": "hľadať..." },
-    "soundEffectSettings": { "header": "Zvuky", "title": "Sound Settings" },
+    "searchUser": {
+      "search": "hľadať..."
+    },
+    "soundEffectSettings": {
+      "header": "Zvuky",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "upraviť profil",
       "followsYou": "sleduje ťa",
@@ -123,7 +136,8 @@
       "mic": "mikrofón:",
       "permissionError": "žiadne mikrofóny nenájdené, buď žiaden nie je zapojený alebo si neudelil stránke oprávnenie.",
       "refresh": "obnoviť zoznam mikrofónov",
-      "volume": "hlasitosť:"
+      "volume": "hlasitosť:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -139,6 +153,15 @@
       "prompt": "Pre začatie sťahovania klikni na tlačidlo",
       "download_now": "Stiahnuť teraz",
       "download_for": "Stiahnuť pre %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -193,7 +216,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "z nejakého dôvodu nemáme žiadny zvuk"
     },
-    "addToCalendar": { "add": "Pridať do kalendára" },
+    "addToCalendar": {
+      "add": "Pridať do kalendára"
+    },
     "wsKilled": {
       "description": "Websocket ukončený zo strany serveru. To sa väčšinou stáva ak máš stránku otvorenú v ďalšej záložke.",
       "reconnect": "obnoviť pripojenie"
@@ -239,7 +264,8 @@
         "goBackToListener": "vrátiť sa k poslucháčovi",
         "deleteMessage": "zmazať túto správu",
         "makeRoomCreator": "udeliť správcu miestnosti",
-        "unBanFromChat": "odbanovať z chatu"
+        "unBanFromChat": "odbanovať z chatu",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Poslucháči musia požiadať o povolenie rozprávať",
@@ -247,7 +273,14 @@
         "makePrivate": "zosúkromniť miestnosť",
         "renamePublic": "Nastaviť názov verejnej miestnosti",
         "renamePrivate": "Nastaviť názov súkromnej miestnosti",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -282,6 +315,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -317,7 +355,12 @@
       "whisper": "Pošepkať",
       "welcomeMessage": "Vitaj v chate!",
       "roomDescription": "popis miestnosti",
-      "disabled": "chat miestnosti bol vypnutý"
+      "disabled": "chat miestnosti bol vypnutý",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tankujeme raketu",
@@ -331,6 +374,8 @@
       "galacticDoge": "Galaktický Doge",
       "spottedLife": "Zahliadnutá planéta so životom"
     },
-    "feed": { "yourFeed": "Tvoj feed" }
+    "feed": {
+      "yourFeed": "Tvoj feed"
+    }
   }
 }

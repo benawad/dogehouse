@@ -43,9 +43,16 @@
     "followingOnlineList": {
       "listHeader": "وہ لوگ جنھیں آپ فالو کرتیں ہیں ور وو اس وقت نجی روم میں نہیں ہیں",
       "currentRoom": "موجودہ روم:",
-      "startPrivateRoom": "ان کے ساتھ ایک نجی روم شروع کریں"
+      "startPrivateRoom": "ان کے ساتھ ایک نجی روم شروع کریں",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "روم بنائیں",
       "refresh": "ریفریش",
@@ -93,10 +100,13 @@
       "allowAll": "سب کو اجازت دیں",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": { "search": "تلاش کریں" },
+    "searchUser": {
+      "search": "تلاش کریں"
+    },
     "soundEffectSettings": {
       "header": "آواز کی ترتیبات",
-      "title": "Sound Settings"
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "پروفائل میں ترمیم کریں",
@@ -127,10 +137,14 @@
       "mic": "مائک:",
       "permissionError": "کوئی mics نہیں ملا ، آپ نے یا تو کسی نے پلگ ان نہیں لیا ہے یا اس ویب سائٹ کو اجازت نہیں دی ہے۔",
       "refresh": "مائک کی فہرست کو تازہ کریں",
-      "volume": "حجم:"
+      "volume": "حجم:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings"
     },
     "download": {
@@ -140,6 +154,15 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
     }
   },
   "components": {
@@ -191,8 +214,12 @@
       "toggleOverlayKeybind": "toggle overlay keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": { "noAudioMessage": "کسی وجہ سے آڈیو صارف نہیں ہے" },
-    "addToCalendar": { "add": "کیلنڈر میں شامل کریں" },
+    "userVolumeSlider": {
+      "noAudioMessage": "کسی وجہ سے آڈیو صارف نہیں ہے"
+    },
+    "addToCalendar": {
+      "add": "کیلنڈر میں شامل کریں"
+    },
     "wsKilled": {
       "description": "ویبسکیٹ سرور کے ذریعہ ہلاک ہوگئی تھی۔ یہ عام طور پر ہوتا ہے جب آپ کسی دوسرے ٹیب میں ویب سائٹ کھولتے ہیں۔",
       "reconnect": "دوبارہ جڑنا"
@@ -238,7 +265,8 @@
         "goBackToListener": "سننے والوں کے پاس واپس جائیں",
         "deleteMessage": "اس پیغام کو حذف کریں",
         "makeRoomCreator": "روم ایڈمن بنائیں",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "بولنے کی اجازت کی ضرورت ہے",
@@ -246,7 +274,14 @@
         "makePrivate": "کمرے کو نجی بنائیں",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -281,6 +316,11 @@
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -316,7 +356,12 @@
       "whisper": "سرگوشی",
       "welcomeMessage": "چیٹ میں خوش آمدید!",
       "roomDescription": "کمرے کی تفصیل",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",
@@ -330,6 +375,8 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }

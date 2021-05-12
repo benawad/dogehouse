@@ -12,6 +12,10 @@
 
 <body>
     <style>
+        :root {
+            user-select: none;
+        }
+
         body {
             background-color: rgba(0, 0, 0, 0);
         }
@@ -32,7 +36,7 @@
         }
     </style>
     <div
-        style=" background-color: #0B0E11; border-radius: 5%; height: 400px; width: 300px; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);">
+        style="background-color: #0B0E11; border-radius: 5%; height: 400px; width: 300px; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); -webkit-app-region: drag;">
         <img style="height:120px; position:fixed; top:35%; left:50%; transform:translate(-50%, -50%);"
             src="../../icons/icon.png" alt="DogeHouse Logo">
         <h4
