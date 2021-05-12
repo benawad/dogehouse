@@ -1258,7 +1258,7 @@ __metadata:
     electron-log: ^4.3.2
     electron-overlay-window: ^1.0.4
     electron-updater: ^4.3.8
-    globalkey: ^1.0.6
+    globalkey: ^1.0.7
     i18next: ^20.0.0
     i18next-node-fs-backend: ^2.1.3
     lodash: ^4.17.21
@@ -1816,10 +1816,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globalkey@npm:^1.0.6":
-  version: 1.0.6
-  resolution: "globalkey@npm:1.0.6"
-  checksum: 6daf54a889313dfb3e11a2acf88e043a210ef1d3afa5e805cdcc598812268bb1cd1b60edf85d717be607d066d0c5c3f50bbaa177017a950b3874653256fda2b5
+"globalkey@npm:^1.0.7":
+  version: 1.0.7
+  resolution: "globalkey@npm:1.0.7"
+  checksum: cbf4ab946601f7e5812430e5f585a326666df83b8d5d2e7cbfecb2251420fdad54e672ca46e4f7b6968404d828f2c716c43779c172bd6455241ede143e421300
   languageName: node
   linkType: hard
 

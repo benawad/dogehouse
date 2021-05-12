@@ -7,14 +7,6 @@ export interface MessageToken {
 	v: string;
 }
 
-export interface Unitoken {
-	mention?: string,
-	link?: string,
-	emote?: string,
-	block?: string
-	text?: string
-}
-
 export interface Token {
 	name: string,
 	regex?: RegExp,

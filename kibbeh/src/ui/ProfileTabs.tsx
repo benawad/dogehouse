@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { ProfileAbout } from "./ProfileAbout";
 import { ProfileScheduled } from "./ProfileScheduled";
+import { UserBadgeLgProps } from "./UserBadgeLg";
 
 export interface ProfileTabsProps extends React.HTMLAttributes<HTMLDivElement> {
   user: UserWithFollowInfo;
@@ -13,6 +14,7 @@ export interface ProfileTabsProps extends React.HTMLAttributes<HTMLDivElement> {
     recorded?: boolean;
     clips?: boolean;
   };
+  aboutTags?: UserBadgeLgProps[];
 }
 
 export const ProfileTabs: React.FC<ProfileTabsProps> = ({
@@ -25,6 +27,7 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
     recorded: false,
     clips: false,
   },
+  aboutTags = [],
   ...props
 }) => {
   const [activeTab, setActiveTab] = useState("about");
@@ -90,7 +93,7 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
           followers={user.numFollowers}
           following={user.numFollowing}
           description={user.bio}
-          tags={[]}
+          tags={aboutTags}
         />
 
         <ProfileScheduled

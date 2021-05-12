@@ -11,7 +11,7 @@ import {
 import i18n from "i18next";
 import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
-import { RegisterKeybinds } from "./utils/keybinds";
+import { exitApp, RegisterKeybinds } from "./utils/keybinds";
 
 import { HandleVoiceTray } from "./utils/tray";
 import {
@@ -25,7 +25,7 @@ import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
 import electronLogger from "electron-log";
-import { startRPC, stopRPC } from "./utils/rpc";
+import { startRPC } from "./utils/rpc";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -45,7 +45,7 @@ i18n.use(Backend);
 electronLogger.transports.file.level = "debug";
 autoUpdater.logger = electronLogger;
 // just in case we have to revert to a build
-autoUpdater.allowDowngrade = false;
+autoUpdater.allowDowngrade = true;
 
 if (isWin) app.setAppUserModelId("DogeHouse");
 
@@ -230,8 +230,7 @@ if (!instanceLock) {
   if (process.env.hotReload) {
     app.relaunch();
   }
-  stopRPC();
-  app.quit()
+  exitApp();
 } else {
   app.on("ready", () => {
     localize().then(async () => {
@@ -282,8 +281,7 @@ autoUpdater.on("update-not-available", () => {
   skipUpdateCheck(splash);
 });
 app.on("window-all-closed", async () => {
-  stopRPC();
-  app.quit()
+  exitApp();
 });
 app.on("activate", () => {
   if (mainWindow === null) {

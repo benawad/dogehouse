@@ -2,18 +2,18 @@ import * as React from "react";
 import { PageComponent } from "../../types/PageComponent";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
-import { BanUsersForm } from "./BanUsersForm";
+import { AdminPageForm } from "./AdminPageForm";
 
 interface Props {}
 
-export const BanUserPage: PageComponent<Props> = () => {
+export const AdminPage: PageComponent<Props> = () => {
   return (
     <WaitForWsAndAuth>
       <DefaultDesktopLayout>
-        <BanUsersForm />
+        <AdminPageForm />
       </DefaultDesktopLayout>
     </WaitForWsAndAuth>
   );
 };
 
-BanUserPage.ws = true;
+AdminPage.ws = true;

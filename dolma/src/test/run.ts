@@ -1,5 +1,5 @@
 import * as encodingTests from './tests/encoding';
-import { dolma } from '../';
+import dolma from '../';
 
 interface CompletedTest {
   started: Date,
@@ -18,21 +18,21 @@ let failedTests: CompletedTest[] = [];
 let successfulTests: CompletedTest[] = [];
 
 let tests = {
-	encoding: encodingTests.default
+  encoding: encodingTests.default
 }
 
 function testFinished(test: any, started: Date, successful?: boolean) {
   const finished = new Date();
 
   if (successful) {
-    successfulTests.push({ started, finished, type: test.type, passed: true});
+    successfulTests.push({ started, finished, type: test.type, passed: true });
 
-    const time = ((finished.getTime() - started.getTime())/1000) % 60;
+    const time = ((finished.getTime() - started.getTime()) / 1000) % 60;
     console.log(successPrefix, testName(test.name), "Test passed in", `${time}s!`);
   } else {
-    failedTests.push({ started, finished, type: test.type, passed: false});
+    failedTests.push({ started, finished, type: test.type, passed: false });
 
-    const time = ((finished.getTime() - started.getTime())/1000) % 60;
+    const time = ((finished.getTime() - started.getTime()) / 1000) % 60;
     console.log(failurePrefix, testName(test.name), "Test failed in", `${time}s!`);
   }
 }

@@ -35,7 +35,7 @@ export const ProfileScheduled: React.FC<ProfileScheduledProps> = ({
       className={`mt-2 rounded-8 w-full leading-8 ${className}`}
       style={{ maxWidth: 640 }}
     >
-      {scheduledRooms &&
+      {scheduledRooms.length !== 0 ? (
         scheduledRooms.map((r: ScheduledRoom) => (
           <div className={`mb-4`} key={r.id}>
             <ScheduledRoomCard
@@ -45,12 +45,12 @@ export const ProfileScheduled: React.FC<ProfileScheduledProps> = ({
               onDeleteComplete={() => {}}
             />
           </div>
-        ))}
-      {scheduledRooms.length === 0 ? (
+        ))
+      ) : (
         <span className="p-4 w-full text-base bg-primary-800 rounded-lg flex flex-col text-primary-100">
           This user has no scheduled rooms
         </span>
-      ) : null}
+      )}
     </div>
   );
 };

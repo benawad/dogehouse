@@ -28,6 +28,8 @@ UpcomingRoomCardLg.defaultProps = {
       bannerUrl: "",
       online: true,
       username: "gle1",
+      staff: false,
+      contributions: 0,
     },
     {
       bannerUrl: "",
@@ -40,6 +42,8 @@ UpcomingRoomCardLg.defaultProps = {
       numFollowing: 0,
       online: true,
       username: "chr1",
+      staff: false,
+      contributions: 0,
     },
   ],
   date: 1616187600000,

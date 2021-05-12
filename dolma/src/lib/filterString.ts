@@ -10,8 +10,7 @@ export function filterString(message: string) {
 		let tkn = msgToken.getType(e);
 		let value = msgToken.getValue(tkn, e);
 
-		if (tkn == 'text') value.split(" ").map(str => tokens.push(msgToken.newToken('text', str)));
-		else return tokens.push(msgToken.newToken(tkn, value));
+		return tokens.push(msgToken.newToken(tkn, value));
 	});
 
 	return tokens;
