@@ -17,10 +17,10 @@ jobs:
         with:
           node-version: 14
       - name: Install deps
-        working-directory: dolma
+        working-directory: ./dolma
         run: yarn
       - name: Build
-        working-directory: dolma
+        working-directory: ./dolma
         run: yarn build
       - name: Publish if version has been updated
         uses: pascalgn/npm-publish-action@1.3.7
@@ -31,7 +31,7 @@ jobs:
           commit_pattern: "^feat\\(dolma\\)\\: release (\\S+)"
           workspace: "dolma"
           publish_command: "yarn"
-          publish_args: "--non-interactive"
+          publish_args: "--non-interactive --verbose"
         env: # More info about the environment variables in the README
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
