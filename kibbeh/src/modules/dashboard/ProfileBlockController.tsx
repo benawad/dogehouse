@@ -24,7 +24,7 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
     showCreateScheduleRoomModal,
     setShowCreateScheduleRoomModal,
   ] = useState(false);
-  const { data } = useTypeSafeQuery(["getScheduledRooms", 0]);
+  const { data } = useTypeSafeQuery(["getScheduledRooms", ""]);
   const { push } = useRouter();
   const update = useTypeSafeUpdateQuery();
   const { height } = useWindowSize();
@@ -74,7 +74,7 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
       {showCreateScheduleRoomModal ? (
         <CreateScheduleRoomModal
           onScheduledRoom={(srData, resp) => {
-            update(["getScheduledRooms", 0], (d) => {
+            update(["getScheduledRooms", ""], (d) => {
               return {
                 rooms: [
                   {
