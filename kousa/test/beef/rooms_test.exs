@@ -49,7 +49,7 @@ defmodule Kousa.Beef.RoomsTest do
       assert [%{id: ^id}] = Rooms.search_name(room.name)
       assert [%{id: ^id}] = Rooms.search_name(String.slice(room.name, 0..2))
       assert [] = Rooms.search_name("akljdsjoqwdijo12")
-      room2 = Factory.create(Room, isPrivate: true)
+      room2 = Factory.create(Room, name: "qiwodqwjdioqwdjiqwo", isPrivate: true)
       assert [] = Rooms.search_name(room2.name)
     end
 
