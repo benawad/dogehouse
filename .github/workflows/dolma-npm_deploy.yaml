@@ -27,8 +27,8 @@ jobs:
         with: # All of theses inputs are optional
           tag_name: "v%s"
           tag_message: "v%s"
-          create_tag: "true"
-          commit_pattern: "^Release (\\S+)"
+          create_tag: "false"
+          commit_pattern: "^feat(dolma): release (\\S+)"
           workspace: "dolma"
           publish_command: "yarn"
           publish_args: "--non-interactive"
