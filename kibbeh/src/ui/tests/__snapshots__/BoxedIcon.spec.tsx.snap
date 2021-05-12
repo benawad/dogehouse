@@ -2,7 +2,7 @@
 
 exports[`BoxedIcon BoxedIcon should match snapshot 1`] = `
 <button
-  class="flex bg-primary-700  hover:bg-primary-600 h-6 w-6 cursor-pointer justify-center items-center rounded text-primary-100
+  class="flex bg-primary-700  hover:bg-primary-600 h-6 w-6 cursor-pointer justify-center items-center rounded-8 text-primary-100
         "
   data-testid="boxed-icon"
 />

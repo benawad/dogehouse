@@ -47,6 +47,8 @@ defmodule Beef.Schemas.User do
           numFollowers: integer(),
           hasLoggedIn: boolean(),
           online: boolean(),
+          contributions: integer(),
+          staff: boolean(),
           lastOnline: DateTime.t(),
           youAreFollowing: nil | boolean(),
           followsYou: nil | boolean(),
@@ -75,6 +77,8 @@ defmodule Beef.Schemas.User do
     field(:numFollowers, :integer)
     field(:hasLoggedIn, :boolean)
     field(:online, :boolean)
+    field(:contributions, :integer)
+    field(:staff, :boolean)
     field(:lastOnline, :utc_datetime_usec)
     field(:youAreFollowing, :boolean, virtual: true)
     field(:followsYou, :boolean, virtual: true)
@@ -119,6 +123,14 @@ defmodule Beef.Schemas.User do
     ])
   end
 
+  def admin_update_changeset(user, attrs) do
+    user
+    |> cast(attrs, [
+      :staff,
+      :contributions
+    ])
+  end
+
   def edit_changeset(user, attrs) do
     user
     |> cast(attrs, [
@@ -148,7 +160,7 @@ defmodule Beef.Schemas.User do
   end
 
   defimpl Jason.Encoder do
-    @fields ~w(id whisperPrivacySetting username avatarUrl bannerUrl bio online
+    @fields ~w(id whisperPrivacySetting username avatarUrl bannerUrl bio online contributions staff
   lastOnline currentRoomId currentRoom displayName numFollowing numFollowers
   youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a
 

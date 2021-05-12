@@ -22,6 +22,7 @@ defmodule Broth.Message.Manifest do
     "user:revoke_api_key" => User.RevokeApiKey,
     "user:get_relationship" => User.GetRelationship,
     "user:unfollow" => User.Unfollow,
+    "user:admin_update" => User.AdminUpdate,
     "room:invite" => Room.Invite,
     "room:update" => Room.Update,
     "room:get_invite_list" => Room.GetInviteList,

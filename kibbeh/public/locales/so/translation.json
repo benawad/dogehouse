@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "mamnuuc" },
+    "admin": {
+      "ban": "mamnuuc",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Liiska isticmaaleyaasha aan ku jirin qol gaar ah oo aad raacday.",
       "currentRoom": "hadda ku jira:",
-      "startPrivateRoom": "qol gaar ah la bilow"
+      "startPrivateRoom": "qol gaar ah la bilow",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Abuur qol",
       "refresh": "Cusbooneysii",
@@ -89,7 +106,11 @@
       "allowAllConfirm": "Ma hubtaa? Tani waxay u oggolaan doontaa dhammaan {{count}} Isticmaalayaasha inay codsadaan inay hadlaan"
     },
     "searchUser": { "search": "raadi..." },
-    "soundEffectSettings": { "header": "Codka", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Codka",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "wax ka beddel koontada",
       "followsYou": "adiga kuraacay",
@@ -119,7 +140,8 @@
       "mic": "codbaahiye:",
       "permissionError": "Codbaahiye lama helin, kuugu ma xirno codbaahiye ama ogolasho umaaad siin websitka codbaahin.",
       "refresh": "Cusbooneysii liiska cod baahiyeyaasha",
-      "volume": "volume:"
+      "volume": "volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",
@@ -135,6 +157,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -235,7 +262,8 @@
         "goBackToListener": "Ku laabo Dhageystayaasha",
         "deleteMessage": "tirtir fariintan",
         "makeRoomCreator": "samee maamulaha qolka",
-        "unBanFromChat": "Ka qaad mamnuucida hadalka"
+        "unBanFromChat": "Ka qaad mamnuucida hadalka",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Waxay u baahnaan doonaan ogolaansho si ay uhadlaan",
@@ -243,7 +271,14 @@
         "makePrivate": "qolka ka dhig qol gaar",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -274,6 +309,15 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Dajiso Appka"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -309,7 +353,12 @@
       "whisper": "fariin gaar ah",
       "welcomeMessage": "Ku soo dhawow wada hadalka!",
       "roomDescription": "qeexida qolka",
-      "disabled": "qolka sheekaysigiisa waa la joojiyay"
+      "disabled": "qolka sheekaysigiisa waa la joojiyay",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

@@ -23,12 +23,12 @@ export const ALLOWED_HOSTS = [
   "dogehouse.tv",
   "next.dogehouse.tv",
   "api.dogehouse.tv",
-  "dogehouse.tv",
   "github.com",
   "localhost",
   "staging.dogehouse.tv",
   "doge-staging.stripcode.dev",
   "api.twitter.com",
+  "twitter.com",
 ];
 
 export const MENU_TEMPLATE: any = [

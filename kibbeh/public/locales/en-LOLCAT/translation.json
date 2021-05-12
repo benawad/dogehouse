@@ -34,7 +34,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "banish" },
+    "admin": {
+      "ban": "banish",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "download": {
       "prompt": "get da desktp ap",
       "download_for": "get fur %platform% (%ext%)",
@@ -44,9 +54,16 @@
     "followingOnlineList": {
       "listHeader": "kittehs who are not lookn at their privates an u stalk dem",
       "currentRoom": "rn ur in:",
-      "startPrivateRoom": "go in private howse wit dem"
+      "startPrivateRoom": "go in private howse wit dem",
+      "title": "People"
     },
-    "followList": { "followHim": "stalk", "followingHim": "stalking" },
+    "followList": {
+      "followHim": "stalk",
+      "followingHim": "stalking",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "mak new howse",
       "editRoom": "mak howse difernt",
@@ -95,7 +112,11 @@
       "allowAllConfirm": "u crazy? dis will let {{count}} kittehs talk"
     },
     "searchUser": { "search": "search..." },
-    "soundEffectSettings": { "header": "Sounds", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Sounds",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "mak profile difernt",
       "followsYou": "stalks u",
@@ -125,7 +146,8 @@
       "mic": "Mic:",
       "permissionError": "No mics found, you either have none plugged in or haven't given this website permission.",
       "refresh": "Refresh Mic List",
-      "volume": "Volume:"
+      "volume": "Volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",
@@ -133,6 +155,11 @@
         "errorMsg": "Please enter a valid app title",
         "label": "App title"
       }
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -259,7 +286,8 @@
         "banFromRoom": "Ban from Room",
         "goBackToListener": "Go Back to Listener",
         "deleteMessage": "Delete this Message",
-        "makeRoomCreator": "Promote to Admin"
+        "makeRoomCreator": "Promote to Admin",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "require permission to speak",
@@ -267,8 +295,24 @@
         "makePrivate": "make room private",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -305,7 +349,12 @@
       "whisper": "Whisper",
       "welcomeMessage": "Welcome to chat!",
       "roomDescription": "Room description",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

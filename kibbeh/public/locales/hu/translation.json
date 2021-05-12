@@ -32,13 +32,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ban" },
+    "admin": {
+      "ban": "ban",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Követett felhasználók nyilvános szobában.",
       "currentRoom": "Jelenleg itt:",
-      "startPrivateRoom": "Privát szoba létrehozása velük"
+      "startPrivateRoom": "Privát szoba létrehozása velük",
+      "title": "People"
     },
-    "followList": { "followHim": "követés", "followingHim": "követve" },
+    "followList": {
+      "followHim": "követés",
+      "followingHim": "követve",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Szoba létrehozása",
       "refresh": "Frissítés",
@@ -87,7 +104,11 @@
       "allowAllConfirm": "Biztos benne? Ezzel engedélyezi mind a {{count}} felhasználónak, hogy beszéljen"
     },
     "searchUser": { "search": "keresés..." },
-    "soundEffectSettings": { "header": "Hangok", "title": "Hangbeállítások" },
+    "soundEffectSettings": {
+      "header": "Hangok",
+      "title": "Hangbeállítások",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Fiók szerkesztése",
       "followsYou": "Követ téged",
@@ -117,7 +138,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Nem található mikrofon. Vagy nincs csatlakoztatva, vagy nem adta meg az engedélyt.",
       "refresh": "Elérhető mikrofonok frissítése",
-      "volume": "Hangerő:"
+      "volume": "Hangerő:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -130,6 +152,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Letöltés",
       "download_for": "Letöltés %platform%-ra (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -205,7 +232,8 @@
         "goBackToListener": "Visszalépés hallgatóvá",
         "deleteMessage": "Üzenet törlése",
         "makeRoomCreator": "Előreléptetés tulajdonossá",
-        "unBanFromChat": "Szoba kitiltás visszavonása"
+        "unBanFromChat": "Szoba kitiltás visszavonása",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Beszélői engedélyre van szükség",
@@ -213,7 +241,14 @@
         "makePrivate": "Szoba priváttá állítása",
         "renamePublic": "Szoba publikus nevének beállítása",
         "renamePrivate": "Szoba privát nevének beállítása",
-        "chatDisabled": "Chat kikapcsolása"
+        "chatDisabled": "Chat kikapcsolása",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Valamilyen okból nincs hallgató" },
@@ -267,6 +302,15 @@
         "stopDebugger": "Hibakereső leállítása"
       },
       "downloadApp": "App letöltése"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -299,7 +343,12 @@
       "whisper": "Privát üzenet",
       "welcomeMessage": "Üdv a beszélgetésben!",
       "roomDescription": "Szoba leírása",
-      "disabled": "Chat letiltva"
+      "disabled": "Chat letiltva",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Rakéta feltöltése",

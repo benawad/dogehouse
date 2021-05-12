@@ -29,7 +29,7 @@ export const BoxedIcon: React.FC<BoxedIconProps> = ({
       } ${
         hover ? `` : `hover:bg-primary-600`
       } h-6 w-6 cursor-pointer justify-center items-center ${
-        circle ? `rounded-full` : `rounded`
+        circle ? `rounded-full` : `rounded-8`
       } ${className.includes("text-button") ? "" : "text-primary-100"}
         ${className}`}
       data-testid="boxed-icon"

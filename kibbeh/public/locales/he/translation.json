@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "באן" },
+    "admin": {
+      "ban": "באן",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "רשימת משתמשים שאתה עוקב אחרייהם שלא בחדר פרטי.",
       "currentRoom": "ב:",
-      "startPrivateRoom": "צור חדר פרטי איתם"
+      "startPrivateRoom": "צור חדר פרטי איתם",
+      "title": "People"
     },
-    "followList": { "followHim": "עקוב", "followingHim": "עוקב" },
+    "followList": {
+      "followHim": "עקוב",
+      "followingHim": "עוקב",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "צור חדר",
       "refresh": "טען מחדש",
@@ -89,7 +106,11 @@
       "allowAllConfirm": "המשתמשים המבקשים רשות יכולת דיבור {{count}} אתה בטוח? זה יאפשר לכל"
     },
     "searchUser": { "search": "חפש..." },
-    "soundEffectSettings": { "header": "צלילים", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "צלילים",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "ערוך פרופיל",
       "followsYou": "עוקב אחריך",
@@ -119,7 +140,8 @@
       "mic": "מיקרופון:",
       "permissionError": "לא נמצאו מיקרופונים, או שאין מיקרופון מחובר או שלא נתת אישור לאתר זה.",
       "refresh": "רענן את רשימת המיקרופונים",
-      "volume": "עוצמת קול:"
+      "volume": "עוצמת קול:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -132,6 +154,11 @@
       "prompt": "לחץ על כפתור זה כדי להתחיל בהורדה",
       "download_now": "הורד עכשיו",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -227,7 +254,8 @@
         "goBackToListener": "חזור למקשיב",
         "deleteMessage": "מחק הודעה זו",
         "makeRoomCreator": "הפוך למנהל חדר",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "דרוש אישור לדבר",
@@ -235,7 +263,14 @@
         "makePrivate": "הפוך חדר לפרטי",
         "renamePublic": "הגדר את שם החדר הציבורי",
         "renamePrivate": "הגדר את השם של החדר הפרטי",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -266,6 +301,15 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -299,7 +343,12 @@
       "whisper": "הודעה פרטית",
       "welcomeMessage": "ברוכים הבאים לצ'אט!",
       "roomDescription": "תיאור החדר",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "מטדלק את הרקטה",

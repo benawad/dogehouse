@@ -10,6 +10,8 @@ pilaf:
   - pilaf/**/*
 shawarma:
   - shawarma/**/*
+dolma:
+  - dolma/**/*
 emote:
   - kibbeh/public/emotes/**/*
 translation:

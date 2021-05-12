@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization String",
-    "banUser": { "ban": "zabrani" },
+    "admin": {
+      "ban": "zabrani",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Popis korisnika koji nisu u privatnoj sobi, a vi ih pratite",
       "currentRoom": "trenutno u:",
-      "startPrivateRoom": "započnite privatnu sobu s njima"
+      "startPrivateRoom": "započnite privatnu sobu s njima",
+      "title": "People"
     },
-    "followList": { "followHim": "zaprati", "followingHim": "pratitelji" },
+    "followList": {
+      "followHim": "zaprati",
+      "followingHim": "pratitelji",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Stvori sobu",
       "refresh": "Osvježi",
@@ -90,7 +107,11 @@
       "speakers": "Govornici"
     },
     "searchUser": { "search": "traži..." },
-    "soundEffectSettings": { "header": "Zvuči", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Zvuči",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "uredi profil",
       "followYou": "vas prati",
@@ -121,7 +142,8 @@
       "mic": "mikrofon:",
       "permissionError": "nisu pronađeni mikrofoni, ili ih nitko nije priključio ili niste dali dopuštenje ovom web mjestu.",
       "refresh": "osvježi popis mikrofona",
-      "volume": "jačina zvuka:"
+      "volume": "jačina zvuka:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Postavke Prekrivača",
@@ -137,6 +159,11 @@
       "prompt": "Pritisnite na gumb kako biste započeli preuzimanje",
       "download_now": "Preuzmi Sada",
       "download_for": "Preuzmi za {{platform}}"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -234,7 +261,8 @@
         "goBackToListener": "vratite se na slušatelj",
         "deleteMessage": "izbriši ovu poruku",
         "makeRoomCreator": "napravi administratorom sobe",
-        "unBanFromChat": "Makni zabranu sa Chat-a"
+        "unBanFromChat": "Makni zabranu sa Chat-a",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "zahtijeva dopuštenje za govor",
@@ -242,7 +270,14 @@
         "makePrivate": "učini sobu privatnom",
         "renamePublic": "Postavi ime javne sobe",
         "renamePrivate": "Postavi ime privatne sobe",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -273,6 +308,15 @@
         "stopDebugger": "Zaustavi Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -308,7 +352,12 @@
       "whisper": "Šaputanje",
       "welcomeMessage": "Dobrodošli u chat!",
       "roomDescription": "opis sobe",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Raketa za punjenje gorivom",

@@ -34,8 +34,16 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "Ban"
+    "admin": {
+      "ban": "Ban",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
     },
     "download": {
       "prompt": "Download the DogeHouse Desktop app",
@@ -44,13 +52,17 @@
       "visit_gh": "Visit GitHub Releases"
     },
     "followingOnlineList": {
+      "title": "People",
       "listHeader": "List of users that are not in a private room and you follow.",
       "currentRoom": "Currently in:",
       "startPrivateRoom": "Start a private room with them"
     },
     "followList": {
+      "title": "People",
       "followHim": "Follow",
-      "followingHim": "Following"
+      "followingHim": "Following",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "New room",
@@ -92,6 +104,15 @@
       "goHomeMessage": "Not to worry. You can",
       "goHomeLinkText": "go home"
     },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
+    },
     "room": {
       "speakers": "Speakers",
       "requestingToSpeak": "Requesting to Speak",
@@ -103,8 +124,9 @@
       "search": "search..."
     },
     "soundEffectSettings": {
+      "title": "Sound Settings",
       "header": "Sounds",
-      "title": "Sound Settings"
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "Edit Profile",
@@ -131,6 +153,7 @@
       }
     },
     "voiceSettings": {
+      "title": "Voice Settings",
       "header": "Voice Settings",
       "mic": "Mic:",
       "permissionError": "No mics found, you either have none plugged in or haven't given this website permission.",
@@ -187,6 +210,11 @@
       "invited": "Invited!",
       "inviteToRoom": "Invite to room"
     },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
       "dismiss": "Dismiss",
@@ -233,6 +261,10 @@
       },
       "downloadApp": "Download App"
     },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
     "modals": {
       "createRoomModal": {
         "subtitle": "Fill the following fields to start a new room",
@@ -272,13 +304,20 @@
         "unBanFromChat": "Unban from Chat",
         "banFromChat": "Ban from Chat",
         "banFromRoom": "Ban from Room",
+        "banIPFromRoom": "Ban IP from Room",
         "goBackToListener": "Go Back to Listener",
         "deleteMessage": "Delete this Message",
         "makeRoomCreator": "Promote to Admin"
       },
       "roomSettingsModal": {
         "requirePermission": "require permission to speak",
-        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        },
         "makePublic": "make room public",
         "makePrivate": "make room private",
         "renamePublic": "Set public room name",
@@ -322,7 +361,12 @@
       "whisper": "Whisper",
       "welcomeMessage": "Welcome to chat!",
       "roomDescription": "Room description",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

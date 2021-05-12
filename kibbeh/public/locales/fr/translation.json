@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Bannir" },
+    "admin": {
+      "ban": "Bannir",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Liste des utilisateurs qui ne sont pas dans une salle privée et que vous suivez",
       "currentRoom": "Actuellement dans :",
-      "startPrivateRoom": "Lancer une salle privée avec eux"
+      "startPrivateRoom": "Lancer une salle privée avec eux",
+      "title": "People"
     },
-    "followList": { "followHim": "S'abonner", "followingHim": "Abonné" },
+    "followList": {
+      "followHim": "S'abonner",
+      "followingHim": "Abonné",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Créer une salle",
       "editRoom": "Editer la salle",
@@ -89,7 +106,11 @@
       "allowAllConfirm": "Êtes-vous sûr? Cela autorisera {{count}} utilisateurs en attente de parler"
     },
     "searchUser": { "search": "recherche..." },
-    "soundEffectSettings": { "header": "Sons", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Sons",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Éditer le profil",
       "followsYou": "Vous suit",
@@ -119,7 +140,8 @@
       "mic": "Microphone :",
       "permissionError": "Pas de microphone trouvé, soit vous n'en avez pas branché un soit vous n'avez pas donné la permission au site de l'utiliser.",
       "refresh": "Rafraîchir la liste des microphones",
-      "volume": "Volume :"
+      "volume": "Volume :",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Paramètres de l'Overlay",
@@ -135,6 +157,11 @@
       "prompt": "Cliquer sur le bouton pour commencer le Téléchargement",
       "download_now": "Télécharger maintenant",
       "download_for": "Télécharger pour la %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -264,7 +291,8 @@
         "banFromRoom": "Bannir de la salle",
         "goBackToListener": "Retourner chez les auditeurs",
         "deleteMessage": "Supprimer ce message",
-        "makeRoomCreator": "Transférer la propriété de la salle"
+        "makeRoomCreator": "Transférer la propriété de la salle",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "requiert la permission de parler",
@@ -272,8 +300,24 @@
         "makePrivate": "rendre la salle privée",
         "renamePublic": "Changer le nom de la salle publique",
         "renamePrivate": "Changer le nom de la salle privée",
-        "chatDisabled": "Désactiver tchat"
+        "chatDisabled": "Désactiver tchat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -310,7 +354,12 @@
       "whisper": "Chuchotement",
       "welcomeMessage": "Bienvenue dans le tchat !",
       "roomDescription": "Description de la salle",
-      "disabled": "Le tchat a été désactivé"
+      "disabled": "Le tchat a été désactivé",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Ravitaillement de la fusée",

@@ -34,15 +34,29 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "заблокувати" },
+    "admin": {
+      "ban": "заблокувати",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Список користувачів, які не перебувають у приватній кімнаті і за якими ви стежите",
       "currentRoom": "зараз у:",
-      "startPrivateRoom": "почніть з ними приватну кімнату"
+      "startPrivateRoom": "почніть з ними приватну кімнату",
+      "title": "People"
     },
     "followList": {
       "followHim": "відстежувати",
-      "followingHim": "відстежуєте"
+      "followingHim": "відстежуєте",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "Створити кімнату",
@@ -92,7 +106,11 @@
       "allowAllConfirm": "Ви впевнені? Це дозволить усім {{count}} запитуючим користувачам розмовляти"
     },
     "searchUser": { "search": "шукати..." },
-    "soundEffectSettings": { "header": "Звуки", "title": "Налаштування звуку" },
+    "soundEffectSettings": {
+      "header": "Звуки",
+      "title": "Налаштування звуку",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "редагувати профіль",
       "followsYou": "підписані на вас",
@@ -122,7 +140,8 @@
       "mic": "мікрофон:",
       "permissionError": "мікрофонів не знайдено, ви або немаєте їх увімкнутими, або не дали дозволу цьому веб-сайту.",
       "refresh": "оновити список мікрофонів",
-      "volume": "гучність:"
+      "volume": "гучність:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -138,6 +157,11 @@
       "prompt": "Натисніть на кнопку нижче, щоб розпочати завантаження",
       "download_now": "Завантажити зараз",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -236,7 +260,8 @@
         "goBackToListener": "повернутися у статус слухача",
         "deleteMessage": "видалити це повідомлення",
         "makeRoomCreator": "зробити адміном кімнати",
-        "unBanFromChat": "Розбанити у цьому чаті"
+        "unBanFromChat": "Розбанити у цьому чаті",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "запитувати дозвіл говорити",
@@ -244,7 +269,14 @@
         "makePrivate": "зробити кімнату приватною",
         "renamePublic": "Встановити ім'я публічної кімнати",
         "renamePrivate": "Встановити ім'я приватної кімнати",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -275,6 +307,15 @@
         "stopDebugger": "Зупинити налагодження"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -310,7 +351,12 @@
       "whisper": "Шепотіти",
       "welcomeMessage": "Ласкаво просимо до чату!",
       "roomDescription": "Опис кімнати",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Заправляємо ракету",

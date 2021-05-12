@@ -36,6 +36,7 @@ p.bold {
   --color-accent-hover: #fd6868;
   --color-accent-disabled: #f5bfbf;
   --screen-height-reduction: 0px;
+  --color-primary-100-translucent: rgba(222, 227, 234, 0.15);
 }
 
 h1 {
@@ -121,7 +122,8 @@ textarea {
 }
 
 #nprogress .peg {
-  box-shadow: 0 0 10px var(--color-accent-hover), 0 0 5px var(--color-accent-hover) !important;
+  box-shadow: 0 0 10px var(--color-accent-hover),
+    0 0 5px var(--color-accent-hover) !important;
 }
 
 #nprogress .spinner-icon {
@@ -130,11 +132,16 @@ textarea {
 }
 
 img.emoji {
-  height: 1em;
-  width: 1em;
+  height: 1.3em;
+  width: 1.3em;
   margin: 0 0.05em 0 0.1em;
-  vertical-align: -0.1em;
+  vertical-align: text-top;
   display: inline;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  cursor: text;
 }
 
 .h-screen {

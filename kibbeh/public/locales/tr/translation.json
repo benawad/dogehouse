@@ -33,13 +33,30 @@
   },
   "pages": {
     "_comment": "İlgili sayfa arayüz ulusallaştırma yazıları",
-    "banUser": { "ban": "Yasakla" },
+    "admin": {
+      "ban": "Yasakla",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Senin takip ettiğin ve özel odada olmayan kullanıcıların listesi.",
       "currentRoom": "Şu anki oda:",
-      "startPrivateRoom": "Onlarla özel bir oda oluştur"
+      "startPrivateRoom": "Onlarla özel bir oda oluştur",
+      "title": "People"
     },
-    "followList": { "followHim": "Takip Et", "followingHim": "Takiptesin" },
+    "followList": {
+      "followHim": "Takip Et",
+      "followingHim": "Takiptesin",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Oda oluştur",
       "refresh": "Yenile",
@@ -88,7 +105,11 @@
       "allowAllConfirm": "Emin misiniz? Bu, talep eden {{count}} kullanıcının konuşmasına izin verecektir"
     },
     "searchUser": { "search": "Ara..." },
-    "soundEffectSettings": { "header": "Sesler", "title": "Ses Ayarları" },
+    "soundEffectSettings": {
+      "header": "Sesler",
+      "title": "Ses Ayarları",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profili düzenle",
       "followsYou": "Seni takip ediyor",
@@ -119,7 +140,8 @@
       "permissionError": "Mikrofon bulunamadı. Ya takılı değil ya da bu web sitesine izin vermediniz.",
       "refesh": "Mikrofon listesini yenile",
       "volume": "Ses seviyesi:",
-      "refresh": "Mikrofon listesini yenile"
+      "refresh": "Mikrofon listesini yenile",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -135,6 +157,11 @@
       "prompt": "İndirmeyi başlatmak için aşağıdaki butona bas",
       "download_now": "Şimdi İndir",
       "download_for": "%platform% için indir (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -210,7 +237,8 @@
         "goBackToListener": "Dinlemeye Geri Dön",
         "deleteMessage": "Mesajı Sil",
         "makeRoomCreator": "Oda Yetkilisi Yap",
-        "unBanFromChat": "Sohbetten yasaklanmasını kaldır"
+        "unBanFromChat": "Sohbetten yasaklanmasını kaldır",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Konuşmak için izne ihtiyacın var",
@@ -218,7 +246,14 @@
         "makePrivate": "Odayı gizli yap",
         "renamePublic": "Herkese açık oda adı seç",
         "renamePrivate": "Gizli oda adı seç",
-        "chatDisabled": "sohbeti devre dışı bırak"
+        "chatDisabled": "sohbeti devre dışı bırak",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },
@@ -272,6 +307,15 @@
         "stopDebugger": "Hata Ayıklamayı Durdur"
       },
       "downloadApp": "Uygulamayı İndir"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -306,7 +350,12 @@
       "whisper": "Fısılda",
       "welcomeMessage": "Sohbete hoş geldin!",
       "roomDescription": "Oda Açıklaması",
-      "disabled": "oda sohbeti devre dışı bırakıldı"
+      "disabled": "oda sohbeti devre dışı bırakıldı",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Yakıt dolduruluyor",

@@ -33,13 +33,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Bandisci" },
+    "admin": {
+      "ban": "Bandisci",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Lista di utenti che segui e che non sono in una stanza privata.",
       "currentRoom": "In questo momento è connesso a:",
-      "startPrivateRoom": "Avvia una stanza privata con lui"
+      "startPrivateRoom": "Avvia una stanza privata con lui",
+      "title": "People"
     },
-    "followList": { "followHim": "Segui", "followingHim": "Segui già" },
+    "followList": {
+      "followHim": "Segui",
+      "followingHim": "Segui già",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Crea una stanza",
       "refresh": "Ricarica",
@@ -88,7 +105,11 @@
       "allowAllConfirm": "Sei sicuro? Questo permetterà a {{count}} che vogliono parlare di prendere la parola"
     },
     "searchUser": { "search": "Cerca..." },
-    "soundEffectSettings": { "header": "Suoni", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Suoni",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Modifica profilo",
       "followsYou": "Ti segue",
@@ -118,7 +139,8 @@
       "mic": "Microfono:",
       "permissionError": "Nessun microfono trovato, probabilmente non hai dato i permessi necessari a DogeHouse per poterlo usare o non ne hai attaccato nessuno.",
       "refresh": "Ricarica la lista dei microfoni",
-      "volume": "Volume:"
+      "volume": "Volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -134,6 +156,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -234,7 +261,8 @@
         "goBackToListener": "Torna ad essere un ascoltatore",
         "deleteMessage": "Elimina questo messaggio",
         "makeRoomCreator": "Rendi amministratore della stanza",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Richiedi permesso per parlare",
@@ -242,7 +270,14 @@
         "makePrivate": "Rendi la stanza privata",
         "renamePublic": "Imposta il nome della stanza pubblica",
         "renamePrivate": "Imposta il nome della stanza privata",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -273,6 +308,15 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -308,7 +352,12 @@
       "whisper": "Sussurra",
       "welcomeMessage": "Benvenuto nella chat!",
       "roomDescription": "Descrizione della stanza",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Rifornimento razzo",

@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "blockieren" },
+    "admin": {
+      "ban": "blockieren",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Benutzer, denen du folgst, die nicht in einem privaten Raum sind.",
       "currentRoom": "Zurzeit in:",
-      "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer eröffnen"
+      "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer eröffnen",
+      "title": "People"
     },
-    "followList": { "followHim": "Folgen", "followingHim": "Entfolgen" },
+    "followList": {
+      "followHim": "Folgen",
+      "followingHim": "Entfolgen",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Raum erstellen",
       "refresh": "Aktualisieren",
@@ -89,7 +106,11 @@
       "allowAllConfirm": "Bist du sicher? Damit erteilst du {{count}} Benutzern Redeberechtigungen."
     },
     "searchUser": { "search": "Suchen..." },
-    "soundEffectSettings": { "header": "Ton", "title": "Toneinstellungen" },
+    "soundEffectSettings": {
+      "header": "Ton",
+      "title": "Toneinstellungen",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profil bearbeiten",
       "followsYou": "Folgt dir",
@@ -119,7 +140,8 @@
       "mic": "Mikrofon:",
       "permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlosen oder diese Seite besitzt nicht die benötigten Berechtigungen.",
       "volume": "Lautstärke:",
-      "refresh": "Mikrofonliste aktualisieren"
+      "refresh": "Mikrofonliste aktualisieren",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -137,6 +159,11 @@
       "prompt": "Drücke den Button unten, um den Download zu starten.",
       "download_now": "Lade herunter",
       "download_for": "Download für %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -213,7 +240,8 @@
         "goBackToListener": "Zurück zum Zuhörer",
         "deleteMessage": "Nachricht löschen",
         "makeRoomCreator": "Zum Raumadmin befördern",
-        "unBanFromChat": "Vom Chat entbannen"
+        "unBanFromChat": "Vom Chat entbannen",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlangen",
@@ -221,7 +249,14 @@
         "makePrivate": "Raum privat machen",
         "renamePublic": "Öffentlichen Raum-Namen setzen",
         "renamePrivate": "Privaten Raum-Namen setzen",
-        "chatDisabled": "Chat ausschalten"
+        "chatDisabled": "Chat ausschalten",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": {
@@ -276,6 +311,15 @@
         "stopDebugger": "Stoppe Debugger"
       },
       "downloadApp": "App herunterladen"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -311,7 +355,12 @@
       "whisper": "Flüstern",
       "welcomeMessage": "Willkommen im Chat!",
       "roomDescription": "Raumbeschreibung",
-      "disabled": "Der Chat wurde vom Raum ausgeschaltet"
+      "disabled": "Der Chat wurde vom Raum ausgeschaltet",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Rakete wird getankt!",
