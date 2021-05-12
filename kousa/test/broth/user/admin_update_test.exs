@@ -20,7 +20,7 @@ defmodule BrothTest.User.AdminUpdateTest do
   end
 
   describe "the websocket user:admin_update operation" do
-    test "doesn't work for not-ben awad", t do
+    test "doesn't work for not-ben awad" do
       staffed = Factory.create(User)
       staff_ws = WsClientFactory.create_client_for(staffed)
 
@@ -72,8 +72,7 @@ defmodule BrothTest.User.AdminUpdateTest do
         WsClient.send_call(t.client_ws, "user:admin_update", %{
           "username" => staffed.username,
           "user" => %{
-            "staff" => false,
-            "contributions" => 100
+            "staff" => false
           }
         })
 

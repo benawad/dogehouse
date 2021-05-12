@@ -79,7 +79,7 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
         <div className="flex">
           <Button
             onClick={() => {
-              wrapper.mutation.userAdminUpdate(username, isStaff);
+              wrapper.mutation.userAdminUpdate(username, { staff: isStaff });
             }}
           >
             {t("common.save")}
@@ -101,11 +101,7 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
         <div className="flex pb-5">
           <Button
             onClick={() => {
-              wrapper.mutation.userAdminUpdate(
-                username,
-                undefined,
-                contributions
-              );
+              wrapper.mutation.userAdminUpdate(username, { contributions });
             }}
           >
             {t("common.save")}

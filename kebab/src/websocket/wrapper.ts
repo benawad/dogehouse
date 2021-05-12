@@ -168,12 +168,14 @@ export const wrap = (connection: Connection) => ({
       connection.sendCall(`user:create_bot`, { username }),
     userAdminUpdate: (
       username: string,
-      staff?: boolean,
-      contributions?: number
+      user: {
+        staff?: boolean;
+        contributions?: number;
+      }
     ) =>
       connection.sendCall(`user:admin_update`, {
         username,
-        user: { staff, contributions },
+        user,
       }),
     ban: (username: string, reason: string) =>
       connection.send(`ban`, { username, reason }),
