@@ -13,7 +13,6 @@ export const ActiveSpeakerListener: React.FC<ActiveSpeakerListenerProps> = ({}) 
   const { conn } = useContext(WebSocketContext);
   const { micStream } = useVoiceStore();
   const { currentRoomId } = useCurrentRoomIdStore();
-  const { debugAudio } = useDebugAudioStore();
   useEffect(() => {
     if (!currentRoomId || !micStream || !conn) {
       return;

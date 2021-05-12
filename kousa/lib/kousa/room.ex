@@ -1,5 +1,5 @@
 defmodule Kousa.Room do
-  alias Kousa.Utils.VoiceServerUtils
+  # alias Kousa.Utils.VoiceServerUtils
   alias Beef.Users
   alias Beef.Follows
   alias Beef.Rooms
@@ -387,13 +387,16 @@ defmodule Kousa.Room do
         do: "join-as-speaker",
         else: "join-as-new-peer"
 
-    Onion.AudioPipeline.new_peer(room.id, self(), :participant)
-
-    # Onion.VoiceRabbit.send(room.voiceServerId, %{
-    #   op: op,
-    #   d: %{roomId: room.id, peerId: user_id},
-    #   uid: user_id
-    # })
+    if room.voiceServerId == "elixir" do
+      peer_type = if(speaker?, do: :speaker, else: :listener)
+      Onion.AudioPipeline.new_peer(room.id, self(), peer_type)
+    else
+      Onion.VoiceRabbit.send(room.voiceServerId, %{
+        op: op,
+        d: %{roomId: room.id, peerId: user_id},
+        uid: user_id
+      })
+    end
   end
 
   @spec create_room(
@@ -412,7 +415,8 @@ defmodule Kousa.Room do
         room_description,
         is_private,
         user_id_to_invite \\ nil,
-        auto_speaker \\ nil
+        auto_speaker \\ nil,
+        use_elixir_voice_server \\ false
       ) do
     room_id = Users.get_current_room_id(user_id)
 
@@ -428,7 +432,7 @@ defmodule Kousa.Room do
            description: room_description,
            creatorId: user_id,
            numPeopleInside: 1,
-           voiceServerId: VoiceServerUtils.get_next_voice_server_id(),
+           voiceServerId: if(use_elixir_voice_server, do: "elixir", else: ""),
            isPrivate: is_private
          }) do
       {:ok, room} ->
@@ -446,13 +450,15 @@ defmodule Kousa.Room do
 
         Onion.RoomSession.join_room(room.id, user_id, muted?, deafened?, no_fan: true)
 
-        # Onion.VoiceRabbit.send(room.voiceServerId, %{
-        #   op: "create-room",
-        #   d: %{roomId: id},
-        #   uid: user_id
-        # })
-        Onion.AudioPipeline.start(room.id)
-        # Onion.AudioPipeline.new_peer(room.id, user_id, :participant)
+        if room.voiceServerId == "elixir" do
+          Onion.AudioPipeline.start(room.id)
+        else
+          Onion.VoiceRabbit.send(room.voiceServerId, %{
+            op: "create-room",
+            d: %{roomId: id},
+            uid: user_id
+          })
+        end
 
         join_vc_room(user_id, room, true)
 

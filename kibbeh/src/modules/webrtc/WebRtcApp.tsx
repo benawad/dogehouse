@@ -31,10 +31,7 @@ export function closeVoiceConnections(_roomId: string | null) {
 
 export const WebRtcApp: React.FC<App2Props> = () => {
   const { conn } = useContext(WebSocketContext);
-  const { mic } = useVoiceStore();
   const { micId } = useMicIdStore();
-  const { muted } = useMuteStore();
-  const { deafened } = useDeafStore();
   const { setCurrentRoomId } = useCurrentRoomIdStore();
   const initialLoad = useRef(true);
   const { push } = useRouter();
@@ -63,11 +60,7 @@ export const WebRtcApp: React.FC<App2Props> = () => {
       consumerQueue.current = [];
     }
   }
-  useEffect(() => {
-    if (mic) {
-      mic.enabled = !muted && !deafened;
-    }
-  }, [mic, muted, deafened]);
+
   useEffect(() => {
     if (!conn) {
       return;
@@ -169,7 +162,6 @@ export const WebRtcApp: React.FC<App2Props> = () => {
   return (
     <>
       <AudioRender />
-      <ActiveSpeakerListener />
     </>
   );
 };

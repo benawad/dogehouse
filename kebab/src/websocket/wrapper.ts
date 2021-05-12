@@ -227,6 +227,7 @@ export const wrap = (connection: Connection) => ({
       name: string;
       privacy: string;
       description: string;
+      useElixirVoiceServer?: boolean;
     }): Promise<{ error: string } | { room: Room }> =>
       connection.fetch("create_room", data),
     editProfile: (data: {

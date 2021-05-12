@@ -9,7 +9,8 @@ defmodule Broth.Message.Room.Create do
              :name,
              :description,
              :isPrivate,
-             :scheduledRoomId
+             :scheduledRoomId,
+             :useElixirVoiceServer
            ]}
 
   @primary_key {:id, :binary_id, []}
@@ -21,6 +22,7 @@ defmodule Broth.Message.Room.Create do
     field(:userIdToInvite, {:array, :binary_id}, virtual: true)
     field(:autoSpeaker, :boolean)
     field(:scheduledRoomId, :binary_id, virtual: true)
+    field(:useElixirVoiceServer, :boolean, virtual: true)
   end
 
   # inbound data.
@@ -32,7 +34,8 @@ defmodule Broth.Message.Room.Create do
       :isPrivate,
       :userIdToInvite,
       :autoSpeaker,
-      :scheduledRoomId
+      :scheduledRoomId,
+      :useElixirVoiceServer
     ])
     |> validate_required([:name])
   end
@@ -52,7 +55,8 @@ defmodule Broth.Message.Room.Create do
              room_spec.description || "",
              room_spec.isPrivate,
              room_spec.userIdToInvite,
-             room_spec.autoSpeaker
+             room_spec.autoSpeaker,
+             room_spec.useElixirVoiceServer
            ) do
       case Ecto.UUID.cast(room_spec.scheduledRoomId) do
         {:ok, _} ->

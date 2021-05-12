@@ -64,7 +64,8 @@ defmodule Onion.AudioPipeline do
      %{
        room_id: room_id,
        endpoints: %{},
-       max_display_num: max_display_num
+       max_display_num: max_display_num,
+       peer_type: :speaker
      }}
   end
 
@@ -78,21 +79,19 @@ defmodule Onion.AudioPipeline do
     send_to_room(room_id, {:signal, peer_pid, msg})
   end
 
-  @spec new_peer(Ecto.UUID.t(), pid(), :participant) :: nil
+  @spec new_peer(Ecto.UUID.t(), pid(), :speaker | :listener) :: nil
   def new_peer(room_id, peer_pid, peer_type) do
     send_to_room(room_id, {:new_peer, peer_pid, peer_type})
   end
 
   @impl true
   def handle_other({:new_peer, peer_pid, peer_type}, ctx, state) do
-    # send(peer_pid, {:new_peer, {:ok, state.max_display_num}, ref})
-
     if Map.has_key?(ctx.children, {:endpoint, peer_pid}) do
       Membrane.Logger.warn("Peer already connected, ignoring")
       {:ok, state}
     else
       Membrane.Logger.info("New peer #{inspect(peer_pid)}")
-      # Process.monitor(peer_pid)
+      Process.monitor(peer_pid)
 
       tracks = new_tracks()
 
@@ -119,30 +118,31 @@ defmodule Onion.AudioPipeline do
         }
       }
 
-      links = new_peer_links(peer_type, endpoint_bin, ctx, state)
+      # @todo hard coded :speaker
+      links = new_peer_links(:speaker, endpoint_bin, ctx, state)
 
       tracks_msgs =
         flat_map_children(ctx, fn
           # {:endpoint, other_peer_pid} = endpoint_bin
           # when other_peer_pid != state.active_screensharing ->
           #   [forward: {endpoint_bin, {:add_tracks, tracks}}]
-          endpoint_bin ->
+          endpoint_bin when peer_type == :speaker ->
             [forward: {endpoint_bin, {:add_tracks, tracks}}]
 
-            # _child ->
-            #   []
+          _ ->
+            []
         end)
 
       spec = %ParentSpec{children: children, links: links}
 
       state = put_in(state.endpoints[peer_pid], endpoint)
-      {{:ok, [spec: spec] ++ tracks_msgs}, state}
+      {{:ok, [spec: spec] ++ tracks_msgs}, %{state | peer_type: peer_type}}
     end
   end
 
   @impl true
   def handle_other({:signal, peer_pid, msg}, _ctx, state) do
-    {{:ok, forward: {{:endpoint, peer_pid}, {:signal, msg} |> IO.inspect(label: "146")}}, state}
+    {{:ok, forward: {{:endpoint, peer_pid}, {:signal, msg}}}, state}
   end
 
   def handle_other({:remove_peer, peer_pid}, ctx, state) do
@@ -169,7 +169,7 @@ defmodule Onion.AudioPipeline do
     {:ok, state}
   end
 
-  def handle_notification({:vad, val}, {:endpoint, endpoint_id}, _ctx, state) do
+  def handle_notification({:vad, _val}, {:endpoint, _endpoint_id}, _ctx, state) do
     {:ok, state}
   end
 
@@ -208,7 +208,7 @@ defmodule Onion.AudioPipeline do
               |> to(other_endpoint)
             ]
 
-          _child ->
+          _ ->
             []
         end)
 
@@ -230,21 +230,14 @@ defmodule Onion.AudioPipeline do
         _ctx,
         state
       ) do
-    # participants =
-    #   state.endpoints
-    #   |> Enum.map(fn {_, %Endpoint{inbound_tracks: tracks, ctx: _ctx}} ->
-    #     %{
-    #       # display_name: ctx.display_name,
-    #       mids: Map.keys(tracks)
-    #     }
-    #   end)
-
     SocketHandler.remote_send(peer_pid, %{
       op: "webrtc:offer:in",
-      d: %{data: %{"type" => "offer", "sdp" => sdp}}
+      d: %{
+        data: %{"type" => "offer", "sdp" => sdp},
+        peerType: if(state.peer_type == :speaker, do: "speaker", else: "listener")
+      }
     })
 
-    # send(peer_pid, {:signal, message, participants})
     {:ok, state}
   end
 
@@ -309,7 +302,7 @@ defmodule Onion.AudioPipeline do
     [Track.new(:audio, stream_id)]
   end
 
-  defp new_peer_links(:participant, {:endpoint, _new_endpoint_id} = new_endpoint_bin, ctx, state) do
+  defp new_peer_links(:speaker, {:endpoint, _new_endpoint_id} = new_endpoint_bin, ctx, state) do
     flat_map_children(ctx, fn
       {:tee, {endpoint_id, track_id}} = tee ->
         endpoint = state.endpoints[endpoint_id]

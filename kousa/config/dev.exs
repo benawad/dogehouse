@@ -1,6 +1,6 @@
 use Mix.Config
 
-# config :logger, level: :info
+config :logger, level: :info
 
 database_url =
   System.get_env("DATABASE_URL") ||

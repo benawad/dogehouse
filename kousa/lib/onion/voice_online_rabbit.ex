@@ -12,28 +12,30 @@ defmodule Onion.VoiceOnlineRabbit do
     defstruct id: "", chan: nil
   end
 
-  def start_supervised(voice_id) do
+  def start_supervised(_voice_id) do
     DynamicSupervisor.start_child(
       Onion.VoiceOnlineRabbitDynamicSupervisor,
-      {__MODULE__, voice_id}
+      {__MODULE__, ""}
     )
   end
 
-  def start_link(voice_id) do
+  def start_link(_voice_id) do
     GenServer.start_link(
       __MODULE__,
-      voice_id,
-      name: via(voice_id)
+      "",
+      name: via("")
     )
   end
 
-  defp via(voice_id), do: {:via, Registry, {Onion.VoiceOnlineRabbitRegistry, voice_id}}
+  defp via(_voice_id), do: {:via, Registry, {Onion.VoiceOnlineRabbitRegistry, ""}}
 
   # @send_exchange "shawarma_exchange"
   @online_exchange "kousa_online_exchange"
   @online_receive_queue "kousa_online_queue"
 
-  def init(voice_id) do
+  def init(_voice_id) do
+    voice_id = ""
+
     {:ok, conn} =
       Connection.open(Application.get_env(:kousa, :rabbit_url, "amqp://guest:guest@localhost"))
 

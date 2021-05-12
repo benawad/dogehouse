@@ -11,29 +11,31 @@ defmodule Onion.VoiceRabbit do
     defstruct id: "", chan: nil
   end
 
-  def start_supervised(voice_id) do
+  def start_supervised(_voice_id) do
     DynamicSupervisor.start_child(
       Onion.VoiceRabbitDynamicSupervisor,
-      {__MODULE__, voice_id}
+      {__MODULE__, ""}
     )
   end
 
-  def start_link(voice_id) do
+  def start_link(_voice_id) do
     GenServer.start_link(
       __MODULE__,
-      voice_id,
-      name: via(voice_id)
+      "",
+      name: via("")
     )
   end
 
-  defp via(voice_id), do: {:via, Registry, {Onion.VoiceRabbitRegistry, voice_id}}
+  defp via(_voice_id), do: {:via, Registry, {Onion.VoiceRabbitRegistry, ""}}
 
   # @send_exchange "shawarma_exchange"
   @send_queue "shawarma_queue"
   @receive_exchange "kousa_exchange"
   @receive_queue "kousa_queue"
 
-  def init(voice_id) do
+  def init(_voice_id) do
+    voice_id = ""
+
     {:ok, conn} =
       Connection.open(Application.get_env(:kousa, :rabbit_url, "amqp://guest:guest@localhost"))
 
@@ -47,8 +49,8 @@ defmodule Onion.VoiceRabbit do
     {:ok, %State{chan: chan, id: voice_id}}
   end
 
-  def send(id, msg) do
-    GenServer.cast(via(id), {:send, msg})
+  def send(_id, msg) do
+    GenServer.cast(via(""), {:send, msg})
   end
 
   def handle_cast({:send, msg}, %State{chan: chan, id: id} = state) do

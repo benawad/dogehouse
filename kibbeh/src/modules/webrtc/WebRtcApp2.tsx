@@ -2,26 +2,17 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { AudioRender2 } from "./components/AudioRender2";
 import { useAudioStreamStore } from "./stores/useAudioStreamStore";
+import { useMicIdStore } from "./stores/useMicIdStore";
+import { useVoiceStore } from "./stores/useVoiceStore";
 
 interface App2Props {}
 
 export const WebRtcApp2: React.FC<App2Props> = () => {
   const { conn } = useContext(WebSocketContext);
   const peerConn = useRef<RTCPeerConnection | null>(null);
-  const [micStream, setMicStream] = useState<MediaStream | null>(null);
 
   useEffect(() => {
-    navigator.mediaDevices
-      .getUserMedia({
-        audio: true,
-      })
-      .then((x) => {
-        setMicStream(x);
-      });
-  }, []);
-
-  useEffect(() => {
-    if (!conn || !micStream) {
+    if (!conn) {
       return;
     }
 
@@ -48,76 +39,41 @@ export const WebRtcApp2: React.FC<App2Props> = () => {
         }
       ),
       conn.addListener<any>("webrtc:offer:in", async (offer) => {
-        if (!peerConn.current) {
-          peerConn.current = new RTCPeerConnection({
-            iceServers: [
-              {
-                urls: "stun:stun.l.google.com:19302",
-              },
-            ],
-          });
-          peerConn.current.onicecandidate = (
-            event: RTCPeerConnectionIceEvent
-          ) => {
-            if (event.candidate) {
-              conn.sendCast("webrtc:signal", { data: event.candidate });
-            }
-          };
-          peerConn.current.ontrack = (event: RTCTrackEvent) => {
-            console.log(event);
-            const [stream] = event.streams;
-            useAudioStreamStore.getState().add(stream, "ben");
-            // const mid = event.transceiver.mid!;
-            // const isScreenSharing = mid.includes("SCREEN") || false;
-            // if (isScreenSharing) {
-            //   this.screensharingStream = stream;
-            // } else {
-            //   this.remoteStreams.add(stream);
-            // }
-            // this.midToStream.set(mid, stream);
-            // stream.onremovetrack = (event) => {
-            //   const hasTracks = stream.getTracks().length > 0;
-            //   if (!hasTracks) {
-            //     if (isScreenSharing) {
-            //       this.screensharingStream = undefined;
-            //     } else {
-            //       this.remoteStreams.delete(stream);
-            //     }
-            //     this.midToStream.delete(mid);
-            //     stream.onremovetrack = null;
-            //   }
-            //   this.callbacks.onRemoveTrack?.({
-            //     track: event.track,
-            //     stream,
-            //     isScreenSharing,
-            //   });
-            // };
-            // const label =
-            //   this.participants.find((p) => p.mids.includes(mid))
-            //     ?.displayName || "";
-            // this.callbacks.onAddTrack?.({
-            //   track: event.track,
-            //   label,
-            //   stream,
-            //   isScreenSharing,
-            // });
-            // if (
-            //   this.remoteStreams.size <= this.maxDisplayNum &&
-            //   !isScreenSharing
-            // ) {
-            //   this.callbacks.onDisplayTrack?.({
-            //     track: event.track,
-            //     label,
-            //     stream,
-            //     isScreenSharing,
-            //   });
-            // }
-          };
-          // this.localTracks.forEach((track) =>
-          // );
-          peerConn.current.addTrack(micStream.getTracks()[0], micStream);
-        } else {
-          peerConn.current.createOffer({ iceRestart: true });
+        if (peerConn.current) {
+          peerConn.current.close();
+        }
+        const { micId } = useMicIdStore.getState();
+        const mediaStream = await navigator.mediaDevices.getUserMedia({
+          audio: micId ? { deviceId: micId } : true,
+        });
+        useVoiceStore.getState().set({
+          micStream: mediaStream,
+          mic: mediaStream.getAudioTracks()[0],
+        });
+        // eslint-disable-next-line require-atomic-updates
+        peerConn.current = new RTCPeerConnection({
+          iceServers: [
+            {
+              urls: "stun:stun.l.google.com:19302",
+            },
+          ],
+        });
+        peerConn.current.onicecandidate = (
+          event: RTCPeerConnectionIceEvent
+        ) => {
+          if (event.candidate) {
+            conn.sendCast("webrtc:signal", { data: event.candidate });
+          }
+        };
+        peerConn.current.ontrack = (event: RTCTrackEvent) => {
+          const [stream] = event.streams;
+          useAudioStreamStore.getState().add(stream, "ben");
+        };
+        if (offer.peerType === "speaker") {
+          const { micStream, mic } = useVoiceStore.getState();
+          if (micStream && mic) {
+            peerConn.current.addTrack(mic, micStream);
+          }
         }
 
         try {
@@ -135,7 +91,7 @@ export const WebRtcApp2: React.FC<App2Props> = () => {
     return () => {
       unsubs.forEach((x) => x());
     };
-  }, [conn, micStream]);
+  }, [conn]);
 
   return (
     <>

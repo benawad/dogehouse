@@ -3,12 +3,14 @@ import { useRouter } from "next/router";
 import React from "react";
 import { InputField } from "../../form-fields/InputField";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
+import { __prod__ } from "../../lib/constants";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
 import { ButtonLink } from "../../ui/ButtonLink";
+import { InfoText } from "../../ui/InfoText";
 import { Modal } from "../../ui/Modal";
 import { NativeSelect } from "../../ui/NativeSelect";
 import { useRoomChatStore } from "../room/chat/useRoomChatStore";
@@ -23,6 +25,13 @@ interface CreateRoomModalProps {
   edit?: boolean;
 }
 
+type FormData = {
+  name: string;
+  privacy: string;
+  description: string;
+  useElixirVoiceServer?: boolean;
+};
+
 export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
   onRequestClose,
   data,
@@ -35,11 +44,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 
   return (
     <Modal isOpen onRequestClose={onRequestClose}>
-      <Formik<{
-        name: string;
-        privacy: string;
-        description: string;
-      }>
+      <Formik<FormData>
         initialValues={
           data
             ? data
@@ -47,6 +52,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 name: "",
                 description: "",
                 privacy: "public",
+                useElixirVoiceServer: !__prod__,
               }
         }
         validateOnChange={false}
@@ -68,8 +74,16 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 
           return errors;
         }}
-        onSubmit={async ({ name, privacy, description }) => {
-          const d = { name, privacy, description };
+        onSubmit={async ({
+          name,
+          privacy,
+          description,
+          useElixirVoiceServer,
+        }) => {
+          const d: FormData = { name, privacy, description };
+          if (!edit) {
+            d.useElixirVoiceServer = useElixirVoiceServer;
+          }
           const resp = edit
             ? await conn.mutation.editRoom(d)
             : await conn.mutation.createRoom(d);
@@ -126,6 +140,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 </option>
               </NativeSelect>
             </div>
+
             <div className={`flex col-span-3 bg-primary-700 rounded-8`}>
               <InputField
                 className={`h-11 col-span-3 w-full`}
@@ -138,6 +153,29 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 textarea
               />
             </div>
+            {!edit ? (
+              <>
+                <div className={`grid items-start grid-cols-1 h-6 mb-4`}>
+                  <InfoText className="mb-2">Voice Server: </InfoText>
+                  <NativeSelect
+                    value={values.useElixirVoiceServer ? "elixir" : ""}
+                    onChange={(e) => {
+                      setFieldValue(
+                        "useElixirVoiceServer",
+                        e.target.value === "elixir"
+                      );
+                    }}
+                  >
+                    <option value="" className={`hover:bg-primary-900`}>
+                      mediasoup
+                    </option>
+                    <option value="elixir" className={`hover:bg-primary-900`}>
+                      elixir (beta)
+                    </option>
+                  </NativeSelect>
+                </div>
+              </>
+            ) : null}
 
             <div className={`flex pt-2 space-x-3 col-span-full items-center`}>
               <Button loading={isSubmitting} type="submit" className={`mr-3`}>
