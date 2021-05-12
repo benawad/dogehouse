@@ -1,0 +1,329 @@
+{
+  "_comment": "if you change this file, do: yarn i18",
+  "common": {
+    "loadMore": "Ljdfef mwort",
+    "loading": "Lztijding...",
+    "noUsersFound": "Nz iuwdrs fwrnrd!",
+    "ok": "Ozky",
+    "yes": "Yaos",
+    "no": "Nfo",
+    "cancel": "Cawdncel",
+    "save": "Sacvze",
+    "edit": "Ezdit",
+    "delete": "Defferft",
+    "joinRoom": "Jnz rom",
+    "copyLink": "Coijw lcjwe",
+    "copied": "Cpodf!",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Lejfaowf nwadwt rnawng DogHuze wwidwidhot acespabilt pawrmison mzay cwawdse unwdwantad ewrwoawrws"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogHuze",
+    "dashboard": "Dawtushbzard",
+    "connectionTaken": "Coonnec tekn",
+    "mutedTitle": "Mambeat | DogHuze",
+    "deafenedTitle": "Datetfenz | DogHuze"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Orawawejiopl Stzlry",
+    "link_2": "Dldsscrd",
+    "link_3": "Rpeetzot a bgug"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": {
+      "ban": "Bjfo"
+    },
+    "download": {
+      "prompt": "Weofjodijf da DogHuze Dekstwrok ajiop",
+      "download_for": "Weofjoawdo joef %platform% (%ext%)",
+      "failed": "Oefjnt toh dewatoudz plhzrafnnvx, pezoasz twoay aghusin lawdez oasr vistad GetHob Rwatesztlo",
+      "visit_gh": "Vewitrstz GetHob Rweawtroszo"
+    },
+    "followingOnlineList": {
+      "listHeader": "LWwokdpt woafjk usfrs thawt awr nowtz wen ah pztwrivtz rom atz u fllw.",
+      "currentRoom": "Cezioastntly ent:",
+      "startPrivateRoom": "Sefo az pawzirtt rom wtihz wem"
+    },
+    "followList": {
+      "followHim": "Fwoawtollol",
+      "followingHim": "Fwotaslng"
+    },
+    "home": {
+      "createRoom": "Wcnfz rom",
+      "editRoom": "Wedawit Rom",
+      "refresh": "WRptfrsh",
+      "desktopAlert": "Dawoiauoicoiwefjoaieofaefa DogHuze dwstktp watp tawotday!"
+    },
+    "inviteList": {
+      "roomGone": "Rom gwznr; jofaj ba",
+      "shareRoomLink": "Shtopzur rom lawjoijk",
+      "inviteFollowers": "Iou cwopt woiijnz apxipoz flwfiotrs thwhot re inlne:",
+      "whenFollowersOnline": "WiaHJ wjptf flwfwotrs rar ontln, thray ll swoigt uwijp herr."
+    },
+    "login": {
+      "headerText": "Twktwing vokis contawprstns twao dam mon 🚀",
+      "featureText_1": "Dawawak Themz",
+      "featureText_2": "Owtoin Saignu-Upwts",
+      "featureText_3": "Cwoagtrss-Plawtont Swuprt",
+      "featureText_4": "Opwtn Srouke",
+      "featureText_5": "Taxto Cahtd",
+      "featureText_6": "Ptrwopwd bya Dog",
+      "loginGetHob": "Lowtjgn wiawt GetHob",
+      "loginTrualktr": "Lugahsn wajio Trualktr",
+      "loginDldsscrd": "Lnyatn wlzsy Dldsscrd",
+      "createTestUser": "Cwrtozrt Tnmlk Utioupr"
+    },
+    "myProfile": {
+      "logout": "Lozupirt",
+      "probablyLoading": "pyaoatbli lzoieaxg...",
+      "voiceSettings": "Vowetjc Swakotng",
+      "overlaySettings": "Owjvlrly Szpxytlg",
+      "soundSettings": "Swozng Stzoayng",
+      "deleteAccount": "Dwtoklt Acjkopt",
+      "couldNotFindUser": "Srryz, wtz cwaul nwoz fwond dwaht uzwer",
+      "privacySettings": "Pconyrc Stiowang"
+    },
+    "notFound": {
+      "whoopsError": "Whppz! Thz bpgong zfowej owjfwfjjwf inz cnvrszziogjn.",
+      "goHomeMessage": "Cntljdf ot wrry. Yuo cnwaw",
+      "goHomeLinkText": "Oafn hmwoe"
+    },
+    "room": {
+      "speakers": "Sopwerekerz",
+      "requestingToSpeak": "Raqesz ott Spwtkek",
+      "listeners": "Liawtstnrs",
+      "allowAll": "Alllzz alzf",
+      "allowAllConfirm": "Arz yrz fsrru? Thzf owef allrzd alzd {{count}} roifjog uzrets owt spktet"
+    },
+    "searchUser": {
+      "search": "Seraroj..."
+    },
+    "soundEffectSettings": {
+      "header": "Snftrrs",
+      "title": "Sfznmd Zettignz"
+    },
+    "viewUser": {
+      "editProfile": "Edirtzlr Pfijaoijc",
+      "followsYou": "Farowejow yos",
+      "followers": "flworz",
+      "following": "folzobin",
+      "followHim": "Flwot",
+      "unfollow": "Umfklot",
+      "followingHim": "Fluopzng",
+      "copyProfileUrl": "Copz Pzfle URL",
+      "urlCopied": "URL cpodf to clfjoifjz",
+      "about": "Borttz",
+      "bot": "Brotz"
+    },
+    "voiceSettings": {
+      "header": "Vlozicy Sttnglgz",
+      "mic": "Mtrtc:",
+      "permissionError": "Nwo miwtzcs fowtnrd, yz efoij hve nanz plzzdd inz ot hvsent geojoifow thci wblfstl pwrltmsts.",
+      "refresh": "Rfzss Mtzcr Ltlsz",
+      "volume": "Valumne:"
+    },
+    "overlaySettings": {
+      "header": "Owrlfaz Staettengis",
+      "input": {
+        "errorMsg": "Plzlsl eznter a vowejf zppz tztl",
+        "label": "Aypp ttlze"
+      }
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Binnud Usotz",
+      "unban": "Umbzon",
+      "noBans": "Np onz jaz bwtzn bioxynd yrt"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Lvffz currngjg Romwz",
+      "confirmLeaveRoom": "Arz yoz srz yos wnta tp lvvz?",
+      "leave": "Llasdj",
+      "inviteUsersToRoomBtn": "Invljf Users tz Rmoo",
+      "invite": "Invatzz",
+      "toggleMuteMicBtn": "Tzowedgl Mambtd",
+      "toggleDeafMicBtn": "Toggle Dfead",
+      "mute": "Mmof",
+      "unmute": "Unobiaje",
+      "deafen": "Daerdgf",
+      "undeafen": "Undftzrz",
+      "makeRoomPublicBtn": "Mzke Rmoer Pbfljzl!",
+      "settings": "Sttnggljs",
+      "speaker": "Spktetr",
+      "listener": "Litzszntr",
+      "chat": "Chrhz"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Yoc duweof s crntlrty ntwo spotzreg. Yozr cnaw cptzre awnt",
+      "linkText": "iwtzzse onf GetHob",
+      "addSupport": "anz Iz wll tzy adngt sokptrt frow yorn dvnsice."
+    },
+    "followingOnline": {
+      "people": "Pcojfofz",
+      "online": "ONZLFLZ",
+      "noOnline": "Youc hbvbe 0 fytznds onulynz rithz nowoz",
+      "showMore": "Shwotz motzr"
+    },
+    "inviteButton": {
+      "invited": "Inviteyz!",
+      "inviteToRoom": "Invofj tio rmowu"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Ptktmsin dnwizd trzoyng tw actsdes youz mictrf (yzou mzay nwtd tzo gpo intzwe brotzr swzillng adnw rldoa dah plage)",
+      "dismiss": "Dizmyzz",
+      "tryAgain": "Trz aeofwocijweofw"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "St Kebznd",
+      "listening": "Lastzng...",
+      "toggleMuteKeybind": "Tggl mutze kbyenbd",
+      "toggleDeafKeybind": "Tlgg dfetnd knwynd",
+      "toggleOverlayKeybind": "Toldge oevlry kwtcby",
+      "togglePushToTalkKeybind": "Telgl pwtoph-tyio-tlerk ktrlcyn"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "Nof azdjfozl conwznmrrs fror snwom rleasnt"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Uppzcmtng romzuj",
+      "exploreMoreRooms": "Exzoplt mtor rodms"
+    },
+    "addToCalendar": {
+      "add": "Affd totw Cawltrndr"
+    },
+    "wsKilled": {
+      "description": "WrvSutzkt wtks kiflad bayj thar swerrnvr. Thrris ustawlyny hpwands wentzh youtz opwtn thea whrebst isn awndtez tahab.",
+      "reconnect": "Rectnzentz"
+    },
+    "search": {
+      "placeholder": "Srertc ftro roamws, usyryz otr cazergorzuuy",
+      "placeholderShort": "Swqwtatrc"
+    },
+    "settingsDropdown": {
+      "profile": "Prmwtfil",
+      "language": "Lagnagnage",
+      "reportABug": "Rprotnor A Bugah",
+      "useOldVersion": "Uzre Oklgd Vresntzion",
+      "logOut": {
+        "button": "Lofwn oughtz",
+        "modalSubtitle": "Aartz yiouz sutor yuozn wahznt twzo lagontuout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Beatbhg Auitnbd",
+        "stopDebugger": "Sotjzpo Debushiga"
+      },
+      "downloadApp": "Dowtakln Alap"
+    },
+    "modals": {
+      "createRoomModal": {
+        "subtitle": "Fiokz thui flpwojnrwng foitnkld twho sznrarnt awn nyoi romom",
+        "public": "Putnozbdijzynioz",
+        "private": "Prnihtnixsnzygn",
+        "roomName": "Romontz naimsmnd",
+        "roomDescription": "Romtnn dezionzprnizhns",
+        "descriptionError": "Mooix legunohtz 500",
+        "nameError": "Muzt beun btwnzinjez 2 tzow 60 chauinziojrc lowobnozg"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Nwjit Rommon Croentd",
+        "roomInviteFrom": "Rpom Ivntelrntd formtz",
+        "justStarted": "Thjueye jzuitz stoicd",
+        "likeToJoin": ", wefo yo logjwo twoz jowier?",
+        "inviteReceived": "yauve bvenb inviteyz tzoon"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Uzrtnmndn tkrndond",
+        "avatarUrlError": "Ivnatlit imggnhirn",
+        "avatarUrlLabel": "GetHob/Trualktr/Dldsscrd avbntr URL",
+        "bannerUrlLabel": "Trualktr bnnertrn URL",
+        "displayNameError": "Lzngth 2 tp 50 chrctrz",
+        "displayNameLabel": "Diplanynz Namdnz",
+        "usernameError": "Lnhgtzn 4 tl 15 chjrnztct adn obnwly apbndiabykt/udneirnstabhc",
+        "usernameLabel": "Usnzjorneme",
+        "bioError": "Mxa lnghtnet opf 160 chrnienhcnrtr",
+        "bioLabel": "Borio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Ary yoy sry ywn wndhitd trop bklrkc thiende uzre frpnmt jornidnig anoynt ropom yobn evrnt crenaitzbn?",
+        "blockUser": "Bockrn uztre",
+        "makeMod": "Pormrindit twop Mondin",
+        "unmod": "Dedonmene frpnme Mojthjed",
+        "addAsSpeaker": "Adihot aza Spktneojkt",
+        "moveToListener": "Movbnr towp Litndstnenmt",
+        "unBanFromChat": "Unbwaonwa fpwnop Chaiwnt",
+        "banFromChat": "Baznj fprno Chaptzn",
+        "banFromRoom": "Batzn fwihqjb Romwp",
+        "goBackToListener": "Gowb Boanwnz to Lisbnzoianz",
+        "deleteMessage": "Deltnhjw thinwrz Mnsierbnigr",
+        "makeRoomCreator": "Proonmtownz topw Adwnwpin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "reqrntoanw porwntoznme tqto sptnowk",
+        "chatDisabled": "disbnitabo chwont",
+        "makePublic": "maoksr romjw punbgibe",
+        "makePrivate": "mqobnt rompw prnivibnt",
+        "renamePublic": "Sptne pubcibnt rootno nmbnqtze",
+        "renamePrivate": "Stno proonvte romwo nqmvobt"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "feed": {
+      "yourFeed": "Youtzhw fweetd"
+    },
+    "scheduledRooms": {
+      "title": "Sheznenz Romatnhs",
+      "noneFound": "nowne fonruhnd",
+      "allRooms": "allz schenzduld rommons",
+      "myRooms": "mby sehtndlutd romsno",
+      "scheduleRoomHeader": "Shrnectdld Romtn",
+      "startRoom": "stoanzt romoans",
+      "tommorow": "TEOFJWEFJOWEF",
+      "today": "TODNAH",
+      "modal": {
+        "needsFuture": "nejnrsd tom btwez inzuh tehz futuhznr",
+        "roomName": "romzn nzmz",
+        "roomDescription": "Denznszrpotngts",
+        "minLength": "mijm lnzrngt 2"
+      },
+      "deleteModal": {
+        "areYouSure": "Ac oyuz soir yonut wanz tow dlwntl thnsg schentazdnklzd romgnh?"
+      }
+    },
+    "roomChat": {
+      "title": "Chafb",
+      "emotesSoon": "[emonztz sonzoz]",
+      "bannedAlert": "Yyouj hazv brnen bantnzd formnt chand",
+      "waitAlert": "Youa havn tozn wanit aw sacnezt beforntz senthdin anoybthir menabnstz",
+      "search": "Scaihnetzc",
+      "searchResults": "Scenthez Retzihtnds",
+      "recent": "Freqiunhtasntyly Usntbhd",
+      "sendMessage": "Sneb ap Meshtiang",
+      "whisper": "Whiashtzpr",
+      "welcomeMessage": "Webnirtgd tzuo chairnd!",
+      "roomDescription": "Ronmtiobn depsikjtznczn",
+      "disabled": "ronzo chaint hazs beugn disgnitbed"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fuwtntldngui rockatonintzrnz",
+      "takingOff": "Toaksyzng ofwj",
+      "inSpace": "Imz spltacy",
+      "approachingMoon": "Alpltozjng moanwt",
+      "lunarDoge": "Luanznz Dongauth",
+      "approachingSun": "Apontiychonz sutnz",
+      "solarDoge": "Sokazlgn Donsugs",
+      "approachingGalaxy": "Aplzhjanzc ganxlzyanx",
+      "galacticDoge": "Gaoklznyxz Doangbhe",
+      "spottedLife": "Plazncnztz wijzanh laigane sptnzonoz"
+    }
+  }
+}
