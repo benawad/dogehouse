@@ -13,63 +13,6 @@ export interface ProfileScheduledProps
   user: UserWithFollowInfo;
 }
 
-export const ProfileScheduled: React.FC<ProfileScheduledProps> = ({
-  user,
-  className = "",
-}) => {
-  const [{ cursors, userId }, setQueryState] = useState<{
-    cursors: string[];
-    userId: string;
-  }>({ cursors: [""], userId: user.id });
-  const update = useTypeSafeUpdateQuery();
-
-  return (
-    <div
-      className={`mt-2 rounded-8 w-full leading-8 ${className}`}
-      style={{ maxWidth: 640 }}
-    >
-      <EditScheduleRoomModalController
-        onScheduledRoom={(editInfo, data, _resp) => {
-          update(["getScheduledRooms", editInfo.cursor, userId], (d) => {
-            return {
-              rooms: (d?.rooms || []).map((x) =>
-                x.id === editInfo.scheduleRoomToEdit.id
-                  ? {
-                      ...x,
-                      name: data.name,
-                      description: data.description,
-                      scheduledFor: data.scheduledFor.toISOString(),
-                    }
-                  : x
-              ),
-              nextCursor: d?.nextCursor,
-            };
-          });
-        }}
-      >
-        {({ onEdit }) =>
-          cursors.map((cursor, i) => (
-            <List
-              userId={userId}
-              onLoadMore={(o) =>
-                setQueryState({
-                  cursors: [...cursors, o],
-                  userId,
-                })
-              }
-              onEdit={onEdit}
-              isOnlyPage={cursors.length === 1}
-              isLastPage={cursors.length - 1 === i}
-              key={cursor}
-              cursor={cursor}
-            />
-          ))
-        }
-      </EditScheduleRoomModalController>
-    </div>
-  );
-};
-
 const List = ({
   onLoadMore,
   cursor,
@@ -134,6 +77,63 @@ const List = ({
           </Button>
         </div>
       ) : null}
+    </div>
+  );
+};
+
+export const ProfileScheduled: React.FC<ProfileScheduledProps> = ({
+  user,
+  className = "",
+}) => {
+  const [{ cursors, userId }, setQueryState] = useState<{
+    cursors: string[];
+    userId: string;
+  }>({ cursors: [""], userId: user.id });
+  const update = useTypeSafeUpdateQuery();
+
+  return (
+    <div
+      className={`mt-2 rounded-8 w-full leading-8 ${className}`}
+      style={{ maxWidth: 640 }}
+    >
+      <EditScheduleRoomModalController
+        onScheduledRoom={(editInfo, data, _resp) => {
+          update(["getScheduledRooms", editInfo.cursor, userId], (d) => {
+            return {
+              rooms: (d?.rooms || []).map((x) =>
+                x.id === editInfo.scheduleRoomToEdit.id
+                  ? {
+                      ...x,
+                      name: data.name,
+                      description: data.description,
+                      scheduledFor: data.scheduledFor.toISOString(),
+                    }
+                  : x
+              ),
+              nextCursor: d?.nextCursor,
+            };
+          });
+        }}
+      >
+        {({ onEdit }) =>
+          cursors.map((cursor, i) => (
+            <List
+              userId={userId}
+              onLoadMore={(o) =>
+                setQueryState({
+                  cursors: [...cursors, o],
+                  userId,
+                })
+              }
+              onEdit={onEdit}
+              isOnlyPage={cursors.length === 1}
+              isLastPage={cursors.length - 1 === i}
+              key={cursor}
+              cursor={cursor}
+            />
+          ))
+        }
+      </EditScheduleRoomModalController>
     </div>
   );
 };
