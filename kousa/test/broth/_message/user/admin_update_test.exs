@@ -77,7 +77,9 @@ defmodule BrothTest.Message.User.AdminUpdateTest do
               %{
                 payload: %AdminUpdate{
                   username: ^username,
-                  contributions: 100
+                  user: %{
+                    contributions: 100
+                  }
                 }
               }} =
                BrothTest.Support.Message.validate(%{
@@ -95,7 +97,9 @@ defmodule BrothTest.Message.User.AdminUpdateTest do
               %{
                 payload: %AdminUpdate{
                   username: ^username,
-                  staff: true
+                  user: %{
+                    staff: true
+                  }
                 }
               }} =
                BrothTest.Support.Message.validate(%{
