@@ -34,15 +34,29 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "தடை செய்" },
+    "admin": {
+      "ban": "தடை செய்",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "ஒரு தனியார் அறையில் இல்லாத, நீங்கள் பின்பற்றும் பயனர்களின்.",
       "currentRoom": "தற்போது இருப்பவர்கள்:",
-      "startPrivateRoom": "அவர்களுடன் ஒரு தனியார் அறையைத் தொடங்குங்கள்"
+      "startPrivateRoom": "அவர்களுடன் ஒரு தனியார் அறையைத் தொடங்குங்கள்",
+      "title": "People"
     },
     "followList": {
       "followHim": "பின்தொடரவும்",
-      "followingHim": "இவர்களை பின்தொடர்கிறீர்கள்"
+      "followingHim": "இவர்களை பின்தொடர்கிறீர்கள்",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "அறையை உருவாக்குங்கள்",
@@ -92,7 +106,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "தேடு..." },
-    "soundEffectSettings": { "header": "ஒலிகள்", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "ஒலிகள்",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "சுயவிவரத்தைத் திருத்து",
       "followsYou": "உங்களைப் பின்தொடர்கிறார்",
@@ -104,14 +122,26 @@
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "குரல் அமைப்பு",
       "mic": "ஒலிவாங்கி:",
       "permissionError": "ஒலிவாங்கிகள் எதுவும் கிடைக்கவில்லை, நீங்கள் எதுவும் செருகவில்லை அல்லது இந்த வலைத்தளத்திற்கு அனுமதி வழங்கவில்லை.",
       "refresh": "ஒலிவாங்கி பட்டியலைப் புதுப்பிக்கவும்",
-      "volume": "ஒலி அளவு:"
+      "volume": "ஒலி அளவு:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",
@@ -127,6 +157,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -227,7 +262,8 @@
         "goBackToListener": "கேட்பவராக திரும்பிச் செல்லுங்கள்",
         "deleteMessage": "இந்த செய்தியை நீக்கு",
         "makeRoomCreator": "அவரை அறையின் நிர்வாகியாக ஆக்கு",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "பேச அனுமதி தேவை",
@@ -235,7 +271,14 @@
         "makePrivate": "அறையை தனிப்பட்டதாக்குங்கள்",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -266,6 +309,15 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -301,7 +353,12 @@
       "whisper": "கிசுகிசுக்கவும்",
       "welcomeMessage": "அரட்டைக்கு வரவேற்கிறோம்!",
       "roomDescription": "அறை விளக்கம்",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Rocket'க்கு petrol போடுகிறோம் ",

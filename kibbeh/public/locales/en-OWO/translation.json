@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ban >:3" },
+    "admin": {
+      "ban": "ban >:3",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "<3 Wist of usews that awe nut in a pwivate woom and uu fowwow. :3",
       "currentRoom": "UwU Cuwwentwy in:",
-      "startPrivateRoom": "<3 Stawt a pwivate woom with them x3"
+      "startPrivateRoom": "<3 Stawt a pwivate woom with them x3",
+      "title": "People"
     },
-    "followList": { "followHim": "Follow", "followingHim": "Following" },
+    "followList": {
+      "followHim": "Follow",
+      "followingHim": "Following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "OwO Cweate Woom (ʘᗩʘ')",
       "refresh": " Wefwesh (◠‿◠✿)",
@@ -91,7 +108,8 @@
     "searchUser": { "search": "Seawch... >_<" },
     "soundEffectSettings": {
       "header": "OWO Sounds :D",
-      "title": "Sound Settings"
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "Edit Pwofiwe (⁎˃ᆺ˂)",
@@ -104,14 +122,26 @@
       "urlCopied": "URL Cwopied to Cwipboard (❤´艸｀❤)",
       "unfollow": "Unfowwow",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "OWO Voice Settings (✿ ♡‿♡)",
       "mic": "Mic:",
       "permissionError": "Nu mics found, uu eithew haz nune pwugged in ow hazn't given this website pewmission. ;_;",
       "refresh": "Wefwesh mic wist (｀へ´)",
-      "volume": "Volume:"
+      "volume": "Volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -124,6 +154,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -221,7 +256,8 @@
         "goBackToListener": "Go Back to Wistenew (╯﹏╰）",
         "deleteMessage": "Dewete this Message >_>",
         "makeRoomCreator": "Make Woom Admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Wequiwe pewmission to speak <{^n^}>",
@@ -229,7 +265,14 @@
         "makePrivate": "Make Woom Pwivate xD",
         "renamePublic": "Set Public Room Name",
         "renamePrivate": "Set Private Room Name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -260,6 +303,15 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -295,7 +347,12 @@
       "whisper": "Whispew <{^v^}>",
       "welcomeMessage": "UwU Wewcome to chat! (✿ ♡‿♡)",
       "roomDescription": "Woom Descwiption（＾ｖ＾）",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fuewing rocket uwu",

@@ -43,8 +43,8 @@ defmodule Broth.Message.User.CreateBot do
         Users.bot?(state.user.id) ->
           {:reply, %Reply{error: "bots can't create bots"}, state}
 
-        Users.count_bot_accounts(state.user.id) > 99 ->
-          {:reply, %Reply{error: "you've reached the max of 100 bot accounts"}, state}
+        Users.count_bot_accounts(state.user.id) > 4 ->
+          {:reply, %Reply{error: "you've reached the max of 5 bot accounts"}, state}
 
         true ->
           case Users.create_bot(state.user.id, username) do

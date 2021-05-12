@@ -34,18 +34,35 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "mamnuuc" },
+    "admin": {
+      "ban": "mamnuuc",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Liiska isticmaaleyaasha aan ku jirin qol gaar ah oo aad raacday.",
       "currentRoom": "hadda ku jira:",
-      "startPrivateRoom": "qol gaar ah la bilow"
+      "startPrivateRoom": "qol gaar ah la bilow",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Abuur qol",
       "refresh": "Cusbooneysii",
-      "editRoom": "Edit Room",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "editRoom": "Waxka bedel qolka",
+      "desktopAlert": "Dajiso desktop appka DogeHouse maanta?!"
     },
     "inviteList": {
       "roomGone": "Qolka wuu dhamaday, dib u noqo",
@@ -89,7 +106,11 @@
       "allowAllConfirm": "Ma hubtaa? Tani waxay u oggolaan doontaa dhammaan {{count}} Isticmaalayaasha inay codsadaan inay hadlaan"
     },
     "searchUser": { "search": "raadi..." },
-    "soundEffectSettings": { "header": "Codka", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Codka",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "wax ka beddel koontada",
       "followsYou": "adiga kuraacay",
@@ -101,14 +122,26 @@
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "hagaajinta codka",
       "mic": "codbaahiye:",
       "permissionError": "Codbaahiye lama helin, kuugu ma xirno codbaahiye ama ogolasho umaaad siin websitka codbaahin.",
       "refresh": "Cusbooneysii liiska cod baahiyeyaasha",
-      "volume": "volume:"
+      "volume": "volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",
@@ -124,6 +157,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -202,7 +240,7 @@
       },
       "editProfileModal": {
         "usernameTaken": "magaca isticmaalahan waa la qaatay",
-        "avatarUrlError": "Invalid image",
+        "avatarUrlError": "Sawir Khaldan",
         "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "2 ilaa 50 xaraf",
         "displayNameLabel": "magaca bandhigmaya",
@@ -224,15 +262,23 @@
         "goBackToListener": "Ku laabo Dhageystayaasha",
         "deleteMessage": "tirtir fariintan",
         "makeRoomCreator": "samee maamulaha qolka",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Ka qaad mamnuucida hadalka",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
-        "requirePermission": "Waxay u baahan tahay ogolaansho si aad uhadashid",
+        "requirePermission": "Waxay u baahnaan doonaan ogolaansho si ay uhadlaan",
         "makePublic": "qolka ka dhig qol guud",
         "makePrivate": "qolka ka dhig qol gaar",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -242,27 +288,36 @@
       "showMore": "Show more"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "qolalka soo socda",
+      "exploreMoreRooms": "Sahmi qolal badan"
     },
     "search": {
-      "placeholder": "Search for rooms, users or categories",
-      "placeholderShort": "Search"
+      "placeholder": "Raadi qolal, isticmaalayaal ama qeybo",
+      "placeholderShort": "Raadi"
     },
     "settingsDropdown": {
       "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "language": "luuqadda",
+      "reportABug": "Soo gudbi cillad",
+      "useOldVersion": "Isticmaal Version hore",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Ka bax",
+        "modalSubtitle": "Ma hubtaa inaad ka baxayso?"
       },
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Dajiso Appka"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -280,10 +335,10 @@
         "roomDescription": "qeexitaan",
         "minLength": "ugu yaraan 2"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "BERRI",
+      "today": "MAANTA",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Ma hubtaa inaad tirtid jadwalka qolkaan?"
       }
     },
     "roomChat": {
@@ -298,7 +353,12 @@
       "whisper": "fariin gaar ah",
       "welcomeMessage": "Ku soo dhawow wada hadalka!",
       "roomDescription": "qeexida qolka",
-      "disabled": "room chat has been disabled"
+      "disabled": "qolka sheekaysigiisa waa la joojiyay",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

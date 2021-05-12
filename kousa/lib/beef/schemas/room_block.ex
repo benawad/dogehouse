@@ -5,7 +5,6 @@ defmodule Beef.Schemas.RoomBlock do
   alias Beef.Schemas.Room
   @timestamps_opts [type: :utc_datetime_usec]
 
-  @derive {Poison.Encoder, only: [:userId, :roomId, :modId, :ip]}
   @primary_key false
   schema "room_blocks" do
     belongs_to(:user, User, foreign_key: :userId, type: :binary_id)

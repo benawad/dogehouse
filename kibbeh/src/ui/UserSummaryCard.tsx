@@ -10,6 +10,8 @@ export type badge = {
   color: "white" | "grey";
   content: React.ReactNode;
   variant: "primary" | "secondary" | "primary-700";
+  classname?: string;
+  title?: string;
 };
 
 export interface UserSummaryCardProps {
@@ -36,15 +38,19 @@ interface WebsiteProps {
 
 export const Badges: React.FC<BadgesProps> = ({ badges }) => {
   return (
-    <div className="flex mt-2">
-      {badges.map(({ content, variant, color }, i) => (
-        <span className="mr-1" key={i}>
-          <UserBadge variant={variant} color={color}>
-            {content}
-          </UserBadge>
-        </span>
+    <>
+      {badges.map(({ content, variant, color, classname, title }, i) => (
+        <UserBadge
+          title={title}
+          variant={variant}
+          color={color}
+          className={classname}
+          key={i}
+        >
+          {content}
+        </UserBadge>
       ))}
-    </div>
+    </>
   );
 };
 
@@ -94,12 +100,14 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
             <span className="text-primary-300 text-left break-all">
               @{username}
             </span>
-            <Badges badges={badges} />
+            <span className="flex mt-1">
+              <Badges badges={badges} />
+            </span>
           </div>
         </div>
       </button>
       <div className="flex mt-3">
-        <div className="flex">
+        <div className="flex transition duration-200 ease-in-out hover:bg-primary-700 px-2 py-1 rounded-8">
           <ApiPreloadLink route="followers" data={{ username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowers)}
@@ -109,7 +117,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
             </span>
           </ApiPreloadLink>
         </div>
-        <div className="flex ml-4">
+        <div className="flex transition duration-200 ease-in-out hover:bg-primary-700 px-2 py-1 rounded-8">
           <ApiPreloadLink route="following" data={{ username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowing)}

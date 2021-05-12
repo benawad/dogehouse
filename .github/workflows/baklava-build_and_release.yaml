@@ -52,9 +52,9 @@ jobs:
           rust-version: stable
       - name: Install nj-cli
         run: cargo install nj-cli
-      - name: Build Globkey
+      - name: Build globalkey
         working-directory: baklava
-        run: yarn build:globkey
+        run: yarn build:globalkey
       - name: Prepare for app notarization
         if: startsWith(matrix.os, 'macos')
         # Import Apple API key for app notarization on macOS
@@ -68,7 +68,7 @@ jobs:
         with:
           # Log in to Snap Store
           snapcraft_token: ${{ secrets.snapcraft_token }}
-      - name: Install RPM 
+      - name: Install RPM
         if: startsWith(matrix.os, 'ubuntu')
         run: |
           sudo apt install rpm

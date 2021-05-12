@@ -1,10 +1,31 @@
 defmodule Kousa.User do
   alias Beef.Users
+  alias Beef.Schemas.User
   alias Onion.PubSub
 
   def delete(user_id) do
     Kousa.Room.leave_room(user_id)
     Users.delete(user_id)
+  end
+
+  def revoke_api_key(user_id, bot_id) do
+    user = Users.get_by_id(bot_id)
+
+    if user.id != user_id and user.botOwnerId != user_id do
+      {:error, "not authorized"}
+    else
+      new_api_key = UUID.uuid4()
+
+      case user
+           |> User.api_key_changeset(%{apiKey: new_api_key})
+           |> Users.update() do
+        {:ok, _} ->
+          {:ok, new_api_key}
+
+        error ->
+          error
+      end
+    end
   end
 
   def update_with(changeset = %Ecto.Changeset{}) do
@@ -52,6 +73,23 @@ defmodule Kousa.User do
       :ok
     else
       _ -> {:error, "tried to ban #{user_id_to_ban} but that user didn't exist"}
+    end
+  end
+
+  def admin_update_with(changeset, admin) do
+    authorized_github_id = Application.get_env(:kousa, :ben_github_id, "")
+
+    with %{githubId: ^authorized_github_id} <- admin do
+      case Users.update(changeset) do
+        {:ok, user} ->
+          {:ok, user}
+
+        error ->
+          error
+      end
+    else
+      _ ->
+        {:error, "not authorized"}
     end
   end
 end

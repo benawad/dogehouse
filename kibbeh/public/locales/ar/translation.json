@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "حظر" },
+    "admin": {
+      "ban": "حظر",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "قائمة المستخدمين غير المتواجدين في غرفة خاصة وأنت تتابعهم.",
       "currentRoom": "حاليا في:",
-      "startPrivateRoom": "ابدأ غرفة خاصة معهم"
+      "startPrivateRoom": "ابدأ غرفة خاصة معهم",
+      "title": "People"
     },
-    "followList": { "followHim": "تابع", "followingHim": "متابع" },
+    "followList": {
+      "followHim": "تابع",
+      "followingHim": "متابع",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "ابدأ غرفة",
       "refresh": "تحديث",
@@ -89,7 +106,11 @@
       "allowAllConfirm": "هل انت متأكد ؟ هذا سيسمح لـ {{count}} مستخدم بالتحدث"
     },
     "searchUser": { "search": "ابحث..." },
-    "soundEffectSettings": { "header": "الأصوات", "title": "اعدادات الصوت" },
+    "soundEffectSettings": {
+      "header": "الأصوات",
+      "title": "اعدادات الصوت",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "تعديل الحساب",
       "followsYou": "يتابعك",
@@ -101,14 +122,26 @@
       "urlCopied": "تم نسخ الرابط",
       "unfollow": "الغاء المتابعة",
       "about": "حول",
-      "bot": "بوت"
+      "bot": "بوت",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "إعدادات المحادثة الصوتية",
       "mic": "ميكروفون:",
       "permissionError": "لم يتم العثور على ميكروفونات ، إما أنك لم تقم بتوصيل أي ميكروفون أو لم تمنحنا إذن الوصول.",
       "refresh": "تحديث قائمة الميكروفونات",
-      "volume": "ارتفاع الصوت:"
+      "volume": "ارتفاع الصوت:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -123,6 +156,11 @@
       "prompt": "أنقر للتنزيل",
       "download_now": "تنزيل الآن",
       "download_for": "تنزيل إلى %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -218,7 +256,8 @@
         "goBackToListener": "إرجع إلى مستمع",
         "deleteMessage": "حذف الرسالة",
         "makeRoomCreator": "اضف كإداري للغرفة",
-        "unBanFromChat": "الغاء الحظر من المحادثات"
+        "unBanFromChat": "الغاء الحظر من المحادثات",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "جعل التحدث بطلب فقط",
@@ -226,7 +265,14 @@
         "makePrivate": "جعل الغرفة خاصة",
         "renamePublic": "اختار اسم الغرفة العامة",
         "renamePrivate": "اختار اسم الغرفة الخاصة",
-        "chatDisabled": "تعطيل المحادثة"
+        "chatDisabled": "تعطيل المحادثة",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -257,6 +303,15 @@
         "stopDebugger": "Stop Debugger"
       },
       "downloadApp": "تنزيل التطبيق"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -292,7 +347,12 @@
       "whisper": "إرسل رسالة خاصة",
       "welcomeMessage": "مرحبا بك في المحادثة!",
       "roomDescription": "وصف الغرفة",
-      "disabled": "تم تعطيل المحادثة"
+      "disabled": "تم تعطيل المحادثة",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "عبي الصاروخ بنزين",

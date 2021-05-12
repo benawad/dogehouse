@@ -21,12 +21,13 @@ export const ParseTextToTwemoji: React.FC<TwemojiProps> = ({
   return (
     <>
       {chars.map((e, i) =>
-        regex.test(e) ? (
+        eRegex().test(e) ? (
           <img
             {...props}
             key={i}
             className={`emoji ${className || ""}`}
             src={parse(e)[0].url}
+            alt={parse(e)[0].text}
           />
         ) : (
           <React.Fragment key={i}>{e}</React.Fragment>

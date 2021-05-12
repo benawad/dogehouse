@@ -34,15 +34,29 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "бан" },
+    "admin": {
+      "ban": "бан",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
       "currentRoom": "Текущая комната",
-      "startPrivateRoom": "Создать приватную комнату"
+      "startPrivateRoom": "Создать приватную комнату",
+      "title": "People"
     },
     "followList": {
       "followHim": "Подписаться",
-      "followingHim": "Вы подписаны"
+      "followingHim": "Вы подписаны",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "Создать комнату",
@@ -92,7 +106,11 @@
       "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить"
     },
     "searchUser": { "search": "Поиск..." },
-    "soundEffectSettings": { "header": "Звуки", "title": "Настройки звука" },
+    "soundEffectSettings": {
+      "header": "Звуки",
+      "title": "Настройки звука",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "редактировать профиль",
       "followsYou": "подписаны на вас",
@@ -104,14 +122,26 @@
       "urlCopied": "URL профиля скопирован",
       "unfollow": "Отписаться",
       "about": "About",
-      "bot": "Бот"
+      "bot": "Бот",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
       "mic": "микрофон:",
       "permissionError": "микрофон не найден, он не подключен или браузеру не дано соответствующее разрешение.",
       "refresh": "обновить список микрофонов",
-      "volume": "громкость:"
+      "volume": "громкость:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -127,6 +157,11 @@
       "prompt": "Нажмите на кнопку ниже, чтобы начать загрузку",
       "download_now": "Скачать сейчас",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -225,7 +260,8 @@
         "goBackToListener": "стать слушателем",
         "deleteMessage": "удалить это сообщение",
         "makeRoomCreator": "назначить админом комнаты",
-        "unBanFromChat": "Разбанить в чате"
+        "unBanFromChat": "Разбанить в чате",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "чтобы разговаривать здесь требуется разрешение",
@@ -233,7 +269,14 @@
         "makePrivate": "сделать комнату приватной",
         "renamePublic": "Установить название общей комнаты",
         "renamePrivate": "Установить название приватной комнаты",
-        "chatDisabled": "disable chat"
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -264,6 +307,15 @@
         "stopDebugger": "Остановить отладчик"
       },
       "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -299,7 +351,12 @@
       "whisper": "Шепнуть",
       "welcomeMessage": "Добро пожаловать в чат!",
       "roomDescription": "описание комнаты",
-      "disabled": "room chat has been disabled"
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "заправляем ракету",

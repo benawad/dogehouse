@@ -34,15 +34,29 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ব্যান করুন" },
+    "admin": {
+      "ban": "ব্যান করুন",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "যেসব ইউজারকে আপনি অনুসরণ করেন কিন্তু এখন তারা কোনো প্রাইভেট রুম এ নেই।",
       "currentRoom": "ভেতরে আছেন:",
-      "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন"
+      "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন",
+      "title": "মানুষ"
     },
     "followList": {
       "followHim": "অনুসরণ করুন",
-      "followingHim": "অনুসরণ করছেন"
+      "followingHim": "অনুসরণ করছেন",
+      "title": "মানুষ",
+      "followingNone": "কাউকে অনুসরণ করছেন না",
+      "noFollowers": "কোনো অনুসরণকারী নেই"
     },
     "home": {
       "createRoom": "রুম বানান",
@@ -92,7 +106,11 @@
       "allowAllConfirm": "আপনি কি নিশ্চিত? এটা অনুমতি দেবে সব {{count}} জন অনুরোধ করা ইউজারদের কথা বলতে"
     },
     "searchUser": { "search": "খুঁজুন..." },
-    "soundEffectSettings": { "header": "সাউন্ডস", "title": "সাউন্ড সেটিংস" },
+    "soundEffectSettings": {
+      "header": "সাউন্ডস",
+      "title": "সাউন্ড সেটিংস",
+      "playSound": "সাউন্ড প্লে করুন"
+    },
     "viewUser": {
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",
@@ -104,14 +122,26 @@
       "urlCopied": "URL ক্লিপবোর্ডে কপি করা হয়েছে",
       "unfollow": "অনুসরণ বাতিল করুন",
       "about": "সম্বন্ধে",
-      "bot": "বট"
+      "bot": "বট",
+      "profileTabs": {
+        "about": "সম্বন্ধে",
+        "rooms": "রুমগুলো",
+        "scheduled": "পরিকল্পিত",
+        "recorded": "রেকর্ড করেছেন",
+        "clips": "ক্লিপগুলো"
+      },
+      "block": "ব্লক করুন",
+      "unblock": "আনব্লক করুন",
+      "sendDM": "মেসেজ করুন",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
       "mic": "মাইক:",
       "permissionError": "কোনো মাইক খুঁজে পাওয়া যাইনি, আপনি কোনো মাইক প্লাগ করেননি অথবা এই ওয়েবসাইটকে পারমিশন দেননি।",
       "refresh": "মাইক লিস্ট রিফ্রেশ করুন",
-      "volume": "ভলিউম:"
+      "volume": "ভলিউম:",
+      "title": "ভয়েস সেটিংস"
     },
     "overlaySettings": {
       "input": {
@@ -129,6 +159,11 @@
       "prompt": "নিচের বাটনটিতে ক্লিক করুন ডাউনলোড শুরু করতে",
       "download_now": "ডাউনলোড করুন এখন",
       "download_for": "%platform% (%ext%)-এর জন্য ডাউনলোড করুন"
+    },
+    "privacySettings": {
+      "title": "গোপনীয়তা সেটিংস",
+      "header": "গোপনীয়তা সেটিংস",
+      "whispers": { "label": "ফিসফিস", "on": "অন", "off": "অফ" }
     }
   },
   "components": {
@@ -229,7 +264,8 @@
         "goBackToListener": "শ্রোতাতে ফিরে যান",
         "deleteMessage": "মেসেজটি মুছে ফেলুন",
         "makeRoomCreator": "রুম অ্যাডমিন তৈরি করুন",
-        "unBanFromChat": "চ্যাট থেকে আনব্যান করুন"
+        "unBanFromChat": "চ্যাট থেকে আনব্যান করুন",
+        "banIPFromRoom": "রুম থেকে IP ব্যান করুন"
       },
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
@@ -237,7 +273,14 @@
         "makePrivate": "রুমটাকে প্রাইভেট করুন",
         "renamePublic": "পাবলিক রুমের নাম সেট করুন",
         "renamePrivate": "প্রাইভেট রুমের নাম সেট করুন",
-        "chatDisabled": "চ্যাট অফ করুন"
+        "chatDisabled": "চ্যাট অফ করুন",
+        "chatCooldown": "চ্যাট কুলডাউন (মিলিসেকেন্ড)",
+        "chat": {
+          "label": "চ্যাট",
+          "enabled": "অন করা",
+          "disabled": "অফ করা",
+          "followerOnly": "অনুসরণকারীদের জন্য শুধু"
+        }
       }
     },
     "followingOnline": {
@@ -268,6 +311,15 @@
         "stopDebugger": "ডিবাগার বন্ধ করুন"
       },
       "downloadApp": "ডাউনলোড করুন অ্যাপ্লিকেশনটি"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "মেসেজগুলো",
+      "showMore": "আরো দেখুন",
+      "noMessages": "কোনো নতুন মেসেজ নেই"
     }
   },
   "modules": {
@@ -303,7 +355,12 @@
       "whisper": "ফিসফিস",
       "welcomeMessage": "চ্যাট এ স্বাগতম!",
       "roomDescription": "রুমের বর্ণনা",
-      "disabled": "রুম চ্যাট অফ করা হয়েছে"
+      "disabled": "রুম চ্যাট অফ করা হয়েছে",
+      "messageDeletion": {
+        "message": "মেসেজ",
+        "retracted": "ডিলিট করেছেন",
+        "deleted": "ডিলিট করা হয়েছে"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "রকেটে জ্বালানি দেওয়া হচ্ছে",

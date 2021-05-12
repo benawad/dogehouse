@@ -11,7 +11,8 @@ import {
 import i18n from "i18next";
 import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
-import { RegisterKeybinds, exitApp } from "./utils/keybinds";
+import { exitApp, RegisterKeybinds } from "./utils/keybinds";
+
 import { HandleVoiceTray } from "./utils/tray";
 import {
   ALLOWED_HOSTS,
@@ -143,10 +144,15 @@ function createMainWindow() {
       shell.openExternal(url);
     } else {
       if (
-        urlHost == ALLOWED_HOSTS[4] &&
-        urlObj.pathname !== "/login" &&
-        urlObj.pathname !== "/session" &&
-        urlObj.pathname !== "/sessions/two-factor"
+        (urlHost == ALLOWED_HOSTS[3] &&
+          urlObj.pathname !== "/login" &&
+          urlObj.pathname !== "/session" &&
+          urlObj.pathname !== "/sessions/two-factor" &&
+          urlObj.pathname !== "/sessions/two-factor/webauthn") ||
+        (
+          urlHost == ALLOWED_HOSTS[8] &&
+          urlObj.pathname !== "/account/login_verification"
+        )
       ) {
         event.preventDefault();
         shell.openExternal(url);
@@ -192,7 +198,7 @@ function createMainWindow() {
   });
 }
 
-function createSpalshWindow() {
+function createSplashWindow() {
   splash = new BrowserWindow({
     width: 300,
     height: 410,
@@ -228,7 +234,7 @@ if (!instanceLock) {
 } else {
   app.on("ready", () => {
     localize().then(async () => {
-      createSpalshWindow();
+      createSplashWindow();
       if (!__prod__) skipUpdateCheck(splash);
       if (__prod__ && !isLinux) await autoUpdater.checkForUpdates();
       if (isLinux && __prod__) {
@@ -275,7 +281,7 @@ autoUpdater.on("update-not-available", () => {
   skipUpdateCheck(splash);
 });
 app.on("window-all-closed", async () => {
-  await exitApp();
+  exitApp();
 });
 app.on("activate", () => {
   if (mainWindow === null) {

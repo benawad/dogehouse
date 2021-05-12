@@ -1,0 +1,29 @@
+{
+  "name": "@dogehouse/dolma",
+  "author": "Jackson Roberts <jackson@holopanio.com>",
+  "description": "A chat token transcoder for DogeHouse and associated projects.",
+  "version": "1.2.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "tsc && node lib/test/run.js && tsc -b . --clean",
+    "clean": "tsc -b . --clean",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HoloPanio/dolma.git"
+  },
+  "keywords": [
+    "@dogehouse/dolma",
+    "dogehouse",
+    "doghouse-tokens"
+  ],
+  "bugs": {
+    "url": "https://github.com/HoloPanio/dolma/issues"
+  },
+  "homepage": "https://github.com/HoloPanio/dolma#readme",
+  "dependencies": {
+    "@types/node": "^15.0.2"
+  }
+}

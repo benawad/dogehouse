@@ -21,6 +21,9 @@ defenum(
     {User.Unfollow, 11},
     {User.CreateBot, 12},
     {User.Unblock, 13},
+    {User.GetBots, 14},
+    {User.RevokeApiKey, 15},
+    {User.AdminUpdate, 16},
     # room commands and casts: 64..127
     {Room.Invite, 65},
     {Room.Update, 66},
