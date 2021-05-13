@@ -128,7 +128,8 @@
         "rooms": "Místnosti",
         "scheduled": "Naplánováno",
         "recorded": "Nahráno",
-        "clips": "Klipy"
+        "clips": "Klipy",
+        "admin": "Admin"
       },
       "block": "Blokovat",
       "unblock": "Odblokovat",

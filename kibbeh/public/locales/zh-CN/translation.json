@@ -127,7 +127,8 @@
         "rooms": "聊天室",
         "scheduled": "已安排",
         "recorded": "已录制",
-        "clips": "片段"
+        "clips": "片段",
+        "admin": "Admin"
       },
       "block": "屏蔽",
       "unblock": "取消屏蔽",

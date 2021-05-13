@@ -34,14 +34,14 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
       "ban": "ban",
-      "userStaffandContrib": "User Staff & Contributions",
+      "userStaffandContrib": "Staff & Hozzájáruló felhasználók",
       "staff": "Staff: ",
-      "contributions": "Contributions",
-      "username": "Username",
-      "usrStaff": "User Staff",
-      "usrContributions": "User Contributions",
-      "reason": "reason",
-      "usernamePlaceholder": "username to perform actions on"
+      "contributions": "Hozzájárulók",
+      "username": "Felhasználónév",
+      "usrStaff": "Staff felhasználó",
+      "usrContributions": "DogeHouse hozzájáruló",
+      "reason": "oka",
+      "usernamePlaceholder": "felhasználónév a műveletek végrehajtásához"
     },
     "followingOnlineList": {
       "listHeader": "Követett felhasználók nyilvános szobában.",
@@ -50,11 +50,11 @@
       "title": "People"
     },
     "followList": {
-      "followHim": "követés",
-      "followingHim": "követve",
-      "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "followHim": "Követés",
+      "followingHim": "Követve",
+      "title": "Felhasználók",
+      "followingNone": "Nem követ senkit",
+      "noFollowers": "Nincsenek követők"
     },
     "home": {
       "createRoom": "Szoba létrehozása",
@@ -89,7 +89,7 @@
       "deleteAccount": "Fiók törlése",
       "overlaySettings": "Átfedés beállítások megnyitása",
       "couldNotFindUser": "Sajnáljuk, a felhasználó nem található",
-      "privacySettings": "Adatvédelmi beállítások"
+      "privacySettings": "Személyes tér beállításai"
     },
     "notFound": {
       "whoopsError": "Whoops! Ez az oldal elveszett a beszélgetésben.",
@@ -107,7 +107,7 @@
     "soundEffectSettings": {
       "header": "Hangok",
       "title": "Hangbeállítások",
-      "playSound": "Play Sound"
+      "playSound": "Hang lejátszása"
     },
     "viewUser": {
       "editProfile": "Fiók szerkesztése",
@@ -119,19 +119,20 @@
       "copyProfileUrl": "Fiók URL címének másolása",
       "urlCopied": "URL cím kimásolva a vágólapra",
       "unfollow": "Követés megszűntetése",
-      "about": "Róla:",
+      "about": "",
+      "aboutSuffix": "névjegye",
       "bot": "Bot",
       "profileTabs": {
         "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips"
+        "rooms": "Szobák",
+        "scheduled": "Ütemzett",
+        "recorded": "Felvett",
+        "clips": "Klippek",
+        "admin": "Admin"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM",
-      "aboutSuffix": ""
+      "block": "Leiltás",
+      "unblock": "Tiltás feloldása",
+      "sendDM": "Üzenet küldése"
     },
     "voiceSettings": {
       "header": "Hangbeállítások",
@@ -139,7 +140,7 @@
       "permissionError": "Nem található mikrofon. Vagy nincs csatlakoztatva, vagy nem adta meg az engedélyt.",
       "refresh": "Elérhető mikrofonok frissítése",
       "volume": "Hangerő:",
-      "title": "Voice Settings"
+      "title": "Hangbeállítások"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -149,14 +150,14 @@
       "starting": "Letöltés elkezdve...",
       "failed": "Could not auto-download, please try again later",
       "visit_gh": "GitHub kiadások megtekintése",
-      "prompt": "Click on the button below to start download",
+      "prompt": "A gombra kattintva elkezdheti a letöltést",
       "download_now": "Letöltés",
       "download_for": "Letöltés %platform%-ra (%ext%)"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
-      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+      "title": "Személyes tér beállításai",
+      "header": "Személyes tér",
+      "whispers": { "label": "Suttogó üzenetek", "on": "Be", "off": "Ki" }
     }
   },
   "components": {
@@ -245,9 +246,9 @@
         "chatCooldown": "Chat Cooldown (milliseconds)",
         "chat": {
           "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "enabled": "Bekapcsolva",
+          "disabled": "Kikapcsolva",
+          "followerOnly": "Csak követők"
         }
       }
     },
@@ -305,12 +306,12 @@
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
-      "dhContributor": "DogeHouse Contributor"
+      "dhContributor": "DogeHouse Hozzájáruló"
     },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "Üzenetek",
+      "showMore": "Több megjelenítése",
+      "noMessages": "Nincsenek új üzenetek"
     }
   },
   "modules": {
@@ -345,9 +346,9 @@
       "roomDescription": "Szoba leírása",
       "disabled": "Chat letiltva",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "Üzenet",
+        "retracted": "visszavonva",
+        "deleted": "törölve"
       }
     },
     "roomStatus": {

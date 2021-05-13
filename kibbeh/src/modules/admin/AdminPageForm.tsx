@@ -67,19 +67,17 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
 
         <label className="inline-flex mb-4">
           <div className={`text-primary-100`}>{t("pages.admin.staff")}</div>
-          <Input
-            className={`ml-2`}
-            autoFocus
-            placeholder={t("pages.admin.staff")}
+          <input
+            type="checkbox"
+            className="ml-2 mt-1"
             checked={isStaff}
             onChange={(e) => setIsStaff(e.target.checked)}
-            type="checkbox"
           />
         </label>
         <div className="flex">
           <Button
             onClick={() => {
-              wrapper.mutation.userAdminUpdate(username, isStaff);
+              wrapper.mutation.userAdminUpdate(username, { staff: isStaff });
             }}
           >
             {t("common.save")}
@@ -101,11 +99,7 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
         <div className="flex pb-5">
           <Button
             onClick={() => {
-              wrapper.mutation.userAdminUpdate(
-                username,
-                undefined,
-                contributions
-              );
+              wrapper.mutation.userAdminUpdate(username, { contributions });
             }}
           >
             {t("common.save")}
