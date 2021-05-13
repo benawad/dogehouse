@@ -298,88 +298,88 @@
       "profileModal": {
         "blockUserConfirm": "Re-ay ou-yay ure-say ou-yay ant-way o-tay lock-bay his-tay er-usay rom-fay oining-jay ny-ay oom-ray ou-yay ver-eay reate-cay?",
         "blockUser": "Lock-bay er-say",
-        "makeMod": "Promote to Mod",
-        "unmod": "Demote from Mod",
-        "addAsSpeaker": "Add as Speaker",
-        "moveToListener": "Move to Listener",
-        "unBanFromChat": "Unban from Chat",
-        "banFromChat": "Ban from Chat",
-        "banFromRoom": "Ban from Room",
-        "banIPFromRoom": "Ban IP from Room",
-        "goBackToListener": "Go Back to Listener",
-        "deleteMessage": "Delete this Message",
-        "makeRoomCreator": "Promote to Admin"
+        "makeMod": "Romote-ay o-tay od-may",
+        "unmod": "Emote=day Rom-fay Od-may",
+        "addAsSpeaker": "D-aday s-aay Eaker-spay",
+        "moveToListener": "Ove-may o-tay Istener-lay",
+        "unBanFromChat": "Ban-unay rom-fay Hat-cay",
+        "banFromChat": "An-bay rom-fay Hat-cay",
+        "banFromRoom": "An-bay rom-fay Oom-ray",
+        "banIPFromRoom": "An-bay IP-ay Rom-fay Oom-ray",
+        "goBackToListener": "O-gay Ack-bay o-tay Istener-lay",
+        "deleteMessage": "Elete-day His-tay Essage-may",
+        "makeRoomCreator": "Romote-pay o-tay Min-aday"
       },
       "roomSettingsModal": {
-        "requirePermission": "require permission to speak",
-        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "requirePermission": "Equire-ray ermission-pay o-tay peak-say",
+        "chatCooldown": "Hat-cay Ooldown-cay (illiseconds-may)",
         "chat": {
-          "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "label": "Hat-cay",
+          "enabled": "Abled-enay",
+          "disabled": "Isabled-day",
+          "followerOnly": "Ollower-fay Ly-on"
         },
-        "makePublic": "make room public",
-        "makePrivate": "make room private",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "makePublic": "Ake-may oom-ray ublic-pay",
+        "makePrivate": "ake-may oom-ray rivate-pay",
+        "renamePublic": "Et-say ublic-pay oom-ray ame-nay",
+        "renamePrivate": "Et-say rivate-pay oom-ray ame-nay"
       }
     }
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
     "feed": {
-      "yourFeed": "Your feed"
+      "yourFeed": "Our-yay eed-fay"
     },
     "scheduledRooms": {
-      "title": "Scheduled Rooms",
-      "noneFound": "none found",
-      "allRooms": "all scheduled rooms",
-      "myRooms": "my scheduled rooms",
-      "scheduleRoomHeader": "Schedule Room",
-      "startRoom": "start room",
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "title": "Cheduled-say Ooms-ray",
+      "noneFound": "One-nay Ound-fay",
+      "allRooms": "All-ay Cheduled-say Ooms-ray",
+      "myRooms": "Y-may Cheduled-say Ooms-ray",
+      "scheduleRoomHeader": "Chedule-say Oom-ray",
+      "startRoom": "art-stat oom-ray",
+      "tommorow": "OMORROW-TAY",
+      "today": "ODAY-TAY",
       "modal": {
-        "needsFuture": "needs to be in the future",
-        "roomName": "room name",
-        "roomDescription": "Description",
-        "minLength": "min length 2"
+        "needsFuture": "eeds-nay o-tay e-bay n-iay he-tay uture-fay",
+        "roomName": "oom-ray ame-nay",
+        "roomDescription": "Escription-day",
+        "minLength": "in-may ength-lay 2"
       },
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Re-ay ou-yay uresay ou-yay ant-way o-tay elete-day his-tay cheduled-say oom-ray?"
       }
     },
     "roomChat": {
-      "title": "Chat",
-      "emotesSoon": "[emotes soon]",
-      "bannedAlert": "You have been banned from chat",
-      "waitAlert": "You have to wait a second before sending another message",
-      "search": "Search",
-      "searchResults": "Search Results",
-      "recent": "Frequently Used",
-      "sendMessage": "Send a Message",
-      "whisper": "Whisper",
-      "welcomeMessage": "Welcome to chat!",
-      "roomDescription": "Room description",
-      "disabled": "room chat has been disabled",
+      "title": "Hat-cay",
+      "emotesSoon": "[Otes-enay Oon-say]",
+      "bannedAlert": "Ou-yay ave-hay een-bay anned-bay rom-fay hat-cay",
+      "waitAlert": "Ou-yay ave-hay o-tay ait-way a-ay Econd-say Efore-bay ending-say nother-ay essage-may",
+      "search": "Earch-say",
+      "searchResults": "Earch-say Esults-ray",
+      "recent": "Requently-fay Ed-usay",
+      "sendMessage": "End-say a-ay Essage-may",
+      "whisper": "Hisper-way",
+      "welcomeMessage": "Elcome-way o-tay hat-cay!",
+      "roomDescription": "Oom-ray Escription-day",
+      "disabled": "Oom-ray hat-cay as-hay een-bay isabled-day",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "Essage-may",
+        "retracted": "Etracted-ray",
+        "deleted": "Eleted-day"
       }
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar Doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar Doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Ueling-fay ocket-ray",
+      "takingOff": "Aking-tay f-ofay",
+      "inSpace": "n-iay pace-say",
+      "approachingMoon": "Proaching-apay Oon-may",
+      "lunarDoge": "Unar-lay Oge-day",
+      "approachingSun": "Pproaching-apay Un-say",
+      "solarDoge": "Olar-say Oge-day",
+      "approachingGalaxy": "Pproaching-apay Alaxy-gay",
+      "galacticDoge": "Alactic-gay Oge-day",
+      "spottedLife": "Lanet-pay Ith-way Ife-lay Potted-say"
     }
   }
 }
