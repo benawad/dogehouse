@@ -24,10 +24,10 @@ defmodule BrothTest.User.AdminUpdateTest do
   end
 
   describe "the websocket user:admin_update operation" do
-    test "doesn't work for not-ben awad" do
+    test "doesn't work for not-ben awad", t do
       ref =
-        WsClient.send_call(staff_client_ws, "user:admin_update", %{
-          "username" => staff_user.username,
+        WsClient.send_call(t.staff_client_ws, "user:admin_update", %{
+          "username" => t.staff_user.username,
           "user" => %{
             "staff" => true,
             "contributions" => 100
@@ -40,7 +40,7 @@ defmodule BrothTest.User.AdminUpdateTest do
     test "works for ben awad", t do
       ref =
         WsClient.send_call(t.client_ws, "user:admin_update", %{
-          "username" => staff_user.username,
+          "username" => t.staff_user.username,
           "user" => %{
             "staff" => true,
             "contributions" => 100
@@ -53,13 +53,13 @@ defmodule BrothTest.User.AdminUpdateTest do
       })
 
       # check that the user has been updated.
-      assert %{staff: true, contributions: 100} = Users.get_by_id(staff_user.id)
+      assert %{staff: true, contributions: 100} = Users.get_by_id(t.staff_user.id)
     end
 
     test "works for staff", t do
       ref =
         WsClient.send_call(t.client_ws, "user:admin_update", %{
-          "username" => staff_user.username,
+          "username" => t.staff_user.username,
           "user" => %{
             "staff" => true,
             "contributions" => 100
@@ -72,7 +72,7 @@ defmodule BrothTest.User.AdminUpdateTest do
       })
 
       # check that the user has been updated.
-      assert %{staff: true, contributions: 100} = Users.get_by_id(staff_user.id)
+      assert %{staff: true, contributions: 100} = Users.get_by_id(t.staff_user.id)
 
       staffed = Factory.create(User)
 
@@ -96,7 +96,7 @@ defmodule BrothTest.User.AdminUpdateTest do
 
     test "can update single field", t do
       WsClient.do_call(t.client_ws, "user:admin_update", %{
-        "username" => staff_user.username,
+        "username" => t.staff_user.username,
         "user" => %{
           "staff" => true,
           "contributions" => 100
@@ -105,7 +105,7 @@ defmodule BrothTest.User.AdminUpdateTest do
 
       ref =
         WsClient.send_call(t.client_ws, "user:admin_update", %{
-          "username" => staff_user.username,
+          "username" => t.staff_user.username,
           "user" => %{
             "staff" => false
           }
@@ -117,7 +117,7 @@ defmodule BrothTest.User.AdminUpdateTest do
       })
 
       # check that the user has been updated.
-      assert %{staff: false, contributions: 100} = Users.get_by_id(staff_user.id)
+      assert %{staff: false, contributions: 100} = Users.get_by_id(t.staff_user.id)
     end
   end
 end
