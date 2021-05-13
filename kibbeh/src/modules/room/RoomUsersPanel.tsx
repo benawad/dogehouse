@@ -11,6 +11,8 @@ import { AudioDebugPanel } from "../debugging/AudioDebugPanel";
 import { useDebugAudioStore } from "../../global-stores/useDebugAudio";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
+import { isWebRTCEnabled } from "../../lib/isWebRTCEnabled";
+import { useIsElectronMobile } from "../../global-stores/useElectronMobileStore";
 
 interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
 
@@ -54,10 +56,18 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
 
   return (
     <div
-      className={`flex pt-4 px-4 flex-1 bg-primary-800`}
+      className={`flex pt-4 px-4 flex-1 ${
+        screenType !== "fullscreen" ? "bg-primary-800" : "bg-primary-900"
+      }`}
       id={props.room.isPrivate ? "private-room" : "public-room"}
+      style={useIsElectronMobile() ? { marginTop: "38px" } : { top: "0px" }}
     >
       <div className="w-full block">
+        {!isWebRTCEnabled() ? (
+          <div className="text-accent bg-primary-600 p-1 mb-2">
+            Your browser does not support WebRTC or it is disabled.
+          </div>
+        ) : null}
         {debugAudio ? <AudioDebugPanel /> : null}
         <div
           style={{

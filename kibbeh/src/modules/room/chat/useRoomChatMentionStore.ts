@@ -11,7 +11,6 @@ export const useRoomChatMentionStore = create(
       iAmMentioned: 0,
     },
     (set) => ({
-
       setQueriedUsernames: (queriedUsernames: BaseUser[]) =>
         set({
           queriedUsernames,

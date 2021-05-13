@@ -32,7 +32,7 @@ exports[`MinimizedRoomCard should match snapshot 1`] = `
       class="grid grid-cols-3 gap-2"
     >
       <button
-        class="flex bg-primary-700 transition duration-200 ease-in-out hover:bg-primary-600 h-6 w-6 cursor-pointer justify-center items-center rounded 
+        class="flex bg-primary-700 transition duration-200 ease-in-out hover:bg-primary-600 h-6 w-6 cursor-pointer justify-center items-center rounded-8 
         bg-accent hover:bg-accent-hover text-button"
         data-testid="mute"
       >
@@ -53,7 +53,7 @@ exports[`MinimizedRoomCard should match snapshot 1`] = `
         </svg>
       </button>
       <button
-        class="flex bg-primary-700  hover:bg-primary-600 h-6 w-6 cursor-pointer justify-center items-center rounded text-primary-100
+        class="flex bg-primary-700  hover:bg-primary-600 h-6 w-6 cursor-pointer justify-center items-center rounded-8 text-primary-100
         "
         data-testid="deafen"
       >
@@ -71,7 +71,7 @@ exports[`MinimizedRoomCard should match snapshot 1`] = `
         </svg>
       </button>
       <button
-        class="flex bg-primary-700 transition duration-200 ease-in-out hover:bg-primary-600 h-6 w-6 cursor-pointer justify-center items-center rounded text-primary-100
+        class="flex bg-primary-700 transition duration-200 ease-in-out hover:bg-primary-600 h-6 w-6 cursor-pointer justify-center items-center rounded-8 text-primary-100
         "
         data-testid="boxed-icon"
       >

@@ -1,0 +1,88 @@
+name: baklava:build_and_release
+
+on:
+  push:
+    paths:
+      - "baklava/**"
+    branches:
+      - staging
+
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Yarn cache
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            baklava/.yarn/cache
+            baklava/resources/overlay/.yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('baklava/**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install deps
+        working-directory: baklava
+        run: yarn
+      - name: Save env vars
+        working-directory: baklava/src
+        run: echo "export const DISCORD_CLIENT_ID = '${{ secrets.DISCORD_CLIENT_ID }}'" >> constants.ts
+      - name: Compile Typescript
+        working-directory: baklava
+        run: yarn compile
+      - name: Install Overlay Deps
+        working-directory: baklava/resources/overlay
+        run: yarn
+      - name: Build overlay
+        working-directory: baklava/resources/overlay
+        run: yarn build
+      - name: Install rust
+        uses: hecrj/setup-rust-action@v1
+        with:
+          rust-version: stable
+      - name: Install nj-cli
+        run: cargo install nj-cli
+      - name: Build globalkey
+        working-directory: baklava
+        run: yarn build:globalkey
+      - name: Prepare for app notarization
+        if: startsWith(matrix.os, 'macos')
+        # Import Apple API key for app notarization on macOS
+        # this get skipped for some reason
+        run: |
+          mkdir -p ~/private_keys/
+          echo '${{ secrets.api_key }}' > ~/private_keys/AuthKey_${{ secrets.api_key_id }}.p8
+      - name: Install Snapcraft
+        uses: samuelmeuli/action-snapcraft@v1
+        if: startsWith(matrix.os, 'ubuntu')
+        with:
+          # Log in to Snap Store
+          snapcraft_token: ${{ secrets.snapcraft_token }}
+      - name: Install RPM
+        if: startsWith(matrix.os, 'ubuntu')
+        run: |
+          sudo apt install rpm
+      - name: Build/release Electron app
+        uses: samuelmeuli/action-electron-builder@v1
+        with:
+          mac_certs: ${{ secrets.mac_certs }}
+          mac_certs_password: ${{ secrets.mac_certs_password }}
+          # this is executed before the default `electron-builder` script
+          build_script_name: delete:artifacts
+          package_root: baklava
+          github_token: ${{ secrets.github_token }}
+          release: true
+        env:
+          # macOS notarization API key
+          API_KEY_ID: ${{ secrets.api_key_id }}
+          API_KEY_ISSUER_ID: ${{ secrets.api_key_issuer_id }}

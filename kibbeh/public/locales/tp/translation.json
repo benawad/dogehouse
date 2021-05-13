@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "tenpo kama la sin li lon",
     "loading": "sin li kama...",
@@ -34,15 +34,29 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ken ala" },
+    "admin": {
+      "ban": "ken ala",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "jan ni li lon ala e tomo pi jan wan. sina lukin e jan ni.",
       "currentRoom": "sina lon:",
-      "startPrivateRoom": "pali e tenpo poka ona"
+      "startPrivateRoom": "pali e tenpo poka ona",
+      "title": "People"
     },
     "followList": {
       "followHim": "o lukin",
-      "followingHim": "sina lukin e ona"
+      "followingHim": "sina lukin e ona",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "pali e tomo",
@@ -76,7 +90,8 @@
       "overlaySettings": "open e sitelen lawa pi sitelen sewi sitelen sina",
       "soundSettings": "open e sitelen lawa pi kalama",
       "deleteAccount": "pakala e jan sina",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",
@@ -91,7 +106,11 @@
       "allowAllConfirm": "sina wile e ni? ni li ken jan ale {{count}} e toki."
     },
     "searchUser": { "search": "o lukin..." },
-    "soundEffectSettings": { "header": "Kalama", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Kalama",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "ante e jan sina",
       "followsYou": "li lukin e sina",
@@ -102,14 +121,28 @@
       "followingHim": "sina li lukin e jan ni",
       "copyProfileUrl": "tu e sitelen tawa pi jan ni",
       "urlCopied": "ni li tu",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "sitelen lawa pi kalama uta",
       "mic": "ilo pi lipu e kalama:",
       "permissionError": "ilo pi lipu e kalama li lon ala, sina jo ala e ni anu lipu len ni ken ala e lipu e kalama.",
       "refresh": "tenpo tu la kama jo e sitelen pi ilo pi lipu e kalama",
-      "volume": "wawa pi kalama:"
+      "volume": "wawa pi kalama:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "sitelen lawa pi sitelen sewi sitelen sina",
@@ -125,6 +158,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -202,7 +240,7 @@
       "editProfileModal": {
         "usernameTaken": "jan sin li jo e nimi nanpa ni",
         "avatarUrlError": "sitelen sina li ike",
-        "avatarUrlLabel": "sitelen tawa pi sitelen sina pi lipu Github/Twitter",
+        "avatarUrlLabel": "sitelen tawa pi sitelen sina pi lipu Github/Twitter/Discord",
         "displayNameError": "anpa pi suli li tu. anpa sewi pi suli li mute mute luka luka.",
         "displayNameLabel": "nimi",
         "usernameError": "anpa pi suli li tu tu. anpa sewi pi suli li luka luka luka. wan pi nimi li sitelen Latin anu nanpa anu linja anpa",
@@ -223,14 +261,23 @@
         "goBackToListener": "o tawa monsi pi jan kute",
         "deleteMessage": "weka e sitelen ni",
         "makeRoomCreator": "ken e jan ni pi ken ale",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "wile e ken pi toki",
         "makePublic": "kulupu e tomo",
         "makePrivate": "kulupu ala e tomo",
         "renamePublic": "ante e nimi tomo kulupu",
-        "renamePrivate": "ante e nimi tomo pi kulupu ala"
+        "renamePrivate": "ante e nimi tomo pi kulupu ala",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -259,7 +306,17 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -294,7 +351,13 @@
       "sendMessage": "pana e sitelen",
       "whisper": "Toki pi kalama lili",
       "welcomeMessage": "Kama pona lon toki sitelen!",
-      "roomDescription": "sitelen tomo"
+      "roomDescription": "sitelen tomo",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "telo suli li tawa tawa palisa pi kon pi sewi mute",

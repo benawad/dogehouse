@@ -27,7 +27,8 @@ defmodule Kousa.MixProject do
       # moved logger to 2nd position to kill this error
       # calling logger:remove_handler(default) failed: :error {:badmatch, {:error, {:not_found, :default}}}
       extra_applications:
-        [:amqp, :logger, :ueberauth_github, :prometheus_ex] ++ dev_only_apps ++ test_only_apps
+        [:amqp, :logger, :ueberauth_github, :ueberauth_google, :prometheus_ex] ++
+          dev_only_apps ++ test_only_apps
     ]
   end
 
@@ -35,8 +36,7 @@ defmodule Kousa.MixProject do
     [
       {:amqp, "~> 2.1"},
       {:plug_cowboy, "~> 2.5"},
-      # TODO: switch from poison to jason everywhere
-      {:poison, "~> 3.1"},
+      {:phoenix_pubsub, "~> 2.0.0"},
       {:ecto_sql, "~> 3.0"},
       {:ecto_enum, "~> 1.4"},
       {:jason, "~> 1.2"},
@@ -54,6 +54,7 @@ defmodule Kousa.MixProject do
       {:oauther, "~> 1.1"},
       {:extwitter, "~> 0.12"},
       {:ueberauth_twitter, "~> 0.3"},
+      {:ueberauth_google, "~> 0.10"},
       {:prometheus_ex, "~> 3.0"},
       {:prometheus_plugs, "~> 1.1.1"},
       {:timex, "~> 3.6"},

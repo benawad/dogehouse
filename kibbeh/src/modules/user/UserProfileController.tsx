@@ -58,8 +58,12 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
     return <CenterLoader />;
   }
 
-  if (!data || "error" in data) {
+  if (!data || ("error" in data && data.error.includes("could not find"))) {
     return <InfoText>{t("pages.myProfile.couldNotFindUser")}</InfoText>;
+  } else if ("error" in data && data.error.includes("blocked")) {
+    return <InfoText>You have been blocked by this user.</InfoText>;
+  } else if ("error" in data) {
+    return <InfoText>{data.error}</InfoText>;
   }
 
   return (
@@ -83,8 +87,15 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
               {t("pages.myProfile.overlaySettings")}
             </Button>
           ) : null}
-          <Button size="small" onClick={() => push(`/sound-effect-settings`)}>
+          <Button
+            style={{ marginRight: "10px" }}
+            size="small"
+            onClick={() => push(`/sound-effect-settings`)}
+          >
             {t("pages.myProfile.soundSettings")}
+          </Button>
+          <Button size="small" onClick={() => push(`/privacy-settings`)}>
+            {t("pages.myProfile.privacySettings")}
           </Button>
         </div>
       )}

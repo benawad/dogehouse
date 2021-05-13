@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Lataa lisää",
     "loading": "Ladataan...",
@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Estä" },
+    "admin": {
+      "ban": "Estä",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Lista seuraamistasi käyttäjistä, jotka eivät ole yksityisessä huoneessa.",
       "currentRoom": "Paikalla:",
-      "startPrivateRoom": "Luo yksityinen huone heidän kanssaan"
+      "startPrivateRoom": "Luo yksityinen huone heidän kanssaan",
+      "title": "People"
     },
-    "followList": { "followHim": "Seuraa", "followingHim": "Seurannassa" },
+    "followList": {
+      "followHim": "Seuraa",
+      "followingHim": "Seurannassa",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Luo huone",
       "refresh": "Päivitä",
@@ -73,7 +90,8 @@
       "soundSettings": "Ääniasetukset",
       "overlaySettings": "Overlay-asetukset",
       "deleteAccount": "Poista tili",
-      "couldNotFindUser": "Käyttäjää ei löytynyt"
+      "couldNotFindUser": "Käyttäjää ei löytynyt",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Hups! Tämä sivu katosi keskusteluun.",
@@ -88,7 +106,11 @@
       "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
     "searchUser": { "search": "Hae..." },
-    "soundEffectSettings": { "header": "Äänet", "title": "Ääniasetukset" },
+    "soundEffectSettings": {
+      "header": "Äänet",
+      "title": "Ääniasetukset",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Muokkaa profiilia",
       "followsYou": "Seuraa sinua",
@@ -99,14 +121,28 @@
       "copyProfileUrl": "Kopioi profiilin URL-osoite",
       "urlCopied": "Osoite kopioitu leikepöydälle",
       "unfollow": "Lopeta seuraaminen",
-      "about": "About"
+      "about": "Tietoa käyttäjästä",
+      "bot": "Botti",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Puheasetukset",
       "mic": "Mikrofoni:",
       "permissionError": "Yhtään mikrofonia ei löytynyt. joko yhtään ei ole kytketty tai et ole antanut sivustolle lupaa käyttää mikrofonia.",
       "refresh": "Päivitä lista",
-      "volume": "Äänenvoimakkuus:"
+      "volume": "Äänenvoimakkuus:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay-asetukset",
@@ -121,7 +157,12 @@
       "visit_gh": "Näe Github-julkaisut",
       "prompt": "Aloita lataaminen klikkaamalla alla olevaa painiketta",
       "download_now": "Lataa nyt",
-      "download_for": "Lataa {{platform}}ille"
+      "download_for": "Lataa %platform%ille (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -206,7 +247,7 @@
         "usernameLabel": "Käyttäjätunnus",
         "bioError": "Maksimipituus 160 merkkiä",
         "bioLabel": "Kuvaus",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bannerUrlLabel": "Twitter-bannerikuvan URL-osoite"
       },
       "profileModal": {
         "blockUserConfirm": "Haluatko varmasti estää tämän käyttäjän liittymistä yhteenkään huoneeseesi?",
@@ -220,14 +261,23 @@
         "goBackToListener": "Palaa kuuntelijaksi",
         "deleteMessage": "Poista viesti",
         "makeRoomCreator": "Ylennä huoneen ylläpitäjäksi",
-        "unBanFromChat": "Poista esto chatista"
+        "unBanFromChat": "Poista esto chatista",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Puhuminen vaatii oikeuden",
         "makePublic": "Tee huoneesta julkinen",
         "makePrivate": "Tee huoneesta yksityinen",
         "renamePublic": "Aseta julkinen huoneen nimi",
-        "renamePrivate": "Aseta yksityinen huoneen nimi"
+        "renamePrivate": "Aseta yksityinen huoneen nimi",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -242,7 +292,7 @@
     },
     "search": {
       "placeholder": "Hae huoneita, käyttäjiä tai kategorioita",
-      "placeholderShort": "Search"
+      "placeholderShort": "Hae"
     },
     "settingsDropdown": {
       "profile": "Profiili",
@@ -256,7 +306,17 @@
       "debugAudio": {
         "debugAudio": "Testaa äänet",
         "stopDebugger": "Pysäytä debuggeri"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -291,7 +351,13 @@
       "sendMessage": "Lähetä viesti",
       "whisper": "Kuiskaus",
       "welcomeMessage": "Tervetuloa chattiin!",
-      "roomDescription": "Huoneen kuvaus"
+      "roomDescription": "Huoneen kuvaus",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tankkaamassa rakettia",

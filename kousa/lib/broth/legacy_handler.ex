@@ -30,8 +30,8 @@ defmodule Broth.LegacyHandler do
       "block_user_and_from_room command is deprecated.  Send two user:block and room:ban operations instead"
     )
 
-    Kousa.UserBlock.block(state.user_id, user_id_to_block)
-    Kousa.Room.block_from_room(state.user_id, user_id_to_block)
+    Kousa.UserBlock.block(state.user.id, user_id_to_block)
+    Kousa.Room.block_from_room(state.user.id, user_id_to_block)
     nil
   end
 
@@ -40,7 +40,7 @@ defmodule Broth.LegacyHandler do
          state
        ) do
     {users, nextCursor} =
-      Kousa.Follow.get_follow_list(state.user_id, user_id, get_following_list, cursor)
+      Kousa.Follow.get_follow_list(state.user.id, user_id, get_following_list, cursor)
 
     prepare_socket_msg(
       %{
@@ -59,12 +59,12 @@ defmodule Broth.LegacyHandler do
 
   defp join_room_and_get_info(%{"roomId" => room_id_to_join}, fetch_id, state) do
     reply =
-      case Kousa.Room.join_room(state.user_id, room_id_to_join) do
+      case Kousa.Room.join_room(state.user.id, room_id_to_join) do
         %{error: err} ->
           %{op: "fetch_done", d: %{error: err}, fetchId: fetch_id}
 
         %{room: room} ->
-          {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
+          {room_id, users} = Beef.Users.get_users_in_current_room(state.user.id)
 
           case Onion.RoomSession.lookup(room_id) do
             [] ->
@@ -72,11 +72,7 @@ defmodule Broth.LegacyHandler do
 
             _ ->
               {muteMap, deafMap, autoSpeaker, activeSpeakerMap} =
-                if room_id do
-                  Onion.RoomSession.get_maps(room_id)
-                else
-                  {%{}, false, %{}}
-                end
+                Onion.RoomSession.get_maps(room_id)
 
               payload = %{
                 room: room,
@@ -85,7 +81,8 @@ defmodule Broth.LegacyHandler do
                 deafMap: deafMap,
                 activeSpeakerMap: activeSpeakerMap,
                 roomId: room_id,
-                autoSpeaker: autoSpeaker
+                autoSpeaker: autoSpeaker,
+                chatMode: Onion.Chat.get(room_id, :chat_mode)
               }
 
               %{d: payload, op: "fetch_done", fetchId: fetch_id}

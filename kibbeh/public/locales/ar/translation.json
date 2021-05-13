@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "حمل المزيد",
     "loading": "جاري التحميل...",
@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "حظر" },
+    "admin": {
+      "ban": "حظر",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "قائمة المستخدمين غير المتواجدين في غرفة خاصة وأنت تتابعهم.",
       "currentRoom": "حاليا في:",
-      "startPrivateRoom": "ابدأ غرفة خاصة معهم"
+      "startPrivateRoom": "ابدأ غرفة خاصة معهم",
+      "title": "People"
     },
-    "followList": { "followHim": "تابع", "followingHim": "متابع" },
+    "followList": {
+      "followHim": "تابع",
+      "followingHim": "متابع",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "ابدأ غرفة",
       "refresh": "تحديث",
@@ -73,7 +90,8 @@
       "soundSettings": "اذهب إلى إعدادات الصوت",
       "deleteAccount": "حذف الحساب",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "عفوا، لم نعثر على هذا المستخدم"
+      "couldNotFindUser": "عفوا، لم نعثر على هذا المستخدم",
+      "privacySettings": "إعدادات الخصوصية"
     },
     "notFound": {
       "whoopsError": "عذرا! ضاعت هذه الصفحة بين المحادثات.",
@@ -88,7 +106,11 @@
       "allowAllConfirm": "هل انت متأكد ؟ هذا سيسمح لـ {{count}} مستخدم بالتحدث"
     },
     "searchUser": { "search": "ابحث..." },
-    "soundEffectSettings": { "header": "الأصوات", "title": "اعدادات الصوت" },
+    "soundEffectSettings": {
+      "header": "الأصوات",
+      "title": "اعدادات الصوت",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "تعديل الحساب",
       "followsYou": "يتابعك",
@@ -99,14 +121,28 @@
       "copyProfileUrl": "انسخ رابط البروفايل",
       "urlCopied": "تم نسخ الرابط",
       "unfollow": "الغاء المتابعة",
-      "about": "About"
+      "about": "حول",
+      "bot": "بوت",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "إعدادات المحادثة الصوتية",
       "mic": "ميكروفون:",
       "permissionError": "لم يتم العثور على ميكروفونات ، إما أنك لم تقم بتوصيل أي ميكروفون أو لم تمنحنا إذن الوصول.",
       "refresh": "تحديث قائمة الميكروفونات",
-      "volume": "ارتفاع الصوت:"
+      "volume": "ارتفاع الصوت:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -116,11 +152,16 @@
     },
     "download": {
       "starting": "...بدأ التحميل",
-      "failed": "Could not auto-download, please try again later",
+      "failed": "لم يتم التنزيل التلقائيو الرجاء المحاولة لاحقاً",
       "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "prompt": "أنقر للتنزيل",
+      "download_now": "تنزيل الآن",
+      "download_for": "تنزيل إلى %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -216,20 +257,29 @@
         "goBackToListener": "إرجع إلى مستمع",
         "deleteMessage": "حذف الرسالة",
         "makeRoomCreator": "اضف كإداري للغرفة",
-        "unBanFromChat": "الغاء الحظر من المحادثات"
+        "unBanFromChat": "الغاء الحظر من المحادثات",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "جعل التحدث بطلب فقط",
         "makePublic": "جعل الغرفة عامة",
         "makePrivate": "جعل الغرفة خاصة",
         "renamePublic": "اختار اسم الغرفة العامة",
-        "renamePrivate": "اختار اسم الغرفة الخاصة"
+        "renamePrivate": "اختار اسم الغرفة الخاصة",
+        "chatDisabled": "تعطيل المحادثة",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
       "people": "أشخاص",
       "online": "اونلاين",
-      "noOnline": "لديك 0 اصدفاء اونلاين الان",
+      "noOnline": "لديك 0 اصدقاء اونلاين الان",
       "showMore": "اظهر المزيد"
     },
     "upcomingRoomsCard": {
@@ -238,7 +288,7 @@
     },
     "search": {
       "placeholder": "ابحث عن غرف، اشخاص او تصنيفات",
-      "placeholderShort": "Search"
+      "placeholderShort": "بحث"
     },
     "settingsDropdown": {
       "profile": "الحساب الشخصي",
@@ -252,7 +302,17 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "تنزيل التطبيق"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -287,7 +347,13 @@
       "sendMessage": "أرسل رسالة",
       "whisper": "إرسل رسالة خاصة",
       "welcomeMessage": "مرحبا بك في المحادثة!",
-      "roomDescription": "وصف الغرفة"
+      "roomDescription": "وصف الغرفة",
+      "disabled": "تم تعطيل المحادثة",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "عبي الصاروخ بنزين",

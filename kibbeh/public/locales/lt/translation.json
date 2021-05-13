@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Pakrauti daugiau",
     "loading": "Kraunasi...",
@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Užblokuoti" },
+    "admin": {
+      "ban": "Užblokuoti",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Sąrašas žmonių kurie nėra tavo privačiame kambaryje, tačiau tave seka",
       "currentRoom": "Šiuo metu yra:",
-      "startPrivateRoom": "Sukurti privatų kambarį su jais"
+      "startPrivateRoom": "Sukurti privatų kambarį su jais",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Sukurti kambarį",
       "refresh": "Refresh",
@@ -73,7 +90,8 @@
       "soundSettings": "Eiti į garso nustatymus",
       "deleteAccount": "Ištrinti vartotoją",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Uppss! Šis puslapis buvo prarastas pokalbyje",
@@ -88,7 +106,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Ieškoma..." },
-    "soundEffectSettings": { "header": "Garsai", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Garsai",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Redaguoti profilį",
       "followsYou": "Seka tave",
@@ -99,14 +121,28 @@
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Garso nustatymai",
       "mic": "mikrofonas:",
       "permissionError": "nerasta mikrofonų, jūs arba neprijungėte tinklo, arba nedavėte šiai svetainei leidimo.",
       "refresh": "Atnaujinti mikrofonų sąrašą",
-      "volume": "Garsas:"
+      "volume": "Garsas:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -119,6 +155,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -198,7 +239,7 @@
       "editProfileModal": {
         "usernameTaken": "Vardas užimtas, panaudotas",
         "avatarUrlError": "Negalima nuotrauka",
-        "avatarUrlLabel": "Github/Twitter avataro nuoroda",
+        "avatarUrlLabel": "Github/Twitter/Discord avataro nuoroda",
         "displayNameError": "Ilgis nuo 2 iki 50 simbolių",
         "displayNameLabel": "Rodyti vardą",
         "usernameError": "Ilgis nuo 4 iki 15 simbolių ir tik raidinis(arba skaitmeninis)/apatinis pabraukimas",
@@ -219,14 +260,23 @@
         "goBackToListener": "Gražinti atgal į klausytojus",
         "deleteMessage": "Ištrinti šią žinutę",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Reikalingas patvirtinimas kalbėti",
         "makePublic": "Padaryti kambarį viešą",
         "makePrivate": "Padaryti kambarį privatų",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -255,7 +305,17 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -290,7 +350,13 @@
       "sendMessage": "Siųsti žinutę",
       "whisper": "Pašnibšdėti",
       "welcomeMessage": "Sveikas atvykęs į kambarį",
-      "roomDescription": "Kambario aprašymas"
+      "roomDescription": "Kambario aprašymas",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

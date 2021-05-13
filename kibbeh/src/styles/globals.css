@@ -36,6 +36,7 @@ p.bold {
   --color-accent-hover: #fd6868;
   --color-accent-disabled: #f5bfbf;
   --screen-height-reduction: 0px;
+  --color-primary-100-translucent: rgba(222, 227, 234, 0.15);
 }
 
 h1 {
@@ -104,7 +105,7 @@ html {
 }
 
 #__next {
-  overflow: auto;
+  overflow-y: auto;
 }
 
 textarea {
@@ -116,11 +117,33 @@ textarea {
   z-index: 9999999;
 }
 
+#nprogress .bar {
+  background: var(--color-accent-hover) !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px var(--color-accent-hover),
+    0 0 5px var(--color-accent-hover) !important;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: var(--color-accent-hover) !important;
+  border-left-color: var(--color-accent-hover) !important;
+}
+
 img.emoji {
-  height: 1em;
-  width: 1em;
+  height: 1.2rem;
+  width: 1.2rem;
   margin: 0 0.05em 0 0.1em;
-  vertical-align: -0.1em;
+  top: -0.1em;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  cursor: text;
 }
 
 .h-screen {

@@ -12,6 +12,9 @@ module.exports = {
         "kousa",
         "pilaf",
         "shawarma",
+        "kebab",
+        "dolma",
+        "globalkey"
       ],
     ],
   },

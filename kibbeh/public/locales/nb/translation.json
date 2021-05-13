@@ -33,13 +33,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "utesteng" },
+    "admin": {
+      "ban": "utesteng",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Liste over brukere som ikke er i et privat rom, og som du følger.",
       "currentRoom": "For tiden i:",
-      "startPrivateRoom": "Start et privat rom med dem"
+      "startPrivateRoom": "Start et privat rom med dem",
+      "title": "People"
     },
-    "followList": { "followHim": "følg", "followingHim": "følger" },
+    "followList": {
+      "followHim": "følg",
+      "followingHim": "følger",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Lag et rom",
       "refresh": "Last inn på nytt",
@@ -72,7 +89,8 @@
       "soundSettings": "Gå til lydinnstillinger",
       "deleteAccount": "Slett konto",
       "overlaySettings": "Gå til overleggsinnstillinger",
-      "couldNotFindUser": "Beklager, vi kunne ikke finne denne brukeren.."
+      "couldNotFindUser": "Beklager, vi kunne ikke finne denne brukeren..",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oi sann! Denne siden ble tapt i samtalen.",
@@ -87,7 +105,11 @@
       "allowAllConfirm": "Er du sikker? Dette vil tillate alle {{count}} spørrende brukere til å snakke"
     },
     "searchUser": { "search": "søk..." },
-    "soundEffectSettings": { "header": "Lyder", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Lyder",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Rediger profil",
       "followsYou": "Følger deg",
@@ -98,26 +120,45 @@
       "copyProfileUrl": "Kopiér profil URL",
       "urlCopied": "URL kopiert til utklippstavlen",
       "unfollow": "Slutt å følge",
-      "about": "About"
+      "about": "Om bruker",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",
       "mic": "Mikrofon:",
       "permissionError": "Ingen mikrofoner er funnet, du har enten ingen enheter tilgjenngelig, eller så har du ikke gitt tillatelse til å bruke den.",
       "refresh": "Oppdater mikrofon-listen",
-      "volume": "Volum:"
+      "volume": "Volum:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Ugyldig tittel", "label": "Angi tittel" },
       "header": "Innstillinger for overlegg"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "starting": "Starter nedlastning...",
+      "failed": "Kunne ikke gjøre automatisk nedlastning, prøv igjen senere",
+      "visit_gh": "Besøk Github lanseringer",
+      "prompt": "Klikk på knappen nedenfor, for å starte nedlastningen",
+      "download_now": "Last ned nå",
+      "download_for": "Nedlastning for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -197,7 +238,7 @@
       "editProfileModal": {
         "usernameTaken": "Brukernavnet er allerede i bruk",
         "avatarUrlError": "Ugyldig bilde",
-        "avatarUrlLabel": "GitHub/Twitter profilbilde URL",
+        "avatarUrlLabel": "Github/Twitter/Discord profilbilde URL",
         "displayNameError": "Lengden må være mellom 2 og 50 tegn",
         "displayNameLabel": "Visningsnavn",
         "usernameError": "Lengden må være mellom 4 og 15 tegn og kan kun inneholde alfanumerisk/understrek",
@@ -218,14 +259,23 @@
         "goBackToListener": "Gå tilbake til lytter",
         "deleteMessage": "Slett denne meldingen",
         "makeRoomCreator": "Opprett rom-administrator",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Krev tillatelse for å snakke",
         "makePublic": "Gjør rommet offentlig",
         "makePrivate": "Gjør rommet privat",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -254,7 +304,17 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -272,10 +332,10 @@
         "minLength": "Minimum lengde er 2 tegn",
         "roomDescription": "Beskrivelse"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "I MORGEN",
+      "today": "I DAG",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Er du sikker på at du vil slette det planlagte rommet?"
       }
     },
     "roomChat": {
@@ -289,7 +349,13 @@
       "sendMessage": "Send en melding",
       "whisper": "Hviske",
       "welcomeMessage": "Velkommen til chatten!",
-      "roomDescription": "Rombeskrivelse"
+      "roomDescription": "Rombeskrivelse",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fyller på rakkett med drivstoff",

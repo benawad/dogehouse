@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Περισσότερα",
     "loading": "Φόρτωση...",
@@ -34,24 +34,38 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Αποκλεισμός" },
+    "admin": {
+      "ban": "Αποκλεισμός",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Xρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
       "currentRoom": "Aυτή τη στιγμή βρίσκεστε σε:",
-      "startPrivateRoom": "Δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
+      "startPrivateRoom": "Δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους",
+      "title": "People"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "starting": "Εκίνηση κατεβάσματως...",
+      "failed": "Δεν έγινε αυτόματο κατέβασμα, δοκιμάστε αργότερα",
+      "visit_gh": "Δείτε τις εκδόσεις στο Github",
+      "prompt": "Πατήστε το κουμπί απο κάτω για να αρχίσει το κατέβασμα",
+      "download_now": "Κατεβάστε το τώρα",
+      "download_for": "Κατεβάστε για %platform% (%ext%)"
     },
     "followList": {
       "followHim": "Ακολουθήστε",
       "ακολουθήστε": "Ακολουθείτε",
-      "followingHim": "Ακολουθείτε"
+      "followingHim": "Ακολουθείτε",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "Δημιουργία δωματίου",
@@ -85,7 +99,8 @@
       "soundSettings": "Ρυθμίσεις ήχου",
       "deleteAccount": "Διαγραφή λογαριασμού",
       "overlaySettings": "Πηγαιντε στις ρυθμίσεις του overlay",
-      "couldNotFindUser": "Συγγνώμη, αυτός ο χρήστης δεν υπάρχει"
+      "couldNotFindUser": "Συγγνώμη, αυτός ο χρήστης δεν υπάρχει",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ουπς! Αυτή η σελίδα χάθηκε στη συζήτηση.",
@@ -97,28 +112,46 @@
       "requestingToSpeak": "Ζητούν να μιλήσουν",
       "listeners": "Ακροατές",
       "allowAll": "Να επιτρέπονται όλα",
-      "allowAllConfirm": "Είστε σίγουροι; Αυτό θα επιτρέψει όλους τους {{count}} χρήστες που έχουν ζητήσει, να μιλήσουν"
+      "allowAllConfirm": "Είστε σίγουροι; Αυτό θα επιτρέψει σε όλους τους {{count}} χρήστες που έχουν ζητήσει, να μιλήσουν"
     },
     "searchUser": { "search": "αναζήτηση..." },
-    "soundEffectSettings": { "header": "Ήχοι", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Ήχοι",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Επεξεργασία προφίλ",
       "followsYou": "Σας ακολουθεί",
       "followers": "ακόλουθοι",
       "following": "ακολουθείτε",
       "followHim": "Ακολουθήστε",
-      "followingHim": "Ακολουθείτε",
+      "followingHim": "Τον ακολουθείτε",
       "copyProfileUrl": "Αντιγραφή συνδέσμου προφίλ",
       "urlCopied": "Ο συνδεσμος αντιγράφθηκε στο πρόχειρο",
       "unfollow": "Ξε-ακολουθήστε",
-      "about": "About"
+      "about": "Βιογραφικό",
+      "bot": "Ρομπότ",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",
       "mic": "Μικρόφωνο:",
       "permissionError": "Δεν βρέθηκε μικρόφωνο, είτε δεν έχετε κανένα συνδεδεμένο είτε δεν έχετε δώσει άδεια.",
       "refresh": "Ανανέωση λίστας μικροφώνων",
-      "volume": "Ένταση ήχου:"
+      "volume": "Ένταση ήχου:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -126,6 +159,11 @@
         "label": "Εισάγετε τον τίτλο της εφαρμογής"
       },
       "header": "Ρυθμίσεις overlay"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -151,9 +189,9 @@
       "speaker": "Ομιλητής",
       "listener": "Ακροατής",
       "chat": "Συζήτηση",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Εναλλαγή Κούφανσης",
+      "deafen": "Κουφαθείτε",
+      "undeafen": "ξε-κουφαθείτε"
     },
     "deviceNotSupported": {
       "notSupported": "Η συσκευή σας δεν υποστηρίζεται αυτή τη στιγμή. Μπορείτε να δημιουργήσετε ένα",
@@ -175,7 +213,7 @@
       "toggleMuteKeybind": "Συντόμευση εναλλαγής σίγασης",
       "togglePushToTalkKeybind": "Συντόμευση εναλλαγής push-to-talk",
       "toggleOverlayKeybind": "Συντόμευση για το overlay",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Συντόμευση για κούφανση"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Δεν υπάρχει δέκτης ήχου για κάποιο λόγο"
@@ -205,14 +243,14 @@
       "editProfileModal": {
         "usernameTaken": "Όνομα χρήστη μη διαθέσιμο",
         "avatarUrlError": "Μη έγκυρη φωτογραφία",
-        "avatarUrlLabel": "Διεύθυνση URL άβαταρ απο Github/Twitter",
+        "avatarUrlLabel": "Διεύθυνση URL άβαταρ απο Github/Twitter/Discord",
         "displayNameError": "Μήκος από 2 έως 50 χαρακτήρες",
         "displayNameLabel": "Εμφανιζόμενο όνομα",
         "usernameError": "Μήκος από 4 έως 15 χαρακτήρες και μόνο αλφαριθμητικά/κάτω παύλα",
         "usernameLabel": "Όνομα χρήστη",
         "bioError": "Μέγιστο μήκος 160 χαρακτήρες",
         "bioLabel": "Βιογραφικό",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bannerUrlLabel": "URL πανό Twitter"
       },
       "profileModal": {
         "blockUserConfirm": "Είστε σίγουροι ότι θέλετε να μπλοκάρετε αυτό το χρήστη από το να συμμετέχει σε οποιοδήποτε δωμάτιο δημιουργήσετε στο μέλλον;",
@@ -226,14 +264,23 @@
         "goBackToListener": "Επιστροφή σε ακροατή",
         "deleteMessage": "Διαγράψτε αυτό το μήνυμα",
         "makeRoomCreator": "Μετατροπή σε διαχειριστή δωματίου",
-        "unBanFromChat": "Κατάργηση αποκλεισμού από την συζήτηση"
+        "unBanFromChat": "Κατάργηση αποκλεισμού από την συζήτηση",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Να απαιτείται άδεια για ομιλία",
         "makePublic": "Κάντε το δωμάτιο δημόσιο",
         "makePrivate": "Κάντε το δωμάτιο ιδιωτικό",
         "renamePublic": "Ορίστε ένα όνομα για το δημόσιο δωμάτιο",
-        "renamePrivate": "Ορίστε ένα όνομα για το ιδιωτικό δωμάτιο"
+        "renamePrivate": "Ορίστε ένα όνομα για το ιδιωτικό δωμάτιο",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -248,7 +295,7 @@
     },
     "search": {
       "placeholder": "Αναζητήστε δωμάτια, χρήστες ή κατηγορίες",
-      "placeholderShort": "Search"
+      "placeholderShort": "Αναζήτηση"
     },
     "settingsDropdown": {
       "profile": "Προφίλ",
@@ -262,7 +309,17 @@
       "debugAudio": {
         "debugAudio": "Κάντε debug τον ήχο",
         "stopDebugger": "Σταματήστε το Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -297,7 +354,13 @@
       "sendMessage": "Στείλτε ένα Μήνυμα",
       "whisper": "Ψίθυρος",
       "welcomeMessage": "Καλως ήλθατε στο Τσάτ!",
-      "roomDescription": "Περιγραφή δωματίου"
+      "roomDescription": "Περιγραφή δωματίου",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Ανεφοδιασμός πυραύλου",

@@ -19,7 +19,7 @@ This project is using the [conventional commits](https://www.conventionalcommits
 commit messages are standardized:
 1. Make sure your shell path is in the root of the project (not inside any of the packages).
 2. Run `yarn`.
-3. Stage the files you are commiting with `git add [files]`.
+3. Stage the files you are committing with `git add [files]`.
 4. Run `yarn commit`. This will start an interactive prompt that generates your commit message:
     1. Select the type of change.
     2. Type the scope. This is either `global` for project-wide changes or one of the packages (kibbeh, shawarma etc.).
@@ -48,21 +48,31 @@ Do this if you only want to do React stuff and don't want to touch Elixir:
 Navigate to `/kibbeh`
 
 - Run `yarn`
-- Run `yarn staging` (this tells React to connect to a hosted version of the backend for development purposes)
-- Read `kibbeh/README.md` for more information and a fixes for known development issues.
+- Run `yarn staging` (this tells React to connect to a hosted version of the backend for development purposes).
+- Read `kibbeh/README.md` for more information and fixes for known development issues.
 > **NOTE:** Please follow the [design guidelines](https://github.com/benawad/dogehouse/blob/staging/DESIGN_GUIDELINES.md) and [figma mockups](https://www.figma.com/file/CS01VVLR7ArQl0afYFkNj3/Web-App) and if what you're trying to do isn't in there, consult [@ajmnz](https://github.com/ajmnz)/[@benawad](https://github.com/benawad) beforehand.
 
 ## Translating
+1. Fork the [repository](https://github.com/benawad/dogehouse "benawad/dogehouse") (click on `fork` in the top right corner of the screen)
+![image](https://i.ibb.co/RB4FVS0/Screenshot-2021-05-07-152827.jpg)
 
-1. Set up the front-end (previous step).
-2. Go to `kibbeh/public/locales`.
-3. Check if a folder with the language you want to add / edit already exists. If not, copy `en/translation`, create the folder and paste it there.
-4. Edit the JSON file. Make sure that it's valid.
-5. Go to `kibbeh/src/ui/LanguageSelector.tsx` and edit the object to include your language.
-6. Test and make a pull request.
+2. In the forked repository, navigate to `kibbeh/public/locales` and then choose your language and open the `translation.json` file
+3. Click on `edit` in the top right corner of the window
+
+![image](https://i.ibb.co/vZjt4jD/Screenshot-2021-05-07-153427.jpg)
+
+4. Make the changes in the translation(make sure you are using the correct json syntax)
+5. click `commit changes` in the bottom of the page and add `fix(kibbeh): update {my language} Translation` as the commit message(`fix` if you are fixing tranlsations and `feat` if you are adding a language)(leave the description empty!)
+![image](https://user-images.githubusercontent.com/68110106/117442435-6e1b1080-af3f-11eb-990f-9a1a270fef29.png)
+6. Go to the [main page of the repository](https://github.com/benawad/dogehouse) and under `Contribute`, click on `Open Pull Request`
+
+## Supporting translation in new components
+1. Add your translation key into the English `translation.json` located in `kibbeh/public/locales/en/translation.json`. Make sure it is put in an appropriate section that makes sense.
+2. Run `yarn i18`. This will sync all fields in all languages, if field doesn't exist it will copy it over from `en`.
+3. Use your translation key in your code. This is done by using `useTypeSafeTranslation` like this: `const { t } = useTypeSafeTranslation();`. You can now call `t` and get your desired translation key.
 
 ## Devcontainer Full Local Development
-For VSCode users, we're able to use devcontainers which allows to create development environments that already have all the tools and services configured and ready to go.
+For VSCode users, we're able to use devcontainers which allows you to create development environments that already have all the tools and services configured and ready to go.
 
 ### Usage
 

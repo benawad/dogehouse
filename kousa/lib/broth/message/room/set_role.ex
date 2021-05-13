@@ -11,7 +11,7 @@ defmodule Broth.Message.Room.SetRole do
 
   def initialize(state) do
     # TODO: obtain the initial state of this first prior to changing it.
-    %__MODULE__{userId: state.user_id}
+    %__MODULE__{userId: state.user.id}
   end
 
   def changeset(initializer \\ %__MODULE__{}, data) do
@@ -24,7 +24,7 @@ defmodule Broth.Message.Room.SetRole do
 
   def execute(changeset, state) do
     with {:ok, %{userId: user_id, role: role}} <- apply_action(changeset, :validate) do
-      Kousa.Room.set_role(user_id, role, by: state.user_id)
+      Kousa.Room.set_role(user_id, role, by: state.user.id)
       {:noreply, state}
     end
   end

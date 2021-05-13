@@ -5,6 +5,7 @@ defmodule Onion.RoomSession do
   defmodule State do
     @type t :: %__MODULE__{
             room_id: String.t(),
+            room_creator_id: String.t(),
             voice_server_id: String.t(),
             users: [String.t()],
             muteMap: map(),
@@ -15,6 +16,7 @@ defmodule Onion.RoomSession do
           }
 
     defstruct room_id: "",
+              room_creator_id: "",
               voice_server_id: "",
               users: [],
               muteMap: %{},
@@ -61,7 +63,7 @@ defmodule Onion.RoomSession do
     Process.put(:"$callers", init[:callers])
 
     # also launch a linked, supervised room.
-    Onion.RoomChat.start_link_supervised(init[:room_id])
+    Onion.Chat.start_link_supervised(init)
     {:ok, struct(State, init)}
   end
 
@@ -84,6 +86,12 @@ defmodule Onion.RoomSession do
 
   defp get_maps_impl(_reply, state) do
     {:reply, {state.muteMap, state.deafMap, state.auto_speaker, state.activeSpeakerMap}, state}
+  end
+
+  def set(user_id, key, value), do: cast(user_id, {:set, key, value})
+
+  defp set_impl(key, value, state) do
+    {:noreply, Map.put(state, key, value)}
   end
 
   def redeem_invite(room_id, user_id), do: call(room_id, {:redeem_invite, user_id})
@@ -118,6 +126,15 @@ defmodule Onion.RoomSession do
     })
 
     {:noreply, %{state | activeSpeakerMap: newActiveSpeakerMap}}
+  end
+
+  def set_room_creator_id(room_id, id) do
+    cast(room_id, {:set_room_creator_id, id})
+  end
+
+  defp set_room_creator_id_impl(id, %State{} = state) do
+    Onion.Chat.set_room_creator_id(state.room_id, id)
+    {:noreply, %{state | room_creator_id: id}}
   end
 
   def set_auto_speaker(room_id, value) when is_boolean(value) do
@@ -227,7 +244,7 @@ defmodule Onion.RoomSession do
   end
 
   defp join_room_impl(user_id, mute, deaf, opts, state) do
-    Onion.RoomChat.add_user(state.room_id, user_id)
+    Onion.Chat.add_user(state.room_id, user_id)
 
     # consider using MapSet instead!!
     muteMap =
@@ -339,7 +356,7 @@ defmodule Onion.RoomSession do
   defp kick_from_room_impl(user_id, state) do
     users = Enum.filter(state.users, fn uid -> uid != user_id end)
 
-    Onion.RoomChat.remove_user(state.room_id, user_id)
+    Onion.Chat.remove_user(state.room_id, user_id)
 
     Onion.VoiceRabbit.send(state.voice_server_id, %{
       op: "close-peer",
@@ -366,7 +383,7 @@ defmodule Onion.RoomSession do
   defp leave_room_impl(user_id, state) do
     users = Enum.reject(state.users, &(&1 == user_id))
 
-    Onion.RoomChat.remove_user(state.room_id, user_id)
+    Onion.Chat.remove_user(state.room_id, user_id)
 
     Onion.VoiceRabbit.send(state.voice_server_id, %{
       op: "close-peer",
@@ -407,12 +424,18 @@ defmodule Onion.RoomSession do
     redeem_invite_impl(user_id, reply, state)
   end
 
+  def handle_cast({:set, key, value}, state), do: set_impl(key, value, state)
+
   def handle_cast({:kick_from_room, user_id}, state) do
     kick_from_room_impl(user_id, state)
   end
 
   def handle_cast({:speaking_change, user_id, value}, state) do
     speaking_change_impl(user_id, value, state)
+  end
+
+  def handle_cast({:set_room_creator_id, id}, state) do
+    set_room_creator_id_impl(id, state)
   end
 
   def handle_cast({:set_auto_speaker, value}, state) do

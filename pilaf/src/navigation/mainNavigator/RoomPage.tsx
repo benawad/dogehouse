@@ -1,14 +1,10 @@
-import { RouteProp } from "@react-navigation/native";
 import React from "react";
 import { RoomController } from "../../modules/room/RoomController";
 import { RootStackParamList } from "../MainNavigator";
+import { StackNavigationProps } from "../RootNavigation";
 
-type RoomPageRouteProp = RouteProp<RootStackParamList, "Room">;
-
-type RoomPageProps = {
-  route: RoomPageRouteProp;
-};
-
-export const RoomPage: React.FC<RoomPageProps> = ({ route }) => {
+export const RoomPage: React.FC<
+  StackNavigationProps<RootStackParamList, "Room">
+> = ({ route }) => {
   return <RoomController roomId={route.params.roomId} />;
 };

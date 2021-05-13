@@ -11,8 +11,10 @@ export type UserPreview = {
   id: UUID;
   displayName: string;
   numFollowers: number;
-  avatarUrl: string | null
+  avatarUrl: string | null;
 };
+
+export type ChatMode = "default" | "disabled" | "follower_only";
 
 export type Room = {
   id: string;
@@ -23,7 +25,10 @@ export type Room = {
   voiceServerId: string;
   creatorId: string;
   peoplePreviewList: Array<UserPreview>;
+  autoSpeaker: boolean;
   inserted_at: string;
+  chatMode: ChatMode;
+  chatThrottle: number;
 };
 
 export interface ScheduledRoom {
@@ -40,19 +45,22 @@ export interface ScheduledRoom {
 export type User = {
   youAreFollowing?: boolean;
   username: string;
-  roomPermissions?: unknown;
   online: boolean;
   numFollowing: number;
   numFollowers: number;
   lastOnline: string;
   id: UUID;
   followsYou?: boolean;
+  botOwnerId?: string | null;
+  contributions: number;
+  staff: boolean;
   displayName: string;
-  currentRoomId?: UUID;
+  currentRoomId?: UUID | null;
   currentRoom: Room;
   bio: string | null;
   avatarUrl: string;
   bannerUrl: string | null;
+  whisperPrivacySetting: "on" | "off";
 };
 
 export type MessageToken<T extends string = string, V = unknown> = {
@@ -92,6 +100,9 @@ export type BaseUser = {
   numFollowing: number;
   numFollowers: number;
   currentRoom?: Room;
+  botOwnerId?: string;
+  contributions: number;
+  staff: boolean;
 };
 
 export type PaginatedBaseUsers = {
@@ -108,6 +119,7 @@ export type RoomPermissions = {
 export type UserWithFollowInfo = BaseUser & {
   followsYou?: boolean;
   youAreFollowing?: boolean;
+  iBlockedThem?: boolean;
 };
 
 export type RoomUser = {
@@ -116,11 +128,10 @@ export type RoomUser = {
 
 export type CurrentRoom = Room & {
   users: RoomUser[];
-  muteMap: Record<string, boolean>;
-  deafMap: Record<string, boolean>;
-  activeSpeakerMap: Record<string, boolean>;
+  muteMap: BooleanMap;
+  deafMap: BooleanMap;
+  activeSpeakerMap: BooleanMap;
   autoSpeaker: boolean;
 };
 
-export type MuteMap = Record<UUID, boolean>;
-export type DeafMap = Record<UUID, boolean>;
+export type BooleanMap = Record<UUID, boolean>;

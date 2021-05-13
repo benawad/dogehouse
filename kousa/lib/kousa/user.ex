@@ -1,28 +1,54 @@
 defmodule Kousa.User do
   alias Beef.Users
+  alias Beef.Schemas.User
+  alias Onion.PubSub
 
   def delete(user_id) do
     Kousa.Room.leave_room(user_id)
     Users.delete(user_id)
   end
 
-  def update(user_id, data) do
-    case Users.edit_profile(user_id, data) do
+  def revoke_api_key(user_id, bot_id) do
+    user = Users.get_by_id(bot_id)
+
+    if user.id != user_id and user.botOwnerId != user_id do
+      {:error, "not authorized"}
+    else
+      new_api_key = UUID.uuid4()
+
+      case user
+           |> User.api_key_changeset(%{apiKey: new_api_key})
+           |> Users.update() do
+        {:ok, _} ->
+          {:ok, new_api_key}
+
+        error ->
+          error
+      end
+    end
+  end
+
+  def update_with(changeset = %Ecto.Changeset{}) do
+    case Users.update(changeset) do
       {:ok, user} ->
+        # TODO: clean this up by making Onion.UserSession adopt the User schema and having it
+        # accept pubsub broadcast messages.
+
         Onion.UserSession.set_state(
-          user_id,
+          user.id,
           %{
             display_name: user.displayName,
             username: user.username,
             avatar_url: user.avatarUrl,
-            banner_url: user.bannerUrl,
+            banner_url: user.bannerUrl
           }
         )
 
+        PubSub.broadcast("user:update:" <> user.id, user)
         {:ok, user}
 
-      {:error, %Ecto.Changeset{errors: [username: {"has already been taken", _}]}} ->
-        {:ok, %{isUsernameTaken: true}}
+      {:error, %Ecto.Changeset{errors: [username: {"has already been taken, _"}]}} ->
+        {:error, "that user name is taken"}
 
       error ->
         error
@@ -47,6 +73,22 @@ defmodule Kousa.User do
       :ok
     else
       _ -> {:error, "tried to ban #{user_id_to_ban} but that user didn't exist"}
+    end
+  end
+
+  def admin_update_with(changeset, admin) do
+    authorized_github_id = Application.get_env(:kousa, :ben_github_id, "")
+
+    if admin.staff == true or admin.githubId == authorized_github_id do
+      case Users.update(changeset) do
+        {:ok, user} ->
+          {:ok, user}
+
+        error ->
+          error
+      end
+    else
+      {:error, "not authorized"}
     end
   end
 end

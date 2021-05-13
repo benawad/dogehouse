@@ -33,13 +33,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ban" },
+    "admin": {
+      "ban": "ban",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "ప్రైవేట్ గదిలో లేని మరియు మీరు అనుసరించే వినియోగదారుల జాబితా.",
       "currentRoom": "ప్రస్తుతం:",
-      "startPrivateRoom": "వారితో ఒక ప్రైవేట్ గదిని ప్రారంభించండి"
+      "startPrivateRoom": "వారితో ఒక ప్రైవేట్ గదిని ప్రారంభించండి",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "గదిని సృష్టించండి",
       "refresh": "Refresh",
@@ -72,7 +89,8 @@
       "overlaySettings": "go to overlay settings",
       "soundSettings": "సౌండ్  సెట్టింగ్‌లకు వెళ్లండి",
       "deleteAccount": "delete account",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",
@@ -87,7 +105,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "అన్వేషించు..." },
-    "soundEffectSettings": { "header": "సౌండ్స్", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "సౌండ్స్",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "edit profile",
       "followsYou": "Follows you",
@@ -98,14 +120,28 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "వాయిస్ సెట్టింగ్‌లు",
       "mic": "మైక్:",
       "permissionError": "మైక్స్ కనుగొనబడలేదు, మీరు ఏదీ ప్లగ్ ఇన్ చేయలేదు లేదా ఈ వెబ్‌సైట్ అనుమతి ఇవ్వలేదు.",
       "refresh": "మైక్ లిస్ట్  రిఫ్రెష్ చేయండి",
-      "volume": "volume:"
+      "volume": "volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",
@@ -121,6 +157,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -197,7 +238,7 @@
       "editProfileModal": {
         "usernameTaken": "username taken",
         "avatarUrlError": "Invalid image",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "length 2 to 50 characters",
         "displayNameLabel": "Display Name",
         "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
@@ -218,14 +259,23 @@
         "goBackToListener": "go back to listener",
         "deleteMessage": "ఈ సందేశాన్ని తొలగించండి",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "నాకు మాట్లాడటానికి అనుమతి కావాలి",
         "makePublic": "గదిని బహిరంగపరచండి",
         "makePrivate": "గదిని ప్రైవేట్‌గా చేయండి",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -254,7 +304,17 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -289,7 +349,13 @@
       "sendMessage": "సందేశం పంపండి",
       "whisper": "Whisper",
       "welcomeMessage": "చాట్‌కు స్వాగతం!",
-      "roomDescription": "గది వివరణ"
+      "roomDescription": "గది వివరణ",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

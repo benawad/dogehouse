@@ -1,0 +1,46 @@
+name: kebab:npm_publish
+on:
+  push:
+    paths:
+      - "kebab/**"
+    branches:
+      - staging
+jobs:
+  npm-publish:
+    name: npm-publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Yarn cache
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            .yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install deps
+        working-directory: kebab
+        run: yarn
+      - name: Build
+        working-directory: kebab
+        run: yarn build
+      - name: Publish if version has been updated
+        uses: pascalgn/npm-publish-action@1.3.7
+        with: # All of theses inputs are optional
+          tag_name: "v%s"
+          tag_message: "v%s"
+          create_tag: "false"
+          commit_pattern: "^feat\\(kebab\\)\\: release (\\S+)"
+          workspace: "kebab"
+          publish_command: "yarn"
+          publish_args: "--non-interactive"
+        env: # More info about the environment variables in the README
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings

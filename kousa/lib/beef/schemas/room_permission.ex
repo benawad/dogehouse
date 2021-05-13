@@ -15,7 +15,6 @@ defmodule Beef.Schemas.RoomPermission do
 
   alias Beef.Schemas.User
 
-  @derive {Poison.Encoder, only: [:isSpeaker, :isMod, :askedToSpeak]}
   @derive {Jason.Encoder, only: [:isSpeaker, :isMod, :askedToSpeak]}
   @primary_key false
   schema "room_permissions" do

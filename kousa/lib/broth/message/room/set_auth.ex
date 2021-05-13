@@ -18,7 +18,7 @@ defmodule Broth.Message.Room.SetAuth do
 
   def execute(changeset, state) do
     with {:ok, %{userId: user_id, level: level}} <- apply_action(changeset, :validate) do
-      Kousa.Room.set_auth(user_id, level, by: state.user_id)
+      Kousa.Room.set_auth(user_id, level, by: state.user.id)
       {:noreply, state}
     end
   end

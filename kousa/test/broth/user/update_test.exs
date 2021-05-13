@@ -38,6 +38,15 @@ defmodule BrothTest.User.UpdateTest do
         }
       )
 
+      # and we will get a second reply, but that's for the case where
+      # there are multiple ws out for the same user.
+      WsClient.assert_frame(
+        "user:update",
+        %{
+          "username" => "new_username"
+        }
+      )
+
       assert Users.get_by_id(user_id).username == "new_username"
     end
 
@@ -54,13 +63,7 @@ defmodule BrothTest.User.UpdateTest do
           }
         )
 
-      WsClient.assert_reply(
-        "user:update:reply",
-        ref,
-        %{
-          "isUsernameTaken" => true
-        }
-      )
+      WsClient.assert_error("user:update", ref, %{"username" => "has already been taken"})
     end
 
     test "a bio,displayName,avatarUrl can be changed", t do
@@ -98,10 +101,61 @@ defmodule BrothTest.User.UpdateTest do
                "https://pbs.twimg.com/profile_images/1152793238761345024/VRBvxeCM_400x400.jpg"
     end
 
+    test "a bad avatar", t do
+      user_id = t.user.id
+
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "user:update",
+          %{
+            "avatarUrl" => "https://bob.example.com/"
+          }
+        )
+
+      WsClient.assert_error("user:update", ref, %{"avatarUrl" => "has invalid format"})
+
+      user = Users.get_by_id(user_id)
+
+      assert user.avatarUrl == t.user.avatarUrl
+    end
+
+    @tag :skip
+    test "when you have two websockets connected updating one propagates change to other"
+
     @tag :skip
     test "bad usernames"
 
     @tag :skip
     test "other fields"
+  end
+
+  describe "update banner url twitter variations" do
+    test "no extension works", t do
+      user_id = t.user.id
+      url = "https://pbs.twimg.com/profile_banners/1241894903472427015/1587079476"
+
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "user:update",
+          %{
+            "bannerUrl" => url
+          }
+        )
+
+      WsClient.assert_reply(
+        "user:update:reply",
+        ref,
+        %{
+          "bannerUrl" => url
+        }
+      )
+
+      user = Users.get_by_id(user_id)
+
+      assert user.bannerUrl ==
+               url
+    end
   end
 end

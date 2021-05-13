@@ -46,6 +46,7 @@ export const ApiPreloadLink: React.FC<ValueOf<DifferentProps>> = ({
   children,
   route,
   data,
+  ...props
 }) => {
   const prefetch = useTypeSafePrefetch();
 
@@ -53,7 +54,9 @@ export const ApiPreloadLink: React.FC<ValueOf<DifferentProps>> = ({
 
   return (
     <Link href={href} as={as}>
-      <a onClick={() => onClick(prefetch)}>{children}</a>
+      <a {...props} onClick={() => onClick(prefetch)}>
+        {children}
+      </a>
     </Link>
   );
 };

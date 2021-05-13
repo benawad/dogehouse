@@ -1,7 +1,12 @@
 /* eslint-disable global-require */
 module.exports = {
   darkMode: "class",
-  purge: ["./src/**/*.tsx", "./public/index.html"],
+  purge: {
+    content: ["./src/**/*.tsx", "./public/index.html"],
+    options: {
+      safelist: ["h-8", "h-11"],
+    },
+  },
   theme: {
     fontFamily: {
       sans: [
@@ -51,6 +56,7 @@ module.exports = {
         hover: "var(--color-accent-hover)",
         disabled: "var(--color-accent-disabled)",
       },
+      black: "#000",
     },
     spacing: {
       0: "0px",
@@ -59,11 +65,13 @@ module.exports = {
       2: "10px",
       3: "15px",
       4: "20px",
+      4.5: "25px",
       5: "30px",
       5.5: "35px",
       6: "40px",
       6.5: "50px",
       7: "60px",
+      7.5: "65px",
       8: "75px",
       9: "80px",
       10: "90px",
@@ -90,6 +98,7 @@ module.exports = {
       borderRadius: {
         5: "5px",
         8: "8px",
+        20: "20px",
         40: "40px",
       },
       borderColor: {
@@ -97,6 +106,27 @@ module.exports = {
       },
       outline: {
         "no-chrome": "none",
+      },
+      transitionTimingFunction: {
+        "in-out-hard": "cubic-bezier(.77, 0, .175, 1)",
+      },
+      transitionDuration: {
+        400: "400ms",
+      },
+      keyframes: {
+        breathe: {
+          "0%, 100%": {
+            boxShadow: "0 0 20px 2px var(--color-primary-100-translucent)",
+            borderColor: "var(--color-primary-300)",
+          },
+          "50%": {
+            boxShadow: "0 0 20px 2px transparent",
+            borderColor: "var(--color-primary-700)",
+          },
+        },
+      },
+      animation: {
+        "breathe-slow": "breathe 5s infinite ease-in-out",
       },
     },
   },

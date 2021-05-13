@@ -1,0 +1,20 @@
+name: shawarma:deploy_staging
+on:
+  push:
+    paths:
+      - 'shawarma/src/**'
+    branches:
+      - staging
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: cd dogehouse/kousa && git pull origin staging && source ~/.nvm/nvm.sh && nvm use 14 && cd ../shawarma && yarn install && npm run build && pm2 restart dist/index.js

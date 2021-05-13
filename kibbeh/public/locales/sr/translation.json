@@ -33,13 +33,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "забраните" },
+    "admin": {
+      "ban": "забраните",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Корисници који нису у приватној соби и које пратите.",
       "currentRoom": "тренутно у:",
-      "startPrivateRoom": "Започните приватну собу"
+      "startPrivateRoom": "Започните приватну собу",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Направите собу",
       "refresh": "Refresh",
@@ -72,7 +89,8 @@
       "soundSettings": "идите на подешавања звука",
       "deleteAccount": "Обришите налог",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Упс! Ова страница се изгубила у разговору.",
@@ -87,7 +105,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Претражите..." },
-    "soundEffectSettings": { "header": "Звукови", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Звукови",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Уредите профил",
       "followsYou": "Прати вас",
@@ -98,14 +120,28 @@
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Подешавања гласа",
       "mic": "микрофон:",
       "permissionError": "Није пронађен ниједан микрофон, или га нисте прикључили, или нисте дали дозволу овој веб локацији.",
       "refresh": "Освежи листу микрофона",
-      "volume": "гласноћа:"
+      "volume": "гласноћа:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -118,6 +154,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -194,7 +235,7 @@
       "editProfileModal": {
         "usernameTaken": "Корисничко име је заузето",
         "avatarUrlError": "Неважећа слика",
-        "avatarUrlLabel": "Github/Twitter аватар url",
+        "avatarUrlLabel": "Github/Twitter/Discord аватар url",
         "displayNameError": "дужина између 2 до 50 карактера",
         "displayNameLabel": "Приказано име",
         "usernameError": "дужина између 4 до 15 карактера и само слова, бројеви и доња црта",
@@ -215,14 +256,23 @@
         "goBackToListener": "Вратите се слушаоцу",
         "deleteMessage": "Обришите ову поруку",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Затражи дозволу за причање",
         "makePublic": "Учините собу јавном",
         "makePrivate": "Учините собу приватном",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -251,7 +301,17 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -286,7 +346,13 @@
       "sendMessage": "Пошаљите поруку",
       "whisper": "Шапћите",
       "welcomeMessage": "Добро дошли у ћаскање!",
-      "roomDescription": "Опис собе"
+      "roomDescription": "Опис собе",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

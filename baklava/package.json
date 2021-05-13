@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.60",
+    "version": "1.0.69",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -16,9 +16,9 @@
         "build:win": "yarn compile && electron-builder --win",
         "build:linux": "yarn compile && electron-builder --linux",
         "build:overlay": "cd resources/overlay && yarn build && cd ../../",
-        "build:globkey": "yarn remove globkey && yarn add globkey && cd node_modules/globkey && npx electron-build-env nj-cli build --release",
-        "delete:artifacts": "yarn delete:globkey_artifacts && yarn delete:overlay_yarn_cache",
-        "delete:globkey_artifacts": "cd node_modules/globkey && del-cli target src && cd ../../",
+        "build:globalkey": "yarn remove globalkey && yarn add globalkey && cd node_modules/globalkey && npx electron-build-env nj-cli build --release",
+        "delete:artifacts": "yarn delete:globalkey_artifacts && yarn delete:overlay_yarn_cache",
+        "delete:globalkey_artifacts": "cd node_modules/globalkey && del-cli target src && cd ../../",
         "delete:overlay_yarn_cache": "cd resources/overlay && del-cli .yarn && cd ../../"
     },
     "keywords": [
@@ -40,7 +40,6 @@
     "build": {
         "appId": "com.electron.dogehouse",
         "productName": "DogeHouse",
-        "asar": true,
         "afterSign": "electron-builder-notarize",
         "mac": {
             "hardenedRuntime": true,
@@ -67,7 +66,9 @@
             "target": [
                 "deb",
                 "AppImage",
-                "snap"
+                "snap",
+                "tar.gz",
+                "rpm"
             ],
             "category": "AudioVideo"
         },
@@ -91,10 +92,6 @@
         "directories": {
             "output": "./builds"
         },
-        "asarUnpack": [
-            "./dist/utils/keybinds/worker.js",
-            "./node_modules/globkey/**/*"
-        ],
         "extends": null
     },
     "devDependencies": {
@@ -121,7 +118,7 @@
         "electron-log": "^4.3.2",
         "electron-overlay-window": "^1.0.4",
         "electron-updater": "^4.3.8",
-        "globkey": "^1.0.41",
+        "globalkey": "^1.0.7",
         "i18next": "^20.0.0",
         "i18next-node-fs-backend": "^2.1.3"
     },

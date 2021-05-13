@@ -33,13 +33,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Ban" },
+    "admin": {
+      "ban": "Ban",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Listahan nang mga tao na hindi pribado at iyong sinundan",
       "currentRoom": "kasalukuyan nasa:",
-      "startPrivateRoom": "magsimula ng isang pribadong silid sa kanila"
+      "startPrivateRoom": "magsimula ng isang pribadong silid sa kanila",
+      "title": "People"
     },
-    "followList": { "followHim": "I-follow", "followingHim": "sinusubaybayan" },
+    "followList": {
+      "followHim": "I-follow",
+      "followingHim": "sinusubaybayan",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Bagong silid",
       "editRoom": "Edit Room",
@@ -72,7 +89,8 @@
       "overlaySettings": "Overlay Settings",
       "soundSettings": "pumunta sound settings",
       "deleteAccount": "I-delete ang iyong account",
-      "couldNotFindUser": "Kinalulungkot namin na hindi matagpuan ang iyong hinahanap"
+      "couldNotFindUser": "Kinalulungkot namin na hindi matagpuan ang iyong hinahanap",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Ang page na ito ay nawala.",
@@ -87,7 +105,11 @@
       "allowAllConfirm": "Sigurado? Ang buong bilang {{count}} na tao ay papayagang makapag salita"
     },
     "searchUser": { "search": "maghanap..." },
-    "soundEffectSettings": { "header": "Tunog", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Tunog",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "I-edit ang profile",
       "followsYou": "mga sumusunod sayo",
@@ -98,14 +120,28 @@
       "followingHim": "mga sinusubaybayan",
       "copyProfileUrl": "Copy Profile URL",
       "urlCopied": "URL copied to clipboard",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Voice Settings",
       "mic": "Mic:",
       "permissionError": " Walang makitang mikropono, maaring ito ay hindi nakaplug o hindi nabigyang permiso ang website na ito",
       "refresh": "I-refresh and listahan ng mikropono",
-      "volume": "Volume:"
+      "volume": "Volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",
@@ -121,6 +157,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -204,7 +245,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     },
     "modals": {
       "createRoomModal": {
@@ -226,7 +268,7 @@
       "editProfileModal": {
         "usernameTaken": "username ay nakuha na",
         "avatarUrlError": "Di-wastong imahe",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "haba ng 2 hanggang 50 na character",
         "displayNameLabel": "Pangalan ng Display",
         "usernameError": "haba ng 4 hanggang 15 na mga character at alphanumeric / underscor lamange",
@@ -247,15 +289,33 @@
         "banFromRoom": "ban sa room",
         "goBackToListener": "bumalik sa nakikinig",
         "deleteMessage": "I-delete ang mensahe",
-        "makeRoomCreator": "gawing room admin"
+        "makeRoomCreator": "gawing room admin",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "kailangan nag pahintulot para magsalita",
         "makePublic": "gawing publiko ang room",
         "makePrivate": "gawing pribado ang silid",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -291,7 +351,13 @@
       "sendMessage": "Magpadala ng Mensahe",
       "whisper": "Pabulong",
       "welcomeMessage": "Maligayang pagdating sa chat!",
-      "roomDescription": "deskripsyon"
+      "roomDescription": "deskripsyon",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

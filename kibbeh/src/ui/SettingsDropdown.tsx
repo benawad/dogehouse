@@ -1,4 +1,6 @@
 import { User } from "@dogehouse/kebab";
+import isElectron from "is-electron";
+import { useRouter } from "next/router";
 import React, { ReactNode, useState } from "react";
 import { useDebugAudioStore } from "../global-stores/useDebugAudio";
 import {
@@ -11,6 +13,7 @@ import {
   SolidVolume,
 } from "../icons";
 import SvgSolidDiscord from "../icons/SolidDiscord";
+import SvgSolidDownload from "../icons/SolidDownload";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { BaseOverlay } from "../ui/BaseOverlay";
@@ -26,6 +29,8 @@ export const SettingsDropdown: React.FC<{
   const { t } = useTypeSafeTranslation();
   const { debugAudio, setDebugAudio } = useDebugAudioStore();
 
+  const { push } = useRouter();
+
   return (
     <div
       className="flex whitespace-nowrap overflow-ellipsis"
@@ -37,7 +42,11 @@ export const SettingsDropdown: React.FC<{
         overlay={currentOverlay}
       >
         <div className="flex flex-col">
-          <ApiPreloadLink route="profile" data={{ username: user.username }}>
+          <ApiPreloadLink
+            data-testid="profile-link"
+            route="profile"
+            data={{ username: user.username }}
+          >
             <SettingsIcon
               onClick={onCloseDropdown}
               icon={<SolidUser />}
@@ -81,6 +90,16 @@ export const SettingsDropdown: React.FC<{
             transition
             onClick={() => setDebugAudio(!debugAudio)}
           />
+
+          {!isElectron() ? (
+            <SettingsIcon
+              onClick={() => push("/download")}
+              icon={<SvgSolidDownload />}
+              label={t("components.settingsDropdown.downloadApp")}
+              transition
+            />
+          ) : null}
+
           <a
             href="https://discord.gg/wCbKBZF9cV"
             target="_blank"

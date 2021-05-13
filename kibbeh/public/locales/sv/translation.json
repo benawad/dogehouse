@@ -33,13 +33,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "bannlys" },
+    "admin": {
+      "ban": "bannlys",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Personer du följer",
       "currentRoom": "Ansluten till:",
-      "startPrivateRoom": "Skapa ett privat rum med dem"
+      "startPrivateRoom": "Skapa ett privat rum med dem",
+      "title": "People"
     },
-    "followList": { "followHim": "Följ", "followingHim": "Följer" },
+    "followList": {
+      "followHim": "Följ",
+      "followingHim": "Följer",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Skapa ett rum",
       "refresh": "Uppdatera",
@@ -72,7 +89,8 @@
       "soundSettings": "Ljudinställningar",
       "deleteAccount": "Radera konto",
       "overlaySettings": "Overlayinställningar",
-      "couldNotFindUser": "Förlåt, vi kunde inte hitta den användaren"
+      "couldNotFindUser": "Förlåt, vi kunde inte hitta den användaren",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Denna sida blev förlorad i konversationen.",
@@ -87,7 +105,11 @@
       "allowAllConfirm": "Är du säker på detta sergeant? Detta kommer tillåta {{count}} användare att få tala. Det kan utplåna månen! 🚀☢️"
     },
     "searchUser": { "search": "Sök..." },
-    "soundEffectSettings": { "header": "Ljud", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Ljud",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Redigera profil",
       "followsYou": "Följer dig",
@@ -98,14 +120,28 @@
       "copyProfileUrl": "Kopiera profillänk",
       "urlCopied": "Länken har kopierats",
       "unfollow": "Sluta följa",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Röstinställningar",
       "mic": "Mikrofon:",
       "permissionError": "Ingen mikrofon hittades, du har antingen ingen inkopplad eller så har du inte gett hemsidan tillåtelse.",
       "refresh": "Uppdatera mikrofonlistan",
-      "volume": "Volym:"
+      "volume": "Volym:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlayinställningar",
@@ -121,6 +157,11 @@
       "prompt": "Klicka på knappen nedan för att starta nedladdningen",
       "download_now": "Ladda ner nu",
       "download_for": "Ladda ner för %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -175,7 +216,7 @@
       "editProfileModal": {
         "usernameTaken": "Användarnamn är redan taget",
         "avatarUrlError": "Ogiltig bild",
-        "avatarUrlLabel": "Github/Twitter profilbild länk",
+        "avatarUrlLabel": "Github/Twitter/Discord profilbild länk",
         "displayNameError": "Maximum 2 till 50 karaktärer",
         "displayNameLabel": "Visningsnamn",
         "usernameError": "Maximum 4 till 15 karaktärer med bara alfanumerisk/understräck",
@@ -196,14 +237,23 @@
         "goBackToListener": "Gå tillbaka till lyssnare",
         "deleteMessage": "Ta bort meddelande",
         "makeRoomCreator": "Gör till rumsadministratör",
-        "unBanFromChat": "Ta bort avstängning från chatt"
+        "unBanFromChat": "Ta bort avstängning från chatt",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Be om tillåtelse att prata",
         "makePublic": "Gör rum offentligt",
         "makePrivate": "Gör rum privat",
         "renamePublic": "Ange ett offentligt rumsnamn",
-        "renamePrivate": "Ange ett privat rumsnamn"
+        "renamePrivate": "Ange ett privat rumsnamn",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "userVolumeSlider": {
@@ -257,7 +307,17 @@
       "debugAudio": {
         "debugAudio": "Felsök ljud",
         "stopDebugger": "Stoppa felsökaren"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -292,7 +352,13 @@
       "sendMessage": "Skicka ett meddelande",
       "whisper": "Direktmeddelande",
       "welcomeMessage": "Välkommen till chatten!",
-      "roomDescription": "Rumbeskrivning"
+      "roomDescription": "Rumbeskrivning",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tankar raket",

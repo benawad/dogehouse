@@ -33,13 +33,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "blokeatu" },
+    "admin": {
+      "ban": "blokeatu",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "List of users that are not in a private room and you follow.",
       "currentRoom": "orain:",
-      "startPrivateRoom": "hasi saio pribatu bat"
+      "startPrivateRoom": "hasi saio pribatu bat",
+      "title": "People"
     },
-    "followList": { "followHim": "Follow", "followingHim": "Following" },
+    "followList": {
+      "followHim": "Follow",
+      "followingHim": "Following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Gela Sortu",
       "editRoom": "Edit Room",
@@ -72,7 +89,8 @@
       "overlaySettings": "Overlay Settings",
       "soundSettings": "soinu aukerak",
       "deleteAccount": "kontua ezabatu",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",
@@ -87,7 +105,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "bilatu..." },
-    "soundEffectSettings": { "header": "Soinuak", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Soinuak",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "editatu profila",
       "followsYou": "jarraitzen zaitu",
@@ -98,14 +120,28 @@
       "followingHim": "Following",
       "copyProfileUrl": "Copy Profile URL",
       "urlCopied": "URL copied to clipboard",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Ahots aukerak",
       "mic": "mikrofonoa:",
       "permissionError": "ez dira mikrofonorik aurkitu, you either have none plugged in or haven't given this website permission.",
       "refresh": "mikrofono zerrenda berriro kargatu",
-      "volume": "ozentasuna:"
+      "volume": "ozentasuna:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",
@@ -121,6 +157,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -206,7 +247,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     },
     "modals": {
       "createRoomModal": {
@@ -228,7 +270,7 @@
       "editProfileModal": {
         "usernameTaken": "erabiltzaile izena hartuta",
         "avatarUrlError": "Irudi baliogabea",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "luzera: 2-50 karaktere",
         "displayNameLabel": "Erakusteko izena",
         "usernameError": "luzera: 4-15 karaktere alfanumerikoak/azpi-gidioa",
@@ -249,15 +291,33 @@
         "banFromRoom": "gela blokeatu",
         "goBackToListener": "bueltatu entzule izatera",
         "deleteMessage": "mezua ezabatu",
-        "makeRoomCreator": "Promote to Admin"
+        "makeRoomCreator": "Promote to Admin",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "baimenak behar dituzu hitz egiteko",
         "makePublic": "gela publikoa bihurtu",
         "makePrivate": "gela pribatua bihurtu",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -293,7 +353,13 @@
       "sendMessage": "Mezua bidali",
       "whisper": "Xuxurlatu",
       "welcomeMessage": "Ongi etorri Txatera!",
-      "roomDescription": "gelaren deskribapena"
+      "roomDescription": "gelaren deskribapena",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Suziria errekargatzen",

@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "зареди още",
     "loading": "зареждане...",
@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "бан" },
+    "admin": {
+      "ban": "бан",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Списък от потребители, които не са в ",
       "currentRoom": "в момента в:",
-      "startPrivateRoom": "start a private room with them"
+      "startPrivateRoom": "start a private room with them",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Създай стая",
       "refresh": "Опресни",
@@ -73,7 +90,8 @@
       "soundSettings": "отиване към звукови настройки",
       "deleteAccount": "изтриване на акаунт",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Опаа! Тази страниза бе изгубена.",
@@ -88,7 +106,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "търсене..." },
-    "soundEffectSettings": { "header": "Звук", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Звук",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "промяна на профил",
       "followsYou": "следват те",
@@ -99,14 +121,28 @@
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Звукови настройки",
       "mic": "микрофон:",
       "permissionError": "не бяха открити микрофони, най-вероятно няма вързани или нямат разрешение да бъдат ползвани.",
       "refresh": "опресняване на списък с микрофони",
-      "volume": "ниво на звук:"
+      "volume": "ниво на звук:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -121,6 +157,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -197,7 +238,7 @@
       "editProfileModal": {
         "usernameTaken": "потребителското име е взето",
         "avatarUrlError": "Невалидна картинка",
-        "avatarUrlLabel": "линк към GitHub/Twitter аватар",
+        "avatarUrlLabel": "линк към Github/Twitter/Discord аватар",
         "displayNameError": "дължина между 2 и 60 знака",
         "displayNameLabel": "Показващо се име",
         "usernameError": "дължина между 4 и 15, само букви, цифри и долна черта",
@@ -218,14 +259,23 @@
         "goBackToListener": "върни се към слушател",
         "deleteMessage": "изтриване на това съобщение",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "изискване на позволение за говорене",
         "makePublic": "направи стаята публична",
         "makePrivate": "направи стаята частна",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -254,7 +304,17 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -289,7 +349,13 @@
       "sendMessage": "Изпрати съобщение",
       "whisper": "Прошепни",
       "welcomeMessage": "Добре дошъл в чата!",
-      "roomDescription": "описание на стаята"
+      "roomDescription": "описание на стаята",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

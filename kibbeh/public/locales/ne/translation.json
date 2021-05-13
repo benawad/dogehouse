@@ -33,13 +33,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "प्रतिबन्ध" },
+    "admin": {
+      "ban": "प्रतिबन्ध",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "प्रयोगकर्ताहरूको सूची जो प्राइवेट रूम छैनन् र तपाइँ फॉलो गर्नुहुन्छा।",
       "currentRoom": "अहिले हुनुहुन्छ:",
-      "startPrivateRoom": "यीनीहरू संग एक प्राइवेट रूम शुरू गर्नुहोस्"
+      "startPrivateRoom": "यीनीहरू संग एक प्राइवेट रूम शुरू गर्नुहोस्",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "रूम बनाउनुहोस",
       "refresh": "Refresh",
@@ -72,7 +89,8 @@
       "soundSettings": "साउंड सेटिंग्समा जानुहोस्",
       "deleteAccount": "खाता मेटाउनुहोस्",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "ओहो ! यो पृष्ठ त कुराकानीमै हरायो।.",
@@ -87,7 +105,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "खोजी गर्नुहोस्..." },
-    "soundEffectSettings": { "header": "साउंड", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "साउंड",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "प्रोफाइल सम्पादन गर्नुहोस",
       "followsYou": "follows you",
@@ -98,14 +120,28 @@
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "वॉइस सेटिंग्स",
       "mic": "माइक",
       "permissionError": "कुनै माईक फेला परेन, तपाईंले या त यस वेबसाइटलाई अनुमति दिनुभएन वा माइकमा प्लग इन गर्न बिर्सनुभयो।",
       "refresh": "रिफ्रेश माइक लिस्ट",
-      "volume": "भोल्युम:"
+      "volume": "भोल्युम:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -118,6 +154,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -197,7 +238,7 @@
       "editProfileModal": {
         "usernameTaken": "username taken",
         "avatarUrlError": "Invalid image",
-        "avatarUrlLabel": "Github/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "length 2 to 50 characters",
         "displayNameLabel": "Display Name",
         "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
@@ -218,14 +259,23 @@
         "goBackToListener": "श्रोताको लागि पछाडि जानुहोस",
         "deleteMessage": "यो मेसेज मेटाउनुहोस",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "बोल्नको लागि अनुमति चाहिन्छ",
         "makePublic": "रूम सार्वजनिक बनाउनुहोस",
         "makePrivate": "रूम प्राइवेट बनाउनुहोस",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -254,7 +304,17 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -289,7 +349,13 @@
       "sendMessage": "एक मेसेज पठाउनुहोस्",
       "whisper": "कानेखुसि",
       "welcomeMessage": "च्याटमा स्वागत छ!",
-      "roomDescription": "रुमको बारेमा"
+      "roomDescription": "रुमको बारेमा",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

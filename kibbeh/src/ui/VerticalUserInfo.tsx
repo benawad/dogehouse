@@ -1,4 +1,4 @@
-import { BaseUser } from "@dogehouse/kebab";
+import { UserWithFollowInfo } from "@dogehouse/kebab";
 import normalizeUrl from "normalize-url";
 import React from "react";
 import { linkRegex } from "../lib/constants";
@@ -7,13 +7,51 @@ import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { SingleUser } from "./UserAvatar";
 import { HeaderController } from "../modules/display/HeaderController";
+import { UserBadge } from "./UserBadge";
+import { badge, Badges } from "./UserSummaryCard";
 
 interface VerticalUserInfoProps {
-  user: BaseUser;
+  user: UserWithFollowInfo;
 }
 
 export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
   const { t } = useTypeSafeTranslation();
+  const badges: badge[] = [];
+  if (user.staff) {
+    badges.push({
+      content: "ƉS",
+      variant: "primary",
+      color: "white",
+      title: t("components.userBadges.dhStaff"),
+    });
+  }
+  if (user.contributions > 0) {
+    badges.push({
+      content: "ƉC",
+      variant: "primary",
+      color: "white",
+      title: t("components.userBadges.dhContributor"),
+    });
+  }
+
+  if (user.botOwnerId) {
+    badges.push({
+      content: t("pages.viewUser.bot"),
+      variant: "primary",
+      color: "white",
+      title: t("pages.viewUser.bot"),
+    });
+  }
+
+  if (user.followsYou) {
+    badges.push({
+      content: t("pages.viewUser.followsYou"),
+      variant: "primary-700",
+      color: "grey",
+      title: t("pages.viewUser.followsYou"),
+      classname: "ml-1",
+    });
+  }
   return (
     <>
       <HeaderController
@@ -40,9 +78,12 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
             >
               @{user.username}
             </span>
-            {/* <Badges badges={badges} /> */}
           </div>
         </ApiPreloadLink>
+        <span className="flex justify-center mt-2">
+          <Badges badges={badges} />
+        </span>
+
         <div className="flex mt-2">
           <div className="flex">
             <ApiPreloadLink

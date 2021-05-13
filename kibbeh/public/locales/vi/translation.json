@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "tải thêm",
     "loading": "đang tải...",
@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "cấm" },
+    "admin": {
+      "ban": "cấm",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Danh sách người dùng bạn theo dõi đang ở trong một phòng nào đó mà không phải là phòng riêng.",
       "currentRoom": "phòng hiện tại:",
-      "startPrivateRoom": "tạo phòng riêng tư với họ"
+      "startPrivateRoom": "tạo phòng riêng tư với họ",
+      "title": "People"
     },
-    "followList": { "followHim": "theo dõi", "followingHim": "đang theo dõi" },
+    "followList": {
+      "followHim": "theo dõi",
+      "followingHim": "đang theo dõi",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Tạo phòng",
       "refresh": "Làm mới",
@@ -73,7 +90,8 @@
       "overlaySettings": "cài đặt overlay",
       "soundSettings": "cài đặt âm thanh",
       "deleteAccount": "xóa tài khoản",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Á! Đi lạc đâu đây.",
@@ -88,7 +106,11 @@
       "allowAllConfirm": "Bạn có chắc không? Hành động này sẽ cho phép {{count}} người dùng có quyền nói"
     },
     "searchUser": { "search": "tìm kiếm..." },
-    "soundEffectSettings": { "header": "Âm thanh", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Âm thanh",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "chỉnh sửa hồ sơ",
       "followsYou": "Theo dõi bạn",
@@ -99,14 +121,28 @@
       "followingHim": "đang theo dõi",
       "copyProfileUrl": "sao chép liên kết hồ sơ",
       "urlCopied": "Đã sao chép liên kết",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Cài đặt giọng nói",
       "mic": "mic:",
       "permissionError": "không tìm thấy mic, bạn có thể chưa cắm hoặc chưa cấp quyền cho trang web này..",
       "refresh": "làm mới danh sách mic",
-      "volume": "âm lượng:"
+      "volume": "âm lượng:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Cài đặt Overlay",
@@ -122,6 +158,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -198,7 +239,7 @@
       "editProfileModal": {
         "usernameTaken": "tên người dùng đã tồn tại",
         "avatarUrlError": "Hình ảnh không hợp lệ",
-        "avatarUrlLabel": "Liên kết đến ảnh đại diện GitHub/Twitter",
+        "avatarUrlLabel": "Liên kết đến ảnh đại diện Github/Twitter/Discord",
         "displayNameError": "phải có độ dài từ 2 tới 50 ký tự",
         "displayNameLabel": "Tên hiển thị",
         "usernameError": "phải có độ dài từ 4 đến 15 ký tự và chỉ được dùng chữ, số hoặc gạch dưới",
@@ -219,14 +260,23 @@
         "goBackToListener": "trở về làm thính giả",
         "deleteMessage": "xóa tin nhắn này",
         "makeRoomCreator": "cho làm quản trị viên",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "phải được cấp quyền mới có thể nói",
         "makePublic": "chuyển thành phòng công khai",
         "makePrivate": "chuyển thành phòng riêng tư",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -255,7 +305,17 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -290,7 +350,13 @@
       "sendMessage": "Gửi tin nhắn",
       "whisper": "Thì thầm",
       "welcomeMessage": "Chào mừng đến với phòng trò chuyện!",
-      "roomDescription": "mô tả phòng"
+      "roomDescription": "mô tả phòng",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tên lửa đang đổ xăng",

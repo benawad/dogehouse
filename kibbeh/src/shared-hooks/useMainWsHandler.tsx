@@ -14,7 +14,6 @@ import { mergeRoomPermission } from "../modules/webrtc/utils/mergeRoomPermission
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { invitedToRoomConfirm } from "../shared-components/InvitedToJoinRoomModal";
 import { setMute } from "./useSetMute";
-import { setDeaf } from "./useSetDeaf";
 import { useTypeSafeUpdateQuery } from "./useTypeSafeUpdateQuery";
 
 let ipcRenderer: any = undefined;
@@ -99,6 +98,39 @@ export const useMainWsHandler = () => {
                     ...data.room,
                     name,
                     isPrivate,
+                  },
+                }
+          );
+        }
+      ),
+      conn.addListener<any>(
+        "room_chat_throttle_change",
+        ({ roomId, chatThrottle, name }) => {
+          updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
+            !data || "error" in data
+              ? data
+              : {
+                  ...data,
+                  room: {
+                    ...data.room,
+                    name,
+                    chatThrottle,
+                  },
+                }
+          );
+        }
+      ),
+      conn.addListener<any>(
+        "room_chat_mode_changed",
+        ({ roomId, chatMode }) => {
+          updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
+            !data || "error" in data
+              ? data
+              : {
+                  ...data,
+                  room: {
+                    ...data.room,
+                    chatMode,
                   },
                 }
           );
@@ -223,7 +255,7 @@ export const useMainWsHandler = () => {
           );
         }
       ),
-      conn.addListener<any>("mod_changed", ({ userId, roomId }) => {
+      conn.addListener<any>("mod_changed", ({ userId, roomId, isMod }) => {
         updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
           !data || "error" in data
             ? data
@@ -235,7 +267,7 @@ export const useMainWsHandler = () => {
                         ...x,
                         roomPermissions: mergeRoomPermission(
                           x.roomPermissions,
-                          { isMod: !x.roomPermissions?.isMod }
+                          { isMod }
                         ),
                       }
                     : x

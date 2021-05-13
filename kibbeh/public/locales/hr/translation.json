@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "učitaj više",
     "loading": "učitavanje ...",
@@ -34,17 +34,34 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization String",
-    "banUser": { "ban": "zabrani" },
+    "admin": {
+      "ban": "zabrani",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Popis korisnika koji nisu u privatnoj sobi, a vi ih pratite",
       "currentRoom": "trenutno u:",
-      "startPrivateRoom": "započnite privatnu sobu s njima"
+      "startPrivateRoom": "započnite privatnu sobu s njima",
+      "title": "People"
     },
-    "followList": { "followHim": "zaprati", "followingHim": "pratitelji" },
+    "followList": {
+      "followHim": "zaprati",
+      "followingHim": "pratitelji",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Stvori sobu",
       "refresh": "Osvježi",
-      "editRoom": "Edit Room",
+      "editRoom": "Uredi Sobu",
       "desktopAlert": "Preuzmite DogeHouse Desktop aplikaciju danas!"
     },
     "inviteList": {
@@ -54,15 +71,15 @@
       "whenFollowersOnline": "Kad su vaši pratitelji na mreži, oni će se pojaviti ovdje."
     },
     "login": {
-      "headerText": "Vođenje glasovnih razgovora na mjesec 🚀",
+      "headerText": "Dovodimo glasovne razgovore na mjesec 🚀",
       "featureText_1": "Tamna tema",
       "featureText_2": "Otvorene prijave",
       "featureText_3": "Podrška za više platformi",
       "featureText_4": "Otvoreni kod",
       "featureText_5": "Tekstualni chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "prijava s GitHubom",
-      "loginTwitter": "prijava putem Twittera",
+      "loginGithub": "prijava GitHub-om",
+      "loginTwitter": "prijava Twitter-om",
       "createTestUser": "izradi test korisnika",
       "loginDiscord": "Prijava Discord-om"
     },
@@ -73,7 +90,8 @@
       "soundSettings": "idite na postavke zvuka",
       "deleteAccount": "izbriši račun",
       "overlaySettings": "idi na postavke prekrivača",
-      "couldNotFindUser": "Oprostite, nismo mogli pronači tog korisnika"
+      "couldNotFindUser": "Oprostite, nismo mogli pronači tog korisnika",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ova se stranica izgubila u razgovoru.",
@@ -89,7 +107,11 @@
       "speakers": "Govornici"
     },
     "searchUser": { "search": "traži..." },
-    "soundEffectSettings": { "header": "Zvuči", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Zvuči",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "uredi profil",
       "followYou": "vas prati",
@@ -101,14 +123,28 @@
       "copyProfileUrl": "kopiraj url profila",
       "urlCopied": "URL kopiran u međuspremnik",
       "unfollow": "Prestani pratiti",
-      "about": "About"
+      "about": "O",
+      "bot": "Robot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Postavke glasa",
       "mic": "mikrofon:",
       "permissionError": "nisu pronađeni mikrofoni, ili ih nitko nije priključio ili niste dali dopuštenje ovom web mjestu.",
       "refresh": "osvježi popis mikrofona",
-      "volume": "jačina zvuka:"
+      "volume": "jačina zvuka:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Postavke Prekrivača",
@@ -124,6 +160,11 @@
       "prompt": "Pritisnite na gumb kako biste započeli preuzimanje",
       "download_now": "Preuzmi Sada",
       "download_for": "Preuzmi za {{platform}}"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -149,9 +190,9 @@
       "speaker": "Govornik",
       "listener": "Slušatelj",
       "chat": "Chat",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Uključivanje / isključivanje Oglušenja",
+      "deafen": "Ogluši",
+      "undeafen": "Ozvuči"
     },
     "deviceNotSupported": {
       "notSupported": "Vaš uređaj trenutno nije podržan. Možete stvoriti",
@@ -169,8 +210,8 @@
       "listening": "Slušanje",
       "toggleMuteKeybind": "uključivanje/isključivanje isključivanja tipkovničkih prečaca",
       "togglePushToTalkKeybind": "uključivanje/isključivanje push-to-talk",
-      "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleOverlayKeybind": "Prećac za uključivanje / isključivanje prekrivača",
+      "toggleDeafKeybind": "Prećac za uključivanje / isključivanje oglušenja"
     },
     "userVolumeSlider": {
       "noAudioMessage": "iz nekog razloga nema potrošača zvuka"
@@ -178,7 +219,7 @@
     "addToCalendar": { "add": "Dodaj u kalendar" },
     "wsKilled": {
       "description": "Poslužitelj je ubio WebSocket. To se obično događa kada web mjesto otvorite na drugoj kartici.",
-      "reconnect": "ponovno se povezati"
+      "reconnect": "ponovno se poveži"
     },
     "modals": {
       "createRoomModal": {
@@ -192,7 +233,7 @@
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nova soba stvorena",
-        "roomInviteFrom": "Soba poziva iz",
+        "roomInviteFrom": "Poziv u sobu od",
         "justStarted": "Tek su započeli",
         "likeToJoin": ", želite li se pridružiti?",
         "inviteReceived": "pozvani ste u"
@@ -221,14 +262,23 @@
         "goBackToListener": "vratite se na slušatelj",
         "deleteMessage": "izbriši ovu poruku",
         "makeRoomCreator": "napravi administratorom sobe",
-        "unBanFromChat": "Makni zabranu sa Chat-a"
+        "unBanFromChat": "Makni zabranu sa Chat-a",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "zahtijeva dopuštenje za govor",
         "makePublic": "učini sobu javnom",
         "makePrivate": "učini sobu privatnom",
         "renamePublic": "Postavi ime javne sobe",
-        "renamePrivate": "Postavi ime privatne sobe"
+        "renamePrivate": "Postavi ime privatne sobe",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -243,7 +293,7 @@
     },
     "search": {
       "placeholder": "Potraži za sobe, korisnike ili kategorije",
-      "placeholderShort": "Search"
+      "placeholderShort": "Potraži"
     },
     "settingsDropdown": {
       "profile": "Profil",
@@ -257,7 +307,17 @@
       "debugAudio": {
         "debugAudio": "Debuggaj Audio",
         "stopDebugger": "Zaustavi Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -292,7 +352,13 @@
       "sendMessage": "Pošalji poruku",
       "whisper": "Šaputanje",
       "welcomeMessage": "Dobrodošli u chat!",
-      "roomDescription": "opis sobe"
+      "roomDescription": "opis sobe",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Raketa za punjenje gorivom",
@@ -306,6 +372,6 @@
       "galacticDoge": "Galaktički doge",
       "spottedLife": "Planeta sa životom uočena"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Vaš Feed" }
   }
 }

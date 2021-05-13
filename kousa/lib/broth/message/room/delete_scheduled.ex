@@ -27,7 +27,7 @@ defmodule Broth.Message.Room.DeleteScheduled do
 
   def execute(changeset, state) do
     with {:ok, %{roomId: room_id}} <- apply_action(changeset, :validate) do
-      Kousa.ScheduledRoom.delete(state.user_id, room_id)
+      Kousa.ScheduledRoom.delete(state.user.id, room_id)
       {:reply, %Reply{}, state}
     end
   end

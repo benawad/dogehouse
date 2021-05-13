@@ -64,14 +64,46 @@ defmodule Kousa.Beef.UserTest do
                )
     end
 
-    test "with avatar_url that is not from twitter/github", %{user: %{id: id}} do
+    test "with avatar_url that is from twitter", %{user: %{id: id}} do
+      assert {:ok, user} =
+               Users.edit_profile(id, %{
+                 username: "timmy",
+                 displayName: "tim",
+                 bio: "",
+                 avatarUrl:
+                   "https://pbs.twimg.com/profile_images/1214953675724079106/6Y3XokVC_200x200.jpg"
+               })
+    end
+
+    test "with avatar_url that is from github", %{user: %{id: id}} do
+      assert {:ok, user} =
+               Users.edit_profile(id, %{
+                 username: "timmy",
+                 displayName: "tim",
+                 bio: "",
+                 avatarUrl: "https://avatars.githubusercontent.com/u/35400192?v=4"
+               })
+    end
+
+    test "with avatar_url that is from discord", %{user: %{id: id}} do
+      assert {:ok, user} =
+               Users.edit_profile(id, %{
+                 username: "timmy",
+                 displayName: "tim",
+                 bio: "",
+                 avatarUrl:
+                   "https://cdn.discordapp.com/avatars/473965680857972757/6b3e4b9be1fd453230172ca6509f0b46.webp"
+               })
+    end
+
+    test "with avatar_url that is not from twitter/github/discord", %{user: %{id: id}} do
       assert {:error, _} =
                Users.edit_profile(id, %{
                  username: "timmy",
                  displayName: "tim",
                  bio: "",
                  avatarUrl:
-                   "https://bit.ly/3dzG9DB#https://avatars.githubusercontent.com/u/44095206?v=4",
+                   "https://bit.ly/3dzG9DB#https://avatars.githubusercontent.com/u/44095206?v=4"
                })
     end
 

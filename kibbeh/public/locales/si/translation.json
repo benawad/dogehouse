@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "තවත් පෙන්නන්න",
     "loading": "ලබා ගනිමින් පවතී...",
@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ඉවත් කරන්න" },
+    "admin": {
+      "ban": "ඉවත් කරන්න",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "පෞද්ගලික සමූහයක නොමැති ඔබ හඹායන පරිශීලකයින්",
       "currentRoom": "දැනට සිටින්නේ:",
-      "startPrivateRoom": "ඔවුන් සමග පෞද්ගලික සමූහයක් අරඹන්න"
+      "startPrivateRoom": "ඔවුන් සමග පෞද්ගලික සමූහයක් අරඹන්න",
+      "title": "People"
     },
-    "followList": { "followHim": "හඹා යන්න", "followingHim": "හඹා යන්නන්" },
+    "followList": {
+      "followHim": "හඹා යන්න",
+      "followingHim": "හඹා යන්නන්",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "සමූහයක් අරඹන්න",
       "refresh": "Refresh",
@@ -73,7 +90,8 @@
       "soundSettings": "ශබ්ද සැකසුම් වලට යන්න",
       "deleteAccount": "ගිණුම ඉවත් කරන්න",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! සංවාදයේදී මෙම පිටුව මඟහැරී ඇත.",
@@ -88,7 +106,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "සොයන්න..." },
-    "soundEffectSettings": { "header": "ශබ්ද", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "ශබ්ද",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "profile එක සංස්කරණය කරන්න",
       "followsYou": "ඔබව හඹා යයි",
@@ -99,14 +121,28 @@
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "හඬ සැකසුම්",
       "mic": "mic:",
       "permissionError": "mics එකක් හමුවූයේ නැත.ඔබ එකක් සම්බන්ධ නොමැත හෝ මෙම වෙබ් අඩවියට අවසර දී නොමැත",
       "refresh": "mic ලැයිස්තුව refresh කරන්න",
-      "volume": "පරිමාව:"
+      "volume": "පරිමාව:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Overlay Settings",
@@ -122,6 +158,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -201,7 +242,7 @@
       "editProfileModal": {
         "usernameTaken": "පරිශීලක නම භාවිතා කර ඇත",
         "avatarUrlError": "අවලංගු පිංතූරයකි",
-        "avatarUrlLabel": "GitHub/Twitter පිංතූරයේ සබැඳිය",
+        "avatarUrlLabel": "Github/Twitter/Discord පිංතූරයේ සබැඳිය",
         "displayNameError": "අකුරු 2 හා 50 අතර ",
         "displayNameLabel": "පෙන්විය යුතු නම",
         "usernameError": "අකුරු 4 හා 15 අතර විය යුතු අතර alphanumeric/underscore පමණක් භාවිත කල යුතුය",
@@ -222,14 +263,23 @@
         "goBackToListener": "අසන්නෙක් ලෙසට යන්න",
         "deleteMessage": "පිළිතුර ඉවත් කරන්න",
         "makeRoomCreator": "පරිපාලක කරන්න",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "කතා කරන්න අවසර ගන්න",
         "makePublic": "සමූහය පොදු කරන්න",
         "makePrivate": "සමූහය පෞද්ගලික කරන්න",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -258,7 +308,17 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -293,7 +353,13 @@
       "sendMessage": "පිළිතුරක් යවන්න",
       "whisper": "කොඳුරන්න",
       "welcomeMessage": "chat එකට පිළිගන්නවා!",
-      "roomDescription": "සමූහයේ විස්තර"
+      "roomDescription": "සමූහයේ විස්තර",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

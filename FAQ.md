@@ -2,7 +2,7 @@
 
 ## Why did you choose Elixir?
 
-Its fun to program in. The error messages are awful and there's not static typing, but other than that its great.
+It's fun to program in. The error messages are awful and there's no static typing, but other than that it's great.
 
 ## How will DogeHouse make money?
 

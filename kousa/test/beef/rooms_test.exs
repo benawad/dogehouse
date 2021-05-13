@@ -49,8 +49,36 @@ defmodule Kousa.Beef.RoomsTest do
       assert [%{id: ^id}] = Rooms.search_name(room.name)
       assert [%{id: ^id}] = Rooms.search_name(String.slice(room.name, 0..2))
       assert [] = Rooms.search_name("akljdsjoqwdijo12")
-      room2 = Factory.create(Room, isPrivate: true)
+      room2 = Factory.create(Room, name: "qiwodqwjdioqwdjiqwo", isPrivate: true)
       assert [] = Rooms.search_name(room2.name)
+    end
+
+    test "search_name orders by desc numPeopleInside" do
+      %Room{
+        id: id
+      } = Factory.create(Room, [{:name, "room1"}])
+
+      Beef.Rooms.increment_room_people_count(id)
+      assert %Room{numPeopleInside: 2} = Repo.get!(Room, id)
+
+      %Room{
+        id: id
+      } = Factory.create(Room, [{:name, "room2"}])
+
+      # make sure room2 has 1 person inside
+      assert %Room{numPeopleInside: 1} = Repo.get!(Room, id)
+
+      # check if room1 shows up first as it has 2 ppl inside
+      assert [%{name: "room1"}, %{name: "room2"}] = Rooms.search_name("room")
+
+      Beef.Rooms.increment_room_people_count(id)
+      Beef.Rooms.increment_room_people_count(id)
+
+      # make sure room2 has 3 people inside
+      assert %Room{numPeopleInside: 3} = Repo.get!(Room, id)
+
+      # check if room2 shows up first as it has 3 ppl inside
+      assert [%{name: "room2"}, %{name: "room1"}] = Rooms.search_name("room")
     end
 
     test "can_join_room" do

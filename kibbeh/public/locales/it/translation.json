@@ -33,13 +33,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Bandisci" },
+    "admin": {
+      "ban": "Bandisci",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Lista di utenti che segui e che non sono in una stanza privata.",
       "currentRoom": "In questo momento è connesso a:",
-      "startPrivateRoom": "Avvia una stanza privata con lui"
+      "startPrivateRoom": "Avvia una stanza privata con lui",
+      "title": "People"
     },
-    "followList": { "followHim": "Segui", "followingHim": "Segui già" },
+    "followList": {
+      "followHim": "Segui",
+      "followingHim": "Segui già",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Crea una stanza",
       "refresh": "Ricarica",
@@ -72,7 +89,8 @@
       "soundSettings": "Modifica impostazioni dei suoni",
       "deleteAccount": "Elimina account",
       "overlaySettings": "Vai alle impostazioni di sovrapposizione",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oops! questa pagina si è persa nella conversazione.",
@@ -87,7 +105,11 @@
       "allowAllConfirm": "Sei sicuro? Questo permetterà a {{count}} che vogliono parlare di prendere la parola"
     },
     "searchUser": { "search": "Cerca..." },
-    "soundEffectSettings": { "header": "Suoni", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Suoni",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Modifica profilo",
       "followsYou": "Ti segue",
@@ -98,14 +120,28 @@
       "copyProfileUrl": "Copia link del profilo",
       "urlCopied": "Link copiato negli appunti",
       "unfollow": "Smetti di seguire",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Impostazioni della voce",
       "mic": "Microfono:",
       "permissionError": "Nessun microfono trovato, probabilmente non hai dato i permessi necessari a DogeHouse per poterlo usare o non ne hai attaccato nessuno.",
       "refresh": "Ricarica la lista dei microfoni",
-      "volume": "Volume:"
+      "volume": "Volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -121,6 +157,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -200,7 +241,7 @@
       "editProfileModal": {
         "usernameTaken": "Nome utente già preso",
         "avatarUrlError": "Immagine invalida",
-        "avatarUrlLabel": "Url dell'avatar di Github/Twitter",
+        "avatarUrlLabel": "Url dell'avatar di Github/Twitter/Discord",
         "displayNameError": "Deve essere lungo dai 2 ai 50 caratteri",
         "displayNameLabel": "Nome da mostrare agli altri utenti",
         "usernameError": "Il nome utente deve essere lungo dai 4 ai 15 caratteri e può solo contenere caratteri alfanumerici e trattini bassi",
@@ -221,14 +262,23 @@
         "goBackToListener": "Torna ad essere un ascoltatore",
         "deleteMessage": "Elimina questo messaggio",
         "makeRoomCreator": "Rendi amministratore della stanza",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Richiedi permesso per parlare",
         "makePublic": "Rendi la stanza pubblica",
         "makePrivate": "Rendi la stanza privata",
         "renamePublic": "Imposta il nome della stanza pubblica",
-        "renamePrivate": "Imposta il nome della stanza privata"
+        "renamePrivate": "Imposta il nome della stanza privata",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -257,7 +307,17 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -292,7 +352,13 @@
       "sendMessage": "Invia un messaggio",
       "whisper": "Sussurra",
       "welcomeMessage": "Benvenuto nella chat!",
-      "roomDescription": "Descrizione della stanza"
+      "roomDescription": "Descrizione della stanza",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Rifornimento razzo",

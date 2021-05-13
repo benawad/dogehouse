@@ -1,22 +1,23 @@
 # Kebab
-Client-side implementation of DogeHouse API.
+The official DogeHouse API client.
 
 ## Usage
-- **In web =>** see `examples/mediasoup-audio/` and `examples/react-chat`
+- **In web =>** see `examples/mediasoup-audio/` and `examples/react-chat/`
 - **In Node =>** see `examples/chat/` and `examples/bot/` (note that you need to have DOM in tsc's libs)
 
-### An example bot
+### A simple bot
 ```typescript
 require("dotenv").config();
 
-import { raw, wrap, tokensToString, stringToToken } from "@dogehouse/kebab";
+import { raw, wrap, tokensToString, stringToToken, http } from "@dogehouse/kebab";
 
 const commandRegex = /^\/([^ ]+) ?(.*)$/;
 const main = async () => {
   try {
+    const credentials = await http.bot.auth(process.env.DOGEHOUSE_API_KEY!);
     const wrapper = wrap(await raw.connect(
-      process.env.DOGEHOUSE_TOKEN!,
-      process.env.DOGEHOUSE_REFRESH_TOKEN!,
+      credentials.accessToken,
+      credentials.refreshToken,
       {
         onConnectionTaken: () => {
           console.error("\nAnother client has taken the connection");
@@ -65,7 +66,7 @@ const main = async () => {
     console.info(`=> starting in room "${theRoom.name}" (${theRoom.numPeopleInside} people)`);
     await wrapper.query.joinRoomAndGetInfo(theRoom.id);
   } catch(e) {
-    if(e.code === 4001) console.error("invalid token!");
+    if (e.code === 4001) console.error("invalid token!");
     console.error(e)
   }
 };

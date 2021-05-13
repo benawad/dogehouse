@@ -1,0 +1,9 @@
+{
+  "name": "@dogehouse/globalkey",
+  "version": "1.0.7",
+  "main": "dist/index.node",
+  "types": "index.d.ts",
+  "repository": "https://github.com/willdoescode/globalkey.git",
+  "author": "Will Lane <williamlane923@gmail.com>",
+  "license": "MIT"
+}

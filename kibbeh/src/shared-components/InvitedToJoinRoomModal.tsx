@@ -77,7 +77,7 @@ export const InvitedToJoinRoomModal: React.FC<Props> = () => {
                 </div>
               </div>
             </div>
-            <div className={`flex mt-4`}>
+            <div className={`mt-4`}>
               {options.type === "someone_you_follow_created_a_room"
                 ? t("components.modals.invitedToJoinRoomModal.justStarted")
                 : t(

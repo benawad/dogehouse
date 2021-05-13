@@ -12,12 +12,13 @@ defmodule Kousa do
       # top-level supervisor for UserSession group
       Onion.Supervisors.UserSession,
       Onion.Supervisors.RoomSession,
-      Onion.Supervisors.RoomChat,
+      Onion.Supervisors.Chat,
       Onion.Supervisors.VoiceRabbit,
       Onion.Supervisors.VoiceOnlineRabbit,
       Onion.BotAuthRateLimit,
       Onion.StatsCache,
       {Beef.Repo, []},
+      {Phoenix.PubSub, name: Onion.PubSub},
       Onion.Telemetry,
       Plug.Cowboy.child_spec(
         scheme: :http,
@@ -59,7 +60,9 @@ defmodule Kousa do
     Enum.each(Beef.Rooms.all_rooms(), fn room ->
       Onion.RoomSession.start_supervised(
         room_id: room.id,
-        voice_server_id: room.voiceServerId
+        voice_server_id: room.voiceServerId,
+        chat_mode: room.chatMode,
+        room_creator_id: room.creatorId
       )
     end)
   end

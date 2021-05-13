@@ -8,6 +8,8 @@ import { useConn } from "../../shared-hooks/useConn";
 import { BoxedIcon } from "../../ui/BoxedIcon";
 import { RoomAvatar } from "../../ui/RoomAvatar";
 import { UserPreviewModalContext } from "./UserPreviewModalProvider";
+import { Emote } from "./chat/Emote";
+import { useScreenType } from "../../shared-hooks/useScreenType";
 
 export const useSplitUsersIntoSections = ({
   room,
@@ -20,6 +22,7 @@ export const useSplitUsersIntoSections = ({
   const { muted } = useMuteStore();
   const { deafened } = useDeafStore();
   const { setData } = useContext(UserPreviewModalContext);
+  const screenType = useScreenType();
   const speakers: React.ReactNode[] = [];
   const askingToSpeak: React.ReactNode[] = [];
   const listeners: React.ReactNode[] = [];
@@ -45,10 +48,10 @@ export const useSplitUsersIntoSections = ({
 
     if (isCreator || u.roomPermissions?.isMod) {
       flair = (
-        <img
-          src={isCreator ? `/emotes/coolhouse.png` : `/emotes/dogehouse.png`}
+        <Emote
+          emote={isCreator ? "coolhouse" : "dogehouse"}
           alt={isCreator ? `admin` : `mod`}
-          title={isCreator ? `Administrator` : `Moderator`}
+          title={isCreator ? `Admin` : `Mod`}
           style={{ marginLeft: 4 }}
           className={`w-3 h-3 ml-1`}
         />
@@ -65,6 +68,7 @@ export const useSplitUsersIntoSections = ({
         key={u.id}
         src={u.avatarUrl}
         username={u.username}
+        isBot={!!u.botOwnerId}
         activeSpeaker={
           canSpeak && !isMuted && !isDeafened && u.id in activeSpeakerMap
         }
@@ -79,11 +83,10 @@ export const useSplitUsersIntoSections = ({
     // }
   });
 
-  if (canIAskToSpeak) {
+  if (canIAskToSpeak && screenType !== "fullscreen") {
     speakers.push(
-      <div className={`flex justify-center`}>
+      <div key="megaphone" className={`flex justify-center`}>
         <BoxedIcon
-          key="megaphone"
           onClick={() => {
             modalConfirm("Would you like to ask to speak?", () => {
               wrap(conn).mutation.askToSpeak();

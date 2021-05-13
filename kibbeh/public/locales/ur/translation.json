@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "مزید لوڈ کریں",
     "loading": "لوڈ ہو رہا ہے",
@@ -34,13 +34,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "پابندی لگائیں" },
+    "admin": {
+      "ban": "پابندی لگائیں",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "وہ لوگ جنھیں آپ فالو کرتیں ہیں ور وو اس وقت نجی روم میں نہیں ہیں",
       "currentRoom": "موجودہ روم:",
-      "startPrivateRoom": "ان کے ساتھ ایک نجی روم شروع کریں"
+      "startPrivateRoom": "ان کے ساتھ ایک نجی روم شروع کریں",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "روم بنائیں",
       "refresh": "ریفریش",
@@ -73,7 +90,8 @@
       "soundSettings": "آواز کی ترتیبات پر جائیں",
       "deleteAccount": "اکاؤنٹ ہمیشہ کے لئے ڈیلیٹ کریں",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "افوہ! لگتا ہے کچھ پنگا ہوگیا۔",
@@ -90,7 +108,8 @@
     "searchUser": { "search": "تلاش کریں" },
     "soundEffectSettings": {
       "header": "آواز کی ترتیبات",
-      "title": "Sound Settings"
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "پروفائل میں ترمیم کریں",
@@ -102,14 +121,28 @@
       "copyProfileUrl": "کاپی پروفائل یو آر ایل",
       "urlCopied": "یو آر ایل کو کلپ بورڈ میں کاپی کیا گیا",
       "unfollow": "ان فالو کریں",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "آواز کی ترتیبات",
       "mic": "مائک:",
       "permissionError": "کوئی mics نہیں ملا ، آپ نے یا تو کسی نے پلگ ان نہیں لیا ہے یا اس ویب سائٹ کو اجازت نہیں دی ہے۔",
       "refresh": "مائک کی فہرست کو تازہ کریں",
-      "volume": "حجم:"
+      "volume": "حجم:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -122,6 +155,11 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -220,14 +258,23 @@
         "goBackToListener": "سننے والوں کے پاس واپس جائیں",
         "deleteMessage": "اس پیغام کو حذف کریں",
         "makeRoomCreator": "روم ایڈمن بنائیں",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "بولنے کی اجازت کی ضرورت ہے",
         "makePublic": "کمرے کو عوامی بنائیں",
         "makePrivate": "کمرے کو نجی بنائیں",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
       }
     },
     "followingOnline": {
@@ -256,7 +303,17 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -291,7 +348,13 @@
       "sendMessage": "پیغام بھیجو",
       "whisper": "سرگوشی",
       "welcomeMessage": "چیٹ میں خوش آمدید!",
-      "roomDescription": "کمرے کی تفصیل"
+      "roomDescription": "کمرے کی تفصیل",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",
