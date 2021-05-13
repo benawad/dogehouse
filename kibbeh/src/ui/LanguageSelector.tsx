@@ -120,15 +120,14 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
         }
       ></SettingsIcon>
     ));
-  }
+  };
+
+  
+  const [parsedOptions, setParsedOptions] = React.useState(getOptions(''));
 
   const parseOptions = (search: string) => {
     setParsedOptions(getOptions(search));
-  }
-
-  let [parsedOptions, setParsedOptions] = React.useState(getOptions(''));
-
-  
+  };
 
   return (
     <div
