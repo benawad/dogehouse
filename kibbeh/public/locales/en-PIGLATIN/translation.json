@@ -100,72 +100,72 @@
       "privacySettings": "Rivacy-pay Ettings-say"
     },
     "notFound": {
-      "whoopsError": "Whoops! This page got lost in conversation.",
-      "goHomeMessage": "Not to worry. You can",
-      "goHomeLinkText": "go home"
+      "whoopsError": "Hoops-way! his-tay age-ay ot-gay ost-lay n-iay onversation-cay.",
+      "goHomeMessage": "Ot-nay o-tay orry-way. ou-yay an-cay",
+      "goHomeLinkText": "o-gay ome-hay"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
+      "title": "Rivacy-pay Ettings-say",
+      "header": "Rivacy-pay Ettings-say",
       "whispers": {
-        "label": "Whispers",
-        "on": "On",
-        "off": "Off"
+        "label": "Hispers-way",
+        "on": "N-oay",
+        "off": "FF-oay"
       }
     },
     "room": {
-      "speakers": "Speakers",
-      "requestingToSpeak": "Requesting to Speak",
-      "listeners": "Listeners",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "speakers": "Peakers-say",
+      "requestingToSpeak": "Equesting-ray o-tay Peak-say",
+      "listeners": "Isteners-lay",
+      "allowAll": "Llow-lay ll-ay",
+      "allowAllConfirm": "Re-ay u-yay ure-say? His-tay ill-way low-alay l-alay {{count}} equesting-ray ers-usay o-tay eak-spay."
     },
     "searchUser": {
-      "search": "search..."
+      "search": "Earch-say..."
     },
     "soundEffectSettings": {
-      "title": "Sound Settings",
-      "header": "Sounds",
-      "playSound": "Play Sound"
+      "title": "Ound-say Ettings-say",
+      "header": "Ounds-say",
+      "playSound": "Lay-pay Ound-say"
     },
     "viewUser": {
-      "editProfile": "Edit Profile",
-      "followsYou": "Follows you",
-      "followers": "followers",
-      "following": "following",
-      "followHim": "Follow",
-      "unfollow": "Unfollow",
-      "followingHim": "Following",
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM",
-      "copyProfileUrl": "Copy Profile URL",
-      "urlCopied": "URL copied to clipboard",
-      "about": "About",
+      "editProfile": "Dit-eay Rofile-pay",
+      "followsYou": "Ollows-fay uo-yay",
+      "followers": "ollowers-fay",
+      "following": "ollowing-fay",
+      "followHim": "Ollow-fay",
+      "unfollow": "follow-unay",
+      "followingHim": "Ollowing-fay",
+      "block": "Lock-bay",
+      "unblock": "Block-unay",
+      "sendDM": "End-say DM-ay",
+      "copyProfileUrl": "Copy-cay rofile-pay URL-ay",
+      "urlCopied": "URL-ay opied-cay o-tay lipboard-cay",
+      "about": "Bout-ay",
       "aboutSuffix": "",
-      "bot": "Bot",
+      "bot": "Ot-bay",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips",
-        "admin": "Admin"
+        "about": "Bout-ay",
+        "rooms": "Ooms-ray",
+        "scheduled": "Cheduled-say",
+        "recorded": "Ecorded-ray",
+        "clips": "Lips-cay",
+        "admin": "Min-aday"
       }
     },
     "voiceSettings": {
-      "title": "Voice Settings",
-      "header": "Voice Settings",
-      "mic": "Mic:",
-      "permissionError": "No mics found, you either have none plugged in or haven't given this website permission.",
-      "refresh": "Refresh Mic List",
-      "volume": "Volume:"
+      "title": "Oice-vay Ettings-say",
+      "header": "Oice-vay Ettings-say",
+      "mic": "Ic-may:",
+      "permissionError": "O-nay ics-may ound-fay, u-oay ither-eay ave-hay one-nay ugged-play n-iay r-oay aven't-hay iven-gay his-tay ebsite-way ermission-pay.",
+      "refresh": "Efresh-ray ic-may ist-lay",
+      "volume": "Olume-vay:"
     },
     "overlaySettings": {
-      "header": "Overlay Settings",
+      "header": "Verlay-oay Ettings-say",
       "input": {
-        "errorMsg": "Please enter a valid app title",
-        "label": "App title"
+        "errorMsg": "Lease-pay ter-enay a lid-vay pp-ay itle-tay",
+        "label": "Pp-ay itle-tay"
       }
     }
   },
@@ -174,30 +174,30 @@
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
-      "header": "Banned Users",
-      "unban": "Unban",
-      "noBans": "No one has been banned yet"
+      "header": "Anned-bay Ers-usay",
+      "unban": "Ban-unay",
+      "noBans": "O0nay ne-oay as-hay een-bay anned-bay et-yayt"
     },
     "bottomVoiceControl": {
-      "leaveCurrentRoomBtn": "Leave Current Room",
-      "confirmLeaveRoom": "Are you sure you want to leave?",
-      "leave": "Leave",
-      "inviteUsersToRoomBtn": "Invite Users to Room",
-      "invite": "Invite",
-      "toggleMuteMicBtn": "Toggle Mute",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "mute": "Mute",
-      "unmute": "Unmute",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen",
-      "makeRoomPublicBtn": "Make Room Public!",
-      "settings": "Settings",
-      "speaker": "Speaker",
-      "listener": "Listener",
-      "chat": "Chat"
+      "leaveCurrentRoomBtn": "Eave-lay Urrent-lay Oom-ray",
+      "confirmLeaveRoom": "E-ray ou-yay ure-say ou-yay ant-way o-tay eave-lay?",
+      "leave": "Eave-lay",
+      "inviteUsersToRoomBtn": "Vite-inay Ers-usay o-tay oom-ray",
+      "invite": "Vite-inay",
+      "toggleMuteMicBtn": "Oggle-tay Ute-may",
+      "toggleDeafMicBtn": "Oggle-tay Eafen-day",
+      "mute": "Ute-may",
+      "unmute": "Mute-unay",
+      "deafen": "Eafen-day",
+      "undeafen": "Deafen-unay",
+      "makeRoomPublicBtn": "Ake-may Oom-ray Ublic-pay!",
+      "settings": "Ettings-say",
+      "speaker": "Eaker-pay",
+      "listener": "Istener-lay",
+      "chat": "Hat-cay"
     },
     "deviceNotSupported": {
-      "notSupported": "Your device is currently not supported. You can create an",
+      "notSupported": "Our-yay evice-day s-iay urrently-cay ot-nay upportedsay. ou-yay an-cay reate-cay n-ay",
       "linkText": "issue on GitHub",
       "addSupport": "and I will try adding support for your device."
     },
