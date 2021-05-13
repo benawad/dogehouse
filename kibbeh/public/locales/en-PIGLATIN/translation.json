@@ -198,106 +198,106 @@
     },
     "deviceNotSupported": {
       "notSupported": "Our-yay evice-day s-iay urrently-cay ot-nay upportedsay. ou-yay an-cay reate-cay n-ay",
-      "linkText": "issue on GitHub",
-      "addSupport": "and I will try adding support for your device."
+      "linkText": "sue-say n-oay It-gay-Ub-hay",
+      "addSupport": "d-anay I ill-way ry-tay ing-adday upport-say or-fay our-yay evice-day."
     },
     "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "people": "Eople-pay",
+      "online": "LINE-ONAY",
+      "noOnline": "Ou-yay ave-hay 0 riends-fay line-onay ight-ray ow-nay",
+      "showMore": "how-say ore-may"
     },
     "inviteButton": {
-      "invited": "Invited!",
-      "inviteToRoom": "Invite to room"
+      "invited": "Vited-inay!",
+      "inviteToRoom": "Vite-inay o-tay oom-ray"
     },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "Essages-may",
+      "showMore": "How-say Ore-may",
+      "noMessages": "O-nay ew-nay essages-may"
     },
     "micPermissionBanner": {
-      "permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
-      "dismiss": "Dismiss",
-      "tryAgain": "Try Again"
+      "permissionDenied": "Ermission-pay enied-day ying-tray o-tay ess-accay our-yay ic-may (ou-yay ay-may eed-nay o-tay o-gay to-inay rowser-bay ettings-say nd-ay eload-ray he-tay age-pay)",
+      "dismiss": "Ismiss-day",
+      "tryAgain": "Ry-tay Gain-ay"
     },
     "keyboardShortcuts": {
-      "setKeybind": "Set Keybind",
-      "listening": "Listening...",
-      "toggleMuteKeybind": "Toggle mute keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind",
-      "toggleOverlayKeybind": "Toggle overlay keybind",
-      "togglePushToTalkKeybind": "Toggle push-to-talk keybind"
+      "setKeybind": "Et-say Ebind-kay",
+      "listening": "Istening-lay...",
+      "toggleMuteKeybind": "Oggle-tay utemay eybind-kay",
+      "toggleDeafKeybind": "Oggle-tay eafen-day eybind-kay",
+      "toggleOverlayKeybind": "Oggle-tay Verlay-oay eybind-kay",
+      "togglePushToTalkKeybind": "Oggle-tay Ush-pay-O-tay-Alk-tay eybind-kay"
     },
     "userVolumeSlider": {
-      "noAudioMessage": "No audio consumer for some reason"
+      "noAudioMessage": "O-nay dio-auay onsumer-cay or-fay ome-say eason-ray"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore more rooms"
+      "upcomingRooms": "Coming-upay Ooms-ray",
+      "exploreMoreRooms": "Plore-exay ore-may ooms-ray"
     },
     "addToCalendar": {
-      "add": "Add to Calendar"
+      "add": "D-aday o-tay Alendar-cay"
     },
     "wsKilled": {
-      "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
-      "reconnect": "Reconnect"
+      "description": "Eb-wayOcket-say as-way illed-kay y-bay he-tay erver-say. His-tay Ally-usuay appens-hay hen-way ou-yay en-opay he-tay ebsite-way n-iay nother-ay ab-tay.",
+      "reconnect": "Econnect-ray"
     },
     "search": {
-      "placeholder": "Search for rooms, users or categories",
-      "placeholderShort": "Search"
+      "placeholder": "Earch-say or-fay ooms-ray, ers-usay or-ay ategories-cay",
+      "placeholderShort": "Earch-say"
     },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Rofile-pay",
+      "language": "Anguage-lay",
+      "reportABug": "Eport-ray A-ay ug-bay",
+      "useOldVersion": "Use d-olay ersion-vay",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Og-lay Ut-oay",
+        "modalSubtitle": "Re-ay ou-yay ure-say ou-yay ant-way o-tay ogout-lay?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "Ebug-day Audio",
+        "stopDebugger": "Top-say Ebugger-day"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Ownload-day Ap-pay"
     },
     "userBadges": {
-      "dhStaff": "DogeHouse Staff",
-      "dhContributor": "DogeHouse Contributor"
+      "dhStaff": "Oge-day-Ouse-hay Aff-stay",
+      "dhContributor": "Oge-day-Ouse-hay Ributor-contray"
     },
     "modals": {
       "createRoomModal": {
-        "subtitle": "Fill the following fields to start a new room",
-        "public": "Public",
-        "private": "Private",
-        "roomName": "Room name",
-        "roomDescription": "Room description",
-        "descriptionError": "Max length 500",
-        "nameError": "Must be between 2 to 60 characters long"
+        "subtitle": "Ill-fay he-tay ollowing-fay ields-fay o-tay art-stay a-ay ew-nay oom-ray",
+        "public": "Ublic-pay",
+        "private": "Rivate-pay",
+        "roomName": "Oom-ray ame-nay",
+        "roomDescription": "Oom-ray escription-day",
+        "descriptionError": "Ax-may Ength-lay 500",
+        "nameError": "Ust-may e-bay etween-bay 2 o-tay 60 aracters-chay ong-lay"
       },
       "invitedToJoinRoomModal": {
-        "newRoomCreated": "New Room Created",
-        "roomInviteFrom": "Room Invite from",
-        "justStarted": "They just started",
-        "likeToJoin": ", would you like to join?",
-        "inviteReceived": "you've been invited to"
+        "newRoomCreated": "Ew-nay Oom-ray Reated-cay",
+        "roomInviteFrom": "Oom-ray Vite-inay Rom-fay",
+        "justStarted": "Hey-tay ust-jay arted-stay",
+        "likeToJoin": ", Ould-way ou-yay ike-lay o-tay oin-jay?",
+        "inviteReceived": "Ou've-yay een-bay vited-inay o-tay"
       },
       "editProfileModal": {
-        "usernameTaken": "Username taken",
-        "avatarUrlError": "Invalid image",
-        "avatarUrlLabel": "Github/Twitter/Discord avatar URL",
-        "bannerUrlLabel": "Twitter banner URL",
-        "displayNameError": "Length 2 to 50 characters",
-        "displayNameLabel": "Display Name",
+        "usernameTaken": "Ername-usay Aken-tay",
+        "avatarUrlError": "Valid-inay age-imay",
+        "avatarUrlLabel": "It-gay-Ub-hay/Witter-tay/Iscord-day atar-avay URL-ay",
+        "bannerUrlLabel": "Witter-ay anner-bay URL-ay",
+        "displayNameError": "Ength-lay 2 o-tay 50 aracters-chay",
+        "displayNameLabel": "Isplay-day Ame-nay",
         "usernameError": "Length 4 to 15 characters and only alphanumeric/underscore",
-        "usernameLabel": "Username",
-        "bioError": "Max length of 160 characters",
-        "bioLabel": "Bio"
+        "usernameLabel": "Ername-usay",
+        "bioError": "Ax-may ength-lay f-oay 160 aracters-chay",
+        "bioLabel": "Io-bay"
       },
       "profileModal": {
-        "blockUserConfirm": "Are you sure you want to block this user from joining any room you ever create?",
-        "blockUser": "Block user",
+        "blockUserConfirm": "Re-ay ou-yay ure-say ou-yay ant-way o-tay lock-bay his-tay er-usay rom-fay oining-jay ny-ay oom-ray ou-yay ver-eay reate-cay?",
+        "blockUser": "Lock-bay er-say",
         "makeMod": "Promote to Mod",
         "unmod": "Demote from Mod",
         "addAsSpeaker": "Add as Speaker",
