@@ -14,6 +14,9 @@ The code of conduct is described in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 ## Our Development Process
 All changes happen through pull requests. Pull requests are the best way to propose changes. We actively welcome your pull requests and invite you to submit pull requests directly [here](https://github.com/benawad/dogehouse/pulls), and after review, these can be merged into the project.
 
+## Programming
+Please try to use the languages that are mainly used in the dodgehouse github repository.(Typescript, Exlixer, HTML, Javascript, Java, and Objective-C)
+
 ## Using the Project's Standard Commit Messages
 This project is using the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) standard. Please follow these steps to ensure your
 commit messages are standardized:
