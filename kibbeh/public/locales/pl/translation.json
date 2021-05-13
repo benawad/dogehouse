@@ -128,7 +128,8 @@
         "rooms": "Pokoje",
         "scheduled": "Zaplanowane",
         "recorded": "Nagrane",
-        "clips": "Klipy"
+        "clips": "Klipy",
+        "admin": "Admin"
       },
       "block": "Zablokuj",
       "unblock": "Odblokuj",

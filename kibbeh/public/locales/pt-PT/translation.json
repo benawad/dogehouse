@@ -127,7 +127,8 @@
         "rooms": "Rooms",
         "scheduled": "Programado",
         "recorded": "Gravado",
-        "clips": "Clips"
+        "clips": "Clips",
+        "admin": "Admin"
       },
       "block": "Bloquear",
       "unblock": "Desbloquear",

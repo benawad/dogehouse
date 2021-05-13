@@ -127,7 +127,8 @@
         "rooms": "Szobák",
         "scheduled": "Ütemzett",
         "recorded": "Felvett",
-        "clips": "Klippek"
+        "clips": "Klippek",
+        "admin": "Admin"
       },
       "block": "Leiltás",
       "unblock": "Tiltás feloldása",
