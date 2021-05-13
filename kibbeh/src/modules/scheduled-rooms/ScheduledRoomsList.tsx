@@ -19,20 +19,20 @@ const Page = ({
   cursor,
   isLastPage,
   isOnlyPage,
-  getOnlyMyScheduledRooms,
+  userId,
   onEdit,
 }: {
   onEdit: (sr: { scheduleRoomToEdit: ScheduledRoom; cursor: string }) => void;
-  getOnlyMyScheduledRooms: boolean;
+  userId: string;
   cursor: string;
   isLastPage: boolean;
   isOnlyPage: boolean;
   onLoadMore: (o: string) => void;
 }) => {
   const { isLoading, data } = useTypeSafeQuery(
-    ["getScheduledRooms", cursor, getOnlyMyScheduledRooms],
+    ["getScheduledRooms", cursor, "all", userId],
     { staleTime: Infinity, refetchOnMount: "always" },
-    [cursor, getOnlyMyScheduledRooms]
+    [cursor, "all", userId]
   );
   const update = useTypeSafeUpdateQuery();
   const { t } = useTypeSafeTranslation();
@@ -45,7 +45,7 @@ const Page = ({
     return null;
   }
 
-  if (isOnlyPage && data.scheduledRooms.length === 0) {
+  if (isOnlyPage && data.rooms.length === 0) {
     return (
       <div className={`mt-8 text-xl ml-4`}>
         {t("modules.scheduledRooms.noneFound")}
@@ -55,21 +55,16 @@ const Page = ({
 
   return (
     <div className={`${isLastPage ? "mb-24" : ""}`}>
-      {data.scheduledRooms.map((r) => (
+      {data.rooms.map((r) => (
         <div className={`mt-4`} key={r.id}>
           <ScheduledRoomCard
             onDeleteComplete={() => {
-              update(
-                ["getScheduledRooms", cursor, getOnlyMyScheduledRooms],
-                (d) => {
-                  return {
-                    scheduledRooms: (d?.scheduledRooms || []).filter(
-                      (x) => x.id !== r.id
-                    ),
-                    nextCursor: d?.nextCursor,
-                  };
-                }
-              );
+              update(["getScheduledRooms", cursor, "all", userId], (d) => {
+                return {
+                  rooms: (d?.rooms || []).filter((x) => x.id !== r.id),
+                  nextCursor: d?.nextCursor,
+                };
+              });
             }}
             onEdit={() => onEdit({ cursor, scheduleRoomToEdit: r })}
             info={r}
@@ -90,10 +85,10 @@ const Page = ({
 export const ScheduledRoomsList: React.FC<ScheduledRoomsListProps> = ({}) => {
   const { t } = useTypeSafeTranslation();
   const [open, setOpen] = useState(false);
-  const [{ cursors, getOnlyMyScheduledRooms }, setQueryState] = useState<{
+  const [{ cursors, userId }, setQueryState] = useState<{
     cursors: string[];
-    getOnlyMyScheduledRooms: boolean;
-  }>({ cursors: [""], getOnlyMyScheduledRooms: false });
+    userId: string;
+  }>({ cursors: [""], userId: "" });
   const update = useTypeSafeUpdateQuery();
   const conn = useConn();
 
@@ -102,9 +97,9 @@ export const ScheduledRoomsList: React.FC<ScheduledRoomsListProps> = ({}) => {
       {open ? (
         <CreateScheduleRoomModal
           onScheduledRoom={(data, resp) => {
-            update(["getScheduledRooms", "", getOnlyMyScheduledRooms], (d) => {
+            update(["getScheduledRooms", "", "all", userId], (d) => {
               return {
-                scheduledRooms: [
+                rooms: [
                   {
                     roomId: null,
                     creator: conn.user!,
@@ -115,7 +110,7 @@ export const ScheduledRoomsList: React.FC<ScheduledRoomsListProps> = ({}) => {
                     numAttending: 0,
                     scheduledFor: data.scheduledFor.toISOString(),
                   },
-                  ...(d?.scheduledRooms || []),
+                  ...(d?.rooms || []),
                 ],
                 nextCursor: d?.nextCursor,
               };
@@ -137,34 +132,31 @@ export const ScheduledRoomsList: React.FC<ScheduledRoomsListProps> = ({}) => {
       >
         <EditScheduleRoomModalController
           onScheduledRoom={(editInfo, data, _resp) => {
-            update(
-              ["getScheduledRooms", editInfo.cursor, getOnlyMyScheduledRooms],
-              (d) => {
-                return {
-                  scheduledRooms: (d?.scheduledRooms || []).map((x) =>
-                    x.id === editInfo.scheduleRoomToEdit.id
-                      ? {
-                          ...x,
-                          name: data.name,
-                          description: data.description,
-                          scheduledFor: data.scheduledFor.toISOString(),
-                        }
-                      : x
-                  ),
-                  nextCursor: d?.nextCursor,
-                };
-              }
-            );
+            update(["getScheduledRooms", editInfo.cursor, userId], (d) => {
+              return {
+                rooms: (d?.rooms || []).map((x) =>
+                  x.id === editInfo.scheduleRoomToEdit.id
+                    ? {
+                        ...x,
+                        name: data.name,
+                        description: data.description,
+                        scheduledFor: data.scheduledFor.toISOString(),
+                      }
+                    : x
+                ),
+                nextCursor: d?.nextCursor,
+              };
+            });
           }}
         >
           {({ onEdit }) =>
             cursors.map((cursor, i) => (
               <Page
-                getOnlyMyScheduledRooms={getOnlyMyScheduledRooms}
+                userId={userId}
                 onLoadMore={(o) =>
                   setQueryState({
                     cursors: [...cursors, o],
-                    getOnlyMyScheduledRooms,
+                    userId,
                   })
                 }
                 onEdit={onEdit}

@@ -130,7 +130,8 @@
         "rooms": "Rooms",
         "scheduled": "Scheduled",
         "recorded": "Recorded",
-        "clips": "Clips"
+        "clips": "Clips",
+        "admin": "Admin"
       },
       "block": "Block",
       "unblock": "Unblock",

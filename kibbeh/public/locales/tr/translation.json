@@ -127,7 +127,8 @@
         "rooms": "Odalar",
         "scheduled": "Planlanmış",
         "recorded": "Kaydedildi",
-        "clips": "Klipler"
+        "clips": "Klipler",
+        "admin": "Admin"
       },
       "block": "Engelle",
       "unblock": "Engeli kaldır",
