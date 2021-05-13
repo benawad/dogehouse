@@ -41,7 +41,7 @@ defmodule Kousa.Auth do
         bot_owner_id: user.botOwnerId
       )
 
-      # TODO: Check the error being outputted by Argon2
+      # TODO: Check in the unlikely case that the ip is nil
       with {:error, _} <- Hash.check_hash(user, ip) do
         with hash <- Kousa.Utils.Hash.hash_ip(ip) do
           Beef.Users.set_ip(user.id, hash)

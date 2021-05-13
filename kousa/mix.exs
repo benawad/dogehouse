@@ -35,7 +35,6 @@ defmodule Kousa.MixProject do
   defp deps do
     [
       {:amqp, "~> 2.1"},
-      {:argon2_elixir, "~> 2.0"},
       {:plug_cowboy, "~> 2.5"},
       {:phoenix_pubsub, "~> 2.0.0"},
       {:ecto_sql, "~> 3.0"},

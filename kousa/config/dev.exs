@@ -31,6 +31,8 @@ config :kousa,
   api_url: System.get_env("API_URL") || "http://localhost:4001",
   secret_key_base:
     "213lo12j3kl21j3kl21alaksjdklasjdklajsldjsaldjlasdlaksjdklasjdklajsldjsaldjlasdlaksjdklasjdklajsldjsaldjlasdadjlasjddlkijoqwijdoqwjd12loki3jhl12jelk12jekl1221099dj120",
+  ip_hashing_key:
+    "#@F$I(H(#U$GHI(UD(HQ)SJDJD@!)HI@#HNICHasudaSDhuihansdAWUdasIDHAIWHDao;sdhuasDASdfsadfASEF@#GTJ6HF$#tG$HHgF#$Gh45JHEDfGeH#4qGEGQ#$T34yq34TQ#4T3)!!@#T2#WF#!BfGH5GsDFaG4GAdFW$TY^$^UgFAWe3FAWDf)",
   env: :dev,
   ben_github_id:
     System.get_env("BEN_GITHUB_ID") ||

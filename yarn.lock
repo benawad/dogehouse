@@ -1922,6 +1922,7 @@ __metadata:
     autoprefixer: ^10.2.5
     babel-jest: ^26.6.3
     babel-loader: ^8.2.2
+    bufferutil: ^4.0.3
     cross-env: ^7.0.3
     css-loader: ^5.2.4
     cypress: ^7.2.0
@@ -1944,7 +1945,7 @@ __metadata:
     lodash: ^4.17.21
     mediasoup-client: ^3.6.30
     mutationobserver-shim: ^0.3.7
-    next: ^10.2.0
+    next: 10.2.0
     next-transpile-modules: ^7.0.0
     normalize-url: 4
     nprogress: ^0.2.0
@@ -1978,6 +1979,7 @@ __metadata:
     twemoji-parser: ^13.0.0
     typescript: 4.2.4
     use-debounce: ^6.0.1
+    utf-8-validate: ^5.0.5
     uuid: ^8.3.2
     wakelock-lazy-polyfill: ^1.0.0
     zustand: ^3.4.2
@@ -6382,6 +6384,16 @@ __metadata:
     ieee754: ^1.1.4
     isarray: ^1.0.0
   checksum: e29ecda22aa854008e26a8df294be1e5339a3bec8cbf537a794fecf63a024da68165743bc9afb1524909c74d8b03392e93a9c8fa5c2b064b1b2a52d4680c204e
+  languageName: node
+  linkType: hard
+
+"bufferutil@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "bufferutil@npm:4.0.3"
+  dependencies:
+    node-gyp: latest
+    node-gyp-build: ^4.2.0
+  checksum: 38ffbf450e071e2fc2a1ba2e353d5602749e74fcc0a302322c331a68d089c5bfcfb7b71dbc7fa07cbf08c15eb94128e5478ba8392a7a3691fd3277ef2c61665c
   languageName: node
   linkType: hard
 
@@ -14053,7 +14065,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"next@npm:^10.2.0":
+"next@npm:10.2.0":
   version: 10.2.0
   resolution: "next@npm:10.2.0"
   dependencies:
@@ -14165,6 +14177,17 @@ fsevents@^1.2.7:
   version: 2.6.1
   resolution: "node-fetch@npm:2.6.1"
   checksum: cbb171635e538162b977eac5dfe7a1e07a9a02e991924377a6435502291e2f823d306b95aabc455caebf4a118ccf836868462bc70ccc3095af02bb9da61fda37
+  languageName: node
+  linkType: hard
+
+"node-gyp-build@npm:^4.2.0":
+  version: 4.2.3
+  resolution: "node-gyp-build@npm:4.2.3"
+  bin:
+    node-gyp-build: bin.js
+    node-gyp-build-optional: optional.js
+    node-gyp-build-test: build-test.js
+  checksum: 8512c25498b1605dbe9d2605cac7f8996d18c35097b3079b232674b0f3b8f1559be6f531ec3a00a94f90a0a69ccc452edb62f8f6dfff8caa3abe4b729cc21b06
   languageName: node
   linkType: hard
 
@@ -19454,6 +19477,16 @@ resolve@^2.0.0-next.3:
   version: 3.1.1
   resolution: "use@npm:3.1.1"
   checksum: 8dd3bdeeda53864c779e0fa8d799064739708f80b45d06fa48a1a6ba192dc3f9e3266d4556f223cd718d27aedfd957922152e7463c00ac46e185f8331353fb6f
+  languageName: node
+  linkType: hard
+
+"utf-8-validate@npm:^5.0.5":
+  version: 5.0.5
+  resolution: "utf-8-validate@npm:5.0.5"
+  dependencies:
+    node-gyp: latest
+    node-gyp-build: ^4.2.0
+  checksum: 020dacd9ac655ea114810f6025347bfbf48656ec4b363da6029779274d7f2b0f829717acb7f35dd4bf59ec12c62ace18fa213997ecbd5f43388684331fc862b0
   languageName: node
   linkType: hard
 

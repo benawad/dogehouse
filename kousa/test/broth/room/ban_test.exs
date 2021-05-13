@@ -78,7 +78,7 @@ defmodule BrothTest.Room.BanTest do
       assert Beef.RoomBlocks.blocked?(room_id, blocked_id)
       also_blocked = Factory.create(User)
       WsClientFactory.create_client_for(also_blocked)
-      assert Beef.RoomBlocks.blocked?(room_id, also_blocked.id)
+      assert not Beef.RoomBlocks.blocked?(room_id, also_blocked.id)
     end
 
     test "block then block person's ip from a room", t do
@@ -108,9 +108,9 @@ defmodule BrothTest.Room.BanTest do
       )
 
       assert Beef.RoomBlocks.blocked?(room_id, blocked_id)
-      also_blocked = Factory.create(User)
-      WsClientFactory.create_client_for(also_blocked)
-      assert Beef.RoomBlocks.blocked?(room_id, also_blocked.id)
+      not_blocked = Factory.create(User)
+      WsClientFactory.create_client_for(not_blocked)
+      assert not Beef.RoomBlocks.blocked?(room_id, not_blocked.id)
     end
   end
 end

@@ -1,13 +1,21 @@
 defmodule Kousa.Utils.Hash do
   alias Argon2
+  alias IO
 
-  @type hash_result :: String.t() | :error
+  @type hash_result :: String.t() | {:error, String.t()}
 
   @type hash_check :: {:ok, hash_result} | {:error, String.t()}
 
   @spec hash_ip(String.t()) :: hash_result
   def hash_ip(ip) do
-    Argon2.hash_pwd_salt(ip)
+    if is_nil(ip) do
+      {:error, "ip is nil"}
+    else
+      # Should we refactor this so we don't pipe a function call?
+      # Encodes Hash into Base16
+      :crypto.mac(:hmac, :sha256, Application.fetch_env!(:kousa, :ip_hashing_key_base), ip)
+      |> Base.encode16()
+    end
   end
 
   @spec check_hash(Kousa.User, String.t()) :: hash_check
@@ -15,7 +23,7 @@ defmodule Kousa.Utils.Hash do
     if is_nil(account.ip) do
       {:error, "no ip was stored in database"}
     else
-      matched = Argon2.verify_pass(ip, account.ip)
+      matched = Plug.Crypto.secure_compare(ip, account.ip)
 
       if matched do
         {:ok, ip}

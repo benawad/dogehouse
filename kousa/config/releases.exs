@@ -71,31 +71,36 @@ config :kousa,
   secret_key_base:
     System.get_env("SECRET_KEY_BASE") ||
       raise("""
-      environment variable SECRET_KEY_BASE is missing.
+        environment variable SECRET_KEY_BASE is missing.
+      """),
+  ip_hashing_key_base:
+    System.get_env("IP_HASHING_KEY_BASE") ||
+      raise("""
+        environment variable IP_HASHING_KEY_BASE is missing.
       """),
   ben_github_id:
     System.get_env("BEN_GITHUB_ID") ||
       raise("""
-      environment variable BEN_GITHUB_ID is missing.
+        environment variable BEN_GITHUB_ID is missing.
       """),
   rabbit_url:
     System.get_env("RABBITMQ_URL") ||
       raise("""
-      environment variable RABBITMQ_URL is missing.
+        environment variable RABBITMQ_URL is missing.
       """),
   web_url: System.get_env("WEB_URL") || "https://dogehouse.tv",
   api_url: System.get_env("API_URL") || "https://api.dogehouse.tv",
   access_token_secret:
     System.get_env("ACCESS_TOKEN_SECRET") ||
       raise("""
-      environment variable ACCESS_TOKEN_SECRET is missing.
-      type some random characters to create one
+        environment variable ACCESS_TOKEN_SECRET is missing.
+        type some random characters to create one
       """),
   refresh_token_secret:
     System.get_env("REFRESH_TOKEN_SECRET") ||
       raise("""
-      environment variable REFRESH_TOKEN_SECRET is missing.
-      type some random characters to create one
+        environment variable REFRESH_TOKEN_SECRET is missing.
+        type some random characters to create one
       """)
 
 if(System.get_env("SENTRY_DNS") != nil) do
@@ -106,7 +111,7 @@ config :sentry,
   dsn:
     System.get_env("SENTRY_DSN") || System.get_env("SENTRY_DNS") ||
       raise("""
-      environment variable SENTRY_DSN is missing.
+        environment variable SENTRY_DSN is missing.
       """),
   environment_name: :prod,
   enable_source_code_context: true,
@@ -124,20 +129,20 @@ config :extwitter, :oauth,
   consumer_key:
     System.get_env("TWITTER_API_KEY") ||
       raise("""
-      environment variable TWITTER_API_KEY is missing.
-      Create an oauth application on Twitter to get one
+        environment variable TWITTER_API_KEY is missing.
+        Create an oauth application on Twitter to get one
       """),
   consumer_secret:
     System.get_env("TWITTER_SECRET_KEY") ||
       raise("""
-      environment variable TWITTER_SECRET_KEY is missing.
-      Create an oauth application on Twitter to get one
+        environment variable TWITTER_SECRET_KEY is missing.
+        Create an oauth application on Twitter to get one
       """),
   access_token:
     System.get_env("TWITTER_BEARER_TOKEN") ||
       raise("""
-      environment variable TWITTER_BEARER_TOKEN is missing.
-      Create an oauth application on Twitter to get one
+        environment variable TWITTER_BEARER_TOKEN is missing.
+        Create an oauth application on Twitter to get one
       """),
   access_token_secret: ""
 

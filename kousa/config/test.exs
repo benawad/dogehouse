@@ -1,11 +1,12 @@
 import Config
 
 database_url =
-  System.get_env("DATABASE_URL") || "postgres://postgres:postgres@localhost/kousa_repo2_test"
+  System.get_env("DATABASE_URL") || "postgres://postgres:postgres@localhost/kousa_repo2"
 
 config :kousa, Beef.Repo,
   url: database_url,
-  pool: Ecto.Adapters.SQL.Sandbox
+  pool: Ecto.Adapters.SQL.Sandbox,
+  pool_size: 10
 
 config :logger, level: :error
 
@@ -20,6 +21,7 @@ config :kousa,
   api_url: System.get_env("API_URL") || "http://localhost:4001",
   access_token_secret: "thisistheaccesstokenfortest",
   refresh_token_secret: "thisistherefreshtokenfortest",
+  ip_hashing_key_base: "thisistheiphashingkeybasefortesting",
   ben_github_id: "notreallybensgithubid"
 
 config :kousa, websocket_auth_timeout: 50
