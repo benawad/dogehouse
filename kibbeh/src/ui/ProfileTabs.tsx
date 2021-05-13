@@ -95,7 +95,7 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
 
         <button
           className={`py-1 text-primary-100 text-base font-bold border-b-2 border-primary-900 transition hover:border-accent focus:outline-no-chrome
-               ${activeTab === "clips" && `border-accent text-accent`} ${
+               ${activeTab === "admin" && `border-accent text-accent`} ${
             conn.user.staff && conn.user.id !== user.id ? "" : "hidden"
           }`}
           onClick={() => setActiveTab("admin")}
