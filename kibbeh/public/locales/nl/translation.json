@@ -15,15 +15,15 @@
     "copied": "Gekopieerd",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Houd er rekening mee dat het uitvoeren van DogeHouse zonder de benodigde permissies ongewenste fouten kan veroorzaken"
+    "requestPermissions": "Hou er rekening mee dat het uitvoeren van DogeHouse zonder de benodigde permissies ongewenste fouten kan veroorzaken"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Gedempt | DogeHouse",
-    "deafenedTitle": "Niet hoorbaar | DogeHouse",
+    "mutedTitle": "Gemute | DogeHouse",
+    "deafenedTitle": "dedempt | DogeHouse",
     "dashboard": "Dashboard",
-    "connectionTaken": "Verbonden"
+    "connectionTaken": "Verbinding verloren"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -32,12 +32,12 @@
     "link_3": "Probleem melden"
   },
   "pages": {
-    "_comment": "Respective Page UI Internationalization Strings",
+    "_comment": "Respective Page UI Internationalization Strings.",
     "banUser": { "ban": "Verban" },
     "followingOnlineList": {
       "listHeader": "Lijst van gebruikers die je volgt en niet in een privékamer zijn.",
       "currentRoom": "Momenteel in:",
-      "startPrivateRoom": "Start een privékamer met deze persoon"
+      "startPrivateRoom": "Start een privékamer met deze persoon."
     },
     "followList": { "followHim": "Volg", "followingHim": "Volgend" },
     "home": {
@@ -47,13 +47,13 @@
       "desktopAlert": "Download de DogeHouse Bureaublad-app vandaag!"
     },
     "inviteList": {
-      "roomGone": "Kamer bestaat niet, ga terug",
-      "shareRoomLink": "Link van deze kamer delen",
+      "roomGone": "Kamer bestaat niet, ga terug.",
+      "shareRoomLink": "Deel de link van deze kamer.",
       "inviteFollowers": "Je kunt je volgers die online zijn uitnodigen:",
       "whenFollowersOnline": "Als je volgers online zijn zullen ze hier verschijnen."
     },
     "login": {
-      "headerText": "Wij brengen gesprekken naar de maan! 🚀",
+      "headerText": "Wij brengen audio-gesprekken naar de maan! 🚀",
       "featureText_1": "Donkere modus",
       "featureText_2": "Open registraties",
       "featureText_3": "Platformoverschrijdend",
@@ -68,15 +68,15 @@
     "myProfile": {
       "logout": "Afmelden",
       "probablyLoading": "Waarschijnlijk aan het laden...",
-      "voiceSettings": "Ga naar spraakinstellingen",
-      "soundSettings": "Ga naar geluidsinstellingen",
-      "deleteAccount": "Verwijder account",
-      "overlaySettings": "Ga naar overlay-instellingen",
-      "couldNotFindUser": "Sorry, die gebruiker kon niet gevonden worden"
+      "voiceSettings": "Ga naar spraak-instellingen.",
+      "soundSettings": "Ga naar geluids-instellingen.",
+      "deleteAccount": "Verwijder account.",
+      "overlaySettings": "Ga naar overlay-instellingen.",
+      "couldNotFindUser": "Sorry, die gebruiker kon niet gevonden worden."
     },
     "notFound": {
       "whoopsError": "Oeps! Deze pagina is verloren gegaan tijdens het gesprek.",
-      "goHomeMessage": "Maak je geen zorgen. Je kan",
+      "goHomeMessage": "Maak je geen zorgen. Je kan naar de homePagina gaan",
       "goHomeLinkText": "terug naar de homepagina"
     },
     "room": {
