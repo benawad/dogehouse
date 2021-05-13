@@ -99,7 +99,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   const { back } = useRouter();
 
   const getOptions = (search: string) => {
-    return options.filter(v => v.label.startsWith(search)).map((e, i) => (
+    return options.filter(v => v.label.toLowerCase().startsWith(search.toLowerCase())).map((e, i) => (
       <SettingsIcon
         key={e.value + i}
         classes={`text-primary-100 focus:outline-no-chrome whitespace-nowrap overflow-ellipsis${
