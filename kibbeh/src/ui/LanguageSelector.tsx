@@ -128,8 +128,6 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     setParsedOptions(getOptions(search));
   };
 
-  
-
   return (
     <div
       className={`flex h-full w-full ${
