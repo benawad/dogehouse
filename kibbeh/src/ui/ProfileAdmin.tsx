@@ -44,7 +44,7 @@ export const ProfileAdmin: React.FC<ProfileAdminProps> = ({
             className="ml-4"
             onClick={() => {
               wrapper.mutation.userAdminUpdate(user.username, {
-                contributions: contributions,
+                contributions,
               });
             }}
           >
