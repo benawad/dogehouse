@@ -97,9 +97,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 
   const { i18n } = useTranslation();
   const { back } = useRouter();
-  let [parsedOptions, setParsedOptions] = React.useState(getOptions(''));
 
-  function getOptions(search: string) {
+  const getOptions = (search: string) => {
     return options.filter(v => v.label.startsWith(search)).map((e, i) => (
       <SettingsIcon
         key={e.value + i}
@@ -123,9 +122,13 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     ));
   }
 
-  function parseOptions(search: string) {
+  const parseOptions = (search: string) => {
     setParsedOptions(getOptions(search));
   }
+
+  let [parsedOptions, setParsedOptions] = React.useState(getOptions(''));
+
+  
 
   return (
     <div
@@ -158,10 +161,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
           className="block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700 overflow-x-hidden mb-9 md:pb-0"
           style={{ height: mobile ? "auto" : "calc(100% - 40px)" }}
         >
-          <div className="block">
-            
-            {parsedOptions}
-          </div>
+          <div className="block">{parsedOptions}</div>
         </div>
       </div>
     </div>
