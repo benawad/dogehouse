@@ -1,10 +1,8 @@
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useRef } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { useMuteStore } from "../../global-stores/useMuteStore";
-import { useDeafStore } from "../../global-stores/useDeafStore";
 import { WebSocketContext } from "../ws/WebSocketProvider";
-import { ActiveSpeakerListener } from "./components/ActiveSpeakerListener";
+import { closeVoiceConnections } from "./closeVoiceConnections";
 import { AudioRender } from "./components/AudioRender";
 import { useMicIdStore } from "./stores/useMicIdStore";
 import { useVoiceStore } from "./stores/useVoiceStore";
@@ -15,19 +13,6 @@ import { receiveVoice } from "./utils/receiveVoice";
 import { sendVoice } from "./utils/sendVoice";
 
 interface App2Props {}
-
-export function closeVoiceConnections(_roomId: string | null) {
-  const { roomId, mic, nullify } = useVoiceStore.getState();
-  if (_roomId === null || _roomId === roomId) {
-    if (mic) {
-      console.log("stopping mic");
-      mic.stop();
-    }
-
-    console.log("nulling transports");
-    nullify();
-  }
-}
 
 export const WebRtcApp: React.FC<App2Props> = () => {
   const { conn } = useContext(WebSocketContext);
@@ -67,17 +52,6 @@ export const WebRtcApp: React.FC<App2Props> = () => {
     }
 
     const unsubs = [
-      conn.addListener<any>("you_left_room", (d) => {
-        if (d.kicked) {
-          const { currentRoomId } = useCurrentRoomIdStore.getState();
-          if (currentRoomId !== d.roomId) {
-            return;
-          }
-          setCurrentRoomId(null);
-          closeVoiceConnections(d.roomId);
-          push("/dash");
-        }
-      }),
       conn.addListener<any>("new-peer-speaker", async (d) => {
         const { roomId, recvTransport } = useVoiceStore.getState();
         if (recvTransport && roomId === d.roomId) {

@@ -208,7 +208,7 @@ defmodule Onion.RoomSession do
     cast(room_id, {:add_speaker, user_id, muted?, deafened?})
   end
 
-  def add_speaker_impl(user_id, muted?, deafened?, state) do
+  def add_speaker_impl(user_id, muted?, deafened?, %State{} = state) do
     new_mm =
       if muted?,
         do: Map.put(state.muteMap, user_id, true),
@@ -220,11 +220,16 @@ defmodule Onion.RoomSession do
         else: Map.delete(state.deafMap, user_id)
       )
 
-    Onion.VoiceRabbit.send(state.voice_server_id, %{
-      op: "add-speaker",
-      d: %{roomId: state.room_id, peerId: user_id},
-      uid: user_id
-    })
+    if state.voice_server_id === "elixir" do
+      new_speaker_pid = Onion.UserSession.get(user_id, :pid)
+      Onion.AudioPipeline.convert_to_speaker(state.room_id, new_speaker_pid, :speaker, user_id)
+    else
+      Onion.VoiceRabbit.send(state.voice_server_id, %{
+        op: "add-speaker",
+        d: %{roomId: state.room_id, peerId: user_id},
+        uid: user_id
+      })
+    end
 
     ws_fan(state.users, %{
       op: "speaker_added",

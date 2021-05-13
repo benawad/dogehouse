@@ -27,6 +27,7 @@ defmodule Onion.AudioPipeline do
     end
   end
 
+  @spec lookup_or_start(binary) :: any
   def lookup_or_start(room_id) do
     case lookup(room_id) do
       nil -> start(room_id)
@@ -65,7 +66,8 @@ defmodule Onion.AudioPipeline do
        room_id: room_id,
        endpoints: %{},
        max_display_num: max_display_num,
-       peer_type: :speaker
+       peer_type: :speaker,
+       user_id: nil
      }}
   end
 
@@ -75,68 +77,104 @@ defmodule Onion.AudioPipeline do
     end
   end
 
+  def convert_to_speaker(room_id, peer_pid, peer_type, user_id) do
+    send_to_room(room_id, {:convert_to_speaker, peer_pid, peer_type, user_id})
+  end
+
   def signal(room_id, peer_pid, msg) do
     send_to_room(room_id, {:signal, peer_pid, msg})
   end
 
-  @spec new_peer(Ecto.UUID.t(), pid(), :speaker | :listener) :: nil
-  def new_peer(room_id, peer_pid, peer_type) do
-    send_to_room(room_id, {:new_peer, peer_pid, peer_type})
+  def remove_peer(room_id, peer_pid) do
+    send_to_room(room_id, {:remove_peer, peer_pid})
+  end
+
+  @spec new_peer(Ecto.UUID.t(), pid(), :speaker | :listener, Ecto.UUID.t()) :: nil
+  def new_peer(room_id, peer_pid, peer_type, user_id) do
+    send_to_room(room_id, {:new_peer, peer_pid, peer_type, user_id})
+  end
+
+  def new_peer_impl({peer_pid, peer_type, user_id}, ctx, state) do
+    Membrane.Logger.info("New peer #{inspect(peer_pid)}")
+    Process.monitor(peer_pid)
+
+    # tracks = if(peer_type === :speaker, do: new_tracks(), else: [])
+    tracks = if(peer_type === :speaker, do: new_tracks(), else: [])
+
+    endpoint = Endpoint.new(peer_pid, :participant, tracks, %{})
+
+    endpoint_bin = {:endpoint, peer_pid}
+
+    children = %{
+      endpoint_bin => %EndpointBin{
+        outbound_tracks: get_all_tracks(state.endpoints),
+        inbound_tracks: tracks,
+        # I'm pretty sure this google
+        stun_servers: [%{server_addr: {64, 233, 163, 127}, server_port: 19302}],
+        turn_servers: [],
+        handshake_opts: [
+          client_mode: false,
+          dtls_srtp: true,
+          pkey: Application.get_env(:kousa, :dtls_pkey),
+          cert: Application.get_env(:kousa, :dtls_cert)
+        ],
+        # TODO: change peer_pid to something that will easier identify peer when we introduce
+        # participants labelling
+        log_metadata: [peer: peer_pid]
+      }
+    }
+
+    # @todo hard coded :speaker
+    links = new_peer_links(:speaker, endpoint_bin, ctx, state)
+
+    tracks_msgs =
+      if peer_type == :speaker do
+        []
+      else
+        flat_map_children(ctx, fn
+          # {:endpoint, other_peer_pid} = endpoint_bin
+          # when other_peer_pid != state.active_screensharing ->
+          #   [forward: {endpoint_bin, {:add_tracks, tracks}}]
+          endpoint_bin ->
+            [forward: {endpoint_bin, {:add_tracks, tracks}}]
+        end)
+      end
+
+    spec = %ParentSpec{children: children, links: links}
+
+    state = put_in(state.endpoints[peer_pid], endpoint)
+    {{:ok, [spec: spec] ++ tracks_msgs}, %{state | peer_type: peer_type, user_id: user_id}}
   end
 
   @impl true
-  def handle_other({:new_peer, peer_pid, peer_type}, ctx, state) do
+  def handle_other({:new_peer, peer_pid, peer_type, user_id}, ctx, state) do
     if Map.has_key?(ctx.children, {:endpoint, peer_pid}) do
       Membrane.Logger.warn("Peer already connected, ignoring")
       {:ok, state}
     else
-      Membrane.Logger.info("New peer #{inspect(peer_pid)}")
-      Process.monitor(peer_pid)
+      new_peer_impl({peer_pid, peer_type, user_id}, ctx, state)
+    end
+  end
 
-      tracks = new_tracks()
+  @impl true
+  def handle_other({:convert_to_speaker, peer_pid, peer_type, user_id}, ctx, state) do
+    endpoint = Map.get(state.endpoints, peer_pid)
 
-      endpoint = Endpoint.new(peer_pid, :participant, tracks, %{})
-
-      endpoint_bin = {:endpoint, peer_pid}
-
-      children = %{
-        endpoint_bin => %EndpointBin{
-          outbound_tracks: get_all_tracks(state.endpoints),
-          inbound_tracks: tracks,
-          # I'm pretty sure this google
-          stun_servers: [%{server_addr: {64, 233, 163, 127}, server_port: 19302}],
-          turn_servers: [],
-          handshake_opts: [
-            client_mode: false,
-            dtls_srtp: true,
-            pkey: Application.get_env(:kousa, :dtls_pkey),
-            cert: Application.get_env(:kousa, :dtls_cert)
-          ],
-          # TODO: change peer_pid to something that will easier identify peer when we introduce
-          # participants labelling
-          log_metadata: [peer: peer_pid]
-        }
-      }
-
-      # @todo hard coded :speaker
-      links = new_peer_links(:speaker, endpoint_bin, ctx, state)
+    if is_nil(endpoint) do
+      new_peer_impl({peer_pid, peer_type, user_id}, ctx, state)
+    else
+      tracks = endpoint.inbound_tracks
 
       tracks_msgs =
         flat_map_children(ctx, fn
           # {:endpoint, other_peer_pid} = endpoint_bin
           # when other_peer_pid != state.active_screensharing ->
           #   [forward: {endpoint_bin, {:add_tracks, tracks}}]
-          endpoint_bin when peer_type == :speaker ->
+          endpoint_bin ->
             [forward: {endpoint_bin, {:add_tracks, tracks}}]
-
-          _ ->
-            []
         end)
 
-      spec = %ParentSpec{children: children, links: links}
-
-      state = put_in(state.endpoints[peer_pid], endpoint)
-      {{:ok, [spec: spec] ++ tracks_msgs}, %{state | peer_type: peer_type}}
+      {{:ok, tracks_msgs}, %{state | peer_type: :speaker}}
     end
   end
 
@@ -262,6 +300,7 @@ defmodule Onion.AudioPipeline do
     if endpoint == nil or endpoint.terminating? do
       {:absent, [], state}
     else
+      Membrane.Logger.info("Removing Peer #{inspect(peer_pid)}")
       {endpoint, state} = pop_in(state, [:endpoints, peer_pid])
       tracks = Enum.map(Endpoint.get_tracks(endpoint), &%Track{&1 | enabled?: false})
 

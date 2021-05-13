@@ -4,7 +4,7 @@ import { useAccountOverlay } from "../../../global-stores/useAccountOverlay";
 import { useCurrentRoomIdStore } from "../../../global-stores/useCurrentRoomIdStore";
 import { SolidMessages, SolidNotification, SolidSearch } from "../../../icons";
 import { useTokenStore } from "../../../modules/auth/useTokenStore";
-import { closeVoiceConnections } from "../../../modules/webrtc/WebRtcApp";
+import { closeVoiceConnections } from "../../../modules/webrtc/closeVoiceConnections";
 import { modalConfirm } from "../../../shared-components/ConfirmModal";
 import { useConn } from "../../../shared-hooks/useConn";
 import { DropdownController } from "../../DropdownController";

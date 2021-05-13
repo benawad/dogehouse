@@ -71,21 +71,28 @@ defmodule Kousa.Room do
   end
 
   defp internal_kick_from_room(user_id_to_kick, room_id) do
-    case UserSession.lookup(user_id_to_kick) do
-      [{_, _}] ->
-        ws_pid = UserSession.get(user_id_to_kick, :pid)
+    ws_pid =
+      case UserSession.lookup(user_id_to_kick) do
+        [{_, _}] ->
+          ws_pid = UserSession.get(user_id_to_kick, :pid)
 
-        if ws_pid do
-          SocketHandler.unsub(ws_pid, "chat:" <> room_id)
-        end
+          if ws_pid do
+            SocketHandler.unsub(ws_pid, "chat:" <> room_id)
+          end
 
-      _ ->
-        nil
-    end
+          ws_pid
+
+        _ ->
+          nil
+      end
 
     current_room_id = Beef.Users.get_current_room_id(user_id_to_kick)
 
     if current_room_id == room_id do
+      if ws_pid do
+        Onion.AudioPipeline.remove_peer(current_room_id, ws_pid)
+      end
+
       Rooms.kick_from_room(user_id_to_kick, current_room_id)
       Onion.RoomSession.kick_from_room(current_room_id, user_id_to_kick)
     end
@@ -388,8 +395,9 @@ defmodule Kousa.Room do
         else: "join-as-new-peer"
 
     if room.voiceServerId == "elixir" do
+      Onion.AudioPipeline.lookup_or_start(room.id)
       peer_type = if(speaker?, do: :speaker, else: :listener)
-      Onion.AudioPipeline.new_peer(room.id, self(), peer_type)
+      Onion.AudioPipeline.new_peer(room.id, self(), peer_type, user_id)
     else
       Onion.VoiceRabbit.send(room.voiceServerId, %{
         op: op,
@@ -570,6 +578,7 @@ defmodule Kousa.Room do
               nil
           end
 
+          Onion.AudioPipeline.remove_peer(current_room_id, self())
           Onion.RoomSession.leave_room(current_room_id, user_id)
       end
 

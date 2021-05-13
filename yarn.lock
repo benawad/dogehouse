@@ -8251,6 +8251,7 @@ __metadata:
     mediasoup-client: ^3.6.30
     mediasoup-client-aiortc: ^3.6.3
     ts-jest: ^26.5.5
+    webrtc-adapter: ^8.0.0
   languageName: unknown
   linkType: soft
 
@@ -17194,6 +17195,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"sdp@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "sdp@npm:3.0.2"
+  checksum: bc2a54189f710eb24d7997fb522f19d5c77865a0692b8cb105079fdfefdabffa056ba679431672f04b1b229ab73a45bccc1e59a230825bcc68b5c2f1151bddbb
+  languageName: node
+  linkType: hard
+
 "select@npm:^1.1.2":
   version: 1.1.2
   resolution: "select@npm:1.1.2"
@@ -19877,6 +19885,15 @@ resolve@^2.0.0-next.3:
   bin:
     webpack: bin/webpack.js
   checksum: 1e3bc97c01c19e96946be044cd9e323a476844b147c270185f7224bc8e0eda91946defbc120cb262f14e517e4c3071c6c90097e1a8b71a6a7afcacf37992763f
+  languageName: node
+  linkType: hard
+
+"webrtc-adapter@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "webrtc-adapter@npm:8.0.0"
+  dependencies:
+    sdp: ^3.0.2
+  checksum: d11911ebdd9a68bba09d5c28b44e4f24cc0498b15110f033b049342dd0cfde78bc52b138abd7fe7bd4fb962aa5562a5d9366d4e725271cde76665d27c493f0d5
   languageName: node
   linkType: hard
 

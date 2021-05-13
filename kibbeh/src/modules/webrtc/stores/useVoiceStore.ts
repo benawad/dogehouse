@@ -26,17 +26,25 @@ export const useVoiceStore = create(
       mic: null as MediaStreamTrack | null,
       recvTransport: null as Transport | null,
       sendTransport: null as Transport | null,
+      peerConn: null as RTCPeerConnection | null,
       device: getDevice(),
     },
     (set) => ({
-      nullify: () =>
-        set({
-          recvTransport: null,
-          sendTransport: null,
-          roomId: "",
-          mic: null,
-          micStream: null,
-        }),
+      nullify: () => {
+        set((s) => {
+          if (s.peerConn) {
+            s.peerConn.close();
+          }
+          return {
+            peerConn: null,
+            recvTransport: null,
+            sendTransport: null,
+            roomId: "",
+            mic: null,
+            micStream: null,
+          };
+        });
+      },
       set,
     })
   )

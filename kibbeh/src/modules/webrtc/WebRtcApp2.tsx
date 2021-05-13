@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+import { disconnectWebRTC } from "../../lib/disconnectEverything";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { AudioRender2 } from "./components/AudioRender2";
 import { useAudioStreamStore } from "./stores/useAudioStreamStore";
 import { useMicIdStore } from "./stores/useMicIdStore";
 import { useVoiceStore } from "./stores/useVoiceStore";
+import "webrtc-adapter";
 
 interface App2Props {}
 
 export const WebRtcApp2: React.FC<App2Props> = () => {
   const { conn } = useContext(WebSocketContext);
-  const peerConn = useRef<RTCPeerConnection | null>(null);
+  const candidateQueue = useRef<RTCIceCandidate[]>([]);
 
   useEffect(() => {
     if (!conn) {
@@ -21,17 +23,16 @@ export const WebRtcApp2: React.FC<App2Props> = () => {
         "webrtc:candidate:in",
         async ({ candidate, sdpMLineIndex }) => {
           try {
-            if (!peerConn.current) {
-              throw new Error(
-                "Received new remote candidate but RTCConnection is undefined"
-              );
+            const peerConn = useVoiceStore.getState().peerConn;
+            const ice = new RTCIceCandidate({
+              candidate,
+              sdpMLineIndex,
+            });
+            if (!peerConn) {
+              candidateQueue.current.push(ice);
+            } else {
+              await peerConn.addIceCandidate(ice);
             }
-            await peerConn.current.addIceCandidate(
-              new RTCIceCandidate({
-                candidate,
-                sdpMLineIndex,
-              })
-            );
           } catch (err) {
             console.log("err name: ", err.name);
             console.error(err);
@@ -39,49 +40,67 @@ export const WebRtcApp2: React.FC<App2Props> = () => {
         }
       ),
       conn.addListener<any>("webrtc:offer:in", async (offer) => {
-        if (peerConn.current) {
-          peerConn.current.close();
-        }
+        // assumes webrtc:candidate:in does not happen before webrtc:offer:in
+        candidateQueue.current = [];
         const { micId } = useMicIdStore.getState();
-        const mediaStream = await navigator.mediaDevices.getUserMedia({
-          audio: micId ? { deviceId: micId } : true,
-        });
-        useVoiceStore.getState().set({
-          micStream: mediaStream,
-          mic: mediaStream.getAudioTracks()[0],
-        });
-        // eslint-disable-next-line require-atomic-updates
-        peerConn.current = new RTCPeerConnection({
-          iceServers: [
-            {
-              urls: "stun:stun.l.google.com:19302",
-            },
-          ],
-        });
-        peerConn.current.onicecandidate = (
-          event: RTCPeerConnectionIceEvent
-        ) => {
-          if (event.candidate) {
-            conn.sendCast("webrtc:signal", { data: event.candidate });
+        const voiceStore = useVoiceStore.getState();
+        let peerConn = voiceStore.peerConn;
+        let micStream = voiceStore.micStream;
+        let mic = voiceStore.mic;
+
+        if ((offer.peerType === "speaker" && !micStream) || !mic) {
+          micStream = await navigator.mediaDevices.getUserMedia({
+            audio: micId ? { deviceId: micId } : true,
+          });
+          mic = micStream.getAudioTracks()[0];
+          voiceStore.set({ mic, micStream });
+        }
+        if (!peerConn) {
+          peerConn = new RTCPeerConnection({
+            iceServers: [
+              {
+                urls: "stun:stun.l.google.com:19302",
+              },
+            ],
+          });
+          voiceStore.set({
+            peerConn,
+          });
+          peerConn.onicecandidate = (event: RTCPeerConnectionIceEvent) => {
+            if (event.candidate) {
+              conn.sendCast("webrtc:signal", { data: event.candidate });
+            }
+          };
+          peerConn.ontrack = (event: RTCTrackEvent) => {
+            const [stream] = event.streams;
+            const id = stream.id;
+            useAudioStreamStore.getState().add(stream, id);
+            stream.onremovetrack = () => {
+              useAudioStreamStore.getState().remove(id);
+            };
+          };
+          if (offer.peerType === "speaker") {
+            if (micStream) {
+              peerConn.addTrack(mic, micStream);
+            }
           }
-        };
-        peerConn.current.ontrack = (event: RTCTrackEvent) => {
-          const [stream] = event.streams;
-          useAudioStreamStore.getState().add(stream, "ben");
-        };
-        if (offer.peerType === "speaker") {
-          const { micStream, mic } = useVoiceStore.getState();
-          if (micStream && mic) {
-            peerConn.current.addTrack(mic, micStream);
-          }
+        } else {
+          peerConn.createOffer({ iceRestart: true });
         }
 
         try {
-          await peerConn.current.setRemoteDescription(offer.data);
-          const answer = await peerConn.current.createAnswer();
-          await peerConn.current.setLocalDescription(answer);
+          await peerConn.setRemoteDescription(offer.data);
+          const answer = await peerConn.createAnswer();
+          await peerConn.setLocalDescription(answer);
 
           conn.sendCast("webrtc:signal", { data: answer });
+          candidateQueue.current.forEach((ice) => {
+            peerConn!.addIceCandidate(ice).catch((err) => {
+              console.log("err2 name: ", err.name);
+              console.error(err);
+            });
+          });
+          candidateQueue.current = [];
         } catch (error) {
           console.error(error);
         }

@@ -3,8 +3,9 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { SolidMegaphone, SolidMessages, SolidNotification } from "../../icons";
+import { disconnectEverything } from "../../lib/disconnectEverything";
 import { useTokenStore } from "../../modules/auth/useTokenStore";
-import { closeVoiceConnections } from "../../modules/webrtc/WebRtcApp";
+import { closeVoiceConnections } from "../../modules/webrtc/closeVoiceConnections";
 import { modalConfirm } from "../../shared-components/ConfirmModal";
 import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
@@ -71,12 +72,7 @@ const RightHeader: React.FC<RightHeaderProps> = ({
               modalConfirm(
                 t("components.settingsDropdown.logOut.modalSubtitle"),
                 () => {
-                  conn.close();
-                  closeVoiceConnections(null);
-                  useCurrentRoomIdStore.getState().setCurrentRoomId(null);
-                  useTokenStore
-                    .getState()
-                    .setTokens({ accessToken: "", refreshToken: "" });
+                  disconnectEverything(conn);
                   push("/logout");
                 }
               );

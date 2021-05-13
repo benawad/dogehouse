@@ -33,5 +33,8 @@
     "prepare": "husky install",
     "commit": "cz",
     "commit:signed": "cz -S"
+  },
+  "dependencies": {
+    "webrtc-adapter": "^8.0.0"
   }
 }

@@ -16,10 +16,11 @@ import { ApiPreloadLink } from "../../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { useConn } from "../../shared-hooks/useConn";
 import { useDebugAudioStore } from "../../global-stores/useDebugAudio";
-import { closeVoiceConnections } from "../../modules/webrtc/WebRtcApp";
+import { closeVoiceConnections } from "../../modules/webrtc/closeVoiceConnections";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useTokenStore } from "../../modules/auth/useTokenStore";
 import router from "next/router";
+import { disconnectEverything } from "../../lib/disconnectEverything";
 
 export interface AccountOverlyProps {}
 
@@ -183,12 +184,7 @@ export const AccountOverlay: React.FC<AccountOverlyProps> = ({}) => {
               />
             }
             onClick={() => {
-              conn.close();
-              closeVoiceConnections(null);
-              useCurrentRoomIdStore.getState().setCurrentRoomId(null);
-              useTokenStore
-                .getState()
-                .setTokens({ accessToken: "", refreshToken: "" });
+              disconnectEverything(conn);
               router.push("/logout");
             }}
           />

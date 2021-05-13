@@ -43,13 +43,18 @@ export const useAudioStreamStore = create(
             : s
         );
       },
+      remove: (id: string) =>
+        set(({ audioStreamMap: { [id]: _, ...m } }) => {
+          return {
+            audioStreamMap: m,
+          };
+        }),
       add: (c: MediaStream, userId: string) =>
         set((s) => {
           let volume = 100;
           if (userId in s.audioStreamMap) {
             const x = s.audioStreamMap[userId];
             volume = x.volume;
-            // x.consumer.close();
           }
           return {
             audioStreamMap: {
@@ -59,10 +64,7 @@ export const useAudioStreamStore = create(
           };
         }),
       closeAll: () =>
-        set((s) => {
-          // Object.values(s.audioStreamMap).forEach(
-          //   ({ stream: c }) => !c.closed && c.close()
-          // );
+        set(() => {
           return {
             audioStreamMap: {},
           };

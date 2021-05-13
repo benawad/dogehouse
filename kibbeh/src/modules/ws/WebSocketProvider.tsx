@@ -8,7 +8,8 @@ import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useVoiceStore } from "../webrtc/stores/useVoiceStore";
-import { closeVoiceConnections } from "../webrtc/WebRtcApp";
+import { closeVoiceConnections } from "../webrtc/closeVoiceConnections";
+import { disconnectWebRTC } from "../../lib/disconnectEverything";
 
 interface WebSocketProviderProps {
   shouldConnect: boolean;
@@ -67,7 +68,7 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
             };
           },
           onConnectionTaken: () => {
-            closeVoiceConnections(null);
+            disconnectWebRTC();
             useCurrentRoomIdStore.getState().setCurrentRoomId(null);
             replace("/connection-taken");
           },
@@ -77,7 +78,7 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
               .getState()
               .setTokens({ accessToken: "", refreshToken: "" });
             setConn(null);
-            closeVoiceConnections(null);
+            disconnectWebRTC();
             useCurrentRoomIdStore.getState().setCurrentRoomId(null);
             replace("/logout");
           },
