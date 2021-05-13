@@ -1,1 +1,385 @@
-
+{
+  "_comment": "if you change this file, do: yarn i18",
+  "common": {
+    "loadMore": "oad-lay ore-may",
+    "loading": "oading-lay...",
+    "noUsersFound": "o-nay sers-uay ound-fay!",
+    "ok": "Kay-ay",
+    "yes": "Es-yay",
+    "no": "o-nay",
+    "cancel": "ancel-cay",
+    "save": "ave-say",
+    "edit": "dit-ay",
+    "delete": "elete-day",
+    "joinRoom": "oin-jay oom-ray",
+    "copyLink": "opy-cay ink-lay",
+    "copied": "opied-cay!",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "lease-pay ote-nay unning-ray oge-day huse-hay ithout-way ccessibility-ay ermissions-pay ay-may ause-cay nwanted-uay rrors-eay"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "oge-Day ouse-Hay",
+    "dashboard": "ashboard-Day",
+    "connectionTaken": "onnection-cay aken-tay",
+    "mutedTitle": "uted-may | oge-day ouse-hay",
+    "deafenedTitle": "eafened-day | oge-day ouse-hay"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Origin-way ory-stay",
+    "link_2": "Iscord-day",
+    "link_3": "Eport-ray a-way Ug-bay"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "admin": {
+      "ban": "an0bay",
+      "userStaffandContrib": "er-usay aff-stay & ibutions-contray",
+      "staff": "Aff-stay: ",
+      "contributions": "ibutions-Contray",
+      "username": "Ername-usay",
+      "usrStaff": "er-usay aff-stay ",
+      "usrContributions": "er-usay ibutions-Contray",
+      "reason": "eason-ray",
+      "usernamePlaceholder": "ername-usay o-tay erform-pay ions-actay n-oay"
+    },
+    "download": {
+      "prompt": "download-day he-tay doge-day ouse-hay esktop-day pp-ay",
+      "download_for": "ownload-day or-fay %platform% (%ext%)",
+      "failed": "nable-unay to detect platform, please try again later or visit GitHub Releases",
+      "visit_gh": "isit-vay it-gay ub-hay leases-ray"
+    },
+    "followingOnlineList": {
+      "title": "Eople-pay",
+      "listHeader": "Ist-lay f-oay ers-usay at-thay re-ay ot-nay n-iay a rivate-pay oom-ray and u-yoay low-folay.",
+      "currentRoom": "Urrently-cay N-iay",
+      "startPrivateRoom": "Art-stay a ivate-pray oom-ray ith-way em-thay"
+    },
+    "followList": {
+      "title": "Eople-pay",
+      "followHim": "Ollow-fay",
+      "followingHim": "Ollowing-fay",
+      "followingNone": "Ot-nay ollowing-fay one-anyay",
+      "noFollowers": "O-nay ollowers-fay"
+    },
+    "home": {
+      "createRoom": "Ew-nay oom-ray",
+      "editRoom": "It-eday oom-ray",
+      "refresh": "Efresh-ray",
+      "desktopAlert": "Ownload-day he-thay oge-day ouse-hay esktop-day pp-ay oday-ay!"
+    },
+    "inviteList": {
+      "roomGone": "Room-ray one-gay; o-gay ack-bay",
+      "shareRoomLink": "are-shay oom-ray ink-lay",
+      "inviteFollowers": "U-uay an-cay vite-inay ur-yay ollowers-fay hat-thay re-ay line-onay:",
+      "whenFollowersOnline": "Hen-way our-yay ollowers-fay re-ay line-onay, hey-tay ill-way how-say p-uay ere-hay."
+    },
+    "login": {
+      "headerText": "Aking-tay oice-vay onversations-cay o-tay he-tay oon-may 🐷 🚀",
+      "featureText_1": "Ark-day heme-tay",
+      "featureText_2": "Pen-oay ign-say-ps-uay",
+      "featureText_3": "Ross-cay-Latform-pay Upport-say",
+      "featureText_4": "Pen-ay ource-say",
+      "featureText_5": "Ext-tay Hat-cay",
+      "featureText_6": "owered-pay y-bay oge-day (e-way so-alay ave-hay ig-pay atin-lay)",
+      "loginGithub": "Ogin-lay ith-way It-gay-Ub-hay",
+      "loginTwitter": "Ogin-lay ith-way Witter-tay",
+      "loginDiscord": "Ogin-lay ith-way Iscord-day",
+      "createTestUser": "reate-cay est-tay er-usay"
+    },
+    "myProfile": {
+      "logout": "og-lay ut-oay",
+      "probablyLoading": "robably-pay oading-lay...",
+      "voiceSettings": "Oice-vay Ettings-say",
+      "overlaySettings": "Erlay-ovay Ettings-say",
+      "soundSettings": "Ound-say Ettings-say",
+      "deleteAccount": "Elete-day ccount-ay",
+      "couldNotFindUser": "Orry-say, e-way ould-cay ot-nay ind-fay hat-tay er-usay",
+      "privacySettings": "Rivacy-pay Ettings-say"
+    },
+    "notFound": {
+      "whoopsError": "Whoops! This page got lost in conversation.",
+      "goHomeMessage": "Not to worry. You can",
+      "goHomeLinkText": "go home"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
+    },
+    "room": {
+      "speakers": "Speakers",
+      "requestingToSpeak": "Requesting to Speak",
+      "listeners": "Listeners",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": {
+      "search": "search..."
+    },
+    "soundEffectSettings": {
+      "title": "Sound Settings",
+      "header": "Sounds",
+      "playSound": "Play Sound"
+    },
+    "viewUser": {
+      "editProfile": "Edit Profile",
+      "followsYou": "Follows you",
+      "followers": "followers",
+      "following": "following",
+      "followHim": "Follow",
+      "unfollow": "Unfollow",
+      "followingHim": "Following",
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "copyProfileUrl": "Copy Profile URL",
+      "urlCopied": "URL copied to clipboard",
+      "about": "About",
+      "aboutSuffix": "",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      }
+    },
+    "voiceSettings": {
+      "title": "Voice Settings",
+      "header": "Voice Settings",
+      "mic": "Mic:",
+      "permissionError": "No mics found, you either have none plugged in or haven't given this website permission.",
+      "refresh": "Refresh Mic List",
+      "volume": "Volume:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter a valid app title",
+        "label": "App title"
+      }
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Banned Users",
+      "unban": "Unban",
+      "noBans": "No one has been banned yet"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Leave Current Room",
+      "confirmLeaveRoom": "Are you sure you want to leave?",
+      "leave": "Leave",
+      "inviteUsersToRoomBtn": "Invite Users to Room",
+      "invite": "Invite",
+      "toggleMuteMicBtn": "Toggle Mute",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "mute": "Mute",
+      "unmute": "Unmute",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen",
+      "makeRoomPublicBtn": "Make Room Public!",
+      "settings": "Settings",
+      "speaker": "Speaker",
+      "listener": "Listener",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Your device is currently not supported. You can create an",
+      "linkText": "issue on GitHub",
+      "addSupport": "and I will try adding support for your device."
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "inviteButton": {
+      "invited": "Invited!",
+      "inviteToRoom": "Invite to room"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
+      "dismiss": "Dismiss",
+      "tryAgain": "Try Again"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "Set Keybind",
+      "listening": "Listening...",
+      "toggleMuteKeybind": "Toggle mute keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "toggleOverlayKeybind": "Toggle overlay keybind",
+      "togglePushToTalkKeybind": "Toggle push-to-talk keybind"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "No audio consumer for some reason"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore more rooms"
+    },
+    "addToCalendar": {
+      "add": "Add to Calendar"
+    },
+    "wsKilled": {
+      "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
+      "reconnect": "Reconnect"
+    },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
+      },
+      "downloadApp": "Download App"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "modals": {
+      "createRoomModal": {
+        "subtitle": "Fill the following fields to start a new room",
+        "public": "Public",
+        "private": "Private",
+        "roomName": "Room name",
+        "roomDescription": "Room description",
+        "descriptionError": "Max length 500",
+        "nameError": "Must be between 2 to 60 characters long"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "New Room Created",
+        "roomInviteFrom": "Room Invite from",
+        "justStarted": "They just started",
+        "likeToJoin": ", would you like to join?",
+        "inviteReceived": "you've been invited to"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Username taken",
+        "avatarUrlError": "Invalid image",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar URL",
+        "bannerUrlLabel": "Twitter banner URL",
+        "displayNameError": "Length 2 to 50 characters",
+        "displayNameLabel": "Display Name",
+        "usernameError": "Length 4 to 15 characters and only alphanumeric/underscore",
+        "usernameLabel": "Username",
+        "bioError": "Max length of 160 characters",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Are you sure you want to block this user from joining any room you ever create?",
+        "blockUser": "Block user",
+        "makeMod": "Promote to Mod",
+        "unmod": "Demote from Mod",
+        "addAsSpeaker": "Add as Speaker",
+        "moveToListener": "Move to Listener",
+        "unBanFromChat": "Unban from Chat",
+        "banFromChat": "Ban from Chat",
+        "banFromRoom": "Ban from Room",
+        "banIPFromRoom": "Ban IP from Room",
+        "goBackToListener": "Go Back to Listener",
+        "deleteMessage": "Delete this Message",
+        "makeRoomCreator": "Promote to Admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "require permission to speak",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        },
+        "makePublic": "make room public",
+        "makePrivate": "make room private",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "feed": {
+      "yourFeed": "Your feed"
+    },
+    "scheduledRooms": {
+      "title": "Scheduled Rooms",
+      "noneFound": "none found",
+      "allRooms": "all scheduled rooms",
+      "myRooms": "my scheduled rooms",
+      "scheduleRoomHeader": "Schedule Room",
+      "startRoom": "start room",
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "modal": {
+        "needsFuture": "needs to be in the future",
+        "roomName": "room name",
+        "roomDescription": "Description",
+        "minLength": "min length 2"
+      },
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "[emotes soon]",
+      "bannedAlert": "You have been banned from chat",
+      "waitAlert": "You have to wait a second before sending another message",
+      "search": "Search",
+      "searchResults": "Search Results",
+      "recent": "Frequently Used",
+      "sendMessage": "Send a Message",
+      "whisper": "Whisper",
+      "welcomeMessage": "Welcome to chat!",
+      "roomDescription": "Room description",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar Doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar Doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}
