@@ -35,14 +35,14 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
       "ban": "踢出用户",
-      "userStaffandContrib": "User Staff & Contributions",
-      "staff": "Staff: ",
+      "userStaffandContrib": "用户人员与贡献",
+      "staff": "人员: ",
       "contributions": "贡献",
       "username": "用户名",
-      "usrStaff": "User Staff",
-      "usrContributions": "User Contributions",
+      "usrStaff": "用户人员",
+      "usrContributions": "用户贡献",
       "reason": "原因",
-      "usernamePlaceholder": "username to perform actions on"
+      "usernamePlaceholder": "对该用户执行操作"
     },
     "followingOnlineList": {
       "listHeader": "您所关注的不在私人聊天室的人。",
