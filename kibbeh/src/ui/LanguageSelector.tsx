@@ -122,7 +122,6 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     ));
   };
 
-  
   const [parsedOptions, setParsedOptions] = React.useState(getOptions(''));
 
   const parseOptions = (search: string) => {
