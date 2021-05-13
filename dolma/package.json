@@ -1,8 +1,8 @@
 {
   "name": "@dogehouse/dolma",
   "author": "Jackson Roberts <jackson@holopanio.com>",
-  "description": "A chat token transcoder for DogeHouse and associated projects",
-  "version": "1.2.0",
+  "description": "A chat token transcoder for DogeHouse and associated projects.",
+  "version": "1.2.1",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {

@@ -27,6 +27,7 @@ export const ParseTextToTwemoji: React.FC<TwemojiProps> = ({
             key={i}
             className={`emoji ${className || ""}`}
             src={parse(e)[0].url}
+            alt={parse(e)[0].text}
           />
         ) : (
           <React.Fragment key={i}>{e}</React.Fragment>
