@@ -86,6 +86,7 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
           {t("components.upcomingRoomsCard.upcomingRooms")}
         </h4>
         <BoxedIcon
+          data-testid="create-scheduled-room"
           onClick={onCreateScheduledRoom}
           style={{ height: "26px", width: "26px" }}
           transition
@@ -100,7 +101,10 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
       </div>
 
       <Link href="/scheduled-rooms">
-        <a className="px-4 py-3 text-primary-100 font-bold bg-primary-700">
+        <a
+          className="px-4 py-3 text-primary-100 font-bold bg-primary-700"
+          data-testid="view-scheduled-rooms"
+        >
           {t("components.upcomingRoomsCard.exploreMoreRooms")}
         </a>
       </Link>

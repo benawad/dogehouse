@@ -132,7 +132,8 @@
         "rooms": "Rooms",
         "scheduled": "Scheduled",
         "recorded": "Recorded",
-        "clips": "Clips"
+        "clips": "Clips",
+        "admin": "Admin"
       }
     },
     "voiceSettings": {

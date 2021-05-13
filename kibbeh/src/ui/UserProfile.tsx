@@ -62,15 +62,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
         username={user.username}
         badges={badges}
       />
-      <ProfileTabs className="mt-4" activeTab="about" />
-      <ProfileAbout
-        className={"mt-2"}
-        username={user.username}
-        followers={user.numFollowers}
-        following={user.numFollowing}
-        description={user.bio}
-        tags={tags}
-      />
+      <ProfileTabs user={user} className="mt-4" aboutTags={tags} />
     </>
   );
 };
