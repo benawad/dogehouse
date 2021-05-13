@@ -79,7 +79,7 @@ defmodule Kousa.User do
   def admin_update_with(changeset, admin) do
     authorized_github_id = Application.get_env(:kousa, :ben_github_id, "")
 
-    with %{githubId: ^authorized_github_id} <- admin do
+    if admin.staff == true or admin.githubId == authorized_github_id do
       case Users.update(changeset) do
         {:ok, user} ->
           {:ok, user}
@@ -88,8 +88,7 @@ defmodule Kousa.User do
           error
       end
     else
-      _ ->
-        {:error, "not authorized"}
+      {:error, "not authorized"}
     end
   end
 end

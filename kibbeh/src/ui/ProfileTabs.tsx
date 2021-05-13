@@ -1,7 +1,9 @@
 import { UserWithFollowInfo } from "@dogehouse/kebab";
 import React, { useState } from "react";
+import { useConn } from "../shared-hooks/useConn";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { ProfileAbout } from "./ProfileAbout";
+import { ProfileAdmin } from "./ProfileAdmin";
 import { ProfileScheduled } from "./ProfileScheduled";
 import { UserBadgeLgProps } from "./UserBadgeLg";
 
@@ -32,6 +34,7 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
 }) => {
   const [activeTab, setActiveTab] = useState("about");
   const { t } = useTypeSafeTranslation();
+  const conn = useConn();
   return (
     <>
       <div
@@ -89,6 +92,17 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
         >
           {t("pages.viewUser.profileTabs.clips")}
         </button>
+
+        <button
+          className={`py-1 text-primary-100 text-base font-bold border-b-2 border-primary-900 transition hover:border-accent focus:outline-no-chrome
+               ${activeTab === "clips" && `border-accent text-accent`} ${
+            conn.user.staff && conn.user.id !== user.id ? "" : "hidden"
+          }`}
+          onClick={() => setActiveTab("admin")}
+          data-testid={`user:${user.username}:tab:admin`}
+        >
+          {t("pages.viewUser.profileTabs.admin")}
+        </button>
       </div>
 
       <div>
@@ -104,6 +118,10 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
         <ProfileScheduled
           user={user}
           className={activeTab !== "scheduled" ? "hidden" : ""}
+        />
+        <ProfileAdmin
+          className={activeTab !== "admin" ? "hidden" : ""}
+          user={user}
         />
       </div>
     </>
