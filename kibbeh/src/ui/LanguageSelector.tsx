@@ -99,7 +99,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   const { back } = useRouter();
 
   const getOptions = (search: string) => {
-    return options.filter(v => v.label.startsWith(search)).map((e, i) => (
+    return options.filter(v => v.label.toLowerCase().startsWith(search.toLowerCase())).map((e, i) => (
       <SettingsIcon
         key={e.value + i}
         classes={`text-primary-100 focus:outline-no-chrome whitespace-nowrap overflow-ellipsis${
@@ -127,6 +127,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   const parseOptions = (search: string) => {
     setParsedOptions(getOptions(search));
   };
+
+  
 
   return (
     <div
@@ -159,10 +161,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
           className="block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700 overflow-x-hidden mb-9 md:pb-0"
           style={{ height: mobile ? "auto" : "calc(100% - 40px)" }}
         >
-          <div className="block">
-            
-            {parsedOptions}
-          </div>
+          <div className="block">{parsedOptions}</div>
         </div>
       </div>
     </div>
