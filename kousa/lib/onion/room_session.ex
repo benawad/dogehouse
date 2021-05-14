@@ -177,17 +177,23 @@ defmodule Onion.RoomSession do
      }}
   end
 
+  # this really just moves them to listener status
   def remove_speaker(room_id, user_id), do: cast(room_id, {:remove_speaker, user_id})
 
   defp remove_speaker_impl(user_id, state) do
     new_mm = Map.delete(state.muteMap, user_id)
     new_dm = Map.delete(state.deafMap, user_id)
 
-    Onion.VoiceRabbit.send(state.voice_server_id, %{
-      op: "remove-speaker",
-      d: %{roomId: state.room_id, peerId: user_id},
-      uid: user_id
-    })
+    if state.voice_server_id === "elixir" do
+      new_speaker_pid = Onion.UserSession.get(user_id, :pid)
+      Onion.AudioPipeline.change_peer_type(state.room_id, new_speaker_pid, :listener)
+    else
+      Onion.VoiceRabbit.send(state.voice_server_id, %{
+        op: "remove-speaker",
+        d: %{roomId: state.room_id, peerId: user_id},
+        uid: user_id
+      })
+    end
 
     ws_fan(state.users, %{
       op: "speaker_removed",
@@ -222,7 +228,7 @@ defmodule Onion.RoomSession do
 
     if state.voice_server_id === "elixir" do
       new_speaker_pid = Onion.UserSession.get(user_id, :pid)
-      Onion.AudioPipeline.convert_to_speaker(state.room_id, new_speaker_pid, :speaker, user_id)
+      Onion.AudioPipeline.change_peer_type(state.room_id, new_speaker_pid, :speaker)
     else
       Onion.VoiceRabbit.send(state.voice_server_id, %{
         op: "add-speaker",

@@ -43,17 +43,15 @@ export const WebRtcApp2: React.FC<App2Props> = () => {
         // assumes webrtc:candidate:in does not happen before webrtc:offer:in
         candidateQueue.current = [];
 
-        const { micId } = useMicIdStore.getState();
-        const voiceStore = useVoiceStore.getState();
-        const isNewRoom =
-          !voiceStore.micStream || voiceStore.roomId !== offer.roomId;
-        let peerConn = isNewRoom ? null : voiceStore.peerConn;
-        let micStream = voiceStore.micStream;
-        let mic = voiceStore.mic;
-
-        if (isNewRoom) {
+        if (offer.isNewSpeaker) {
           disconnectWebRTC();
         }
+
+        const { micId } = useMicIdStore.getState();
+        const voiceStore = useVoiceStore.getState();
+        let peerConn = voiceStore.peerConn;
+        let micStream = voiceStore.micStream;
+        let mic = voiceStore.mic;
 
         if ((offer.peerType === "speaker" && !micStream) || !mic) {
           micStream = await navigator.mediaDevices.getUserMedia({

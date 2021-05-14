@@ -58,6 +58,7 @@ defmodule Kousa.MixProject do
       {:prometheus_ex, "~> 3.0"},
       {:prometheus_plugs, "~> 1.1.1"},
       {:timex, "~> 3.6"},
+      {:bimap, "~> 1.1"},
       # membrane
       {:membrane_core,
        github: "membraneframework/membrane_core", branch: "master", override: true},

@@ -397,7 +397,7 @@ defmodule Kousa.Room do
     if room.voiceServerId == "elixir" do
       Onion.AudioPipeline.lookup_or_start(room.id)
       peer_type = if(speaker?, do: :speaker, else: :listener)
-      Onion.AudioPipeline.new_peer(room.id, self(), peer_type, user_id)
+      Onion.AudioPipeline.new_peer(room.id, self(), peer_type)
     else
       Onion.VoiceRabbit.send(room.voiceServerId, %{
         op: op,
