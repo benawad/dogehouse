@@ -86,6 +86,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "en-C", flag: "🆕", label: "C'z Iŋglis̈" }, // C's English
     { value: "en-LOLCAT", flag: "🐈", label: "LOLCAT" },
     { value: "en-PIRATE", flag: "☠️", label: "Pirate" },
+    { value: "en-PIGLATIN", flag: "🐷", label: "Pig Latin" },
     { value: "en-AU", flag: "🇦🇺", label: "uɐᴉꞁɐɹʇsnⱯ" }, // Australian
     { value: "en-OWO", flag: "💕", label: "OwO Engwish" },
     { value: "bottom", flag: "🥺", label: "Bottom" },
