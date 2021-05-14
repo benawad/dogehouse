@@ -41,7 +41,7 @@ async function main() {
 
   tests.encoding.map(async test => {
     const started = new Date();
-    const encodedValue = dolma.encode(test.input);
+    const encodedValue = new dolma([]).encode(test.input);
     if (JSON.stringify(encodedValue) == JSON.stringify(test.expectedOutput)) testFinished(test, started, true);
     else testFinished(test, started, false);
   });
