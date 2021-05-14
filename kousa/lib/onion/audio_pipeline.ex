@@ -99,7 +99,7 @@ defmodule Onion.AudioPipeline do
     Process.monitor(peer_pid)
 
     # tracks = if(peer_type === :speaker, do: new_tracks(), else: [])
-    tracks = if(peer_type === :speaker, do: new_tracks(), else: [])
+    tracks = new_tracks()
 
     endpoint = Endpoint.new(peer_pid, :participant, tracks, %{})
 
@@ -163,13 +163,10 @@ defmodule Onion.AudioPipeline do
     if is_nil(endpoint) do
       new_peer_impl({peer_pid, peer_type, user_id}, ctx, state)
     else
-      tracks = endpoint.inbound_tracks
+      tracks = Map.values(endpoint.inbound_tracks)
 
       tracks_msgs =
         flat_map_children(ctx, fn
-          # {:endpoint, other_peer_pid} = endpoint_bin
-          # when other_peer_pid != state.active_screensharing ->
-          #   [forward: {endpoint_bin, {:add_tracks, tracks}}]
           endpoint_bin ->
             [forward: {endpoint_bin, {:add_tracks, tracks}}]
         end)
@@ -272,7 +269,8 @@ defmodule Onion.AudioPipeline do
       op: "webrtc:offer:in",
       d: %{
         data: %{"type" => "offer", "sdp" => sdp},
-        peerType: if(state.peer_type == :speaker, do: "speaker", else: "listener")
+        peerType: if(state.peer_type == :speaker, do: "speaker", else: "listener"),
+        roomId: state.room_id
       }
     })
 

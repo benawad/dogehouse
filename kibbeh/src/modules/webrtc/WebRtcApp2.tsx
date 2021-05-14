@@ -42,11 +42,18 @@ export const WebRtcApp2: React.FC<App2Props> = () => {
       conn.addListener<any>("webrtc:offer:in", async (offer) => {
         // assumes webrtc:candidate:in does not happen before webrtc:offer:in
         candidateQueue.current = [];
+
         const { micId } = useMicIdStore.getState();
         const voiceStore = useVoiceStore.getState();
-        let peerConn = voiceStore.peerConn;
+        const isNewRoom =
+          !voiceStore.micStream || voiceStore.roomId !== offer.roomId;
+        let peerConn = isNewRoom ? null : voiceStore.peerConn;
         let micStream = voiceStore.micStream;
         let mic = voiceStore.mic;
+
+        if (isNewRoom) {
+          disconnectWebRTC();
+        }
 
         if ((offer.peerType === "speaker" && !micStream) || !mic) {
           micStream = await navigator.mediaDevices.getUserMedia({
@@ -65,6 +72,7 @@ export const WebRtcApp2: React.FC<App2Props> = () => {
           });
           voiceStore.set({
             peerConn,
+            roomId: offer.roomId,
           });
           peerConn.onicecandidate = (event: RTCPeerConnectionIceEvent) => {
             if (event.candidate) {
