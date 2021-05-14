@@ -27,7 +27,7 @@ defmodule BrothTest.User.AdminUpdateTest do
     test "doesn't work for not-ben awad", t do
       ref =
         WsClient.send_call(t.staff_client_ws, "user:admin_update", %{
-          "username" => t.staff_user.username,
+          "id" => t.staff_user.id,
           "user" => %{
             "staff" => true,
             "contributions" => 100
@@ -40,7 +40,7 @@ defmodule BrothTest.User.AdminUpdateTest do
     test "works for ben awad", t do
       ref =
         WsClient.send_call(t.client_ws, "user:admin_update", %{
-          "username" => t.staff_user.username,
+          "id" => t.staff_user.id,
           "user" => %{
             "staff" => true,
             "contributions" => 100
@@ -63,7 +63,7 @@ defmodule BrothTest.User.AdminUpdateTest do
 
       ref =
         WsClient.send_call(staff_ws, "user:admin_update", %{
-          "username" => should_become_staff.username,
+          "id" => should_become_staff.id,
           "user" => %{
             "staff" => true,
             "contributions" => 100
@@ -81,7 +81,7 @@ defmodule BrothTest.User.AdminUpdateTest do
 
     test "can update single field", t do
       WsClient.do_call(t.client_ws, "user:admin_update", %{
-        "username" => t.staff_user.username,
+        "id" => t.staff_user.id,
         "user" => %{
           "staff" => true,
           "contributions" => 100
@@ -90,7 +90,7 @@ defmodule BrothTest.User.AdminUpdateTest do
 
       ref =
         WsClient.send_call(t.client_ws, "user:admin_update", %{
-          "username" => t.staff_user.username,
+          "id" => t.staff_user.id,
           "user" => %{
             "staff" => false
           }
