@@ -1,6 +1,7 @@
 import React from "react";
-import { SolidSearch, LoadingIcon } from "../../icons";
+import { SolidSearch } from "../../icons";
 import { Input } from "../Input";
+import { Spinner } from "../Spinner";
 
 export interface SearchBarProps
   extends React.ComponentPropsWithoutRef<"input"> {
@@ -39,7 +40,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             !mobile && "mx-4"
           }`}
         >
-          <LoadingIcon />
+          <Spinner />
         </div>
       )}
     </div>

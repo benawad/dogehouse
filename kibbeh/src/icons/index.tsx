@@ -51,4 +51,3 @@ export { default as SolidDeafened } from "./SolidDeafened";
 export { default as SolidFriendsAdd } from "./SolidFriendsAdd";
 export { default as BotIcon } from "./BotIcon";
 export { default as SolidDownload } from "./SolidDownload";
-export { default as LoadingIcon } from "./LoadingIcon";
