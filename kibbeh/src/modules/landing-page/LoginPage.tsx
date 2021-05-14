@@ -1,6 +1,6 @@
 import isElectron from "is-electron";
 import { useRouter } from "next/router";
-import React, { useCallback, useContext, useEffect } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { LgLogo } from "../../icons";
 import SvgSolidBug from "../../icons/SolidBug";
 import SvgSolidDiscord from "../../icons/SolidDiscord";
@@ -75,6 +75,7 @@ export const LoginPage: React.FC = () => {
   const hasTokens = useTokenStore((s) => !!(s.accessToken && s.refreshToken));
   const { setConn } = useContext(WebSocketContext);
   const { push } = useRouter();
+  const [tokensChecked, setTokensChecked] = useState(false);
 
   useEffect(() => {
     // only want this on mount
@@ -85,6 +86,8 @@ export const LoginPage: React.FC = () => {
   useEffect(() => {
     if (hasTokens) {
       push("/dash");
+    } else {
+      setTokensChecked(true);
     }
   }, [hasTokens, push]);
 
@@ -92,6 +95,8 @@ export const LoginPage: React.FC = () => {
     isStaging && !isServer
       ? "?redirect_after_base=" + window.location.origin
       : "";
+
+  if (!tokensChecked) return null;
 
   return (
     <>
