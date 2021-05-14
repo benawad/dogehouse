@@ -100,7 +100,8 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                 className="w-full px-2 mb-2 mt-7 bg-primary-800 rounded-b-8 overflow-y-auto"
                 {...getMenuProps({ style: { top: 0 } })}
               >
-                {data?.rooms.length === 0 && data?.users.length === 0 ? (
+                {(data?.rooms.length === 0 && data?.users.length === 0) ||
+                !data ? (
                   <InfoText className="p-3">no results</InfoText>
                 ) : null}
 
