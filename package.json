@@ -4,11 +4,6 @@
   "workspaces": {
     "packages": [
       "kebab",
-      "kebab/examples/bot",
-      "kebab/examples/chat",
-      "kebab/examples/create-bot",
-      "kebab/examples/mediasoup-audio",
-      "kebab/examples/react-chat",
       "kibbeh",
       "dinner",
       "dolma"
