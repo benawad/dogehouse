@@ -26,4 +26,5 @@ Main.argTypes = {
   value: toStr(),
   placeholder: toStr(),
   mobile: toBoolean(),
+  isLoading: toBoolean(),
 };
