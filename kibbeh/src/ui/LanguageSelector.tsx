@@ -161,10 +161,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
           className="block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700 overflow-x-hidden mb-9 md:pb-0"
           style={{ height: mobile ? "auto" : "calc(100% - 40px)" }}
         >
-          <div className="block">
-            
-            {parsedOptions}
-          </div>
+          <div className="block">{parsedOptions}</div>
         </div>
       </div>
     </div>
