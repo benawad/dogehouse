@@ -122,7 +122,7 @@ export const BlockedFromRoomUsers: React.FC<BlockedFromRoomUsersProps> = ({}) =>
 
   return (
     <>
-      <div className={`flex mt-4 flex-col text-primary-100`}>
+      <div style={{ paddingTop: "10px" }} className={`flex mt-4 flex-col text-primary-100`}>
         <h1 className={`text-xl`}>
           {t("components.blockedFromRoomUsers.header")}
         </h1>
