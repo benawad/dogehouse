@@ -22,6 +22,7 @@ export const SearchPage: PageComponent<LoungePageProps> = ({}) => {
   const [results, setResults] = useState({ items: [] } as {
     items: (User | Room)[];
   });
+  const [searchLoading, setSearchLoading] = useState(false);
   const conn = useWrappedConn();
 
   return (
@@ -32,10 +33,15 @@ export const SearchPage: PageComponent<LoungePageProps> = ({}) => {
           <SearchHeader
             onSearchChange={(e) => {
               console.log(e.target.value);
-              conn.query.search(e.target.value).then((r) => setResults(r));
+              setSearchLoading(true);
+              conn.query.search(e.target.value).then((r) => {
+                setResults(r);
+                setSearchLoading(false);
+              });
             }}
             searchPlaceholder="Search"
             onBackClick={() => router.back()}
+            searchLoading={searchLoading}
           />
         }
       >

@@ -33,7 +33,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
     enabled = true;
   }
 
-  const { data } = useTypeSafeQuery(
+  const { data, isLoading } = useTypeSafeQuery(
     ["search", text],
     {
       enabled,
@@ -90,6 +90,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                 ? t("components.search.placeholderShort")
                 : t("components.search.placeholder")
             }
+            isLoading={isLoading}
           />
           {isOpen ? (
             <SearchOverlay
