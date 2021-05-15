@@ -9,7 +9,7 @@ export interface MessageToken {
 
 export interface Token {
 	name: string,
-	regex?: RegExp,
+	regex: RegExp,
 	format: (value: string) => string;
-	validate: (raw: string, value: string) => boolean;
+	validate: (raw: string, value?: string) => boolean;
 }

@@ -35,27 +35,27 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
       "ban": "踢出用户",
-      "userStaffandContrib": "User Staff & Contributions",
-      "staff": "Staff: ",
-      "contributions": "Contributions",
-      "username": "Username",
-      "usrStaff": "User Staff",
-      "usrContributions": "User Contributions",
-      "reason": "reason",
-      "usernamePlaceholder": "username to perform actions on"
+      "userStaffandContrib": "用户人员与贡献",
+      "staff": "人员: ",
+      "contributions": "贡献",
+      "username": "用户名",
+      "usrStaff": "用户人员",
+      "usrContributions": "用户贡献",
+      "reason": "原因",
+      "usernamePlaceholder": "对该用户执行操作"
     },
     "followingOnlineList": {
       "listHeader": "您所关注的不在私人聊天室的人。",
       "currentRoom": "所在的聊天室:",
       "startPrivateRoom": "跟ta进入私人聊天室",
-      "title": "People"
+      "title": "用户"
     },
     "followList": {
       "followHim": "关注ta",
       "followingHim": "已经关注",
-      "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "title": "用户",
+      "followingNone": "没有关注任何人",
+      "noFollowers": "没有粉丝"
     },
     "home": {
       "createRoom": "新建聊天室",
@@ -108,7 +108,7 @@
     "soundEffectSettings": {
       "header": "声音",
       "title": "声音设置",
-      "playSound": "Play Sound"
+      "playSound": "播放声音"
     },
     "viewUser": {
       "editProfile": "编辑个人主页",
@@ -127,7 +127,8 @@
         "rooms": "聊天室",
         "scheduled": "已安排",
         "recorded": "已录制",
-        "clips": "片段"
+        "clips": "片段",
+        "admin": "管理员"
       },
       "block": "屏蔽",
       "unblock": "取消屏蔽",
@@ -140,7 +141,7 @@
       "permissionError": "没有找到麦克风，也许没有插入麦克风，也许没有给此网页使用麦克风的权利。",
       "refresh": "刷新麦克风列表",
       "volume": "音量:",
-      "title": "Voice Settings"
+      "title": "声音设置"
     },
     "overlaySettings": {
       "input": { "errorMsg": "不允许的App标题", "label": "输入App标题" },
@@ -155,9 +156,9 @@
       "download_for": "Download for %platform% (%ext%)"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
-      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+      "title": "隐私设置",
+      "header": "隐私设置",
+      "whispers": { "label": "私聊", "on": "开", "off": "关" }
     }
   },
   "components": {
@@ -234,7 +235,7 @@
         "deleteMessage": "删除此信息",
         "makeRoomCreator": "设为聊天室管理员",
         "unBanFromChat": "恢复此人使用文字聊天",
-        "banIPFromRoom": "Ban IP from Room"
+        "banIPFromRoom": "本聊天室封禁此IP"
       },
       "roomSettingsModal": {
         "requirePermission": "需要允许才能说话",
@@ -245,10 +246,10 @@
         "chatDisabled": "禁止聊天",
         "chatCooldown": "Chat Cooldown (milliseconds)",
         "chat": {
-          "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "label": "聊天",
+          "enabled": "允许",
+          "disabled": "禁止",
+          "followerOnly": "仅粉丝"
         }
       }
     },
@@ -298,13 +299,13 @@
       "downloadApp": "下载APP"
     },
     "userBadges": {
-      "dhStaff": "DogeHouse Staff",
-      "dhContributor": "DogeHouse Contributor"
+      "dhStaff": "神烦狗人员",
+      "dhContributor": "神烦狗贡献者"
     },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "消息",
+      "showMore": "显示更多",
+      "noMessages": "没有新消息"
     }
   },
   "modules": {
@@ -340,9 +341,9 @@
       "roomDescription": "聊天室介绍",
       "disabled": "聊天室聊天已经被禁止",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "消息",
+        "retracted": "已撤回",
+        "deleted": "已删除"
       }
     },
     "roomStatus": {

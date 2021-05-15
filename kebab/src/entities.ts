@@ -73,6 +73,7 @@ export type MentionToken = MessageToken<"mention", string>;
 export type LinkToken = MessageToken<"link", string>;
 export type EmoteToken = MessageToken<"emote", string>;
 export type CodeBlockToken = MessageToken<"block", string>;
+export type EmojiToken = MessageToken<"emoji", string>;
 
 export type Message = {
   id: UUID;

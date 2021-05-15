@@ -40,7 +40,7 @@ msgToken.getType = (raw: string): MessageTokenType => {
 msgToken.getValue = (tkn: MessageTokenType, raw: string): string => {
 	const regex = msgToken.get(tkn).regex;
 	if (!regex) return raw;
-	else return msgToken.get(tkn).format(raw.replace(regex, '$1'));
+	else return raw;
 }
 
 msgToken.newToken = (tk: MessageTokenType, value: string) => {

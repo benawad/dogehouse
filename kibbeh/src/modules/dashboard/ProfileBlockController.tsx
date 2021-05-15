@@ -24,7 +24,7 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
     showCreateScheduleRoomModal,
     setShowCreateScheduleRoomModal,
   ] = useState(false);
-  const { data } = useTypeSafeQuery(["getScheduledRooms", "", false]);
+  const { data } = useTypeSafeQuery(["getScheduledRooms", ""]);
   const { push } = useRouter();
   const update = useTypeSafeUpdateQuery();
   const { height } = useWindowSize();
@@ -74,9 +74,9 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
       {showCreateScheduleRoomModal ? (
         <CreateScheduleRoomModal
           onScheduledRoom={(srData, resp) => {
-            update(["getScheduledRooms", "", false], (d) => {
+            update(["getScheduledRooms", ""], (d) => {
               return {
-                scheduledRooms: [
+                rooms: [
                   {
                     roomId: null,
                     creator: conn.user!,
@@ -87,7 +87,7 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
                     numAttending: 0,
                     scheduledFor: srData.scheduledFor.toISOString(),
                   },
-                  ...(d?.scheduledRooms || []),
+                  ...(d?.rooms || []),
                 ],
                 nextCursor: d?.nextCursor,
               };
@@ -115,7 +115,7 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
           <UpcomingRoomsCard
             onCreateScheduledRoom={() => setShowCreateScheduleRoomModal(true)}
             rooms={
-              data?.scheduledRooms.slice(0, upcomingCount).map((sr) => ({
+              data?.rooms.slice(0, upcomingCount).map((sr) => ({
                 onClick: () => {
                   push(`/scheduled-room/[id]`, `/scheduled-room/${sr.id}`);
                 },

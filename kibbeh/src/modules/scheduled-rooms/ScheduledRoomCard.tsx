@@ -19,12 +19,14 @@ interface ScheduledRoomCardProps {
   onDeleteComplete: () => void;
   info: ScheduledRoom;
   noCopyLinkButton?: boolean;
+  noEditOrDeleteButton?: boolean;
 }
 
 export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
   onEdit,
   onDeleteComplete,
   noCopyLinkButton,
+  noEditOrDeleteButton = false,
   info: { id, name, scheduledFor, creator, description, roomId },
 }) => {
   const { push } = useRouter();
@@ -71,7 +73,10 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
       >
         <div className={`flex justify-between`}>
           <div className="flex w-full">
-            <div className="flex flex-1 font-bold text-ellipsis overflow-hidden break-all mb-4">
+            <div
+              className="flex flex-1 font-bold text-ellipsis overflow-hidden break-all mb-4"
+              data-testid={`scheduledroom:name:${name}`}
+            >
               {name}
             </div>
             <div className="flex gap-2">
@@ -96,7 +101,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
               {noCopyLinkButton ? null : (
                 <CopyScheduleRoomLinkButton text={url} />
               )}
-              {isCreator ? (
+              {isCreator && !noEditOrDeleteButton ? (
                 <>
                   <BoxedIcon onClick={() => onEdit()}>
                     <Edit size={18} />

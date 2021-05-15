@@ -1,16 +1,19 @@
 import React from "react";
 import { SolidSearch } from "../../icons";
 import { Input } from "../Input";
+import { Spinner } from "../Spinner";
 
 export interface SearchBarProps
   extends React.ComponentPropsWithoutRef<"input"> {
   inputClassName?: string;
   mobile?: boolean;
+  isLoading?: boolean;
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({
   className = "",
   inputClassName = "",
+  isLoading = false,
   mobile = false,
   ...props
 }) => {
@@ -31,6 +34,15 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         className={`${inputClassName} pl-0`}
         {...props}
       />
+      {isLoading && (
+        <div
+          className={`h-full flex items-center pointer-events-none ${
+            !mobile && "mx-4"
+          }`}
+        >
+          <Spinner />
+        </div>
+      )}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 0. Auth with your regular account
-1. Send ws message to create bot account with the username you want (you can create up to 100):
+1. Send ws message to create bot account with the username you want (you can create up to 5):
 ```typescript
 { op: "user:create_bot", p: { username: "mybotname" }, ref: "[uuid]", v: "0.2.0" }
 

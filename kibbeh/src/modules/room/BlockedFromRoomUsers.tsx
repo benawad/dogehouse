@@ -83,7 +83,7 @@ export const BlockedFromRoomUsersPage: React.FC<{
     <>
       {data.users.map((profile) => (
         <div
-          className={`flex border-b border-solid w-full flex py-4 px-2 items-center`}
+          className={`flex border-b border-solid w-full py-4 px-2 items-center`}
           key={profile.id}
         >
           <div className="flex">
@@ -122,7 +122,7 @@ export const BlockedFromRoomUsers: React.FC<BlockedFromRoomUsersProps> = ({}) =>
 
   return (
     <>
-      <div className={`flex mt-4 flex-col text-primary-100`}>
+      <div className={`flex mt-4 flex-col text-primary-100 pt-3`}>
         <h1 className={`text-xl`}>
           {t("components.blockedFromRoomUsers.header")}
         </h1>
