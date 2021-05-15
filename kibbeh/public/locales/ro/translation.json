@@ -128,7 +128,8 @@
         "rooms": "Camere",
         "scheduled": "Programate",
         "recorded": "Înregistrate",
-        "clips": "Clipuri"
+        "clips": "Clipuri",
+        "admin": "Admin"
       },
       "block": "Blochează",
       "unblock": "Deblochează",

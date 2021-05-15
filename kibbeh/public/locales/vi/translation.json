@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: yarn i18",
+  "_comment": "nếu bạn thay đổi tệp này, chạy lệnh: yarn i18",
   "common": {
     "loadMore": "tải thêm",
     "loading": "đang tải...",
@@ -22,9 +22,9 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Tắt âm | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
+    "deafenedTitle": "Tắt tiếng | DogeHouse",
     "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "connectionTaken": "Kết nối đã được thực hiện"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -36,33 +36,33 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
       "ban": "cấm",
-      "userStaffandContrib": "User Staff & Contributions",
-      "staff": "Staff: ",
-      "contributions": "Contributions",
-      "username": "Username",
-      "usrStaff": "User Staff",
-      "usrContributions": "User Contributions",
-      "reason": "reason",
-      "usernamePlaceholder": "username to perform actions on"
+      "userStaffandContrib": "Nhân viên người dùng và đóng góp",
+      "staff": "Nhân viên: ",
+      "contributions": "Người đóng góp",
+      "username": "Tên người dùng",
+      "usrStaff": "Nhân viên người dùng",
+      "usrContributions": "Đóng góp của người dùng",
+      "reason": "lý do",
+      "usernamePlaceholder": "tên người dùng đễ thực hiện các tác vụ"
     },
     "followingOnlineList": {
       "listHeader": "Danh sách người dùng bạn theo dõi đang ở trong một phòng nào đó mà không phải là phòng riêng.",
       "currentRoom": "phòng hiện tại:",
       "startPrivateRoom": "tạo phòng riêng tư với họ",
-      "title": "People"
+      "title": "Mọi người"
     },
     "followList": {
       "followHim": "theo dõi",
       "followingHim": "đang theo dõi",
-      "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "title": "Mọi người",
+      "followingNone": "Không đang theo dõi ai",
+      "noFollowers": "Không có người theo dõi"
     },
     "home": {
       "createRoom": "Tạo phòng",
       "refresh": "Làm mới",
-      "editRoom": "Edit Room",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "editRoom": "Chỉnh sửa phòng",
+      "desktopAlert": "Tải xuống ứng dụng DogeHouse dành cho desktop ngay hôm nay!"
     },
     "inviteList": {
       "roomGone": "phòng đã kết thúc, quay lại đi",
@@ -90,8 +90,8 @@
       "overlaySettings": "cài đặt overlay",
       "soundSettings": "cài đặt âm thanh",
       "deleteAccount": "xóa tài khoản",
-      "couldNotFindUser": "Sorry, we could not find that user",
-      "privacySettings": "Privacy settings"
+      "couldNotFindUser": "Xin lỗi, chúng tôi không thể tìm thấy người dùng đó",
+      "privacySettings": "Cài đặt quyền riêng tư"
     },
     "notFound": {
       "whoopsError": "Á! Đi lạc đâu đây.",
@@ -108,8 +108,8 @@
     "searchUser": { "search": "tìm kiếm..." },
     "soundEffectSettings": {
       "header": "Âm thanh",
-      "title": "Sound Settings",
-      "playSound": "Play Sound"
+      "title": "Cài đặt âm thanh",
+      "playSound": "Phát âm thanh"
     },
     "viewUser": {
       "editProfile": "chỉnh sửa hồ sơ",
@@ -125,14 +125,15 @@
       "bot": "Bot",
       "profileTabs": {
         "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips"
+        "rooms": "Phòng",
+        "scheduled": "Lên kế hoạc",
+        "recorded": "Ghi lại",
+        "clips": "Clips",
+        "admin": "Quản trị viên"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM",
+      "block": "Chặn",
+      "unblock": "Bỏ chặn",
+      "sendDM": "Gửi tin nhắn trực tiếp",
       "aboutSuffix": ""
     },
     "voiceSettings": {
@@ -141,7 +142,7 @@
       "permissionError": "không tìm thấy mic, bạn có thể chưa cắm hoặc chưa cấp quyền cho trang web này..",
       "refresh": "làm mới danh sách mic",
       "volume": "âm lượng:",
-      "title": "Voice Settings"
+      "title": "Cài đặt âm thanh"
     },
     "overlaySettings": {
       "header": "Cài đặt Overlay",
@@ -151,17 +152,17 @@
       }
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "starting": "Đang bắt đầu tải xướng...",
+      "failed": "Không thể tự động tải xuống, vui lòng thử lại",
+      "visit_gh": "Ghé thăm bản Release trên Github",
+      "prompt": "Bấm vào nút dưới đây để bắt đầu tải",
+      "download_now": "Tải ngay",
+      "download_for": "Tải cho %nền tảng% (%ext%)"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
-      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+      "title": "Cài đặt quyền riêng tư",
+      "header": "Cài đặt quyền riêng tư",
+      "whispers": { "label": "Thì thầm", "on": "Bật", "off": "Tắt" }
     }
   },
   "components": {
@@ -187,13 +188,13 @@
       "speaker": "Diễn giả",
       "listener": "Thính giả",
       "chat": "Trò chuyện",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Bật/tắt tắt tiếng",
+      "deafen": "Tắt tiếng",
+      "undeafen": "Bỏ tắt tiếng"
     },
     "deviceNotSupported": {
       "notSupported": "Thiết bị của bạn hiện không được hỗ trợ. Bạn có thể tạo một",
-      "linkText": "issue tại GitHub",
+      "linkText": "lỗi tại GitHub",
       "addSupport": "tôi sẽ thêm hỗ trợ cho thiết bị của bạn."
     },
     "inviteButton": { "invited": "đã mời", "inviteToRoom": "mời vào phòng" },
@@ -208,7 +209,7 @@
       "toggleMuteKeybind": "phím tắt/mở mic",
       "toggleOverlayKeybind": "phím bật/tắt overlay",
       "togglePushToTalkKeybind": "phím nhấn-để-nói",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "phím bật/tắt tắng tiếng"
     },
     "userVolumeSlider": {
       "noAudioMessage": "không có âm thanh vì một số lý do"
@@ -226,7 +227,7 @@
         "roomDescription": "Mô tả phòng",
         "descriptionError": "tối đa 500 ký tự",
         "nameError": "phải từ 2 đến 60 ký tự",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Điền vào các trường sau để bắt đầu một phòng mới"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Đã tạo phòng mới",
@@ -245,7 +246,7 @@
         "usernameLabel": "Tên người dùng",
         "bioError": "tối đa 160 ký tự",
         "bioLabel": "Mô tả",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bannerUrlLabel": "URL ảnh bìa Twitter"
       },
       "profileModal": {
         "blockUserConfirm": "Bạn có chắc chắn muốn cấm người dùng này tham gia bất kỳ phòng nào bạn tạo không?",
@@ -259,62 +260,62 @@
         "goBackToListener": "trở về làm thính giả",
         "deleteMessage": "xóa tin nhắn này",
         "makeRoomCreator": "cho làm quản trị viên",
-        "unBanFromChat": "Unban from Chat",
-        "banIPFromRoom": "Ban IP from Room"
+        "unBanFromChat": "Huỷ cấm trò chuyện",
+        "banIPFromRoom": "Cấm địa chỉ IP khỏi phòng"
       },
       "roomSettingsModal": {
         "requirePermission": "phải được cấp quyền mới có thể nói",
         "makePublic": "chuyển thành phòng công khai",
         "makePrivate": "chuyển thành phòng riêng tư",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name",
-        "chatDisabled": "disable chat",
-        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "renamePublic": "Đặt tên phòng công khai",
+        "renamePrivate": "Đặt tên phòng riêng",
+        "chatDisabled": "vô hiệu hoá chat",
+        "chatCooldown": "Thời gian hồi trò chuyện (giây)",
         "chat": {
-          "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "label": "Trò chuyện",
+          "enabled": "Kích hoạt",
+          "disabled": "Vô hiệu hoá",
+          "followerOnly": "Chỉ người theo dõi"
         }
       }
     },
     "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "people": "Mọi người",
+      "online": "Trực tuyến",
+      "noOnline": "Bạn có 0 người bạn trực tuyến ngay bây giờ",
+      "showMore": "Nhiều hơn"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Các phòng sắp tới",
+      "exploreMoreRooms": "Khám phá các phòng khác"
     },
     "search": {
-      "placeholder": "Search for rooms, users or categories",
-      "placeholderShort": "Search"
+      "placeholder": "Tìm theo phòng, người dùng, hoặc danh mục",
+      "placeholderShort": "Tìm kiếm"
     },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Hồ sơ",
+      "language": "Ngôn ngữ",
+      "reportABug": "Báo cáo lỗ hỏng",
+      "useOldVersion": "Sử dụng phiên bản cũ",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Đăng xuất",
+        "modalSubtitle": "Bạn có chắc muốn đăng xuất?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "Gỡ lỗi âm thanh",
+        "stopDebugger": "Dừng trình gỡ lỗi"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Tải App"
     },
     "userBadges": {
-      "dhStaff": "DogeHouse Staff",
-      "dhContributor": "DogeHouse Contributor"
+      "dhStaff": "Nhân viên của DogeHouse",
+      "dhContributor": "Người đóng góp cho DogeHouse"
     },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "Tin nhắn",
+      "showMore": "Nhiều hơn",
+      "noMessages": "Không có tin nhắn mới"
     }
   },
   "modules": {
@@ -332,10 +333,10 @@
         "roomDescription": "Mô tả",
         "minLength": "tối thiểu 2 ký tự"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "NGÀY MAI",
+      "today": "HÔM NAY",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Bạn có chắc chắn muốn xóa phòng đã lên lịch này không?"
       }
     },
     "roomChat": {
@@ -349,17 +350,17 @@
       "sendMessage": "Gửi tin nhắn",
       "whisper": "Thì thầm",
       "welcomeMessage": "Chào mừng đến với phòng trò chuyện!",
-      "roomDescription": "mô tả phòng",
-      "disabled": "room chat has been disabled",
+      "roomDescription": "Mô tả phòng",
+      "disabled": "phòng chat đã bị vô hiệu hoá",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "tin nhắn",
+        "retracted": "đã thu hồi",
+        "deleted": "đã xoá"
       }
     },
     "roomStatus": {
-      "fuelingRocket": "Tên lửa đang đổ xăng",
-      "takingOff": "Chuẩn bị cất cánh",
+      "fuelingRocket": "Đang đổ xăng cho tên lửa",
+      "takingOff": "Cất cánh",
       "inSpace": "Đang ở trên không gian",
       "approachingMoon": "Đang tiếp cận mặt trăng",
       "lunarDoge": "Doge đang ở trên mặt trăng",
@@ -369,6 +370,7 @@
       "galacticDoge": "Doge đang bay quanh thiên hà",
       "spottedLife": "Đã tìm thấy hành tinh có sự sống"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Bản tin của bạn" }
   }
 }
+  

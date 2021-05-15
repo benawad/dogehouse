@@ -7,7 +7,7 @@ export type GetTopPublicRoomsResponse = {
 
 export type GetScheduledRoomsResponse = {
   nextCursor: string | null;
-  scheduledRooms: ScheduledRoom[];
+  rooms: ScheduledRoom[];
 };
 
 export type JoinRoomAndGetInfoResponse = {
