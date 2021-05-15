@@ -2,17 +2,20 @@ import { useEffect, useState } from "react";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../ui/Button";
 import { HeaderController } from "../modules/display/HeaderController";
+import { LgLogo } from "../icons";
 
 const links = [
   "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-Setup-{{version}}.exe", // windows
   "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.dmg", // macOS
   "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.AppImage", // linux
   "https://github.com/benawad/dogehouse/releases/download/{{tag}}/dogehouse_{{version}}_amd64.deb", // linux deb
+  "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.tar.gz", // linux targz
+  "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.x86_64.rpm", // linux rpm
 ];
 
-const platforms = ["Windows", "macOS", "Linux", "Linux"];
+const platforms = ["Windows", "macOS", "Linux", "Linux", "Linux", "Linux"]; // Sorted respectively
 
-const extentions = [".exe", ".dmg", ".AppImage", ".deb"];
+const extentions = [".exe", ".dmg", ".AppImage", ".deb", ".tar.gz", ".rpm"];
 
 function getOS() {
   let isWindows = false;
@@ -231,6 +234,13 @@ export default function Download() {
               })}
           </div>
         )}
+      </div>
+
+      <div className="flex flex-row absolute bottom-0 w-full justify-between px-5 py-5 mt-auto items-center sm:px-7">
+            <LgLogo onClick={() => {
+                window.location.href =
+                  "https://dogehouse.tv";
+              }}/>
       </div>
     </>
   );
