@@ -36,14 +36,14 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
       "ban": "ব্যান করুন",
-      "userStaffandContrib": "User Staff & Contributions",
-      "staff": "Staff: ",
-      "contributions": "Contributions",
-      "username": "Username",
-      "usrStaff": "User Staff",
-      "usrContributions": "User Contributions",
-      "reason": "reason",
-      "usernamePlaceholder": "username to perform actions on"
+      "userStaffandContrib": "ইউজার স্টাফ & অবদান",
+      "staff": "স্টাফ: ",
+      "contributions": "অবদান",
+      "username": "ইউজার নাম",
+      "usrStaff": "ইউজার স্টাফ",
+      "usrContributions": "ইউজারের অবদানগুলো",
+      "reason": "কারণ",
+      "usernamePlaceholder": "ইউজার নাম যার উপর কাজ সম্পাদন করা হবে"
     },
     "followingOnlineList": {
       "listHeader": "যেসব ইউজারকে আপনি অনুসরণ করেন কিন্তু এখন তারা কোনো প্রাইভেট রুম এ নেই।",
@@ -129,7 +129,7 @@
         "scheduled": "পরিকল্পিত",
         "recorded": "রেকর্ড করেছেন",
         "clips": "ক্লিপগুলো",
-        "admin": "Admin"
+        "admin": "অ্যাডমিন"
       },
       "block": "ব্লক করুন",
       "unblock": "আনব্লক করুন",
@@ -314,8 +314,8 @@
       "downloadApp": "ডাউনলোড করুন অ্যাপ্লিকেশনটি"
     },
     "userBadges": {
-      "dhStaff": "DogeHouse Staff",
-      "dhContributor": "DogeHouse Contributor"
+      "dhStaff": "DogeHouse স্টাফ",
+      "dhContributor": "DogeHouse অবদানকারী"
     },
     "messagesDropdown": {
       "title": "মেসেজগুলো",

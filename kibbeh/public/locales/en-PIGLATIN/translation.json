@@ -1,0 +1,385 @@
+{
+  "_comment": "if you change this file, do: yarn i18",
+  "common": {
+    "loadMore": "oad-lay ore-may",
+    "loading": "oading-lay...",
+    "noUsersFound": "o-nay sers-uay ound-fay!",
+    "ok": "Kay-ay",
+    "yes": "Es-yay",
+    "no": "o-nay",
+    "cancel": "ancel-cay",
+    "save": "ave-say",
+    "edit": "dit-ay",
+    "delete": "elete-day",
+    "joinRoom": "oin-jay oom-ray",
+    "copyLink": "opy-cay ink-lay",
+    "copied": "opied-cay!",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "lease-pay ote-nay unning-ray oge-day huse-hay ithout-way ccessibility-ay ermissions-pay ay-may ause-cay nwanted-uay rrors-eay"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "oge-Day ouse-Hay",
+    "dashboard": "ashboard-Day",
+    "connectionTaken": "onnection-cay aken-tay",
+    "mutedTitle": "uted-may | oge-day ouse-hay",
+    "deafenedTitle": "eafened-day | oge-day ouse-hay"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Origin-way ory-stay",
+    "link_2": "Iscord-day",
+    "link_3": "Eport-ray a-way Ug-bay"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "admin": {
+      "ban": "an0bay",
+      "userStaffandContrib": "er-usay aff-stay & ibutions-contray",
+      "staff": "Aff-stay: ",
+      "contributions": "ibutions-Contray",
+      "username": "Ername-usay",
+      "usrStaff": "er-usay aff-stay ",
+      "usrContributions": "er-usay ibutions-Contray",
+      "reason": "eason-ray",
+      "usernamePlaceholder": "ername-usay o-tay erform-pay ions-actay n-oay"
+    },
+    "download": {
+      "prompt": "download-day he-tay doge-day ouse-hay esktop-day pp-ay",
+      "download_for": "ownload-day or-fay %platform% (%ext%)",
+      "failed": "nable-unay to detect platform, please try again later or visit GitHub Releases",
+      "visit_gh": "isit-vay it-gay ub-hay leases-ray"
+    },
+    "followingOnlineList": {
+      "title": "Eople-pay",
+      "listHeader": "Ist-lay f-oay ers-usay at-thay re-ay ot-nay n-iay a rivate-pay oom-ray and u-yoay low-folay.",
+      "currentRoom": "Urrently-cay N-iay",
+      "startPrivateRoom": "Art-stay a ivate-pray oom-ray ith-way em-thay"
+    },
+    "followList": {
+      "title": "Eople-pay",
+      "followHim": "Ollow-fay",
+      "followingHim": "Ollowing-fay",
+      "followingNone": "Ot-nay ollowing-fay one-anyay",
+      "noFollowers": "O-nay ollowers-fay"
+    },
+    "home": {
+      "createRoom": "Ew-nay oom-ray",
+      "editRoom": "It-eday oom-ray",
+      "refresh": "Efresh-ray",
+      "desktopAlert": "Ownload-day he-thay oge-day ouse-hay esktop-day pp-ay oday-ay!"
+    },
+    "inviteList": {
+      "roomGone": "Room-ray one-gay; o-gay ack-bay",
+      "shareRoomLink": "are-shay oom-ray ink-lay",
+      "inviteFollowers": "U-uay an-cay vite-inay ur-yay ollowers-fay hat-thay re-ay line-onay:",
+      "whenFollowersOnline": "Hen-way our-yay ollowers-fay re-ay line-onay, hey-tay ill-way how-say p-uay ere-hay."
+    },
+    "login": {
+      "headerText": "Aking-tay oice-vay onversations-cay o-tay he-tay oon-may 🐷 🚀",
+      "featureText_1": "Ark-day heme-tay",
+      "featureText_2": "Pen-oay ign-say-ps-uay",
+      "featureText_3": "Ross-cay-Latform-pay Upport-say",
+      "featureText_4": "Pen-ay ource-say",
+      "featureText_5": "Ext-tay Hat-cay",
+      "featureText_6": "owered-pay y-bay oge-day (e-way so-alay ave-hay ig-pay atin-lay)",
+      "loginGithub": "Ogin-lay ith-way It-gay-Ub-hay",
+      "loginTwitter": "Ogin-lay ith-way Witter-tay",
+      "loginDiscord": "Ogin-lay ith-way Iscord-day",
+      "createTestUser": "reate-cay est-tay er-usay"
+    },
+    "myProfile": {
+      "logout": "og-lay ut-oay",
+      "probablyLoading": "robably-pay oading-lay...",
+      "voiceSettings": "Oice-vay Ettings-say",
+      "overlaySettings": "Erlay-ovay Ettings-say",
+      "soundSettings": "Ound-say Ettings-say",
+      "deleteAccount": "Elete-day ccount-ay",
+      "couldNotFindUser": "Orry-say, e-way ould-cay ot-nay ind-fay hat-tay er-usay",
+      "privacySettings": "Rivacy-pay Ettings-say"
+    },
+    "notFound": {
+      "whoopsError": "Hoops-way! his-tay age-ay ot-gay ost-lay n-iay onversation-cay.",
+      "goHomeMessage": "Ot-nay o-tay orry-way. ou-yay an-cay",
+      "goHomeLinkText": "o-gay ome-hay"
+    },
+    "privacySettings": {
+      "title": "Rivacy-pay Ettings-say",
+      "header": "Rivacy-pay Ettings-say",
+      "whispers": {
+        "label": "Hispers-way",
+        "on": "N-oay",
+        "off": "FF-oay"
+      }
+    },
+    "room": {
+      "speakers": "Peakers-say",
+      "requestingToSpeak": "Equesting-ray o-tay Peak-say",
+      "listeners": "Isteners-lay",
+      "allowAll": "Llow-lay ll-ay",
+      "allowAllConfirm": "Re-ay u-yay ure-say? His-tay ill-way low-alay l-alay {{count}} equesting-ray ers-usay o-tay eak-spay."
+    },
+    "searchUser": {
+      "search": "Earch-say..."
+    },
+    "soundEffectSettings": {
+      "title": "Ound-say Ettings-say",
+      "header": "Ounds-say",
+      "playSound": "Lay-pay Ound-say"
+    },
+    "viewUser": {
+      "editProfile": "Dit-eay Rofile-pay",
+      "followsYou": "Ollows-fay uo-yay",
+      "followers": "ollowers-fay",
+      "following": "ollowing-fay",
+      "followHim": "Ollow-fay",
+      "unfollow": "follow-unay",
+      "followingHim": "Ollowing-fay",
+      "block": "Lock-bay",
+      "unblock": "Block-unay",
+      "sendDM": "End-say DM-ay",
+      "copyProfileUrl": "Copy-cay rofile-pay URL-ay",
+      "urlCopied": "URL-ay opied-cay o-tay lipboard-cay",
+      "about": "Bout-ay",
+      "aboutSuffix": "",
+      "bot": "Ot-bay",
+      "profileTabs": {
+        "about": "Bout-ay",
+        "rooms": "Ooms-ray",
+        "scheduled": "Cheduled-say",
+        "recorded": "Ecorded-ray",
+        "clips": "Lips-cay",
+        "admin": "Min-aday"
+      }
+    },
+    "voiceSettings": {
+      "title": "Oice-vay Ettings-say",
+      "header": "Oice-vay Ettings-say",
+      "mic": "Ic-may:",
+      "permissionError": "O-nay ics-may ound-fay, u-oay ither-eay ave-hay one-nay ugged-play n-iay r-oay aven't-hay iven-gay his-tay ebsite-way ermission-pay.",
+      "refresh": "Efresh-ray ic-may ist-lay",
+      "volume": "Olume-vay:"
+    },
+    "overlaySettings": {
+      "header": "Verlay-oay Ettings-say",
+      "input": {
+        "errorMsg": "Lease-pay ter-enay a lid-vay pp-ay itle-tay",
+        "label": "Pp-ay itle-tay"
+      }
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Anned-bay Ers-usay",
+      "unban": "Ban-unay",
+      "noBans": "O0nay ne-oay as-hay een-bay anned-bay et-yayt"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Eave-lay Urrent-lay Oom-ray",
+      "confirmLeaveRoom": "E-ray ou-yay ure-say ou-yay ant-way o-tay eave-lay?",
+      "leave": "Eave-lay",
+      "inviteUsersToRoomBtn": "Vite-inay Ers-usay o-tay oom-ray",
+      "invite": "Vite-inay",
+      "toggleMuteMicBtn": "Oggle-tay Ute-may",
+      "toggleDeafMicBtn": "Oggle-tay Eafen-day",
+      "mute": "Ute-may",
+      "unmute": "Mute-unay",
+      "deafen": "Eafen-day",
+      "undeafen": "Deafen-unay",
+      "makeRoomPublicBtn": "Ake-may Oom-ray Ublic-pay!",
+      "settings": "Ettings-say",
+      "speaker": "Eaker-pay",
+      "listener": "Istener-lay",
+      "chat": "Hat-cay"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Our-yay evice-day s-iay urrently-cay ot-nay upportedsay. ou-yay an-cay reate-cay n-ay",
+      "linkText": "sue-say n-oay It-gay-Ub-hay",
+      "addSupport": "d-anay I ill-way ry-tay ing-adday upport-say or-fay our-yay evice-day."
+    },
+    "followingOnline": {
+      "people": "Eople-pay",
+      "online": "LINE-ONAY",
+      "noOnline": "Ou-yay ave-hay 0 riends-fay line-onay ight-ray ow-nay",
+      "showMore": "how-say ore-may"
+    },
+    "inviteButton": {
+      "invited": "Vited-inay!",
+      "inviteToRoom": "Vite-inay o-tay oom-ray"
+    },
+    "messagesDropdown": {
+      "title": "Essages-may",
+      "showMore": "How-say Ore-may",
+      "noMessages": "O-nay ew-nay essages-may"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Ermission-pay enied-day ying-tray o-tay ess-accay our-yay ic-may (ou-yay ay-may eed-nay o-tay o-gay to-inay rowser-bay ettings-say nd-ay eload-ray he-tay age-pay)",
+      "dismiss": "Ismiss-day",
+      "tryAgain": "Ry-tay Gain-ay"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "Et-say Ebind-kay",
+      "listening": "Istening-lay...",
+      "toggleMuteKeybind": "Oggle-tay utemay eybind-kay",
+      "toggleDeafKeybind": "Oggle-tay eafen-day eybind-kay",
+      "toggleOverlayKeybind": "Oggle-tay Verlay-oay eybind-kay",
+      "togglePushToTalkKeybind": "Oggle-tay Ush-pay-O-tay-Alk-tay eybind-kay"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "O-nay dio-auay onsumer-cay or-fay ome-say eason-ray"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Coming-upay Ooms-ray",
+      "exploreMoreRooms": "Plore-exay ore-may ooms-ray"
+    },
+    "addToCalendar": {
+      "add": "D-aday o-tay Alendar-cay"
+    },
+    "wsKilled": {
+      "description": "Eb-wayOcket-say as-way illed-kay y-bay he-tay erver-say. His-tay Ally-usuay appens-hay hen-way ou-yay en-opay he-tay ebsite-way n-iay nother-ay ab-tay.",
+      "reconnect": "Econnect-ray"
+    },
+    "search": {
+      "placeholder": "Earch-say or-fay ooms-ray, ers-usay or-ay ategories-cay",
+      "placeholderShort": "Earch-say"
+    },
+    "settingsDropdown": {
+      "profile": "Rofile-pay",
+      "language": "Anguage-lay",
+      "reportABug": "Eport-ray A-ay ug-bay",
+      "useOldVersion": "Use d-olay ersion-vay",
+      "logOut": {
+        "button": "Og-lay Ut-oay",
+        "modalSubtitle": "Re-ay ou-yay ure-say ou-yay ant-way o-tay ogout-lay?"
+      },
+      "debugAudio": {
+        "debugAudio": "Ebug-day Audio",
+        "stopDebugger": "Top-say Ebugger-day"
+      },
+      "downloadApp": "Ownload-day Ap-pay"
+    },
+    "userBadges": {
+      "dhStaff": "Oge-day-Ouse-hay Aff-stay",
+      "dhContributor": "Oge-day-Ouse-hay Ributor-contray"
+    },
+    "modals": {
+      "createRoomModal": {
+        "subtitle": "Ill-fay he-tay ollowing-fay ields-fay o-tay art-stay a-ay ew-nay oom-ray",
+        "public": "Ublic-pay",
+        "private": "Rivate-pay",
+        "roomName": "Oom-ray ame-nay",
+        "roomDescription": "Oom-ray escription-day",
+        "descriptionError": "Ax-may Ength-lay 500",
+        "nameError": "Ust-may e-bay etween-bay 2 o-tay 60 aracters-chay ong-lay"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Ew-nay Oom-ray Reated-cay",
+        "roomInviteFrom": "Oom-ray Vite-inay Rom-fay",
+        "justStarted": "Hey-tay ust-jay arted-stay",
+        "likeToJoin": ", Ould-way ou-yay ike-lay o-tay oin-jay?",
+        "inviteReceived": "Ou've-yay een-bay vited-inay o-tay"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Ername-usay Aken-tay",
+        "avatarUrlError": "Valid-inay age-imay",
+        "avatarUrlLabel": "It-gay-Ub-hay/Witter-tay/Iscord-day atar-avay URL-ay",
+        "bannerUrlLabel": "Witter-ay anner-bay URL-ay",
+        "displayNameError": "Ength-lay 2 o-tay 50 aracters-chay",
+        "displayNameLabel": "Isplay-day Ame-nay",
+        "usernameError": "Length 4 to 15 characters and only alphanumeric/underscore",
+        "usernameLabel": "Ername-usay",
+        "bioError": "Ax-may ength-lay f-oay 160 aracters-chay",
+        "bioLabel": "Io-bay"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Re-ay ou-yay ure-say ou-yay ant-way o-tay lock-bay his-tay er-usay rom-fay oining-jay ny-ay oom-ray ou-yay ver-eay reate-cay?",
+        "blockUser": "Lock-bay er-say",
+        "makeMod": "Romote-ay o-tay od-may",
+        "unmod": "Emote=day Rom-fay Od-may",
+        "addAsSpeaker": "D-aday s-aay Eaker-spay",
+        "moveToListener": "Ove-may o-tay Istener-lay",
+        "unBanFromChat": "Ban-unay rom-fay Hat-cay",
+        "banFromChat": "An-bay rom-fay Hat-cay",
+        "banFromRoom": "An-bay rom-fay Oom-ray",
+        "banIPFromRoom": "An-bay IP-ay Rom-fay Oom-ray",
+        "goBackToListener": "O-gay Ack-bay o-tay Istener-lay",
+        "deleteMessage": "Elete-day His-tay Essage-may",
+        "makeRoomCreator": "Romote-pay o-tay Min-aday"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "Equire-ray ermission-pay o-tay peak-say",
+        "chatCooldown": "Hat-cay Ooldown-cay (illiseconds-may)",
+        "chat": {
+          "label": "Hat-cay",
+          "enabled": "Abled-enay",
+          "disabled": "Isabled-day",
+          "followerOnly": "Ollower-fay Ly-on"
+        },
+        "makePublic": "Ake-may oom-ray ublic-pay",
+        "makePrivate": "ake-may oom-ray rivate-pay",
+        "renamePublic": "Et-say ublic-pay oom-ray ame-nay",
+        "renamePrivate": "Et-say rivate-pay oom-ray ame-nay"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "feed": {
+      "yourFeed": "Our-yay eed-fay"
+    },
+    "scheduledRooms": {
+      "title": "Cheduled-say Ooms-ray",
+      "noneFound": "One-nay Ound-fay",
+      "allRooms": "All-ay Cheduled-say Ooms-ray",
+      "myRooms": "Y-may Cheduled-say Ooms-ray",
+      "scheduleRoomHeader": "Chedule-say Oom-ray",
+      "startRoom": "art-stat oom-ray",
+      "tommorow": "OMORROW-TAY",
+      "today": "ODAY-TAY",
+      "modal": {
+        "needsFuture": "eeds-nay o-tay e-bay n-iay he-tay uture-fay",
+        "roomName": "oom-ray ame-nay",
+        "roomDescription": "Escription-day",
+        "minLength": "in-may ength-lay 2"
+      },
+      "deleteModal": {
+        "areYouSure": "Re-ay ou-yay uresay ou-yay ant-way o-tay elete-day his-tay cheduled-say oom-ray?"
+      }
+    },
+    "roomChat": {
+      "title": "Hat-cay",
+      "emotesSoon": "[Otes-enay Oon-say]",
+      "bannedAlert": "Ou-yay ave-hay een-bay anned-bay rom-fay hat-cay",
+      "waitAlert": "Ou-yay ave-hay o-tay ait-way a-ay Econd-say Efore-bay ending-say nother-ay essage-may",
+      "search": "Earch-say",
+      "searchResults": "Earch-say Esults-ray",
+      "recent": "Requently-fay Ed-usay",
+      "sendMessage": "End-say a-ay Essage-may",
+      "whisper": "Hisper-way",
+      "welcomeMessage": "Elcome-way o-tay hat-cay!",
+      "roomDescription": "Oom-ray Escription-day",
+      "disabled": "Oom-ray hat-cay as-hay een-bay isabled-day",
+      "messageDeletion": {
+        "message": "Essage-may",
+        "retracted": "Etracted-ray",
+        "deleted": "Eleted-day"
+      }
+    },
+    "roomStatus": {
+      "fuelingRocket": "Ueling-fay ocket-ray",
+      "takingOff": "Aking-tay f-ofay",
+      "inSpace": "n-iay pace-say",
+      "approachingMoon": "Proaching-apay Oon-may",
+      "lunarDoge": "Unar-lay Oge-day",
+      "approachingSun": "Pproaching-apay Un-say",
+      "solarDoge": "Olar-say Oge-day",
+      "approachingGalaxy": "Pproaching-apay Alaxy-gay",
+      "galacticDoge": "Alactic-gay Oge-day",
+      "spottedLife": "Lanet-pay Ith-way Ife-lay Potted-say"
+    }
+  }
+}
