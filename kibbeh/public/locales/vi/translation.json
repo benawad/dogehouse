@@ -297,7 +297,7 @@
       "profile": "Hồ sơ",
       "language": "Ngôn ngữ",
       "reportABug": "Báo cáo lỗ hỏng",
-      "useOldVersion": "Sử dụng phiên bản cũ,
+      "useOldVersion": "Sử dụng phiên bản cũ",
       "logOut": {
         "button": "Đăng xuất",
         "modalSubtitle": "Bạn có chắc muốn đăng xuất?"
@@ -373,3 +373,4 @@
     "feed": { "yourFeed": "Bản tin của bạn" }
   }
 }
+  

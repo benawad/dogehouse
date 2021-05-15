@@ -6,5 +6,6 @@ defenum(
   mention: 1,
   block: 2,
   emote: 3,
-  link: 4
+  link: 4,
+  emoji: 5
 )

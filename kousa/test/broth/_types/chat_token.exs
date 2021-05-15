@@ -103,6 +103,16 @@ defmodule BrothTest.Message.Types.ChatToken do
     end
   end
 
+  describe "a chat token which is of type emoji" do
+    test "can be validated" do
+      assert {:ok,
+              %ChatToken{
+                type: :emoji,
+                value: "🤔"
+              }} = validate(%{"type" => "emoji", "value" => "🤔"})
+    end
+  end
+
   describe "a chat token which is missing the field" do
     test "type is invalid" do
       assert {:error, %{errors: [type: {"can't be blank", _}]}} = validate(%{"value" => "foobar"})
