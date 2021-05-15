@@ -2,7 +2,7 @@ import { Token } from "../../util/types/tokenTypes";
 import emojiRegex from "emoji-regex"
 
 export default {
-	name: "emote",
+	name: "emoji",
 	regex: emojiRegex(),
 
 	format: (val) => val,
