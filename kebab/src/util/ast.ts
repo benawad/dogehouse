@@ -19,6 +19,7 @@ export const tokensToString = (tokens: MessageToken[]): string => tokens
       case "link": return it.v;
       case "emote": return `:${it.v}:`;
       case "block": return `\`${it.v}\``;
+      case "emoji": return it.v;
       default: return "";
     }
   })

@@ -127,7 +127,8 @@
         "rooms": "Ruangan",
         "scheduled": "Terjadwal",
         "recorded": "Terekam",
-        "clips": "Klip"
+        "clips": "Klip",
+        "admin": "Admin"
       },
       "block": "Blokir",
       "unblock": "Berhenti blokir",

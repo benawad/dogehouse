@@ -129,4 +129,33 @@ defmodule BrothTest.User.UpdateTest do
     @tag :skip
     test "other fields"
   end
+
+  describe "update banner url twitter variations" do
+    test "no extension works", t do
+      user_id = t.user.id
+      url = "https://pbs.twimg.com/profile_banners/1241894903472427015/1587079476"
+
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "user:update",
+          %{
+            "bannerUrl" => url
+          }
+        )
+
+      WsClient.assert_reply(
+        "user:update:reply",
+        ref,
+        %{
+          "bannerUrl" => url
+        }
+      )
+
+      user = Users.get_by_id(user_id)
+
+      assert user.bannerUrl ==
+               url
+    end
+  end
 end

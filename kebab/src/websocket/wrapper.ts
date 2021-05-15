@@ -128,11 +128,13 @@ export const wrap = (connection: Connection) => ({
       connection.fetch("get_user_profile", { userId: idOrUsername }),
     getScheduledRooms: (
       cursor = "",
-      getOnlyMyScheduledRooms = false
+      range: "all" | "upcoming" = "all",
+      userId: string | undefined,
     ): Promise<GetScheduledRoomsResponse> =>
-      connection.fetch("get_scheduled_rooms", {
+      connection.sendCall("room:get_scheduled", {
         cursor,
-        getOnlyMyScheduledRooms,
+        range,
+        userId,
       }),
     getRoomUsers: (): Promise<GetRoomUsersResponse> =>
       connection.fetch(
@@ -167,14 +169,14 @@ export const wrap = (connection: Connection) => ({
     userCreateBot: (username: string): Promise<CreateBotResponse> =>
       connection.sendCall(`user:create_bot`, { username }),
     userAdminUpdate: (
-      username: string,
+      id: UUID,
       user: {
         staff?: boolean;
         contributions?: number;
       }
     ) =>
       connection.sendCall(`user:admin_update`, {
-        username,
+        id,
         user,
       }),
     ban: (username: string, reason: string) =>

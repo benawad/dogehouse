@@ -4,6 +4,7 @@
   "workspaces": {
     "packages": [
       "kebab",
+      "kebab/examples/*",
       "kibbeh",
       "dinner",
       "dolma"
