@@ -13,7 +13,7 @@ const links = [
   "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.x86_64.rpm", // linux rpm
 ];
 
-const platforms = ["Windows", "macOS", "Linux", "Linux", "Linux", "Linux"]; // Sorted respectively 
+const platforms = ["Windows", "macOS", "Linux", "Linux", "Linux", "Linux"]; // Sorted respectively
 
 const extentions = [".exe", ".dmg", ".AppImage", ".deb", ".tar.gz", ".rpm"];
 
