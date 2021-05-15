@@ -13,7 +13,7 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
   const { t } = useTypeSafeTranslation();
   return (
     <div
-      className={`w-full flex items-center justify-around ${className}`}
+      className={`w-full flex items-center pl-1.5 ${className}`}
       {...props}
     >
       <button
