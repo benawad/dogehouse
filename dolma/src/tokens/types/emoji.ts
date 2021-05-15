@@ -1,8 +1,9 @@
 import { Token } from "../../util/types/tokenTypes";
+import emojiRegex from "emoji-regex"
 
 export default {
 	name: "emote",
-	regex: /\:([a-z0-9]+)\:/gi,
+	regex: emojiRegex(),
 
 	format: (val) => val,
   validate: (raw, val) => true
