@@ -6,7 +6,7 @@ defmodule Broth.Message.User.AdminUpdate do
 
   @primary_key false
   embedded_schema do
-    field(:username, :string)
+    field(:id, :binary_id)
     embeds_one(:user, User)
   end
 
@@ -20,14 +20,14 @@ defmodule Broth.Message.User.AdminUpdate do
   @impl true
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:username])
-    |> validate_required([:username])
+    |> cast(data, [:id])
+    |> validate_required([:id])
     |> cast_embed(:user,
       with:
         {__MODULE__, :user_admin_changeset,
          [
-           if(not is_nil(data["username"]),
-             do: Users.get_by_username(data["username"]),
+           if(not is_nil(data["id"]),
+             do: Users.get_by_id(data["id"]),
              else: %User{}
            )
          ]},

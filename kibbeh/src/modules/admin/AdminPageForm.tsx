@@ -62,50 +62,6 @@ export const AdminPageForm: React.FC<SearchUsersProps> = ({}) => {
           {t("pages.admin.ban")}
         </Button>
       </div>
-      <div className="mt-6">
-        <h3 className="text-primary-100">{t("pages.admin.usrStaff")}</h3>
-
-        <label className="inline-flex mb-4">
-          <div className={`text-primary-100`}>{t("pages.admin.staff")}</div>
-          <input
-            type="checkbox"
-            className="ml-2 mt-1"
-            checked={isStaff}
-            onChange={(e) => setIsStaff(e.target.checked)}
-          />
-        </label>
-        <div className="flex">
-          <Button
-            onClick={() => {
-              wrapper.mutation.userAdminUpdate(username, { staff: isStaff });
-            }}
-          >
-            {t("common.save")}
-          </Button>
-        </div>
-      </div>
-      <div className="mt-6">
-        <h3 className="text-primary-100">
-          {t("pages.admin.usrContributions")}
-        </h3>
-        <Input
-          className={`mb-4`}
-          autoFocus
-          placeholder={t("pages.admin.contributions")}
-          value={contributions}
-          onChange={(e) => setContributions(Number(e.target.value))}
-          type="number"
-        />
-        <div className="flex pb-5">
-          <Button
-            onClick={() => {
-              wrapper.mutation.userAdminUpdate(username, { contributions });
-            }}
-          >
-            {t("common.save")}
-          </Button>
-        </div>
-      </div>
     </MiddlePanel>
   );
 };

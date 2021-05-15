@@ -18910,6 +18910,15 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"tsc@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "tsc@npm:2.0.3"
+  bin:
+    tsc: bin/tsc
+  checksum: 008bf40a248637ad63b71fc8b3d94accbe73c861459dc6a6a9429b0b9f4e7e7155f02cd8dcf98f8d199d6ccef642b380e153637bc960d4c164b5cfc14e422455
+  languageName: node
+  linkType: hard
+
 "tslib@npm:^1.10.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
@@ -20202,6 +20211,16 @@ resolve@^2.0.0-next.3:
     y18n: ^5.0.5
     yargs-parser: ^20.2.2
   checksum: a79ce1f043021cd645de1ffebb6149541d382ba68f4a6b5eca5d2ad65af51893371bbd78e240dc3b6cf0cbb419511ba5bda715dec992e4266e6863ea49f14feb
+  languageName: node
+  linkType: hard
+
+"yarn@npm:^1.22.10":
+  version: 1.22.10
+  resolution: "yarn@npm:1.22.10"
+  bin:
+    yarn: bin/yarn.js
+    yarnpkg: bin/yarn.js
+  checksum: e43c2102576ac3d79f58f6cddc36726e39d54357bbdd2b9af8ad94d8368e63170555acb4652af08a04354e1a92555d5b293936f9d9b3c8b066872ac11f32cb29
   languageName: node
   linkType: hard
 

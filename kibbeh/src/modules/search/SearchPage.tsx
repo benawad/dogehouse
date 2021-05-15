@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useScreenType } from "../../shared-hooks/useScreenType";
 import { PageComponent } from "../../types/PageComponent";
+import { InfoText } from "../../ui/InfoText";
 import { SearchHeader } from "../../ui/mobile/MobileHeader";
 import {
   RoomSearchResult,
@@ -19,9 +20,8 @@ export const SearchPage: PageComponent<LoungePageProps> = ({}) => {
   const screenType = useScreenType();
   if (screenType !== "fullscreen") router.push("/dash");
 
-  const [results, setResults] = useState({ items: [] } as {
-    items: (User | Room)[];
-  });
+  const [results, setResults] = useState([] as (User | Room)[]);
+  const [searchLoading, setSearchLoading] = useState(false);
   const conn = useWrappedConn();
 
   return (
@@ -32,16 +32,21 @@ export const SearchPage: PageComponent<LoungePageProps> = ({}) => {
           <SearchHeader
             onSearchChange={(e) => {
               console.log(e.target.value);
-              conn.query.search(e.target.value).then((r) => setResults(r));
+              setSearchLoading(true);
+              conn.query.search(e.target.value).then((r) => {
+                setResults(r?.items);
+                setSearchLoading(false);
+              });
             }}
             searchPlaceholder="Search"
             onBackClick={() => router.back()}
+            searchLoading={searchLoading}
           />
         }
       >
         <div className="h-full w-full">
           {results &&
-            results.items.map((userOrRoom, i) => {
+            results.map((userOrRoom, i) => {
               if ("username" in userOrRoom) {
                 return (
                   <UserSearchResult
@@ -60,6 +65,9 @@ export const SearchPage: PageComponent<LoungePageProps> = ({}) => {
                 );
               }
             })}
+          {!results?.length && (
+            <InfoText className="pr-4 pl-5 py-3">no results</InfoText>
+          )}
         </div>
       </DefaultDesktopLayout>
     </WaitForWsAndAuth>
