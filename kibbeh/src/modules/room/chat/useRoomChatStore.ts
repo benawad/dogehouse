@@ -25,12 +25,18 @@ interface EmoteToken {
   v: string;
 }
 
+interface EmojiToken {
+  t: "emoji";
+  v: string;
+}
+
 export type RoomChatMessageToken =
   | TextToken
   | MentionToken
   | LinkToken
   | BlockToken
-  | EmoteToken;
+  | EmoteToken
+  | EmojiToken;
 
 const colors = [
   "#ff2366",
