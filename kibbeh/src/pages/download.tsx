@@ -8,11 +8,13 @@ const links = [
   "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.dmg", // macOS
   "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.AppImage", // linux
   "https://github.com/benawad/dogehouse/releases/download/{{tag}}/dogehouse_{{version}}_amd64.deb", // linux deb
+  "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.tar.gz", // linux targz
+  "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.x86_64.rpm", // linux rpm
 ];
 
-const platforms = ["Windows", "macOS", "Linux", "Linux"];
+const platforms = ["Windows", "macOS", "Linux", "Linux", "Linux", "Linux"];
 
-const extentions = [".exe", ".dmg", ".AppImage", ".deb"];
+const extentions = [".exe", ".dmg", ".AppImage", ".deb", ".tar.gz", ".rpm"];
 
 function getOS() {
   let isWindows = false;
