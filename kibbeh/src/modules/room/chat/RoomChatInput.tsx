@@ -100,7 +100,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
     // Fix emotes!
     for (const token of messageData.tokens) {
       if (token.t === 'emote') {
-        token.v = token.v.replace(/[^a-z0-9]/gi, '');
+        token.v = token.v.replace(/[^a-z0-9]+/gi, '');
       }
     }
 
