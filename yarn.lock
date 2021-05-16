@@ -2521,7 +2521,7 @@ __metadata:
 
 "@dogehouse/kebab@file:../..::locator=create-bot%40workspace%3Akebab%2Fexamples%2Fcreate-bot":
   version: 0.3.4
-  resolution: "@dogehouse/kebab@file:../..#../..::hash=d477ff&locator=create-bot%40workspace%3Akebab%2Fexamples%2Fcreate-bot"
+  resolution: "@dogehouse/kebab@file:../..#../..::hash=335c94&locator=create-bot%40workspace%3Akebab%2Fexamples%2Fcreate-bot"
   dependencies:
     "@types/uuid": ^8.3.0
     "@types/ws": ^7.4.2
@@ -2531,13 +2531,13 @@ __metadata:
     reconnecting-websocket: ^4.4.0
     uuid: ^8.3.2
     ws: ^7.4.5
-  checksum: 735880640ce5b62578b52a9c5ba863a162238726f4128c79e66e314baffe23315ef04054c3c59e4b63e0015b523034f89f6c621de29aae1a06072ef04a2fa55b
+  checksum: 9b13ceacb33e0279dccd571e11a617204c3063dae0fd3bc1d8ca5042f21d257408669dee7946e95925b54c86456e0a18fc465f830003ed1481aa636b3848e7a5
   languageName: node
   linkType: hard
 
 "@dogehouse/kebab@file:../..::locator=example-bot%40workspace%3Akebab%2Fexamples%2Fbot":
   version: 0.3.4
-  resolution: "@dogehouse/kebab@file:../..#../..::hash=d477ff&locator=example-bot%40workspace%3Akebab%2Fexamples%2Fbot"
+  resolution: "@dogehouse/kebab@file:../..#../..::hash=335c94&locator=example-bot%40workspace%3Akebab%2Fexamples%2Fbot"
   dependencies:
     "@types/uuid": ^8.3.0
     "@types/ws": ^7.4.2
@@ -2547,13 +2547,13 @@ __metadata:
     reconnecting-websocket: ^4.4.0
     uuid: ^8.3.2
     ws: ^7.4.5
-  checksum: 735880640ce5b62578b52a9c5ba863a162238726f4128c79e66e314baffe23315ef04054c3c59e4b63e0015b523034f89f6c621de29aae1a06072ef04a2fa55b
+  checksum: 9b13ceacb33e0279dccd571e11a617204c3063dae0fd3bc1d8ca5042f21d257408669dee7946e95925b54c86456e0a18fc465f830003ed1481aa636b3848e7a5
   languageName: node
   linkType: hard
 
 "@dogehouse/kebab@file:../..::locator=example-chat%40workspace%3Akebab%2Fexamples%2Fchat":
   version: 0.3.4
-  resolution: "@dogehouse/kebab@file:../..#../..::hash=d477ff&locator=example-chat%40workspace%3Akebab%2Fexamples%2Fchat"
+  resolution: "@dogehouse/kebab@file:../..#../..::hash=335c94&locator=example-chat%40workspace%3Akebab%2Fexamples%2Fchat"
   dependencies:
     "@types/uuid": ^8.3.0
     "@types/ws": ^7.4.2
@@ -2563,13 +2563,13 @@ __metadata:
     reconnecting-websocket: ^4.4.0
     uuid: ^8.3.2
     ws: ^7.4.5
-  checksum: 735880640ce5b62578b52a9c5ba863a162238726f4128c79e66e314baffe23315ef04054c3c59e4b63e0015b523034f89f6c621de29aae1a06072ef04a2fa55b
+  checksum: 9b13ceacb33e0279dccd571e11a617204c3063dae0fd3bc1d8ca5042f21d257408669dee7946e95925b54c86456e0a18fc465f830003ed1481aa636b3848e7a5
   languageName: node
   linkType: hard
 
 "@dogehouse/kebab@file:../..::locator=mediasoup-audio%40workspace%3Akebab%2Fexamples%2Fmediasoup-audio":
   version: 0.3.4
-  resolution: "@dogehouse/kebab@file:../..#../..::hash=d477ff&locator=mediasoup-audio%40workspace%3Akebab%2Fexamples%2Fmediasoup-audio"
+  resolution: "@dogehouse/kebab@file:../..#../..::hash=335c94&locator=mediasoup-audio%40workspace%3Akebab%2Fexamples%2Fmediasoup-audio"
   dependencies:
     "@types/uuid": ^8.3.0
     "@types/ws": ^7.4.2
@@ -2579,13 +2579,13 @@ __metadata:
     reconnecting-websocket: ^4.4.0
     uuid: ^8.3.2
     ws: ^7.4.5
-  checksum: 735880640ce5b62578b52a9c5ba863a162238726f4128c79e66e314baffe23315ef04054c3c59e4b63e0015b523034f89f6c621de29aae1a06072ef04a2fa55b
+  checksum: 9b13ceacb33e0279dccd571e11a617204c3063dae0fd3bc1d8ca5042f21d257408669dee7946e95925b54c86456e0a18fc465f830003ed1481aa636b3848e7a5
   languageName: node
   linkType: hard
 
 "@dogehouse/kebab@file:../..::locator=react-chat%40workspace%3Akebab%2Fexamples%2Freact-chat":
   version: 0.3.4
-  resolution: "@dogehouse/kebab@file:../..#../..::hash=d477ff&locator=react-chat%40workspace%3Akebab%2Fexamples%2Freact-chat"
+  resolution: "@dogehouse/kebab@file:../..#../..::hash=335c94&locator=react-chat%40workspace%3Akebab%2Fexamples%2Freact-chat"
   dependencies:
     "@types/uuid": ^8.3.0
     "@types/ws": ^7.4.2
@@ -2595,7 +2595,7 @@ __metadata:
     reconnecting-websocket: ^4.4.0
     uuid: ^8.3.2
     ws: ^7.4.5
-  checksum: 735880640ce5b62578b52a9c5ba863a162238726f4128c79e66e314baffe23315ef04054c3c59e4b63e0015b523034f89f6c621de29aae1a06072ef04a2fa55b
+  checksum: 9b13ceacb33e0279dccd571e11a617204c3063dae0fd3bc1d8ca5042f21d257408669dee7946e95925b54c86456e0a18fc465f830003ed1481aa636b3848e7a5
   languageName: node
   linkType: hard
 
