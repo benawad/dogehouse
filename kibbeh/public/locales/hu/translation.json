@@ -1,7 +1,7 @@
 {
   "common": {
     "loadMore": "Továbbiak betöltése",
-    "loading": "Löltés...",
+    "loading": "Töltés...",
     "noUsersFound": "Nem található felhasználó!",
     "ok": "Ok",
     "yes": "Igen",
@@ -12,7 +12,7 @@
     "delete": "Törlés",
     "joinRoom": "Csatlakozás",
     "copyLink": "Link másolása",
-    "copied": "Kiásolva!",
+    "copied": "Kimásolva!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
     "requestPermissions": "Figyelem, a DogeHouse kisegítő lehetőségek nélküli futtatása nem kívánt hibákat okozhat"
