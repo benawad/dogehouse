@@ -36,7 +36,7 @@
       "ban": "ban",
       "userStaffandContrib": "Staff & Hozzájáruló felhasználók",
       "staff": "Staff: ",
-      "contributions": "Hozzájárulók",
+      "contributions": "hozzájárulás",
       "username": "Felhasználónév",
       "usrStaff": "Staff felhasználó",
       "usrContributions": "DogeHouse hozzájáruló",
@@ -47,7 +47,7 @@
       "listHeader": "Követett felhasználók nyilvános szobában.",
       "currentRoom": "Jelenleg itt:",
       "startPrivateRoom": "Privát szoba létrehozása velük",
-      "title": "People"
+      "title": "Felhasználok"
     },
     "followList": {
       "followHim": "Követés",
@@ -123,7 +123,7 @@
       "aboutSuffix": "névjegye",
       "bot": "Bot",
       "profileTabs": {
-        "about": "About",
+        "about": "Névjegy",
         "rooms": "Szobák",
         "scheduled": "Ütemzett",
         "recorded": "Felvett",
@@ -157,7 +157,7 @@
     "privacySettings": {
       "title": "Személyes tér beállításai",
       "header": "Személyes tér",
-      "whispers": { "label": "Suttogó üzenetek", "on": "Be", "off": "Ki" }
+      "whispers": { "label": "Suttogó üzenetek", "on": "Bekapcsolva", "off": "Kikapcsolva" }
     }
   },
   "components": {
@@ -200,7 +200,7 @@
         "roomDescription": "Szoba leírása",
         "descriptionError": "Maximum 500 karakter",
         "nameError": "Minimum 2, maximum 60 karakter",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Töltse ki a mezőket a szoba létrehozásához"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Új szoba létrehozva",
@@ -212,7 +212,7 @@
       "editProfileModal": {
         "usernameTaken": "Foglalt felhasználónév",
         "avatarUrlError": "Helytelen kép",
-        "avatarUrlLabel": "Github/Twitter/Discord profilkép URL-je",
+        "avatarUrlLabel": "Github/Twitter/Discord profilkép URL címe",
         "displayNameError": "Minimum 2, maximum 50 karakter",
         "displayNameLabel": "Megjelenített név",
         "usernameError": "Minimum 4, maximum 15 karakter, csak alfanumerikus és aláhúzás",
@@ -234,7 +234,7 @@
         "deleteMessage": "Üzenet törlése",
         "makeRoomCreator": "Előreléptetés tulajdonossá",
         "unBanFromChat": "Szoba kitiltás visszavonása",
-        "banIPFromRoom": "Ban IP from Room"
+        "banIPFromRoom": "IP cím bannolása a szobából"
       },
       "roomSettingsModal": {
         "requirePermission": "Beszélői engedélyre van szükség",
