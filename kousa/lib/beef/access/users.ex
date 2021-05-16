@@ -43,11 +43,10 @@ defmodule Beef.Access.Users do
 
   def search_user(username_or_display_name) do
     search_str = username_or_display_name <> "%"
-    search_str = String.replace(search_str, ~r/([_])/, ~s(\\\_))
 
     Query.start()
     # here
-    |> where([u], ilike(u.username, ^search_str) or ilike(u.displayName, ^search_str))
+    |> where([u], ilike(u.username, ^search_str))
     |> order_by([u], desc: u.numFollowers)
     |> limit([], 15)
     |> Repo.all()
