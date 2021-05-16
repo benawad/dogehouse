@@ -55,8 +55,8 @@
       "followHim": "Folgen",
       "followingHim": "Entfolgen",
       "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "followingNone": "Du folgst niemandem",
+      "noFollowers": "Keine follower"
     },
     "home": {
       "createRoom": "Raum erstellen",
@@ -67,8 +67,8 @@
     "inviteList": {
       "roomGone": "Raum konnte nicht gefunden werden! Zurück",
       "shareRoomLink": "Link zum Raum teilen",
-      "inviteFollowers": "Du kannst deine Abonnenten, die online sind, einladen:",
-      "whenFollowersOnline": "Wenn deine Abonnenten online sind, werden sie hier angezeigt."
+      "inviteFollowers": "Du kannst deine Follower, die online sind, einladen:",
+      "whenFollowersOnline": "Wenn deine Follower online sind, werden sie hier angezeigt."
     },
     "login": {
       "headerText": "Wir bringen den Sprachchat zum Mond",
@@ -114,8 +114,8 @@
     "viewUser": {
       "editProfile": "Profil bearbeiten",
       "followsYou": "Folgt dir",
-      "following": "Abonniert",
-      "followers": "Abonnenten",
+      "following": "Folgt",
+      "followers": "Follower",
       "followHim": "Folgen",
       "followingHim": "Folgt bereits",
       "copyProfileUrl": "Benutzer-URL kopieren",
@@ -125,24 +125,24 @@
       "bot": "Bot",
       "profileTabs": {
         "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
+        "rooms": "Räume",
+        "scheduled": "Geplant",
+        "recorded": "Aufgenommen",
         "clips": "Clips",
         "admin": "Admin"
       },
       "block": "Block",
       "unblock": "Unblock",
-      "sendDM": "Send DM",
+      "sendDM": "DM Senden",
       "aboutSuffix": ""
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
       "mic": "Mikrofon:",
-      "permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlosen oder diese Seite besitzt nicht die benötigten Berechtigungen.",
+      "permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlosen oder Dogehouse besitzt nicht die benötigten Berechtigungen.",
       "volume": "Lautstärke:",
       "refresh": "Mikrofonliste aktualisieren",
-      "title": "Voice Settings"
+      "title": "Voice Einstellungen"
     },
     "overlaySettings": {
       "input": {
@@ -242,7 +242,7 @@
         "deleteMessage": "Nachricht löschen",
         "makeRoomCreator": "Zum Raumadmin befördern",
         "unBanFromChat": "Vom Chat entbannen",
-        "banIPFromRoom": "Ban IP from Room"
+        "banIPFromRoom": "IP aus Raum ausschließen"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlangen",
@@ -251,12 +251,12 @@
         "renamePublic": "Öffentlichen Raum-Namen setzen",
         "renamePrivate": "Privaten Raum-Namen setzen",
         "chatDisabled": "Chat ausschalten",
-        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chatCooldown": "Chat Cooldown (millisekunden)",
         "chat": {
           "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "enabled": "Akriviert",
+          "disabled": "Deaktiviert",
+          "followerOnly": "Nur Follower"
         }
       }
     },
@@ -358,9 +358,9 @@
       "roomDescription": "Raumbeschreibung",
       "disabled": "Der Chat wurde vom Raum ausgeschaltet",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "Nachricht",
+        "retracted": "zurückgezogen",
+        "deleted": "gelöscht"
       }
     },
     "roomStatus": {
