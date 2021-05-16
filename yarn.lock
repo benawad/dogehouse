@@ -1862,6 +1862,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+
 "@dogehouse/kebab@workspace:kebab":
   version: 0.0.0-use.local
   resolution: "@dogehouse/kebab@workspace:kebab"

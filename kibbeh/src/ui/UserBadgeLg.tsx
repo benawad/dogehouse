@@ -5,12 +5,18 @@ import {
   SolidStaff,
   LogoIcon,
 } from "../icons";
+import { ContributorBadge, StaffBadge } from "../icons/badges";
 
 export interface UserBadgeLgProps extends React.HTMLProps<HTMLDivElement> {
   icon: "logo" | "dogeNitro" | "dogeStaff" | "dogeContributor";
+  contributions?: number;
 }
 
-export const UserBadgeLg: React.FC<UserBadgeLgProps> = ({ icon, children }) => {
+export const UserBadgeLg: React.FC<UserBadgeLgProps> = ({
+  icon,
+  children,
+  contributions,
+}) => {
   const [parsedIcon, setParsedIcon] = useState(null as React.ReactNode);
   useEffect(() => {
     switch (icon) {
@@ -29,16 +35,23 @@ export const UserBadgeLg: React.FC<UserBadgeLgProps> = ({ icon, children }) => {
         break;
       case "dogeStaff":
         setParsedIcon(
-          <SolidStaff className="relative transform translate-x-n1/2 translate-y-n1/2 top-1/2 left-1/2" />
+          <StaffBadge
+            style={{ color: "var(--color-primary-300)" }}
+            className="relative transform translate-x-n1/2 translate-y-n1/2 top-1/2 left-1/2"
+          />
         );
         break;
       case "dogeContributor":
         setParsedIcon(
-          <SolidContributor className="relative transform translate-x-n1/2 translate-y-n1/2 top-1/2 left-1/2" />
+          <ContributorBadge
+            contributions={contributions!}
+            style={{ color: "var(--color-primary-300)" }}
+            className="relative transform translate-x-n1/2 translate-y-n1/2 top-1/2 left-1/2"
+          />
         );
         break;
     }
-  }, [setParsedIcon, icon]);
+  }, [setParsedIcon, icon, contributions]);
 
   return (
     <div className="flex text-primary-300">
@@ -49,7 +62,10 @@ export const UserBadgeLg: React.FC<UserBadgeLgProps> = ({ icon, children }) => {
       ) : (
         ""
       )}
-      <span className="text-sm">{children}</span>
+      <span>
+        {children}
+        {contributions ? ` (${contributions})` : ""}
+      </span>
     </div>
   );
 };
