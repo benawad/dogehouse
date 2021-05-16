@@ -91,7 +91,7 @@
       "soundSettings": "Paramètres Audio",
       "deleteAccount": "Supprimer le Compte",
       "couldNotFindUser": "Désolé, nous ne parvenons pas à trouver cet utilisateur",
-      "privacySettings": "Privacy settings"
+      "privacySettings": "Paramètres de confidentialité"
     },
     "notFound": {
       "whoopsError": "Oups ! Cette page s'est perdue dans la conversation.",
@@ -124,10 +124,10 @@
       "about": "À propos de",
       "bot": "Bot",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
+        "about": "À propos",
+        "rooms": "salles",
+        "scheduled": "Programmé",
+        "recorded": "enregistré",
         "clips": "Clips",
         "admin": "Admin"
       },
