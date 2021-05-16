@@ -25,9 +25,18 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
   const { t } = useTypeSafeTranslation();
 
   const options = [
-    { label: t("components.modals.roomSettingsModal.chat.enabled"), value: "default" },
-    { label: t("components.modals.roomSettingsModal.chat.disabled"), value: "disabled" },
-    { label: t("components.modals.roomSettingsModal.chat.followerOnly"), value: "follower_only" },
+    {
+      label: t("components.modals.roomSettingsModal.chat.enabled"),
+      value: "default",
+    },
+    {
+      label: t("components.modals.roomSettingsModal.chat.disabled"),
+      value: "disabled",
+    },
+    {
+      label: t("components.modals.roomSettingsModal.chat.followerOnly"),
+      value: "follower_only",
+    },
   ];
 
   return (
@@ -88,7 +97,9 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
 
           {/* chat disabled */}
           <label className={`mt-2`} htmlFor="chat-mode">
-            <div className={`text-primary-100 mb-1`}>{t("components.modals.roomSettingsModal.chat.label")}</div>
+            <div className={`text-primary-100 mb-1`}>
+              {t("components.modals.roomSettingsModal.chat.label")}
+            </div>
             <NativeSelect
               value={data.room.chatMode}
               onChange={(e) => {

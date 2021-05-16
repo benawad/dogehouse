@@ -1,9 +1,9 @@
-import { Room, RoomUser } from "@dogehouse/kebab";
+import { Room, RoomUser, UserWithFollowInfo } from "@dogehouse/kebab";
 import React, { useRef, useState, useEffect } from "react";
 import { Smiley } from "../../../icons";
 import { createChatMessage } from "../../../lib/createChatMessage";
 import { showErrorToast } from "../../../lib/showErrorToast";
-import { useConn } from "../../../shared-hooks/useConn";
+import { useConn, useWrappedConn } from "../../../shared-hooks/useConn";
 import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTranslation";
 import { Input } from "../../../ui/Input";
 import { customEmojis, CustomEmote } from "./EmoteData";
@@ -17,6 +17,7 @@ import { useTypeSafeQuery } from "../../../shared-hooks/useTypeSafeQuery";
 import { useCurrentRoomIdStore } from "../../../global-stores/useCurrentRoomIdStore";
 import { useScreenType } from "../../../shared-hooks/useScreenType";
 import { useCurrentRoomFromCache } from "../../../shared-hooks/useCurrentRoomFromCache";
+import Dolma from '@dogehouse/dolma';
 
 interface ChatInputProps {
   users: RoomUser[];
@@ -27,6 +28,8 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   const { setQueriedUsernames } = useRoomChatMentionStore();
   const { setOpen, open, queryMatches } = useEmojiPickerStore();
   const conn = useConn();
+  const dolma = new Dolma(customEmojis);
+  const wConn = useWrappedConn();
   const me = conn.user;
   const inputRef = useRef<HTMLInputElement>(null);
   const [lastMessageTimestamp, setLastMessageTimestamp] = useState<number>(0);
@@ -49,7 +52,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
     );
   }
 
-  const handleSubmit = (
+  const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
   ) => {
     e.preventDefault();
@@ -71,7 +74,16 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
     }
 
     const tmp = message;
-    const messageData = createChatMessage(tmp, users);
+    // const messageData = createChatMessage(tmp, users);
+    const messageData = dolma.encode(message);
+    console.log(messageData);
+
+    messageData.whisperedTo = await Promise.all(messageData.whisperedTo.map(async (uname = "") => {
+      const u = await wConn.query.getUserProfile(uname);
+      if("id" in u!) return u.id;
+      return "";
+    }));
+
 
     // dont empty the input, if no tokens
     if (!messageData.tokens.length) return;

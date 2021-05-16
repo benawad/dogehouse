@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/HoloPanio/dolma#readme",
   "dependencies": {
-    "@types/node": "^15.0.2"
+    "@types/node": "^15.0.2",
+    "emoji-regex": "^9.2.2"
   }
 }
