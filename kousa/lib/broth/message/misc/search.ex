@@ -47,7 +47,7 @@ defmodule Broth.Message.Misc.Search do
     case apply_action(changeset, :validate) do
       {:ok, %{query: query}} ->
         rooms = Rooms.search_name(query)
-        users = Users.search_user(query)
+        users = Users.search_username(query)
         items = Enum.concat(rooms, users)
 
         {:reply, %Reply{items: items, rooms: rooms, users: users, nextCursor: nil}, state}
