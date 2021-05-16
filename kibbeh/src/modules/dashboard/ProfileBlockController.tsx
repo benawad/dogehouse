@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
+import { ContributorBadge, StaffBadge } from "../../icons/badges";
 import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
@@ -33,18 +34,21 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
   const badges: badge[] = [];
   if (conn.user.staff) {
     badges.push({
-      content: "ƉS",
+      content: <StaffBadge />,
       variant: "primary",
       color: "white",
       title: t("components.userBadges.dhStaff"),
+      naked: true,
     });
   }
+
   if (conn.user.contributions > 0) {
     badges.push({
-      content: "ƉC",
+      content: <ContributorBadge contributions={conn.user.contributions} />,
       variant: "primary",
       color: "white",
-      title: t("components.userBadges.dhContributor"),
+      title: `${t("components.userBadges.dhContributor")} (${conn.user.contributions} ${t("pages.admin.contributions")})`,
+      naked: true,
     });
   }
 

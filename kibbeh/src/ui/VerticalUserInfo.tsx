@@ -9,6 +9,7 @@ import { SingleUser } from "./UserAvatar";
 import { HeaderController } from "../modules/display/HeaderController";
 import { UserBadge } from "./UserBadge";
 import { badge, Badges } from "./UserSummaryCard";
+import { ContributorBadge, StaffBadge } from "../icons/badges";
 
 interface VerticalUserInfoProps {
   user: UserWithFollowInfo;
@@ -19,18 +20,20 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
   const badges: badge[] = [];
   if (user.staff) {
     badges.push({
-      content: "ƉS",
+      content: <StaffBadge />,
       variant: "primary",
       color: "white",
       title: t("components.userBadges.dhStaff"),
+      naked: true,
     });
   }
   if (user.contributions > 0) {
     badges.push({
-      content: "ƉC",
+      content: <ContributorBadge contributions={user.contributions} />,
       variant: "primary",
       color: "white",
-      title: t("components.userBadges.dhContributor"),
+      title: `${t("components.userBadges.dhContributor")} (${user.contributions} ${t("pages.admin.contributions")})`,
+      naked: true,
     });
   }
 
