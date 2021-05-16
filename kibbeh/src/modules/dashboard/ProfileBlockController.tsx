@@ -47,7 +47,7 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
       content: <ContributorBadge contributions={conn.user.contributions} />,
       variant: "primary",
       color: "white",
-      title: t("components.userBadges.dhContributor"),
+      title: `${t("components.userBadges.dhContributor")} (${conn.user.contributions} ${t("pages.admin.contributions")})`,
       naked: true,
     });
   }
