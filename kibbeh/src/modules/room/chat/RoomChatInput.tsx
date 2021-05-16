@@ -97,6 +97,13 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
       return;
     }
 
+    // Fix emotes!
+    for (const token of messageData.tokens) {
+      if (token.t === 'emote') {
+        token.v = token.v.replace(/[^a-z0-9]/gi, '');
+      }
+    }
+
     conn.send("send_room_chat_msg", messageData);
     setQueriedUsernames([]);
 
