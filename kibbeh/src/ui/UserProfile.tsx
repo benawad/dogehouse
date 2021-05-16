@@ -40,7 +40,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
       content: <ContributorBadge contributions={user.contributions} />,
       variant: "primary",
       color: "white",
-      title: t("components.userBadges.dhContributor"),
+      title: `${t("components.userBadges.dhContributor")} (${user.contributions} ${t("pages.admin.contributions")})`,
       naked: true,
     });
     tags.push({
