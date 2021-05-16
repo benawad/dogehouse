@@ -16,6 +16,7 @@ interface UserBadgeProps {
   color?: keyof typeof colorVariants;
   className?: string;
   title?: string;
+  naked?: boolean;
 }
 
 export const UserBadge: React.FC<UserBadgeProps> = ({
@@ -24,14 +25,23 @@ export const UserBadge: React.FC<UserBadgeProps> = ({
   variant = "primary-700",
   className = "",
   title = "",
+  naked = false,
 }) => {
   return (
-    <div
-      title={title}
-      className={`flex ${badgeVariants[variant]} select-none text-xs px-1 font-bold ${colorVariants[color]} justify-center items-center mr-1 rounded ${className}`}
-      style={{ height: "16px", minWidth: "31px", width: "max-content" }}
-    >
-      {children}
-    </div>
+    <>
+      {naked ? (
+        <div className="mr-1 select-none" title={title}>
+          {children}
+        </div>
+      ) : (
+        <div
+          title={title}
+          className={`flex ${badgeVariants[variant]} select-none text-xs px-1 font-bold ${colorVariants[color]} justify-center items-center mr-1 rounded ${className}`}
+          style={{ height: "16px", minWidth: "31px", width: "max-content" }}
+        >
+          {children}
+        </div>
+      )}
+    </>
   );
 };

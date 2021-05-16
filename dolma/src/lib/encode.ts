@@ -4,27 +4,27 @@ import { decodeTokens } from "./decode";
 import { filterString } from "./filterString";
 import { filterUnitoken } from "./filterUnitoken";
 
-export function encodeTokens(message: Array<Unitoken | MessageToken | string> | string): MessageToken[] {
+export function encodeTokens(this: {emotes: {name: string}[]},message: Array<Unitoken | MessageToken | string> | string) {
 	const tokens: MessageToken[] = [];
-	if (!message) return tokens;
+	if (!message) return {tokens: tokens, whisperedTo: []};
 
 	if (typeof message == 'string') {
-		filterString(message).map(tk => tokens.push(tk));
-		return tokens;
+		console.log(this.emotes);
+		return filterString(this.emotes, message)
 	}
 
-	if (typeof message == 'object') {
-		message.forEach((item: any, index) => {
-			const unitoken = filterUnitoken(item);
-			const isToken = Object.keys(item).includes('t') && Object.keys(item).includes('v');
+	// if (typeof message == 'object') {
+	// 	message.forEach((item: any, index) => {
+	// 		const unitoken = filterUnitoken(item);
+	// 		const isToken = Object.keys(item).includes('t') && Object.keys(item).includes('v');
 
-			if (typeof item == 'string') return filterString(item).map(tk => tokens.push(tk));
-			if (unitoken !== null) return tokens.push(unitoken);
-			if (isToken) return tokens.push(item);
+	// 		if (typeof item == 'string') return filterString(item).map(tk => tokens.push(tk));
+	// 		if (unitoken !== null) return tokens.push(unitoken);
+	// 		if (isToken) return tokens.push(item);
 
-			return;
-		})
-	}
+	// 		return;
+	// 	})
+	// }
 
-	return tokens;
+	return {tokens: tokens, whisperedTo: []};
 }

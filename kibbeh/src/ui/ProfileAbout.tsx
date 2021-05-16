@@ -35,28 +35,28 @@ export const ProfileAbout: React.FC<ProfileAboutProps> = ({
         {t("pages.viewUser.about")} {username} {t("pages.viewUser.aboutSuffix")}
       </div>
       <div className="flex mb-2">
-        <div className="flex px-2 rounded-8 transition duration-200 ease-in-out hover:bg-primary-700">
+        <div className="flex group mr-4">
           <ApiPreloadLink route="followers" data={{ username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(followers)}
             </span>
-            <span className="text-primary-300 ml-1 lowercase">
+            <span className="text-primary-300 ml-1 lowercase group-hover:underline">
               {t("pages.viewUser.followers")}
             </span>
           </ApiPreloadLink>
         </div>
-        <div className="flex px-2 rounded-8 transition duration-200 ease-in-out hover:bg-primary-700">
+        <div className="flex group">
           <ApiPreloadLink route="following" data={{ username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(following)}
             </span>
-            <span className="text-primary-300 ml-1 lowercase">
+            <span className="text-primary-300 ml-1 lowercase group-hover:underline">
               {t("pages.viewUser.following")}
             </span>
           </ApiPreloadLink>
         </div>
       </div>
-      <div className="text-primary-100 text-sm pb-2 whitespace-pre-wrap max-h-5l overflow-y-auto">
+      <div className="text-primary-100 pb-4 whitespace-pre-wrap max-h-5l overflow-y-auto">
         {<TextParser>{description || ""}</TextParser>}
       </div>
       {link && (

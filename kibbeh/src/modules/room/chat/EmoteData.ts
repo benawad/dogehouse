@@ -1556,7 +1556,7 @@ export const customEmojis = [
     keywords: ["dough", "doge", "pizza"],
     imageUrl: "/emotes/doughdoge.png",
   },
-] as const;
+];
 
 type EmoteList = typeof customEmojis;
 export type EmoteKeys = EmoteList[number]["name"];
