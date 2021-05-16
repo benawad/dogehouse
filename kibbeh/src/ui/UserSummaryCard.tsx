@@ -12,6 +12,7 @@ export type badge = {
   variant: "primary" | "secondary" | "primary-700";
   classname?: string;
   title?: string;
+  naked?: boolean;
 };
 
 export interface UserSummaryCardProps {
@@ -39,13 +40,14 @@ interface WebsiteProps {
 export const Badges: React.FC<BadgesProps> = ({ badges }) => {
   return (
     <>
-      {badges.map(({ content, variant, color, classname, title }, i) => (
+      {badges.map(({ content, variant, color, classname, title, naked }, i) => (
         <UserBadge
           title={title}
           variant={variant}
           color={color}
           className={classname}
           key={i}
+          naked={naked || false}
         >
           {content}
         </UserBadge>

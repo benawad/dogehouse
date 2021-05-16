@@ -2514,12 +2514,13 @@ __metadata:
   resolution: "@dogehouse/dolma@workspace:dolma"
   dependencies:
     "@types/node": ^15.0.2
+    emoji-regex: ^9.2.2
   languageName: unknown
   linkType: soft
 
 "@dogehouse/kebab@file:../..::locator=create-bot%40workspace%3Akebab%2Fexamples%2Fcreate-bot":
   version: 0.3.4
-  resolution: "@dogehouse/kebab@file:../..#../..::hash=3e57d7&locator=create-bot%40workspace%3Akebab%2Fexamples%2Fcreate-bot"
+  resolution: "@dogehouse/kebab@file:../..#../..::hash=3aad2c&locator=create-bot%40workspace%3Akebab%2Fexamples%2Fcreate-bot"
   dependencies:
     "@types/uuid": ^8.3.0
     "@types/ws": ^7.4.2
@@ -2529,13 +2530,13 @@ __metadata:
     reconnecting-websocket: ^4.4.0
     uuid: ^8.3.2
     ws: ^7.4.5
-  checksum: 56dc86b84aab97609d5468308168373a7511b6d31a0849b97a84942f6680d8a3078fe24038616209788a67a2250439e819f08a7546c90c3acdfbc58a02771c1e
+  checksum: c5a8e3e84b396c6ac2eabd3dd86b302b46e567611a91b903ff13f8c539d3ab51896dfde102448023be733bf38318c561c75bc96a6fc72ba5951504aac974d779
   languageName: node
   linkType: hard
 
 "@dogehouse/kebab@file:../..::locator=example-bot%40workspace%3Akebab%2Fexamples%2Fbot":
   version: 0.3.4
-  resolution: "@dogehouse/kebab@file:../..#../..::hash=3e57d7&locator=example-bot%40workspace%3Akebab%2Fexamples%2Fbot"
+  resolution: "@dogehouse/kebab@file:../..#../..::hash=3aad2c&locator=example-bot%40workspace%3Akebab%2Fexamples%2Fbot"
   dependencies:
     "@types/uuid": ^8.3.0
     "@types/ws": ^7.4.2
@@ -2545,13 +2546,13 @@ __metadata:
     reconnecting-websocket: ^4.4.0
     uuid: ^8.3.2
     ws: ^7.4.5
-  checksum: 56dc86b84aab97609d5468308168373a7511b6d31a0849b97a84942f6680d8a3078fe24038616209788a67a2250439e819f08a7546c90c3acdfbc58a02771c1e
+  checksum: c5a8e3e84b396c6ac2eabd3dd86b302b46e567611a91b903ff13f8c539d3ab51896dfde102448023be733bf38318c561c75bc96a6fc72ba5951504aac974d779
   languageName: node
   linkType: hard
 
 "@dogehouse/kebab@file:../..::locator=example-chat%40workspace%3Akebab%2Fexamples%2Fchat":
   version: 0.3.4
-  resolution: "@dogehouse/kebab@file:../..#../..::hash=3e57d7&locator=example-chat%40workspace%3Akebab%2Fexamples%2Fchat"
+  resolution: "@dogehouse/kebab@file:../..#../..::hash=3aad2c&locator=example-chat%40workspace%3Akebab%2Fexamples%2Fchat"
   dependencies:
     "@types/uuid": ^8.3.0
     "@types/ws": ^7.4.2
@@ -2561,13 +2562,13 @@ __metadata:
     reconnecting-websocket: ^4.4.0
     uuid: ^8.3.2
     ws: ^7.4.5
-  checksum: 56dc86b84aab97609d5468308168373a7511b6d31a0849b97a84942f6680d8a3078fe24038616209788a67a2250439e819f08a7546c90c3acdfbc58a02771c1e
+  checksum: c5a8e3e84b396c6ac2eabd3dd86b302b46e567611a91b903ff13f8c539d3ab51896dfde102448023be733bf38318c561c75bc96a6fc72ba5951504aac974d779
   languageName: node
   linkType: hard
 
 "@dogehouse/kebab@file:../..::locator=mediasoup-audio%40workspace%3Akebab%2Fexamples%2Fmediasoup-audio":
   version: 0.3.4
-  resolution: "@dogehouse/kebab@file:../..#../..::hash=3e57d7&locator=mediasoup-audio%40workspace%3Akebab%2Fexamples%2Fmediasoup-audio"
+  resolution: "@dogehouse/kebab@file:../..#../..::hash=3aad2c&locator=mediasoup-audio%40workspace%3Akebab%2Fexamples%2Fmediasoup-audio"
   dependencies:
     "@types/uuid": ^8.3.0
     "@types/ws": ^7.4.2
@@ -2577,13 +2578,13 @@ __metadata:
     reconnecting-websocket: ^4.4.0
     uuid: ^8.3.2
     ws: ^7.4.5
-  checksum: 56dc86b84aab97609d5468308168373a7511b6d31a0849b97a84942f6680d8a3078fe24038616209788a67a2250439e819f08a7546c90c3acdfbc58a02771c1e
+  checksum: c5a8e3e84b396c6ac2eabd3dd86b302b46e567611a91b903ff13f8c539d3ab51896dfde102448023be733bf38318c561c75bc96a6fc72ba5951504aac974d779
   languageName: node
   linkType: hard
 
 "@dogehouse/kebab@file:../..::locator=react-chat%40workspace%3Akebab%2Fexamples%2Freact-chat":
   version: 0.3.4
-  resolution: "@dogehouse/kebab@file:../..#../..::hash=3e57d7&locator=react-chat%40workspace%3Akebab%2Fexamples%2Freact-chat"
+  resolution: "@dogehouse/kebab@file:../..#../..::hash=3aad2c&locator=react-chat%40workspace%3Akebab%2Fexamples%2Freact-chat"
   dependencies:
     "@types/uuid": ^8.3.0
     "@types/ws": ^7.4.2
@@ -2593,7 +2594,7 @@ __metadata:
     reconnecting-websocket: ^4.4.0
     uuid: ^8.3.2
     ws: ^7.4.5
-  checksum: 56dc86b84aab97609d5468308168373a7511b6d31a0849b97a84942f6680d8a3078fe24038616209788a67a2250439e819f08a7546c90c3acdfbc58a02771c1e
+  checksum: c5a8e3e84b396c6ac2eabd3dd86b302b46e567611a91b903ff13f8c539d3ab51896dfde102448023be733bf38318c561c75bc96a6fc72ba5951504aac974d779
   languageName: node
   linkType: hard
 

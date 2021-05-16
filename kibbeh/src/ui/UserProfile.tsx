@@ -6,6 +6,7 @@ import { ProfileTabs } from "./ProfileTabs";
 import { badge } from "./UserSummaryCard";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { UserBadgeLgProps } from "./UserBadgeLg";
+import { ContributorBadge, StaffBadge } from "../icons/badges";
 
 interface UserProfileProps {
   user: UserWithFollowInfo;
@@ -19,27 +20,32 @@ export const UserProfile: React.FC<UserProfileProps> = ({
   const { t } = useTypeSafeTranslation();
   const badges: badge[] = [];
   const tags: UserBadgeLgProps[] = [];
+
   if (user.staff) {
     badges.push({
-      content: "ƉS",
+      content: <StaffBadge />,
       variant: "primary",
       color: "white",
       title: t("components.userBadges.dhStaff"),
+      naked: true,
     });
     tags.push({
       icon: "dogeStaff",
       children: t("components.userBadges.dhStaff"),
     });
   }
+
   if (user.contributions > 0) {
     badges.push({
-      content: "ƉC",
+      content: <ContributorBadge contributions={user.contributions} />,
       variant: "primary",
       color: "white",
       title: t("components.userBadges.dhContributor"),
+      naked: true,
     });
     tags.push({
       icon: "dogeContributor",
+      contributions: user.contributions,
       children: t("components.userBadges.dhContributor"),
     });
   }
