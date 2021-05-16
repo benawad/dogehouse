@@ -32,7 +32,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
       content: <ContributorBadge contributions={user.contributions} />,
       variant: "primary",
       color: "white",
-      title: t("components.userBadges.dhContributor"),
+      title: `${t("components.userBadges.dhContributor")} (${user.contributions} ${t("pages.admin.contributions")})`,
       naked: true,
     });
   }
