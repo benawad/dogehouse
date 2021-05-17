@@ -14,6 +14,7 @@ import {
 import { RoomChatController } from "../RoomChatController";
 import useWindowSize from "../../../shared-hooks/useWindowSize";
 import { BoxedIcon } from "../../../ui/BoxedIcon";
+import useViewportSize from "../../../shared-hooks/useViewportSize";
 
 interface RoomOverlayProps {
   mute?: {
@@ -40,8 +41,9 @@ const RoomOverlay: React.FC<RoomOverlayProps> = ({
   setListener,
   canSpeak,
 }) => {
-  const { height: vHeight } = useWindowSize();
-  const height = vHeight - 30 - 100;
+  const { height: windowHeight } = useWindowSize();
+  const { height: viewportHeight } = useViewportSize();
+  const height = windowHeight - 30 - 100;
   const [{ y }, set] = useSpring(() => ({ y: height }));
 
   const open = () => {
@@ -94,7 +96,7 @@ const RoomOverlay: React.FC<RoomOverlayProps> = ({
         className="bg-primary-800 w-full rounded-t-20 z-10 absolute bottom-0 flex flex-col"
         style={{
           bottom: `calc(-100% + ${height + 100 + 30}px)`,
-          height: vHeight - 30,
+          height: viewportHeight - 30,
           y,
           zIndex: 11,
           touchAction: "none",
