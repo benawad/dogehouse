@@ -104,9 +104,7 @@
       "allowAll": "Permitir todos",
       "allowAllConfirm": "Você tem certeza? Isso permitirá que todos os {{count}} usuários solicitantes falem"
     },
-    "searchUser": {
-      "search": "buscar..."
-    },
+    "searchUser": { "search": "buscar..." },
     "soundEffectSettings": {
       "header": "Sons",
       "title": "Configurações de áudio",
@@ -135,7 +133,11 @@
       "block": "Bloquear",
       "unblock": "Desbloquear",
       "sendDM": "Enviar DM",
-      "aboutSuffix": ""
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Configurações do microfone",
@@ -163,11 +165,7 @@
     "privacySettings": {
       "title": "Configurações de Privacidade",
       "header": "Configurações de Privacidade",
-      "whispers": {
-        "label": "Sussurros",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Sussurros", "on": "On", "off": "Off" }
     }
   },
   "components": {
@@ -262,12 +260,8 @@
         }
       }
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "não tem áudio por algum motivo"
-    },
-    "addToCalendar": {
-      "add": "Adicionar ao Calendário"
-    },
+    "userVolumeSlider": { "noAudioMessage": "não tem áudio por algum motivo" },
+    "addToCalendar": { "add": "Adicionar ao Calendário" },
     "keyboardShortcuts": {
       "setKeybind": "definir atalho no teclado",
       "listening": "ouvindo",
@@ -379,8 +373,6 @@
       "galacticDoge": "Doge galático",
       "spottedLife": "Encontrado planeta com vida"
     },
-    "feed": {
-      "yourFeed": "Seu Feed"
-    }
+    "feed": { "yourFeed": "Seu Feed" }
   }
 }

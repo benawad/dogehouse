@@ -1,8 +1,4 @@
-import {
-  JoinRoomAndGetInfoResponse,
-  RoomUser,
-  UserWithFollowInfo,
-} from "@dogehouse/kebab";
+import { JoinRoomAndGetInfoResponse, RoomUser, UserWithFollowInfo } from "@dogehouse/kebab";
 import React, { useContext } from "react";
 import { useDebugAudioStore } from "../../global-stores/useDebugAudio";
 import { useConn } from "../../shared-hooks/useConn";
@@ -14,7 +10,6 @@ import { Button } from "../../ui/Button";
 import { Modal } from "../../ui/Modal";
 import { Spinner } from "../../ui/Spinner";
 import { VerticalUserInfoWithFollowButton } from "../user/VerticalUserInfoWithFollowButton";
-import { useConsumerStore } from "../webrtc/stores/useConsumerStore";
 import { AudioDebugConsumerSection } from "./AudioDebugConsumerSection";
 import { RoomChatMessage, useRoomChatStore } from "./chat/useRoomChatStore";
 import { UserPreviewModalContext } from "./UserPreviewModalProvider";
@@ -76,7 +71,23 @@ const UserPreview: React.FC<{
   }
 
   if (!data) {
-    return <div className={`flex text-primary-100`}>This user is gone.</div>;
+    return <div className={`flex p-6 text-center items-center justify-center w-full font-bold text-primary-100`}>This
+      user is gone.</div>;
+  }
+
+  if ("error" in data) {
+    const error = data.error;
+
+    let errorMessage = t("pages.viewUser.errors.default");
+
+    switch (error) {
+      case "blocked":
+        errorMessage = t("pages.viewUser.errors.blocked");
+        break;
+    }
+
+    return <div
+      className={`flex p-6 text-center items-center justify-center w-full font-bold text-primary-100`}>{errorMessage}</div>;
   }
 
   const canDoModStuffOnThisUser =

@@ -133,7 +133,11 @@
       "block": "屏蔽",
       "unblock": "取消屏蔽",
       "sendDM": "发送消息",
-      "aboutSuffix": ""
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -298,10 +302,7 @@
       "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" },
       "downloadApp": "下载APP"
     },
-    "userBadges": {
-      "dhStaff": "神烦狗人员",
-      "dhContributor": "神烦狗贡献者"
-    },
+    "userBadges": { "dhStaff": "神烦狗人员", "dhContributor": "神烦狗贡献者" },
     "messagesDropdown": {
       "title": "消息",
       "showMore": "显示更多",

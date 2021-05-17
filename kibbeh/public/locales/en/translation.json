@@ -144,6 +144,11 @@
       "about": "About",
       "aboutSuffix": "",
       "bot": "Bot",
+      "errors": {
+        "blocked": "This user has blocked you.",
+
+        "default": "Whoops! We couldn't load this user."
+      },
       "profileTabs": {
         "about": "About",
         "rooms": "Rooms",

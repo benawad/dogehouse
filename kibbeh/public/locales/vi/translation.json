@@ -134,7 +134,11 @@
       "block": "Chặn",
       "unblock": "Bỏ chặn",
       "sendDM": "Gửi tin nhắn trực tiếp",
-      "aboutSuffix": ""
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Cài đặt giọng nói",
@@ -373,4 +377,3 @@
     "feed": { "yourFeed": "Bản tin của bạn" }
   }
 }
-  

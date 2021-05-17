@@ -134,7 +134,11 @@
       "block": "Bwock",
       "unblock": "Unbwock",
       "sendDM": "Send DM <3",
-      "aboutSuffix": ""
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "OwO Voice Settings (✿ ♡‿♡)",
@@ -145,7 +149,10 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invawid awpp title", "label": "Enter Awpp Title" },
+      "input": {
+        "errorMsg": "Invawid awpp title",
+        "label": "Enter Awpp Title"
+      },
       "header": "Overlay Settings"
     },
     "download": {
@@ -194,7 +201,12 @@
       "linkText": "issue on GitHub",
       "addSupport": "and I wiww twy adding suppowt fow uuw device. :D"
     },
-    "inviteButton": { "inwited": "Inwited!", "inwiteToRoom": "Inwite to Woom" },
+    "inviteButton": {
+      "inwited": "Inwited!",
+      "inwiteToRoom": "Inwite to Woom",
+      "invited": "Invited!",
+      "inviteToRoom": "Invite to room"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Huohhhh. Pewmission denied twying to access uuw mic (uu may need to go into bwowsew settings and wewoad da page) (❁´◡`❁)",
       "dismiss": "Dismiss",
