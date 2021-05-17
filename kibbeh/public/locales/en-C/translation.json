@@ -140,6 +140,10 @@
         "recorded": "Recorded",
         "clips": "Clips",
         "admin": "Admin"
+      },
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
       }
     },
     "voiceSettings": {

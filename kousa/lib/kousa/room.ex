@@ -146,8 +146,7 @@ defmodule Kousa.Room do
   # owner
 
   def set_owner(room_id, user_id, setter_id) do
-    with {:creator, _} <- Rooms.get_room_status(setter_id),
-         {1, _} <- Rooms.replace_room_owner(setter_id, user_id) do
+    with {:creator, _} <- Rooms.get_room_status(setter_id), {1, _} <- Rooms.replace_room_owner(setter_id, user_id) do
       Onion.RoomSession.set_room_creator_id(room_id, user_id)
       internal_set_speaker(setter_id, room_id)
 
@@ -267,7 +266,8 @@ defmodule Kousa.Room do
   defp set_listener(room_id, user_id, setter_id) do
     # TODO: refactor this to be simpler.  The list of
     # creators and mods should be in the preloads of the room.
-    with {auth, _} <- Rooms.get_room_status(setter_id), {role, _} <- Rooms.get_room_status(user_id) do
+    with {auth, _} <- Rooms.get_room_status(setter_id),
+         {role, _} <- Rooms.get_room_status(user_id) do
       if auth == :creator or (auth == :mod and role not in [:creator, :mod]) do
         internal_set_listener(user_id, room_id)
       end
@@ -327,22 +327,24 @@ defmodule Kousa.Room do
   end
 
   # only you can raise your own hand
-  defp set_raised_hand(room_id, user_id, _user_id) do
-    if Onion.RoomSession.get(room_id, :auto_speaker) do
-      internal_set_speaker(user_id, room_id)
-    else
-      case RoomPermissions.ask_to_speak(user_id, room_id) do
-        {:ok, %{isSpeaker: true}} ->
-          internal_set_speaker(user_id, room_id)
+  defp set_raised_hand(room_id, user_id, setter_id) do
+    if user_id == setter_id do
+      if Onion.RoomSession.get(room_id, :auto_speaker) do
+        internal_set_speaker(user_id, room_id)
+      else
+        case RoomPermissions.ask_to_speak(user_id, room_id) do
+          {:ok, %{isSpeaker: true}} ->
+            internal_set_speaker(user_id, room_id)
 
-        _ ->
-          Onion.RoomSession.broadcast_ws(
-            room_id,
-            %{
-              op: "hand_raised",
-              d: %{userId: user_id, roomId: room_id}
-            }
-          )
+          _ ->
+            Onion.RoomSession.broadcast_ws(
+              room_id,
+              %{
+                op: "hand_raised",
+                d: %{userId: user_id, roomId: room_id}
+              }
+            )
+        end
       end
     end
   end

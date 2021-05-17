@@ -26,5 +26,8 @@
   "dependencies": {
     "@types/node": "^15.0.2",
     "emoji-regex": "^9.2.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.4"
   }
 }
