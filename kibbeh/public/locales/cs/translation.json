@@ -42,7 +42,7 @@
       "username": "Username",
       "usrStaff": "User Staff",
       "usrContributions": "User Contributions",
-      "reason": "reason",
+      "reason": "důvod",
       "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
