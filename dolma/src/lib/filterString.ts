@@ -12,13 +12,26 @@ export function filterString(emotes: { name: string }[], message: string) {
 
   vals.map((e) => {
     let tkn = msgToken.getType(e);
-    if (tkn == "emote") {
-			emotes.find((emote) => `:${emote.name}:` == e.trim()) ? "" : tkn = "text";
-    }
-    if (tkn == "mention") {
-      e = e.substr(1);
-    }
-    let value = msgToken.getValue(tkn, e);
+    tokenSwitch:
+      switch (tkn) {
+        case "emote":
+          for(const emote of emotes) {
+            if(e.trim() === `:${emote.name}:`) {
+              e = emote.name;
+              break tokenSwitch;
+            }
+          }
+          tkn = "text";
+          break;
+        case "block":
+          e = e.slice(1, -1);
+          break;
+        case "mention":
+          e = e.substr(1);
+          break;
+      }
+
+    const value = msgToken.getValue(tkn, e);
 
     return tokens.push(msgToken.newToken(tkn, value));
   });
