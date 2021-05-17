@@ -8,34 +8,34 @@ interface WindowSize {
 
 const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState<WindowSize>({
-    width: visualViewport.width ?? window.innerWidth,
-    height: visualViewport.height ?? window.innerHeight,
+    width: window.visualViewport?.width ?? window.innerWidth,
+    height: window.visualViewport?.height ?? window.innerHeight,
   });
 
   useEffect(() => {
     const handleResize = () => {
       setWindowSize({
-        width: visualViewport.width ?? window.innerWidth,
-        height: visualViewport.height ?? window.innerHeight,
+        width: window.visualViewport?.width ?? window.innerWidth,
+        height: window.visualViewport?.height ?? window.innerHeight,
       });
     };
 
     const debounced = debounce(handleResize, 1000);
 
-    if(!visualViewport) {
+    if(!window.visualViewport) {
       window.addEventListener("resize", debounced);
     } else {
-      visualViewport.addEventListener("resize", debounced);
+      window.visualViewport.addEventListener("resize", debounced);
     }
 
     handleResize();
 
     return () => {
       debounced.cancel(); // Prevents killing func while handleResize is running
-      if(!visualViewport) {
+      if(!window.visualViewport) {
         window.removeEventListener("resize", debounced);
       } else {
-        visualViewport.removeEventListener("resize", debounced);
+        window.visualViewport.removeEventListener("resize", debounced);
       }
     };
   }, []);
