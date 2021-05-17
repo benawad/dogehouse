@@ -133,7 +133,11 @@
       "block": "Engelle",
       "unblock": "Engeli kaldır",
       "sendDM": "Özel mesaj gönder",
-      "aboutSuffix": "Hakkında"
+      "aboutSuffix": "Hakkında",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Ses Ayarları",

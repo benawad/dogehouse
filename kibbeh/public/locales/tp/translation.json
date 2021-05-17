@@ -134,7 +134,11 @@
       "block": "Block",
       "unblock": "Unblock",
       "sendDM": "Send DM",
-      "aboutSuffix": ""
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "sitelen lawa pi kalama uta",
