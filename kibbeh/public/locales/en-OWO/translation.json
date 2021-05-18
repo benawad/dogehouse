@@ -136,7 +136,11 @@
       "block": "Bwock",
       "unblock": "Unbwock",
       "sendDM": "Send DM <3",
-      "aboutSuffix": ""
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "OwO Voice Settings (✿ ♡‿♡)",

@@ -37,12 +37,12 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
       "ban": "Blokir",
-      "userStaffandContrib": "User Staff & Contributions",
-      "staff": "Staff: ",
-      "contributions": "Contributions",
-      "username": "Username",
-      "usrStaff": "User Staff",
-      "usrContributions": "User Contributions",
+      "userStaffandContrib": "Kontrubsi pengguna & staf",
+      "staff": "Staf: ",
+      "contributions": "Kontribusi",
+      "username": "Nama pengguna",
+      "usrStaff": "Pengguna yang staf",
+      "usrContributions": "Kontribusi pengguna",
       "reason": "reason",
       "usernamePlaceholder": "username to perform actions on"
     },
@@ -56,8 +56,8 @@
       "followHim": "Ikuti",
       "followingHim": "Mengikuti",
       "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "followingNone": "Tidak mengikuti siapa pun",
+      "noFollowers": "Tidak ada pengikut"
     },
     "home": {
       "createRoom": "Buat Ruangan",
@@ -110,7 +110,7 @@
     "soundEffectSettings": {
       "header": "Bunyi",
       "title": "Pengaturan Bunyi",
-      "playSound": "Play Sound"
+      "playSound": "Memainkan suara"
     },
     "viewUser": {
       "editProfile": "Ubah profil",
@@ -135,7 +135,11 @@
       "block": "Blokir",
       "unblock": "Berhenti blokir",
       "sendDM": "Kirim DM",
-      "aboutSuffix": ""
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "Kamu diblokir oleh pengguna ini.",
+        "default": "Whoops! Kami tidak bisa memuat pengguna ini."
+      }
     },
     "voiceSettings": {
       "header": "Pengaturan Suara",
@@ -161,8 +165,8 @@
       "download_for": "Unduh untuk %platform% (%ext%)"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
+      "title": "Pengaturan privasi",
+      "header": "Pengaturan privasi",
       "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     },
     "botEdit": {
@@ -282,10 +286,10 @@
         "chatDisabled": "nonaktifkan percakapan",
         "chatCooldown": "Chat Cooldown (milliseconds)",
         "chat": {
-          "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "label": "Percakapan",
+          "enabled": "Diaktifkan",
+          "disabled": "Tidak diaktifkan",
+          "followerOnly": "Pengikut saja"
         }
       },
       "createBotModal": {
@@ -325,13 +329,13 @@
       "developer": "Developer Settings"
     },
     "userBadges": {
-      "dhStaff": "DogeHouse Staff",
-      "dhContributor": "DogeHouse Contributor"
+      "dhStaff": "DogeHouse Staf",
+      "dhContributor": "DogeHouse Kontributer"
     },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "Pesan",
+      "showMore": "Menampilkan lebih banyak",
+      "noMessages": "Tidak ada pesan yang baru"
     }
   },
   "modules": {
@@ -369,9 +373,9 @@
       "roomDescription": "Deskripsi ruangan",
       "disabled": "percakapan sudah dinonaktifkan",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "pesan",
+        "retracted": "ditarik kembali",
+        "deleted": "dihapus"
       }
     },
     "roomStatus": {

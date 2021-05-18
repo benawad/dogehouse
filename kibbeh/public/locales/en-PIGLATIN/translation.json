@@ -147,6 +147,10 @@
         "recorded": "Ecorded-ray",
         "clips": "Lips-cay",
         "admin": "Min-aday"
+      },
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
       }
     },
     "voiceSettings": {

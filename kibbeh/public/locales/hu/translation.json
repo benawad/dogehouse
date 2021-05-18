@@ -134,7 +134,11 @@
       },
       "block": "Leiltás",
       "unblock": "Tiltás feloldása",
-      "sendDM": "Üzenet küldése"
+      "sendDM": "Üzenet küldése",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Hangbeállítások",

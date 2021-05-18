@@ -136,7 +136,11 @@
       "block": "Zablokuj",
       "unblock": "Odblokuj",
       "sendDM": "Wyślij prywatną wiadomość",
-      "aboutSuffix": ""
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "Ten użytkownik cię zablokował!",
+        "default": "Ups! Nie udało się załadować profilu użytkownika."
+      }
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",

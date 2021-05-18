@@ -136,7 +136,11 @@
       "block": "ব্লক করুন",
       "unblock": "আনব্লক করুন",
       "sendDM": "মেসেজ করুন",
-      "aboutSuffix": ""
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
