@@ -109,11 +109,11 @@ export const SingleUser: React.FC<AvatarProps> = ({
             : src
         }
       />
-      {hover ? (
+      {hover && (
         <div
           className={`bg-primary-900 hover:opacity-20 transition duration-200 opacity-0 absolute w-full h-full top-0 left-0 rounded-full`}
         ></div>
-      ) : null}
+      )}
       {isOnline && (
         <span
           className={
