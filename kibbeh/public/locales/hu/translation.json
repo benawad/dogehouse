@@ -15,7 +15,9 @@
     "copied": "Kimásolva!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Figyelem, a DogeHouse kisegítő lehetőségek nélküli futtatása nem kívánt hibákat okozhat"
+    "requestPermissions": "Figyelem, a DogeHouse kisegítő lehetőségek nélküli futtatása nem kívánt hibákat okozhat",
+    "copy": "Másolás",
+    "error": "Hiba"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -132,7 +134,11 @@
       },
       "block": "Leiltás",
       "unblock": "Tiltás feloldása",
-      "sendDM": "Üzenet küldése"
+      "sendDM": "Üzenet küldése",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Hangbeállítások",
@@ -158,6 +164,14 @@
       "title": "Személyes tér beállításai",
       "header": "Személyes tér",
       "whispers": { "label": "Suttogó üzenetek", "on": "Bekapcsolva", "off": "Kikapcsolva" }
+    },
+    "botEdit": {
+      "yourBots": "Bot fiókjaid",
+      "bots": "Botok",
+      "title": "Bot Information",
+      "apiKey": "Api kulcs",
+      "regenerate": "Újragenerálás",
+      "reveal": "Kattintson az api kulcs megjelenítéséhez"
     }
   },
   "components": {
@@ -250,6 +264,11 @@
           "disabled": "Kikapcsolva",
           "followerOnly": "Csak követők"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Valamilyen okból nincs hallgató" },
@@ -302,7 +321,8 @@
         "debugAudio": "Audió hibakereső",
         "stopDebugger": "Hibakereső leállítása"
       },
-      "downloadApp": "App letöltése"
+      "downloadApp": "App letöltése",
+      "developer": "Fejlesztői beállítások"
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
