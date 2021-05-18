@@ -14,7 +14,7 @@ export const BotInfo: React.FC<BotInfoProps> = ({ bot, onClick }) => {
       style={{ width: 190, height: 200 }}
     >
       <BotIcon
-        alt={`${bot.username}-s-avatar`}
+        username={bot.username}
         src={bot.avatarUrl}
         onClick={onClick}
       />

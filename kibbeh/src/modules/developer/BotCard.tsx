@@ -19,7 +19,7 @@ export const BotCard: React.FC<BotCardProps> = ({ bot }) => {
     onClick={() => push(`/developer/bots/edit/[username]`, `/developer/bots/edit/${bot.username}`)}
     >
         <div>
-            <SingleUser isOnline={true} src={bot.avatarUrl}></SingleUser>
+            <SingleUser isOnline={true} src={bot.avatarUrl} username={bot.username}></SingleUser>
         </div>
         <div className="font-bold text-base">
             {bot.displayName}
