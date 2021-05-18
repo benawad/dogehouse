@@ -108,7 +108,7 @@
     "soundEffectSettings": {
       "header": "Bunyi",
       "title": "Pengaturan Bunyi",
-      "playSound": "Play Sound"
+      "playSound": "Memainkan suara"
     },
     "viewUser": {
       "editProfile": "Ubah profil",
@@ -135,8 +135,8 @@
       "sendDM": "Kirim DM",
       "aboutSuffix": "",
       "errors": {
-        "blocked": "This user has blocked you.",
-        "default": "Whoops! We couldn't load this user."
+        "blocked": "Anda diblokir oleh pengguna ini.",
+        "default": "Whoops! Kami tidak memuat pengguna ini."
       }
     },
     "voiceSettings": {
