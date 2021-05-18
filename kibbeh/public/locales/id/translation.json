@@ -35,12 +35,12 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
       "ban": "Blokir",
-      "userStaffandContrib": "User Staff & Contributions",
-      "staff": "Staff: ",
-      "contributions": "Contributions",
-      "username": "Username",
-      "usrStaff": "User Staff",
-      "usrContributions": "User Contributions",
+      "userStaffandContrib": "Kontrubsi pengguna & staf",
+      "staff": "Staf: ",
+      "contributions": "Kontribusi",
+      "username": "Nama pengguna",
+      "usrStaff": "Pengguna yang staf",
+      "usrContributions": "Kontribusi pengguna",
       "reason": "reason",
       "usernamePlaceholder": "username to perform actions on"
     },
