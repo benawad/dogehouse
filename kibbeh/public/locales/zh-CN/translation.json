@@ -16,8 +16,8 @@
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
     "requestPermissions": "请注意，在没有辅助功能权限的情况下运行DogeHouse可能会导致错误",
-    "copy": "Copy",
-    "error": "Error"
+    "copy": "复制",
+    "error": "错误"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -176,12 +176,12 @@
       }
     },
     "botEdit": {
-      "yourBots": "Your Bots",
-      "bots": "Bots",
-      "title": "Bot Information",
+      "yourBots": "你的机器人",
+      "bots": "机器人",
+      "title": "机器人信息",
       "apiKey": "ApiKey",
-      "regenerate": "Regenerate",
-      "reveal": "Click to reveal ApiKey"
+      "regenerate": "重新生成",
+      "reveal": "点击显示ApiKey"
     }
   },
   "components": {
@@ -276,9 +276,9 @@
         }
       },
       "createBotModal": {
-        "usernameTaken": "Username is taken",
-        "subtitle": "Please fill the details below to create your bot",
-        "title": "Create Bot"
+        "usernameTaken": "用户名被占用",
+        "subtitle": "请填写以下详情来创造机器人",
+        "title": "创造机器人"
       }
     },
     "userVolumeSlider": {
@@ -336,7 +336,7 @@
         "stopDebugger": "取消调试"
       },
       "downloadApp": "下载APP",
-      "developer": "Developer Settings"
+      "developer": "开发者设置"
     },
     "userBadges": {
       "dhStaff": "神烦狗人员",
