@@ -357,9 +357,9 @@
       "roomDescription": "Deskripsi ruangan",
       "disabled": "percakapan sudah dinonaktifkan",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "pesan",
+        "retracted": "ditarik kembali",
+        "deleted": "dihapus"
       }
     },
     "roomStatus": {
