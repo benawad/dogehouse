@@ -35,7 +35,7 @@ export const CreateBotModal: React.FC<CreateBotModalProps> = ({
         }
         validateOnChange={false}
         validateOnBlur={false}
-        onSubmit={async ({ username }) => {
+        onSubmit={({ username }) => {
           wrapper.mutation.userCreateBot(username).then((r) => {
             if (r.isUsernameTaken) {
               showErrorToast(
