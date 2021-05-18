@@ -16,11 +16,11 @@ export const BotsPage: PageComponent<unknown> = ({}) => {
       <MainLayout
         floatingRoomInfo={<FloatingRoomInfo />}
         tabletSidebar={<TabletSidebar />}
-        leftPanel={<DeveloperPanel/>}
+        leftPanel={<DeveloperPanel />}
         rightPanel={<ProfileBlockController />}
         mobileHeader={undefined}
       >
-        <YourBots/>
+        <YourBots />
       </MainLayout>
     </WaitForWsAndAuth>
   );
