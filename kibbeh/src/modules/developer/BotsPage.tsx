@@ -9,7 +9,7 @@ import { DeveloperPanel } from "./DeveloperPanel";
 import { ProfileBlockController } from "../dashboard/ProfileBlockController";
 import { YourBots } from "./YourBots";
 
-export const BotsPage: PageComponent<{}> = ({}) => {
+export const BotsPage: PageComponent<unknown> = ({}) => {
   return (
     <WaitForWsAndAuth>
       <HeaderController embed={{}} title={"Bots"} />

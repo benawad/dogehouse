@@ -13,7 +13,7 @@ export const BotCard: React.FC<BotCardProps> = ({ bot }) => {
   const { push } = useRouter();
 
   return (
-    <button 
+    <button
     className="flex flex-col bg-primary-800 cursor-pointer rounded-lg items-center justify-center"
     style={{ width: 140, height: 140 }}
     onClick={() => push(`/developer/bots/edit/[username]`, `/developer/bots/edit/${bot.username}`)}

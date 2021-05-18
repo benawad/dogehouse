@@ -7,7 +7,7 @@ interface BotInfoProps {
     onClick: () => any;
 }
 
-export const BotInfo: React.FC<BotInfoProps> = ({bot, onClick }) => {
+export const BotInfo: React.FC<BotInfoProps> = ({ bot, onClick }) => {
     return (
         <div
         className="flex flex-col bg-primary-800 rounded-lg items-center justify-center"

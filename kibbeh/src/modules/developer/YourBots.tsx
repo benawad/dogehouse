@@ -49,13 +49,13 @@ const bots: Bot[] = [
 ];
 const max_bot = 5;
 
-export const YourBots: React.FC<{}> = ({}) => {
+export const YourBots: React.FC<unknown> = ({}) => {
     const { t } = useTypeSafeTranslation();
     const botsParsed = bots.map((v, i) => <BotCard key={v.displayName + v.avatarUrl + i} bot={v} />);
-  
+
     const conn = useWrappedConn();
 
-    //conn.connection.sendCall('user:create_bot', {username: 'ttttt'}).then(v => console.log(v));
+    // conn.connection.sendCall('user:create_bot', {username: 'ttttt'}).then(v => console.log(v));
     conn.connection.sendCall('user:get_bots', {}).then(v => console.log(v));
 
     return (
@@ -64,7 +64,7 @@ export const YourBots: React.FC<{}> = ({}) => {
             <div className="flex inline-block">Your bots ({bots.length})</div>
             {
               bots.length < max_bot ? (
-                <button 
+                <button
                 className="flex inline-block bg-accent md:hover:bg-accent-hover cursor-pointer rounded-lg text-base font-bold content-center justify-center"
                 style={{ width: 120, height: 30, lineHeight: '30px', textAlign: 'center' }}
                 >

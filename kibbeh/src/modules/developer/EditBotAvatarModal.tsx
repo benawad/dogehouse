@@ -79,7 +79,7 @@ export const EditBotAvatarModal: React.FC<EditBotAvatarModalProps> = ({
               displayName: values.displayName.trim(),
             });
           }}
-          onSubmit={async (data) => {
+          onSubmit={(data) => {
             onEdit?.(data);
             onRequestClose();
           }}

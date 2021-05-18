@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { PageComponent } from "../../types/PageComponent";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { HeaderController } from "../display/HeaderController";
@@ -8,11 +8,9 @@ import { FloatingRoomInfo } from "../layouts/FloatingRoomInfo";
 import { TabletSidebar } from "../layouts/TabletSidebar";
 import { DeveloperPanel } from "./DeveloperPanel";
 import { Bot } from "./Bot";
-import { useState } from "react";
 import { EditBotAvatarModal } from "./EditBotAvatarModal";
 import { BotInfo } from "./BotInfo";
 import { ProfileBlockController } from "../dashboard/ProfileBlockController";
-import { useWrappedConn } from "../../shared-hooks/useConn";
 
 const bot: Bot = {
   username: 'crispybot1',
@@ -23,7 +21,7 @@ const bot: Bot = {
   bannerUrl: ''
 };
 
-export const BotsEditPage: PageComponent<{}> = ({}) => {
+export const BotsEditPage: PageComponent<unknown> = ({}) => {
   const { t } = useTypeSafeTranslation();
   const [editAvatar, setEditAvatar] = useState(false);
   const [showToken, setShowToken] = useState(false);
@@ -54,7 +52,7 @@ export const BotsEditPage: PageComponent<{}> = ({}) => {
             bot={bot}
             onClick={() => setEditAvatar(true)}
             />
-            
+
             <div className="flex flex-col justify-between" style={{ height: 200 }}>
               <div
               className="flex flex-col justify-between bg-primary-800 rounded-lg p-4"
@@ -62,8 +60,8 @@ export const BotsEditPage: PageComponent<{}> = ({}) => {
               >
                 <div className="flex flex-col">
                   <div className="text-base font-bold">Token</div>
-                  <div 
-                  className={`flex items-center justify-start bg-primary-900 w-full rounded pl-2 ${!showToken ? 'text-accent cursor-pointer' : ''}`} 
+                  <div
+                  className={`flex items-center justify-start bg-primary-900 w-full rounded pl-2 ${!showToken ? 'text-accent cursor-pointer' : ''}`}
                   style={{ height: 25 }}
                   onClick={() => setShowToken(true)}
                   >
@@ -71,20 +69,20 @@ export const BotsEditPage: PageComponent<{}> = ({}) => {
                   </div>
                 </div>
                 <div className="flex flex-row justify-between">
-                  <button 
-                  className="bg-primary-700 md:hover:bg-primary-600 rounded-lg" 
+                  <button
+                  className="bg-primary-700 md:hover:bg-primary-600 rounded-lg"
                   style={{ width: 150, height: 40 }}
                   onClick={() => navigator.clipboard?.writeText(token)}
                   >Copy</button>
-                  <button 
-                  className="bg-primary-700 md:hover:bg-primary-600 rounded-lg" 
+                  <button
+                  className="bg-primary-700 md:hover:bg-primary-600 rounded-lg"
                   style={{ width: 150, height: 40 }}
                   onClick={() => null}
                   >Regenerate</button>
                 </div>
               </div>
-              <button 
-                className="bg-accent md:hover:bg-accent-hover rounded-lg" 
+              <button
+                className="bg-accent md:hover:bg-accent-hover rounded-lg"
                 style={{ width: 250, height: 40 }}
                 onClick={() => null}
                 >Delete</button>
