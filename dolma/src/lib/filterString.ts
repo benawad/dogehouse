@@ -16,7 +16,7 @@ export function filterString(emotes: { name: string }[], message: string) {
       switch (tkn) {
         case "emote":
           for(const emote of emotes) {
-            if(e.trim() === `:${emote.name}:`) {
+            if(e.trim().toLowerCase() === `:${emote.name}:`) {
               e = emote.name;
               break tokenSwitch;
             }
