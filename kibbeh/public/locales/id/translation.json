@@ -164,7 +164,7 @@
     },
     "privacySettings": {
       "title": "Pengaturan privasi",
-      "header": "Ppengaturan privasi",
+      "header": "Pengaturan privasi",
       "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
