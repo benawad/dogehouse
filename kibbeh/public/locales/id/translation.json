@@ -136,7 +136,7 @@
       "aboutSuffix": "",
       "errors": {
         "blocked": "Kamu diblokir oleh pengguna ini.",
-        "default": "Whoops! Kami tidak memuat pengguna ini."
+        "default": "Whoops! Kami tidak bisa memuat pengguna ini."
       }
     },
     "voiceSettings": {
