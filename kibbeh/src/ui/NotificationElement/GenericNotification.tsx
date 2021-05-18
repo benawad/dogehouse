@@ -13,8 +13,7 @@ export const GenericNotification: React.FC<GenericNotificationProps> = ({
   time,
   actionButton,
   icon,
-}) => {
-  return (
+}) => (
     <div className="flex items-center w-full">
       <div className="flex mr-3 w-6 h-6">
         {icon ? icon : <SolidRocket className="text-primary-300" />}
@@ -27,7 +26,6 @@ export const GenericNotification: React.FC<GenericNotificationProps> = ({
           {time ? time : "some time ago"}
         </div>
       </div>
-      {actionButton ? <div className="flex ml-auto">{actionButton}</div> : null}
+      {actionButton && <div className="flex ml-auto">{actionButton}</div>}
     </div>
   );
-};
