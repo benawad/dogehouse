@@ -30,9 +30,9 @@
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
-    "link_1": "origin story",
-    "link_2": "discord",
-    "link_3": "make a github issue"
+    "link_1": "origin story;",
+    "link_2": "discord;",
+    "link_3": "make a github issue;"
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
