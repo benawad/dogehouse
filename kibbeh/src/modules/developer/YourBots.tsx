@@ -1,49 +1,50 @@
 import React, { useEffect, useState } from "react";
-import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { BotCard } from "./BotCard";
 import { Bot } from "./Bot";
-import { useConn, useWrappedConn } from "../../shared-hooks/useConn";
-import { wrap } from "@dogehouse/kebab";
-
-const max_bot = 5;
+import { useWrappedConn } from "../../shared-hooks/useConn";
+import { CreateBotModal } from "./CreateBotModal";
+import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 
 export const YourBots: React.FC<unknown> = ({}) => {
   const [bots, setBots] = useState<Array<Bot>>([]);
-
-  const { t } = useTypeSafeTranslation();
+  const [modal, setModal] = useState(false);
   const botsParsed = bots.map((v, i) => (
     <BotCard key={v.displayName + v.avatarUrl + i} bot={v} />
   ));
   const wrapper = useWrappedConn();
+  const { t } = useTypeSafeTranslation();
   // wrapper.wrapperection.sendCall('user:create_bot', {username: 'ttttt'}).then(v => console.log(v));
   useEffect(() => {
     wrapper.connection.sendCall("user:get_bots", {}).then((v: any) => {
       setBots(v.bots);
     });
-  }, []);
+  }, [modal]);
   return (
     <div
       className="flex flex-col text-primary-100 text-2xl font-bold"
       style={{ marginTop: 130, paddingLeft: 20, paddingRight: 20 }}
     >
       <div className="flex flex-row w-full justify-between">
-        <div className="flex inline-block">Your bots ({bots.length})</div>
-        {bots.length < max_bot ? (
+        <div className="flex">
+          {t("pages.botEdit.yourBots")} ({bots.length})
+        </div>
+        {bots.length < 5 ? (
           <button
-            className="flex inline-block bg-accent md:hover:bg-accent-hover cursor-pointer rounded-lg text-base font-bold content-center justify-center"
+            className="flex bg-accent md:hover:bg-accent-hover cursor-pointer rounded-lg text-base font-bold content-center justify-center"
             style={{
               width: 120,
               height: 30,
               lineHeight: "30px",
               textAlign: "center",
             }}
+            onClick={() => {
+              setModal(true);
+            }}
           >
             Create bot
           </button>
         ) : (
-          <div className="flex inline-block text-accent">
-            Max amount of bots reached!
-          </div>
+          <div className="flex text-accent">Max amount of bots reached!</div>
         )}
       </div>
       <div
@@ -56,6 +57,8 @@ export const YourBots: React.FC<unknown> = ({}) => {
       >
         {botsParsed}
       </div>
+
+      {modal && <CreateBotModal onRequestClose={() => setModal(false)} />}
     </div>
   );
 };
