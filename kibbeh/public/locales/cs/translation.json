@@ -16,7 +16,9 @@
     "copied": "Zkopírováno!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Prosím, dej DogeHousu práva na \"Dostupnost\"."
+    "requestPermissions": "Prosím, dej DogeHousu práva na \"Dostupnost\".",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -173,6 +175,14 @@
         "on": "Zapnuté",
         "off": "Vypnuté"
       }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -290,6 +300,11 @@
           "disabled": "Vypnut",
           "followerOnly": "Pouze pro sledující"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -319,7 +334,8 @@
         "debugAudio": "Ladit zvuk",
         "stopDebugger": "Zastavit ladění"
       },
-      "downloadApp": "Stáhnout aplikaci"
+      "downloadApp": "Stáhnout aplikaci",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",

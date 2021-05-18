@@ -16,7 +16,9 @@
     "copied": "Copied ^-^",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "<3 Pwease note ruwwing DwogeHouse without accessabiwity pewmissiowns may cause ewwows （･_･)"
+    "requestPermissions": "<3 Pwease note ruwwing DwogeHouse without accessabiwity pewmissiowns may cause ewwows （･_･)",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -167,6 +169,14 @@
       "title": "Priwacy Settings",
       "header": "Priwacy Settings",
       "whispers": { "label": "Whispers", "on": "On :)", "off": "Off :(" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -286,6 +296,11 @@
           "disabled": "Disabwed",
           "followerOnly": "Fowwower Onwy"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -315,7 +330,8 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Downwoad App"
+      "downloadApp": "Downwoad App",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DwogeHouse Stwaff",
