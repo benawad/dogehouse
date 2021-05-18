@@ -54,8 +54,8 @@
       "followHim": "Ikuti",
       "followingHim": "Mengikuti",
       "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "followingNone": "Tidak mengikuti siapa pun",
+      "noFollowers": "Tidak ada pengikut"
     },
     "home": {
       "createRoom": "Buat Ruangan",
