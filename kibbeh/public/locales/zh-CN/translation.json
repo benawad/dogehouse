@@ -135,8 +135,8 @@
       "sendDM": "发送消息",
       "aboutSuffix": "",
       "errors": {
-        "blocked": "This user has blocked you.",
-        "default": "Whoops! We couldn't load this user."
+        "blocked": "此用户屏蔽了你",
+        "default": "噢！我们无法读取这个用户"
       }
     },
     "voiceSettings": {
