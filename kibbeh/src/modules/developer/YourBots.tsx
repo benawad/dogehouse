@@ -26,7 +26,7 @@ export const YourBots: React.FC<unknown> = ({}) => {
     >
       <div className="flex flex-row w-full justify-between">
         <div className="flex">
-          {t("pages.botEdit.yourBots")} ({bots.length})
+          {t('pages.botEdit.yourBots')} ({bots.length})
         </div>
         {bots.length < 5 ? (
           <button
@@ -48,8 +48,8 @@ export const YourBots: React.FC<unknown> = ({}) => {
         )}
       </div>
       <div
-        className="inline-block w-full bg-primary-300  my-3"
-        style={{ height: 1 }}
+        className="inline-block w-full bg-primary-300"
+        style={{ height: 1, marginTop: '0.75rem', marginBottom: '0.75rem' }}
       ></div>
       <div
         className="flex flex-wrap justify-start"
