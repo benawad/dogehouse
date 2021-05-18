@@ -190,6 +190,8 @@ WEBRTC_LISTEN_IP=127.0.0.1
 Then run `yarn build` and `yarn start`.
 
 ## Issues
+> NOTE: If your bug is a **security vulnerability**, please instead see the [security policy](https://github.com/benawad/dogehouse/security/policy)
+
 We use GitHub issues to track public bugs. Please ensure your description is
 clear and has sufficient instructions to be able to reproduce the issue. Report a bug by <a href="https://github.com/benawad/dogehouse/issues">opening a new issue</a>; it's that easy!
 
