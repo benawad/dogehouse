@@ -16,7 +16,9 @@
     "copied": "pǝᴉdoɔ",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "sɹoɹɹǝ pǝʇuɐʍun ǝsnɐɔ ʎɐɯ suoᴉssᴉɯɹǝd ʎʇᴉꞁᴉqᴉssǝɔɔɐ ʇnoɥʇᴉʍ ǝsnoHǝƃoᗡ ƃuᴉuunɹ ǝʇou ǝsɐǝꞁԀ"
+    "requestPermissions": "sɹoɹɹǝ pǝʇuɐʍun ǝsnɐɔ ʎɐɯ suoᴉssᴉɯɹǝd ʎʇᴉꞁᴉqᴉssǝɔɔɐ ʇnoɥʇᴉʍ ǝsnoHǝƃoᗡ ƃuᴉuunɹ ǝʇou ǝsɐǝꞁԀ",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -163,6 +165,14 @@
       "title": "Privacy Settings",
       "header": "Privacy Settings",
       "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -277,6 +287,11 @@
           "disabled": "Disabled",
           "followerOnly": "Follower Only"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -306,7 +321,8 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",

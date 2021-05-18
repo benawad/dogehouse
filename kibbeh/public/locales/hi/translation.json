@@ -15,7 +15,9 @@
     "copied": "कॉपी हो गया",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "कृपया ध्यान दें कि एक्सेसिबिलिटी परमिशन के बिना दोजेहाउस चलाना अवांछित त्रुटियों का कारण हो सकता है"
+    "requestPermissions": "कृपया ध्यान दें कि एक्सेसिबिलिटी परमिशन के बिना दोजेहाउस चलाना अवांछित त्रुटियों का कारण हो सकता है",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -159,6 +161,14 @@
       "title": "Privacy Settings",
       "header": "Privacy Settings",
       "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -273,6 +283,11 @@
           "disabled": "Disabled",
           "followerOnly": "Follower Only"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -302,7 +317,8 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",

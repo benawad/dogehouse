@@ -16,7 +16,9 @@
     "copied": "Skopiowano!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Korzystanie z DogeHouse bez uprawnień dostępu może powodować niechciane błędy"
+    "requestPermissions": "Korzystanie z DogeHouse bez uprawnień dostępu może powodować niechciane błędy",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -163,6 +165,14 @@
       "title": "Ustawienia prywatności",
       "header": "Ustawienia prywatności",
       "whispers": { "label": "Szepty", "on": "Włączone", "off": "Wyłączone" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -247,7 +257,8 @@
         "debugAudio": "Debuguj audio",
         "stopDebugger": "Wyłącz debugger"
       },
-      "downloadApp": "Pobierz aplikację"
+      "downloadApp": "Pobierz aplikację",
+      "developer": "Developer Settings"
     },
     "modals": {
       "createRoomModal": {
@@ -307,6 +318,11 @@
           "disabled": "Wyłączony",
           "followerOnly": "Tylko dla obserwujących"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "userBadges": {

@@ -16,7 +16,9 @@
     "copied": "copiat",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Vă rugăm să rețineți că rularea DogeHouse fără permisiuni de accesibilitate poate cauza erori nedorite"
+    "requestPermissions": "Vă rugăm să rețineți că rularea DogeHouse fără permisiuni de accesibilitate poate cauza erori nedorite",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -167,6 +169,14 @@
         "on": "Pornite",
         "off": "Oprite"
       }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -284,6 +294,11 @@
           "disabled": "Dezactivat",
           "followerOnly": "Doar urmăritori"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -313,7 +328,8 @@
         "debugAudio": "Testare Audio",
         "stopDebugger": "Oprește Testul"
       },
-      "downloadApp": "Descarcă Aplicația"
+      "downloadApp": "Descarcă Aplicația",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",

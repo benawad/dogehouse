@@ -16,7 +16,9 @@
     "copied": "copiado",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Esteja ciente que executar o DogeHouse sem as permissões corretas pode causar erros indesejados"
+    "requestPermissions": "Esteja ciente que executar o DogeHouse sem as permissões corretas pode causar erros indesejados",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Cabeçalho da interface principal para traduções",
@@ -104,9 +106,7 @@
       "allowAll": "Permitir todos",
       "allowAllConfirm": "Você tem certeza? Isso permitirá que todos os {{count}} usuários solicitantes falem"
     },
-    "searchUser": {
-      "search": "buscar..."
-    },
+    "searchUser": { "search": "buscar..." },
     "soundEffectSettings": {
       "header": "Sons",
       "title": "Configurações de áudio",
@@ -163,11 +163,15 @@
     "privacySettings": {
       "title": "Configurações de Privacidade",
       "header": "Configurações de Privacidade",
-      "whispers": {
-        "label": "Sussurros",
-        "on": "On",
-        "off": "Off"
-      }
+      "whispers": { "label": "Sussurros", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -260,14 +264,15 @@
           "disabled": "Desativado",
           "followerOnly": "Somente seguidores"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "não tem áudio por algum motivo"
-    },
-    "addToCalendar": {
-      "add": "Adicionar ao Calendário"
-    },
+    "userVolumeSlider": { "noAudioMessage": "não tem áudio por algum motivo" },
+    "addToCalendar": { "add": "Adicionar ao Calendário" },
     "keyboardShortcuts": {
       "setKeybind": "definir atalho no teclado",
       "listening": "ouvindo",
@@ -316,7 +321,8 @@
         "debugAudio": "Debugar áudio",
         "stopDebugger": "Parar debug"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "Equipe do DogeHouse",
@@ -379,8 +385,6 @@
       "galacticDoge": "Doge galático",
       "spottedLife": "Encontrado planeta com vida"
     },
-    "feed": {
-      "yourFeed": "Seu Feed"
-    }
+    "feed": { "yourFeed": "Seu Feed" }
   }
 }

@@ -15,7 +15,9 @@
     "copied": "skopírováné",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Spúštanie DogeHose-u bez prístupových oprávnení môže spôsobovať nečakané chyby"
+    "requestPermissions": "Spúštanie DogeHose-u bez prístupových oprávnení môže spôsobovať nečakané chyby",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -162,6 +164,14 @@
       "title": "Privacy Settings",
       "header": "Privacy Settings",
       "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -279,6 +289,11 @@
           "disabled": "Disabled",
           "followerOnly": "Follower Only"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -308,7 +323,8 @@
         "debugAudio": "Debugovať Audio",
         "stopDebugger": "Zastaviť Debugger"
       },
-      "downloadApp": "Stiahnuť aplikáciu"
+      "downloadApp": "Stiahnuť aplikáciu",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",

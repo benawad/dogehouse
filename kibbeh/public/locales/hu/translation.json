@@ -15,7 +15,9 @@
     "copied": "Kiásolva!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Figyelem, a DogeHouse kisegítő lehetőségek nélküli futtatása nem kívánt hibákat okozhat"
+    "requestPermissions": "Figyelem, a DogeHouse kisegítő lehetőségek nélküli futtatása nem kívánt hibákat okozhat",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -158,6 +160,14 @@
       "title": "Személyes tér beállításai",
       "header": "Személyes tér",
       "whispers": { "label": "Suttogó üzenetek", "on": "Be", "off": "Ki" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -250,6 +260,11 @@
           "disabled": "Kikapcsolva",
           "followerOnly": "Csak követők"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Valamilyen okból nincs hallgató" },
@@ -302,7 +317,8 @@
         "debugAudio": "Audió hibakereső",
         "stopDebugger": "Hibakereső leállítása"
       },
-      "downloadApp": "App letöltése"
+      "downloadApp": "App letöltése",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",

@@ -15,7 +15,9 @@
     "copied": "Gekopieerd",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Houd er rekening mee dat het uitvoeren van DogeHouse zonder de benodigde permissies ongewenste fouten kan veroorzaken"
+    "requestPermissions": "Houd er rekening mee dat het uitvoeren van DogeHouse zonder de benodigde permissies ongewenste fouten kan veroorzaken",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -162,6 +164,14 @@
       "title": "Privacy Settings",
       "header": "Privacy Settings",
       "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -279,6 +289,11 @@
           "disabled": "Disabled",
           "followerOnly": "Follower Only"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -308,7 +323,8 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Debugger stoppen"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",

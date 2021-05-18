@@ -15,7 +15,9 @@
     "copied": "已拷贝",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "请注意，在没有辅助功能权限的情况下运行DogeHouse可能会导致错误"
+    "requestPermissions": "请注意，在没有辅助功能权限的情况下运行DogeHouse可能会导致错误",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -159,6 +161,14 @@
       "title": "隐私设置",
       "header": "隐私设置",
       "whispers": { "label": "私聊", "on": "开", "off": "关" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -251,6 +261,11 @@
           "disabled": "禁止",
           "followerOnly": "仅粉丝"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "userVolumeSlider": {
@@ -296,12 +311,10 @@
       "useOldVersion": "使用旧版本",
       "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
       "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" },
-      "downloadApp": "下载APP"
+      "downloadApp": "下载APP",
+      "developer": "Developer Settings"
     },
-    "userBadges": {
-      "dhStaff": "神烦狗人员",
-      "dhContributor": "神烦狗贡献者"
-    },
+    "userBadges": { "dhStaff": "神烦狗人员", "dhContributor": "神烦狗贡献者" },
     "messagesDropdown": {
       "title": "消息",
       "showMore": "显示更多",

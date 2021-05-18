@@ -15,7 +15,9 @@
     "copied": "Kopyalandı!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Erişilebilirlik izinleri olmadan DogeHouse'u çalıştırmanın istenmeyen hatalara neden olabileceğini lütfen unutmayın"
+    "requestPermissions": "Erişilebilirlik izinleri olmadan DogeHouse'u çalıştırmanın istenmeyen hatalara neden olabileceğini lütfen unutmayın",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Ana başlık arayüz ulusallaştırma yazıları",
@@ -163,6 +165,14 @@
       "title": "Privacy Settings",
       "header": "Privacy Settings",
       "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -255,6 +265,11 @@
           "disabled": "Disabled",
           "followerOnly": "Follower Only"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },
@@ -307,7 +322,8 @@
         "debugAudio": "Ses Hatalarını Ayıkla",
         "stopDebugger": "Hata Ayıklamayı Durdur"
       },
-      "downloadApp": "Uygulamayı İndir"
+      "downloadApp": "Uygulamayı İndir",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",

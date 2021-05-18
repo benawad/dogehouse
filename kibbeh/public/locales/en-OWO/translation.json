@@ -16,7 +16,9 @@
     "copied": "Copied ^-^",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "<3 Pwease note ruwwing DwogeHouse without accessabiwity pewmissiowns may cause ewwows （･_･)"
+    "requestPermissions": "<3 Pwease note ruwwing DwogeHouse without accessabiwity pewmissiowns may cause ewwows （･_･)",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -145,7 +147,10 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invawid awpp title", "label": "Enter Awpp Title" },
+      "input": {
+        "errorMsg": "Invawid awpp title",
+        "label": "Enter Awpp Title"
+      },
       "header": "Overlay Settings"
     },
     "download": {
@@ -160,6 +165,14 @@
       "title": "Priwacy Settings",
       "header": "Priwacy Settings",
       "whispers": { "label": "Whispers", "on": "On :)", "off": "Off :(" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -194,7 +207,12 @@
       "linkText": "issue on GitHub",
       "addSupport": "and I wiww twy adding suppowt fow uuw device. :D"
     },
-    "inviteButton": { "inwited": "Inwited!", "inwiteToRoom": "Inwite to Woom" },
+    "inviteButton": {
+      "inwited": "Inwited!",
+      "inwiteToRoom": "Inwite to Woom",
+      "invited": "Invited!",
+      "inviteToRoom": "Invite to room"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Huohhhh. Pewmission denied twying to access uuw mic (uu may need to go into bwowsew settings and wewoad da page) (❁´◡`❁)",
       "dismiss": "Dismiss",
@@ -274,6 +292,11 @@
           "disabled": "Disabwed",
           "followerOnly": "Fowwower Onwy"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -303,7 +326,8 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Downwoad App"
+      "downloadApp": "Downwoad App",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DwogeHouse Stwaff",
