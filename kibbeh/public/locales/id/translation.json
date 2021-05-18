@@ -135,7 +135,7 @@
       "sendDM": "Kirim DM",
       "aboutSuffix": "",
       "errors": {
-        "blocked": "Anda diblokir oleh pengguna ini.",
+        "blocked": "Kamu diblokir oleh pengguna ini.",
         "default": "Whoops! Kami tidak memuat pengguna ini."
       }
     },
@@ -163,8 +163,8 @@
       "download_for": "Unduh untuk %platform% (%ext%)"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
+      "title": "Pengaturan privasi",
+      "header": "Ppengaturan privasi",
       "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
     }
   },
@@ -276,10 +276,10 @@
         "chatDisabled": "nonaktifkan percakapan",
         "chatCooldown": "Chat Cooldown (milliseconds)",
         "chat": {
-          "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "label": "Percakapan",
+          "enabled": "Diaktifkan",
+          "disabled": "Tidak diaktifkan",
+          "followerOnly": "Pengikut saja"
         }
       }
     },
@@ -313,13 +313,13 @@
       "downloadApp": "Unduh aplikasi"
     },
     "userBadges": {
-      "dhStaff": "DogeHouse Staff",
-      "dhContributor": "DogeHouse Contributor"
+      "dhStaff": "DogeHouse Staf",
+      "dhContributor": "DogeHouse Kontributer"
     },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "Pesan",
+      "showMore": "Menampilkan lebih banyak",
+      "noMessages": "Tidak ada pesan yang baru"
     }
   },
   "modules": {
