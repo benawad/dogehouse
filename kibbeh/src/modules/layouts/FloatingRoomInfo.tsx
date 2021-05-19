@@ -14,6 +14,7 @@ import { useDrag } from "react-use-gesture";
 import { useBoundingClientRect } from "../../shared-hooks/useBoundingClientRect";
 import { useLeaveRoom } from "../../shared-hooks/useLeaveRoom";
 import { useMuteStore } from "../../global-stores/useMuteStore";
+import { useMediaQuery } from "react-responsive";
 
 export const FloatingRoomInfo: React.FC = () => {
   const data = useCurrentRoomFromCache();
@@ -24,6 +25,7 @@ export const FloatingRoomInfo: React.FC = () => {
   const setDeaf = useSetDeaf();
   const router = useRouter();
   const { leaveRoom } = useLeaveRoom();
+  const is1Cols = useMediaQuery({ minWidth: 800 });
 
   const [{ y }, api] = useSpring(() => ({ y: 0 }));
   const floatingRef = useRef(null);
@@ -85,7 +87,7 @@ export const FloatingRoomInfo: React.FC = () => {
       data-testid="floating-room-container"
       className="flex fixed left-0 bg-primary-900 items-center w-full border-t border-primary-700 px-3 justify-between animate-breathe-slow"
       style={{
-        bottom: 60,
+        bottom: is1Cols ? 0 : 60,
         zIndex: 9,
         y,
         ...bgStyles,

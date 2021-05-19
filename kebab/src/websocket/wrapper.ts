@@ -169,14 +169,14 @@ export const wrap = (connection: Connection) => ({
     userCreateBot: (username: string): Promise<CreateBotResponse> =>
       connection.sendCall(`user:create_bot`, { username }),
     userAdminUpdate: (
-      username: string,
+      id: UUID,
       user: {
         staff?: boolean;
         contributions?: number;
       }
     ) =>
       connection.sendCall(`user:admin_update`, {
-        username,
+        id,
         user,
       }),
     ban: (username: string, reason: string) =>

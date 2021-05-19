@@ -14,9 +14,11 @@
     "joinRoom": "Join Room",
     "copyLink": "Copy Link",
     "copied": "Copied!",
+    "copy": "Copy",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,6 +36,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
+    },
     "admin": {
       "ban": "Ban",
       "userStaffandContrib": "User Staff & Contributions",
@@ -144,6 +154,11 @@
       "about": "About",
       "aboutSuffix": "",
       "bot": "Bot",
+      "errors": {
+        "blocked": "This user has blocked you.",
+
+        "default": "Whoops! We couldn't load this user."
+      },
       "profileTabs": {
         "about": "About",
         "rooms": "Rooms",
@@ -260,13 +275,19 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
     },
     "modals": {
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
+      },
       "createRoomModal": {
         "subtitle": "Fill the following fields to start a new room",
         "public": "Public",
