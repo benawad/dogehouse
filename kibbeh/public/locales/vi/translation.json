@@ -16,7 +16,9 @@
     "copied": "đã sao chép liên kết",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Lưu ý, không cung cấp đủ quyền truy cập cho DogeHouse có thể gây ra những lỗi không mong muốn"
+    "requestPermissions": "Lưu ý, không cung cấp đủ quyền truy cập cho DogeHouse có thể gây ra những lỗi không mong muốn",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -167,6 +169,14 @@
       "title": "Cài đặt quyền riêng tư",
       "header": "Cài đặt quyền riêng tư",
       "whispers": { "label": "Thì thầm", "on": "Bật", "off": "Tắt" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -281,6 +291,11 @@
           "disabled": "Vô hiệu hoá",
           "followerOnly": "Chỉ người theo dõi"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -310,7 +325,8 @@
         "debugAudio": "Gỡ lỗi âm thanh",
         "stopDebugger": "Dừng trình gỡ lỗi"
       },
-      "downloadApp": "Tải App"
+      "downloadApp": "Tải App",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "Nhân viên của DogeHouse",
