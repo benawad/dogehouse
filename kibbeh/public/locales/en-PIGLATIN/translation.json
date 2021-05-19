@@ -16,7 +16,9 @@
     "copied": "opied-cay!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "lease-pay ote-nay unning-ray oge-day huse-hay ithout-way ccessibility-ay ermissions-pay ay-may ause-cay nwanted-uay rrors-eay"
+    "requestPermissions": "lease-pay ote-nay unning-ray oge-day huse-hay ithout-way ccessibility-ay ermissions-pay ay-may ause-cay nwanted-uay rrors-eay",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -107,11 +109,7 @@
     "privacySettings": {
       "title": "Rivacy-pay Ettings-say",
       "header": "Rivacy-pay Ettings-say",
-      "whispers": {
-        "label": "Hispers-way",
-        "on": "N-oay",
-        "off": "FF-oay"
-      }
+      "whispers": { "label": "Hispers-way", "on": "N-oay", "off": "FF-oay" }
     },
     "room": {
       "speakers": "Peakers-say",
@@ -120,9 +118,7 @@
       "allowAll": "Llow-lay ll-ay",
       "allowAllConfirm": "Re-ay u-yay ure-say? His-tay ill-way low-alay l-alay {{count}} equesting-ray ers-usay o-tay eak-spay."
     },
-    "searchUser": {
-      "search": "Earch-say..."
-    },
+    "searchUser": { "search": "Earch-say..." },
     "soundEffectSettings": {
       "title": "Ound-say Ettings-say",
       "header": "Ounds-say",
@@ -151,6 +147,10 @@
         "recorded": "Ecorded-ray",
         "clips": "Lips-cay",
         "admin": "Min-aday"
+      },
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
       }
     },
     "voiceSettings": {
@@ -167,6 +167,14 @@
         "errorMsg": "Lease-pay ter-enay a lid-vay pp-ay itle-tay",
         "label": "Pp-ay itle-tay"
       }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -236,9 +244,7 @@
       "upcomingRooms": "Coming-upay Ooms-ray",
       "exploreMoreRooms": "Plore-exay ore-may ooms-ray"
     },
-    "addToCalendar": {
-      "add": "D-aday o-tay Alendar-cay"
-    },
+    "addToCalendar": { "add": "D-aday o-tay Alendar-cay" },
     "wsKilled": {
       "description": "Eb-wayOcket-say as-way illed-kay y-bay he-tay erver-say. His-tay Ally-usuay appens-hay hen-way ou-yay en-opay he-tay ebsite-way n-iay nother-ay ab-tay.",
       "reconnect": "Econnect-ray"
@@ -260,7 +266,8 @@
         "debugAudio": "Ebug-day Audio",
         "stopDebugger": "Top-say Ebugger-day"
       },
-      "downloadApp": "Ownload-day Ap-pay"
+      "downloadApp": "Ownload-day Ap-pay",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "Oge-day-Ouse-hay Aff-stay",
@@ -323,14 +330,17 @@
         "makePrivate": "ake-may oom-ray rivate-pay",
         "renamePublic": "Et-say ublic-pay oom-ray ame-nay",
         "renamePrivate": "Et-say rivate-pay oom-ray ame-nay"
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     }
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Our-yay eed-fay"
-    },
+    "feed": { "yourFeed": "Our-yay eed-fay" },
     "scheduledRooms": {
       "title": "Cheduled-say Ooms-ray",
       "noneFound": "One-nay Ound-fay",

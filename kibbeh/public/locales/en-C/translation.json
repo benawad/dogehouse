@@ -16,7 +16,9 @@
     "copied": "Kopëd!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Plëz nöt runiŋ DogeHouse wiðawt aksesibilitë pərmis̈onz mä koz unwontəd erərz"
+    "requestPermissions": "Plëz nöt runiŋ DogeHouse wiðawt aksesibilitë pərmis̈onz mä koz unwontəd erərz",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Män Hedər UI Intərnas̈ənəlïzäs̈un Striŋz",
@@ -140,6 +142,10 @@
         "recorded": "Recorded",
         "clips": "Clips",
         "admin": "Admin"
+      },
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
       }
     },
     "voiceSettings": {
@@ -158,6 +164,14 @@
       "title": "Privacy Settings",
       "header": "Privacy Settings",
       "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -239,7 +253,8 @@
         "debugAudio": "Debəg Ədëö",
         "stopDebugger": "Stop Debəgr"
       },
-      "downloadApp": "Dawnlöd App"
+      "downloadApp": "Dawnlöd App",
+      "developer": "Developer Settings"
     },
     "modals": {
       "createRoomModal": {
@@ -299,6 +314,11 @@
           "disabled": "Disabled",
           "followerOnly": "Follower Only"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "userBadges": {

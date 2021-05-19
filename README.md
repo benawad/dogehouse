@@ -24,6 +24,10 @@
 
 ---
 
+## Important DogeHouse Notice
+
+[I'm done with DogeHouse](https://www.youtube.com/watch?v=I8PkQgPiSq8)
+
 ## Structure
 
 | Codebase              |      Description          |

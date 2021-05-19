@@ -16,7 +16,9 @@
     "copied": "kopirano",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -134,7 +136,11 @@
       "block": "Block",
       "unblock": "Unblock",
       "sendDM": "Send DM",
-      "aboutSuffix": ""
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Podešavanja glasa",
@@ -160,6 +166,14 @@
       "title": "Privacy Settings",
       "header": "Privacy Settings",
       "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -274,6 +288,11 @@
           "disabled": "Disabled",
           "followerOnly": "Follower Only"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -303,7 +322,8 @@
         "debugAudio": "Debaguj Audio",
         "stopDebugger": "Zaustavi Debager"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",

@@ -37,21 +37,6 @@ defmodule Beef.Access.Users do
     |> Repo.all()
   end
 
-  def search_user(<<first_letter>> <> rest) when first_letter == ?@ do
-    search_user(rest)
-  end
-
-  def search_user(username_or_display_name) do
-    search_str = username_or_display_name <> "%"
-
-    Query.start()
-    # here
-    |> where([u], ilike(u.username, ^search_str))
-    |> order_by([u], desc: u.numFollowers)
-    |> limit([], 15)
-    |> Repo.all()
-  end
-
   @spec get_by_id_with_follow_info(any, any) :: any
   def get_by_id_with_follow_info(me_id, them_id) do
     Query.start()

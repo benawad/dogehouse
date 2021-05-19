@@ -132,7 +132,6 @@ defmodule Beef.Access.Rooms do
 
   def search_name(start_of_name) do
     search_str = start_of_name <> "%"
-    search_str = String.replace(search_str, ~r/([_])/, ~s(\\\_))
 
     Query.start()
     |> where([r], ilike(r.name, ^search_str) and r.isPrivate == false)
