@@ -17,7 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "@sentry/node": "^6.3.3",
-    "amqplib": "^0.6.0",
+    "amqplib": "^0.7.1",
     "cors": "^2.8.5",
     "debug": "^4.3.2",
     "dotenv": "^8.2.0",
