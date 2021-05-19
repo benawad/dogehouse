@@ -12,11 +12,11 @@
     "edit": "edit()",
     "delete": "delete()",
     "joinRoom": "joinRoom()",
-    "copyLink": "console.copy",
+    "copyLink": "copy()",
     "copied": "copied",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted console errors",
+    "requestPermissions": "WARNING: please note running DogeHouse without accessibility permissions may cause unwanted console errors",
     "copy": "copy",
     "error": "error"
   },
@@ -25,8 +25,8 @@
     "title": "Doge.House()",
     "dashboard": "./dashboard",
     "connectionTaken": "ERR: connection taken",
-    "mutedTitle": "user.mute() | Doge.House()",
-    "deafenedTitle": "user.deafen() | Doge.House()"
+    "mutedTitle": "mute() | Doge.House()",
+    "deafenedTitle": "deafen() | Doge.House()"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -37,7 +37,7 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "botEdit": {
-      "yourBots": "Your clients",
+      "yourBots": "your clients",
       "bots": "clients",
       "title": "client.information",
       "apiKey": "process.env.APIKEY",
@@ -51,26 +51,26 @@
       "contributions": "contributions",
       "username": "username",
       "usrStaff": "user staff",
-      "usrContributions": "user contributions",
+      "usrContributions": "programmer contributions",
       "reason": "reason",
       "usernamePlaceholder": "username to perform actions on"
     },
     "download": {
       "prompt": "download the Doge.House() desktop app",
       "download_for": "download for %platform% (%ext%)",
-      "failed": "unable to detect platform, please try again later or visit gitHub releases",
+      "failed": "ERR: unable to detect platform, please try again later or visit gitHub releases",
       "visit_gh": "visit gitHub releases"
     },
     "followingOnlineList": {
       "title": "programmers",
-      "listHeader": "list of users that are not in a private room and you follow.",
-      "currentRoom": "Currently in:",
+      "listHeader": "list of programmers that are not in a private room and you follow.",
+      "currentRoom": "currently in:",
       "startPrivateRoom": "start a private room with them"
     },
     "followList": {
       "title": "programmers",
       "followHim": "follow();",
-      "followingHim": "user.following",
+      "followingHim": "programmer.following",
       "followingNone": "not following anyone",
       "noFollowers": "no followers | null"
     },
@@ -81,15 +81,15 @@
       "desktopAlert": "download the Doge.House() desktop app today!"
     },
     "inviteList": {
-      "roomGone": "room gone; go back",
-      "shareRoomLink": "link.share",
+      "roomGone": "room gone; return;",
+      "shareRoomLink": "link.share()",
       "inviteFollowers": "you can invite your followers that are online:",
       "whenFollowersOnline": "when your followers are online, they will show up here."
     },
     "login": {
       "headerText": "Taking voice conversations to the moon 🚀",
       "featureText_1": "dark theme",
-      "featureText_2": "open sign-ups",
+      "featureText_2": "sign-ups.open();",
       "featureText_3": "cross-platform support",
       "featureText_4": "open source",
       "featureText_5": "sonar chat",
@@ -97,7 +97,7 @@
       "loginGithub": "login with gitHub",
       "loginTwitter": "login with twitter",
       "loginDiscord": "login with discord",
-      "createTestUser": "create test user"
+      "createTestUser": "create test programmer"
     },
     "myProfile": {
       "logout": "user.logout();",
@@ -106,7 +106,7 @@
       "overlaySettings": "overlay-config.json",
       "soundSettings": "sound-config.json",
       "deleteAccount": "account.delete();",
-      "couldNotFindUser": "ERR: could not find 'user' of null",
+      "couldNotFindUser": "ERR: could not find 'programmer' of null",
       "privacySettings": "privacy-config.json"
     },
     "notFound": {
@@ -124,11 +124,11 @@
       }
     },
     "room": {
-      "speakers": "speakers",
-      "requestingToSpeak": "requesting to speak",
-      "listeners": "listeners",
-      "allowAll": "allow all",
-      "allowAllConfirm": "are you sure? This will allow all {{count}} requesting users to speak"
+      "speakers": "professors",
+      "requestingToSpeak": "requesting to teach",
+      "listeners": "students",
+      "allowAll": "allowAll: true",
+      "allowAllConfirm": "WARNING: are you sure? This will allow all {{count}} requesting programmers to speak"
     },
     "searchUser": {
       "search": "ctrl+f..."
@@ -155,9 +155,9 @@
       "aboutSuffix": "",
       "bot": "bot: true",
       "errors": {
-        "blocked": "this user has blocked you.",
+        "blocked": "ERR: this programmer has blocked you.",
 
-        "default": "ERR: couldn't load this user."
+        "default": "ERR: couldn't load this programmer."
       },
       "profileTabs": {
         "about": "_about",
@@ -317,7 +317,7 @@
         "bioLabel": "bio"
       },
       "profileModal": {
-        "blockUserConfirm": "WARNING: are you sure you want to block this user from joining any file you ever create?",
+        "blockUserConfirm": "WARNING: are you sure you want to block this programmer from joining any file you ever create?",
         "blockUser": "block programmer",
         "makeMod": "promote to mod",
         "unmod": "demote from mod",
@@ -375,32 +375,32 @@
       "title": "console",
       "emotesSoon": "[emotes soon]",
       "bannedAlert": "you have been banned from console",
-      "waitAlert": "you have to wait a second before sending another message. greedy programmer",
+      "waitAlert": "you have to wait a second before sending another command. greedy programmer",
       "search": "search(query)",
       "searchResults": "search results",
       "recent": "frequently used",
-      "sendMessage": "send a message",
+      "sendMessage": "send a command",
       "whisper": "whisper",
       "welcomeMessage": "welcome to console!",
       "roomDescription": "file description",
-      "disabled": "room chat has been disabled();",
+      "disabled": "roomChatDisabled: true",
       "messageDeletion": {
-        "message": "message",
+        "message": "command",
         "retracted": "retracted",
-        "deleted": "deleted"
+        "deleted": "recylced"
       }
     },
     "roomStatus": {
-      "fuelingRocket": "fueling rocket",
-      "takingOff": "takingOff()",
-      "inSpace": "in space",
-      "approachingMoon": "approaching moon",
+      "fuelingRocket": "fuelingRocket: true",
+      "takingOff": "takingOff: true",
+      "inSpace": "inSpace: true",
+      "approachingMoon": "approaching united states",
       "lunarDoge": "lunar doge",
-      "approachingSun": "approaching sun",
+      "approachingSun": "approaching massachusetts",
       "solarDoge": "solar doge",
-      "approachingGalaxy": "approaching galaxy",
+      "approachingGalaxy": "approaching MIT",
       "galacticDoge": "galactic doge",
-      "spottedLife": "Planet with programmers spotted"
+      "spottedLife": "planet with programmers spotted"
     }
   }
 }
