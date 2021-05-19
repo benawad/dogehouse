@@ -36,13 +36,6 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
   const { t } = useTypeSafeTranslation();
   const conn = useConn();
   return (
-    <div
-      className={`w-full flex items-center pl-1.5 ${className}`}
-      {...props}
-    >
-      <button
-        className={`py-1 text-primary-100 text-base font-bold border-b-2 border-primary-900 transition hover:border-accent focus:outline-no-chrome
-               ${activeTab === "about" && `border-accent text-accent`}`}
     <>
       <div
         className={`w-full flex items-center justify-around ${className}`}
