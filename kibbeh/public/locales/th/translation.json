@@ -15,7 +15,9 @@
     "copied": "คัดลอกเรียบร้อย",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "โปรดระวัง การปิดการเข้าถึงต่าง ๆ ของ Dogehouse อาจทำให้ไม่สามารถใช้งานฟังก์ชั่นต่าง ๆ ได้"
+    "requestPermissions": "โปรดระวัง การปิดการเข้าถึงต่าง ๆ ของ Dogehouse อาจทำให้ไม่สามารถใช้งานฟังก์ชั่นต่าง ๆ ได้",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -163,6 +165,14 @@
       "title": "Privacy Settings",
       "header": "Privacy Settings",
       "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -278,6 +288,11 @@
           "disabled": "Disabled",
           "followerOnly": "Follower Only"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -307,7 +322,8 @@
         "debugAudio": "แก้ไขข้อบกพร่องเสียง",
         "stopDebugger": "ปิดการแก้ไขข้อบกพร่อง"
       },
-      "downloadApp": "ดาวน์โหลดแอป"
+      "downloadApp": "ดาวน์โหลดแอป",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",

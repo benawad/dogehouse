@@ -16,7 +16,9 @@
     "copied": "কপি হয়ে গেছে",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "দয়া করে DogeHouse কে অ্যাক্সেস পারমিশন দিন"
+    "requestPermissions": "দয়া করে DogeHouse কে অ্যাক্সেস পারমিশন দিন",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -169,6 +171,14 @@
       "title": "গোপনীয়তা সেটিংস",
       "header": "গোপনীয়তা সেটিংস",
       "whispers": { "label": "ফিসফিস", "on": "অন", "off": "অফ" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -286,6 +296,11 @@
           "disabled": "অফ করা",
           "followerOnly": "অনুসরণকারীদের জন্য শুধু"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -315,7 +330,8 @@
         "debugAudio": "অডিও ডিবাগ করুন",
         "stopDebugger": "ডিবাগার বন্ধ করুন"
       },
-      "downloadApp": "ডাউনলোড করুন অ্যাপ্লিকেশনটি"
+      "downloadApp": "ডাউনলোড করুন অ্যাপ্লিকেশনটি",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "DogeHouse স্টাফ",
