@@ -17,8 +17,8 @@
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
     "requestPermissions": "Huomaa, että käyttämällä DogeHousea ilman joitakin selaimen käyttöoikeuksia voi aiheuttaa ei-toivottuja virheitä",
-    "copy": "Copy",
-    "error": "Error"
+    "copy": "Kopioi",
+    "error": "Virhe"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -51,14 +51,14 @@
       "listHeader": "Lista seuraamistasi käyttäjistä, jotka eivät ole yksityisessä huoneessa.",
       "currentRoom": "Paikalla:",
       "startPrivateRoom": "Luo yksityinen huone heidän kanssaan",
-      "title": "People"
+      "title": "Henkilöt"
     },
     "followList": {
       "followHim": "Seuraa",
       "followingHim": "Seurannassa",
-      "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "title": "Henkilöt",
+      "followingNone": "Ei seuraa ketään",
+      "noFollowers": "Ei seuraajia"
     },
     "home": {
       "createRoom": "Luo huone",
@@ -93,7 +93,7 @@
       "overlaySettings": "Overlay-asetukset",
       "deleteAccount": "Poista tili",
       "couldNotFindUser": "Käyttäjää ei löytynyt",
-      "privacySettings": "Privacy settings"
+      "privacySettings": "Yksityisyysasetukset"
     },
     "notFound": {
       "whoopsError": "Hups! Tämä sivu katosi keskusteluun.",
@@ -111,7 +111,7 @@
     "soundEffectSettings": {
       "header": "Äänet",
       "title": "Ääniasetukset",
-      "playSound": "Play Sound"
+      "playSound": "Toista ääni"
     },
     "viewUser": {
       "editProfile": "Muokkaa profiilia",
@@ -148,7 +148,7 @@
       "permissionError": "Yhtään mikrofonia ei löytynyt. joko yhtään ei ole kytketty tai et ole antanut sivustolle lupaa käyttää mikrofonia.",
       "refresh": "Päivitä lista",
       "volume": "Äänenvoimakkuus:",
-      "title": "Voice Settings"
+      "title": "Puheasetukset"
     },
     "overlaySettings": {
       "header": "Overlay-asetukset",
@@ -276,7 +276,7 @@
         "deleteMessage": "Poista viesti",
         "makeRoomCreator": "Ylennä huoneen ylläpitäjäksi",
         "unBanFromChat": "Poista esto chatista",
-        "banIPFromRoom": "Ban IP from Room"
+        "banIPFromRoom": "Estä IP-osoite huoneesta"
       },
       "roomSettingsModal": {
         "requirePermission": "Puhuminen vaatii oikeuden",
@@ -326,17 +326,17 @@
         "debugAudio": "Testaa äänet",
         "stopDebugger": "Pysäytä debuggeri"
       },
-      "downloadApp": "Download App",
-      "developer": "Developer Settings"
+      "downloadApp": "Lataa sovellus",
+      "developer": "Kehittäjäasetukset"
     },
     "userBadges": {
-      "dhStaff": "DogeHouse Staff",
-      "dhContributor": "DogeHouse Contributor"
+      "dhStaff": "DogeHousen henkilökunta",
+      "dhContributor": "DogeHouse-avustaja"
     },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "Viestit",
+      "showMore": "Näytä lisää",
+      "noMessages": "Ei uusia viestejä"
     }
   },
   "modules": {
@@ -374,9 +374,9 @@
       "roomDescription": "Huoneen kuvaus",
       "disabled": "room chat has been disabled",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "viesti",
+        "retracted": "peruttu",
+        "deleted": "poistettu"
       }
     },
     "roomStatus": {
