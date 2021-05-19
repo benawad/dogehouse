@@ -45,7 +45,7 @@
       "usrStaff": "Käyttäjän henkilökuntatila",
       "usrContributions": "Käyttäjän kontribuutiot",
       "reason": "syy",
-      "usernamePlaceholder": "käyttäjatunnus, johon suoritetaan toiminnot"
+      "usernamePlaceholder": "käyttäjätunnus, johon suoritetaan toiminnot"
     },
     "followingOnlineList": {
       "listHeader": "Lista seuraamistasi käyttäjistä, jotka eivät ole yksityisessä huoneessa.",
@@ -295,7 +295,7 @@
       },
       "createBotModal": {
         "usernameTaken": "Käyttätunnus varattu",
-        "subtitle": "Luo botti täyttämällä alla olevat tiedot",
+        "subtitle": "Luo botti täyttämällä seuraavat kentät",
         "title": "Luo botti"
       }
     },
