@@ -44,6 +44,7 @@
     "lodash": "^4.17.21",
     "mediasoup-client": "^3.6.30",
     "next": "10.2.0",
+    "nextjs-redirect": "^5.0.2",
     "normalize-url": "4",
     "nprogress": "^0.2.0",
     "rc-slider": "^9.7.2",
