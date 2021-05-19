@@ -16,7 +16,9 @@
     "copied": "opied-cay!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "lease-pay ote-nay unning-ray oge-day huse-hay ithout-way ccessibility-ay ermissions-pay ay-may ause-cay nwanted-uay rrors-eay"
+    "requestPermissions": "lease-pay ote-nay unning-ray oge-day huse-hay ithout-way ccessibility-ay ermissions-pay ay-may ause-cay nwanted-uay rrors-eay",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -165,6 +167,14 @@
         "errorMsg": "Lease-pay ter-enay a lid-vay pp-ay itle-tay",
         "label": "Pp-ay itle-tay"
       }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -256,7 +266,8 @@
         "debugAudio": "Ebug-day Audio",
         "stopDebugger": "Top-say Ebugger-day"
       },
-      "downloadApp": "Ownload-day Ap-pay"
+      "downloadApp": "Ownload-day Ap-pay",
+      "developer": "Developer Settings"
     },
     "userBadges": {
       "dhStaff": "Oge-day-Ouse-hay Aff-stay",
@@ -319,6 +330,11 @@
         "makePrivate": "ake-may oom-ray rivate-pay",
         "renamePublic": "Et-say ublic-pay oom-ray ame-nay",
         "renamePrivate": "Et-say rivate-pay oom-ray ame-nay"
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     }
   },

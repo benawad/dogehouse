@@ -16,7 +16,9 @@
     "copied": "کپی انجام شد!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "لطفاً توجه داشته باشید که اجرای DogeHouse بدون مجوزهای دسترسی ممکن است باعث خطاهای ناخواسته شود."
+    "requestPermissions": "لطفاً توجه داشته باشید که اجرای DogeHouse بدون مجوزهای دسترسی ممکن است باعث خطاهای ناخواسته شود.",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -165,6 +167,14 @@
       "title": "Privacy Settings",
       "header": "Privacy Settings",
       "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -251,7 +261,8 @@
         "debugAudio": "اشکال زدایی صدا",
         "stopDebugger": "اشکال زدایی را متوقف کنید"
       },
-      "downloadApp": "بارگیری برنامه"
+      "downloadApp": "بارگیری برنامه",
+      "developer": "Developer Settings"
     },
     "modals": {
       "createRoomModal": {
@@ -311,6 +322,11 @@
           "disabled": "Disabled",
           "followerOnly": "Follower Only"
         }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "userBadges": {
