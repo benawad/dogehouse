@@ -151,31 +151,31 @@
       "title": "Voice Settings"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings",
-      "errorMsg": "Please enter valid app title",
-      "label": "Enter app title"
+      "input": { "errorMsg": "خطأ في اسم التطبيق", "label": "ادخل اسم التطبيق" },
+      "header": "Overlay اعدادات",
+      "errorMsg": "ادخل اسم تطبيق صحيح",
+      "label": "ادخل اسم التطبيق"
     },
     "download": {
       "starting": "...بدأ التحميل",
-      "failed": "لم يتم التنزيل التلقائيو الرجاء المحاولة لاحقاً",
-      "visit_gh": "Visit Github Releases",
+      "failed": "لم يتم التنزيل التلقائي الرجاء المحاولة لاحقاً",
+      "visit_gh": "تحقق من اخر الاصدارات علي github",
       "prompt": "أنقر للتنزيل",
       "download_now": "تنزيل الآن",
       "download_for": "تنزيل إلى %platform% (%ext%)"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
-      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+      "title": "اعدادات الخصوصية",
+      "header": "اعدادات الخصوصية",
+      "whispers": { "label": "الهمسات", "on": "تشغيل", "off": "ايقاف" }
     },
     "botEdit": {
-      "yourBots": "Your Bots",
-      "bots": "Bots",
-      "title": "Bot Information",
+      "yourBots": "روبوتاتك",
+      "bots": "الروبوتات",
+      "title": "معلومات البوت",
       "apiKey": "ApiKey",
-      "regenerate": "Regenerate",
-      "reveal": "Click to reveal ApiKey"
+      "regenerate": "اعادة الانشاء",
+      "reveal": "اضغط لاظهار مقتاح ال api"
     }
   },
   "components": {
