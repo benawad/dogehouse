@@ -17,8 +17,8 @@
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
     "requestPermissions": "Bitte erteile DogeHouse Browserberechtigungen.",
-    "copy": "Copy",
-    "error": "Error"
+    "copy": "Kopieren",
+    "error": "Fehler"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -41,11 +41,11 @@
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
       "contributions": "Contributions",
-      "username": "Username",
+      "username": "Nutzername",
       "usrStaff": "User Staff",
       "usrContributions": "User Contributions",
-      "reason": "reason",
-      "usernamePlaceholder": "username to perform actions on"
+      "reason": "Grund",
+      "usernamePlaceholder": "Benutzername, für den Aktionen ausgeführt werden sollen"
     },
     "followingOnlineList": {
       "listHeader": "Benutzer, denen du folgst, die nicht in einem privaten Raum sind.",
@@ -57,8 +57,8 @@
       "followHim": "Folgen",
       "followingHim": "Entfolgen",
       "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "followingNone": "Folgt keinem",
+      "noFollowers": "Keine Follower"
     },
     "home": {
       "createRoom": "Raum erstellen",
@@ -126,20 +126,20 @@
       "about": "Über",
       "bot": "Bot",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
+        "about": "Über",
+        "rooms": "Räume",
+        "scheduled": "Geplant",
+        "recorded": "Aufgenommen",
         "clips": "Clips",
         "admin": "Admin"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM",
+      "block": "Blockieren",
+      "unblock": "Freigeben",
+      "sendDM": "Sende Direktnachricht",
       "aboutSuffix": "",
       "errors": {
-        "blocked": "This user has blocked you.",
-        "default": "Whoops! We couldn't load this user."
+        "blocked": "Dieser Nutzer hat dich blockiert.",
+        "default": "Hoppla! Wir konnten diesen Benutzer nicht laden."
       }
     },
     "voiceSettings": {
@@ -168,17 +168,17 @@
       "download_for": "Download für %platform% (%ext%)"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
-      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+      "title": "Privatsphäre Einstellungen",
+      "header": "Privatsphäre Einstellungen",
+      "whispers": { "label": "Flüstern", "on": "An", "off": "Aus" }
     },
     "botEdit": {
-      "yourBots": "Your Bots",
+      "yourBots": "Deine Bots",
       "bots": "Bots",
-      "title": "Bot Information",
-      "apiKey": "ApiKey",
-      "regenerate": "Regenerate",
-      "reveal": "Click to reveal ApiKey"
+      "title": "Bot Informationen",
+      "apiKey": "API-Key",
+      "regenerate": "Neugenerieren",
+      "reveal": "Klicke hier, um den API-Key anzuzeigen"
     }
   },
   "components": {
@@ -256,7 +256,7 @@
         "deleteMessage": "Nachricht löschen",
         "makeRoomCreator": "Zum Raumadmin befördern",
         "unBanFromChat": "Vom Chat entbannen",
-        "banIPFromRoom": "Ban IP from Room"
+        "banIPFromRoom": "IP aus Raum bannen"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlangen",
@@ -268,15 +268,15 @@
         "chatCooldown": "Chat Cooldown (milliseconds)",
         "chat": {
           "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "enabled": "Aktiviert",
+          "disabled": "Deaktiviert",
+          "followerOnly": "Nur Abonnenten"
         }
       },
       "createBotModal": {
-        "usernameTaken": "Username is taken",
-        "subtitle": "Please fill the details below to create your bot",
-        "title": "Create Bot"
+        "usernameTaken": "Nutzername ist bereits vergeben",
+        "subtitle": "Bitte fülle die angaben unten aus, um deinen Bot zu erstellen",
+        "title": "Bot Erstellen"
       }
     },
     "userVolumeSlider": {
@@ -331,16 +331,16 @@
         "stopDebugger": "Stoppe Debugger"
       },
       "downloadApp": "App herunterladen",
-      "developer": "Developer Settings"
+      "developer": "Entwickler Einstellungen"
     },
     "userBadges": {
       "dhStaff": "DogeHouse Staff",
       "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "Nachrichten",
+      "showMore": "Zeige mehr",
+      "noMessages": "Keine neue Nachrichten"
     }
   },
   "modules": {
@@ -366,7 +366,7 @@
     },
     "roomChat": {
       "title": "Chat",
-      "emotesSoon": "[emotes kommen bald]",
+      "emotesSoon": "[Emotes kommen bald]",
       "bannedAlert": "Du wurdest aus dem Chat ausgeschlossen",
       "waitAlert": "Du musst eine Sekunde warten, bevor du eine weitere Nachricht schreiben kannst",
       "search": "Suchen",
@@ -378,9 +378,9 @@
       "roomDescription": "Raumbeschreibung",
       "disabled": "Der Chat wurde vom Raum ausgeschaltet",
       "messageDeletion": {
-        "message": "message",
-        "retracted": "retracted",
-        "deleted": "deleted"
+        "message": "Nachicht",
+        "retracted": "zurückgezogen",
+        "deleted": "gelöscht"
       }
     },
     "roomStatus": {
