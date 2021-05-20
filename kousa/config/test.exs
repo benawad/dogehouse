@@ -8,7 +8,7 @@ config :kousa, Beef.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
-config :logger, level: :error
+config :logger, level: :info
 
 if System.get_env("GITHUB_ACTIONS") do
   config :app, App.Repo,
@@ -21,7 +21,7 @@ config :kousa,
   api_url: System.get_env("API_URL") || "http://localhost:4001",
   access_token_secret: "thisistheaccesstokenfortest",
   refresh_token_secret: "thisistherefreshtokenfortest",
-  ip_hashing_key_base: "thisistheiphashingkeybasefortesting",
+  ip_hashing_key: "thisistheiphashingkeybasefortesting",
   ben_github_id: "notreallybensgithubid"
 
 config :kousa, websocket_auth_timeout: 50

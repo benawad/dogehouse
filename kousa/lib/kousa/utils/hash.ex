@@ -11,9 +11,7 @@ defmodule Kousa.Utils.Hash do
     if is_nil(ip) do
       {:error, "ip is nil"}
     else
-      # Should we refactor this so we don't pipe a function call?
-      # Encodes Hash into Base16
-      :crypto.mac(:hmac, :sha256, Application.fetch_env!(:kousa, :ip_hashing_key_base), ip)
+      :crypto.mac(:hmac, :sha256, Application.fetch_env!(:kousa, :ip_hashing_key), ip)
       |> Base.encode16()
     end
   end
@@ -23,6 +21,7 @@ defmodule Kousa.Utils.Hash do
     if is_nil(account.ip) do
       {:error, "no ip was stored in database"}
     else
+      # Prevents timing attacks
       matched = Plug.Crypto.secure_compare(ip, account.ip)
 
       if matched do

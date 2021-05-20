@@ -1,6 +1,7 @@
 defmodule BrothTest.Room.SetRoleTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
+  require IO
 
   alias Beef.Schemas.User
   alias Beef.Users
@@ -123,7 +124,9 @@ defmodule BrothTest.Room.SetRoleTest do
       WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
 
       refute Beef.RoomPermissions.speaker?(speaker_id, room_id)
-      Kousa.Room.set_role(speaker_id, :raised_hand, by: t.user.id)
+
+      Kousa.Room.set_role(speaker_id, :raised_hand, by: speaker_id)
+
       assert Beef.RoomPermissions.asked_to_speak?(speaker_id, room_id)
 
       WsClient.assert_frame_legacy("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
@@ -167,7 +170,7 @@ defmodule BrothTest.Room.SetRoleTest do
       WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
 
       refute Beef.RoomPermissions.speaker?(speaker_id, room_id)
-      Kousa.Room.set_role(speaker_id, :raised_hand, by: t.user.id)
+      Kousa.Room.set_role(speaker_id, :raised_hand, by: speaker_id)
 
       # both clients get notified
       WsClient.assert_frame_legacy(
@@ -220,7 +223,8 @@ defmodule BrothTest.Room.SetRoleTest do
 
       # join the speaker user into the room
       Kousa.Room.join_room(speaker_id, room_id)
-      Kousa.Room.set_role(speaker_id, :raised_hand, by: t.user.id)
+
+      Kousa.Room.set_role(speaker_id, :raised_hand, by: speaker_id)
 
       WsClient.assert_frame_legacy("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
@@ -234,14 +238,19 @@ defmodule BrothTest.Room.SetRoleTest do
 
       Kousa.Room.set_auth(mod_id, :mod, by: t.user.id)
 
-      # add the person as a speaker.
       WsClient.send_msg(
-        mod_ws,
+        t.client_ws,
         "room:set_role",
         %{"userId" => speaker_id, "role" => "speaker"}
       )
 
-      # both clients get notified
+      # add the person as a speaker.
+      WsClient.send_msg(
+        speaker_ws,
+        "room:set_role",
+        %{"userId" => speaker_id, "role" => "speaker"}
+      )
+
       WsClient.assert_frame_legacy(
         "speaker_added",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},

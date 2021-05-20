@@ -73,10 +73,10 @@ config :kousa,
       raise("""
         environment variable SECRET_KEY_BASE is missing.
       """),
-  ip_hashing_key_base:
-    System.get_env("IP_HASHING_KEY_BASE") ||
+  ip_hashing_key:
+    System.get_env("IP_HASHING_KEY") ||
       raise("""
-        environment variable IP_HASHING_KEY_BASE is missing.
+        environment variable IP_HASHING_KEY is missing.
       """),
   ben_github_id:
     System.get_env("BEN_GITHUB_ID") ||

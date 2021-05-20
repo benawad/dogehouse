@@ -1,6 +1,6 @@
 defmodule Kousa.Room do
-  alias Kousa.Utils.VoiceServerUtils
   alias Kousa.Utils.Hash
+  alias Kousa.Utils.VoiceServerUtils
   alias Beef.Users
   alias Beef.Follows
   alias Beef.Rooms
@@ -151,7 +151,8 @@ defmodule Kousa.Room do
   # owner
 
   def set_owner(room_id, user_id, setter_id) do
-    with {:creator, _} <- Rooms.get_room_status(setter_id), {1, _} <- Rooms.replace_room_owner(setter_id, user_id) do
+    with {:creator, _} <- Rooms.get_room_status(setter_id),
+         {1, _} <- Rooms.replace_room_owner(setter_id, user_id) do
       Onion.RoomSession.set_room_creator_id(room_id, user_id)
       internal_set_speaker(setter_id, room_id)
 
