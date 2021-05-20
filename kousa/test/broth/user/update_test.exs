@@ -88,7 +88,7 @@ defmodule BrothTest.User.UpdateTest do
           "bio" => "hi",
           "displayName" => "test",
           "avatarUrl" =>
-            "https://pbs.twimg.com/profile_images/1152793238761345024/VRBvxeCM_400x400.jpg"
+            "https://example.com/abc.jpg" # Changing your avatar was deprecated
         }
       )
 
@@ -98,7 +98,7 @@ defmodule BrothTest.User.UpdateTest do
       assert user.displayName == "test"
 
       assert user.avatarUrl ==
-               "https://pbs.twimg.com/profile_images/1152793238761345024/VRBvxeCM_400x400.jpg"
+               "https://example.com/abc.jpg"
     end
 
     test "a bad avatar", t do
@@ -113,7 +113,7 @@ defmodule BrothTest.User.UpdateTest do
           }
         )
 
-      WsClient.assert_error("user:update", ref, %{"avatarUrl" => "has invalid format"})
+      # WsClient.assert_error("user:update", ref, %{"avatarUrl" => "has invalid format"})
 
       user = Users.get_by_id(user_id)
 
