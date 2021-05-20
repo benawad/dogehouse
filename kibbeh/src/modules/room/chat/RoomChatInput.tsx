@@ -125,7 +125,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
                 ? inputRef!.current!.selectionStart
                 : position + 2) || 0;
 
-            let msg: string = '';
+            let msg = '';
 
             if ((message.match(/:/g)?.length ?? 0) % 2) {
               msg = message.split('').reverse().join('');
