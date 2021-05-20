@@ -125,12 +125,19 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
                 ? inputRef!.current!.selectionStart
                 : position + 2) || 0;
 
+            let msg: string
+
+            if ((message.match(/:/g)?.length ?? 0) % 2) {
+              msg = message.split('').reverse().join('')
+              msg = msg.replace(msg.split(':')[0]+':', '')
+              msg = msg.split('').reverse().join('')
+            } else msg = message
+
             const newMsg = [
-              message.slice(0, position),
-              (message.endsWith(" ") ? "" : " ") +
-                (`:${emoji.short_names[0]}:` || "") +
+              msg.slice(0, position),
+              (`:${emoji.short_names[0]}:` || "") +
                 " ",
-              message.slice(position),
+              msg.slice(position),
             ].join("");
             setMessage(newMsg);
           }}
