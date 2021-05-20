@@ -1,0 +1,406 @@
+{
+  "_comment": "if you change this file, do: yarn i18",
+  "common": {
+    "loadMore": "زیاتر ببینە",
+    "loading": "دابەزاندن...",
+    "noUsersFound": "هیچ کەسێك نەدۆزرایەوە",
+    "ok": "ئۆکەی",
+    "yes": "بەڵێ",
+    "no": "نەخێر",
+    "cancel": "رەتکردنەوە",
+    "save": "پاراستن",
+    "edit": "هەموارکردن",
+    "delete": "سڕینەوە",
+    "joinRoom": "پەیوەندیکردن بە ژوورەوە",
+    "copyLink": "کۆپیکردنی لینك",
+    "copied": "کۆپیکرا!",
+    "copy": "کۆپی",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "تکایە ئاگاداربە، کارکردن بە دۆجهاوس بێ مۆڵەتی چونەناوەوە دەکرێت هەڵەی نەخوازراوی بەدوادابێت",
+    "error": "هەڵە"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "دۆجهاوس",
+    "dashboard": "داشبۆرد",
+    "connectionTaken": "پەیوەندی راییکرا",
+    "mutedTitle": "بێ ئاخاوتن | دۆجهاوس",
+    "deafenedTitle": "بێدەنگکردن | دۆجهاوس"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "چیرۆکی دەستپێك",
+    "link_2": "دیسکۆرد",
+    "link_3": "هۆشداری کێشەی تەکنیکی"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
+    },
+    "admin": {
+      "ban": "Ban",
+      "userStaffandContrib": "ستافی بەکارهێنەر و بەشداران",
+      "staff": "ستاف: ",
+      "contributions": "بەشداران",
+      "username": "ناوی بەکارهێنەر",
+      "usrStaff": "ستافی بەکارهێنەران",
+      "usrContributions": "بەشداریی بەکارهێنەر",
+      "reason": "هۆکار",
+      "usernamePlaceholder": "بەکارهێنەر کار لەم بوارەدا دەکات"
+    },
+    "download": {
+      "prompt": "بەرنامەی کۆمپیوتەری دۆجهاوس داببەزێنە",
+      "download_for": "Download for %platform% (%ext%)",
+      "failed": "Unable to detect platform, please try again later or visit GitHub Releases",
+      "visit_gh": "Visit GitHub Releases"
+    },
+    "followingOnlineList": {
+      "title": "کەس",
+      "listHeader": "لیستی ئەو بەکارهێنەرانەی لە ژوورێکی تایبەتدا نین و تۆ ئاشنای پێیان.",
+      "currentRoom": "Currently in:",
+      "startPrivateRoom": "لە ژوورێکی تایبەتدا ئاخاوتن بکەن"
+    },
+    "followList": {
+      "title": "کەس",
+      "followHim": "ئاشنایەتی",
+      "followingHim": "ئاشنای بە",
+      "followingNone": "ئاشنای کەس نیە",
+      "noFollowers": "کەس ئاشنای نیە"
+    },
+    "home": {
+      "createRoom": "ژووری نوێ",
+      "editRoom": "هەمواری ژوورەکە بکە",
+      "refresh": "نوێکردنەوە",
+      "desktopAlert": "ئەمڕۆ بەرنامەی کۆمپیوتەری دۆجهاوس داببەزێنە!"
+    },
+    "inviteList": {
+      "roomGone": "ژوورەکە نەماوە؛ بگەڕێرەوە",
+      "shareRoomLink": "لینکی ژوورەکە شەیر بکە",
+      "inviteFollowers": "دەتوانی بانگێشتی ئەو ئاشنایانەت بکەیت کە لەسەر هێڵن:",
+      "whenFollowersOnline": "کاتێك ئاشنایانت لەسەر هێڵن، لێرە دەردەکەون: "
+    },
+    "login": {
+      "headerText": "ئاخاوتنی دەنگی تا سەر مانگ 🚀",
+      "featureText_1": "Dark Theme",
+      "featureText_2": "Open Sign-Ups",
+      "featureText_3": "Cross-Platform Support",
+      "featureText_4": "Open Source",
+      "featureText_5": "Text Chat",
+      "featureText_6": "Powered by Doge",
+      "loginGithub": "Login with GitHub",
+      "loginTwitter": "Login with Twitter",
+      "loginDiscord": "Login with Discord",
+      "createTestUser": "Create Test User"
+    },
+    "myProfile": {
+      "logout": "Logout",
+      "probablyLoading": "probably loading...",
+      "voiceSettings": "Voice Settings",
+      "overlaySettings": "Overlay Settings",
+      "soundSettings": "Sound Settings",
+      "deleteAccount": "Delete Account",
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy Settings"
+    },
+    "notFound": {
+      "whoopsError": "Whoops! This page got lost in conversation.",
+      "goHomeMessage": "Not to worry. You can",
+      "goHomeLinkText": "go home"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": {
+        "label": "Whispers",
+        "on": "On",
+        "off": "Off"
+      }
+    },
+    "room": {
+      "speakers": "Speakers",
+      "requestingToSpeak": "Requesting to Speak",
+      "listeners": "Listeners",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": {
+      "search": "search..."
+    },
+    "soundEffectSettings": {
+      "title": "Sound Settings",
+      "header": "Sounds",
+      "playSound": "Play Sound"
+    },
+    "viewUser": {
+      "editProfile": "Edit Profile",
+      "followsYou": "Follows you",
+      "followers": "followers",
+      "following": "following",
+      "followHim": "Follow",
+      "unfollow": "Unfollow",
+      "followingHim": "Following",
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "copyProfileUrl": "Copy Profile URL",
+      "urlCopied": "URL copied to clipboard",
+      "about": "About",
+      "aboutSuffix": "",
+      "bot": "Bot",
+      "errors": {
+        "blocked": "This user has blocked you.",
+
+        "default": "Whoops! We couldn't load this user."
+      },
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      }
+    },
+    "voiceSettings": {
+      "title": "Voice Settings",
+      "header": "Voice Settings",
+      "mic": "Mic:",
+      "permissionError": "No mics found, you either have none plugged in or haven't given this website permission.",
+      "refresh": "Refresh Mic List",
+      "volume": "Volume:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter a valid app title",
+        "label": "App title"
+      }
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Banned Users",
+      "unban": "Unban",
+      "noBans": "No one has been banned yet"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Leave Current Room",
+      "confirmLeaveRoom": "Are you sure you want to leave?",
+      "leave": "Leave",
+      "inviteUsersToRoomBtn": "Invite Users to Room",
+      "invite": "Invite",
+      "toggleMuteMicBtn": "Toggle Mute",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "mute": "Mute",
+      "unmute": "Unmute",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen",
+      "makeRoomPublicBtn": "Make Room Public!",
+      "settings": "Settings",
+      "speaker": "Speaker",
+      "listener": "Listener",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Your device is currently not supported. You can create an",
+      "linkText": "issue on GitHub",
+      "addSupport": "and I will try adding support for your device."
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "inviteButton": {
+      "invited": "Invited!",
+      "inviteToRoom": "Invite to room"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
+      "dismiss": "Dismiss",
+      "tryAgain": "Try Again"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "Set Keybind",
+      "listening": "Listening...",
+      "toggleMuteKeybind": "Toggle mute keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "toggleOverlayKeybind": "Toggle overlay keybind",
+      "togglePushToTalkKeybind": "Toggle push-to-talk keybind"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "No audio consumer for some reason"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore more rooms"
+    },
+    "addToCalendar": {
+      "add": "Add to Calendar"
+    },
+    "wsKilled": {
+      "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
+      "reconnect": "Reconnect"
+    },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
+      },
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "modals": {
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
+      },
+      "createRoomModal": {
+        "subtitle": "Fill the following fields to start a new room",
+        "public": "Public",
+        "private": "Private",
+        "roomName": "Room name",
+        "roomDescription": "Room description",
+        "descriptionError": "Max length 500",
+        "nameError": "Must be between 2 to 60 characters long"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "New Room Created",
+        "roomInviteFrom": "Room Invite from",
+        "justStarted": "They just started",
+        "likeToJoin": ", would you like to join?",
+        "inviteReceived": "you've been invited to"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Username taken",
+        "avatarUrlError": "Invalid image",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar URL",
+        "bannerUrlLabel": "Twitter banner URL",
+        "displayNameError": "Length 2 to 50 characters",
+        "displayNameLabel": "Display Name",
+        "usernameError": "Length 4 to 15 characters and only alphanumeric/underscore",
+        "usernameLabel": "Username",
+        "bioError": "Max length of 160 characters",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Are you sure you want to block this user from joining any room you ever create?",
+        "blockUser": "Block user",
+        "makeMod": "Promote to Mod",
+        "unmod": "Demote from Mod",
+        "addAsSpeaker": "Add as Speaker",
+        "moveToListener": "Move to Listener",
+        "unBanFromChat": "Unban from Chat",
+        "banFromChat": "Ban from Chat",
+        "banFromRoom": "Ban from Room",
+        "banIPFromRoom": "Ban IP from Room",
+        "goBackToListener": "Go Back to Listener",
+        "deleteMessage": "Delete this Message",
+        "makeRoomCreator": "Promote to Admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "require permission to speak",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        },
+        "makePublic": "make room public",
+        "makePrivate": "make room private",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "feed": {
+      "yourFeed": "Your feed"
+    },
+    "scheduledRooms": {
+      "title": "Scheduled Rooms",
+      "noneFound": "none found",
+      "allRooms": "all scheduled rooms",
+      "myRooms": "my scheduled rooms",
+      "scheduleRoomHeader": "Schedule Room",
+      "startRoom": "start room",
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "modal": {
+        "needsFuture": "needs to be in the future",
+        "roomName": "room name",
+        "roomDescription": "Description",
+        "minLength": "min length 2"
+      },
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "[emotes soon]",
+      "bannedAlert": "You have been banned from chat",
+      "waitAlert": "You have to wait a second before sending another message",
+      "search": "Search",
+      "searchResults": "Search Results",
+      "recent": "Frequently Used",
+      "sendMessage": "Send a Message",
+      "whisper": "Whisper",
+      "welcomeMessage": "Welcome to chat!",
+      "roomDescription": "Room description",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar Doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar Doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}
