@@ -108,8 +108,8 @@ html {
   overflow-y: auto;
 }
 
-textarea {
-  resize: none;
+::-webkit-resizer {
+  background: var(--color-primary-700);
 }
 
 #nprogress {

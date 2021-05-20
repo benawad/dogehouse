@@ -19,8 +19,6 @@ defmodule Broth.Message.User.Update do
       :username,
       :bio,
       :displayName,
-      :avatarUrl,
-      :bannerUrl,
       :whisperPrivacySetting
     ])
     |> validate_required([:username])
