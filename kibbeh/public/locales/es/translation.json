@@ -15,8 +15,8 @@
     "copied": "¡Copiado!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Por favor, ten en cuenta que ejecutar DogeHouse sin permisos de accesibilidad podría causar errores no deseados",
-    "copy": "Copy",
+    "requestPermissions": "Por favor, ten en cuenta que ejecutar DogeHouse sin permisos podría causar errores no deseados",
+    "copy": "Copiar",
     "error": "Error"
   },
   "header": {
@@ -24,7 +24,7 @@
     "title": "DogeHouse",
     "mutedTitle": "Silenciado | DogeHouse",
     "deafenedTitle": "Ensordecido  | DogeHouse",
-    "dashboard": "Dashboard",
+    "dashboard": "Panel de control",
     "connectionTaken": "Conexión ocupada"
   },
   "footer": {
@@ -39,30 +39,30 @@
       "userStaffandContrib": "User Staff & Contributions",
       "staff": "Staff: ",
       "contributions": "Contributions",
-      "username": "Username",
-      "usrStaff": "User Staff",
-      "usrContributions": "User Contributions",
-      "reason": "reason",
-      "usernamePlaceholder": "username to perform actions on"
+      "username": "Nombre de usuario",
+      "usrStaff": "Usuario Staff",
+      "usrContributions": "Contribuciones de Usuario",
+      "reason": "motivo",
+      "usernamePlaceholder": "nombre de usuario en el que operar"
     },
     "followingOnlineList": {
       "listHeader": "Lista de usuarios que sigues y que no se encuentran en una sala privada.",
       "currentRoom": "Actualmente en la sala:",
       "startPrivateRoom": "Empezar una sala privada con ellos",
-      "title": "People"
+      "title": "Personas"
     },
     "followList": {
       "followHim": "Seguir",
       "followingHim": "Siguiendo",
-      "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "title": "Persona",
+      "followingNone": "No estás siguiendo a nadie",
+      "noFollowers": "No hay seguidores"
     },
     "home": {
       "createRoom": "Crear sala",
       "editRoom": "Editar sala",
       "refresh": "Recargar",
-      "desktopAlert": "¡Descarga la aplicación de escritorio de DogeHouse hoy!"
+      "desktopAlert": "¡Descarga la aplicación de escritorio de DogeHouse!"
     },
     "inviteList": {
       "roomGone": "Sala no disponible, volver atrás",
@@ -94,7 +94,7 @@
       "privacySettings": "Ir a los ajustes de privacidad"
     },
     "notFound": {
-      "whoopsError": "¡Ups! Esta página se perdió en una conversación.",
+      "whoopsError": "¡Ups! Esta página parece que se ha perdido.",
       "goHomeMessage": "No te preocupes. Puedes ir al",
       "goHomeLinkText": "Inicio"
     },
@@ -109,7 +109,7 @@
     "soundEffectSettings": {
       "header": "Sonidos",
       "title": "Ajustes de sonido",
-      "playSound": "Play Sound"
+      "playSound": "Reproducir sonido"
     },
     "viewUser": {
       "editProfile": "Editar perfil",
@@ -124,29 +124,29 @@
       "about": "Acerca de",
       "bot": "Bot",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
+        "about": "Acerca de",
+        "rooms": "Salas",
+        "scheduled": "Programado",
+        "recorded": "Grabado",
         "clips": "Clips",
         "admin": "Admin"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM",
+      "block": "Bloquear",
+      "unblock": "Desbloquear",
+      "sendDM": "Enviar PM",
       "aboutSuffix": "",
       "errors": {
-        "blocked": "This user has blocked you.",
-        "default": "Whoops! We couldn't load this user."
+        "blocked": "Este usuario te ha bloqueado",
+        "default": "¡Ups! No se ha podido cargar este perfil"
       }
     },
     "voiceSettings": {
       "header": "Ajustes de voz",
       "mic": "Micrófono:",
-      "permissionError": "No se encontraron micrófonos; puede que no esté conectado o no se le ha otorgado permiso al sitio web.",
+      "permissionError": "No se encontraron micrófonos; puede que no esté conectado o no hayas otorgado los permisos correctos.",
       "refresh": "Recargar la lista de micrófonos",
-      "volume": "Volumen:",
-      "title": "Voice Settings"
+      "volume": "Volúmen:",
+      "title": "Configuración de voz"
     },
     "overlaySettings": {
       "header": "Opciones del overlay",
@@ -164,17 +164,17 @@
       "download_for": "Descargar para %platform% (%ext%)"
     },
     "privacySettings": {
-      "title": "Privacy Settings",
-      "header": "Privacy Settings",
-      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+      "title": "Configuración de privacidad",
+      "header": "Configuración de privacidad",
+      "whispers": { "label": "Susurros", "on": "On", "off": "Off" }
     },
     "botEdit": {
-      "yourBots": "Your Bots",
+      "yourBots": "Tus Bots",
       "bots": "Bots",
-      "title": "Bot Information",
+      "title": "Información de bot",
       "apiKey": "ApiKey",
-      "regenerate": "Regenerate",
-      "reveal": "Click to reveal ApiKey"
+      "regenerate": "Regenerar",
+      "reveal": "Click aquí para mostrar tu API Key"
     }
   },
   "components": {
@@ -207,7 +207,7 @@
     "deviceNotSupported": {
       "notSupported": "Actualmente tu dispositivo no es compatible. Puedes crear un",
       "linkText": "issue en GitHub",
-      "addSupport": "e intentaré agregar soporte para tu dispositivo."
+      "addSupport": "e intentaremos agregar soporte para tu dispositivo."
     },
     "followingOnline": {
       "people": "Personas",
@@ -315,18 +315,18 @@
         "renamePublic": "Configurar el nombre de la sala pública",
         "renamePrivate": "Configurar el nombre de la sala privada",
         "chatDisabled": "Deshabilitar chat",
-        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chatCooldown": "Chat Cooldown (milisegundos)",
         "chat": {
           "label": "Chat",
-          "enabled": "Enabled",
-          "disabled": "Disabled",
-          "followerOnly": "Follower Only"
+          "enabled": "Habilitado",
+          "disabled": "Deshabilitado",
+          "followerOnly": "Solo seguidores"
         }
       },
       "createBotModal": {
-        "usernameTaken": "Username is taken",
-        "subtitle": "Please fill the details below to create your bot",
-        "title": "Create Bot"
+        "usernameTaken": "Ese nombre de usuario ya esta siendo usado",
+        "subtitle": "Rellena los datos para crear tu bot",
+        "title": "Crear Bot"
       }
     },
     "userBadges": {
@@ -334,9 +334,9 @@
       "dhContributor": "DogeHouse Contributor"
     },
     "messagesDropdown": {
-      "title": "Messages",
-      "showMore": "Show More",
-      "noMessages": "No new messages"
+      "title": "Mensajes",
+      "showMore": "Mostrar más",
+      "noMessages": "No hay más mensajes"
     }
   },
   "modules": {
