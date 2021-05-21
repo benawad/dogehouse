@@ -16,11 +16,15 @@ export type UserPreview = {
 
 export type ChatMode = "default" | "disabled" | "follower_only";
 
-export type Room = {
-  id: string;
+export type RoomDetails = {
   name: string;
-  description?: string;
+  chatThrottle: number;
   isPrivate: boolean;
+  description: string;
+};
+
+export type Room = RoomDetails & {
+  id: string;
   numPeopleInside: number;
   voiceServerId: string;
   creatorId: string;
@@ -28,7 +32,6 @@ export type Room = {
   autoSpeaker: boolean;
   inserted_at: string;
   chatMode: ChatMode;
-  chatThrottle: number;
 };
 
 export interface ScheduledRoom {
@@ -106,11 +109,6 @@ export type BaseUser = {
   staff: boolean;
 };
 
-export type PaginatedBaseUsers = {
-  users: BaseUser[];
-  nextCursor: number | null;
-};
-
 export type RoomPermissions = {
   askedToSpeak: boolean;
   isSpeaker: boolean;
@@ -136,3 +134,23 @@ export type CurrentRoom = Room & {
 };
 
 export type BooleanMap = Record<UUID, boolean>;
+
+export enum Relationship {
+  self = 0,
+  following = 1,
+  follower = 2,
+  mutual = 3,
+  none = 7
+}
+
+export enum RoomRole {
+  speaker = 8,
+  raised_hand = 16,
+  listener = 32
+}
+
+export enum RoomAuth {
+  owner = 8,
+  mod = 16,
+  user = 32
+}

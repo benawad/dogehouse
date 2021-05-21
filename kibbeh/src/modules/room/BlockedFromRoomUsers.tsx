@@ -1,4 +1,3 @@
-import { PaginatedBaseUsers } from "@dogehouse/kebab";
 import React from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
