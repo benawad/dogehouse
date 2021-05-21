@@ -7,15 +7,13 @@ The official DogeHouse API client.
 
 ### A simple bot
 ```typescript
-require("dotenv").config();
-
-import { raw, wrap, tokensToString, stringToToken, http } from "@dogehouse/kebab";
+import { raw, createClient, httpRequest, httpEndpoint, tokensToString, stringToToken } from "@dogehouse/kebab";
 
 const commandRegex = /^\/([^ ]+) ?(.*)$/;
 const main = async () => {
   try {
-    const credentials = await http.bot.auth(process.env.DOGEHOUSE_API_KEY!);
-    const wrapper = wrap(await raw.connect(
+    const credentials = await httpRequest(httpEndpoint.bot.auth, { apiKey: process.env.DOGEHOUSE_API_KEY! });
+    const client = createClient(await raw.connect(
       credentials.accessToken,
       credentials.refreshToken,
       {
@@ -26,46 +24,53 @@ const main = async () => {
       }
     ));
 
-    const { rooms } = await wrapper.query.getTopPublicRooms();
+    const sendMessage = (text: string) => client.request(
+      "chat:send_msg",
+      {
+        tokens: stringToToken(text),
+        whisperedTo: []
+      }
+    );
+
+    const { rooms } = await client.request("room:get_top", { cursor: 0, limit: 1 });
     const theRoom = rooms[0];
 
-    wrapper.subscribe.newChatMsg(async ({ userId, msg }) => {
+    client.subscribe("new_chat_msg", async ({ userId, msg }) => {
       const text = tokensToString(msg.tokens);
 
       console.log(`${msg.displayName} > ${text}`);
-      if(userId === wrapper.connection.user.id) return;
+      if (userId === client.user.id) return;
 
       const [, command, parameters] = commandRegex.exec(text) ?? ["", ""];
 
-      switch(command) {
+      switch (command) {
         case "help":
-          await wrapper.mutation.sendRoomChatMsg(stringToToken("Commands: /help, /goto (owner only), /to_base64 <text>, /from_base64 <buffer>"));
+          await sendMessage("Commands: /help, /goto (owner only), /to_base64 <text>, /from_base64 <buffer>");
           break;
         case "goto":
-          if(msg.username !== process.env.OWNER_USERRNAME || parameters.length == 0) break;
+          if (msg.username !== process.env.OWNER_USERRNAME || parameters.length == 0) break;
 
-          await wrapper.mutation.leaveRoom();
-          await wrapper.query.joinRoomAndGetInfo(parameters);
-
+          await client.request("room:leave", {});
+          await client.request("room:join", { roomId: parameters });
           break;
         case "to_base64":
-          if(parameters.length == 0) break;
+          if (parameters.length == 0) break;
 
-          await wrapper.mutation.sendRoomChatMsg(stringToToken(Buffer.from(parameters, "utf-8").toString("base64")));
+          await sendMessage(Buffer.from(parameters, "utf-8").toString("base64"));
 
           break;
         case "from_base64":
-          if(parameters.length == 0) break;
+          if (parameters.length == 0) break;
 
-          await wrapper.mutation.sendRoomChatMsg(stringToToken(Buffer.from(parameters, "base64").toString("utf-8")));
+          await sendMessage(Buffer.from(parameters, "base64").toString("utf-8"));
 
           break;
       }
     });
 
     console.info(`=> starting in room "${theRoom.name}" (${theRoom.numPeopleInside} people)`);
-    await wrapper.query.joinRoomAndGetInfo(theRoom.id);
-  } catch(e) {
+    await client.request("room:join", { roomId: theRoom.id });
+  } catch (e) {
     if (e.code === 4001) console.error("invalid token!");
     console.error(e)
   }
