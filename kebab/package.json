@@ -14,8 +14,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "lint": "eslint src/",
-    "test": "jest",
-    "postinstall": "npm run build"
+    "test": "jest"
   },
   "publishConfig": {
     "access": "public"
