@@ -1,1 +1,1 @@
-http, util and websocket directories are deprecated and only kept because of kibbeh
+http, websocket/wrapper.ts and websocket/responses.ts are deprecated and are only kept because of kibbeh
