@@ -1,0 +1,406 @@
+{
+  "_comment": "if you change this file, do: yarn i18",
+  "common": {
+    "loadMore": "loadMore();",
+    "loading": "...loading",
+    "noUsersFound": "ERR: No users found!",
+    "ok": "ok",
+    "yes": "yes",
+    "no": "no",
+    "cancel": "cancel",
+    "save": "save()",
+    "edit": "edit()",
+    "delete": "delete()",
+    "joinRoom": "joinRoom()",
+    "copyLink": "copy()",
+    "copied": "copied",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "WARNING: please note running DogeHouse without accessibility permissions may cause unwanted console errors",
+    "copy": "copy",
+    "error": "error"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "Doge.House()",
+    "dashboard": "./dashboard",
+    "connectionTaken": "ERR: connection taken",
+    "mutedTitle": "mute() | Doge.House()",
+    "deafenedTitle": "deafen() | Doge.House()"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "origin story;",
+    "link_2": "discord;",
+    "link_3": "make a github issue;"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "botEdit": {
+      "yourBots": "your clients",
+      "bots": "clients",
+      "title": "client.information",
+      "apiKey": "process.env.APIKEY",
+      "regenerate": "regen();",
+      "reveal": "hack into .env"
+    },
+    "admin": {
+      "ban": "ban();",
+      "userStaffandContrib": "user staff & contributions",
+      "staff": "staff: ",
+      "contributions": "contributions",
+      "username": "username",
+      "usrStaff": "user staff",
+      "usrContributions": "programmer contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
+    "download": {
+      "prompt": "download the Doge.House() desktop app",
+      "download_for": "download for %platform% (%ext%)",
+      "failed": "ERR: unable to detect platform, please try again later or visit gitHub releases",
+      "visit_gh": "visit gitHub releases"
+    },
+    "followingOnlineList": {
+      "title": "programmers",
+      "listHeader": "list of programmers that are not in a private room and you follow.",
+      "currentRoom": "currently in:",
+      "startPrivateRoom": "start a private room with them"
+    },
+    "followList": {
+      "title": "programmers",
+      "followHim": "follow();",
+      "followingHim": "programmer.following",
+      "followingNone": "not following anyone",
+      "noFollowers": "no followers | null"
+    },
+    "home": {
+      "createRoom": "new file",
+      "editRoom": "edit file",
+      "refresh": "refresh",
+      "desktopAlert": "download the Doge.House() desktop app today!"
+    },
+    "inviteList": {
+      "roomGone": "room gone; return;",
+      "shareRoomLink": "link.share()",
+      "inviteFollowers": "you can invite your followers that are online:",
+      "whenFollowersOnline": "when your followers are online, they will show up here."
+    },
+    "login": {
+      "headerText": "Taking voice conversations to the moon 🚀",
+      "featureText_1": "dark theme",
+      "featureText_2": "sign-ups.open();",
+      "featureText_3": "cross-platform support",
+      "featureText_4": "open source",
+      "featureText_5": "sonar chat",
+      "featureText_6": "powered by doge",
+      "loginGithub": "login with gitHub",
+      "loginTwitter": "login with twitter",
+      "loginDiscord": "login with discord",
+      "createTestUser": "create test programmer"
+    },
+    "myProfile": {
+      "logout": "user.logout();",
+      "probablyLoading": "probably loading...",
+      "voiceSettings": "voice-config.json",
+      "overlaySettings": "overlay-config.json",
+      "soundSettings": "sound-config.json",
+      "deleteAccount": "account.delete();",
+      "couldNotFindUser": "ERR: could not find 'programmer' of null",
+      "privacySettings": "privacy-config.json"
+    },
+    "notFound": {
+      "whoopsError": "ERR: this page got lost in conversation.",
+      "goHomeMessage": "not to worry. you can. npm will handle it for you",
+      "goHomeLinkText": "home.js"
+    },
+    "privacySettings": {
+      "title": "privacy-config.json",
+      "header": "privacy-config.json",
+      "whispers": {
+        "label": "whispers",
+        "on": ".on()",
+        "off": ".off()"
+      }
+    },
+    "room": {
+      "speakers": "professors",
+      "requestingToSpeak": "requesting to teach",
+      "listeners": "students",
+      "allowAll": "allowAll: true",
+      "allowAllConfirm": "WARNING: are you sure? This will allow all {{count}} requesting programmers to speak"
+    },
+    "searchUser": {
+      "search": "ctrl+f..."
+    },
+    "soundEffectSettings": {
+      "title": "sound-config.json",
+      "header": "sounds",
+      "playSound": "play sound"
+    },
+    "viewUser": {
+      "editProfile": "edit profile.json",
+      "followsYou": "follows you: true",
+      "followers": "followers",
+      "following": "following",
+      "followHim": "follow();",
+      "unfollow": "unfollow()",
+      "followingHim": "following: true",
+      "block": "block({reason: 'bad'})",
+      "unblock": "unblock()",
+      "sendDM": "send dm",
+      "copyProfileUrl": "profileURL.copy();",
+      "urlCopied": "copied",
+      "about": "about",
+      "aboutSuffix": "",
+      "bot": "bot: true",
+      "errors": {
+        "blocked": "ERR: this programmer has blocked you.",
+
+        "default": "ERR: couldn't load this programmer."
+      },
+      "profileTabs": {
+        "about": "_about",
+        "rooms": "_rooms",
+        "scheduled": "_scheduled",
+        "recorded": "_Recorded",
+        "clips": "_clips",
+        "admin": "_admin"
+      }
+    },
+    "voiceSettings": {
+      "title": "voice-config.json",
+      "header": "voice-config.json",
+      "mic": "mic:",
+      "permissionError": "ERR: no mics found, you either have none plugged in or haven't given this website permission.",
+      "refresh": "mic-list.refresh()",
+      "volume": "volume:"
+    },
+    "overlaySettings": {
+      "header": "overlay-config.json",
+      "input": {
+        "errorMsg": "ERR: please enter a valid app title",
+        "label": "app.title"
+      }
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "room.banned",
+      "unban": "unban();",
+      "noBans": "node(6969): no one has been banned yet"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "room.leave()",
+      "confirmLeaveRoom": "WARNING: are you sure you want to leave?",
+      "leave": "room.leave()",
+      "inviteUsersToRoomBtn": "room.inviteURL",
+      "invite": "invite()",
+      "toggleMuteMicBtn": "toggleMute()",
+      "toggleDeafMicBtn": "toggleDeafen()",
+      "mute": "mute()",
+      "unmute": "unmute()",
+      "deafen": "deafen()",
+      "undeafen": "undeafen()",
+      "makeRoomPublicBtn": "room.public: true",
+      "settings": "config.json",
+      "speaker": "speaker",
+      "listener": "listener",
+      "chat": "console"
+    },
+    "deviceNotSupported": {
+      "notSupported": "ERR: your device is currently not supported. you can create an",
+      "linkText": "issue on gitHub",
+      "addSupport": "and i will try adding support for your device."
+    },
+    "followingOnline": {
+      "people": "programmers",
+      "online": "CODING",
+      "noOnline": "friends-online: 0;",
+      "showMore": "fetchMore()"
+    },
+    "inviteButton": {
+      "invited": "invited!",
+      "inviteToRoom": "invite to room"
+    },
+    "messagesDropdown": {
+      "title": "console logs",
+      "showMore": "fetchMore()",
+      "noMessages": "no new console logs"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "ERR: permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
+      "dismiss": "dismiss",
+      "tryAgain": "try again"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "setKeybind()",
+      "listening": "listening...",
+      "toggleMuteKeybind": "<toggle mute keybind>",
+      "toggleDeafKeybind": "<toggle deafen keybind>",
+      "toggleOverlayKeybind": "<toggle overlay keybind>",
+      "togglePushToTalkKeybind": "<toggle push-to-talk keybind>"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "ERR: no audio consumer for some reason"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "upcoming files",
+      "exploreMoreRooms": "explore more files"
+    },
+    "addToCalendar": {
+      "add": "calendar.add()"
+    },
+    "wsKilled": {
+      "description": "app crashed: websocket was killed by the server. This usually happens when you open the website in another tab.",
+      "reconnect": "reconnect()"
+    },
+    "search": {
+      "placeholder": "search for files, programmers or categories",
+      "placeholderShort": "find()"
+    },
+    "settingsDropdown": {
+      "profile": "profile",
+      "language": "language",
+      "reportABug": "report a bug",
+      "useOldVersion": "use old version",
+      "logOut": {
+        "button": "logout()",
+        "modalSubtitle": "WARNING: are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "audio.debug()",
+        "stopDebugger": "debugger.stop()"
+      },
+      "downloadApp": "download app",
+      "developer": "developer-config.json"
+    },
+    "userBadges": {
+      "dhStaff": "Doge.House() staff",
+      "dhContributor": "Doge.House() contributor"
+    },
+    "modals": {
+      "createBotModal": {
+        "usernameTaken": "username is taken",
+        "subtitle": "please fill the details below to create your client",
+        "title": "create client"
+      },
+      "createRoomModal": {
+        "subtitle": "> fill the following fields to start a new room",
+        "public": "...public",
+        "private": "...private",
+        "roomName": "file name",
+        "roomDescription": "file description",
+        "descriptionError": "max length 500",
+        "nameError": "ERR: must be between 2 to 60 characters long"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "new file Created",
+        "roomInviteFrom": "file invite from",
+        "justStarted": "they just started",
+        "likeToJoin": ", would you like to join?",
+        "inviteReceived": "you've been invited to"
+      },
+      "editProfileModal": {
+        "usernameTaken": "username taken",
+        "avatarUrlError": "invalid image",
+        "avatarUrlLabel": "github/twitter/discord avatar URL",
+        "bannerUrlLabel": "twitter banner URL",
+        "displayNameError": "length 2 to 50 characters",
+        "displayNameLabel": "display name",
+        "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
+        "usernameLabel": "username",
+        "bioError": "max length of 160 characters",
+        "bioLabel": "bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "WARNING: are you sure you want to block this programmer from joining any file you ever create?",
+        "blockUser": "block programmer",
+        "makeMod": "promote to mod",
+        "unmod": "demote from mod",
+        "addAsSpeaker": "speaker.add()",
+        "moveToListener": "listener.add()",
+        "unBanFromChat": "unban from console",
+        "banFromChat": "ban from console",
+        "banFromRoom": "ban from file",
+        "banIPFromRoom": "ban IP from file",
+        "goBackToListener": "go back to listener",
+        "deleteMessage": "delete this log",
+        "makeRoomCreator": "setLevel(ADMIN)"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "require permission to speak",
+        "chatCooldown": "chat cooldown (milliseconds)",
+        "chat": {
+          "label": "console",
+          "enabled": "enabled",
+          "disabled": "disabled",
+          "followerOnly": "follower only"
+        },
+        "makePublic": "make file public",
+        "makePrivate": "make file private",
+        "renamePublic": "set public file name",
+        "renamePrivate": "set private file name"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "feed": {
+      "yourFeed": "your feed"
+    },
+    "scheduledRooms": {
+      "title": "scheduled files",
+      "noneFound": "none found",
+      "allRooms": "all scheduled files",
+      "myRooms": "my scheduled files",
+      "scheduleRoomHeader": "schedule file",
+      "startRoom": "start file",
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "modal": {
+        "needsFuture": "needs to be in the future",
+        "roomName": "file name",
+        "roomDescription": "description",
+        "minLength": "min length 2"
+      },
+      "deleteModal": {
+        "areYouSure": "are you sure you want to delete this file?"
+      }
+    },
+    "roomChat": {
+      "title": "console",
+      "emotesSoon": "[emotes soon]",
+      "bannedAlert": "you have been banned from console",
+      "waitAlert": "you have to wait a second before sending another command. greedy programmer",
+      "search": "search(query)",
+      "searchResults": "search results",
+      "recent": "frequently used",
+      "sendMessage": "send a command",
+      "whisper": "whisper",
+      "welcomeMessage": "welcome to console!",
+      "roomDescription": "file description",
+      "disabled": "roomChatDisabled: true",
+      "messageDeletion": {
+        "message": "command",
+        "retracted": "retracted",
+        "deleted": "recylced"
+      }
+    },
+    "roomStatus": {
+      "fuelingRocket": "fuelingRocket: true",
+      "takingOff": "takingOff: true",
+      "inSpace": "inSpace: true",
+      "approachingMoon": "approaching united states",
+      "lunarDoge": "lunar doge",
+      "approachingSun": "approaching massachusetts",
+      "solarDoge": "solar doge",
+      "approachingGalaxy": "approaching MIT",
+      "galacticDoge": "galactic doge",
+      "spottedLife": "planet with programmers spotted"
+    }
+  }
+}
