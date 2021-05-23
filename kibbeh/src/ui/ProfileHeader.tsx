@@ -83,18 +83,19 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         />
       </div>
       <div className="flex flex-col w-3/6 font-sans">
-        <h4 className="text-primary-100 font-bold truncate">{displayName}</h4>
+        <h4 className="text-primary-100 font-bold truncate">
+          {displayName || username}
+        </h4>
         <div className="flex flex-row items-center">
           <p
             className="text-primary-300 mr-2"
             data-testid="profile-info-username"
           >{`@${username}`}</p>
-          {user.followsYou ? (
+
+          {user.followsYou && (
             <UserBadge color="grey" variant="primary-700">
               {t("pages.viewUser.followsYou")}
             </UserBadge>
-          ) : (
-            ""
           )}
         </div>
         <div className="mt-2 flex">
