@@ -16,15 +16,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sentry/node": "^6.1.0",
-    "amqplib": "^0.6.0",
+    "@sentry/node": "^6.3.3",
+    "amqplib": "^0.7.1",
     "cors": "^2.8.5",
-    "debug": "^4.3.1",
+    "debug": "^4.3.2",
     "dotenv": "^8.2.0",
     "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mediasoup": "^3.6.31",
+    "mediasoup": "^3.7.2",
     "ws": "^7.4.2"
   },
   "devDependencies": {
