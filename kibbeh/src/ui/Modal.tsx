@@ -16,7 +16,7 @@ const customStyles = {
       marginRight: "-50%",
       borderRadius: 8,
       padding: "40px 40px 40px 40px",
-      transform: "translate(-50%, -50%)",
+      transform: "translateX(-50%) translateY(calc(-50% - .5px));",
       backgroundColor: "var(--color-primary-800)",
       border: "none",
       maxHeight: "80vh",
