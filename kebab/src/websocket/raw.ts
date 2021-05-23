@@ -9,6 +9,10 @@ const apiUrl = "wss://api.dogehouse.tv/socket";
 const connectionTimeout = 15000;
 
 export type Token = string;
+
+/**
+ * @deprecated
+ */
 export type FetchID = UUID;
 export type Ref = UUID;
 export type Opcode = string;
@@ -16,12 +20,12 @@ export type Logger = (
   direction: "in" | "out",
   opcode: Opcode,
   data?: unknown,
-  fetchId?: FetchID,
+  fetchId?: Ref,
   raw?: string
 ) => void;
 export type ListenerHandler<Data = unknown> = (
   data: Data,
-  fetchId?: FetchID
+  fetchId?: Ref
 ) => void;
 export type Listener<Data = unknown> = {
   opcode: Opcode;
@@ -33,6 +37,10 @@ export type Listener<Data = unknown> = {
  */
 export type Connection = {
   close: () => void;
+
+  /**
+   * @deprecated
+   */
   once: <Data = unknown>(
     opcode: Opcode,
     handler: ListenerHandler<Data>
@@ -43,8 +51,16 @@ export type Connection = {
   ) => () => void;
   user: User;
   initialCurrentRoomId?: string;
+
+  /**
+   * @deprecated
+   */
   send: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
   sendCast: (opcode: Opcode, data: unknown, ref?: Ref) => void;
+
+  /**
+   * @deprecated
+   */
   fetch: (
     opcode: Opcode,
     data: unknown,

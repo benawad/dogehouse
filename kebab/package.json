@@ -2,7 +2,7 @@
   "name": "@dogehouse/kebab",
   "author": "Ilya Maximov <mail@overlisted.net> (https://overlisted.net)",
   "bugs": "https://github.com/benawad/dogehouse/issues",
-  "version": "0.3.4",
+  "version": "1.0.0",
   "license": "MIT",
   "keywords": [
     "dogehouse"
@@ -14,8 +14,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "lint": "eslint src/",
-    "test": "jest",
-    "postinstall": "npm run build"
+    "test": "jest"
   },
   "publishConfig": {
     "access": "public"
