@@ -39,12 +39,12 @@
     "admin": {
       "ban": "Αποκλεισμός",
       "userStaffandContrib": "User Staff & Contributions",
-      "staff": "Staff: ",
-      "contributions": "Contributions",
+      "staff": "Προσωπικό: ",
+      "contributions": "Συνεισφορές",
       "username": "Username",
       "usrStaff": "User Staff",
       "usrContributions": "User Contributions",
-      "reason": "reason",
+      "reason": "Αιτία",
       "usernamePlaceholder": "username to perform actions on"
     },
     "followingOnlineList": {
@@ -66,8 +66,8 @@
       "ακολουθήστε": "Ακολουθείτε",
       "followingHim": "Ακολουθείτε",
       "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "followingNone": "Δεν ακολουθείτε κανέναν",
+      "noFollowers": "Κανένας Ακόλοθως"
     },
     "home": {
       "createRoom": "Δημιουργία δωματίου",
@@ -375,7 +375,7 @@
       "whisper": "Ψίθυρος",
       "welcomeMessage": "Καλως ήλθατε στο Τσάτ!",
       "roomDescription": "Περιγραφή δωματίου",
-      "disabled": "room chat has been disabled",
+      "disabled": "Η συνομιλία δωματίου έχει απενεργοποιηθεί",
       "messageDeletion": {
         "message": "message",
         "retracted": "retracted",
