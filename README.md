@@ -26,7 +26,7 @@
 
 ## Important DogeHouse Notice
 
-[I'm done with DogeHouse](https://www.youtube.com/watch?v=I8PkQgPiSq8)
+[I am still changed my mind I ](https://www.youtube.com/watch?v=I8PkQgPiSq8)
 
 ## Structure
 
