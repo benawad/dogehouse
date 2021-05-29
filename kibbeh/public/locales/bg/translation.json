@@ -23,10 +23,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "mutedTitle": "Заглушен | DogeHouse",
+    "deafenedTitle": "Оглушителен | DogeHouse",
+    "dashboard": "Табло за управление",
+    "connectionTaken": "Осъществяване на Връзката"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -38,33 +38,33 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "admin": {
       "ban": "бан",
-      "userStaffandContrib": "User Staff & Contributions",
-      "staff": "Staff: ",
-      "contributions": "Contributions",
-      "username": "Username",
-      "usrStaff": "User Staff",
-      "usrContributions": "User Contributions",
-      "reason": "reason",
-      "usernamePlaceholder": "username to perform actions on"
+      "userStaffandContrib": "Потребителски Персонал и Приноси",
+      "staff": "Персонал: ",
+      "contributions": "Приноси",
+      "username": "Потребителско име",
+      "usrStaff": "Потребителски Персонал",
+      "usrContributions": "Потребителски Принос",
+      "reason": "причина",
+      "usernamePlaceholder": "потребителско име за извършените действия"
     },
     "followingOnlineList": {
       "listHeader": "Списък от потребители, които не са в ",
       "currentRoom": "в момента в:",
-      "startPrivateRoom": "start a private room with them",
-      "title": "People"
+      "startPrivateRoom": "започни самостоятелна стая с тях",
+      "title": "Хора"
     },
     "followList": {
-      "followHim": "follow",
-      "followingHim": "following",
-      "title": "People",
-      "followingNone": "Not following anyone",
-      "noFollowers": "No followers"
+      "followHim": "последвай",
+      "followingHim": "следване",
+      "title": "Хора",
+      "followingNone": "Не следва никого",
+      "noFollowers": "Без последователи"
     },
     "home": {
       "createRoom": "Създай стая",
       "refresh": "Опресни",
-      "editRoom": "Edit Room",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "editRoom": "Редактирай Стая",
+      "desktopAlert": "Свали DogeHouse десктоп приложението сега!"
     },
     "inviteList": {
       "roomGone": "изтекла стая, върни се назад",
@@ -73,17 +73,17 @@
       "whenFollowersOnline": "Когато последователите ти са на линия, че се появят тук."
     },
     "login": {
-      "headerText": "Taking voice conversations to the moon 🚀",
+      "headerText": "Отведете гласовата комуникация до Луната 🚀",
       "featureText_1": "Тъмна тема",
-      "featureText_2": "Отвори влизания",
-      "featureText_3": "Mеждуплатформена Pоддръжка",
+      "featureText_2": "Отвори влизанията",
+      "featureText_3": "Mеждуплатформена Поддръжка",
       "featureText_4": "Отворен Код",
       "featureText_5": "Текстов Чат",
-      "featureText_6": "Powered by Doge",
+      "featureText_6": "Задвижвано от Doge",
       "loginGithub": "влизане с GitHub",
       "loginTwitter": "влизане с Twitter",
-      "createTestUser": "създаване на тестови потребител",
-      "loginDiscord": "Login with Discord"
+      "createTestUser": "създаване на тестов потребител",
+      "loginDiscord": "Вход с Discord"
     },
     "myProfile": {
       "logout": "излизане",
@@ -91,12 +91,12 @@
       "voiceSettings": "отиване към гласови настройки",
       "soundSettings": "отиване към звукови настройки",
       "deleteAccount": "изтриване на акаунт",
-      "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user",
-      "privacySettings": "Privacy settings"
+      "overlaySettings": "отиване към настройки за наслагване",
+      "couldNotFindUser": "Съжаляваме, не можем да намерим този потребител",
+      "privacySettings": "Настройки за поверителност"
     },
     "notFound": {
-      "whoopsError": "Опаа! Тази страниза бе изгубена.",
+      "whoopsError": "Опаа! Тази страница бе изгубена.",
       "goHomeMessage": "Не се тревожи. Можеш",
       "goHomeLinkText": "Към начален екран"
     },
@@ -104,64 +104,64 @@
       "speakers": "Говорители",
       "requestingToSpeak": "Заявка за говорене",
       "listeners": "Слушатели",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Позволи всички",
+      "allowAllConfirm": "Сигурен ли си? Това ще позволи на всички {{count}} потребители, които искат, да говорят"
     },
     "searchUser": { "search": "търсене..." },
     "soundEffectSettings": {
       "header": "Звук",
-      "title": "Sound Settings",
-      "playSound": "Play Sound"
+      "title": "Насторйки на Звука",
+      "playSound": "Пусни Звук"
     },
     "viewUser": {
       "editProfile": "промяна на профил",
       "followsYou": "следват те",
       "followers": "последователи",
       "following": "последвани",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow",
-      "about": "About",
-      "bot": "Bot",
+      "followHim": "последвай",
+      "followingHim": "следване",
+      "copyProfileUrl": "копирай профилния url",
+      "urlCopied": "URL е копиран в клипборда",
+      "unfollow": "Не следвай",
+      "about": "Отностно",
+      "bot": "Бот",
       "profileTabs": {
-        "about": "About",
-        "rooms": "Rooms",
-        "scheduled": "Scheduled",
-        "recorded": "Recorded",
-        "clips": "Clips",
-        "admin": "Admin"
+        "about": "Отностно",
+        "rooms": "Стаи",
+        "scheduled": "Насрочен",
+        "recorded": "Записан",
+        "clips": "Клипове",
+        "admin": "Администратор"
       },
-      "block": "Block",
-      "unblock": "Unblock",
-      "sendDM": "Send DM",
+      "block": "Блокирай",
+      "unblock": "Отблокирай",
+      "sendDM": "Изпрати Директно Съобщение",
       "aboutSuffix": "",
       "errors": {
-        "blocked": "This user has blocked you.",
-        "default": "Whoops! We couldn't load this user."
+        "blocked": "Този потребител те е блокирал.",
+        "default": "Опаа! Не можем да заредим този потребител."
       }
     },
     "voiceSettings": {
       "header": "Звукови настройки",
       "mic": "микрофон:",
-      "permissionError": "не бяха открити микрофони, най-вероятно няма вързани или нямат разрешение да бъдат ползвани.",
-      "refresh": "опресняване на списък с микрофони",
+      "permissionError": "не бяха открити микрофони, най-вероятно няма свързани или нямат разрешение да бъдат ползвани.",
+      "refresh": "опресняване на списъка с микрофони",
       "volume": "ниво на звук:",
-      "title": "Voice Settings"
+      "title": "Гласови Настройки"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings",
-      "errorMsg": "Please enter valid app title",
-      "label": "Enter app title"
+      "input": { "errorMsg": "Невалидно заглавие за приложението", "label": "Въведи Заглавие за Приложението" },
+      "header": "Настройки за Наслагване",
+      "errorMsg": "Моля, въведи валидно заглавие за приложението",
+      "label": "Въведи заглавие за приложението"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
+      "starting": "Стартиране на свалянето...",
+      "failed": "Не може да си изтегли автоматично, моля опитайте по-късно",
+      "visit_gh": "Вижте Github Рилийзите",
+      "prompt": "Кликнете на бутона долу, за да стартирате изтеглянето",
+      "download_now": "Свали Сега",
       "download_for": "Download for %platform% (%ext%)"
     },
     "privacySettings": {
