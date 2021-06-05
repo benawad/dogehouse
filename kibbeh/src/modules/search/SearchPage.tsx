@@ -31,7 +31,6 @@ export const SearchPage: PageComponent<LoungePageProps> = ({}) => {
         mobileHeader={
           <SearchHeader
             onSearchChange={(e) => {
-              console.log(e.target.value);
               setSearchLoading(true);
               conn.query.search(e.target.value).then((r) => {
                 setResults(r?.items);
